@@ -2,7 +2,10 @@ import { ImageUploader } from "@module/design/components/upload";
 import { type ComponentProps, useEffect, useState } from "react";
 import type { Meta } from "../../shared/story";
 
-type ImageUploaderDemoPropsType = Pick<ComponentProps<typeof ImageUploader>, "maxFileSize" | "multiple" | "onAdd" | "onRemove"> & {
+type ImageUploaderDemoPropsType = Pick<
+  ComponentProps<typeof ImageUploader>,
+  "maxFileSize" | "multiple" | "onAdd" | "onRemove"
+> & {
   initialImages?: string[];
 };
 

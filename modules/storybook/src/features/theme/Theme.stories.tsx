@@ -53,7 +53,9 @@ const getThemeUsage = (theme: ThemeType, scheme?: "light" | "dark") => {
     return "Neutral dark palette with reduced glare. Use for low-light environments, prolonged reading, or users who prefer a darker chrome.";
   }
 
-  const family = theme.replace(/-(light|dark)$/, "");
+  // Cast: the base catalog only defines "system" | "light" | "dark" today, but branded
+  // family themes (e.g. "clerkship-mode-light") are added as string codes over time.
+  const family = (theme as string).replace(/-(light|dark)$/, "");
   const surface = scheme === "dark" ? "dark" : "light";
   const context = themeFamilyUsage[family as keyof typeof themeFamilyUsage];
 

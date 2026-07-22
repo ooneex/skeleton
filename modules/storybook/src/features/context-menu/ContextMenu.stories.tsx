@@ -1,4 +1,4 @@
-import { ContextMenu, type ContextMenuItemModel, openContextMenu } from "@module/design/components/context-menu";
+import { ContextMenu, type ContextMenuItemType, openContextMenu } from "@module/design/components/context-menu";
 import { useState } from "react";
 import { File2Icon } from "../../shared/icons/outline/files-folders/sm/File2Icon";
 import { PlusIcon } from "../../shared/icons/outline/ui-layout/sm/PlusIcon";
@@ -6,7 +6,7 @@ import { Trash2Icon } from "../../shared/icons/outline/ui-layout/sm/Trash2Icon";
 import { UserIcon } from "../../shared/icons/outline/users/sm/UserIcon";
 import type { Meta } from "../../shared/story";
 
-const items: ContextMenuItemModel[] = [
+const items: ContextMenuItemType[] = [
   { type: "label", label: "Actions" },
   { value: "open", label: "Open", icon: <File2Icon />, shortcut: "⌘O" },
   { value: "rename", label: "Rename", shortcut: "⌘R" },
@@ -72,7 +72,7 @@ export const meta = {
   usage: [
     "**ContextMenu** is an imperative, right-click menu built on `react-call` and the `@base-ui/react` Menu primitive. It has no DOM trigger — you anchor it to the pointer by calling `openContextMenu(event, items)` from an `onContextMenu` handler, and it resolves the selected item's `value` (or `null` when dismissed by Escape, an outside click, or a programmatic close). Mount `<ContextMenu />` once near the app root and drive it entirely from data.",
     "",
-    "**How to use it** — place `<ContextMenu />` once at the top of your app. On the element you want to right-click, wire `onContextMenu={(e) => openContextMenu(e, items).then(handle)}`; the helper calls `preventDefault()` for you so the native browser menu is suppressed. Each entry in `items` is a `ContextMenuItemModel` discriminated by `type`: a default `item` (with `icon`, `shortcut`, `disabled`, `destructive`), a `separator`, a `label` heading, a `checkbox` or `radio` row with a `checked` flag, or a `sub` that nests its own `items` in a submenu. This preview wires that flow to a target area and shows the resolved value.",
+    "**How to use it** — place `<ContextMenu />` once at the top of your app. On the element you want to right-click, wire `onContextMenu={(e) => openContextMenu(e, items).then(handle)}`; the helper calls `preventDefault()` for you so the native browser menu is suppressed. Each entry in `items` is a `ContextMenuItemType` discriminated by `type`: a default `item` (with `icon`, `shortcut`, `disabled`, `destructive`), a `separator`, a `label` heading, a `checkbox` or `radio` row with a `checked` flag, or a `sub` that nests its own `items` in a submenu. This preview wires that flow to a target area and shows the resolved value.",
     "",
     "**When to use it** — for secondary, contextual actions on an object the user right-clicks: a file in a tree, a row in a table, a node on a canvas. It keeps the actions out of the way until summoned, so the primary UI stays uncluttered.",
     "",

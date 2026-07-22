@@ -75,7 +75,8 @@ export const meta = {
     {
       name: "children",
       control: "text",
-      default: "The body accepts any content — a form, a list, a detail view. Dismiss the drawer with the Escape key or by clicking the overlay.",
+      default:
+        "The body accepts any content — a form, a list, a detail view. Dismiss the drawer with the Escape key or by clicking the overlay.",
     },
   ],
 } satisfies Meta<typeof DrawerDemo>;

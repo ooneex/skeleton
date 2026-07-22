@@ -6,13 +6,7 @@ import { LightbulbIcon } from "../icons/outline/business-finance/sm/LightbulbIco
 import { MonitorIcon } from "../icons/outline/design-development/sm/MonitorIcon";
 import { ChalkboardIcon } from "../icons/outline/school-education/sm/ChalkboardIcon";
 import { Markdown } from "../markdown/Markdown";
-import {
-  clearActions,
-  getActions,
-  type LoadedControlType,
-  type LoadedVariantType,
-  subscribeActions,
-} from "../story";
+import { clearActions, getActions, type LoadedControlType, type LoadedVariantType, subscribeActions } from "../story";
 import { cn } from "../utils/cn";
 import { Button } from "./button";
 import { Checkbox } from "./checkbox";

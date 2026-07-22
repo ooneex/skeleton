@@ -32,9 +32,7 @@ const DialogDemo = ({ title, description, children }: DialogDemoPropsType) => {
             await Dialog.call({
               title,
               description,
-              children: (
-                <p className="text-sm text-muted-foreground">{children}</p>
-              ),
+              children: <p className="text-sm text-muted-foreground">{children}</p>,
             });
             setOpened((count) => count + 1);
           }}

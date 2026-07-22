@@ -36,19 +36,5 @@ export const meta = {
       name: "children",
       default: members,
     },
-    {
-      name: "size",
-      control: "select",
-      options: [
-        { name: "xs", usage: "24px avatars — dense rows of collaborators beside a filename or comment." },
-        { name: "sm", usage: "32px avatars — the default row for teams, reviewers, and channel members." },
-        { name: "md", usage: "40px avatars — a prominent stack where the group anchors a card or header." },
-        { name: "lg", usage: "48px avatars — a larger stack for cards and panels that feature the group." },
-        { name: "xl", usage: "64px avatars — a bold row for member summaries and detail views." },
-        { name: "2xl", usage: "80px avatars — an oversized stack where the group leads the layout." },
-        { name: "3xl", usage: "112px avatars — the largest stack, for hero sections showcasing the group." },
-      ],
-      default: "sm",
-    },
   ],
 } satisfies Meta<typeof Avatar.Group>;

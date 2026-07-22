@@ -53,7 +53,15 @@ const AlertDialogDemo = ({
             const decision =
               mode === "alert"
                 ? await alert({ title, description, confirmLabel, confirmVariant, size, media: resolvedMedia })
-                : await confirm({ title, description, confirmLabel, cancelLabel, confirmVariant, size, media: resolvedMedia });
+                : await confirm({
+                    title,
+                    description,
+                    confirmLabel,
+                    cancelLabel,
+                    confirmVariant,
+                    size,
+                    media: resolvedMedia,
+                  });
             setResult(decision);
           }}
         >
@@ -165,7 +173,8 @@ export const meta = {
       options: [
         {
           name: "none",
-          usage: "No visual accent. Use for straightforward confirmations where the copy alone is enough to carry the decision.",
+          usage:
+            "No visual accent. Use for straightforward confirmations where the copy alone is enough to carry the decision.",
         },
         {
           name: "warning",
