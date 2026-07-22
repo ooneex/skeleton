@@ -37,6 +37,9 @@
       ],
       "@module/design/*": [
         "./modules/design/src/*"
+      ],
+      "@module/sdk/*": [
+        "./modules/sdk/src/*"
       ]
     },
     "types": [
