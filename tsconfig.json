@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "target": "ES2022",
     "module": "ESNext",
     "moduleDetection": "force",
@@ -25,11 +29,28 @@
     "strictNullChecks": true,
     "exactOptionalPropertyTypes": false,
     "paths": {
-      "@module/app/*": ["./modules/app/src/*"],
-      "@module/shared/*": ["./modules/shared/src/*"]
+      "@module/app/*": [
+        "./modules/app/src/*"
+      ],
+      "@module/shared/*": [
+        "./modules/shared/src/*"
+      ],
+      "@module/design/*": [
+        "./modules/design/src/*"
+      ]
     },
-    "types": ["bun"]
+    "types": [
+      "bun"
+    ]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", ".github", ".zed", ".vscode"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    ".github",
+    ".zed",
+    ".vscode"
+  ]
 }
