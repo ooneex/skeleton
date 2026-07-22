@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const CircleInfoSparkleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C8.8203 3 3 8.8203 3 16C3 23.1797 8.8203 29 16 29C23.1797 29 29 23.1797 29 16C29 15.0424 28.8966 14.1101 28.7008 13.2133L28.4875 12.2363L30.4415 11.8097L30.6548 12.7867C30.881 13.8228 31 14.8981 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16C1 7.71573 7.71573 1 16 1C17.1019 1 18.1772 1.11899 19.2133 1.34519L20.1903 1.55849L19.7637 3.51247L18.7867 3.29917C17.8899 3.10336 16.9576 3 16 3Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 12H14.5C15.8807 12 17 13.1193 17 14.5V24H15V14.5C15 14.2239 14.7761 14 14.5 14H12V12Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.5 8.5C14.5 7.67157 15.1716 7 16 7C16.8284 7 17.5 7.67157 17.5 8.5C17.5 9.32843 16.8284 10 16 10C15.1716 10 14.5 9.32843 14.5 8.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M27.4 4.59999L25.45 0.0499878L23.5 4.59999L18.95 6.54999L23.5 8.49999L25.45 13.05L27.4 8.49999L31.95 6.54999L27.4 4.59999Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

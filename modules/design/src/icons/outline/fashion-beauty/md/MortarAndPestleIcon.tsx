@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const MortarAndPestleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M3.5 18H28.5" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M14.5 13L20.2441 2.74272C20.9375 1.50452 22.5039 1.0637 23.7413 1.75853V1.75853C24.9667 2.44666 25.4112 3.99223 24.7384 5.2262L20.5 13"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M21.0556 25.6231C25.6469 23.2383 29 20.8828 29 14.5455V13H3V14.5455C3 20.8828 6.20865 23.2383 10.8 25.6231V29H21.0556V25.6231Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

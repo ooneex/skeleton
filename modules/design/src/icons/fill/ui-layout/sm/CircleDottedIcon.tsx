@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const CircleDottedIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <circle cx="12" cy="2" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="7.933" cy="2.865" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="4.569" cy="5.309" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="2.489" cy="8.91" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="2.055" cy="13.045" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="3.34" cy="17" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="6.122" cy="20.09" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="9.921" cy="21.781" r="1" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="14.079" cy="21.781" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="17.878" cy="20.09" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="20.66" cy="17" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="21.945" cy="13.045" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="21.511" cy="8.91" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="19.431" cy="5.309" r="1" strokeWidth="0" fill="currentColor" />
+      <circle cx="16.067" cy="2.865" r="1" strokeWidth="0" fill="currentColor" />
+    </svg>
+  );
+};

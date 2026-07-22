@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const Gauge4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m12,5C5.383,5,0,10.383,0,17v1h9.5c0-.497.15-.957.4-1.347l-4.101-6.151,1.664-1.109,4.101,6.151c.142-.025.286-.044.436-.044,1.379,0,2.5,1.122,2.5,2.5h9.5v-1c0-6.617-5.383-12-12-12Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

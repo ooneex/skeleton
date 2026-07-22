@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const CandleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.0893 29L12.0893 14H20.0893V29"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M23.9302 25C23.9302 23.8954 24.8429 23 25.9475 23C27.0714 23 28 23.9111 28 25.0349V25.6667C28 27.5076 26.5076 29 24.6667 29H7.33333C5.49238 29 4 27.5076 4 25.6667V25.0349C4 23.9111 4.92865 23 6.05249 23C7.15706 23 8.06978 23.8954 8.06978 25"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M16 10C17.657 10 19 8.607 19 6.8885C19 4.66667 16 2 16 2C16 2 13 4.66667 13 6.8885C13 8.60583 14.343 10 16 10Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

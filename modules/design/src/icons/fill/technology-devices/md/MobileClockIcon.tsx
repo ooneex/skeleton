@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const MobileClockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 30.5C27.1421 30.5 30.5 27.1421 30.5 23C30.5 18.8579 27.1421 15.5 23 15.5C18.8579 15.5 15.5 18.8579 15.5 23C15.5 27.1421 18.8579 30.5 23 30.5ZM24 19H22V23.5352L26.2774 26.3868L27.3868 24.7227L24 22.4648V19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5C24 3.89543 23.1046 3 22 3L10 3C8.89543 3 8 3.89543 8 5L8 27C8 28.1046 8.89543 29 10 29L15.5 29L15.5 31L10 31C7.79086 31 6 29.2091 6 27L6 5C6 2.79086 7.79086 0.999999 10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 13.2118L24 13.2118L24 5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94035 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

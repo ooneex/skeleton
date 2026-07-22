@@ -1,0 +1,41 @@
+import type { SVGProps } from "react";
+
+export const NewIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 11H18V13H13V15H16V17H13V19H18V21H11V11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.22 21H23.0134L25 17.4683L26.9866 21H29.78L30.5836 11H28.4602V12.4553L27.962 18.6547L25 13.3888L22.038 18.6547L21.5836 12.5L21.589 11H19.4164L20.22 21Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.5 11H3.47452L7.5 17.2619V11H9.5V21H7.52548L3.5 14.7381V21H1.5V11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.7575 22.6077L5.3296 23.4279C7.68048 26.7982 11.5832 28.9999 16 28.9999C20.4169 28.9999 24.3196 26.7982 26.6705 23.4279L27.2426 22.6077L28.8829 23.7519L28.3108 24.572C25.6019 28.4556 21.0982 30.9999 16 30.9999C10.9019 30.9999 6.39812 28.4556 3.68922 24.572L3.11713 23.7519L4.7575 22.6077Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C11.5832 3 7.68048 5.20176 5.3296 8.5721L4.7575 9.39228L3.11713 8.24809L3.68922 7.4279C6.39812 3.54431 10.9019 1 16 1C21.0982 1 25.6019 3.54431 28.3108 7.4279L28.8829 8.24809L27.2426 9.39228L26.6705 8.5721C24.3196 5.20176 20.4169 3 16 3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

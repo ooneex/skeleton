@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const CodeEditorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M4 28V4H10V28H4Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.0001 8L18.0001 8.0002L18 10.0002L13 10L13.0001 8Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M18 14H24V16H18V14Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 22H19V24H15V22Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 18H24V20H15V18Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25 3C27.2091 3 29 4.79086 29 7L29 25C29 27.2091 27.2091 29 25 29L7 29C4.79086 29 3 27.2091 3 25L3 7C3 4.79086 4.79086 3 7 3L25 3ZM27 7C27 5.89543 26.1046 5 25 5L7 5C5.89543 5 5 5.89543 5 7L5 25C5 26.1046 5.89543 27 7 27L25 27C26.1046 27 27 26.1046 27 25L27 7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

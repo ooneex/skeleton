@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const RotateCubeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.84534 3.25956C5.9153 4.2251 3 7.7721 3 12V13H1V12C1 5.92487 5.92487 1 12 1H14.4142L11 4.41421L9.84534 3.25956Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 11V12C23 18.0751 18.0752 23 12 23H9.58582L13 19.5858L14.1547 20.7404C18.0847 19.7749 21 16.2279 21 12V11H23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M16.8717 8.46622L12 6.41498L7.1283 8.46622L12 10.5959L16.8717 8.46622Z" fill="currentColor" />
+      <path d="M17.5 10.3743L13 12.3415V17.164L17.5 15.2693V10.3743Z" fill="currentColor" />
+      <path d="M11 17.164V12.3415L6.5 10.3743V15.2693L11 17.164Z" fill="currentColor" />
+    </svg>
+  );
+};

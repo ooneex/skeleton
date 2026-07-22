@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const FileSearchIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M13 2V11H4" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" data-cap="butt" fill="none" />
+      <path
+        d="M14 30H7C5.34315 30 4 28.6569 4 27V11.2426C4 10.447 4.31607 9.68393 4.87868 9.12132L11.1213 2.87868C11.6839 2.31607 12.447 2 13.2426 2H25C26.6569 2 28 3.34315 28 5V16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M21 29C24.3137 29 27 26.3137 27 23C27 19.6863 24.3137 17 21 17C17.6863 17 15 19.6863 15 23C15 26.3137 17.6863 29 21 29Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M28.5 30.5L25.5 27.5L26 28"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

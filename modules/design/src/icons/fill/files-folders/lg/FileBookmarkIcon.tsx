@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const FileBookmarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M26.5 29C26.5 27.3431 27.8431 26 29.5 26H34.5H39.5C41.1569 26 42.5 27.3431 42.5 29V45.0191L34.5 38.9238L26.5 45.0191V29Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.2426 2C19.1818 2 18.1644 2.42143 17.4142 3.17157L7.17157 13.4142C6.42153 14.1643 6 15.1812 6 16.2422V40C6 43.3137 8.68629 46 12 46H23.5V29C23.5 25.6863 26.1863 23 29.5 23H39.5C40.3922 23 41.2389 23.1947 42 23.544V7.9991C42 4.68516 39.3135 2 36 2H20.2426ZM20 16V5L9 16H20Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

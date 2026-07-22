@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const Video3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M46 21.5341V40.4659L39 37.7228V24.2772L46 21.5341Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 10C6 7.23858 8.23858 5 11 5C13.7614 5 16 7.23858 16 10C16 12.7614 13.7614 15 11 15C8.23858 15 6 12.7614 6 10Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M20 8C20 4.13401 23.134 1 27 1C30.866 1 34 4.13401 34 8C34 11.866 30.866 15 27 15C23.134 15 20 11.866 20 8Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 23C4 20.2386 6.23858 18 9 18H31C33.7614 18 36 20.2386 36 23V35H4V23ZM12.5 24C11.1193 24 10 25.1193 10 26.5C10 27.8807 11.1193 29 12.5 29C13.8807 29 15 27.8807 15 26.5C15 25.1193 13.8807 24 12.5 24Z"
+        fill="currentColor"
+      />
+      <path
+        d="M4 38H36V39C36 41.7614 33.7614 44 31 44H9C6.23858 44 4 41.7614 4 39V38Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

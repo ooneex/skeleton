@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const AlignLeftIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 22L3 2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M21 5H7V10H21V5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M15 14H7V19H15V14Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

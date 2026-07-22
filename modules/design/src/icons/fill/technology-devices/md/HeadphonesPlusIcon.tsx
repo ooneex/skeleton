@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const HeadphonesPlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 10L17 10L17 19L15 19L15 10Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.5 13.5L20.5 15.5L11.5 15.5L11.5 13.5L20.5 13.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M5.70689 6.51031C3.4057 9.00508 2 12.3384 2 16V23C2 26.866 5.13401 30 9 30H12V21C12 18.7909 10.2091 17 8 17H6V16C6 13.5751 6.86308 11.3519 8.29879 9.62059L5.70689 6.51031Z"
+        fill="currentColor"
+      />
+      <path
+        d="M26 16C26 13.5751 25.1369 11.3519 23.7012 9.62059L26.2931 6.51031C28.5943 9.00508 30 12.3384 30 16V23C30 26.866 26.866 30 23 30H20V21C20 18.7909 21.7909 17 24 17H26V16Z"
+        fill="currentColor"
+      />
+      <path
+        d="M9.72771 8.21121C11.4431 6.82805 13.6249 6 16 6C18.3751 6 20.5569 6.82805 22.2723 8.21121L24.8333 5.13794C22.4239 3.17614 19.3493 2 16 2C12.6507 2 9.57608 3.17614 7.16666 5.13794L9.72771 8.21121Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

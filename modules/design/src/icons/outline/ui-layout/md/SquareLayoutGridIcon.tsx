@@ -1,0 +1,45 @@
+import type { SVGProps } from "react";
+
+export const SquareLayoutGridIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="16"
+        y1="3"
+        x2="16"
+        y2="29"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <line
+        x1="3"
+        y1="16"
+        x2="29"
+        y2="16"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <rect
+        x="3"
+        y="3"
+        width="26"
+        height="26"
+        rx="3"
+        ry="3"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

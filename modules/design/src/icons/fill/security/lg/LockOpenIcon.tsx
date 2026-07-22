@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const LockOpenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34.5 11.7683L34.5044 13L31.5044 13.0088L31.5 11.7771C31.4873 7.44605 28.0965 4.01535 24 4C19.9042 4.01535 16.5138 7.44494 16.5 11.775V21H13.5V11.7727C13.5084 6.02466 18.1711 1.01813 23.9953 1C29.8263 1 34.4832 6.02813 34.5 11.7683Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 18C8.68629 18 6 20.6863 6 24V40C6 43.3137 8.68629 46 12 46H36C39.3137 46 42 43.3137 42 40V24C42 20.6863 39.3137 18 36 18H12ZM19 30C19 27.2386 21.2386 25 24 25C26.7614 25 29 27.2386 29 30C29 32.2388 27.5286 34.134 25.5 34.7711V39H22.5V34.7711C20.4714 34.134 19 32.2388 19 30Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

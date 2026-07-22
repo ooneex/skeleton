@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const Html5Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.58814 41.7028L1.87061 3H46.1292L41.4117 41.7028L23.9998 46.5378L6.58814 41.7028ZM10.0406 9.5L11.664 23.5H33.3242L32.123 34.3113L24.0001 36.4489L15.8773 34.3113L15.3253 29.3435L12.3437 29.6748L13.123 36.6887L24.0001 39.5511L34.8773 36.6887L36.676 20.5H14.3362L13.4086 12.5H37V9.5H10.0406Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

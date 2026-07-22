@@ -1,0 +1,39 @@
+import type { SVGProps } from "react";
+
+export const HoodieIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15.9971 7H18.8622C20.0192 7 20.9348 7.97867 20.8578 9.13304L20.1245 20.133C20.0544 21.1836 19.1818 22 18.1289 22H5.87111C4.81818 22 3.94558 21.1836 3.87554 20.133L3.1422 9.13304C3.06524 7.97867 3.98084 7 5.13777 7H7.94318"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M9 17L10.1903 11.0408L10.1147 11.4189"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M15 17L13.7984 11.0066L13.8716 11.3728"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M7.5 2H16.5C17.8807 2 19 3.11929 19 4.5C19 5.88071 17.8807 7 16.5 7H16L15.6508 8.57144C15.2705 10.2826 13.7529 11.5 12 11.5C10.2471 11.5 8.72946 10.2826 8.34921 8.57144L8 7H7.5C6.11929 7 5 5.88071 5 4.5C5 3.11929 6.11929 2 7.5 2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

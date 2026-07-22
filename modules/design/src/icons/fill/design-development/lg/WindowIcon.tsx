@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const WindowIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 12C46 8.68629 43.3137 6 40 6H8C4.68629 6 2 8.68629 2 12V36C2 39.3137 4.68629 42 8 42H40C43.3137 42 46 39.3137 46 36V12ZM5 36V19H43V36C43 37.6569 41.6569 39 40 39H8C6.34315 39 5 37.6569 5 36ZM10.5 12.5C10.5 13.6046 9.60457 14.5 8.5 14.5C7.39543 14.5 6.5 13.6046 6.5 12.5C6.5 11.3954 7.39543 10.5 8.5 10.5C9.60457 10.5 10.5 11.3954 10.5 12.5ZM17.5 12.5C17.5 13.6046 16.6046 14.5 15.5 14.5C14.3954 14.5 13.5 13.6046 13.5 12.5C13.5 11.3954 14.3954 10.5 15.5 10.5C16.6046 10.5 17.5 11.3954 17.5 12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

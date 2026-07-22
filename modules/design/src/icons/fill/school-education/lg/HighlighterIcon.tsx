@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const HighlighterIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M10.2037 27.5957L14.4128 22.685C14.7958 22.2382 15.0389 21.6887 15.1119 21.1047L16 14H32L32.8881 21.1048C32.9611 21.6887 33.2042 22.2382 33.5871 22.685L37.7962 27.5957C38.5729 28.5019 38.9999 29.6561 38.9999 30.8496V31H9V30.8496C9 29.6561 9.42696 28.5019 10.2037 27.5957Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 11L18 11L18 5.1802L30 2.7802L30 11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M9 34V43.9997L38.9999 44V34H9Z" fill="currentColor" />
+    </svg>
+  );
+};

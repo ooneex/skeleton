@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const SharkWaterIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M2 20.9998C2.96362 21.0001 3.91464 20.7301 4.78095 20.2104C5.64726 19.6906 6.40612 18.9347 7 18C7.594 18.9346 8.35288 19.6903 9.21917 20.2101C10.0854 20.7299 11.0364 21 12 21C12.9636 21 13.9146 20.7299 14.7808 20.2101C15.6471 19.6903 16.406 18.9346 17 18C17.5939 18.9347 18.3527 19.6906 19.2191 20.2104C20.0854 20.7301 21.0364 21.0001 22 20.9998"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M19.5 14C17.5 4 11.5 3 5.37743 3C7.18712 7.03768 7.5 10 4.5 14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

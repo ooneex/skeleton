@@ -1,0 +1,46 @@
+import type { SVGProps } from "react";
+
+export const NurseIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 7C12 9 8.99996 9 7.49996 9H7.13196"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M12 7C12 9 15 9 16.5 9H16.8793" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M15.5 17.375L16 17L12 20L8 17L8.25563 17.1917"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M2 22V21.1623C2 19.871 2.82629 18.7246 4.05132 18.3162L8.13246 16.9559C8.94914 16.6836 9.5 15.9194 9.5 15.0585V14.2733C8.39767 13.5723 7.60271 12.4176 7.39177 11.0465L7 8V7.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M22 22V21.1623C22 19.871 21.1737 18.7246 19.9487 18.3162L15.8675 16.9559C15.0509 16.6836 14.5 15.9194 14.5 15.0585V14.2733C15.6023 13.5723 16.3973 12.4176 16.6082 11.0465L17 8V7.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M6.5 3.00001L6.90572 7.00006H12H17.0963L17.5 3.00001L12 1.39362L6.5 3.00001Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

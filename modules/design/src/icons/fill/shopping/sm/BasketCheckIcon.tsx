@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const BasketCheckIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M19.578 7.00003L15.617 0.134033L13.884 1.13403L17.269 7.00003H6.731L10.116 1.13403L8.383 0.134033L4.422 7.00003H0V9.00003H24V7.00003H19.578Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23.4142 14L16 21.4142L11.5858 17L13 15.5858L16 18.5858L22 12.5858L23.4142 14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.7574 22L10.1716 18.4142C9.39055 17.6332 9.39055 16.3669 10.1716 15.5858L11.5858 14.1716C11.9609 13.7965 12.4696 13.5858 13 13.5858C13.5305 13.5858 14.0392 13.7965 14.4142 14.1716L16 15.7574L19.8814 11.8761L19.5148 11H2.38306L3.30906 19.331C3.47806 20.852 4.76006 22 6.29006 22H13.7574ZM8.00006 19H6.00006V14H8.00006V19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

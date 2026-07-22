@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const ArrowDiagonalOutIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 6C2 3.79086 3.79086 2 6 2H13V17C13 18.1046 13.8954 19 15 19H30V26C30 28.2091 28.2091 30 26 30H6C3.79086 30 2 28.2091 2 26V6Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28 4L28 14L30 14L30 2L18 2L18 4L28 4Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.2929 2.29285L29.7072 3.70705L28.6972 4.71702L17 16.4142L15.5858 15L28.2929 2.29285Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

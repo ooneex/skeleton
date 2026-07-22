@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const CheckboxUncheckedIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 10C4 6.68629 6.68629 4 10 4H38C41.3137 4 44 6.68629 44 10V38C44 41.3137 41.3137 44 38 44H10C6.68629 44 4 41.3137 4 38V10ZM10 7C8.34315 7 7 8.34315 7 10V38C7 39.6569 8.34315 41 10 41H38C39.6569 41 41 39.6569 41 38V10C41 8.34315 39.6569 7 38 7H10Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

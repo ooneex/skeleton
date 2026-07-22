@@ -1,0 +1,53 @@
+import type { SVGProps } from "react";
+
+export const TextTool3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16 14H22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 3V3C17.6569 3 19 4.34315 19 6L19 18C19 19.6569 17.6569 21 16 21V21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M22 3V3C20.3431 3 19 4.34315 19 6L19 18C19 19.6569 20.3431 21 22 21V21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M8 18.5H12" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M8 5.5H12" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M5.5 8L5.5 16" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M8 3H3V8H8V3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M8 16H3V21H8V16Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

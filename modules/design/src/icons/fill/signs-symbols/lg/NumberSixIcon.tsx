@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const NumberSixIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M11 19C11 10.7157 17.7157 4 26 4H31V7H26C19.3726 7 14 12.3726 14 19V31H11V19Z" fill="currentColor" />
+      <path
+        d="M34 29C34 23.4772 29.5228 19 24 19C18.4772 19 14 23.4772 14 29V31C14 36.5228 18.4772 41 24 41C29.5228 41 34 36.5228 34 31V29ZM37 31C37 38.1797 31.1797 44 24 44C16.8203 44 11 38.1797 11 31V29C11 21.8203 16.8203 16 24 16C31.1797 16 37 21.8203 37 29V31Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

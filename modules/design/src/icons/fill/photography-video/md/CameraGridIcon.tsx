@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const CameraGridIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12.5 2V30H10.5V2H12.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.5 2V30H19.5V2H21.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 12.5L2 12.5L2 10.5L30 10.5L30 12.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 21.5L2 21.5L2 19.5L30 19.5L30 21.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28 6C28 4.89543 27.1046 4 26 4L6 4C4.89543 4 4 4.89543 4 6L4 26C4 27.1046 4.89543 28 6 28L26 28C27.1046 28 28 27.1046 28 26L28 6ZM26 2C28.2091 2 30 3.79086 30 6L30 26C30 28.2091 28.2091 30 26 30L6 30C3.79086 30 2 28.2091 2 26L2 6C2 3.79086 3.79086 2 6 2L26 2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

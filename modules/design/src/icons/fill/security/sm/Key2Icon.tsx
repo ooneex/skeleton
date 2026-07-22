@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Key2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <polygon
+        points="23.414 2 22 .586 9.975 12.611 11.389 14.025 16.5 8.914 19 11.414 20.414 10 17.914 7.5 19.5 5.914 22 8.414 23.414 7 20.914 4.5 23.414 2"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <path
+        d="m12.096,11.904c-1.228-1.228-2.859-1.904-4.596-1.904s-3.369.676-4.596,1.904c-1.228,1.228-1.904,2.86-1.904,4.596s.676,3.368,1.904,4.596c1.228,1.228,2.86,1.904,4.596,1.904s3.368-.676,4.596-1.904,1.904-2.859,1.904-4.596-.676-3.369-1.904-4.596Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

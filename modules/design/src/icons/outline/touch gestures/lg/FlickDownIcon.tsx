@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const FlickDownIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M13.9136 42.7311L14.0901 42.9174C8.53547 37.0994 5.38378 28.881 5.49851 20.2025C5.50601 19.6351 5.52831 19.0713 5.56503 18.5116"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M4.65727 40.9408L6.46181 41.45L13.68 43.4867L15.7167 36.2686L16.2259 34.464"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M22.8853 22.82L5.56482 12.82C4.12994 11.9916 3.63832 10.1568 4.46675 8.72192V8.72192C5.29517 7.28705 7.12994 6.79542 8.56482 7.62385L18.0911 13.1238L25.5079 5.80977C27.6148 3.73206 30.9218 3.50061 33.2976 5.26459L45.2274 14.1223L44.9163 15.2773C43.5038 20.5221 40.6937 25.285 36.7861 29.0577L36.3756 29.4541L35.5096 28.9541C34.6051 28.4319 33.5276 28.387 32.3196 28.4386L26.7285 29.3333C25.3984 29.4672 23.9341 29.3184 22.728 28.6221L17.7214 25.7315C15.7978 24.6209 15.1523 22.1376 16.2797 20.1849L16.5401 19.734"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

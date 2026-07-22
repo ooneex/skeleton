@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const OrderedListIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.96342 1H7.00001V11H5.00001V3.60279L2.89154 5.41005L1.58996 3.89153L4.96342 1Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 23H9V21H5.70687L7.49107 19.6873C8.43981 18.9893 9 17.8817 9 16.7039V16.5C9 14.567 7.433 13 5.5 13C3.567 13 2 14.567 2 16.5V17.5H4V16.5C4 15.6716 4.67157 15 5.5 15C6.32843 15 7 15.6716 7 16.5V16.7039C7 17.2457 6.7423 17.7553 6.30585 18.0764L2 21.2442V23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M11 11H22V13H11V11Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M11 3H22V5H11V3Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M11 19H22V21H11V19Z" fill="currentColor" />
+    </svg>
+  );
+};

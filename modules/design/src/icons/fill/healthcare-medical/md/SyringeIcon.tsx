@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const SyringeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M7.16119 23.4258L8.57541 24.8401L3.00142 30.414L1.5872 28.9998L7.16119 23.4258Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M25.2412 13.2275L10.3408 28.0195L3.97949 21.6582L7.51367 18.1221L9.98926 20.5977L11.4043 19.1836L8.92773 16.707L11.0488 14.5859L13.5254 17.0615L14.9395 15.6475L12.4639 13.1719L14.585 11.0508L17.0605 13.5264L18.4746 12.1123L16 9.63672L18.8281 6.80859L25.2412 13.2275Z"
+        fill="currentColor"
+      />
+      <path
+        d="M24.8388 4.33398L20.5962 8.57662L23.4246 11.4051L27.6673 7.16241L24.8388 4.33398Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M28.3744 14.9405L26.9602 16.3548L15.6465 5.04104L17.0607 3.62683L28.3744 14.9405Z" fill="currentColor" />
+      <path
+        d="M30.496 8.57696L29.0819 9.99103L22.0106 2.91974L23.4247 1.50568L30.496 8.57696Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ArrowBackToUpRightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41 38L41 28.45L44 28.45L44 38C44 41.3137 41.3137 44 38 44L10 44C6.68629 44 4 41.3137 4 38L4 19C4 15.6863 6.68629 13 10 13L42 13L42 16L10 16C8.34314 16 7 17.3431 7 19L7 38C7 39.6569 8.34315 41 10 41L38 41C39.6569 41 41 39.6569 41 38Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29.8787 24.5L39.8787 14.5L29.8787 4.50002L32 2.3787L44.1213 14.5L32 26.6213L29.8787 24.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

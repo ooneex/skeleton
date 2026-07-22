@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const SnakeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M7 5H4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 12V7C16 4.23858 13.7614 2 11 2L10 2C8.34315 2 7 3.34315 7 5C7 6.65685 8.34315 8 10 8H11C12.1046 8 13 7.10457 13 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M11 8V12" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" fill="none" data-cap="butt" />
+      <path
+        d="M4.5 17H19.5C20.8807 17 22 18.1193 22 19.5C22 20.8807 20.8807 22 19.5 22H4.5C3.11929 22 2 20.8807 2 19.5C2 18.1193 3.11929 17 4.5 17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M7.5 12H16.5C17.8807 12 19 13.1193 19 14.5C19 15.8807 17.8807 17 16.5 17H7.5C6.11929 17 5 15.8807 5 14.5C5 13.1193 6.11929 12 7.5 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M10 6C10.5523 6 11 5.55228 11 5C11 4.44772 10.5523 4 10 4C9.44772 4 9 4.44772 9 5C9 5.55228 9.44772 6 10 6Z"
+        fill="currentColor"
+        data-stroke="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

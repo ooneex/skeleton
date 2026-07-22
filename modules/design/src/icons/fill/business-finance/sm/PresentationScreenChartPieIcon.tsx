@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const PresentationScreenChartPieIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.7226 23.8868L19.3867 22.7774L15.832 17.4453L14.1679 18.5547L17.7226 23.8868Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.27738 23.8868L4.61328 22.7774L8.16798 17.4453L9.83208 18.5547L6.27738 23.8868Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 17V22H11V17H13Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 0V4H11V0H13Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 17H24V19H0V17Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V15H2V5ZM7.5 8.5C7.5 6.01472 9.51472 4 12 4V8.5H16.5C16.5 10.9853 14.4853 13 12 13C9.51472 13 7.5 10.9853 7.5 8.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

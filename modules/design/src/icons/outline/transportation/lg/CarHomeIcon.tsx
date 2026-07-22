@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const CarHomeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M39 25H38" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M10 25H9" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M38 39.5V30.5451C38 29.5982 37.465 28.7325 36.618 28.309L35 27.5L33.5939 22.227C33.2437 20.9138 32.0543 20 30.6952 20H17.3048C15.9457 20 14.7563 20.9138 14.4061 22.227L13 27.5L11.382 28.309C10.535 28.7325 10 29.5982 10 30.5451V39.5C10 40.3284 10.6716 41 11.5 41H14.5C15.3284 41 16 40.3284 16 39.5V38H32V39.5C32 40.3284 32.6716 41 33.5 41H36.5C37.3284 41 38 40.3284 38 39.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M32.5 32.5L35 32.5L35 30L30 30C30 31.3807 31.1193 32.5 32.5 32.5Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M15.5 32.5L13 32.5L13 30L18 30C18 31.3807 16.8807 32.5 15.5 32.5Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M5 43V16.5L24 3L43 16.5V43"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

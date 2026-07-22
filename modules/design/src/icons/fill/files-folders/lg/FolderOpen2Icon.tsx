@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+
+export const FolderOpen2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9.44219 17L2.13282 38.0143C1.45472 39.9639 2.90222 41.9999 4.96631 41.9999L32.9452 41.9999C35.4992 41.9999 37.7732 40.3832 38.6122 37.971L45.9065 17H9.44219Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 11C2 7.68629 4.68629 5 8 5H18.3205L25.3205 10H35.0552C37.6722 10 39.8913 11.6735 40.7139 14H9.44231C8.16534 14 7.02833 14.8083 6.60882 16.0144L2 29.2647V11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

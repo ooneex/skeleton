@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CircleDollarIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 16C30 23.732 23.732 30 16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2C23.732 2 30 8.26801 30 16ZM17 7H15L15 9C12.7909 9 11 10.7909 11 13C11 15.2091 12.7909 17 15 17H17C18.1046 17 19 17.8954 19 19C19 20.1046 18.1046 21 17 21H12.3333V23H15V25H17V23C19.2091 23 21 21.2091 21 19C21 16.7909 19.2091 15 17 15H15C13.8954 15 13 14.1046 13 13C13 11.8954 13.8954 11 15 11H19.6667V9H17V7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

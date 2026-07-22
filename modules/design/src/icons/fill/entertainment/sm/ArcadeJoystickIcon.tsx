@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const ArcadeJoystickIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M11 7H13V13H11V7Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M12 7.5C13.933 7.5 15.5 5.933 15.5 4C15.5 2.067 13.933 0.5 12 0.5C10.067 0.5 8.5 2.067 8.5 4C8.5 5.933 10.067 7.5 12 7.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M5 22H19C20.6569 22 22 20.6569 22 19H2C2.00054 20.6565 3.34353 22 5 22Z" fill="currentColor" />
+      <path
+        d="M9 13C9 14.1046 9.89543 15 11 15H13C14.1046 15 15 14.1046 15 13V10H19.7266L21.999 17H2.00098L4.27344 10H9V13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

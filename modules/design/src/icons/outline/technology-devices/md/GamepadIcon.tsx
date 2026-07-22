@@ -1,0 +1,50 @@
+import type { SVGProps } from "react";
+
+export const GamepadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M25.2453 4.71716L26.4476 13.1331C26.7391 15.174 25.1555 17 23.0938 17C21.8106 17 20.6375 16.275 20.0636 15.1273L19 13H13L11.9364 15.1273C11.3625 16.275 10.1894 17 8.9062 17C6.84454 17 5.26086 15.174 5.55242 13.1331L6.75469 4.71716C6.89545 3.73186 7.73929 3 8.73459 3H11.382C12.0672 3 12.6936 3.38713 13 4C13.3064 4.61287 13.9328 5 14.618 5H17.382C18.0672 5 18.6936 4.61287 19 4C19.3064 3.38713 19.9328 3 20.618 3H23.2654C24.2607 3 25.1046 3.73186 25.2453 4.71716Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M27 21H5C3.89543 21 3 21.8954 3 23V27C3 28.1046 3.89543 29 5 29H27C28.1046 29 29 28.1046 29 27V23C29 21.8954 28.1046 21 27 21Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17 25H24"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M21 9.0094L21.0094 8.99997"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11 9.0094L11.0094 8.99997"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

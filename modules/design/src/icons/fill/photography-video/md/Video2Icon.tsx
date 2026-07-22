@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const Video2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 9C1 6.79086 2.79086 5 5 5H21C23.2091 5 25 6.79086 25 9V9.38197L31 6.38197V25.618L25 22.618V23C25 25.2091 23.2091 27 21 27H5C2.79086 27 1 25.2091 1 23V9ZM8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

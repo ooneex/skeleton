@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const DropCapIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.00002 9H4.00002V7H9.00002V9Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 8H22V10H13V8Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 2H22V4H13V2Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 14H22V16H2V14Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 20H22V22H2V20Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5.18571 2H7.81428L10.9 11H8.39771V9.86834L6.5 4.33333L4.59398 9.89256V11H2.1L5.18571 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

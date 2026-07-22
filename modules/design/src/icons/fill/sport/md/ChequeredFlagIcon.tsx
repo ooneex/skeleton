@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const ChequeredFlagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M19.4899 22.0232L20.2808 14.1338H28.3265L27.3892 22.0232H19.4899Z" fill="currentColor" />
+      <path d="M12.4192 13.7898L13.2133 5.90039H21.2591L20.463 13.7898H12.4192Z" fill="currentColor" />
+      <path d="M3.13667 22.0232L4.15215 14.1338H12.1979L11.2605 22.0232H3.13667Z" fill="currentColor" />
+      <path d="M13.193 14.0996L12.3907 22.0996L10.4005 21.9004L11.2028 13.9004L13.193 14.0996Z" fill="currentColor" />
+      <path d="M28 15L4.5 15L4.5 13L28 13L28 15Z" fill="currentColor" />
+      <path d="M30.1048 5L28.3002 23H3.70055V21H26.4906L27.8949 7H5.50035V5H30.1048Z" fill="currentColor" />
+      <path
+        d="M7.10059 1.1123L3.8877 31.1006L1.89941 30.8877L5.1123 0.899414L7.10059 1.1123Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

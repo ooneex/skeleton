@@ -1,0 +1,73 @@
+import type { SVGProps } from "react";
+
+export const GenderLesbianIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="17.384"
+        y1="6.616"
+        x2="22.333"
+        y2="1.667"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="22.333"
+        y1="5.909"
+        x2="18.091"
+        y2="1.667"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m14.86,15.831c2.38-.605,4.14-2.762,4.14-5.331,0-3.038-2.462-5.5-5.5-5.5s-5.5,2.462-5.5,5.5c0,1.821.885,3.436,2.249,4.437l-.138-.105"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="7"
+        y1="16"
+        x2="7"
+        y2="23"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="4"
+        y1="20"
+        x2="10"
+        y2="20"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="7"
+        cy="10.5"
+        r="5.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

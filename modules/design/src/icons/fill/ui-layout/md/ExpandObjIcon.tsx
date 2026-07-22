@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const ExpandObjIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31 19V31H19V29H29V19H31Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 13L0.999999 1L13 1L13 3L3 3L3 13L1 13Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 7C23.6569 7 25 8.34315 25 10L25 22C25 23.6569 23.6569 25 22 25L10 25C8.34314 25 7 23.6569 7 22L7 10C7 8.34315 8.34315 7 10 7L22 7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

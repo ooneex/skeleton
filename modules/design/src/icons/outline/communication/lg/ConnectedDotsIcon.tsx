@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const ConnectedDotsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24 15V24.5L15.5 33"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M24 24.5L32.5 33"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M24 15C27.3137 15 30 12.3137 30 9C30 5.68629 27.3137 3 24 3C20.6863 3 18 5.68629 18 9C18 12.3137 20.6863 15 24 15Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M11 43C14.3137 43 17 40.3137 17 37C17 33.6863 14.3137 31 11 31C7.68629 31 5 33.6863 5 37C5 40.3137 7.68629 43 11 43Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M37 43C40.3137 43 43 40.3137 43 37C43 33.6863 40.3137 31 37 31C33.6863 31 31 33.6863 31 37C31 40.3137 33.6863 43 37 43Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

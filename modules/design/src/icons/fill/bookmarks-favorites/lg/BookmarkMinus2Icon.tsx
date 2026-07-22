@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const BookmarkMinus2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M47 20C47 25.5228 42.5228 30 37 30C31.4772 30 27 25.5228 27 20C27 14.4772 31.4772 10 37 10C42.5228 10 47 14.4772 47 20ZM42.5 18.5V21.5H31.5V18.5H42.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M8 2C4.68629 2 2 4.68629 2 8V45.7484L20 35.1602L38 45.7484V32.9621C37.67 32.9872 37.3365 33 37 33C29.8203 33 24 27.1797 24 20C24 12.8203 29.8203 7 37 7C37.3101 7 37.6177 7.01086 37.9224 7.03222C37.4596 4.17867 34.9842 2 32 2H8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

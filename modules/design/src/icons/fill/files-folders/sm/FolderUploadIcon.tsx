@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const FolderUploadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9999 18.9142L17.9999 14.9142L21.9999 18.9142L23.4141 17.5L17.9999 12.0858L12.5857 17.5L13.9999 18.9142Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 15.499L16.998 15.499L17 13.5L19 13.5L19 23L17 23L17 15.499Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M4 2C2.34315 2 1 3.34315 1 5V18C1 19.6569 2.34315 21 4 21H13.5L11.1715 18.9142C10.7964 18.5392 10.5857 18.0305 10.5857 17.5C10.5857 16.9696 10.7964 16.4609 11.1715 16.0858L16.5857 10.6716C16.9608 10.2965 17.4695 10.0858 17.9999 10.0858C18.5303 10.0858 19.039 10.2965 19.4141 10.6716L23 14.2575V8C23 6.34315 21.6569 5 20 5H13.4142L10.4142 2H4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

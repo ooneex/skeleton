@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const ClapperboardPlayIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M44 19H4V44H44V19ZM33.0883 31.5L19 23.8155V39.1845L33.0883 31.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.0248 17.0859L6.85478 8.84381L9.25639 7.04596L15.4264 15.288L13.0248 17.0859Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.0682 16.0948L14.8982 7.85277L17.2998 6.05492L23.4698 14.297L21.0682 16.0948Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.995 15.0141L22.825 6.77205L25.2266 4.9742L31.3966 13.2162L28.995 15.0141Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M36.9288 13.9388L30.7588 5.69679L33.1604 3.89895L39.3304 12.141L36.9288 13.9388Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.57519 7.65779L42.233 2.43672L43.6688 13.3426L4.01102 18.5637L2.57519 7.65779ZM5.94111 10.2405L6.59376 15.1978L40.3029 10.7599L39.6503 5.80263L5.94111 10.2405Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

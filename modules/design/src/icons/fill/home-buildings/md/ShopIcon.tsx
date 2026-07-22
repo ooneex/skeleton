@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const ShopIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m26,18v8c0,1.103-.897,2-2,2h-5v-7h-6v7h-5c-1.103,0-2-.897-2-2v-8h-2v8c0,2.206,1.794,4,4,4h16c2.206,0,4-1.794,4-4v-8h-2Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m25.526,2H6.474L.5,10.689v.311c0,2.757,2.243,5,5,5,1.327,0,2.578-.534,3.5-1.451.922.917,2.173,1.451,3.5,1.451s2.578-.534,3.5-1.451c.922.917,2.173,1.451,3.5,1.451s2.578-.534,3.5-1.451c.922.917,2.173,1.451,3.5,1.451,2.757,0,5-2.243,5-5v-.311l-5.974-8.689Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

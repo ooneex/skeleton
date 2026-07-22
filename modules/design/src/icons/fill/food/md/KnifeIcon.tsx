@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const KnifeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.9141 3.28676C18.0382 0.162641 23.1033 0.162786 26.2275 3.28676L31.1777 8.23696L14.4147 25L3.80775 14.3931L14.9141 3.28676ZM11.8887 18.1969L13.3037 19.611L20.374 12.5397L18.96 11.1256L11.8887 18.1969Z"
+        fill="currentColor"
+      />
+      <path
+        d="M13.0006 26.4141L9.21643 30.1982C8.09857 31.3161 6.27738 31.2427 5.24963 30.0693L5.15198 29.9521C4.30451 28.8698 4.39794 27.3248 5.36975 26.3525L9.15393 22.5674L13.0006 26.4141Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

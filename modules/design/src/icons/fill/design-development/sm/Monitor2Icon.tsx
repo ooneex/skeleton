@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const Monitor2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M9 21V17H11V21H9Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 21V17H15V21H13Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 20H18V22H6V20Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 18C2.34315 18 1 16.6569 1 15L1 6C1 4.34314 2.34315 3 4 3L20 3C21.6569 3 23 4.34315 23 6L23 15C23 16.6569 21.6569 18 20 18L4 18ZM3 14C3 14.5523 3.44772 15 4 15L20 15C20.5523 15 21 14.5523 21 14L21 6C21 5.44771 20.5523 5 20 5L4 5C3.44772 5 3 5.44771 3 6L3 14Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12 6.25C12.6904 6.25 13.25 5.69036 13.25 5C13.25 4.30964 12.6904 3.75 12 3.75C11.3096 3.75 10.75 4.30964 10.75 5C10.75 5.69036 11.3096 6.25 12 6.25Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const GunBanIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M11.193 11.1934L8.04131 22H3.25616L1.50225 19.3682C0.988925 18.598 0.859051 17.634 1.15166 16.7559L3.1393 10.915L2.10024 9.24902C1.66987 8.55879 1.53774 7.72274 1.735 6.93359L2.52992 3.75781L2.7184 3H2.99965L11.193 11.1934Z"
+        fill="currentColor"
+      />
+      <path
+        d="M11.9997 6H13.9997V3H23.9997V9H20.4137L19.4137 11H15.2418L9.99965 5.75781V3H11.9997V6Z"
+        fill="currentColor"
+      />
+      <path
+        d="M1.08594 2.5L21.5 22.9141L22.9141 21.5L2.5 1.08594L1.08594 2.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

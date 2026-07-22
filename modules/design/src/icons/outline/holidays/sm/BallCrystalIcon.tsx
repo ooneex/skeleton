@@ -1,0 +1,47 @@
+import type { SVGProps } from "react";
+
+export const BallCrystalIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M7 16.5L5 20V22H19V20L17 16.5" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M15.1544 2.64592C14.1865 2.23022 13.1202 2 12 2C7.58172 2 4 5.58172 4 10C4 14.4183 7.58172 18 12 18C16.0796 18 19.446 14.9463 19.9381 11"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M8 10C8 7.79086 9.79086 6 12 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.9 4.1L20 2L19.1 4.1L17 5L19.1 5.9L20 8L20.9 5.9L23 5L20.9 4.1Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M14.25 11.75L13.5 10L12.75 11.75L11 12.5L12.75 13.25L13.5 15L14.25 13.25L16 12.5L14.25 11.75Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M2.95 2.05L2.5 1L2.05 2.05L1 2.5L2.05 2.95L2.5 4L2.95 2.95L4 2.5L2.95 2.05Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

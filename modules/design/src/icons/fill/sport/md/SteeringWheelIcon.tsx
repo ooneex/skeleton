@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const SteeringWheelIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.5 12.5001C10.8957 7.83576 21.1043 7.83576 29.5 12.5001L30 17.0001L23.9064 19.2811C21.3874 20.224 19.6315 22.5268 19.3889 25.2055L19 29.5001H13L12.6111 25.2055C12.3685 22.5268 10.6126 20.224 8.09365 19.2811L2 17.0001L2.5 12.5001ZM19 16C19 17.6569 17.6569 19 16 19C14.3431 19 13 17.6569 13 16C13 14.3431 14.3431 13 16 13C17.6569 13 19 14.3431 19 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C8.8203 3 3 8.8203 3 16C3 23.1797 8.8203 29 16 29C23.1797 29 29 23.1797 29 16C29 8.8203 23.1797 3 16 3ZM1 16C1 7.71573 7.71573 1 16 1C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const ConnectionsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 0.5L22.7175 7.21751L16 13.935L9.28249 7.21751L16 0.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 18.0649L22.7175 24.7825L16 31.5L9.28249 24.7825L16 18.0649Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.9349 16L7.21742 22.7175L0.499902 16L7.21742 9.28248L13.9349 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31.5 16L24.7825 22.7175L18.065 16L24.7825 9.28249L31.5 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

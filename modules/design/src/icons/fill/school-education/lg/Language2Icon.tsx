@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Language2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.0066 28.5555L17.5432 21.6842C17.5432 12.4417 12.3116 4 3 4H2V46H5.22839V39.3684L11.5746 39.3684C13.6796 39.3684 15.4245 37.7369 15.5656 35.6366L15.8719 31.0789L19.8019 30.7245C20.8565 30.6294 21.4832 29.501 21.0066 28.5555Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M43.5 14C45.433 14 47 15.567 47 17.5V33.5C47 35.433 45.433 37 43.5 37H21V36L25 32V17.5C25 15.567 26.567 14 28.5 14H43.5ZM30 33H37V30H30V33ZM30 24V27H42V24H30ZM30 21H42V18H30V21Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

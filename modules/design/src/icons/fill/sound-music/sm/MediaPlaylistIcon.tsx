@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const MediaPlaylistIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect x="14" y="21" width="9" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <path
+        d="m11.9,23.043l-.995-.099c-5.646-.559-9.905-5.264-9.905-10.945C1,5.935,5.935,1,12,1s11,4.935,11,11c0,.739-.074,1.479-.222,2.2l-.199.98-1.96-.4.2-.979c.12-.589.181-1.195.181-1.8,0-4.962-4.037-9-9-9S3,7.038,3,12c0,4.648,3.483,8.498,8.103,8.955l.995.099-.197,1.99Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <rect x="14" y="17" width="9" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <polygon points="9 6.759 9 17.241 17.984 12 9 6.759" strokeWidth="0" fill="currentColor" />
+    </svg>
+  );
+};

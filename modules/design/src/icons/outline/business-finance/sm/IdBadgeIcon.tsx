@@ -1,0 +1,60 @@
+import type { SVGProps } from "react";
+
+export const IdBadgeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect
+        x="6"
+        y="10"
+        width="5"
+        height="5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m17,4h3c1.105,0,2,.895,2,2v12c0,1.105-.895,2-2,2H4c-1.105,0-2-.895-2-2V6c0-1.105.895-2,2-2h3"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="15"
+        y1="10"
+        x2="18"
+        y2="10"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="15"
+        y1="15"
+        x2="18"
+        y2="15"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m12,1h0c.552,0,1,.448,1,1v4h-2V2c0-.552.448-1,1-1Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const Download3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m18,7h-5v7.586l3-3,1.414,1.414-5.414,5.414-5.414-5.414,1.414-1.414,3,3v-7.586h-5c-1.654,0-3,1.346-3,3v9c0,1.654,1.346,3,3,3h12c1.654,0,3-1.346,3-3v-9c0-1.654-1.346-3-3-3Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <rect x="11" width="2" height="7" fill="currentColor" strokeWidth="0" data-color="color-2" />
+    </svg>
+  );
+};

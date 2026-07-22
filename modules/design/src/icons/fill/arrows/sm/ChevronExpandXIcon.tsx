@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ChevronExpandXIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.50009 18.9142L0.585881 12L7.50009 5.08582L8.91431 6.50003L3.41431 12L8.91431 17.5L7.50009 18.9142Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.0857 6.50003L20.5857 12L15.0857 17.5L16.4999 18.9142L23.4141 12L16.4999 5.08582L15.0857 6.50003Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

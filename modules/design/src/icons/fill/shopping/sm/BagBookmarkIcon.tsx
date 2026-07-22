@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const BagBookmarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C10.8954 2 10 2.89543 10 4V8H8V4C8 1.79086 9.79086 0 12 0C14.2091 0 16 1.79086 16 4V8H14V4C14 2.89543 13.1046 2 12 2Z"
+        fill="currentColor"
+      />
+      <path
+        d="M4.00004 11.901V6H20V10.5H15.3C13.1669 10.5 11.5 12.251 11.5 14.3333V23H5.43962C3.54647 23 2.1266 21.268 2.49788 19.4116L4.00004 11.901Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.5 14.2708C13.5 13.2583 14.3059 12.4375 15.3 12.4375H18H20.7C21.6941 12.4375 22.5 13.2583 22.5 14.2708V23.4375L18 20L13.5 23.4375V14.2708Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,10 @@
+import type { SVGProps } from "react";
+
+export const LetterFIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M19.667 15V17H8V15H19.667Z" fill="currentColor" />
+      <path d="M8 2H26V4H10V30H8V2Z" fill="currentColor" />
+    </svg>
+  );
+};

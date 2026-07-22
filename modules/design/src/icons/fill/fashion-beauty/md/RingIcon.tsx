@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const RingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M18.9326 10.7314L16 10L13.0674 10.7314L9.05566 6H22.9443L18.9326 10.7314Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M25 20C25 15.0294 20.9706 11 16 11C11.0294 11 7 15.0294 7 20C7 24.9706 11.0294 29 16 29C20.9706 29 25 24.9706 25 20ZM27 20C27 26.0751 22.0751 31 16 31C9.92487 31 5 26.0751 5 20C5 13.9249 9.92487 9 16 9C22.0751 9 27 13.9249 27 20Z"
+        fill="currentColor"
+      />
+      <path d="M22.9629 4H17.6182L16.1182 1H19.3623L22.9629 4Z" fill="currentColor" data-color="color-2" />
+      <path d="M15.3818 4H9.03711L12.6377 1H13.8818L15.3818 4Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

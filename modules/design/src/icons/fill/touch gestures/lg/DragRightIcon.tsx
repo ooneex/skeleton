@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const DragRightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M45 25.5H30.4229C30.4735 25.0069 30.5 24.5065 30.5 24C30.5 23.4935 30.4735 22.9931 30.4229 22.5H45V25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M36.337 13.2156L47.1212 23.9998L36.3497 34.7712L34.2286 32.6501L42.879 23.9998L34.2159 15.3367L36.337 13.2156Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M16 35.5C9.64872 35.5 4.5 30.3513 4.5 24C4.5 17.6487 9.64872 12.5 16 12.5C22.3513 12.5 27.5 17.6487 27.5 24C27.5 30.3513 22.3513 35.5 16 35.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

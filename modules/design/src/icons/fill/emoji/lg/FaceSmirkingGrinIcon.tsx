@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceSmirkingGrinIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2ZM35.383 16.2555L36.4921 19.0429L29.6209 21.777L28.5117 18.9895L35.383 16.2555ZM18.3822 21.7511L11.5152 19.0217L12.6233 16.2339L19.4903 18.9633L18.3822 21.7511ZM24 39C31.1797 39 37 33.1797 37 26H11C11 33.1797 16.8203 39 24 39Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

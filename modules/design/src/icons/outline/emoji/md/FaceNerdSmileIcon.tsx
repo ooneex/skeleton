@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const FaceNerdSmileIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M13 13L13.3167 12.8417C15.0059 11.9971 16.9941 11.9971 18.6833 12.8417L19 13"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M13 13C13 14.6569 11.6569 16 10 16C8.34315 16 7 14.6569 7 13C7 11.3431 8.34315 10 10 10C11.6569 10 13 11.3431 13 13Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M25 13C25 14.6569 23.6569 16 22 16C20.3431 16 19 14.6569 19 13C19 11.3431 20.3431 10 22 10C23.6569 10 25 11.3431 25 13Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M10.2547 21C11.5196 22.8135 13.6213 24 16 24C18.3788 24 20.4804 22.8135 21.7453 21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const CloudFog2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3.0665 8.35256C3.62627 4.24736 7.20427 1 11.5 1C15.7459 1 19.1859 4.0787 19.8907 8.07982C22.2211 8.50238 24 10.5515 24 13C24 15.7523 21.7523 18 19 18H13V16C13 14.8954 12.1046 14 11 14H2C1.32055 14 0.720234 14.3388 0.358788 14.8567C0.12744 14.2821 0 13.6554 0 13C0 10.9104 1.26852 9.09035 3.0665 8.35256Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M9 20H15V22H9V20Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M4 20H7V22H4V20Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 16L11 16V18L2 18L2 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

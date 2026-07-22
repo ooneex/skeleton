@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const HelmetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M2.16655 11.5242L8.89135 11.1657C10.5808 11.0757 12 12.4212 12 14.1131V16C12 18.7614 14.2386 21 17 21V21C19.7614 21 22 18.7614 22 16V12C22 6.47715 17.5228 2 12 2V2C6.47715 2 2 6.47715 2 12V13.1765V17.7757C2 18.4082 2.57987 18.8818 3.19966 18.7556L11.8985 16.9831"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M17 23L17 21L17 21.5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M18.5 16.5C18.5 17.3284 17.8284 18 17 18C16.1716 18 15.5 17.3284 15.5 16.5C15.5 15.6716 16.1716 15 17 15C17.8284 15 18.5 15.6716 18.5 16.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

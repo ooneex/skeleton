@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const Compass2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M22.5 45H25.5V40H22.5V45Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M22.5 3H25.5V8H22.5V3Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M3 22.5L3 25.5L8 25.5L8 22.5L3 22.5Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M45 22.5L45 25.5L40 25.5L40 22.5L45 22.5Z" fill="currentColor" />
+      <path
+        d="M28.3893 30.5106L13.5967 34.4034L17.4895 19.6108L28.3893 30.5106Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M30.5106 28.3893L34.4034 13.5967L19.6108 17.4895L30.5106 28.3893Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5ZM2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

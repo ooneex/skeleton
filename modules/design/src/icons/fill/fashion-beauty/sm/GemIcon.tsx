@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const GemIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14.5859 8L16 9.41406V14.5859L14.5859 16H9.41406L8 14.5859V9.41406L9.41406 8H14.5859Z"
+        fill="currentColor"
+      />
+      <path d="M6 15.4053L8.58594 18L6.37207 21.7861L2.21387 17.6279L6 15.4053Z" fill="currentColor" />
+      <path d="M21.7861 17.627L17.625 21.7881L15.4014 18L18 15.4082L21.7861 17.627Z" fill="currentColor" />
+      <path d="M6 10.915V13.0859L2 15.4307V8.56836L6 10.915Z" fill="currentColor" data-color="color-2" />
+      <path d="M22 15.4326L18 13.0889V10.9111L22 8.56934V15.4326Z" fill="currentColor" data-color="color-2" />
+      <path d="M8.58594 6L6 8.58594L2.21289 6.37207L6.36719 2.21777L8.58594 6Z" fill="currentColor" />
+      <path d="M13.083 6H10.9082L8.56152 2H15.4248L13.083 6Z" fill="currentColor" data-color="color-2" />
+      <path d="M21.7881 6.37402L18 8.58594L15.4023 6L17.6221 2.20801L21.7881 6.37402Z" fill="currentColor" />
+      <path d="M15.4287 22H8.56836L10.9102 18H13.083L15.4287 22Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

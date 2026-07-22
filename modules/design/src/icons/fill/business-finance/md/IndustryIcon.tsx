@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const IndustryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M4.09974 9H11V30H1.88921L4.09974 9Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 7C4 3.52308 7.31217 1 11 1C12.8415 1 14.5405 1.61171 15.8077 2.63909C16.7342 2.13058 17.8269 1.83333 19 1.83333C22.1348 1.83333 25 3.98391 25 7H4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 30H30V13.4612L21 17.4612L21 13.4612L13 17.0168V30ZM23 23H26.01L26 26H23V23ZM17 23V26H20V23H17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M27 5H30.01V7H27V5Z" fill="currentColor" />
+    </svg>
+  );
+};

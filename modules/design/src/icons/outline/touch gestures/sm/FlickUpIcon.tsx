@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const FlickUpIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16.2837 17.5415L8.92234 21.7915C8.2049 22.2057 7.28751 21.9599 6.8733 21.2425C6.45908 20.525 6.7049 19.6076 7.42234 19.1934L11.3196 16.9434L10.3029 12.3763C9.87191 10.9452 10.5601 9.41509 11.9169 8.78803L16.6549 6.75758M22.5958 14.4745L21.7298 14.9745C20.2445 15.832 20.4043 17.0592 19.7775 18.5265C19.6075 18.9245 19.313 19.2565 18.9383 19.4729L16.0516 21.1395C15.095 21.6918 13.8718 21.3641 13.3195 20.4075L13.0695 19.9745"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M6.70606 2.48603L6.8905 2.27608C4.5153 4.92987 2.97241 8.64422 2.97241 12.486C2.97241 14.4141 3.21028 15.9959 3.64304 17.3594"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M2.70355 3.12984L6.97238 1.98602L8.11621 6.25484"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

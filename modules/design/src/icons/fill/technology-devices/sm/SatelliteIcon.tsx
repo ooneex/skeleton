@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const SatelliteIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10 0.585754L12.9142 3.49997L11.5 4.91418L10 3.41419L8.29291 5.12129L11.8284 8.65682L10.4142 10.071L5.46449 5.12129L10 0.585754Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.8787 18.5355L15.9645 15.6213L17.3787 14.2071L18.8787 15.7071L20.5858 14L17.0503 10.4645L18.4645 9.05024L23.4142 14L18.8787 18.5355Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 24C4.92487 24 5.38182e-07 19.0751 1.20206e-06 13L1.31134e-06 12L2 12L2 13C2 17.9706 6.02944 22 11 22L12 22L12 24L11 24Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 20C7.13401 20 4 16.866 4 13L4 12L6 12L6 13C6 15.7614 8.23858 18 11 18L12 18L12 20L11 20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.6567 2.39384C18.0235 1.02701 20.2395 1.02698 21.6063 2.39378C22.9731 3.76057 22.9731 5.97658 21.6064 7.34342L12.7678 16.1827L7.81806 11.233L16.6567 2.39384Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

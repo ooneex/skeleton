@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const PeopleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23.5002 7C21.8422 7 20.5002 5.658 20.5002 4C20.5002 2.342 21.8422 1 23.5002 1C25.1582 1 26.5002 2.342 26.5002 4C26.5002 5.658 25.1582 7 23.5002 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M8 7C6.342 7 5 5.658 5 4C5 2.342 6.342 1 8 1C9.658 1 11 2.342 11 4C11 5.658 9.658 7 8 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M26.5 30H20.5L19.4002 20L17 18.75L17.9877 12.575C18.1305 11.6838 18.7174 10.94 19.5335 10.6337C20.4227 10.3 22.1028 10 23.5009 10C24.197 10 25.9598 10.075 27.4239 10.6175C28.2532 10.925 28.8677 11.6713 29.0117 12.575L29.9994 18.75L27.5992 20L26.5 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M1.5 24.5L3.79088 13.4274C4.20383 11.4315 5.96179 10 8 10C10.0382 10 11.7962 11.4315 12.2091 13.4274L14.5 24.5L11.5 25.5L11 30H5L4.5 25.5L1.5 24.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

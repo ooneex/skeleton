@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CircleArrowRightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24ZM11 25.5L32.3787 25.5L22.8787 35L25 37.1213L38.1213 24L25 10.8787L22.8787 13L32.3787 22.5L11 22.5V25.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

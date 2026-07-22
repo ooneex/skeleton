@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const PersonIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 4C11.171 4 10.5 3.329 10.5 2.5C10.5 1.671 11.171 1 12 1C12.829 1 13.5 1.671 13.5 2.5C13.5 3.329 12.829 4 12 4Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+      />
+      <path
+        d="M14.5 23H9.5L9 15L7 14L7.823 9.06C7.942 8.347 8.431 7.752 9.111 7.507C9.852 7.24 10.835 7 12 7C12.58 7 13.633 7.06 14.853 7.494C15.544 7.74 16.056 8.337 16.176 9.06L16.999 14L14.999 15L14.5 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

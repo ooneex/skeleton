@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const SinkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 8H20V10H15V8Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10 4.49998C10 2.56699 11.567 1 13.5 1C15.433 1 17 2.56699 17 4.49998V14H15V4.49998C15 3.67156 14.3284 3 13.5 3C12.6716 3 12 3.67156 12 4.49998V8H10V4.49998Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.6908 12C30.0095 12 30.9673 13.254 30.6203 14.5262L30.5774 14.6836C28.9162 20.7745 23.384 25 17.0707 25L14.9294 25C8.61605 25 3.08381 20.7745 1.42267 14.6836L1.37974 14.5262C1.03275 13.254 1.99052 12 3.30927 12L28.6908 12Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12 26.7307V30H20V26.7307C19.0468 26.9079 18.0672 27 17.0707 27L14.9294 27C13.9328 27 12.9532 26.9079 12 26.7307Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

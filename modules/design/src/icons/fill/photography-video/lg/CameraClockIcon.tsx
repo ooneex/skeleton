@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CameraClockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 16C46 12.6863 43.3137 10 40 10L35 10L30.5 4H17.5L13 10L8 10C4.68629 10 2 12.6863 2 16L2 36C2 39.3137 4.68629 42 8 42L40 42C43.3137 42 46 39.3137 46 36V16ZM25.5 17H22.5V27.5H36V24.5H25.5V17Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

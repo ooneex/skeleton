@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const BankingOnline2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3.77109L24 9.48537V12H22V20H20V9.99999H21.2795L16 6.22889L10.7205 9.99999H12V20H10V12H8V9.48537L16 3.77109Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3.77109L24 9.48537V12H8V9.48537L16 3.77109Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 18H24V20H8V18Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 19V12H17V19H15Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M1 23V26C1 27.1046 1.89543 28 3 28H29C30.1046 28 31 27.1046 31 26V23H21C21 23.5523 20.5523 24 20 24H12C11.4477 24 11 23.5523 11 23H1Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 5C5.89543 5 5 5.89543 5 7V20H3V7C3 4.79086 4.79086 3 7 3H11V5H7Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 3H25C27.2091 3 29 4.79086 29 7V20H27V7C27 5.89543 26.1046 5 25 5H21V3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

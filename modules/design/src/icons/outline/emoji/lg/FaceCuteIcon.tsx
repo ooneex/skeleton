@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const FaceCuteIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24 3C12.402 3 3 12.402 3 24C3 29.3785 5.02198 34.2847 8.34725 38L13.8907 29.8623C14.8429 28.4646 16.6073 27.8691 18.2117 28.4039C20.0722 29.0241 21.1498 30.9637 20.6935 32.871L18 44.1304C19.9011 44.6962 21.9151 45 24 45C26.0849 45 28.0989 44.6962 30 44.1304L27.3065 32.871C26.8502 30.9637 27.9278 29.0241 29.7883 28.4039C31.3927 27.8691 33.1571 28.4646 34.1093 29.8623L39.6527 38C42.978 34.2847 45 29.3785 45 24C45 12.402 35.598 3 24 3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M28 20V19.5C28 17.567 29.567 16 31.5 16V16C33.433 16 35 17.567 35 19.5V20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M13 20V19.5C13 17.567 14.567 16 16.5 16V16C18.433 16 20 17.567 20 19.5V20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

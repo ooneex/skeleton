@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const FaceWomanIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m12,1C5.935,1,1,5.935,1,12v8.677l.628.251c3.441,1.376,6.906,2.064,10.372,2.064s6.93-.688,10.372-2.064l.628-.251v-8.677c0-6.065-4.935-11-11-11Zm8,12c0,4.418-3.582,8-8,8s-8-3.582-8-8v-1c0-.673.092-1.323.249-1.947,1.317.264,8.04,1.282,13.39-3.726,1.458,1.449,2.362,3.456,2.362,5.674v1Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m12,19c1.381,0,2.5-1.119,2.5-2.5h-5c0,1.381,1.119,2.5,2.5,2.5Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <circle cx="8.75" cy="13.75" r="1.25" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <circle cx="15.25" cy="13.75" r="1.25" fill="currentColor" strokeWidth="0" data-color="color-2" />
+    </svg>
+  );
+};

@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const RectArrowDownIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25 31C27.2091 31 29 29.2091 29 27L29 5C29 2.79086 27.2091 0.999996 25 0.999996H7C4.79086 0.999996 3 2.79086 3 5V27C3 29.2091 4.79086 31 7 31H25ZM17 7V22.0858L23 16.0858L24.4142 17.5L16 25.9142L7.58579 17.5L9 16.0858L15 22.0858V7H17Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

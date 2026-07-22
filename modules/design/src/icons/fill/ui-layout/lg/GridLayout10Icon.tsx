@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export const GridLayout10Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M33 4H44V44H33V4Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M30 33L30 44L4 44L4 33L30 33Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M30 4L30 15L4 15L4 4L30 4Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M30 18.5L30 29.5L4 29.5L4 18.5L30 18.5Z" fill="currentColor" />
+    </svg>
+  );
+};

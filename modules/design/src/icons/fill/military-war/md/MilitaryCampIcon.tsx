@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const MilitaryCampIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M23 0V5H17V9H15V0H23Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 30H22.9033L22.6426 29.8154C19.3116 27.4476 17.1476 23.7537 16 19.7197C14.8524 23.7537 12.6884 27.4476 9.35742 29.8154L9.09668 30H2V16H30V30ZM6 23H10V19H6V23ZM22 19V23H26V19H22Z"
+        fill="currentColor"
+      />
+      <path d="M26 8C28.2091 8 30 9.79086 30 12V14H2V12C2 9.79086 3.79086 8 6 8H26Z" fill="currentColor" />
+    </svg>
+  );
+};

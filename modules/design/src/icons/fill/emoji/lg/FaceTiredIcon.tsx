@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceTiredIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2ZM35.8022 34.8193L36.019 36H11.981L12.1978 34.8193C13.224 29.233 18.1166 25 24 25C29.8834 25 34.776 29.233 35.8022 34.8193ZM34.7891 15.7673L32.7446 18H38V21H28V18.739L32.5767 13.7412L34.7891 15.7673ZM13.2109 15.7673L15.4233 13.7412L20 18.739V21H10V18H15.2555L13.2109 15.7673Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

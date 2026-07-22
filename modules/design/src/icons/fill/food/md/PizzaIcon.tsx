@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const PizzaIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14 9V18H23C23 22.9706 18.9706 27 14 27C9.02944 27 5 22.9706 5 18C5 13.0294 9.02944 9 14 9Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M18 14L27 14C27 9.02944 22.9706 5 18 5L18 14Z" fill="currentColor" data-color="color-2" />
+      <path d="M15 17V30H13V19H2V17H15Z" fill="currentColor" />
+      <path
+        d="M15 5V17H27V18C27 25.1797 21.1797 31 14 31C6.8203 31 1 25.1797 1 18C1 10.8203 6.8203 5 14 5H15ZM3 18C3 24.0751 7.92487 29 14 29C19.738 29 24.4478 24.6064 24.9531 19H13V7.04688C7.39359 7.55219 3 12.262 3 18Z"
+        fill="currentColor"
+      />
+      <path
+        d="M29 13C29 7.47715 24.5228 3 19 3V13H29ZM31 15H17V1H19C25.6274 1 31 6.37258 31 13V15Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

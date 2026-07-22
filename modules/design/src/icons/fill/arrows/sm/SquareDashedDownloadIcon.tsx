@@ -1,0 +1,46 @@
+import type { SVGProps } from "react";
+
+export const SquareDashedDownloadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 20C4.44772 20 4 19.5523 4 19V15H2V19C2 20.6569 3.34315 22 5 22H9V20H5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 22H19C20.6569 22 22 20.6569 22 19V15H20V19C20 19.5523 19.5523 20 19 20H15V22Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 9V5C22 3.34315 20.6569 2 19 2H15V4H19C19.5523 4 20 4.44772 20 5V9H22Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 9V5C4 4.44772 4.44772 4 5 4H9V2H5C3.34315 2 2 3.34315 2 5V9H4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 5.99999L11 17L13 17L13 15.8076L13 5.99999L11 5.99999Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.2425 11.3431L11.9999 15.5858L7.75724 11.3431L6.34303 12.7573L11.9999 18.4142L17.6567 12.7573L16.2425 11.3431Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

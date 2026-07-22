@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export const CircleCheck2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M38.8828 7.7979C34.9657 4.19788 29.7395 2 24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 18.6763 44.109 13.7942 40.9621 9.98885L21.601 33.2222L10.3789 22.0001L12.5002 19.8787L21.3994 28.7779L38.8828 7.7979Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

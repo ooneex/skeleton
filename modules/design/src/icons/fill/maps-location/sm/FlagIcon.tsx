@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const FlagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M5 1V23H3V1H5Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.08202 2.62408C10.0663 2.18313 12.1441 2.52031 13.8871 3.56612C15.3194 4.42551 17.0475 4.64174 18.6474 4.16177L22 3.156V17.2441L19.2221 18.0774C17.0832 18.7191 14.773 18.43 12.8581 17.2811C11.5544 16.4988 10.0001 16.2466 8.51588 16.5765L7 16.9133V2.86453L8.08202 2.62408Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

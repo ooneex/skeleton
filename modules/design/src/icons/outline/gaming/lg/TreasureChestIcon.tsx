@@ -1,0 +1,60 @@
+import type { SVGProps } from "react";
+
+export const TreasureChestIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M38 22V16.265C38 12.4029 35.8905 8.84935 32.5 7V7H31.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M10 22V16.265C10 12.4029 12.1095 8.84935 15.5 7V7H16.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M24 28V26V26.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M38 22L38 40" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path d="M10 22L10 40" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path d="M3 22H18" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M30 22H45" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M3 17C3 11.4772 7.47715 7 13 7H35C40.5228 7 45 11.4772 45 17V35C45 37.7614 42.7614 40 40 40H8C5.23858 40 3 37.7614 3 35V17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M17 20C17 18.3431 18.3431 17 20 17H28C29.6569 17 31 18.3431 31 20V26C31 29.866 27.866 33 24 33V33C20.134 33 17 29.866 17 26V20Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <circle
+        cx="24"
+        cy="24"
+        r="2"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

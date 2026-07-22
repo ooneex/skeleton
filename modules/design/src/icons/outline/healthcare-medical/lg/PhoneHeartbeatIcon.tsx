@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const PhoneHeartbeatIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M37 22L37 8C37 5.23858 34.7614 3 32 3L16 3C13.2386 3 11 5.23858 11 8L11 22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M26.5 9L21.5 9C21.2239 9 21 8.77614 21 8.5C21 8.22386 21.2239 8 21.5 8L26.5 8C26.7761 8 27 8.22386 27 8.5C27 8.77614 26.7761 9 26.5 9Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M5 27H15L19.5 16.5L28.5 34.5L33 27H43"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.5 35H18.5C17.1193 35 16 36.1193 16 37.5C16 38.8807 17.1193 40 18.5 40H20.5C21.8807 40 23 38.8807 23 37.5C23 36.1193 21.8807 35 20.5 35Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11 32L11 40C11 42.7614 13.2386 45 16 45L32 45C34.7614 45 37 42.7614 37 40L37 32"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

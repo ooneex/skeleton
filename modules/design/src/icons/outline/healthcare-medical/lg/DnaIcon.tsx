@@ -1,0 +1,54 @@
+import type { SVGProps } from "react";
+
+export const DnaIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M35.8683 9.86833L44 18.0001L43.6464 17.6465"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M24.7084 20.4632L33.506 29.2609L33.1525 28.9073"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M23.2943 27.5342L14.5196 18.7596L14.8731 19.1131"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M12.1317 38.1316L4 29.9999L4.35355 30.3534"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M30.8939 2.96588L30.0109 3.8489V3.8489C28.9239 4.93594 28.5244 6.5336 28.972 8.00431L33.7764 23.7914C35.6397 29.914 29.9165 35.6372 23.7939 33.7739L8.00914 28.9702C6.537 28.5222 4.93778 28.922 3.84968 30.0101V30.0101L2.96579 30.894"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M45.0342 17.106L44.1512 17.989V17.989C43.0641 19.0761 41.4665 19.4755 39.9958 19.0279L24.2087 14.2235C18.0861 12.3602 12.3628 18.0835 14.2261 24.2061L19.0298 39.9908C19.4779 41.4629 19.078 43.0622 17.9899 44.1503V44.1503L17.1061 45.0341"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

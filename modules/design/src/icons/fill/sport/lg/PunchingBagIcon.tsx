@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const PunchingBagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M27 3.68262L30.5596 11H27.2227L23.999 4.37402L20.7773 11H17.4434L21 3.68164V2.5H27V3.68262Z"
+        fill="currentColor"
+      />
+      <path
+        d="M35 40L34.9922 40.3086C34.8316 43.4789 32.2102 46 29 46H19C15.6863 46 13 43.3137 13 40V39H35V40Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M35 1.99994V4.99994H13V1.99994H35Z" fill="currentColor" />
+      <path d="M35 19H13V11H35V19Z" fill="currentColor" data-color="color-2" />
+      <path d="M35 36H13V22H35V36Z" fill="currentColor" />
+    </svg>
+  );
+};

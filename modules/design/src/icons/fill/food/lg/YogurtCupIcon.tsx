@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const YogurtCupIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M19.5 15.25V15C19.5 11.9624 17.0376 9.5 14 9.5C10.9624 9.5 8.5 11.9624 8.5 15V17H5.5V15C5.5 10.3056 9.30558 6.5 14 6.5C18.6944 6.5 22.5 10.3056 22.5 15V15.25C22.5 20.0825 18.5825 24 13.75 24H5.5V21H13.75C16.9256 21 19.5 18.4256 19.5 15.25Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42 23V38C42 41.3137 39.3137 44 36 44H12C8.68629 44 6 41.3137 6 38V23H42ZM16 28V37H32V28H16Z"
+        fill="currentColor"
+      />
+      <path d="M45 21V24H3V21H45Z" fill="currentColor" />
+      <path
+        d="M32.1514 5.34309C33.0038 2.61301 36.1786 1.39035 38.6416 2.84406C40.5703 3.98276 41.3484 6.38099 40.4551 8.43488L36.2939 18.0003H28.2012L32.1514 5.34309Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

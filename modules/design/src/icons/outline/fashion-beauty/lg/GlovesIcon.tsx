@@ -1,0 +1,46 @@
+import type { SVGProps } from "react";
+
+export const GlovesIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M37.5 34H29.5C28.1193 34 27 32.8807 27 31.5V31.5C27 30.1193 28.1193 29 29.5 29H37.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M19 34L22.435 29.2528C24.2163 26.9597 22.19 23.6867 19.3432 24.2588C18.7277 24.3825 18.1636 24.6883 17.724 25.1364L10.5 32.5L10.9905 32"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M30.75 18.3158L30.75 12.375C30.75 10.511 32.261 8.99998 34.125 8.99998V8.99998C35.989 8.99998 37.5 10.511 37.5 12.375L37.5 33L38.5 40.5L37.9308 40.7643C29.3873 44.7309 19.5559 44.8576 10.9131 41.1123L9.5 40.5L10.5 33L10.5 9.37499C10.5 7.51103 12.011 5.99999 13.875 5.99999V5.99999C15.739 5.99999 17.25 7.51103 17.25 9.37499L17.25 14.2105"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17.25 18L17.25 5.375C17.25 3.51104 18.761 2 20.625 2V2C22.489 2 24 3.51104 24 5.375V18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24 17.5V8.375C24 6.51104 25.511 5 27.375 5V5C29.239 5 30.75 6.51104 30.75 8.375V19.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

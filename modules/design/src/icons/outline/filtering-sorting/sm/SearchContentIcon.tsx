@@ -1,0 +1,75 @@
+import type { SVGProps } from "react";
+
+export const SearchContentIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="22"
+        y1="18"
+        x2="18.828"
+        y2="14.828"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="8"
+        y1="9"
+        x2="2"
+        y2="9"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="8"
+        y1="15"
+        x2="2"
+        y2="15"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="17"
+        y1="21"
+        x2="2"
+        y2="21"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="17"
+        y1="3"
+        x2="2"
+        y2="3"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="16"
+        cy="12"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

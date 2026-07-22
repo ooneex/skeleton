@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const MapPlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M14.5 4.51367L2 9.29535V42.4191L14.5 37.6344L14.5 4.51367Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46.5 36C46.5 41.2467 42.2467 45.5 37 45.5C31.7533 45.5 27.5 41.2467 27.5 36C27.5 30.7533 31.7533 26.5 37 26.5C42.2467 26.5 46.5 30.7533 46.5 36ZM38.5 31H35.5V34.5H32V37.5H35.5V41H38.5V37.5H42V34.5H38.5V31Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M25.704 41.3594L17.5 37.7701L17.5 4.54224L30.5 10.2297L30.5 25.3207C26.902 27.5153 24.5 31.4771 24.5 35.9999C24.5 37.918 24.932 39.7351 25.704 41.3594Z"
+        fill="currentColor"
+      />
+      <path
+        d="M46 27.3254V5.58105L33.5 10.3657L33.5 23.9967C34.6106 23.6734 35.7851 23.5001 37 23.5001C40.5345 23.5001 43.7264 24.967 46 27.3254Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

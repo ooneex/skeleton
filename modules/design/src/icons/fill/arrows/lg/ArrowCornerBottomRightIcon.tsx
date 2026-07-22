@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const ArrowCornerBottomRightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42.0013 15.9987L19.0013 15.9987C17.3445 15.9987 16.0013 17.3418 16.0013 18.9987L16.0013 41.9987H13.0013L13.0013 18.9987C13.0013 15.685 15.6876 12.9987 19.0013 12.9987L42.0013 12.9987V15.9987Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29.88 24.4987L39.88 14.4987L29.88 4.49868L32.0013 2.37736L44.1226 14.4987L32.0013 26.62L29.88 24.4987Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.50133 29.8773L14.5013 39.8773L24.5013 29.8773L26.6226 31.9986L14.5013 44.12L2.38 31.9986L4.50133 29.8773Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

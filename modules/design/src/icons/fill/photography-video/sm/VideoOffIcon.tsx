@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const VideoOffIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 4C2.34315 4 1 5.34315 1 7V17C1 18.1117 1.60518 19.0808 2.49927 19.598L17.5007 4.40196C17.0584 4.14611 16.5448 4 16 4H4ZM8 9.5C8 10.3284 7.32843 11 6.5 11C5.67157 11 5 10.3284 5 9.5C5 8.67157 5.67157 8 6.5 8C7.32843 8 8 8.67157 8 9.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.9142 3.50003L1.5 21.9142L0.0857849 20.5L18.5 2.08582L19.9142 3.50003Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 5.55701V18.443L19 16.943V17C19 18.6569 17.6569 20 16 20H6.26894L19.2722 6.95492L23 5.55701Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

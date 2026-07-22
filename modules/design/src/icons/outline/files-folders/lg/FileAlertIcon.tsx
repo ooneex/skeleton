@@ -1,0 +1,44 @@
+import type { SVGProps } from "react";
+
+export const FileAlertIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M20 3V16H7" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" data-cap="butt" fill="none" />
+      <path
+        d="M41 28C41 20.8397 41 13.1495 41 7.99641C41 5.23499 38.7614 3 36 3H20.2426C19.447 3 18.6839 3.31607 18.1213 3.87868L7.87868 14.1213C7.31607 14.6839 7 15.4424 7 16.2381C7 20.4779 7 32.8718 7 40.0084C7 42.7699 9.23858 45 12 45H18.7061"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M33 34L33 39"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M27 44H24.9967C23.4666 44 22.5065 42.3451 23.2651 41.0161L31.2687 27.0054C32.0345 25.6649 33.9661 25.6649 34.7305 27.0054L42.7341 41.0161C43.4942 42.3451 42.5341 44 41.0025 44H39"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M32 44C32 44.5523 32.4477 45 33 45C33.5523 45 34 44.5523 34 44C34 43.4477 33.5523 43 33 43C32.4477 43 32 43.4477 32 44Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

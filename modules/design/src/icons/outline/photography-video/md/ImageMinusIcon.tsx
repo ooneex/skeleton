@@ -1,0 +1,50 @@
+import type { SVGProps } from "react";
+
+export const ImageMinusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M25.5 27L17.5 17L12.5 23.5L10 20.5L5 26.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M9.5 15C10.8807 15 12 13.8807 12 12.5C12 11.1193 10.8807 10 9.5 10C8.11929 10 7 11.1193 7 12.5C7 13.8807 8.11929 15 9.5 15Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24 15C27.866 15 31 11.866 31 8C31 4.13401 27.866 1 24 1C20.134 1 17 4.13401 17 8C17 11.866 20.134 15 24 15Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M21 8H27"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M13.4218 5L5 5C3.34314 5 2 6.34314 2 8L2 24C2 25.6569 3.34314 27 5 27L27 27C28.6569 27 30 25.6569 30 24L30 17.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const TvIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.58582 17H10V19H8.41424L5.00003 22.4142L3.58582 21L7.58582 17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.4142 17H14V19H15.5858L19 22.4142L20.4142 21L16.4142 17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 2C21.6569 2 23 3.34315 23 5L23 16C23 17.6569 21.6569 19 20 19L4 19C2.34314 19 0.999999 17.6569 0.999999 16L1 5C1 3.34314 2.34315 2 4 2L20 2ZM21 5C21 4.44772 20.5523 4 20 4L4 4C3.44772 4 3 4.44771 3 5L3 15C3 15.5523 3.44772 16 4 16L20 16C20.5523 16 21 15.5523 21 15L21 5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

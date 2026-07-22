@@ -1,0 +1,51 @@
+import type { SVGProps } from "react";
+
+export const ConferenceRoomIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M21 2L11 2L11 30L21 30L21 2Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 16C24 14.3431 25.3431 13 27 13C28.6569 13 30 14.3431 30 16C30 17.6569 28.6569 19 27 19C25.3431 19 24 17.6569 24 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 16C2 14.3431 3.34315 13 5 13C6.65685 13 8 14.3431 8 16C8 17.6569 6.65685 19 5 19C3.34315 19 2 17.6569 2 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5C24 3.34315 25.3431 2 27 2C28.6569 2 30 3.34315 30 5C30 6.65685 28.6569 8 27 8C25.3431 8 24 6.65685 24 5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 5C2 3.34315 3.34315 2 5 2C6.65685 2 8 3.34315 8 5C8 6.65685 6.65685 8 5 8C3.34315 8 2 6.65685 2 5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 27C24 25.3431 25.3431 24 27 24C28.6569 24 30 25.3431 30 27C30 28.6569 28.6569 30 27 30C25.3431 30 24 28.6569 24 27Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 27C2 25.3431 3.34315 24 5 24C6.65685 24 8 25.3431 8 27C8 28.6569 6.65685 30 5 30C3.34315 30 2 28.6569 2 27Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

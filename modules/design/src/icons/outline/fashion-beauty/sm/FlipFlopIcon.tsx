@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const FlipFlopIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 6V9V8.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M6.15619 13.8608C6.88713 11.0799 10.1526 9 12 9C13.8474 9 17.1129 11.0799 17.8438 13.8608"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M12 22C9.19998 22 6.79998 19.8 6.49998 17L5.49998 8C5.29998 4.8 7.79998 2 11 2H13C16.2 2 18.7 4.8 18.5 8L17.5 17C17.2 19.8 14.8 22 12 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

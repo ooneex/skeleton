@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const UserBanIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.9393 39.9393L40.9393 27.9393L43.0607 30.0607L31.0607 42.0607L28.9393 39.9393Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M36 28C32.134 28 29 31.134 29 35C29 38.866 32.134 42 36 42C39.866 42 43 38.866 43 35C43 31.134 39.866 28 36 28ZM26 35C26 29.4772 30.4772 25 36 25C41.5228 25 46 29.4772 46 35C46 40.5228 41.5228 45 36 45C30.4772 45 26 40.5228 26 35Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 12C16 7.58172 19.5817 4 24 4C28.4183 4 32 7.58172 32 12C32 16.4183 28.4183 20 24 20C19.5817 20 16 16.4183 16 12Z"
+        fill="currentColor"
+      />
+      <path
+        d="M29.418 23.787C27.7056 23.2755 25.8849 23 24 23C14.1172 23 6 30.5723 6 40.0375V40.7923L6.73105 40.9647C13.0646 42.458 19.4006 43.1295 25.7363 42.9794C24.0214 40.7768 23 38.0077 23 35C23 30.2221 25.5776 26.0462 29.418 23.787Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

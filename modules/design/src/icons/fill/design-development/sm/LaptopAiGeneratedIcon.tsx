@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const LaptopAiGeneratedIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.5 6.01416L20.9421 11.9942H22V13.9942H20.0579L15.5 8.98569L10.5665 14.4069L9.08734 13.0608L15.5 6.01416Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z"
+        fill="currentColor"
+      />
+      <path
+        d="M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V15H20V5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V15H2V5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M8.90002 7.09983L8.00002 4.99983L7.10002 7.09983L5.00002 7.99983L7.10002 8.89983L8.00002 10.9998L8.90002 8.89983L11 7.99983L8.90002 7.09983Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

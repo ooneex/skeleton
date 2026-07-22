@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceAnimeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 18C1 19.6569 2.34315 21 4 21H20C21.6569 21 23 19.6569 23 18V7.00001C23 5.34316 21.6569 4.00001 20 4.00001H16V0.053894L7.77259 4.00001H4C2.34315 4.00001 1 5.34316 1 7.00001V18ZM9 15V17H15V15H9ZM17 9V13H15V9H17ZM9 9H7L7 13H9L9 9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

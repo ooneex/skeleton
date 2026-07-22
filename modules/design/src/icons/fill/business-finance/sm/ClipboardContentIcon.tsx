@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const ClipboardContentIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 6C6.89543 6 6 5.10457 6 4V2C4.34315 2 3 3.34315 3 5V20C3 21.6569 4.34314 23 6 23H18C19.6569 23 21 21.6569 21 20V5C21 3.34315 19.6569 2 18 2V4C18 5.10457 17.1046 6 16 6H8ZM12.5 9V11L7 11L7 9L12.5 9ZM17 9H14.5V11H17V9ZM10 13V15H7V13H10Z"
+        fill="currentColor"
+      />
+      <path
+        d="M8 4V2C8 1.44772 8.44772 1 9 1H15C15.5523 1 16 1.44772 16 2V4H8Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

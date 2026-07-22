@@ -1,0 +1,47 @@
+import type { SVGProps } from "react";
+
+export const ChessQueenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24 2V11V10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M28 6H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M19.5536 18.7143L20.4471 13.9486C20.7677 12.2389 22.2605 11 24 11V11C25.7395 11 27.2323 12.2389 27.5529 13.9486L28.4464 18.7143"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M35.7283 38C41 34 44.5394 29.3287 43.9465 22.7596C43.5577 18.4519 39.9035 15.7401 35.8301 15.1426C29.4223 14.2027 26.1317 21.425 25.0331 27.8076L25 28H23L22.975 27.853C21.887 21.4419 18.5845 14.0938 12.1686 15.1524C8.08112 15.8267 4.44363 18.7034 4.05091 23.0546C3.46752 29.5185 6.99999 34 12.2958 38"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M37 38H11C8.79086 38 7 39.7909 7 42V45H41V42C41 39.7909 39.2091 38 37 38Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const RestaurantMenuIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M28 5H30V28H28V5Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 1C24.2091 1 26 2.79086 26 5V27C26 29.2091 24.2091 31 22 31H8C5.79086 31 4 29.2091 4 27V5C4 2.79086 5.79086 1 8 1H22ZM10 24H20V22H10V24ZM15 9C12.7909 9 11 10.7909 11 13C11 15.2091 12.7909 17 15 17C17.2091 17 19 15.2091 19 13C19 10.7909 17.2091 9 15 9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

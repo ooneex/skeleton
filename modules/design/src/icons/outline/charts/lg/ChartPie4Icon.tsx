@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const ChartPie4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M24 24L36 41" stroke="currentColor" strokeWidth="2" data-color="color-2" fill="none" data-cap="butt" />
+      <path
+        d="M9 39L24 24M24 24V3M24 24H45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M24 45C35.598 45 45 35.598 45 24C45 12.402 35.598 3 24 3C12.402 3 3 12.402 3 24C3 35.598 12.402 45 24 45Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

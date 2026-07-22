@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const Flower5Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 22.0981C12 22.0981 13.3326 19.04 16 17.5C18.6674 15.96 21.5263 16.5981 21.5263 16.5981C21.5263 16.5981 20.8829 20.4336 18.2631 21.9461C15.5958 23.4861 12 22.0981 12 22.0981Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M12 22.0981C12 22.0981 10.6674 19.04 8 17.5C5.33265 15.96 2.47372 16.5981 2.47372 16.5981C2.47372 16.5981 3.11713 20.4337 5.73686 21.9461C8.40421 23.4861 12 22.0981 12 22.0981Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M12 22V14" stroke="currentColor" strokeWidth="2" fill="none" data-cap="butt" />
+      <path
+        d="M6.5 8.5V4L9.5 5L12 2L14.5 5L17.5 4V8.5C17.5 11.5376 15.0376 14 12 14C8.96243 14 6.5 11.5376 6.5 8.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

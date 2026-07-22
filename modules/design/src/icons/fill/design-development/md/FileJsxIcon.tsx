@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const FileJsxIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.5 19H14.25C12.4551 19 11 20.4551 11 22.25C11 24.0449 12.4551 25.5 14.25 25.5H16.75C17.4404 25.5 18 26.0596 18 26.75C18 27.4404 17.4404 28 16.75 28H12.5V30H16.75C18.5449 30 20 28.5449 20 26.75C20 24.9551 18.5449 23.5 16.75 23.5H14.25C13.5596 23.5 13 22.9404 13 22.25C13 21.5596 13.5596 21 14.25 21H18.5V19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 28C7.10457 28 8 27.1046 8 26V19H10V26C10 28.2091 8.20914 30 6 30C3.79086 30 2 28.2091 2 26V24.1429H4V26C4 27.1046 4.89543 28 6 28Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 2C6.79086 2 5 3.79086 5 6V17L27 17V10.5509L17.3802 2H9ZM16 4V12H25L16 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.1315 19H23.0825V19.821L29.8685 30H26.9191V29.1815L20.1315 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29.8685 19H26.9175V19.821L20.1315 30H23.0809V29.1815L29.8685 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

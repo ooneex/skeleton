@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const EyeDropperIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M12 24H30" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M41.2444 12.4807L39 15L40.5 18.75L36 23.25L21.75 9L26.25 4.5L30 6L32.5193 3.75557C34.9644 1.57716 38.6844 1.68437 41 4C43.3156 6.31563 43.4228 10.0356 41.2444 12.4807Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24.3965 11.6035L13.0053 22.9943C11.4401 24.5595 10.7607 26.8034 11.1948 28.9739V28.9739C11.2308 29.1538 11.2136 29.3403 11.1455 29.5106L9.74992 32.9996L11.9999 35.2496L15.4888 33.854C15.6592 33.7859 15.8457 33.7688 16.0256 33.8048V33.8048C18.1962 34.2391 20.4402 33.5598 22.0055 31.9946L33.397 20.603"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M14.75 43.2624C14.75 42.7787 14.5748 42.2784 14.3315 41.8127C13.7667 40.7312 12.9001 39.7987 12 39C11.0998 39.7988 10.2336 40.7332 9.66848 41.8147C9.42529 42.28 9.25 42.7798 9.25 43.2624C9.25 45.0085 10.6664 46 12 46C13.3336 46 14.75 45.0085 14.75 43.2624Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

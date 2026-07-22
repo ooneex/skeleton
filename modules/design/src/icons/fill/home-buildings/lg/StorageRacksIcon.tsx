@@ -1,0 +1,45 @@
+import type { SVGProps } from "react";
+
+export const StorageRacksIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.9209 11.5H9.0791V8.5H38.9209V11.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.9209 25.5H9.0791V22.5H38.9209V25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.9209 18.5H9.0791V15.5H38.9209V18.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.9209 39.5H9.0791V36.5H38.9209V39.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.9209 32.5H9.0791V29.5H38.9209V32.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M11 44L6 44L6 4L11 4L11 44Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M42 44L37 44L37 4L42 4L42 44Z" fill="currentColor" />
+    </svg>
+  );
+};

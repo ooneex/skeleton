@@ -1,0 +1,41 @@
+import type { SVGProps } from "react";
+
+export const MobileCartIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 1L19 2.5C19 3.32843 18.3285 4 17.5 4H12.5C11.6716 4 11 3.32843 11 2.5V1H13V2H17L17 1L19 1Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 30C13 28.8954 13.8954 28 15 28C16.1046 28 17 28.8954 17 30C17 31.1046 16.1046 32 15 32C13.8954 32 13 31.1046 13 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M26 30C26 28.8954 26.8954 28 28 28C29.1046 28 30 28.8954 30 30C30 31.1046 29.1046 32 28 32C26.8954 32 26 31.1046 26 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10 11H14.7213L15.3074 15H31.2338L29.4092 23.6212C29.1157 25.0079 27.8917 26 26.4742 26H17.4902C16.0013 26 14.7378 24.9081 14.5219 23.4349L12.993 13H10V11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 4C24 2.89543 23.1046 2 22 2L8 2C6.89543 2 6 2.89543 6 4L6 28C6 29.1046 6.89543 30 8 30L11 30L11 32L8 32C5.79086 32 4 30.2091 4 28L4 4C4 1.79086 5.79086 -8.83369e-07 8 -7.86805e-07L22 -1.74846e-07C24.2091 -7.8281e-08 26 1.79086 26 4L26 13L24 13L24 4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

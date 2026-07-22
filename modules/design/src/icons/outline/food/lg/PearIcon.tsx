@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const PearIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 12L19 5L18.5 5.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11.7351 22.6518C10.4742 24.5963 9 26.4628 9 31.3951C9 39.3043 15.7157 45 24 45C32.2843 45 39 39.3043 39 31.3951C39 22.7778 34.5 23.5185 34.5 16.8519C34.5 9.56126 30.1804 5 24 5V2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24 39C28.9706 39 33 35.6194 33 30.925"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M28.9439 17.9987C28.9439 17.9987 29.399 13.8413 27.717 11.8833C25.9995 9.88393 22.074 10.0013 22.074 10.0013C22.074 10.0013 21.548 14.0761 23.3009 16.1168C25.0184 18.1161 28.9439 17.9987 28.9439 17.9987Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M6.27208 17.7279C6.27208 17.7279 5.63073 10.5911 8.74695 7.47487C11.9289 4.29289 19 5 19 5C19 5 19.7729 12.0053 16.5251 15.253C13.3431 18.435 6.27208 17.7279 6.27208 17.7279Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

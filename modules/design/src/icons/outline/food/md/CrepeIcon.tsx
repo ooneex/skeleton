@@ -1,0 +1,60 @@
+import type { SVGProps } from "react";
+
+export const CrepeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M19 8L18.4312 10.0528L18.4628 9.93866"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M13 8L13.5688 10.0528L13.5372 9.93866"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M16 5.25359C16 3.45668 14.5229 2 12.7008 2C10.8786 2 9.45798 3.49257 9.4015 5.25359L9.4841 6.43438L9.45312 6.46133C7.17866 6.10371 5 7.85302 5 10.1818C5 10.9337 5.21914 11.6348 5.59754 12.2258L5.58494 12.206"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M19.5 2.5C21.2859 2.98951 22.576 4.24385 22.5715 6.37222L22.5998 6.40234C24.8746 6.07954 27 7.88619 27 10.1818C27 10.9544 26.7687 11.6733 26.3709 12.2743L26.3877 12.2487"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M4 12.8917C7.55863 11.0004 11.7329 9.99446 16 10C20.2671 9.99446 24.4414 11.0004 28 12.8917L16.6667 30L15.3333 30L4 12.8917Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.8147 14.5L15.4521 23"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11.7915 17.877L14.2375 14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

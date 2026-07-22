@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const OpeningQuotationMarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 12.8673V10.5686L2.01449 10.4203C2.3515 6.97101 4.63912 4.02171 7.89615 2.83733L9.59805 2.21846L10.2815 4.09805L8.57964 4.71692C6.04639 5.6381 4.26713 7.932 4.00501 10.6148L4 10.666V12.8673H2Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 12.8673V10.5686L13.0145 10.4203C13.3515 6.97101 15.6391 4.02171 18.8962 2.83733L20.5981 2.21846L21.2815 4.09805L19.5796 4.71692C17.0464 5.6381 15.2671 7.932 15.005 10.6148L15 10.666V12.8673H13Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 11H11V20H2V11Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 11H22V20H13V11Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

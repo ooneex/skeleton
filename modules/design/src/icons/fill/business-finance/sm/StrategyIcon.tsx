@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const StrategyIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M14 3H21V10H19V5H14V3Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.7071 4.70712L9.70711 15.7071L8.29289 14.2929L19.2929 3.29291L20.7071 4.70712Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 17.5C2 15.0147 4.01472 13 6.5 13C8.98528 13 11 15.0147 11 17.5C11 19.9853 8.98528 22 6.5 22C4.01472 22 2 19.9853 2 17.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.4143 4L4.00004 10.4142L2.58583 9L9.00004 2.58578L10.4143 4Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 13.5858L21.4143 20L20 21.4142L13.5858 15L15 13.5858Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.00004 2.58578L10.4143 9L9.00004 10.4142L2.58583 4L4.00004 2.58578Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.4142 15L15 21.4142L13.5858 20L20 13.5858L21.4142 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

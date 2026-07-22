@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const Iron2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25 8L25 12C25 15.3137 22.3137 18 19 18L2 18L2 23L9 23C12.3137 23 15 25.6863 15 29L15 35L46 35L46 29C46 23.6388 43.991 18.7469 40.6848 15.0359C36.7383 10.587 30.9455 8 25 8ZM42.29 24C41.7715 22.2119 40.9816 20.527 39.9627 19L37.5 19C36.1193 19 35 20.1193 35 21.5C35 22.8807 36.1193 24 37.5 24L42.29 24ZM42.9722 28L18 28L18 31L43 31L43 28.9917C42.9998 28.6594 42.9905 28.3288 42.9722 28Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 15L2 14C2 10.6863 4.68629 8 8 8L22 8L22 12C22 13.6569 20.6569 15 19 15L2 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 38H46V41H15V38Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

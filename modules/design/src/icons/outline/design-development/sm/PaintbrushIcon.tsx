@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const PaintbrushIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M11.813 14.2047L20.6571 7.64666C22.1663 6.52752 22.3286 4.32872 21 3.00012V3.00012V3.00012C19.6714 1.67152 17.4726 1.8338 16.3534 3.34305L9.79535 12.187"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11.0038 19.0602C8.85768 21.2063 3.03711 20.9739 3.03711 20.9739C3.03711 20.9739 2.79874 15.1593 4.95079 13.0072C6.9466 11.0114 9.63247 11.428 11.1077 12.9033C12.583 14.3785 12.9996 17.0644 11.0038 19.0602Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

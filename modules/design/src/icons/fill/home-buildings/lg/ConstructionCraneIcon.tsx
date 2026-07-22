@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const ConstructionCraneIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.0035 4.88507L18.1776 11.3418C19.281 12.3349 19.281 14.0651 18.1776 15.0582L12.2423 20.4L18.1776 25.7418C19.281 26.7349 19.281 28.4651 18.1776 29.4582L12.2423 34.8L19.0035 40.8851L16.9966 43.115L9.82246 36.6582C8.71901 35.6651 8.71901 33.9349 9.82246 32.9418L15.7578 27.6L9.82246 22.2582C8.71901 21.2651 8.71901 19.5349 9.82246 18.5418L15.7578 13.2L8.99658 7.11495L11.0035 4.88507Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M39.5 16.5V31.5H36.5V16.5H39.5Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 8.37283L44 11.6128V18H17V8.37283Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 7.62817V18H2V10.521L11 7.62817Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M9 2H19V46H16V5H12V46H9V2Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 43H22V46H6V43Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 29L46 38L30 38L30 29L46 29Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

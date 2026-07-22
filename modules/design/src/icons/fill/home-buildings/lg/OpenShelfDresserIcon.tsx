@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const OpenShelfDresserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.5 2.5V37.5H22.5V2.5H25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M41 27H7V24H41V27Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M41 38H7V35H41V38Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M41 16H7V13H41V16Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M39 46L39 8C39 6.34314 37.6569 5 36 5L12 4.99999C10.3431 4.99999 9 6.34314 9 7.99999L9 46L6 46L6 7.99999C6 4.68628 8.68629 1.99999 12 1.99999L36 2C39.3137 2 42 4.68629 42 8L42 46L39 46Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

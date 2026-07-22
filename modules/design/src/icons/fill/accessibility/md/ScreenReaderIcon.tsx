@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const ScreenReaderIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 7C1 4.79086 2.79086 3 5 3H27C29.2091 3 31 4.79086 31 7V12H29V7C29 5.89543 28.1046 5 27 5H5C3.89543 5 3 5.89543 3 7V25C3 26.1046 3.89543 27 5 27H7V29H5C2.79086 29 1 27.2091 1 25V7Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25 12.3373V31.6627L16.2127 27H9V17H16.2127L25 12.3373Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.3776 15.729L29.1432 16.3722C30.8882 17.8382 32 20.0397 32 22.5C32 24.9603 30.8882 27.1618 29.1432 28.6278L28.3776 29.271L27.0911 27.7397L27.8568 27.0964C29.1687 25.9942 30 24.3447 30 22.5C30 20.6553 29.1687 19.0057 27.8568 17.9035L27.0911 17.2603L28.3776 15.729Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

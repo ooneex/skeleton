@@ -1,0 +1,45 @@
+import type { SVGProps } from "react";
+
+export const StrollerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.2113 9.96456C21.048 9.98791 20.8811 10 20.7113 10C18.7783 10 17.2113 8.433 17.2113 6.5C17.2113 4.567 18.7783 3 20.7113 3C22.6443 3 24.2113 4.567 24.2113 6.5C24.2113 6.61701 24.2056 6.73267 24.1944 6.84673"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M12 13H18.299L17.799 13" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M5 20L7.16908 17.4694C7.6758 16.8782 8.47955 16.6349 9.22909 16.8457L13.3333 18L12.766 17.8405"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M30 4H27L11 20.5V21H20.6672C22.5979 21 24.2531 19.6209 24.6015 17.722L27.0909 4.15634L27 4.65634"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M23.5 30C22.1193 30 21 28.8807 21 27.5C21 26.1193 22.1193 25 23.5 25C24.8807 25 26 26.1193 26 27.5C26 28.8807 24.8807 30 23.5 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M10.5 30C9.11929 30 8 28.8807 8 27.5C8 26.1193 9.11929 25 10.5 25C11.8807 25 13 26.1193 13 27.5C13 28.8807 11.8807 30 10.5 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

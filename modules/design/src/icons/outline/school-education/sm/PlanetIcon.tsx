@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const PlanetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M6.30067 1.76956C4.54527 1.04892 3.17019 0.957911 2.4747 1.6534C0.761385 3.36672 3.82104 9.2042 9.30862 14.6918C14.7962 20.1794 20.6337 23.239 22.347 21.5257C23.0425 20.8302 22.9515 19.4551 22.2308 17.6997"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 15C16.5523 15 17 14.5523 17 14C17 13.4477 16.5523 13 16 13C15.4477 13 15 13.4477 15 14C15 14.5523 15.4477 15 16 15Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const NumbersIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 20H22V18H13C13 17.1857 13.4845 16.4496 14.2324 16.1276L18.7978 14.1619C20.741 13.3252 22 11.4125 22 9.29684C22 6.37148 19.6285 4 16.7032 4H16C13.2386 4 11 6.23858 11 9V10H13V9C13 7.34315 14.3431 6 16 6H16.7032C18.524 6 20 7.47605 20 9.29684C20 10.6137 19.2164 11.8042 18.0069 12.3249L13.4415 14.2906C11.9599 14.9285 11 16.3869 11 18V20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5.66667 4H8V20H6V6.25L1.8 9.4L0.599998 7.8L5.66667 4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const Microphone5Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.99997 19.5858L3.2071 20.7929L4.4142 22L2.99999 23.4142L1.79289 22.2071L0.585754 21L1.99997 19.5858Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.7929 3.30766C13.5266 0.573988 17.9587 0.573988 20.6924 3.30766C23.4261 6.04133 23.4261 10.4735 20.6924 13.2072C17.9587 15.9408 13.5266 15.9408 10.7929 13.2072C8.05923 10.4735 8.05923 6.04133 10.7929 3.30766Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M7.47897 11.8288L2.5 17.9142L6.08577 21.5L12.1712 16.521C11.1571 16.0831 10.2072 15.4499 9.37868 14.6214C8.55012 13.7928 7.91688 12.8429 7.47897 11.8288Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

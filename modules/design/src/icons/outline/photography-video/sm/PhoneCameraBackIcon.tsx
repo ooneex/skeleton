@@ -1,0 +1,30 @@
+import type { SVGProps } from "react";
+
+export const PhoneCameraBackIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M7 22L17 22C18.1046 22 19 21.1046 19 20L19 4C19 2.89543 18.1046 2 17 2L7 2C5.89543 2 5 2.89543 5 4L5 20C5 21.1046 5.89543 22 7 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M9.25 7.5C9.94036 7.5 10.5 6.94036 10.5 6.25C10.5 5.55964 9.94036 5 9.25 5C8.55964 5 8 5.55964 8 6.25C8 6.94036 8.55964 7.5 9.25 7.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M9.25 11.5C9.94036 11.5 10.5 10.9404 10.5 10.25C10.5 9.55964 9.94036 9 9.25 9C8.55964 9 8 9.55964 8 10.25C8 10.9404 8.55964 11.5 9.25 11.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

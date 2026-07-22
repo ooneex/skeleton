@@ -1,0 +1,30 @@
+import type { SVGProps } from "react";
+
+export const BikiniIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 1V6C3 8.76142 5.23858 11 8 11H16C18.7614 11 21 8.76142 21 6V1"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M3 4H5.38306C7.96667 4 10.3912 5.24773 11.8929 7.35009L12 7.5L12.1071 7.35009C13.6088 5.24773 16.0333 4 18.6169 4H21"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M21 15V18L17.8464 18.5256C16.085 18.8192 14.6138 20.0299 13.9868 21.7019L13.5 23H10.5L10.0132 21.7019C9.38621 20.0299 7.91504 18.8192 6.15358 18.5256L3 18V15H21Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

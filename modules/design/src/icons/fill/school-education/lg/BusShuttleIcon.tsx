@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const BusShuttleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.5 11.5V26.5H22.5V11.5H25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M43 42H35V39H13V42H5V24H43V42ZM14.02 31V32C14.02 33.6569 12.6769 35 11.02 35H6V31H14.02ZM34 32V31H42.02V35H37C35.3432 35 34 33.6569 34 32Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 14H43V9C43 6.79086 41.2091 5 39 5H9C6.79086 5 5 6.79086 5 9V14ZM18 7.5V10.5H30V7.5H18ZM34.5 7.5H37.51V10.5H34.5V7.5ZM10.5 7.5V10.5H13.51V7.5H10.5Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M1 16H6V19H1V16Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M42 16H47.02V19H42V16Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10 7C8.34315 7 7 8.34315 7 10V41H12V37H36V41H41V10C41 8.34315 39.6569 7 38 7H10ZM4 10C4 6.68629 6.68629 4 10 4H38C41.3137 4 44 6.68629 44 10V41C44 42.6569 42.6569 44 41 44H36C34.3431 44 33 42.6569 33 41V40H15V41C15 42.6569 13.6569 44 12 44H7C5.34315 44 4 42.6569 4 41V10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

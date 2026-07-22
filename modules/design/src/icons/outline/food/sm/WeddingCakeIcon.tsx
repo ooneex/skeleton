@@ -1,0 +1,56 @@
+import type { SVGProps } from "react";
+
+export const WeddingCakeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 13V14C15 15.6569 13.6569 17 12 17C10.3431 17 9 15.6569 9 14V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M21 13.2401V14C21 15.6569 19.6569 17 18 17C16.3431 17 15 15.6569 15 14V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M9 13V14C9 15.6569 7.65685 17 6 17C4.34315 17 3 15.6569 3 14V13.1928"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M5 13.1619L5 10C5 9.44771 5.44772 9 6 9L18 9C18.5523 9 19 9.44772 19 10L19 13.1619"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M2 21L22 21L22 15C22 13.8954 21.1046 13 20 13L4 13C2.89543 13 2 13.8954 2 15L2 21Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M15.5 2.89829C15.5 4.69086 12.7764 6.5178 12 6.87095C11.2236 6.5178 8.5 4.69086 8.5 2.89829C8.5 1.84971 9.34408 1 10.3847 1C11.0409 1 11.5394 1.39696 11.9461 1.85799H12.0539C12.4606 1.39696 12.9591 1 13.6152 1C14.6559 1 15.5 1.84971 15.5 2.89829Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const StickerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 3C7.02944 3 3 7.02944 3 12C3 16.8348 6.81226 20.7791 11.5947 20.991L20.991 11.5947C20.7791 6.81226 16.8348 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12V12.4142L12.4142 23H12C5.92487 23 1 18.0751 1 12Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.991 11.5947C20.7791 6.81226 16.8348 3 12 3C7.02944 3 3 7.02944 3 12C3 16.8348 6.81226 20.7791 11.5947 20.991V18.5947C11.5947 14.7287 14.7288 11.5947 18.5947 11.5947H20.991Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const MobilePinIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 15.5C19.449 15.5 16.5 18.2564 16.5 21.7403C16.5 25.1829 19.2135 27.9305 22.4774 30.1453L23 30.5L23.5226 30.1453C26.7865 27.9305 29.5 25.1829 29.5 21.7403C29.5 18.2564 26.551 15.5 23 15.5ZM24.8571 21.9776C24.8571 22.9997 24.0257 23.8283 23 23.8283C21.9743 23.8283 21.1429 22.9997 21.1429 21.9776C21.1429 20.9554 21.9743 20.1268 23 20.1268C24.0257 20.1268 24.8571 20.9554 24.8571 21.9776Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5C24 3.89543 23.1046 3 22 3L10 3C8.89543 3 8 3.89543 8 5L8 27C8 28.1046 8.89543 29 10 29L17.7353 29L17.7353 31L10 31C7.79086 31 6 29.2091 6 27L6 5C6 2.79086 7.79086 0.999999 10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 13.2023L24 13.2023L24 5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94035 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

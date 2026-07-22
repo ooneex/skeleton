@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const FacePlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M26 19V31H24V19H26Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31 26L19 26L19 24L31 24L31 26Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 1C7.71573 1 1 7.71573 1 16C1 24.2843 7.71573 31 16 31C18.1333 31 20.1626 30.5547 22 29.7519V28H19C17.8954 28 17 27.1046 17 26V24C17 22.8954 17.8954 22 19 22H22V19C22 17.8954 22.8954 17 24 17H26C27.1046 17 28 17.8954 28 19V22H29.7519C30.5547 20.1626 31 18.1333 31 16C31 7.71573 24.2843 1 16 1ZM10.2483 18.7148L9.96309 17.7563L8.04618 18.3268L8.33143 19.2852C9.31471 22.5891 12.3745 25 16 25V23C13.2835 23 10.9862 21.1939 10.2483 18.7148ZM19 13C19 11.8954 19.8954 11 21 11C22.1046 11 23 11.8954 23 13C23 14.1046 22.1046 15 21 15C19.8954 15 19 14.1046 19 13ZM11 11C9.89543 11 9 11.8954 9 13C9 14.1046 9.89543 15 11 15C12.1046 15 13 14.1046 13 13C13 11.8954 12.1046 11 11 11Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

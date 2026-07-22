@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const CloudRefreshIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21 16.4605C22.1933 15.7663 23 14.4728 23 13C23 10.8 21.2 9 19 9C18.7 5.1 15.5 2 11.5 2C7.5 2 4.2 5.2 4 9.1C2.3 9.5 1 11.1 1 13C1 14.4728 1.80667 15.7663 3 16.4605C3.16005 16.5536 3.32705 16.636 3.5 16.7065"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17 13V17H13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14.7 21.6C13.948 22.165 13.013 22.5 12 22.5C9.515 22.5 7.5 20.485 7.5 18C7.5 15.515 9.515 13.5 12 13.5C14.142 13.5 15.934 14.996 16.388 17H16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

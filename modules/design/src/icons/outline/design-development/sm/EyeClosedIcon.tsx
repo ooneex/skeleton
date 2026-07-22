@@ -1,0 +1,64 @@
+import type { SVGProps } from "react";
+
+export const EyeClosedIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="14.554"
+        y1="13.673"
+        x2="15.412"
+        y2="16.748"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="19.194"
+        y1="11.413"
+        x2="21.208"
+        y2="14"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="9.446"
+        y1="13.673"
+        x2="8.588"
+        y2="16.748"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="4.806"
+        y1="11.413"
+        x2="2.792"
+        y2="14"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m22,9c-6.667,6.667-13.333,6.667-20,0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

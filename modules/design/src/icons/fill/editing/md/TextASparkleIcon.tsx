@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const TextASparkleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M6.85 24.15L5.5 21L4.15 24.15L1 25.5L4.15 26.85L5.5 30L6.85 26.85L10 25.5L6.85 24.15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M27.9 9.1L27 7L26.1 9.1L24 10L26.1 10.9L27 13L27.9 10.9L30 10L27.9 9.1Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M6.6 5.4L6 4L5.4 5.4L4 6L5.4 6.6L6 8L6.6 6.6L8 6L6.6 5.4Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.3507 3H14.6493L8.03814 20H21.8159L24.8808 27.8811V29H27.4618L17.3507 3ZM21.0382 18H10.9618L16 5.04474L21.0382 18Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

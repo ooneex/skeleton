@@ -1,0 +1,43 @@
+import type { SVGProps } from "react";
+
+export const MusicPlayIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 13H4V22H20V13ZM15.5 18L10 15V21L15.5 18Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 21L18 21C18.5523 21 19 20.5523 19 20L19 4C19 3.44772 18.5523 3 18 3L6 3C5.44772 3 5 3.44772 5 4L5 20C5 20.5523 5.44771 21 6 21ZM18 23L6 23C4.34314 23 3 21.6569 3 20L3 4C3 2.34315 4.34315 1 6 1L18 1C19.6569 1 21 2.34315 21 4L21 20C21 21.6569 19.6569 23 18 23Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M11 5V11H9V5H11Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 8L13 11L11 11L11 8L13 8Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 7L9 11L7 11L7 7L9 7Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 8.98999L17 11L15 11L15 8.98999L17 8.98999Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 6V11H13V6H15Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

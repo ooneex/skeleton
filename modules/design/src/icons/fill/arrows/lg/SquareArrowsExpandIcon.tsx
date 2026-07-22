@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const SquareArrowsExpandIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 10C4 6.68629 6.68629 4 10 4H38C41.3137 4 44 6.68629 44 10V38C44 41.3137 41.3137 44 38 44H10C6.68629 44 4 41.3137 4 38V10ZM20.6213 18.5L13.1213 11L20 11L20 8L8 8L8 20H11L11 13.1213L18.5 20.6213L20.6213 18.5ZM20.6213 29.5L18.5 27.3787L11 34.8787L11 28H8L8 40H20L20 37H13.1213L20.6213 29.5ZM27.3787 18.5L34.8787 11L28 11L28 8L40 8V20H37V13.1213L29.5 20.6213L27.3787 18.5ZM27.3787 29.5L29.5 27.3787L37 34.8787V28H40V40H28L28 37H34.8787L27.3787 29.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

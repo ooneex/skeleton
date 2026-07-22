@@ -1,0 +1,60 @@
+import type { SVGProps } from "react";
+
+export const AnimationBounceIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m31,15c-7.5,0-11.5,6-12.9999,16.9999h-.1c-1.5001-10.9999-3.6501-19.9999-14.9001-24.4999"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m38.5,22.5c4.1421,0,7.5-3.3579,7.5-7.5s-3.3579-7.5-7.5-7.5-7.5,3.3579-7.5,7.5,3.3579,7.5,7.5,7.5Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m6,42c.8284,0,1.5-.6716,1.5-1.5s-.6716-1.5-1.5-1.5-1.5.6716-1.5,1.5.6716,1.5,1.5,1.5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m30,42c.8284,0,1.5-.6716,1.5-1.5s-.6716-1.5-1.5-1.5-1.5.6716-1.5,1.5.6716,1.5,1.5,1.5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m18,42c.8284,0,1.5-.6716,1.5-1.5s-.6716-1.5-1.5-1.5-1.5.6716-1.5,1.5.6716,1.5,1.5,1.5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m42,42c.8284,0,1.5-.6716,1.5-1.5s-.6716-1.5-1.5-1.5-1.5.6716-1.5,1.5.6716,1.5,1.5,1.5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

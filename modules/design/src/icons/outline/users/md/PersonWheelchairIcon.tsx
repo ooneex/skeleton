@@ -1,0 +1,50 @@
+import type { SVGProps } from "react";
+
+export const PersonWheelchairIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.5 21L24 24L26 23L23.746 18.0413C23.5944 17.7077 23.2724 17.4837 22.9069 17.4576L16.5 17L15.7453 11.7172C15.6046 10.7319 14.7607 10 13.7654 10H11.3472C10.4903 10 9.67427 10.3664 9.10497 11.0069L6.49736 13.9405C6.20252 14.2722 6.16156 14.7585 6.39677 15.1348L8.5 18.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M14.5 7C15.8807 7 17 5.88071 17 4.5C17 3.11929 15.8807 2 14.5 2C13.1193 2 12 3.11929 12 4.5C12 5.88071 13.1193 7 14.5 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M27.5 31C28.8807 31 30 29.8807 30 28.5C30 27.1193 28.8807 26 27.5 26C26.1193 26 25 27.1193 25 28.5C25 29.8807 26.1193 31 27.5 31Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 23.5C15 25.433 13.433 27 11.5 27"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11.5 16C15.6421 16 19 19.3579 19 23.5C19 27.6421 15.6421 31 11.5 31C7.35786 31 4 27.6421 4 23.5C4 22.2359 4.31273 21.0449 4.86505 20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

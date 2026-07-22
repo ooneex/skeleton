@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const FlickLeftIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14.2883 13.0496L18.5384 5.68825C18.9526 4.97081 19.87 4.725 20.5874 5.13921C21.3049 5.55342 21.5507 6.47081 21.1365 7.18825L18.8864 11.0855L22.0503 14.5323C23.1392 15.5562 23.3082 17.2254 22.4468 18.4468L19.3587 22.5743M10.3553 18.8617L10.8553 17.9957C11.7129 16.5104 10.9609 15.5275 10.77 13.9434C10.7183 13.5137 10.8073 13.0789 11.0236 12.7042L12.6902 9.81751C13.2425 8.86093 14.4657 8.53318 15.4223 9.08546L15.8553 9.33546"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M2.48693 6.68417L2.27698 6.86861C4.93076 4.49341 8.64511 2.95052 12.4869 2.95052C13.5834 2.95052 14.568 3.02746 15.4641 3.17344"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M3.13074 2.68166L1.98691 6.95049L6.25573 8.09432"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

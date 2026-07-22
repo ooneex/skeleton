@@ -1,0 +1,77 @@
+import type { SVGProps } from "react";
+
+export const PositionBottomLeftIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 44L27 44L27 21L4 21L4 44Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M32.8999 4C34.1425 4 35.1499 5.00736 35.1499 6.25C35.1499 7.49264 34.1425 8.5 32.8999 8.5C31.6573 8.5 30.6499 7.49264 30.6499 6.25C30.6499 5.00736 31.6573 4 32.8999 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.1001 4C16.3427 4 17.3501 5.00736 17.3501 6.25C17.3501 7.49264 16.3427 8.5 15.1001 8.5C13.8575 8.5 12.8501 7.49264 12.8501 6.25C12.8501 5.00736 13.8575 4 15.1001 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M32.8999 39.5C34.1425 39.5 35.1499 40.5074 35.1499 41.75C35.1499 42.9926 34.1425 44 32.8999 44C31.6573 44 30.6499 42.9926 30.6499 41.75C30.6499 40.5074 31.6573 39.5 32.8999 39.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.75 6.25012C21.75 5.00748 22.7574 4.00012 24 4.00012C25.2426 4.00012 26.25 5.00748 26.25 6.25012C26.25 7.49276 25.2426 8.50012 24 8.50012C22.7574 8.50012 21.75 7.49276 21.75 6.25012Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41.75 21.75C42.9926 21.75 44 22.7574 44 24C44 25.2426 42.9926 26.25 41.75 26.25C40.5074 26.25 39.5 25.2426 39.5 24C39.5 22.7574 40.5074 21.75 41.75 21.75Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41.75 4C42.9926 4 44 5.00736 44 6.25C44 7.49264 42.9926 8.5 41.75 8.5C40.5074 8.5 39.5 7.49264 39.5 6.25C39.5 5.00736 40.5074 4 41.75 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41.75 39.5C42.9926 39.5 44 40.5074 44 41.75C44 42.9926 42.9926 44 41.75 44C40.5074 44 39.5 42.9926 39.5 41.75C39.5 40.5074 40.5074 39.5 41.75 39.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M4 15.1C4 13.8573 5.00736 12.85 6.25 12.85C7.49264 12.85 8.5 13.8573 8.5 15.1C8.5 16.3426 7.49264 17.35 6.25 17.35C5.00736 17.35 4 16.3426 4 15.1Z"
+        fill="currentColor"
+      />
+      <path
+        d="M39.5 15.1C39.5 13.8573 40.5074 12.85 41.75 12.85C42.9926 12.85 44 13.8573 44 15.1C44 16.3426 42.9926 17.35 41.75 17.35C40.5074 17.35 39.5 16.3426 39.5 15.1Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M39.5 32.9C39.5 31.6574 40.5074 30.65 41.75 30.65C42.9926 30.65 44 31.6574 44 32.9C44 34.1427 42.9926 35.15 41.75 35.15C40.5074 35.15 39.5 34.1427 39.5 32.9Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.25 4C7.49264 4 8.5 5.00736 8.5 6.25C8.5 7.49264 7.49264 8.5 6.25 8.5C5.00736 8.5 4 7.49264 4 6.25C4 5.00736 5.00736 4 6.25 4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

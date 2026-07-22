@@ -1,0 +1,39 @@
+import type { SVGProps } from "react";
+
+export const DrinkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M24 2.5V8H29.5" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M8 2H13L16 16.4052L15.9812 16.3151"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24 16.2595C20.6476 17.8756 18.835 17.8667 16 16.5C13.165 15.1333 11.3524 15.1244 8 16.7405"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24 13.5C27.0376 13.5 29.5 11.0376 29.5 8C29.5 4.96243 27.0376 2.5 24 2.5C20.9624 2.5 18.5 4.96243 18.5 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M8 8V27C8 28.6569 9.34315 30 11 30H21C22.6569 30 24 28.6569 24 27V8H8Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

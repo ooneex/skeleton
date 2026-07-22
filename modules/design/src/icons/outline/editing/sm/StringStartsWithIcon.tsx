@@ -1,0 +1,39 @@
+import type { SVGProps } from "react";
+
+export const StringStartsWithIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M11.9868 12.1319C11.1079 14.0575 9.31903 14.9711 7.64995 14.9996C6.477 15.0196 5.26298 14.3206 5.03431 13.089C4.83805 12.0318 5.48153 10.7847 7.02073 10.3596C8.6972 9.89666 12 10.013 12 10.013"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M12 15V9.23512C12 7.44841 10.5516 6 8.76488 6V6C7.9516 6 7.16816 6.30631 6.57056 6.85794L6 7.38462"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M16 15V3"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M23 11.5V10.5C23 8.567 21.433 7 19.5 7C17.567 7 16 8.567 16 10.5V11.5C16 13.433 17.567 15 19.5 15C21.433 15 23 13.433 23 11.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M23 20H1V15" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+    </svg>
+  );
+};

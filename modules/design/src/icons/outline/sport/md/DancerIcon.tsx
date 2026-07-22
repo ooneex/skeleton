@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const DancerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M18 30V25V25.2893" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M6.5 26.4999L10.5 22.9999L10.2354 23.2204"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17.5 7C18.8807 7 20 5.88071 20 4.5C20 3.11929 18.8807 2 17.5 2C16.1193 2 15 3.11929 15 4.5C15 5.88071 16.1193 7 17.5 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M13 10V12.7245C13 14.327 12.0436 15.7749 10.5697 16.4037L8 17.5C7.99909 24.9465 17.1391 27.7399 22.5 22.5L19.5356 16.0824L20.5 10"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M28.3333 7.33337L21 10L5 10" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+    </svg>
+  );
+};

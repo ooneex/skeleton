@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const PencilIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16.8846 38.5L17 39L15.5 32.5L8.99995 31L9.49995 31.1154"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M15.5626 32.4374L15.3822 32.6177L36 12L35.5762 12.4237"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M40.0545 16.0545L40.2318 16.2318L31.7263 7.72632L31.9132 7.91323"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M6.00003 42.0001L17.2594 39.1853L42.251 14.1937C44.5829 11.8618 44.5828 8.08108 42.251 5.74919C39.9191 3.4173 36.1383 3.4173 33.8064 5.74919L8.81487 30.7408L6.00003 42.0001Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

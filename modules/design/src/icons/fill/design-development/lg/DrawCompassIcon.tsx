@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const DrawCompassIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.5 27.5V38.5H22.5V27.5H25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M25.5 1V7.50006H22.5V1H25.5Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 31.5H42V34.5H6V31.5Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.5 12C16.5 7.85786 19.8579 4.5 24 4.5C28.1421 4.5 31.5 7.85786 31.5 12C31.5 16.1421 28.1421 19.5 24 19.5C19.8579 19.5 16.5 16.1421 16.5 12Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M28.5547 21.4634L41.0792 46.5125L43.7625 45.1708L31.0622 19.7703C30.3165 20.4485 29.4727 21.0207 28.5547 21.4634Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16.9378 19.7703L4.23755 45.1708L6.92083 46.5125L19.4454 21.4634C18.5273 21.0207 17.6836 20.4485 16.9378 19.7703Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

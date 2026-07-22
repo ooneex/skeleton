@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ClearDataIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect x="17" y="13" width="7" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <rect x="17" y="17" width="7" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <rect x="18" y="21" width="6" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <path
+        d="m21.404,1.83l-1.574-1.234-6.754,8.612c-.335-.13-.696-.208-1.076-.208-.436,0-.86.024-1.275.067-.446.524-.725,1.193-.725,1.933,0,1.654,1.346,3,3,3,.603,0,1.163-.182,1.633-.49.038-.093.065-.188.107-.279.132-.365.218-.747.26-1.231,0-.542-.156-1.044-.408-1.484L21.404,1.83Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m14.004,15.898c-.325.066-.66.102-1.004.102-2.757,0-5-2.243-5-5,0-.477.089-.929.214-1.366-4.477,1.586-7.214,6.087-7.214,12.366v1h14.995l-.872-1.502c-.988-1.702-1.359-3.665-1.118-5.6Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

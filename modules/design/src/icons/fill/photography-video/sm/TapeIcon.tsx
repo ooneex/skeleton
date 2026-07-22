@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const TapeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 6C23 4.34315 21.6569 3 20 3H4C2.34315 3 1 4.34315 1 6V18C1 19.6569 2.34314 21 4 21H20C21.6569 21 23 19.6569 23 18V6ZM18.199 16H5.80102L4.3692 19H19.6308L18.199 16ZM8 12.5C9.38071 12.5 10.5 11.3807 10.5 10C10.5 8.61929 9.38071 7.5 8 7.5C6.61929 7.5 5.5 8.61929 5.5 10C5.5 11.3807 6.61929 12.5 8 12.5ZM18.5 10C18.5 11.3807 17.3807 12.5 16 12.5C14.6193 12.5 13.5 11.3807 13.5 10C13.5 8.61929 14.6193 7.5 16 7.5C17.3807 7.5 18.5 8.61929 18.5 10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

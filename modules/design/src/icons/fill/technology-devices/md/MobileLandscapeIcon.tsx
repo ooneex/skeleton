@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const MobileLandscapeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 8C3.89543 8 3 8.89543 3 10L3 22C3 23.1046 3.89543 24 5 24L27 24C28.1046 24 29 23.1046 29 22L29 10C29 8.89543 28.1046 8 27 8L5 8ZM1 10C1 7.79086 2.79086 6 5 6L27 6C29.2091 6 31 7.79086 31 10L31 22C31 24.2091 29.2091 26 27 26L5 26C2.79086 26 1 24.2091 1 22L1 10Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 17.75L5 14.25C5 13.5596 5.55964 13 6.25 13C6.94035 13 7.5 13.5596 7.5 14.25L7.5 17.75C7.5 18.4404 6.94036 19 6.25 19C5.55964 19 5 18.4404 5 17.75Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

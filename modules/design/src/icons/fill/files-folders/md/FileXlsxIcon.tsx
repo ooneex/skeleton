@@ -1,0 +1,56 @@
+import type { SVGProps } from "react";
+
+export const FileXlsxIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23.79 19H26.5515V19.8297L31.7097 29H28.9494V28.1721L23.79 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0.290039 19H3.05145V19.8297L8.20973 29H5.44935V28.1721L0.290039 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31.71 19H28.9496V19.8279L23.7903 29H26.5517V28.1703L31.71 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.20996 19H5.44958V19.8279L0.290266 29H3.05168V28.1703L8.20996 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.5 29H15.5V27H11.5V19H9.5V29Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22.5 19H19C17.3431 19 16 20.3431 16 22C16 23.6569 17.3431 25 19 25H21C21.5523 25 22 25.4477 22 26C22 26.5523 21.5523 27 21 27H17.5V29H21C22.6569 29 24 27.6569 24 26C24 24.3431 22.6569 23 21 23H19C18.4477 23 18 22.5523 18 22C18 21.4477 18.4477 21 19 21H22.5V19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.2426 1C12.1818 1 11.1644 1.42143 10.4142 2.17157L4.17157 8.41421C3.42143 9.16436 3 10.1818 3 11.2426V17H29V5C29 2.79086 27.2091 1 25 1H13.2426ZM13 11V3L5 11H13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

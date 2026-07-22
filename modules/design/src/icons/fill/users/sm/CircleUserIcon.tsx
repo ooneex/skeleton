@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const CircleUserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m12,1C5.935,1,1,5.935,1,12s4.935,11,11,11,11-4.935,11-11S18.065,1,12,1Zm0,5c1.93,0,3.5,1.57,3.5,3.5s-1.57,3.5-3.5,3.5-3.5-1.57-3.5-3.5,1.57-3.5,3.5-3.5Zm0,15c-2.36,0-4.504-.92-6.111-2.412,1.2-2.169,3.497-3.588,6.111-3.588s4.911,1.42,6.111,3.588c-1.607,1.491-3.751,2.412-6.111,2.412Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

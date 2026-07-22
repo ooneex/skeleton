@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const GreenhouseIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M31.4043 12.8311L30.1689 14.4043L16 3.27148L1.83105 14.4043L0.595703 12.8311L16 0.728516L31.4043 12.8311Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28 15.2422V26C28 28.2093 26.2093 30 24 30H8C5.79072 30 4 28.2093 4 26V15.2422L16 5.81348L28 15.2422ZM17 24.9365C16.6756 24.9776 16.3416 25 16 25C15.6584 25 15.3244 24.9776 15 24.9365V28H17V24.9365ZM16 12C16 12 10.5 16.0625 10.5 20.125C10.5 23.0095 12.4403 24.6121 15 24.9365V19H17V24.9365C19.5597 24.6121 21.5 23.0095 21.5 20.125C21.5 16.0625 16 12 16 12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

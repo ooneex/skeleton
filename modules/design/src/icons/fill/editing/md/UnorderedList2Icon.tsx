@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const UnorderedList2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 6C3 3.79086 4.79086 2 7 2C9.20914 2 11 3.79086 11 6C11 8.20914 9.20914 10 7 10C4.79086 10 3 8.20914 3 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 16C3 13.7909 4.79086 12 7 12C9.20914 12 11 13.7909 11 16C11 18.2091 9.20914 20 7 20C4.79086 20 3 18.2091 3 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 26C3 23.7909 4.79086 22 7 22C9.20914 22 11 23.7909 11 26C11 28.2091 9.20914 30 7 30C4.79086 30 3 28.2091 3 26Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 25H30V27H15V25Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 15H30V17H15V15Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 5H30V7H15V5Z" fill="currentColor" />
+    </svg>
+  );
+};

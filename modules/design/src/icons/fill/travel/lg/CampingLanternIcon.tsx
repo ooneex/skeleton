@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const CampingLanternIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M20 34H28V30H20V34Z" fill="currentColor" />
+      <path d="M28 5H20V9H17V2H31V9H28V5Z" fill="currentColor" data-color="color-2" />
+      <path d="M31 39V42H17V39H31Z" fill="currentColor" />
+      <path d="M39 7V10H9V7H39Z" fill="currentColor" data-color="color-2" />
+      <path d="M35 46H13V45C13 42.7909 14.7909 41 17 41H31C33.2091 41 35 42.7909 35 45V46Z" fill="currentColor" />
+      <path
+        d="M18 21.4372C18 20.54 18.75 16.5854 18.75 16.5854L20.4375 17.439L24 13C24 13 30 17.439 30 21.4372C30 24.9837 26.9247 27 24 27C21.0753 27 18 24.9837 18 21.4372Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M11 30V13H14V30C14 31.6569 15.3431 33 17 33H31C32.6569 33 34 31.6569 34 30V13H37V30C37 33.3137 34.3137 36 31 36H17C13.6863 36 11 33.3137 11 30Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

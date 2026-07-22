@@ -1,0 +1,68 @@
+import type { SVGProps } from "react";
+
+export const ListMultipleChoiceIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="3.5"
+        y1="19.5"
+        x2="12.5"
+        y2="28.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="12.5"
+        y1="19.5"
+        x2="3.5"
+        y2="28.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="18"
+        y1="8"
+        x2="29"
+        y2="8"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <rect
+        x="3"
+        y="3"
+        width="10"
+        height="10"
+        rx="1.5"
+        ry="1.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="18"
+        y1="24"
+        x2="29"
+        y2="24"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

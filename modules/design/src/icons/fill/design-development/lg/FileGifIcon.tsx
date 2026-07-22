@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const FileGifIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.0116 31C12.2414 31 10 33.2411 10 36C10 38.7589 12.2414 41 15.0116 41H17.5V38.4286H15.5V35.4286H20.5V44H15.0116C10.5897 44 7 40.4208 7 36C7 31.5792 10.5897 28 15.0116 28H17.5V31H15.0116Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M26.5 28V44H23.5V28H26.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29.5 28L40 28V31H32.5V34.5H37V37.5H32.5V44H29.5V28Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.2426 2C19.1818 2 18.1644 2.42143 17.4142 3.17157L7.17157 13.4142C6.42153 14.1643 6 15.1812 6 16.2422V25H42V7.9991C42 4.68516 39.3135 2 36 2H20.2426ZM20 16V5L9 16H20Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

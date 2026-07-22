@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const LaptopDev2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30.3786 23L34.3786 19L30.3786 15.0001L32.4999 12.8787L38.6213 18.9999L32.4999 25.1213L30.3786 23Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.6214 23L13.6214 19L17.6214 15.0001L15.5001 12.8787L9.37867 18.9999L15.5001 25.1213L17.6214 23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M1 33V37C1 39.2091 2.79086 41 5 41H43C45.2091 41 47 39.2091 47 37V33H32V35C32 35.5523 31.5523 36 31 36H17C16.4477 36 16 35.5523 16 35V33H1Z"
+        fill="currentColor"
+      />
+      <path d="M9.5 5C5.91015 5 3 7.91015 3 11.5V30H6V11.5C6 9.567 7.567 8 9.5 8H21V5H9.5Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M33.0002 1.50006L33.0001 3.5H34.9999L35.0001 1.49994L37.0001 1.50006L36.9999 4.00009C36.9999 4.82848 36.3283 5.5 35.4999 5.5H32.5C31.6716 5.5 31 4.82837 31 3.99991L31.0002 1.49994L33.0002 1.50006Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41 25L41 6C41 4.89543 40.1046 4 39 4L29 4C27.8954 4 27 4.89543 27 6L27 25C27 26.1046 27.8954 27 29 27L39 27C40.1046 27 41 26.1046 41 25ZM44 6L44 25C44 27.7614 41.7614 30 39 30L29 30C26.2386 30 24 27.7614 24 25L24 6C24 3.23858 26.2386 1 29 1L39 1C41.7614 0.999999 44 3.23858 44 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

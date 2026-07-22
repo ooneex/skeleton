@@ -1,0 +1,57 @@
+import type { SVGProps } from "react";
+
+export const CrumpetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M7.75 17.5C8.7165 17.5 9.5 16.7165 9.5 15.75C9.5 14.7835 8.7165 14 7.75 14C6.7835 14 6 14.7835 6 15.75C6 16.7165 6.7835 17.5 7.75 17.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M13.25 23.8333C13.9404 23.8333 14.5 23.2737 14.5 22.5833C14.5 21.893 13.9404 21.3333 13.25 21.3333C12.5596 21.3333 12 21.893 12 22.5833C12 23.2737 12.5596 23.8333 13.25 23.8333Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M22.5833 14.5C23.2737 14.5 23.8333 13.9404 23.8333 13.25C23.8333 12.5596 23.2737 12 22.5833 12C21.893 12 21.3333 12.5596 21.3333 13.25C21.3333 13.9404 21.893 14.5 22.5833 14.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M15.9167 17.1667C16.607 17.1667 17.1667 16.607 17.1667 15.9167C17.1667 15.2263 16.607 14.6667 15.9167 14.6667C15.2263 14.6667 14.6667 15.2263 14.6667 15.9167C14.6667 16.607 15.2263 17.1667 15.9167 17.1667Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M21.75 22.5C22.7165 22.5 23.5 21.7165 23.5 20.75C23.5 19.7835 22.7165 19 21.75 19C20.7835 19 20 19.7835 20 20.75C20 21.7165 20.7835 22.5 21.75 22.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M16.75 9.5C17.7165 9.5 18.5 8.7165 18.5 7.75C18.5 6.7835 17.7165 6 16.75 6C15.7835 6 15 6.7835 15 7.75C15 8.7165 15.7835 9.5 16.75 9.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

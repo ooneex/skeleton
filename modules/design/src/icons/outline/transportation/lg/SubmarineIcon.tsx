@@ -1,0 +1,73 @@
+import type { SVGProps } from "react";
+
+export const SubmarineIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M28 7V7C25.7909 7 24 8.79086 24 11V14H25"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M10 21L8 14.998H4V23.1316"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M10 35L8 41.002H4V32.8775"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M33.0847 19.6867L31.0001 14H17.0001L14.9156 20.7137"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M2 28C2 24.352 4.84741 21.3382 8.48953 21.1313L37.0145 19.5105C41.8924 19.2334 46 23.1142 46 28V28C46 32.8858 41.8924 36.7666 37.0145 36.4895L8.48954 34.8687C4.84741 34.6618 2 31.648 2 28V28Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24 30.5C25.3807 30.5 26.5 29.3807 26.5 28C26.5 26.6193 25.3807 25.5 24 25.5C22.6193 25.5 21.5 26.6193 21.5 28C21.5 29.3807 22.6193 30.5 24 30.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M34.5 30.5C35.8807 30.5 37 29.3807 37 28C37 26.6193 35.8807 25.5 34.5 25.5C33.1193 25.5 32 26.6193 32 28C32 29.3807 33.1193 30.5 34.5 30.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M13.5 30.5C14.8807 30.5 16 29.3807 16 28C16 26.6193 14.8807 25.5 13.5 25.5C12.1193 25.5 11 26.6193 11 28C11 29.3807 12.1193 30.5 13.5 30.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

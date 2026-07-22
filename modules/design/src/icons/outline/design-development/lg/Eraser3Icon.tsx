@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const Eraser3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21 42H45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M41.1132 26.3865L43.0354 24.4644C44.988 22.5118 44.988 19.3459 43.0354 17.3933L33.1359 7.49383C31.1832 5.54121 28.0174 5.54121 26.0648 7.49383L24.1686 9.39003M31.1021 36.3976L25.4998 41.9999L11.2744 41.9999L4.92405 35.7777C2.93739 33.8312 2.92111 30.6375 4.88782 28.6708L14.1963 19.3623"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M32.4136 37.5867L13.1636 18.3367L23.1037 8.39648L42.3537 27.6465L32.4136 37.5867Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

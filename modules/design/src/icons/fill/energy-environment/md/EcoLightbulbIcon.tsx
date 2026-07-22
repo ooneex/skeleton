@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const EcoLightbulbIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 29H19V31H13V29Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M10.833 24.9327L11.2144 29H20.9106L21.2973 24.8753C19.6794 25.5981 17.8866 26 16 26C14.1639 26 12.4167 25.6194 10.833 24.9327Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 13C5 6.92487 9.92487 2 16 2C22.0751 2 27 6.92487 27 13C27 19.0751 22.0751 24 16 24C9.92487 24 5 19.0751 5 13ZM14 19H15V21.9451C15.3283 21.9814 15.662 22 16 22C16.338 22 16.6717 21.9814 17 21.9451V19H18C21.3137 19 24 16.3137 24 13V10H22C18.6863 10 16 12.6863 16 16C16 12.6863 13.3137 10 10 10H8V13C8 16.3137 10.6863 19 14 19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

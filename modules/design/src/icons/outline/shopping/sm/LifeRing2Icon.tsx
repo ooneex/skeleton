@@ -1,0 +1,76 @@
+import type { SVGProps } from "react";
+
+export const LifeRing2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="19.071"
+        y1="4.929"
+        x2="15.536"
+        y2="8.465"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <line
+        x1="19.071"
+        y1="19.071"
+        x2="15.536"
+        y2="15.535"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <line
+        x1="4.929"
+        y1="19.071"
+        x2="8.465"
+        y2="15.536"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <line
+        x1="4.929"
+        y1="4.929"
+        x2="8.465"
+        y2="8.464"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

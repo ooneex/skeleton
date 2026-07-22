@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const BreadSliceIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 19V11.0292C3 10.3833 3.31193 9.77719 3.83752 9.40177L4.22155 9.12747C5.33824 8.32983 5.33824 6.67017 4.22155 5.87253L3.47462 5.33901C3.17677 5.12626 3 4.78277 3 4.41674C3 3.63429 3.6343 3 4.41674 3H19.5833C20.3657 3 21 3.63429 21 4.41674C21 4.78277 20.8232 5.12626 20.5254 5.33901L19.7785 5.87253C18.6618 6.67017 18.6618 8.32983 19.7785 9.12747L20.1625 9.40177C20.6881 9.77719 21 10.3833 21 11.0292V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11.9965 8.00146L12.5 8.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 14.5L15.4069 14.2055"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M8.37383 15.535L8.6304 15.9709"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

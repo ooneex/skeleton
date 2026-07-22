@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const UserContactIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m18,1H6c-1.654,0-3,1.346-3,3v16c0,1.654,1.346,3,3,3h12c1.654,0,3-1.346,3-3V4c0-1.654-1.346-3-3-3Zm-6,4c1.379,0,2.5,1.121,2.5,2.5s-1.121,2.5-2.5,2.5-2.5-1.121-2.5-2.5,1.121-2.5,2.5-2.5Zm-5.567,13l.124-1.111c.312-2.788,2.651-4.889,5.443-4.889s5.132,2.102,5.443,4.889l.124,1.111H6.433Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

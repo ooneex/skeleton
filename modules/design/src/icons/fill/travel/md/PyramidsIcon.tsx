@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const PyramidsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M26.3576 11.5149L31.4408 8.06385L25.5002 0.363091L21.6264 5.38198L26.3576 11.5149Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.0979 20.6803L15.0257 2.6258L12.4065 29.4188L1.0979 20.6803ZM7.37192 19.7103L5.49252 18.258L6.71413 16.6744L8.59482 18.1277L7.37192 19.7103Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.3988 29.6548L31.0154 20.8273L17.0335 2.7026L15.8906 14.3945L17.7112 13.4273L18.6495 15.1935L15.6571 16.7833L14.3988 29.6548ZM22.6477 18.0079L25.2487 16.6262L26.4879 18.2326L23.586 19.7741L22.6477 18.0079Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

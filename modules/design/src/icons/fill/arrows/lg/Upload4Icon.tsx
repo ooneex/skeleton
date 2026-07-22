@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Upload4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M35.1215 15L24.0002 3.87866L12.8789 15L15.0002 17.1213L22.5 9.62153V33H25.5V9.62108L33.0002 17.1213L35.1215 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 31V38C7 39.6569 8.34315 41 10 41H38C39.6569 41 41 39.6569 41 38V31H44V38C44 41.3137 41.3137 44 38 44H10C6.68629 44 4 41.3137 4 38V31H7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

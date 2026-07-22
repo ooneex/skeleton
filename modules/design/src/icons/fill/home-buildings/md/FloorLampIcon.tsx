@@ -1,0 +1,47 @@
+import type { SVGProps } from "react";
+
+export const FloorLampIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 23L20 20L22 20L22 23L20 23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M26 21.4142L24.0858 19.5L25.5 18.0858L27.4142 20L26 21.4142Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 21.4142L17.9142 19.5L16.5 18.0858L14.5858 20L16 21.4142Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 6C4 3.79086 5.79086 2 8 2H18C20.2091 2 22 3.79086 22 6V9H20V6C20 4.89543 19.1046 4 18 4H8C6.89543 4 6 4.89543 6 6V30H4V6Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.7 7C25.7317 7 29 10.2683 29 14.3C29 15.2389 28.2389 16 27.3 16L14.7 16C13.7611 16 13 15.2389 13 14.3C13 10.2683 16.2683 7 20.3 7L21.7 7Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.4 24C13.9405 24 16 26.0595 16 28.6C16 29.3732 15.3732 30 14.6 30L4 30L4 24L11.4 24Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

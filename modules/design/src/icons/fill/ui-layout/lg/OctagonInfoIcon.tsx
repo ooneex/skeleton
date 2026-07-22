@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const OctagonInfoIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M33.1122 2H14.8878L2 14.8878V33.1122L14.8878 46H33.1122L46 33.1122V14.8878L33.1122 2ZM24 16C25.3807 16 26.5 14.8807 26.5 13.5C26.5 12.1193 25.3807 11 24 11C22.6193 11 21.5 12.1193 21.5 13.5C21.5 14.8807 22.6193 16 24 16ZM18 19H21.5C23.7091 19 25.5 20.7909 25.5 23V37H22.5V23C22.5 22.4477 22.0523 22 21.5 22H18V19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const ReservedTagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9.34128 35H5.63913C3.20257 34.9999 1.35136 32.847 1.67429 30.4678L4.85495 14.0664L9.34128 35Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46.2002 34.1621C46.7336 36.6521 44.8356 39 42.2891 39H17.3086C14.9509 39 12.913 37.3531 12.4189 35.0479L6.83789 9H40.8086L46.2002 34.1621ZM19.2891 28H36L34.2109 20H17.5L19.2891 28Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

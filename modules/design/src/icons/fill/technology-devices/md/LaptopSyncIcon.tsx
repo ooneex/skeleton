@@ -1,0 +1,46 @@
+import type { SVGProps } from "react";
+
+export const LaptopSyncIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 5C5.89543 5 5 5.89543 5 7V21H3V7C3 4.79086 4.79086 3 7 3H16.261V5H7Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23.5 5C21.3795 5 19.5376 6.19977 18.619 7.96219L18.1568 8.84897L16.3832 7.9246L16.8454 7.03781C18.0949 4.64045 20.6051 3 23.5 3C27.2507 3 30.3567 5.7522 30.9118 9.3474L31.0898 10.5H28V8.5H28.6253C27.8254 6.45146 25.8315 5 23.5 5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.9102 10.5H19V12.5H18.3746C19.1746 14.5485 21.1684 16 23.5 16C25.6205 16 27.4624 14.8002 28.381 13.0378L28.8432 12.151L30.6167 13.0754L30.1545 13.9622C28.9051 16.3595 26.3949 18 23.5 18C19.7493 18 16.6433 15.2478 16.0881 11.6526L15.9102 10.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M32 4.5V10.5H26V8.5H30V4.5H32Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 16.5V10.5H21V12.5H17V16.5H15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M1 23V26C1 27.1046 1.89543 28 3 28H29C30.1046 28 31 27.1046 31 26V23H22C22 23.5523 21.5523 24 21 24H11C10.4477 24 10 23.5523 10 23H1Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

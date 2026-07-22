@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const FirstAidKitIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 2H33V12H30V5H18V12H15V2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M46 29C46 32.3137 43.3137 35 40 35H8C4.68629 35 2 32.3137 2 29V9H46V29ZM21 13V19H15V25H21V31H27V25H33V19H27V13H21Z"
+        fill="currentColor"
+      />
+      <path
+        d="M44 44H4V37.0615C5.20525 37.6607 6.56269 38 8 38H40C41.4373 38 42.7947 37.6607 44 37.0615V44Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

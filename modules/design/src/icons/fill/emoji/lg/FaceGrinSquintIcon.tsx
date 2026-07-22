@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceGrinSquintIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24ZM24 39C31.1797 39 37 33.1797 37 26H11C11 33.1797 16.8203 39 24 39ZM34.7891 15.7673L32.7446 18H38V21H28V18.739L32.5767 13.7412L34.7891 15.7673ZM13.2109 15.7673L15.4233 13.7412L20 18.739V21H10V18H15.2555L13.2109 15.7673Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

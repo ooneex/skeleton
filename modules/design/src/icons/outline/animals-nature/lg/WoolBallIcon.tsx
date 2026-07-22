@@ -1,0 +1,67 @@
+import type { SVGProps } from "react";
+
+export const WoolBallIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M44 27.1103C43.3433 27.0383 42.6765 27 42 27C34.0395 27 27.2286 31.8975 24.4026 38.8429"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M29.25 3.06409C29.1 4.02209 29 4.99809 29 6.00009C29 11.4801 31.322 16.4121 35.036 19.8741"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M9.05402 20.946C14.368 20.654 19.094 18.184 22.358 14.412"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M21.084 4.31799C21.05 4.87599 21 5.43199 21 5.99999C21 12.6 23.37 18.638 27.304 23.32"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M16.9439 36C20.9188 26.0445 30.6253 19 42 19C43.0157 19 44.0154 19.0649 45 19.181"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M15.0001 45H5.99994C4.34311 45 2.99998 43.6569 2.99994 42.0001C2.9999 40.3432 4.34306 39 5.99994 39H27"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M27 39C36.9411 39 45 30.9411 45 21C45 11.0589 36.9411 3 27 3C17.0589 3 9 11.0589 9 21C9 30.9411 17.0589 39 27 39Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

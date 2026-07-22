@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const PaperclipIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m13,8v14.5c0,1.933,1.567,3.5,3.5,3.5h0c1.933,0,3.5-1.567,3.5-3.5V7c0-3.314-2.686-6-6-6h0c-3.314,0-6,2.686-6,6v15.5c0,4.694,3.806,8.5,8.5,8.5h0c4.694,0,8.5-3.806,8.5-8.5h0v-13.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

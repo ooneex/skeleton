@@ -1,0 +1,18 @@
+import type { SVGProps } from "react";
+
+export const Heading2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 27H31V25H20V24.5714C20 23.1975 20.7744 21.9408 22.0017 21.3232L26.9829 18.8164C29.4459 17.5769 31 15.055 31 12.2977V11.5C31 7.91015 28.0899 5 24.5 5C20.9101 5 18 7.91015 18 11.5V12.7143H20V11.5C20 9.01472 22.0147 7 24.5 7C26.9853 7 29 9.01472 29 11.5V12.2977C29 14.2993 27.8718 16.1301 26.0838 17.0299L21.1027 19.5366C19.2003 20.494 18 22.4418 18 24.5714V27Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M1 15H15V17H1V15Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M3 5V27H1V5H3Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 5V27H13V5H15Z" fill="currentColor" />
+    </svg>
+  );
+};

@@ -1,0 +1,76 @@
+import type { SVGProps } from "react";
+
+export const ParagraphAddIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="3"
+        y1="9"
+        x2="21"
+        y2="9"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="3"
+        y1="4"
+        x2="21"
+        y2="4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="3"
+        y1="14"
+        x2="9"
+        y2="14"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="3"
+        y1="19"
+        x2="9"
+        y2="19"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="17"
+        y1="13"
+        x2="17"
+        y2="21"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="21"
+        y1="17"
+        x2="13"
+        y2="17"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

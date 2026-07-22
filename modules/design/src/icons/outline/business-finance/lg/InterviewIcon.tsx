@@ -1,0 +1,64 @@
+import type { SVGProps } from "react";
+
+export const InterviewIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M33.21 5.77141C30.8798 3.44124 27.6607 2 24.105 2C20.5493 2 17.3302 3.44124 15 5.77142"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M29.5681 9.26285C28.17 7.86474 26.2385 7 24.1051 7C21.9717 7 20.0402 7.86475 18.6421 9.26285"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M26.0701 12.7929C25.5672 12.29 24.8725 11.979 24.1051 11.979C23.3377 11.979 22.643 12.29 22.1401 12.7929"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M35 24C35 24.5523 35.4477 25 36 25C36.5523 25 37 24.5523 37 24C37 23.4477 36.5523 23 36 23C35.4477 23 35 23.4477 35 24Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+      />
+      <path
+        d="M11 24C11 24.5523 11.4477 25 12 25C12.5523 25 13 24.5523 13 24C13 23.4477 12.5523 23 12 23C11.4477 23 11 23.4477 11 24Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+      />
+      <path
+        d="M39 43.9999V39.9999H35.2218C33.317 39.9121 31.739 38.6894 31.4516 36.8043L30.8402 32.7928L28.342 31.771C27.7909 31.5456 27.5576 30.8916 27.8417 30.3683L31.173 24.2324L31.2381 23.0349C31.635 15.7243 37.6786 9.99989 45 9.99989"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M9.00003 43.9999V39.9999H12.7782C14.683 39.9121 16.261 38.6894 16.5484 36.8043L17.1598 32.7928L19.658 31.7711C20.2091 31.5457 20.4424 30.8916 20.1583 30.3683L16.827 24.2325L16.7619 23.0349C16.365 15.7243 10.3214 9.99992 3.00003 9.99992"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

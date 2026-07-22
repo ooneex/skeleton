@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Computer3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 6C30 3.79086 28.2091 2 26 2H6C3.79086 2 2 3.79086 2 6V21C2 23.2091 3.79086 25 6 25H26C28.2091 25 30 23.2091 30 21V6ZM25 20V7L7 7L7 20H25Z"
+        fill="currentColor"
+      />
+      <path
+        d="M15 27H4C4 28.6569 5.34315 30 7 30L25 30C26.6569 30 28 28.6569 28 27L23.0133 27V28H15V27Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

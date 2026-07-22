@@ -1,0 +1,18 @@
+import type { SVGProps } from "react";
+
+export const MakeupMirrorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16 5C18.8713 5 21.3886 6.51321 22.7998 8.78516L17.5859 14L19 15.4141L23.6738 10.7393C23.8847 11.4563 24 12.2146 24 13C24 17.4183 20.4183 21 16 21C13.1282 21 10.6103 19.4865 9.19922 17.2139L14.915 11.5L13.5 10.0859L8.3252 15.2598C8.1145 14.543 8 13.7849 8 13C8 8.58172 11.5817 5 16 5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M26 13C26 7.47715 21.5228 3 16 3C10.4772 3 6 7.47715 6 13C6 18.5228 10.4772 23 16 23C21.5228 23 26 18.5228 26 13ZM28 13C28 19.6274 22.6274 25 16 25C9.37258 25 4 19.6274 4 13C4 6.37258 9.37258 1 16 1C22.6274 1 28 6.37258 28 13Z"
+        fill="currentColor"
+      />
+      <path d="M30 26C30 28.2091 28.2091 30 26 30H6C3.79086 30 2 28.2091 2 26V25H30V26Z" fill="currentColor" />
+    </svg>
+  );
+};

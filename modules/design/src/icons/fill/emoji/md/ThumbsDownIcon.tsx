@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const ThumbsDownIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M10 20L13.4091 29.2526C13.7562 30.2791 14.7584 30.9368 15.8382 30.8468C17.0601 30.745 18 29.7235 18 28.4974V21H26.6976C28.7849 21 30.2342 18.9214 29.5126 16.9629L25.0651 4.89127C24.4373 3.18724 22.7403 2.11996 20.9325 2.29213L10 3.33333V20Z"
+        fill="currentColor"
+      />
+      <path d="M8 20V3.5238L3 4V20H8Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

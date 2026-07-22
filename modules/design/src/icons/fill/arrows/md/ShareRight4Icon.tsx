@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const ShareRight4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M28 22V28H2V30H30V22H28Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 20L4.00001 23L2.00001 23L2 20C1.99998 13.9249 6.92485 9 13 9L25 9L25 11L13 11C8.02942 11 3.99998 15.0295 4 20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.5857 3.00003L23.5857 10L16.5857 17L17.9999 18.4142L26.4141 10L17.9999 1.58582L16.5857 3.00003Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

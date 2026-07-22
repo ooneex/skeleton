@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const KeyboardHideDownIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 23.5858L16 28.5859L21 23.5858L22.4143 25.0001L16 31.4143L9.58582 25.0001L11 23.5858Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31 17L31 7C31 4.79086 29.2091 3 27 3L5 3C2.79086 3 1 4.79086 1 7V17C1 19.2091 2.79086 21 5 21H27C29.2091 21 31 19.2091 31 17ZM17 7V9H19.0133V7H17ZM21 7H23.0133V9H21V7ZM25 7V9H27.0133V7H25ZM13 7H15.0133V9H13V7ZM5 7V9H7.01333V7H5ZM9 7H11.0133V9H9V7ZM17 11V13H19.0133V11H17ZM21 11H23.0133V13H21V11ZM25 11V13H27.0133V11H25ZM13 11H15.0133V13H13V11ZM5 11V13H7.01333V11H5ZM9 11H11.0133V13H9V11ZM25 15V17H27.0133V15H25ZM5 15H7.01333V17H5V15ZM9 15V17H23V15H9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

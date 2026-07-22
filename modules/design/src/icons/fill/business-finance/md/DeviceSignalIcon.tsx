@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const DeviceSignalIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 0H20C26.0751 0 31 4.92487 31 11V12H29V11C29 6.02944 24.9706 2 20 2H19V0Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 4H20C23.866 4 27 7.13401 27 11V12H25V11C25 8.23858 22.7614 6 20 6H19V4Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 4H20C23.866 4 27 7.13401 27 11V12H25V11C25 8.23858 22.7614 6 20 6H19V4Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10 5H17V6C17 7.10457 17.8954 8 19 8H20C21.6569 8 23 9.34315 23 11V12C23 13.1046 23.8954 14 25 14H26V27C26 29.2091 24.2091 31 22 31H10C7.79086 31 6 29.2091 6 27V9C6 6.79086 7.79086 5 10 5ZM21 10H11V19H21V10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

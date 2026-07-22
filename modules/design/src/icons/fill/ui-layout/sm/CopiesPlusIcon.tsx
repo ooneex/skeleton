@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const CopiesPlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect x="4" y="5" width="16" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <rect x="7" y="1" width="10" height="2" fill="currentColor" strokeWidth="0" data-color="color-2" />
+      <path
+        d="m11,20v-2c0-1.104.896-2,2-2h2v-2c0-1.104.896-2,2-2h2c1.104,0,2,.896,2,2v2h2v-7H1v13h12c-1.104,0-2-.896-2-2Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <polygon
+        points="23 18 19 18 19 14 17 14 17 18 13 18 13 20 17 20 17 24 19 24 19 20 23 20 23 18"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

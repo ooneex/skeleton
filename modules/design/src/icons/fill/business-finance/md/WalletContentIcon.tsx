@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const WalletContentIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M10 8V2H25V8" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 7.5C3 5.567 4.567 4 6.5 4H8V6H6.5C5.67157 6 5 6.67157 5 7.5C5 8.32843 5.67157 9 6.5 9L26 9C27.6569 9 29 10.3431 29 12V25C29 26.6569 27.6569 28 26 28H6C4.34315 28 3 26.6569 3 25V7.5ZM27 23H23.8571C21.7267 23 20 21.2093 20 19C20 16.7907 21.7267 15 23.8571 15H27V23Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

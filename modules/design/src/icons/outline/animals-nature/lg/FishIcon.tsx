@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const FishIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23.4279 5.34241L23.7946 6.52402C26.3762 14.8424 33.0236 21.4733 41.3813 23.9244L41.6391 24"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path d="M24 24L25 29L30 27" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M38.5005 28.5913C47.4272 19.6765 43.5 4.49993 43.5 4.49993C43.5 4.49993 29.7155 -0.0951624 20.5849 7.07066C19.8394 7.6558 19.0831 8.23564 18.258 8.70199L8 14.5L14 18.9999C12.9063 22.7206 12.7068 26.2122 12.9264 29.1991L3.32809 32.2103L15.7896 44.6718L18.8008 35.0735C24.3581 35.4831 32.1929 34.8905 38.5005 28.5913Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M30.5 9.5C30.5 10.0523 30.9477 10.5 31.5 10.5C32.0523 10.5 32.5 10.0523 32.5 9.5C32.5 8.94772 32.0523 8.5 31.5 8.5C30.9477 8.5 30.5 8.94772 30.5 9.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M30 9.5C30 10.3284 30.6716 11 31.5 11C32.3284 11 33 10.3284 33 9.5C33 8.67157 32.3284 8 31.5 8C30.6716 8 30 8.67157 30 9.5Z"
+        fill="currentColor"
+        data-stroke="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

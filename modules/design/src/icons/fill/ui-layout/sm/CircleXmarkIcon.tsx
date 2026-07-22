@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const CircleXmarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m12,1C5.935,1,1,5.935,1,12s4.935,11,11,11,11-4.935,11-11S18.065,1,12,1Zm4.914,14.5l-1.414,1.414-3.5-3.5-3.5,3.5-1.414-1.414,3.5-3.5-3.5-3.5,1.414-1.414,3.5,3.5,3.5-3.5,1.414,1.414-3.5,3.5,3.5,3.5Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

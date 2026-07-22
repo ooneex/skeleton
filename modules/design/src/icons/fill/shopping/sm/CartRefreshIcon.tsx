@@ -1,0 +1,44 @@
+import type { SVGProps } from "react";
+
+export const CartRefreshIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M6 23C7.10457 23 8 22.1046 8 21C8 19.8954 7.10457 19 6 19C4.89543 19 4 19.8954 4 21C4 22.1046 4.89543 23 6 23Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 13V18.5H18.5V16.5H22V13H24Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 24V18.5H17.5V20.5H14V24H12Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.854 15C16.8178 15 15.8875 15.4493 15.2452 16.1669L14.5782 16.9121L13.088 15.5782L13.7549 14.8331C14.7606 13.7095 16.2252 13 17.854 13C20.4731 13 22.6623 14.8292 23.2173 17.2791L23.4939 18.5H20.854V16.6958C20.2417 15.6796 19.1268 15 17.854 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M20.6395 11.534C19.7787 11.1895 18.8388 11 17.854 11C15.6322 11 13.6334 11.9701 12.2647 13.4992L11.5978 14.2443C11.244 14.6395 11.0617 15.1591 11.0911 15.6887V17H7.734C6.251 17 4.974 15.893 4.764 14.425L3.133 3H0V1H4.867L5.438 5H23.219L22.0189 11H22C21.4746 11 20.9964 11.2026 20.6395 11.534Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.146 22C19.1822 22 20.1125 21.5507 20.7548 20.8331L21.4218 20.0879L22.912 21.4218L22.2451 22.1669C21.2394 23.2905 19.7748 24 18.146 24C15.5269 24 13.3377 22.1708 12.7827 19.7209L12.5061 18.5H15.146V20.3042C15.7583 21.3204 16.8732 22 18.146 22Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

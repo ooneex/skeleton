@@ -1,0 +1,68 @@
+import type { SVGProps } from "react";
+
+export const WindowCurtainsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M24 5V40" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M16 40H32" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M12.0212 29.0057C10.5046 29.6605 7 30.6 5 29"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M35.9788 29.0057C37.4954 29.6605 41 30.6 43 29"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M5 43L16 43L16 41.2219C16 37.578 14.8292 34.0306 12.6602 31.1026L11.3084 29.2778C17 27 19.925 18.7222 18.8634 5L17.8017 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M43.0356 43L32.0356 43L32.0356 41.2219C32.0356 37.578 33.2064 34.0306 35.3754 31.1026L36.7273 29.2778C31.0356 27 28.1106 18.7222 29.1723 5L30.234 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M43 43L43 10C43 7.23858 40.7614 5 38 5L10 5C7.23858 5 5 7.23857 5 10L5 43"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M38 36V29.5V30"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M10 36V29.5V30"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

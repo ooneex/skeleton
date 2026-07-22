@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const Clock2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m20,13v-2h2.949c-.478-5.268-4.681-9.472-9.949-9.949v2.949h-2V1.051C5.732,1.528,1.528,5.732,1.051,11h2.949v2H1.051c.478,5.268,4.681,9.472,9.949,9.949v-2.949h2v2.949c5.268-.478,9.472-4.681,9.949-9.949h-2.949Zm-3,0h-5.48l-4.925-6.156,1.562-1.25,4.324,5.406h4.52v2Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

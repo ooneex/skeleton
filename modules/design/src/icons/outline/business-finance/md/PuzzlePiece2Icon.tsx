@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const PuzzlePiece2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 1C12.7909 1 11 2.79086 11 5L3 5V13C5.20914 13 7 14.7909 7 17C7 19.2091 5.20914 21 3 21V29H11C11 26.7909 12.7909 25 15 25C17.2091 25 19 26.7909 19 29H27V20C29.2091 20 31 18.2091 31 16C31 13.7909 29.2091 12 27 12V5L19 5C19 2.79086 17.2091 1 15 1Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

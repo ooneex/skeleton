@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const DropletIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m12.665.628l-.666-.593-.666.594c-.34.304-8.334,7.506-8.334,13.371,0,5.634,4.576,9,9,9s9-3.366,9-9C21,8.119,13.005.932,12.665.628Zm.335,18.372h-1c-2.424,0-5-1.752-5-5v-1h2v1c0,2.373,1.962,3,3,3h1v2Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const UserBookOpenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M11 9.05061L1 6.74292V20.4878L11 22.7955V9.05061Z" fill="currentColor" />
+      <path d="M13 9.05061V22.7955L23 20.4878V6.74292L13 9.05061Z" fill="currentColor" />
+      <path
+        d="M12 1C9.51472 1 7.5 3.01472 7.5 5.5C7.5 5.73913 7.51865 5.97391 7.55458 6.20295L12 7.22882L16.4454 6.20295C16.4813 5.97391 16.5 5.73913 16.5 5.5C16.5 3.01472 14.4853 1 12 1Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const HdmiIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M18 9L14 9V6H12V9L8 9V1H24L24 9L20 9V6H18V9Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.63636 25.6504L8.63636 31H23.3636V25.6504C23.3636 25.439 23.4306 25.2331 23.5549 25.0622L26.4262 21.1141C26.7991 20.6014 27 19.9837 27 19.3496V11L5 11V19.3496C5 19.9837 5.20087 20.6014 5.57379 21.1141L8.4451 25.0622C8.56941 25.2331 8.63636 25.439 8.63636 25.6504ZM21 15H11V19H21V15Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

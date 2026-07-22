@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const BasketClockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.7293 1.77289L5.29319 13.4855L3.67032 12.3166L12.1065 0.604004L13.7293 1.77289Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.8913 0.60376L28.1316 12.0053L26.5107 13.1768L18.2704 1.77529L19.8913 0.60376Z"
+        fill="currentColor"
+      />
+      <path d="M31 8H1V14H31V8Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 31.5C28.1421 31.5 31.5 28.1421 31.5 24C31.5 19.8579 28.1421 16.5 24 16.5C19.8579 16.5 16.5 19.8579 16.5 24C16.5 28.1421 19.8579 31.5 24 31.5ZM25 20H23V24.5352L27.2774 27.3868L28.3868 25.7227L25 23.4648V20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.6342 30C15.3 28.3641 14.5 26.2755 14.5 24C14.5 20.6411 16.2432 17.6893 18.8744 16H2.91309L3.7741 26.3322C3.94687 28.4054 5.67993 30 7.76028 30H16.6342ZM10 19H12V26H10V19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

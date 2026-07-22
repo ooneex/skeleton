@@ -1,0 +1,61 @@
+import type { SVGProps } from "react";
+
+export const EyeSlashIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m11.432,20.568c-2.074-1.445-3.432-3.848-3.432-6.568,0-4.418,3.582-8,8-8,2.72,0,5.123,1.357,6.568,3.432"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <path
+        d="m23.993,13.664c.005.111.007.223.007.336,0,4.418-3.582,8-8,8-.112,0-.224-.002-.336-.007"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m15.129,16.872c-1.232-.373-2.129-1.518-2.129-2.872,0-1.657,1.343-3,3-3,1.354,0,2.498.897,2.872,2.129"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <path
+        d="m8.322,23.681c-4.431-2.954-6.322-7.681-6.322-7.681,0,0,4-10,14-10,3.125,0,5.664.977,7.678,2.319"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <path
+        d="m26.706,10.951c2.281,2.516,3.294,5.049,3.294,5.049,0,0-4,10-14,10-1.387,0-2.658-.192-3.819-.524"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="2"
+        y1="30"
+        x2="30"
+        y2="2"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

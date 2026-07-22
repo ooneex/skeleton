@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const PowerOffIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.86633 4.56892L8.00073 5.06965C5.60691 6.45439 4 9.04013 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 9.04013 18.3931 6.45439 15.9993 5.06965L15.1337 4.56892L16.1351 2.83771L17.0007 3.33843C19.9871 5.06597 22 8.29733 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 8.29733 4.01288 5.06597 6.99927 3.33843L7.86488 2.83771L8.86633 4.56892Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 1V12H11V1H13Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

@@ -1,0 +1,57 @@
+import type { SVGProps } from "react";
+
+export const WindowPaintbrushIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M2 13H18.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M18.5 4H5C3.34315 4 2 5.34315 2 7V25C2 26.6569 3.34315 28 5 28H18.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M6.5 9C6.77614 9 7 8.77614 7 8.5C7 8.22386 6.77614 8 6.5 8C6.22386 8 6 8.22386 6 8.5C6 8.77614 6.22386 9 6.5 9Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+      />
+      <path
+        d="M11.5 9C11.7761 9 12 8.77614 12 8.5C12 8.22386 11.7761 8 11.5 8C11.2239 8 11 8.22386 11 8.5C11 8.77614 11.2239 9 11.5 9Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+      />
+      <path
+        d="M30.0003 21.6548C30.0003 24.8458 25.5003 29.0002 25.5003 29.0002C25.5003 29.0002 21.0003 24.8547 21.0003 21.6548C21.0003 18.6873 23.3067 17.0002 25.5003 17.0002C27.6938 17.0002 30.0003 18.6873 30.0003 21.6548Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M26.9 17.0002L28.4808 6.46125C28.7542 4.63888 27.3428 2.99998 25.5 2.99998V2.99998C23.6572 2.99998 22.2458 4.63888 22.5192 6.46126L24.1 17.0002"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

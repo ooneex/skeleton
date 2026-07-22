@@ -1,0 +1,47 @@
+import type { SVGProps } from "react";
+
+export const WifiLockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20.5925 33.5811L16.9346 29.9232C18.7438 28.1169 21.2415 27 24 27C24.3856 27 24.7662 27.0218 25.1404 27.0643"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M45.1819 15.7556C39.7555 10.345 32.2684 7 24 7C15.7475 7 8.27334 10.3321 2.84943 15.7244L6.32233 19.3223C10.8464 14.7982 17.0964 12 24 12C30.9036 12 37.1536 14.7982 41.6777 19.3223L45.1819 15.7556Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M28.5724 22.7097C27.1308 22.2488 25.5945 22 24 22C19.8579 22 16.1079 23.6789 13.3934 26.3934L9.85785 22.8579C13.4771 19.2386 18.4771 17 24 17C28.6739 17 32.9734 18.6033 36.3785 21.2899"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M40.5 34H27.5C26.1193 34 25 35.1193 25 36.5V42.5C25 43.8807 26.1193 45 27.5 45H40.5C41.8807 45 43 43.8807 43 42.5V36.5C43 35.1193 41.8807 34 40.5 34Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M29.5 34V30.5C29.5 28.0147 31.5147 26 34 26V26C36.4853 26 38.5 28.0147 38.5 30.5V34"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

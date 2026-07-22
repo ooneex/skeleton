@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const BarberPoleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M15 0H17V3H15V0Z" fill="currentColor" />
+      <path
+        d="M17.707 9.70702L11.707 15.707L10.2929 14.293L16.2929 8.29295L17.707 9.70702Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M21.707 17.707L15.707 23.707L14.293 22.293L20.293 16.293L21.707 17.707Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M21.707 11.707L11.707 21.707L10.293 20.293L20.293 10.293L21.707 11.707Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M9.99997 8H12V24H9.99997V8Z" fill="currentColor" />
+      <path d="M20 8H22V24H20V8Z" fill="currentColor" />
+      <path d="M23.5 9C23.5 5.06015 20.0653 2 16 2C11.9347 2 8.5 5.06015 8.5 9H21.5H23.5Z" fill="currentColor" />
+      <path d="M15 32H17V29H15V32Z" fill="currentColor" />
+      <path d="M23.5 23C23.5 26.9399 20.0653 30 16 30C11.9347 30 8.5 26.9399 8.5 23H23.5Z" fill="currentColor" />
+      <path d="M25 8V10H7V8H25Z" fill="currentColor" />
+      <path d="M25 24V22H7V24H25Z" fill="currentColor" />
+    </svg>
+  );
+};

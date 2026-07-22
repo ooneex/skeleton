@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const ChatBotIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 39H27V42H25H19H17L17 39Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M42 27L42 35L39 35L39 33L39 29L39 27L42 27Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 35L2 35L2 27L6 27L6 29L6 33L6 35Z" fill="currentColor" />
+      <path
+        d="M25 2C22.7909 2 21 3.79086 21 6V24.8685L28.3028 20H43C45.2091 20 47 18.2091 47 16V6C47 3.79086 45.2091 2 43 2H25Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M29 34C30.6569 34 32 32.6569 32 31C32 29.3431 30.6569 28 29 28C27.3431 28 26 29.3431 26 31C26 32.6569 27.3431 34 29 34Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M15 34C16.6569 34 18 32.6569 18 31C18 29.3431 16.6569 28 15 28C13.3431 28 12 29.3431 12 31C12 32.6569 13.3431 34 15 34Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M40 22.7308L40 38C40 41.3137 37.3137 44 34 44L10 44C6.68629 44 4 41.3137 4 38L4 22C4 18.6863 6.68629 16 10 16L18.6471 16L18.6471 19L10 19C8.34315 19 7 20.3431 7 22L7 38C7 39.6569 8.34315 41 10 41L34 41C35.6569 41 37 39.6569 37 38L37 22.7308L40 22.7308Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

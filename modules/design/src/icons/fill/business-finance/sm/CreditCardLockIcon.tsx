@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const CreditCardLockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 17C13.8954 17 13 17.8954 13 19V22C13 23.1046 13.8954 24 15 24H22C23.1046 24 24 23.1046 24 22V19C24 17.8954 23.1046 17 22 17H15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.5 15C17.6713 15 17 15.6713 17 16.5V19.5H15V16.5C15 14.5667 16.5667 13 18.5 13C20.4333 13 22 14.5667 22 16.5V19.5H20V16.5C20 15.6713 19.3287 15 18.5 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 10V18C1 19.6569 2.34315 21 4 21H11V19C11 17.481 11.8467 16.1597 13.0939 15.4825C13.5711 12.9309 15.8098 11 18.5 11C20.3603 11 22.0047 11.9233 23 13.3367V10H1ZM4 17V15H8V17H4Z"
+        fill="currentColor"
+      />
+      <path d="M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V7H1V6Z" fill="currentColor" />
+    </svg>
+  );
+};

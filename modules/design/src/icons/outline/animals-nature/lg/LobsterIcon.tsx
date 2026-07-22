@@ -1,0 +1,102 @@
+import type { SVGProps } from "react";
+
+export const LobsterIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.5 33.5V33.5C23.1049 34.1419 24.8951 34.1419 26.5 33.5V33.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M24 46V43"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M37.5 17C37.5 21 38 26 32 29"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M10.5 17C10.5 21 9.99999 26 16 29"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M10.5 17C14.0899 17 16.9699 14.187 16.9699 9.57143C16.9699 7.4495 15.3148 4 15.3148 4L10.4699 10.6429L5.625 4C4.59575 5.47854 3.9699 7.43101 3.9699 9.57143C3.9699 14.187 6.91015 17 10.5 17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M37.5 17C41.0899 17 43.9699 14.187 43.9699 9.57143C43.9699 7.4495 42.3148 4 42.3148 4L37.4699 10.6429L32.625 4C31.5958 5.47854 30.9699 7.43101 30.9699 9.57143C30.9699 14.187 33.9102 17 37.5 17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M15 44.7668C16 41.6307 18 38.5253 20 37.4799C18 35.2062 16 32.5667 16 29.1169C16 23.6955 20.7647 19.1706 22.9398 17.3874C23.5699 16.8709 24.4301 16.8709 25.0602 17.3874C27.2353 19.1706 32 23.6955 32 29.1169C32 32.6051 29.986 35.2255 28 37.4799C30 38.5253 32 41.6307 33 44.7668L30.5276 45.3412C28.6689 45.7729 26.7298 45.7138 24.9008 45.1695L24 44.9014L22.0936 45.3478C20.2672 45.7755 18.3619 45.7291 16.5586 45.2129L15 44.7668Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M18.5 18.5C18.5 19.0523 18.9477 19.5 19.5 19.5C20.0523 19.5 20.5 19.0523 20.5 18.5C20.5 17.9477 20.0523 17.5 19.5 17.5C18.9477 17.5 18.5 17.9477 18.5 18.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M18 18.5C18 19.3284 18.6716 20 19.5 20C20.3284 20 21 19.3284 21 18.5C21 17.6716 20.3284 17 19.5 17C18.6716 17 18 17.6716 18 18.5Z"
+        fill="currentColor"
+        data-stroke="none"
+        data-cap="butt"
+      />
+      <path
+        d="M27.5 18.5C27.5 19.0523 27.9477 19.5 28.5 19.5C29.0523 19.5 29.5 19.0523 29.5 18.5C29.5 17.9477 29.0523 17.5 28.5 17.5C27.9477 17.5 27.5 17.9477 27.5 18.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M27 18.5C27 19.3284 27.6716 20 28.5 20C29.3284 20 30 19.3284 30 18.5C30 17.6716 29.3284 17 28.5 17C27.6716 17 27 17.6716 27 18.5Z"
+        fill="currentColor"
+        data-stroke="none"
+        data-cap="butt"
+      />
+      <path
+        d="M21.5 12.5L24 16.5L26.5 12.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+};

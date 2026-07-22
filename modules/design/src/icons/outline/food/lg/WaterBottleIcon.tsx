@@ -1,0 +1,54 @@
+import type { SVGProps } from "react";
+
+export const WaterBottleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20.25 8L20.8905 2.87597C20.9531 2.37554 21.3785 2 21.8828 2H26.1172C26.6215 2 27.0469 2.37554 27.1095 2.87597L27.75 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M31.5 11H35.5663C37.4732 11 39.0292 9.47352 39.0657 7.56697V7.56697C39.1032 5.60813 37.5256 4 35.5663 4H35"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M17 14.5L17 10.5C17 9.11929 18.1193 8 19.5 8H28.5C29.8807 8 31 9.11929 31 10.5L31 14.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M31.5 14.5H16.5C15.1193 14.5 14 15.6193 14 17V21L14.2111 21.1056C15.3075 21.6537 16 22.7743 16 24C16 25.2257 15.3075 26.3463 14.2111 26.8944L14 27V31L14.2111 31.1056C15.3075 31.6537 16 32.7743 16 34C16 35.2257 15.3075 36.3463 14.2111 36.8944L14 37V40C14 42.7614 16.2386 45 19 45H29C31.7614 45 34 42.7614 34 40V37L33.7889 36.8944C32.6925 36.3463 32 35.2257 32 34C32 32.7743 32.6925 31.6537 33.7889 31.1056L34 31V27L33.7889 26.8944C32.6925 26.3463 32 25.2257 32 24C32 22.7743 32.6925 21.6537 33.7889 21.1056L34 21V17C34 15.6193 32.8807 14.5 31.5 14.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M21 35H27"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M21 25H27"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

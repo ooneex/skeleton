@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const LinkSlashIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23 18.281C22.0058 18.7661 21.0738 19.4217 20.2478 20.2478C17.4833 23.0123 16.628 26.963 17.682 30.4614L17.6759 30.4413"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M12.2962 26.796L6.88814 21.388C2.88527 17.3851 2.88527 10.8952 6.88814 6.89229C10.891 2.88942 17.381 2.88942 21.3838 6.89229L27.7478 13.2563C29.0341 14.5425 29.907 16.0856 30.3666 17.7205L30.3562 17.6835"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M20.9999 35.4956L26.6117 41.1073C30.6146 45.1102 37.1045 45.1102 41.1074 41.1073C45.1103 37.1045 45.1103 30.6145 41.1074 26.6117L35.6437 21.1479"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M4 44L44 4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

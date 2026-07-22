@@ -1,0 +1,41 @@
+import type { SVGProps } from "react";
+
+export const BagReturnIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M26 16V9H6V16L3.84798 25.3254C3.41417 27.2053 4.8419 29 6.77115 29H19"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11 13V6C11 3.239 13.239 1 16 1C18.761 1 21 3.239 21 6V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M25 29H26C28.2091 29 30 27.2091 30 25V25C30 22.7909 28.2091 21 26 21H17.2863H18.6196"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.9999 25L17 21.0001L20.9999 17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

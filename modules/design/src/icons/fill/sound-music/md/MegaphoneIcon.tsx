@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const MegaphoneIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m14.293,30.001c-.204,0-.411-.025-.617-.076l-5.782-1.446c-1.115-.279-1.894-1.276-1.894-2.425v-3.829h2v3.829c0,.23.155.429.379.485l5.782,1.446c.213.055.438-.041.552-.228l2.026-3.395,1.717,1.025-2.026,3.395c-.46.771-1.272,1.22-2.137,1.22Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <path d="m25,2v2.219L3,9.719v-1.719H1v15.975h2v-1.719l22,5.5v2.219h2V2h-2Z" strokeWidth="0" fill="currentColor" />
+      <path
+        d="m29,19.846c1.72-.447,3-2,3-3.858s-1.28-3.411-3-3.858v7.716Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

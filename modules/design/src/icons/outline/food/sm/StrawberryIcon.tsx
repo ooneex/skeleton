@@ -1,0 +1,52 @@
+import type { SVGProps } from "react";
+
+export const StrawberryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15.6923 6.99999C17.0769 6.99999 18 5.30057 18 4.23077C18 4.23077 15.8698 3.49926 14.3077 3.49926C13.3254 1.06032 12 1 12 1C12 1 10.6746 1.06032 9.69231 3.49926C8.13021 3.49926 6 4.23077 6 4.23077C6 5.24967 6.92308 6.99999 8.30769 6.99999"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11.9995 22C8.2332 22 4.0738 15.0164 4.00091 11.5C3.95193 9.13719 5.88565 7 8.52534 7H15.4747C18.1143 7 20.0481 9.13719 19.9991 11.5C19.9262 15.0164 15.7656 22 11.9995 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <path
+        d="M12 16V17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 12V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M9 12V13"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

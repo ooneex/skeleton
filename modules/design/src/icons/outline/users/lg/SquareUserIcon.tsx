@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const SquareUserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9.6637 43C11.0191 36.1533 16.9226 31 24 31C31.0773 31 36.9808 36.1533 38.3362 43"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M24 26C27.3137 26 30 23.3137 30 20C30 16.6863 27.3137 14 24 14C20.6863 14 18 16.6863 18 20C18 23.3137 20.6863 26 24 26Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M43 38L43 10C43 7.23858 40.7614 5 38 5L10 5C7.23858 5 5 7.23857 5 10L5 38C5 40.7614 7.23857 43 9.99999 43L38 43C40.7614 43 43 40.7614 43 38Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

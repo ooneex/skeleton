@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const SchoolBuildingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M11 0H16V2L13 3V6H11V0Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 7.43359V11H23V21H14V16H10V21H1V11H6V7.43359L12 3.83398L18 7.43359ZM4.00391 17H7.00391V14H4.00391V17ZM17 17H20V14H17V17ZM10.0049 9.00488V12.0049H14.0049V9.00488H10.0049Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

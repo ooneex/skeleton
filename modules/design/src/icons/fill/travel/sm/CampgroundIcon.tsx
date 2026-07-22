@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const CampgroundIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M18 11V3.5H20V11H18Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 0V1C20 3.20914 18.2091 5 16 5H15V3H16C17.1046 3 18 2.10457 18 1V0H20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 2V5C18 7.20914 19.7909 9 22 9H23V7H22C20.8954 7 20 6.10457 20 5V2H18Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 0V1C18 3.20914 19.7909 5 22 5H23V3H22C20.8954 3 20 2.10457 20 1V0H18Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 14.4142L7.29289 8.70712L8 8H16L22 13.5858V21H13V14.4142Z"
+        fill="currentColor"
+      />
+      <path d="M6 17V21H10V17L8 15L7 16L6 17Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.58579 7H16.4142L23 13.5858V22H1V13.5858L7.58579 7ZM8.41421 9L3 14.4142V20H21V14.4142L15.5858 9H8.41421Z"
+        fill="currentColor"
+      />
+      <path
+        d="M5 1C2.79086 1 1 2.79086 1 5C1 6.55753 1.8902 7.90714 3.18956 8.5678L6.17157 5.58579C6.54665 5.21071 7.05535 5 7.58579 5H9C9 2.79086 7.20914 1 5 1Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

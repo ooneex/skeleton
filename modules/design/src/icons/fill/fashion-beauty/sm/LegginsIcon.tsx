@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const LegginsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20.9011 21.9092C20.9543 22.4948 20.493 23 19.905 23H16.8112C16.3384 22.9999 15.9301 22.6687 15.8327 22.2061L13.4675 10.9717C13.1328 9.38438 10.8665 9.3843 10.5319 10.9717L8.16669 22.2061C8.06922 22.6687 7.66102 23 7.18818 23H4.0954C3.50737 23 3.04607 22.4948 3.09931 21.9092L4.5456 6H19.4548L20.9011 21.9092Z"
+        fill="currentColor"
+      />
+      <path d="M18.9997 1L19.2722 4H4.72723L4.99969 1H18.9997Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

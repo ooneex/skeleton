@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const UsbCableIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.5 38V31H13.5V38C13.5 39.6569 14.8431 41 16.5 41H31.5C33.1569 41 34.5 39.6569 34.5 38V31H37.5V38C37.5 41.3137 34.8137 44 31.5 44H16.5C13.1863 44 10.5 41.3137 10.5 38Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M30 6H42V12H30V6Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 6H18V12H6V6Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38 32H34C30.6863 32 28 29.3137 28 26V15L44 15L44 26C44 29.3137 41.3137 32 38 32ZM33 18V21H39V18H33Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14 32H10C6.68629 32 4 29.3137 4 26V15L20 15L20 26C20 29.3137 17.3137 32 14 32ZM9 18V21H15V18H9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

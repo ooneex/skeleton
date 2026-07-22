@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const SkirtIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M46.1973 32.1689L45.6348 32.6309C44.2699 33.7515 42.7901 34.7506 41.2227 35.6279L35.9756 19.1162L33.1162 20.0244L39.0293 38.6338C36.8687 39.6807 34.5536 40.4961 32.1426 41.0615L29.2549 22.2891L26.2891 22.7451L29.4961 43.5889C27.6947 43.8596 25.856 44 24 44C22.1437 44 20.3047 43.8597 18.5029 43.5889L21.7109 22.7451L18.7451 22.2891L15.8564 41.0615C13.4648 40.5006 11.1672 39.6951 9.02148 38.6602L14.8809 20.0186L12.0186 19.1191L6.82129 35.6533C5.23752 34.7699 3.74294 33.762 2.36523 32.6309L1.80273 32.1689L9.35547 13H38.6465L46.1973 32.1689Z"
+        fill="currentColor"
+      />
+      <path d="M38 10H30V4H38V10Z" fill="currentColor" />
+      <path d="M27 4V10H21V4H27Z" fill="currentColor" data-color="color-2" />
+      <path d="M18 10H10V4H18V10Z" fill="currentColor" />
+    </svg>
+  );
+};

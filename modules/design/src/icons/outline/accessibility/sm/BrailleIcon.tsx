@@ -1,0 +1,70 @@
+import type { SVGProps } from "react";
+
+export const BrailleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <circle
+        cx="6"
+        cy="4"
+        r="2"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <circle
+        cx="6"
+        cy="20"
+        r="2"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <circle
+        cx="18"
+        cy="4"
+        r="2"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <circle
+        cx="18"
+        cy="12"
+        r="2"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <circle
+        cx="6"
+        cy="12"
+        r="1"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <circle
+        cx="18"
+        cy="20"
+        r="1"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

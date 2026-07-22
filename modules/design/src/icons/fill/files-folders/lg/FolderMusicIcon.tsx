@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const FolderMusicIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M47 23.0361V37H44V26.9639L36 29.1457V40H33V26.8543L47 23.0361Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M32 44C34.2091 44 36 42.2091 36 40C36 37.7909 34.2091 36 32 36C29.7909 36 28 37.7909 28 40C28 42.2091 29.7909 44 32 44Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M43 41C45.2091 41 47 39.2091 47 37C47 34.7909 45.2091 33 43 33C40.7909 33 39 34.7909 39 37C39 39.2091 40.7909 41 43 41Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M2 10C2 6.68629 4.68629 4 8 4H19.3333L27.3333 10H40C43.3137 10 46 12.6863 46 16V20.1993L32.2106 23.96C30.9055 24.316 30 25.5015 30 26.8543V33.2899C27.1085 34.1504 25 36.829 25 40C25 40.695 25.1013 41.3663 25.2899 42H8C4.68629 42 2 39.3137 2 36V10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

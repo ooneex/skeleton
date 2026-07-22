@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const BoltIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.6258 0.167236L18.6817 12.1764H30.2621L12.3742 31.8327L13.3183 19.8235H1.73787L19.6258 0.167236Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const LineSpacingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.5013 5.00134L10.5013 43.0013L7.50131 43.0013L7.50131 5.00134L10.5013 5.00134Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.22 9.66132L9.00131 2.88L15.7837 9.66243L13.6624 11.7838L9.00132 7.12264L4.34132 11.7826L2.22 9.66132Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.22067 38.342L9.0013 45.1227L15.783 38.3409L13.6617 36.2196L9.0013 40.88L4.342 36.2207L2.22067 38.342Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 16.5H44V19.5H24V16.5Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 40.5L34 40.5V43.5H24V40.5Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 4.5H43.9255V7.5H24V4.5Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 28.5L44 28.5V31.5H24V28.5Z" fill="currentColor" />
+    </svg>
+  );
+};

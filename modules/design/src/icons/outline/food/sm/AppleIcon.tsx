@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const AppleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        data-color="color-2"
+        data-stroke="none"
+        d="M15,0h0V2a3,3,0,0,1-3,3h0V3A3,3,0,0,1,15,0Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.033,8.013c-2.448-1.909-5.2-.534-7.533-.534S7.415,6.1,4.967,8.013c-2.245,1.752-2.99,7.064.039,11.76,2.906,4.5,5.836,2.978,7.494,2.978s4.588,1.527,7.494-2.978C23.023,15.077,22.278,9.765,20.033,8.013Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const MakeupBrushIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20.9999 21L3.89762 39.9026C2.8346 41.0775 2.87963 42.8796 4 44V44C5.12037 45.1204 6.92246 45.1654 8.09738 44.1024L26.9999 27"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M35.7149 5.71334L36 5.25L30 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M45 21C45 16.2261 43.1036 11.6477 39.7279 8.27208C36.3523 4.89642 31.7739 3 27 3L20.8327 20.6962L27.2683 27.1962L45 21Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

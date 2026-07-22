@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const EngagementRingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M17.3002 15.1699L19.5 13V12L17.5 11H16H14.5L12.5 12V13L14.6829 15.1699"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M4 25H28" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M4 7H28" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M28 27V25.0061L25.5 16L28 7.02252V5C28 3.34315 26.6569 2 25 2H7C5.34315 2 4 3.34315 4 5V7.02252L6.5 16L4 25.0061V27C4 28.6569 5.34315 30 7 30H25C26.6569 30 28 28.6569 28 27Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M20.9 21C20.9656 20.6769 21 20.3425 21 20C21 17.2386 18.7614 15 16 15C13.2386 15 11 17.2386 11 20C11 20.3425 11.0344 20.6769 11.1 21"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const BankStatementIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16 7V3.5C16 2.11929 17.1193 1 18.5 1H29.5C30.8807 1 32 2.11929 32 3.5V7H16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34 26L44 31.8824V35.7402H41.5V42.7402H44V45.7402H24V42.7402H26.5V35.7402H24V31.8824L34 26ZM29.5 42.7402H32.5V35.7402H29.5V42.7402ZM38.5 42.7402H35.5V35.7402H38.5V42.7402ZM36 31.7402C36 30.6357 35.1046 29.7402 34 29.7402C32.8954 29.7402 32 30.6357 32 31.7402C32 32.8448 32.8954 33.7402 34 33.7402C35.1046 33.7402 36 32.8448 36 31.7402Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 10C14.3431 10 13 8.65685 13 7V4H7V44H21V31.8824C21 30.8193 21.5626 29.8356 22.4789 29.2966L32.4789 23.4142C33.4178 22.8619 34.5822 22.8619 35.5211 23.4142L41 26.6371L41 4H35V7C35 8.65685 33.6569 10 32 10H16ZM15 19L15 16L25 16V19L15 19ZM33 19H28V16H33V19ZM21 25V22H15V25H21Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

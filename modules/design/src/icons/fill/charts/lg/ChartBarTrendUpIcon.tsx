@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const ChartBarTrendUpIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M15 34H22V44H15V34Z" fill="currentColor" />
+      <path d="M26 20H33V44H26V20Z" fill="currentColor" />
+      <path d="M37 12H44V44H37V12Z" fill="currentColor" />
+      <path d="M4 26H11V44H4V26Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.3077 3.96692L21.6144 12.3659L29.4335 4.44527L31.5675 6.55385L21.6164 16.6342L13.3077 8.23319L5.01173 16.6213L2.87872 14.5118L13.3077 3.96692Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M33.1641 2.83594L31.7238 13.638L22.362 4.27621L33.1641 2.83594Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const Tshirt2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.9138 2L26.6199 3.30273L26.0857 5.23047L21.6414 4H10.3582L5.91385 5.23047L5.38065 3.30273L9.95486 2.03613L10.0867 2H21.9138Z"
+        fill="currentColor"
+      />
+      <path
+        d="M26.3359 3.22363C28.5011 3.82394 29.9999 5.79515 30 8.04199V17H26V11H24V30H8V11H6V17H2V8.04297C2.00013 5.79544 3.49997 3.82428 5.66602 3.22461L10.0684 2.00586L11 4.35547C11.8123 6.40428 13.7931 7.74983 15.9971 7.75C18.2034 7.75 20.1862 6.40146 20.9971 4.34961L21.9248 2.00098L26.3359 3.22363Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

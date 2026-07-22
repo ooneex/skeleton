@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const SortBottomToTopIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 27H30V29H19V27Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 6H30V8H19V6Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 17.5C1 11.1487 6.14873 6 12.5 6H15V8H12.5C7.25329 8 3 12.2533 3 17.5C3 22.7467 7.25329 27 12.5 27H14V29H12.5C6.14873 29 1 23.8513 1 17.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 16.5H30V18.5H19V16.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.99991 0.585815L16.4141 7.00003L9.99991 13.4142L8.58569 12L13.5857 7.00003L8.58569 2.00003L9.99991 0.585815Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

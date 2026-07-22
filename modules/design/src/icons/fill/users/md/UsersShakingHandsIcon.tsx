@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const UsersShakingHandsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 4.5C9 2.56644 7.43356 1 5.5 1C3.56644 1 2 2.56644 2 4.5C2 6.43356 3.56644 8 5.5 8C7.43356 8 9 6.43356 9 4.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 4.5C30 2.56644 28.4336 1 26.5 1C24.5664 1 23 2.56644 23 4.5C23 6.43356 24.5664 8 26.5 8C28.4336 8 30 6.43356 30 4.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22.5183 17.4142C22.1433 17.7893 21.6346 18 21.1041 18L17 18V16L21.05 16L22.9451 11.3835C23.537 9.94154 24.9413 9 26.5 9C28.7504 9 30.5191 10.9251 30.329 13.1674L28.8171 31H23.4957L22.128 20.2453L23.4325 16.5L22.5183 17.4142Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.48166 17.4142C9.85673 17.7893 10.3654 18 10.8959 18L15 18V16L10.95 16L9.0549 11.3835C8.46298 9.94154 7.05869 9 5.5 9C3.24962 9 1.48085 10.9251 1.67096 13.1674L3.18285 31H8.50427L9.872 20.2453L8.56744 16.5L9.48166 17.4142Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

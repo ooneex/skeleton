@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const FileOtfIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 31C8.62551 31 6.5 33.1233 6.5 36C6.5 38.8767 8.62551 41 11 41C13.3745 41 15.5 38.8767 15.5 36C15.5 33.1233 13.3745 31 11 31ZM3.5 36C3.5 31.697 6.74708 28 11 28C15.2529 28 18.5 31.697 18.5 36C18.5 40.303 15.2529 44 11 44C6.74708 44 3.5 40.303 3.5 36Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 28H31V31H26.5V44H23.5V31H19V28Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M33.5 28L44 28V31H36.5V34.5H41V37.5H36.5V44H33.5V28Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.2426 2C19.1818 2 18.1644 2.42143 17.4142 3.17157L7.17157 13.4142C6.42153 14.1643 6 15.1812 6 16.2422V25H42V7.9991C42 4.68516 39.3135 2 36 2H20.2426ZM20 16V5L9 16H20Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

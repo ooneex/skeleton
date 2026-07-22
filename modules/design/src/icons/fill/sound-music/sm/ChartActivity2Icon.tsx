@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const ChartActivity2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.0555 1.00409L19.2555 13.6043L20.7964 11H24V13H21.9369L18.7445 18.3957L14.9445 6.99588L8.94454 22.9959L4.81476 10.6065L3.61803 13H0V11H2.38197L5.18524 5.39344L9.05546 17.0041L15.0555 1.00409Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

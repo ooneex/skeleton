@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const Button2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 28.8786L36.6213 41.4999L34.5 43.6212L21.8787 30.9999L24 28.8786Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.5159 40.8982L33.8982 26.5159L13.5235 20.5232L19.5159 40.8982Z"
+        fill="currentColor"
+      />
+      <path
+        d="M6 7C3.23858 7 1 9.23858 1 12V26C1 28.7614 3.23858 31 6 31H13.4779L10.6456 21.3698C10.3359 20.3166 10.6262 19.1783 11.4024 18.402C12.1787 17.6257 13.317 17.3355 14.3703 17.6453L34.7449 23.6379C35.7607 23.9367 36.5438 24.7488 36.8054 25.7747C37.067 26.8007 36.7684 27.8886 36.0197 28.6373L33.6571 31H42C44.7614 31 47 28.7614 47 26V12C47 9.23858 44.7614 7 42 7H6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

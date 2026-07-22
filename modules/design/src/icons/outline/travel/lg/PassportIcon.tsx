@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const PassportIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M36 3C38.7614 3 41 5.23858 41 8L41 40C41 42.7614 38.7614 45 36 45L7 45L7 3L36 3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M17 37H31" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M34 20.5H14" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M23.5 30.5V30.5C18.3835 24.815 18.3835 16.185 23.5 10.5V10.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24.5 30.5V30.5C29.6165 24.815 29.6165 16.185 24.5 10.5V10.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24 30.5C29.5228 30.5 34 26.0228 34 20.5C34 14.9772 29.5228 10.5 24 10.5C18.4772 10.5 14 14.9772 14 20.5C14 26.0228 18.4772 30.5 24 30.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

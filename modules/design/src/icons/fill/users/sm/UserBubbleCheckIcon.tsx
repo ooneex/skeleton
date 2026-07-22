@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const UserBubbleCheckIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M0 23C0 19.7178 2.68302 17 6 17C9.31698 17 12 19.7178 12 23H0Z" fill="currentColor" />
+      <path
+        d="M6 16C7.65685 16 9 14.6569 9 13C9 11.3431 7.65685 10 6 10C4.34315 10 3 11.3431 3 13C3 14.6569 4.34315 16 6 16Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 0.5C11.8954 0.5 11 1.39543 11 2.5V13.635L15.362 10H22C23.1046 10 24 9.10457 24 8V2.5C24 1.39543 23.1046 0.5 22 0.5H13ZM21.4141 3.77763L19.9998 2.36347L16.8889 5.47465L15.5 4.08579L14.0858 5.5L16.8889 8.30313L21.4141 3.77763Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

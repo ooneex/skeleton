@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const BackpackIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C14.3431 3 13 4.34315 13 6V7.5H11V6C11 3.23858 13.2386 1 16 1C18.7614 1 21 3.23858 21 6V7.5H19V6C19 4.34315 17.6569 3 16 3Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 26V17C5 10.9249 9.92487 6 16 6C22.0751 6 27 10.9249 27 17V26C27 28.2091 25.2091 30 23 30H9C6.79086 30 5 28.2091 5 26ZM10 25V21C10 17.6863 12.6863 15 16 15C19.3137 15 22 17.6863 22 21V25H10ZM14 11V13H18V11H14Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20 23V21C20 18.7909 18.2091 17 16 17C13.7909 17 12 18.7909 12 21V23H20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

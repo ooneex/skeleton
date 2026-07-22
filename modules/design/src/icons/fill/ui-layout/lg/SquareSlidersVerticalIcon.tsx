@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const SquareSlidersVerticalIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M44.0001 10L44.0001 38C44.0001 41.3137 41.3138 44 38.0001 44L10.0001 44C6.68639 44 4.0001 41.3137 4.0001 38L4.0001 10C4.0001 6.6863 6.68639 4.00001 10.0001 4.00001L38.0001 4.00001C41.3138 4.00001 44.0001 6.6863 44.0001 10ZM38 31L30 31L30 34L32.5 34L32.5 38L35.5 38L35.5 34L38 34L38 31ZM35.5 28L35.5 10L32.5 10L32.5 28L35.5 28ZM22.5 14L20 14L20 17L28 17L28 14L25.5 14L25.5 10L22.5 10L22.5 14ZM25.5 38L25.5 20L22.5 20L22.5 38L25.5 38ZM15.5 28L15.5 10L12.5 10L12.5 28L15.5 28ZM15.5 38L15.5 34L18 34L18 31L10 31L10 34L12.5 34L12.5 38L15.5 38Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

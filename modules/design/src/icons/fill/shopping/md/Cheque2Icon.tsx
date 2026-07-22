@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const Cheque2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 1H26C28.2091 1 30 2.79086 30 5V25C30 27.2091 28.2091 29 26 29H2V7H19V1ZM28 5C28 6.10457 27.1046 7 26 7H21V3H26C27.1046 3 28 3.89543 28 5ZM18 19V21H25V19H18ZM18 15H22V17H18V15ZM12 24V23C13.6569 23 15 21.6569 15 20C15 18.3431 13.6569 17 12 17H10C9.44772 17 9 16.5523 9 16C9 15.4477 9.44772 15 10 15H14V13H12V12H10V13C8.34315 13 7 14.3431 7 16C7 17.6569 8.34315 19 10 19H12C12.5523 19 13 19.4477 13 20C13 20.5523 12.5523 21 12 21H8V23H10V24H12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

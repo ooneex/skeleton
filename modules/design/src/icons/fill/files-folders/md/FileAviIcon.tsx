@@ -1,0 +1,36 @@
+import type { SVGProps } from "react";
+
+export const FileAviIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 27.5H6V25.5H11V27.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.72078 19H7.27927L3.6126 30H6.10231V28.8554L8.50003 21.6623L10.906 28.8803V30H13.3875L9.72078 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.7208 30H16.2793L12.6126 19H15.1023V20.1446L17.5 27.3377L19.906 20.1197V19H22.3875L18.7208 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M26 19V30H24V19H26Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.2426 1C12.1818 1 11.1644 1.42143 10.4142 2.17157L4.17157 8.41421C3.42143 9.16436 3 10.1818 3 11.2426V17H29V5C29 2.79086 27.2091 1 25 1H13.2426ZM13 11V3L5 11H13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

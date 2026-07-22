@@ -1,0 +1,65 @@
+import type { SVGProps } from "react";
+
+export const HeightCheckIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 10L15.5 10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 18L15.5 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 14L17 14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 6L17 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 2L21 2L21 22L15 22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M8.5 22H4.5L4 16L2 15L2.918 9.49101C2.97 9.18201 3.16 8.90401 3.44 8.76401C5.48 7.74501 7.519 7.74501 9.559 8.76401C9.839 8.90401 10.029 9.17801 10.081 9.48701C10.269 10.614 10.738 13.426 11 15L9 16L8.5 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M6.5 5C5.671 5 5 4.329 5 3.5C5 2.671 5.671 2 6.5 2C7.329 2 8 2.671 8 3.5C8 4.329 7.329 5 6.5 5Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

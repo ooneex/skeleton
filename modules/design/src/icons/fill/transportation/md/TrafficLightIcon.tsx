@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const TrafficLightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 26C24 28.2091 22.2091 30 20 30L12 30C9.79086 30 8 28.2091 8 26L8 6C8 3.79086 9.79086 2 12 2H20C22.2091 2 24 3.79086 24 6L24 26ZM16 18.5C17.3807 18.5 18.5 17.3807 18.5 16C18.5 14.6193 17.3807 13.5 16 13.5C14.6193 13.5 13.5 14.6193 13.5 16C13.5 17.3807 14.6193 18.5 16 18.5ZM18.5 9C18.5 10.3807 17.3807 11.5 16 11.5C14.6193 11.5 13.5 10.3807 13.5 9C13.5 7.61929 14.6193 6.5 16 6.5C17.3807 6.5 18.5 7.61929 18.5 9ZM16 25.5C17.3807 25.5 18.5 24.3807 18.5 23C18.5 21.6193 17.3807 20.5 16 20.5C14.6193 20.5 13.5 21.6193 13.5 23C13.5 24.3807 14.6193 25.5 16 25.5Z"
+        fill="currentColor"
+      />
+      <path d="M26 11C27.6569 11 29 9.65685 29 8V7H26V11Z" fill="currentColor" data-color="color-2" />
+      <path d="M6 11C4.34315 11 3 9.65685 3 8V7H6V11Z" fill="currentColor" data-color="color-2" />
+      <path d="M26 18C27.6569 18 29 16.6569 29 15V14H26V18Z" fill="currentColor" data-color="color-2" />
+      <path d="M6 18C4.34315 18 3 16.6569 3 15V14H6V18Z" fill="currentColor" data-color="color-2" />
+      <path d="M26 25C27.6569 25 29 23.6569 29 22V21H26V25Z" fill="currentColor" data-color="color-2" />
+      <path d="M6 25C4.34315 25 3 23.6569 3 22V21H6V25Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

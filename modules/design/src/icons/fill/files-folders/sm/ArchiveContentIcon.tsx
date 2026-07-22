@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const ArchiveContentIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 5H12V7H8V5Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 9H16V11H8V9Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 4C4 2.34315 5.34315 1 7 1H17C18.6569 1 20 2.34315 20 4V12H18V4C18 3.44772 17.5523 3 17 3H7C6.44772 3 6 3.44772 6 4V12H4V4Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 19V14H8V16H16V14H22V19C22 20.6569 20.6569 22 19 22L5 22C3.34315 22 2 20.6569 2 19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

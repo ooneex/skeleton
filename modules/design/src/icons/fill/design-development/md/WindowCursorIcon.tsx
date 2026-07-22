@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const WindowCursorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.2681 31.4901L20.7322 29.4901L17.7011 24.2403L21.2599 22.1857L10.4704 15.7165L10.678 28.295L14.237 26.2403L17.2681 31.4901Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27 3H5C2.794 3 1 4.794 1 7V25C1 27.206 2.794 29 5 29H8.69325L8.64859 27H5C3.897 27 3 26.103 3 25V13H29V25C29 26.103 28.103 27 27 27H21.6039L22.7587 29H27C29.206 29 31 27.206 31 25V7C31 4.794 29.206 3 27 3ZM11.5 7C12.327 7 13 7.673 13 8.5C13 9.327 12.327 10 11.5 10C10.673 10 10 9.327 10 8.5C10 7.673 10.673 7 11.5 7ZM6.5 7C7.327 7 8 7.673 8 8.5C8 9.327 7.327 10 6.5 10C5.673 10 5 9.327 5 8.5C5 7.673 5.673 7 6.5 7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

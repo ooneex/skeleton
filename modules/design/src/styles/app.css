@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../fonts/space-grotesk/space-grotesk.css";
+@import "./typography.css";
+@import "./shape.css";
+@import "./brand.css";
+@import "./status.css";
+@import "./themes/light.css";
+@import "./themes/dark.css";
+@import "./themes/secondary.css";
+
+@source "../../..";
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  html {
+    @apply font-sans bg-background text-foreground leading-relaxed tracking-normal;
+  }
+
+  body {
+    @apply overflow-hidden;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full border border-solid border-transparent;
+  }
+
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .input-otp-caret {
+    animation: caret-blink 1.25s ease-out infinite;
+  }
+
+  .pdf-toolbar {
+    --rpv-core__minimal-button-color: var(--color-primary-900);
+    --rpv-core__minimal-button--hover-background-color: var(--color-primary-100);
+    --rpv-core__minimal-button--disabled-color: var(--color-primary-300);
+    --rpv-core__minimal-button--selected-background-color: var(--color-primary-100);
+    --rpv-core__textbox-background-color: var(--color-primary-50);
+    --rpv-core__textbox-border-color: var(--color-primary-200);
+    --rpv-core__textbox-color: var(--color-primary-900);
+    --rpv-core__separator-border-bottom-color: var(--color-primary-200);
+    --rpv-core__popover-body-background-color: var(--color-light);
+    --rpv-core__popover-body-border-color: var(--color-primary-200);
+    --rpv-core__popover-body-color: var(--color-primary-900);
+    --rpv-core__tooltip-body-background-color: var(--color-light);
+    --rpv-core__tooltip-body-color: var(--color-primary);
+    @apply text-primary-900 font-sans;
+  }
+
+  .pdf-toolbar .rpv-core__minimal-button {
+    @apply rounded transition-[background-color] duration-150 ease-in;
+  }
+
+  .pdf-toolbar .rpv-core__textbox {
+    @apply rounded font-sans text-[0.8rem] w-12 text-center;
+  }
+
+  .pdf-toolbar .rpv-core__tooltip-body {
+    @apply rounded font-sans text-xs font-medium px-3 py-1.5 shadow-md;
+  }
+
+  .pdf-toolbar .rpv-core__tooltip-body-arrow {
+    @apply hidden;
+  }
+
+  .pdf-toolbar .rpv-zoom__popover-target-scale {
+    @apply text-foreground font-sans text-[0.8rem];
+  }
+}

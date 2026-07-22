@@ -1,0 +1,46 @@
+import type { SVGProps } from "react";
+
+export const NoteIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect
+        x="4"
+        y="2"
+        width="16"
+        height="20"
+        rx="2"
+        ry="2"
+        transform="translate(24) rotate(90)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="7"
+        y1="10"
+        x2="17"
+        y2="10"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="7"
+        y1="14"
+        x2="12"
+        y2="14"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

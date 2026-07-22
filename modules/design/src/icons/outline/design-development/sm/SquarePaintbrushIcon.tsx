@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const SquarePaintbrushIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M13 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V11"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14.5647 13.6588C13.0604 15.163 8.98069 15.0001 8.98069 15.0001C8.98069 15.0001 8.8136 10.9246 10.322 9.41615C11.7209 8.01725 13.6035 8.30922 14.6375 9.34327C15.6716 10.3773 15.9636 12.2599 14.5647 13.6588Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M15.1319 10.1924L20.8882 6.00597C21.9499 5.23389 22.0705 3.69597 21.1423 2.76777V2.76777C20.2141 1.83957 18.6762 1.96023 17.9041 3.02184L13.7177 8.77818"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

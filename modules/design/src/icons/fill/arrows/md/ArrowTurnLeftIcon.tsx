@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ArrowTurnLeftIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 2H26C28.2091 2 30 3.79086 30 6V20C30 22.2091 28.2091 24 26 24H3V22H26C27.1046 22 28 21.1046 28 20V6C28 4.89543 27.1046 4 26 4H16V2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.4141 16L4.41412 23L11.4141 30L9.99991 31.4142L1.58569 23L9.99991 14.5858L11.4141 16Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

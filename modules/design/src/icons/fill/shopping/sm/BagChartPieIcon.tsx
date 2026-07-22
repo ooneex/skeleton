@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const BagChartPieIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C10.8954 2 10 2.89543 10 4V8H8V4C8 1.79086 9.79086 0 12 0C14.2091 0 16 1.79086 16 4V8H14V4C14 2.89543 13.1046 2 12 2Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 13L21.5 14.5L23 16V18H18L18 13H20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 14C15.7909 14 14 15.7909 14 18C14 20.2091 15.7909 22 18 22C20.2091 22 22 20.2091 22 18C22 15.7909 20.2091 14 18 14ZM12 18C12 14.6863 14.6863 12 18 12C21.3137 12 24 14.6863 24 18C24 21.3137 21.3137 24 18 24C14.6863 24 12 21.3137 12 18Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M4.00004 11.901V6H20V10.252C19.3608 10.0875 18.6906 10 18 10C13.5817 10 10 13.5817 10 18C10 19.8919 10.6567 21.6304 11.7546 23H5.43962C3.54647 23 2.1266 21.268 2.49788 19.4116L4.00004 11.901Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

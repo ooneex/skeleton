@@ -1,0 +1,51 @@
+import type { SVGProps } from "react";
+
+export const CampgroundIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M27 44V30.1211L14.417 17.5381L4.27148 28.3145L4 28.6035V44H7.11098C11.4616 39.983 14.5 33.9298 14.5 28C14.5 33.8136 17.5988 40.0698 21.889 44H27Z"
+        fill="currentColor"
+      />
+      <path
+        d="M26.5 7V3.5H29.5V7C29.5 10.0376 27.0376 12.5 24 12.5H23V9.5H24C25.3807 9.5 26.5 8.38071 26.5 7Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M29.5 7V17H26.5V7H29.5Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M26.5 2V1H29.5V2C29.5 5.03757 27.0376 7.5 24 7.5H23V4.5H24C25.3807 4.5 26.5 3.38071 26.5 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M29.5 2V1H26.5V2C26.5 5.03757 28.9624 7.5 32 7.5H33V4.5H32C30.6193 4.5 29.5 3.38071 29.5 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M40.5 12V7.5H37.5V12C37.5 16.1421 40.8579 19.5 45 19.5H46V16.5H45C42.5147 16.5 40.5 14.4853 40.5 12Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M40.5 10V25H37.5V10H40.5Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M37.5 6V4H40.5V6C40.5 10.1421 37.1421 13.5 33 13.5H32V10.5H33C35.4853 10.5 37.5 8.48528 37.5 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M40.5 6V4H37.5V6C37.5 10.1421 40.8579 13.5 45 13.5H46V10.5H45C42.5147 10.5 40.5 8.48528 40.5 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M16 9C16 12.866 12.866 16 9 16C5.13401 16 2 12.866 2 9C2 5.13401 5.13401 2 9 2C12.866 2 16 5.13401 16 9Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M44 31V44H30V31H44Z" fill="currentColor" />
+      <path d="M43.4062 28H29.1211L17.1211 16H31.082L43.4062 28Z" fill="currentColor" />
+    </svg>
+  );
+};

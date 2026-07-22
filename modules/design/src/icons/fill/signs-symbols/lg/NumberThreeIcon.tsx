@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export const NumberThreeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M35 4V7.20508L20.666 19.0801L26.1768 19.2217C33.0064 19.3968 38.4059 25.0675 38.2471 31.8975C38.0904 38.6266 32.5903 44 25.8594 44H13V41H25.8594C30.9608 41 35.1294 36.9272 35.248 31.8271C35.3683 26.6508 31.2756 22.3534 26.0996 22.2207L16 21.9619V19.0508L30.5449 7H13V4H35Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

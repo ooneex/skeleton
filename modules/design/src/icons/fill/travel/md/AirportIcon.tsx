@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const AirportIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M25 18C28.3137 18 31 20.6863 31 24V30H28V25H26V30H24V25H18V30H15V18H25Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M8 1H10V5H8V1Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M11.2813 3L11.4697 3.75781L11.8242 5.17578L13.4922 5.59277C14.9835 5.96561 15.9517 7.40496 15.7344 8.92676L15.1123 13.2832C14.9714 14.2683 14.1279 14.9999 13.1328 15H4.86719C3.87207 14.9999 3.02862 14.2683 2.8877 13.2832L2.26563 8.92676C2.04835 7.40496 3.01646 5.96561 4.50782 5.59277L6.17579 5.17578L6.53028 3.75781L6.71875 3H11.2813Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 30H5V17H13V30ZM7 24V26H11.0098V24H7ZM7 22H11.0098V20H7V22Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

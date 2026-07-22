@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const FileUserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M25 22.5C26.6569 22.5 28 21.1569 28 19.5C28 17.8431 26.6569 16.5 25 16.5C23.3431 16.5 22 17.8431 22 19.5C22 21.1569 23.3431 22.5 25 22.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 31C18 27.134 21.134 24 25 24C28.866 24 32 27.134 32 31H18Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.2426 1C12.1818 1 11.1644 1.42143 10.4142 2.17157L4.17157 8.41421C3.42143 9.16436 3 10.1818 3 11.2426V27C3 29.2091 4.79086 31 7 31H16C16 27.3656 18.1543 24.2344 21.2555 22.8135C20.4743 21.9313 20 20.7711 20 19.5C20 16.7386 22.2386 14.5 25 14.5C26.6356 14.5 28.0878 15.2853 29 16.4995V5C29 2.79086 27.2091 1 25 1H13.2426ZM13 11V3L5 11H13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

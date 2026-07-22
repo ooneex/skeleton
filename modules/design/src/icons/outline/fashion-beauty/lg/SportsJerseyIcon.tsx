@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const SportsJerseyIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M7 38H41" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M7 43V23L7.2111 22.8593C10.8277 20.4482 13 16.3892 13 12.0426V3L17 3.00002L17.5232 6.62233C17.9882 9.84167 20.7472 12.2308 24 12.2308C27.2528 12.2308 30.0118 9.84167 30.4768 6.62233L31 3.00002H35V12.0426C35 16.3892 37.1723 20.4482 40.7889 22.8593L41 23V43H7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M20.5 20.5C20.5 22.433 22.067 24 24 24C25.933 24 27.5 22.433 27.5 20.5C27.5 18.567 25.933 17 24 17C22.067 17 20.5 18.567 20.5 20.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M24 33C21.5147 33 19.5 30.9853 19.5 28.5C19.5 26.0147 21.5147 24 24 24C26.4853 24 28.5 26.0147 28.5 28.5C28.5 30.9853 26.4853 33 24 33Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

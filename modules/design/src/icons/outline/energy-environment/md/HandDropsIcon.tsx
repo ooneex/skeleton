@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const HandDropsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24.5 5.5C26.3178 7.08333 28 9.45833 28 11.4984C28 13.6508 26.4329 15 24.5 15C22.5671 15 21 13.6508 21 11.4984C21 9.45833 22.7008 7.08333 24.5 5.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14 2C15.5581 3.33333 17 5.33333 17 7.05128C17 8.86379 15.6568 10 14 10C12.3432 10 11 8.86379 11 7.05128C11 5.33333 12.4579 3.33333 14 2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15 24H21V23C21 21.3431 19.6569 20 18 20H16L15.591 19.591C14.5723 18.5723 13.1907 18 11.75 18V18C10.3093 18 8.9277 18.5723 7.90901 19.591L7 20.5L7.30366 20.1963M25 21.5L28.8113 20.8648C29.957 20.6738 31 21.5574 31 22.7189V22.7189C31 23.4918 30.527 24.1858 29.8076 24.4684L18.9309 28.7414C17.68 29.2329 16.3002 29.2901 15.0129 28.9039L7 26.5L7.39074 26.6368"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M7 17V29H3V17H7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+    </svg>
+  );
+};

@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const ToggleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m22,6h-12C4.486,6,0,10.486,0,16s4.486,10,10,10h12c5.514,0,10-4.486,10-10s-4.486-10-10-10Zm-12,16c-3.309,0-6-2.691-6-6s2.691-6,6-6,6,2.691,6,6-2.691,6-6,6Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

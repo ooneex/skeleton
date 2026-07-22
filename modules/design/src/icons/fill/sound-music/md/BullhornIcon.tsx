@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const BullhornIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m14.527,22h-6.027c-.009,0-.018-.001-.027-.001l2.711,8.134c.273.818,1.035,1.368,1.897,1.368h1.838c.651,0,1.242-.303,1.623-.831s.48-1.185.274-1.802l-2.289-6.868Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <path d="m8,5.025c-3.902.259-7,3.508-7,7.475s3.098,7.216,7,7.475V5.025Z" strokeWidth="0" fill="currentColor" />
+      <path
+        d="m22.219,1l-.189.757c-.008.033-.882,3.243-7.03,3.243h-5v15h5c6.042,0,6.996,3.124,7.03,3.243l.189.757h3.781V1h-3.781Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m28,16.358c1.72-.447,3-2,3-3.858s-1.28-3.411-3-3.858v7.716Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

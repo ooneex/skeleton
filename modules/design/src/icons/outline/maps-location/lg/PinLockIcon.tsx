@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const PinLockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23.1798 44.3257C19.9125 41.5603 8 30.6958 8 19.2912C8 8.90491 16.2007 3.00011 24 3.00011C31.7993 3.00011 40 8.90491 40 19.2912C40 20.0307 39.9502 20.7676 39.856 21.5001"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <circle cx="24" cy="19" r="5" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M43.5 34H30.5C29.1193 34 28 35.1193 28 36.5V42.5C28 43.8807 29.1193 45 30.5 45H43.5C44.8807 45 46 43.8807 46 42.5V36.5C46 35.1193 44.8807 34 43.5 34Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M32.5 34V30.5C32.5 28.0147 34.5147 26 37 26V26C39.4853 26 41.5 28.0147 41.5 30.5V34"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

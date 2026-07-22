@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const SplitIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 15H10.3565L15.8368 23.1189C16.2087 23.6698 16.8299 24 17.4945 24H30V26H17.4945C16.1652 26 14.9228 25.3397 14.1791 24.2379L9.29354 17H1V15Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 17H10.3565L15.8368 8.88106C16.2087 8.33017 16.8299 8 17.4945 8H30V6H17.4945C16.1652 6 14.9228 6.66035 14.1791 7.76211L9.29354 15H1V17Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.4999 19.0858L31.4141 25L25.4999 30.9142L24.0857 29.5L28.5857 25L24.0857 20.5L25.4999 19.0858Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.4999 1.08582L31.4141 7.00003L25.4999 12.9142L24.0857 11.5L28.5857 7.00003L24.0857 2.50003L25.4999 1.08582Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

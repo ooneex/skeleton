@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const AwardPlaqueIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 6C1 4.34315 2.34315 3 4 3H20C21.6569 3 23 4.34315 23 6V11.5278C21.9385 10.5777 20.5367 10 19 10C15.6863 10 13 12.6863 13 16C13 17.0996 13.2958 18.1301 13.8121 19.0163L13.3713 21H4C2.34315 21 1 19.6569 1 18V6ZM12 9L11 9L6 9H5V7H6L11 7H12V9ZM8 13L9 13L9 11L8 11L6 11L5 11L5 13L6 13L8 13Z"
+        fill="currentColor"
+      />
+      <path
+        d="M19 12C16.7909 12 15 13.7909 15 16C15 18.2091 16.7909 20 19 20C21.2091 20 23 18.2091 23 16C23 13.7909 21.2091 12 19 12Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M15.4168 21.0146L14.7534 24L23.2466 24L22.5832 21.0146C21.535 21.6404 20.3095 22 19 22C17.6905 22 16.465 21.6404 15.4168 21.0146Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

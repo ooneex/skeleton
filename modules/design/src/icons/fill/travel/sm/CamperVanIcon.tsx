@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const CamperVanIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3H1V19H5V13H9V19H12.5C13.3284 19 13.5 18.3284 13.5 17.5C13.5 16.6716 15.1716 15 16 15C16.8284 15 18.5 16.6716 18.5 17.5C18.5 18.3284 18.6716 19 19.5 19H23V10C23 6.13401 19.866 3 16 3ZM15 7H18V9H15V7ZM10 7V9H13V7H10Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 16C14.8954 16 14 16.8954 14 18C14 19.1046 14.8954 20 16 20C17.1046 20 18 19.1046 18 18C18 16.8954 17.1046 16 16 16ZM12 18C12 15.7909 13.7909 14 16 14C18.2091 14 20 15.7909 20 18C20 20.2091 18.2091 22 16 22C13.7909 22 12 20.2091 12 18Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

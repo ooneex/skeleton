@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const UsersHeartIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m5.5,17c-3.033,0-5.5,2.467-5.5,5.5v1.5h11v-1.5c0-3.033-2.467-5.5-5.5-5.5Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <circle cx="5.5" cy="12.5" r="3" strokeWidth="0" fill="currentColor" />
+      <path
+        d="m18.5,17c3.033,0,5.5,2.467,5.5,5.5v1.5h-11v-1.5c0-3.033,2.467-5.5,5.5-5.5Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <circle cx="18.5" cy="12.5" r="3" strokeWidth="0" fill="currentColor" />
+      <path
+        d="m12,10.5c1.331-.618,6-4.041,6-7.178C18,1.487,16.553,0,14.769,0c-1.175,0-2.055.758-2.769,1.61-.714-.852-1.594-1.61-2.769-1.61-1.784,0-3.231,1.487-3.231,3.322,0,3.138,4.669,6.561,6,7.178Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

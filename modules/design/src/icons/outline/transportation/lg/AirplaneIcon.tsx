@@ -1,0 +1,62 @@
+import type { SVGProps } from "react";
+
+export const AirplaneIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M7.36398 15.2033L9.13174 13.4355L8.77822 13.7891"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M32.8198 40.6591L34.5876 38.8914L34.234 39.2449"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11.6066 18.0318L13.3744 16.264L13.0209 16.6176"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M29.9914 36.4166L31.7591 34.6488L31.4056 35.0023"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M34.9412 20.1531L41.3737 38.1642C41.7636 39.256 41.4895 40.4748 40.6697 41.2945L37.7695 44.1948L27.1629 27.9314"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M27.8701 13.082L9.85901 6.64951C8.76722 6.25959 7.54847 6.53364 6.72869 7.35341L3.82845 10.2536L20.0919 20.8602"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M41.4246 13.6696L25.5954 29.4988L16.2028 36.7701L17.4846 38.6215C18.5849 40.211 18.3912 42.3599 17.0242 43.7268L16.5563 44.1947L11.6066 39.245L10.21 39.7105C9.03737 40.1014 7.92176 38.9858 8.31264 37.8131L8.77817 36.4165L3.82842 31.4668L4.29631 30.9989C5.66325 29.6319 7.81216 29.4382 9.40158 30.5385L11.253 31.8203L18.5243 22.4277L34.3535 6.59851C35.5954 5.3566 37.3979 4.85736 39.1018 5.28333L42.0122 6.01093L42.7398 8.92136C43.1658 10.6252 42.6665 12.4277 41.4246 13.6696Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

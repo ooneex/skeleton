@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const Wardrobe3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42 8L42 31.5H25.5V2L36 2C39.3137 2 42 4.68629 42 8ZM28 22H31L31 14H28L28 22Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22.5 2H12C8.6863 2 6 4.68629 6 8L6 31.5H22.5V2ZM17 22H20V14H17V22Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 40V34.5H42V40C42 43.3137 39.3137 46 36 46H12C8.68629 46 6 43.3137 6 40ZM27 41V38L21 38V41L27 41Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

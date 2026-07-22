@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const JsonLogoIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M27.9395 3.37169C34.0031 6.06599 37.5 12.951 37.5 20.6761C37.5 28.4012 33.0212 34.5 27.2332 34.5C21.4452 34.5 18 28.6045 18 23.5899C18.0657 21.6348 18.6488 19.7302 19.6916 18.0644C20.7344 16.3985 22.201 15.0289 23.9465 14.0908"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M20.0777 44.6374C14.0141 41.9427 10.5 35.0529 10.5 27.3264C10.5 19.5999 14.9788 13.5 20.7668 13.5C26.5548 13.5 30 19.3965 30 24.412C29.9343 26.3675 29.3512 28.2724 28.3084 29.9385C27.2656 31.6047 25.799 32.9745 24.0535 33.9129"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24 45C35.598 45 45 35.598 45 24C45 12.402 35.598 3 24 3C12.402 3 3 12.402 3 24C3 35.598 12.402 45 24 45Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

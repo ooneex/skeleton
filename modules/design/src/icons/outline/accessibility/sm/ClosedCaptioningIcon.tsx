@@ -1,0 +1,39 @@
+import type { SVGProps } from "react";
+
+export const ClosedCaptioningIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <rect
+        x="2"
+        y="4"
+        width="20"
+        height="16"
+        rx="2"
+        ry="2"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m10.42,14.741c-.499.18-1.027.268-1.557.259-.737.045-1.456-.239-1.963-.776-.497-.631-.743-1.423-.691-2.224-.012-.549.102-1.094.333-1.593.207-.439.543-.804.964-1.046.453-.249.964-.374,1.481-.361.573-.005,1.139.123,1.653.375"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m17.572,14.741c-.499.18-1.027.268-1.557.259-.739.047-1.46-.238-1.968-.776-.496-.631-.741-1.423-.687-2.224-.012-.549.102-1.094.333-1.593.208-.439.544-.804.965-1.046.453-.25.964-.374,1.481-.361.572-.005,1.138.123,1.652.375"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

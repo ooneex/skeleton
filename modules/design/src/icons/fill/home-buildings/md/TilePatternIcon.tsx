@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const TilePatternIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M2 2L8.58579 2L2 8.58579L2 2Z" fill="currentColor" data-color="color-2" />
+      <path d="M29.9998 23.4141L23.4141 29.9999H29.9998V23.4141Z" fill="currentColor" data-color="color-2" />
+      <path d="M19.4142 24L23 27.5857L30 20.5857V13.4142L19.4142 24Z" fill="currentColor" />
+      <path d="M13.4142 30H20.5858L21.5858 29L18 25.4142L13.4142 30Z" fill="currentColor" />
+      <path d="M30 10.5857V3.41415L19.9142 13.4999L23.5 17.0857L30 10.5857Z" fill="currentColor" data-color="color-2" />
+      <path d="M22.0856 18.4999L18.4998 14.9141L9.41406 23.9999L12.9998 27.5857L22.0856 18.4999Z" fill="currentColor" />
+      <path d="M10.5858 30H3.41418L7.99997 25.4142L11.5858 29L10.5858 30Z" fill="currentColor" data-color="color-2" />
+      <path d="M2 21.4143L8.5 14.9143L12.0858 18.5L2 28.5858L2 21.4143Z" fill="currentColor" data-color="color-2" />
+      <path d="M18.9998 4.41412L9.91406 13.4999L13.4998 17.0857L22.5856 7.99991L18.9998 4.41412Z" fill="currentColor" />
+      <path d="M20.4142 2.99992L24 6.5857L28.5858 1.99992L21.4142 1.99992L20.4142 2.99992Z" fill="currentColor" />
+      <path
+        d="M14 6.58572L10.4142 2.99993L11.4142 1.99993L18.5858 1.99993L14 6.58572Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M1.99988 11.4141L1.99988 18.5857L12.5857 7.99991L8.99988 4.41412L1.99988 11.4141Z" fill="currentColor" />
+    </svg>
+  );
+};

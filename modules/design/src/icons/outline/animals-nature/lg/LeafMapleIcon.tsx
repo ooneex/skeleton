@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const LeafMapleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M4.5 43.5L18.75 29.25M32.9999 15L18.75 29.25M18.75 29.25L13.5 14M18.75 29.25L34 34.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M44.5 37.5L40.6184 32.9605L42.75 28.6974L32.0921 26.5658L44.5 16L40.6184 13.7763L42.75 5.24999L34.2237 7.38157L32 3.5L21.4342 15.9079L19.3026 5.24999L15.0395 7.38157L10.5 3.5L8.64473 9.51315H4.38158L8.64473 22.3026L4.38158 26.5658L15.0395 32.9605L21.4342 43.6184L25.6974 39.3553L38.4868 43.6184V39.3553L44.5 37.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

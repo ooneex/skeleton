@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const MarketingTargetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C8.8203 3 3 8.8203 3 16C3 22.2223 7.3725 27.4256 13.2133 28.7008L14.1903 28.9141L13.7637 30.8681L12.7867 30.6548C6.04677 29.1833 1 23.1822 1 16C1 7.71573 7.71573 1 16 1C23.1822 1 29.1833 6.04677 30.6548 12.7867L30.8681 13.7637L28.9141 14.1903L28.7008 13.2133C27.4256 7.3725 22.2223 3 16 3Z"
+        fill="currentColor"
+      />
+      <path
+        d="M26 31.1266L20.2435 25.3701L16.3726 29.241L14.8778 14.8778L29.2409 16.3726L25.37 20.2435L31.1265 26.0001L26 31.1266Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 9C12.134 9 9 12.134 9 16C9 18.5897 10.4058 20.8523 12.5007 22.0641L13.3663 22.5649L12.3649 24.2961L11.4993 23.7953C8.81178 22.2407 7 19.3325 7 16C7 11.0294 11.0294 7 16 7C19.3325 7 22.2407 8.81178 23.7953 11.4993L24.2961 12.3649L22.5649 13.3663L22.0641 12.5007C20.8523 10.4058 18.5897 9 16 9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

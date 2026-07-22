@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const PinPenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <circle cx="24" cy="19" r="5" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M31.6139 44.5233L43.4315 32.7056C44.85 31.287 44.85 28.9871 43.4315 27.5685C42.0129 26.15 39.713 26.15 38.2944 27.5685L26.4768 39.3861L26 45L31.6139 44.5233Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M21.2009 42.5652C16.6137 38.2962 8 28.9889 8 19.2912C8 8.90485 16.2007 3.00006 24 3.00006C31.7993 3.00006 40 8.90485 40 19.2912C40 20.0501 39.9475 20.8064 39.8485 21.558"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

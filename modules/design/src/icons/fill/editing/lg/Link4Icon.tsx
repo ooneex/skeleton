@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const Link4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0.5 24C0.5 17.0964 6.09644 11.5 13 11.5H18V14.5H13C7.75329 14.5 3.5 18.7533 3.5 24C3.5 29.2467 7.75329 33.5 13 33.5H18V36.5H13C6.09644 36.5 0.5 30.9036 0.5 24Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M47.5 24C47.5 17.0964 41.9036 11.5 35 11.5H30V14.5H35C40.2467 14.5 44.5 18.7533 44.5 24C44.5 29.2467 40.2467 33.5 35 33.5H30V36.5H35C41.9036 36.5 47.5 30.9036 47.5 24Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34 25.5H14V22.5H34V25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

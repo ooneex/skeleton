@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const HeadlightsLowIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.4706 2C9.94668 2 6.88557 2.87872 4.43612 4.52181C1.97978 6.16953 0 8.69166 0 12C0 15.3083 1.97978 17.8305 4.43612 19.4782C6.88557 21.1213 9.94668 22 12.4706 22H13.1839L13.4161 21.3255C14.4443 18.3392 14.9799 15.1862 15 12.0063C15 8.84338 14.4451 5.66305 13.4161 2.67446L13.1839 2H12.4706Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 11H23V13H17V11Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 5H23V7H17V5Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 17H23V19H17V17Z" fill="currentColor" data-color="color-2" />
+    </svg>
+  );
+};

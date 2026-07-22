@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const HistoryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 6V11.5858L17.4142 16L16 17.4142L11 12.4142V6H13Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5.64905 5.62305C7.27777 4.00092 9.52105 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12V11H1V12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C8.96073 1 6.20777 2.23391 4.21795 4.2257L4.20135 4.24231L2.08738 6.56708L3.56708 7.91262L5.64905 5.62305Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M4 1V6H9V8H2V1H4Z" fill="currentColor" />
+    </svg>
+  );
+};

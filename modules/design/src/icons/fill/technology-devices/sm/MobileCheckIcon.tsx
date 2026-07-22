@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const MobileCheckIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 21L12.342 21L12.342 23L7 23C5.34315 23 4 21.6569 4 20L4 4C4 2.34315 5.34314 1 7 1L17 1C18.6569 1 20 2.34315 20 4L20 14.3505L18 14.3505L18 4C18 3.44772 17.5523 3 17 3L7 3C6.44771 3 6 3.44772 6 4L6 20C6 20.5523 6.44771 21 7 21Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.5603 4L13.4397 4C14.0253 4 14.5 4.47472 14.5 5.06031C14.5 5.64591 14.0253 6.12062 13.4397 6.12062L10.5603 6.12062C9.97472 6.12062 9.5 5.64591 9.5 5.06032C9.5 4.47472 9.97471 4 10.5603 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23.9142 15.5L16.5 22.9142L12.0858 18.5L13.5 17.0858L16.5 20.0858L22.5 14.0858L23.9142 15.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

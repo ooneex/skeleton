@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const MobileCodeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.0857 29L24.0857 24L19.0857 19L20.4999 17.5858L26.9141 24L20.4999 30.4142L19.0857 29Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12.9142 29L7.91419 24L12.9142 19L11.5 17.5858L5.08575 24L11.5 30.4142L12.9142 29Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5C24 3.89543 23.1046 3 22 3L10 3C8.89543 3 8 3.89543 8 5L8 16L6 16L6 5C6 2.79086 7.79086 0.999999 10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 16L24 16L24 5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94035 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

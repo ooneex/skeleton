@@ -1,0 +1,59 @@
+import type { SVGProps } from "react";
+
+export const Pins2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M11.5 23C16.447 19.6031 20 15.7364 20 11.2051C20 6.67385 16.1941 3 11.5 3C6.80587 3 3 6.67385 3 11.2051C3 15.7364 6.553 19.6031 11.5 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M36.5 23C41.447 19.6031 45 15.7364 45 11.2051C45 6.67385 41.1941 3 36.5 3C31.8059 3 28 6.67385 28 11.2051C28 15.7364 31.553 19.6031 36.5 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24 45C29.82 41.0935 34 36.6469 34 31.4359C34 26.2249 29.5225 22 24 22C18.4775 22 14 26.2249 14 31.4359C14 36.6469 18.18 41.0935 24 45Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11.5 13C12.3284 13 13 12.3284 13 11.5C13 10.6716 12.3284 10 11.5 10C10.6716 10 10 10.6716 10 11.5C10 12.3284 10.6716 13 11.5 13Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+      />
+      <path
+        d="M36.5 13C37.3284 13 38 12.3284 38 11.5C38 10.6716 37.3284 10 36.5 10C35.6716 10 35 10.6716 35 11.5C35 12.3284 35.6716 13 36.5 13Z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+      />
+      <circle
+        cx="24"
+        cy="32"
+        r="3"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,18 @@
+import type { SVGProps } from "react";
+
+export const GolfBagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M8 23H24V30H8V23Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M30 7C30 8.65685 28.6569 10 27 10H19V17H17V6.40039C17.0002 5.13906 17.7892 4.01212 18.9746 3.58105L25.9746 1.03613C27.9312 0.324657 30 1.77358 30 3.85547V7Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 10C2 11.6568 3.34315 13 5 13H12V17H14V9.06152C14 7.68493 13.063 6.48524 11.7275 6.15136L5.72754 4.65136C3.83411 4.17801 2.00002 5.60982 2 7.56152V10Z"
+        fill="currentColor"
+      />
+      <path d="M27 19V24H5V19H27Z" fill="currentColor" />
+    </svg>
+  );
+};

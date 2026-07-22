@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const SuperscriptIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 16H30V14H24.6156L28.0508 11.5178C29.2749 10.6333 30 9.21484 30 7.70457V7.5C30 5.00309 27.9421 3 25.4685 3C23.0294 3 21 4.97511 21 7.4375V8.4375H23V7.4375C23 6.10293 24.1106 5 25.4685 5C26.8609 5 28 6.13091 28 7.5V7.70457C28 8.5728 27.5832 9.38824 26.8794 9.89674L21 14.1451V16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.741 3H15.8231V4.03287L1.25896 29H4.18048V27.961L18.741 3Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.25896 3H4.18048V4.03904L18.741 29H15.8231V27.9671L1.25896 3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

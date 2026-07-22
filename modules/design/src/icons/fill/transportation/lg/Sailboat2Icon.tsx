@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const Sailboat2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27 5.73279L40.8243 26.1999L27 26.8582L27 5.73279Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 3.19031L24 27.0011L3.80887 27.9626L24 3.19031Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1.81186 31.0555L46 28.9513V34.3028L41.3164 41.3282C40.2036 42.9974 38.3302 44 36.3241 44H9.17287C6.27316 44 3.78837 41.9263 3.26965 39.0734L1.81186 31.0555ZM38.5696 36.8079L38.427 33.8113L34.4304 34.0016L34.573 36.9983L38.5696 36.8079ZM26.5697 37.3793L22.573 37.5697L22.4303 34.5731L26.427 34.3827L26.5697 37.3793ZM32.5697 37.0937L32.427 34.0971L28.4303 34.2874L28.573 37.284L32.5697 37.0937Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

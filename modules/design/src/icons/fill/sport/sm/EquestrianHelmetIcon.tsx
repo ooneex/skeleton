@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const EquestrianHelmetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M17 20H19V24H17V20Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M24 12.5C24 6.70101 19.299 2 13.5 2C7.70101 2 3 6.70101 3 12.5V14H0V16H8.17188C8.43698 16.0001 8.69144 16.1055 8.87891 16.293L11.707 19.1211C12.2696 19.6836 13.0326 19.9999 13.8281 20H17V15.7295C16.4029 15.3835 16 14.7398 16 14C16 12.8954 16.8954 12 18 12C19.1046 12 20 12.8954 20 14C20 14.7398 19.5971 15.3835 19 15.7295V20H21.1172C22.7091 20 24 18.7091 24 17.1172V12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

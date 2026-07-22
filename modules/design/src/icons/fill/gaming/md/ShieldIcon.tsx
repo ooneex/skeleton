@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ShieldIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 8.6084L8.63867 15.5L15 22.3906V30.6904C14.5645 30.5205 14.1337 30.3386 13.708 30.1436C12.5445 29.6103 10.9865 28.7997 9.42188 27.6914C6.32662 25.4989 3 21.9875 3 17V4.21875L15 1.21875V8.6084Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.6387 15.5L16 20.5254L11.3604 15.5L16 10.4736L20.6387 15.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M29 4.21875V17C29 21.9875 25.6734 25.4989 22.5781 27.6914C21.0135 28.7997 19.4555 29.6103 18.292 30.1436C17.8664 30.3386 17.4355 30.5205 17 30.6904V22.3906L23.3613 15.5L17 8.6084V1.21875L29 4.21875Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

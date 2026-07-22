@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const CamcorderIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M2 12.5991V19C2 20.6569 3.34315 22 5 22H10C11.6569 22 13 20.6569 13 19V12.5991C11.6303 14.0758 9.67305 15 7.5 15C5.32695 15 3.36975 14.0758 2 12.5991Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.5 2C4.46243 2 2 4.46243 2 7.5C2 10.5376 4.46243 13 7.5 13C10.5376 13 13 10.5376 13 7.5C13 4.46243 10.5376 2 7.5 2ZM9 7.5C9 8.32843 8.32843 9 7.5 9C6.67157 9 6 8.32843 6 7.5C6 6.67157 6.67157 6 7.5 6C8.32843 6 9 6.67157 9 7.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 12C23 13.1046 22.1046 14 21 14H15V7.5C15 5.81159 14.4421 4.25349 13.5005 3H21C22.1046 3 23 3.89543 23 5V12ZM17 7V9H20V7H17Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

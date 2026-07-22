@@ -1,0 +1,65 @@
+import type { SVGProps } from "react";
+
+export const Nodes3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m8.219,7.864c-2.582,2.201-4.219,5.477-4.219,9.136,0,.76.078,1.479.213,2.2.088-.061.166-.11.261-.164"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m11.978,28.306c3.197,1.136,6.853.915,10.022-.914.659-.38,1.242-.807,1.799-1.284-.097-.046-.178-.089-.273-.144"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m27.802,14.83c-.615-3.337-2.634-6.393-5.802-8.222-.659-.38-1.319-.672-2.012-.916.009.107.012.199.012.308"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <circle
+        cx="16"
+        cy="6"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="6.474"
+        cy="22.5"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="25.526"
+        cy="22.5"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+};

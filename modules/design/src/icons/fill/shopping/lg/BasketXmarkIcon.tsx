@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const BasketXmarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.7293 3.05203L10.4914 18.0636L7.9364 16.4913L17.1743 1.47974L19.7293 3.05203ZM30.8258 1.47974L40.0637 16.4913L37.5087 18.0636L28.2708 3.05203L30.8258 1.47974Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 15H46V23H2V15Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M37 45.5C42.2467 45.5 46.5 41.2467 46.5 36C46.5 30.7533 42.2467 26.5 37 26.5C31.7533 26.5 27.5 30.7533 27.5 36C27.5 41.2467 31.7533 45.5 37 45.5ZM34.355 40.7666L32.2336 38.6453L34.8789 36L32.2352 33.3564L34.3566 31.2351L37.0002 33.8787L39.6462 31.2327L41.7675 33.354L39.1215 36L41.7662 38.6448L39.6449 40.7661L37.0002 38.1214L34.355 40.7666Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29.4988 26H5.87549L7.48738 38.701C7.84287 41.7227 10.4038 44 13.4463 44H27.3949C25.5874 41.8322 24.5 39.0431 24.5 36C24.5 31.911 26.4634 28.2806 29.4988 26ZM16.8893 29.8969L17.6031 39.8893L14.6107 40.1031L13.897 30.1107L16.8893 29.8969Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

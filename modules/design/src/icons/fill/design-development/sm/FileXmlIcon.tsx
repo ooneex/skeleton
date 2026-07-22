@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const FileXmlIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0.276821 14H3.05157V14.8247L7.72318 23H4.94947V22.1771L0.276821 14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.72318 14H4.94946V14.8229L0.276819 23H3.05156V22.1753L7.72318 14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.5 14H11.6594L12.5 15.9614L13.3406 14H16.5V23H14.5V16.3719L12.5 21.0386L10.5 16.3719V23H8.5V14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.5 23H24V21H20.5V14H18.5V23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.0784 1C10.2828 1 9.51972 1.31607 8.95711 1.87868L3.87868 6.95711C3.31607 7.51972 3 8.28278 3 9.07843V12H21V4C21 2.34315 19.6569 1 18 1H11.0784ZM11 9H5L11 3V9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

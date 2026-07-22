@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const ChessQueenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 1L12 10L12 9.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M6.38596 18L3.67738 15.3586C2.618 14.3255 2.09203 12.8433 2.24601 11.3717V11.3717C2.41855 9.72263 3.43993 8.25853 4.93749 7.54693V7.54693C6.86263 6.63215 9.16129 7.10988 10.5625 8.71598L12 10.3636L13.4375 8.71598C14.8387 7.10988 17.1374 6.63215 19.0625 7.54693V7.54693C20.5601 8.25853 21.5815 9.72263 21.754 11.3717V11.3717C21.908 12.8433 21.382 14.3255 20.3226 15.3586L17.614 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M14.5 3.5L9.5 3.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M18.5 18H5.5C4.67157 18 4 18.6716 4 19.5V22H20V19.5C20 18.6716 19.3284 18 18.5 18Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

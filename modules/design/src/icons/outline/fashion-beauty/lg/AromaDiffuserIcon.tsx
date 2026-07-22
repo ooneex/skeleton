@@ -1,0 +1,74 @@
+import type { SVGProps } from "react";
+
+export const AromaDiffuserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M42 27C42 30.3137 33.9411 33 24 33C14.0589 33 6 30.3137 6 27"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M37.0422 19.9207L37.2632 20C40.2045 21.1099 42 22.5901 42 24.2155V36.7647C42 40.2083 33.9411 43 24 43C14.0589 43 6 40.2083 6 36.7647V24.2155C6 22.5901 7.79546 21.1099 10.7368 20L10.9403 19.9135"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M37 15.5C37 13.7843 34.2261 12.2928 30.1459 11.5337"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11 15.5C11 13.7864 13.7669 12.2965 17.8386 11.5365"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M24 2V20V19.5469"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M32 3L28.5 19.5L28.5708 19.2067"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 3L19.5 19.5L19.4442 19.2688"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M37 15.5V20C37 22.7614 31.1797 25 24 25C16.8203 25 11 22.7614 11 20V15.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M37 15.5C37 17.9853 31.1797 20 24 20C16.8203 20 11 17.9853 11 15.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

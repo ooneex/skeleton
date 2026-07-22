@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const WrenchIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23.6262 17.6729L4.83678 35.07C2.45141 37.2784 2.37998 41.0254 4.67756 43.323C6.97514 45.6206 10.7221 45.5477 12.9304 43.1638L30.3379 24.3625"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M37.9286 16.3571L31.6429 10.0714L37.9663 3.748C36.7343 3.27186 35.4001 3 34 3C27.9249 3 23 7.92486 23 14C23 20.0751 27.9249 25 34 25C40.0751 25 45 20.0751 45 14C45 12.5999 44.7281 11.2657 44.252 10.0337L37.9286 16.3571Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M30 16L32 18" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+    </svg>
+  );
+};

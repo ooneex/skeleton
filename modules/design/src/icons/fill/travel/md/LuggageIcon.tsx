@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const LuggageIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 27V29.8C7 30.4627 7.53726 31 8.2 31H8.8C9.46274 31 10 30.4627 10 29.8V27H7Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 27V29.8C22 30.4627 22.5373 31 23.2 31H23.8C24.4627 31 25 30.4627 25 29.8V27H22Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14 3C13.4477 3 13 3.44772 13 4V7H11V4C11 2.34315 12.3431 1 14 1H18C19.6569 1 21 2.34315 21 4V7H19V4C19 3.44772 18.5523 3 18 3H14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M27 15V29H5V15H27ZM13 19H19V23H13V19Z" fill="currentColor" />
+      <path d="M5 9C5 6.79086 6.79086 5 9 5H23C25.2091 5 27 6.79086 27 9V13H5V9Z" fill="currentColor" />
+    </svg>
+  );
+};

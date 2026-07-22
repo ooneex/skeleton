@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const SharkWaterIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 45C4.92723 45.0005 7.82927 44.4602 9.5619 43.4207C11.2945 42.3812 12.8122 40.8694 14 39C15.188 40.8691 16.7058 42.3807 18.4383 43.4202C20.1709 44.4598 22.0728 45 24 45C25.9272 45 27.8291 44.4598 29.5617 43.4202C31.2942 42.3807 32.812 40.8691 34 39C35.1878 40.8694 36.7055 42.3812 38.4381 43.4207C40.1707 44.4602 43.0728 45.0005 45 45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M3 36C4.92723 36.0005 7.82927 35.4602 9.5619 34.4207C11.2945 33.3812 12.8122 31.8694 14 30C15.188 31.8691 16.7058 33.3807 18.4383 34.4202C20.1709 35.4598 22.0728 36 24 36C25.9272 36 27.8291 35.4598 29.5617 34.4202C31.2942 33.3807 32.812 31.8691 34 30C35.1878 31.8694 36.7055 33.3812 38.4381 34.4207C40.1707 35.4602 43.0728 36.0005 45 36"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M38 26C34.1333 5.09091 22.5333 3 10.6964 3C14.1951 11.4424 14.8 17.6364 9 26"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

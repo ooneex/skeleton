@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const AddItemIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 12C46 17.5228 41.5228 22 36 22C30.4772 22 26 17.5228 26 12C26 6.47715 30.4772 2 36 2C41.5228 2 46 6.47715 46 12ZM37.5 6.5V10.5H41.5V13.5H37.5V17.5H34.5V13.5H30.5V10.5H34.5V6.5H37.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M25.7523 4H10.5C6.91015 4 4 6.91015 4 10.5V37.5C4 41.0899 6.91015 44 10.5 44H37.5C41.0899 44 44 41.0899 44 37.5V22.2477C43.0895 22.9595 42.0818 23.5526 41 24.0037V33L7 33V10.5C7 8.567 8.567 7 10.5 7H23.9963C24.4474 5.91823 25.0405 4.91047 25.7523 4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

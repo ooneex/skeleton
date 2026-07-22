@@ -1,0 +1,71 @@
+import type { SVGProps } from "react";
+
+export const ClearDataIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="20"
+        y1="2"
+        x2="13.329"
+        y2="10.506"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m12,10c1.105,0,2,.895,2,2-.029.304-.096.604-.2.891-1.329,2.932-1.158,6.325.458,9.109H2c0-6.627,3.373-12,10-12Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="18"
+        y1="14"
+        x2="23"
+        y2="14"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="18"
+        y1="18"
+        x2="23"
+        y2="18"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="19"
+        y1="22"
+        x2="23"
+        y2="22"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m9.059,10.415c-.379,2.12,1.033,4.146,3.153,4.525.26.046.524.066.788.06.041,0,.079-.011.12-.012"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

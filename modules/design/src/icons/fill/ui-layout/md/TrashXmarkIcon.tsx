@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const TrashXmarkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m21,6v-2.5c0-1.378-1.121-2.5-2.5-2.5h-5c-1.379,0-2.5,1.122-2.5,2.5v2.5H2v2h28v-2h-9Zm-8-2.5c0-.276.225-.5.5-.5h5c.275,0,.5.224.5.5v2.5h-6v-2.5Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <path
+        d="m5.446,10l.904,17.21c.112,2.125,1.867,3.79,3.995,3.79h11.309c2.128,0,3.883-1.665,3.995-3.79l.904-17.21H5.446Zm15.968,14l-1.414,1.414-4-4-4,4-1.414-1.414,4-4-4-4,1.414-1.414,4,4,4-4,1.414,1.414-4,4,4,4Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

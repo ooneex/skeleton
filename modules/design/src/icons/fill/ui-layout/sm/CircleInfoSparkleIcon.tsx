@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const CircleInfoSparkleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="m13,18h-2v-6h-2v-2h2.5c.827,0,1.5.673,1.5,1.5v6.5Z" strokeWidth="0" fill="currentColor" />
+      <circle cx="12" cy="7.25" r="1.25" strokeWidth="0" fill="currentColor" />
+      <path
+        d="m12,23c-6.065,0-11-4.935-11-11S5.935,1,12,1c.396,0,.813.029,1.313.09l.993.123-.245,1.985-.992-.122c-.418-.052-.757-.076-1.069-.076C7.037,3,3,7.038,3,12s4.037,9,9,9,9-4.038,9-9c0-.316-.024-.655-.075-1.066l-.124-.993,1.984-.248.124.992c.062.496.091.914.091,1.314,0,6.065-4.935,11-11,11Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <polygon
+        points="20.5 3.5 19 0 17.5 3.5 14 5 17.5 6.5 19 10 20.5 6.5 24 5 20.5 3.5"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

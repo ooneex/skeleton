@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const Bed2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 13H40C43.3137 13 46 15.6863 46 19V23H20V13Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M12.5 22.5C14.9853 22.5 17 20.4853 17 18C17 15.5147 14.9853 13.5 12.5 13.5C10.0147 13.5 8 15.5147 8 18C8 20.4853 10.0147 22.5 12.5 22.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M3 26H45V37H3V26Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 8V42H5V8H2Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M46 26L46 42L43 42L43 26L46 26Z" fill="currentColor" />
+    </svg>
+  );
+};

@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CirclePencilIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2ZM30 22.7082C30 22.0872 29.8554 21.4748 29.5777 20.9194L24 9.76395L18.4223 20.9194C18.1446 21.4748 18 22.0872 18 22.7082V24H30V22.7082ZM12.2499 38.932C15.4832 41.4798 19.5641 43 24 43C28.4359 43 32.5168 41.4798 35.7501 38.932L32.0471 27H15.953L12.2499 38.932Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

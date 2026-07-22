@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const Lightbulb2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 0C7.02944 0 3 4.02944 3 9C3 13.9706 7.02944 18 12 18C16.9706 18 21 13.9706 21 9C21 4.02944 16.9706 0 12 0ZM8 8.58579L6.58579 10L10 13.4142L12 11.4142L14 13.4142L17.4142 10L16 8.58579L14 10.5858L12 8.58579L10 10.5858L8 8.58579Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M10 22H14V24H10V22Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M7.5033 22.0821L7.24292 18.921C8.6826 19.6126 10.296 20 12 20C13.7039 20 15.3173 19.6126 16.7569 18.9211L16.421 23H7.57897L7.50432 22.0937C7.50395 22.0898 7.50361 22.0859 7.5033 22.0821Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

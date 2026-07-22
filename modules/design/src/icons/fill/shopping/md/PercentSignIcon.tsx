@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const PercentSignIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.4142 5.00003L4.99997 28.4143L3.58575 27.0001L27 3.58582L28.4142 5.00003Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 5C6.79086 5 5 6.79086 5 9C5 11.2091 6.79086 13 9 13C11.2091 13 13 11.2091 13 9C13 6.79086 11.2091 5 9 5ZM3 9C3 5.68629 5.68629 3 9 3C12.3137 3 15 5.68629 15 9C15 12.3137 12.3137 15 9 15C5.68629 15 3 12.3137 3 9Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 19C20.7909 19 19 20.7909 19 23C19 25.2091 20.7909 27 23 27C25.2091 27 27 25.2091 27 23C27 20.7909 25.2091 19 23 19ZM17 23C17 19.6863 19.6863 17 23 17C26.3137 17 29 19.6863 29 23C29 26.3137 26.3137 29 23 29C19.6863 29 17 26.3137 17 23Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

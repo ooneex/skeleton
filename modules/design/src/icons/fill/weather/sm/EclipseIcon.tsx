@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const EclipseIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.7493 3.2835C10.8673 4.28265 8 7.80775 8 12C8 16.1923 10.8673 19.7174 14.7493 20.7165L12 22.5C6.5 22 2 17.1269 2 12C2 6.87309 7 1.5 14.2507 2L14.7493 3.2835Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

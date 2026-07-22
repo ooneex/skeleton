@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const Refresh2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M35.9208 9L36.568 8.44131C33.1336 5.66364 28.7611 4 24 4C13.6293 4 5.1022 11.8934 4.09875 22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M31.2012 13.0741L36.5 8.5L41.7988 3.9259L43.6875 16.8268L31.2012 13.0741Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M12.0757 39L11.4285 39.5587C14.8629 42.3364 19.2354 44 23.9965 44C34.3672 44 42.8943 36.1066 43.8978 26"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16.7954 34.9259L11.4965 39.5L6.19769 44.0741L4.30906 31.1732L16.7954 34.9259Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

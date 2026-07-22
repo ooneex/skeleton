@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const ArmchairIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 25.75V25H6V29H8.11803L9.39443 26.4472L8 25.75Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 25.75V25H26V29H23.882L22.6056 26.4472L24 25.75Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M30 14V23C30 25.2091 28.2091 27 26 27H6C3.79086 27 2 25.2091 2 23L2 14C2 12.3431 3.34315 11 5 11C6.65686 11 8 12.3431 8 14L8 19H24V14C24 12.3431 25.3431 11 27 11C28.6569 11 30 12.3431 30 14Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27 7L27 9C24.2386 9 22 11.2386 22 14V17H10L10 14C10 11.2386 7.76143 9 5 9V7C5 4.79086 6.79086 3 9 3L23 3C25.2091 3 27 4.79086 27 7ZM17.5 10.5C17.5 11.3284 16.8284 12 16 12C15.1716 12 14.5 11.3284 14.5 10.5C14.5 9.67157 15.1716 9 16 9C16.8284 9 17.5 9.67157 17.5 10.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

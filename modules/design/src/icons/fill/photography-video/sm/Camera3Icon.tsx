@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Camera3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19 2C20.6569 2 22 3.34315 22 5V16H2V5C2 3.34315 3.34315 2 5 2H19ZM8 10C8 7.79086 9.79086 6 12 6C14.2091 6 16 7.79086 16 10C16 12.2091 14.2091 14 12 14C9.79086 14 8 12.2091 8 10ZM7.5 6.5C7.5 7.05228 7.05228 7.5 6.5 7.5C5.94772 7.5 5.5 7.05228 5.5 6.5C5.5 5.94772 5.94772 5.5 6.5 5.5C7.05228 5.5 7.5 5.94772 7.5 6.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 18V19C2 20.6569 3.34314 22 5 22H19C20.6569 22 22 20.6569 22 19V18H2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const GardenForkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M17.5477 6.44974L11.4974 12.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M5.49741 18.5L11.4974 12.5L10.9948 13.0026"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M8.50001 21.5L13.0858 16.9142C13.8668 16.1332 13.8668 14.8668 13.0858 14.0858L11.5 12.5L9.91421 10.9142C9.13317 10.1332 7.86683 10.1332 7.08579 10.9142L2.50001 15.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17.5477 6.44975C16.376 5.27807 16.376 3.37878 17.5477 2.20711L18.2548 1.5L22.4974 5.74264L21.7903 6.44975C20.6186 7.62142 18.7193 7.62142 17.5477 6.44975Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

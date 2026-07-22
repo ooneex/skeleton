@@ -1,0 +1,60 @@
+import type { SVGProps } from "react";
+
+export const BellPlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m13.171,28c.412,1.165,1.523,2,2.829,2s2.417-.835,2.829-2"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <path
+        d="m14.732,2.1c-4.369.618-7.732,4.361-7.732,8.9v10c0,2.209-1.791,4-4,4h26c-2.209,0-4-1.791-4-4v-2.051"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <circle
+        cx="24"
+        cy="8"
+        r="7"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="24"
+        y1="5"
+        x2="24"
+        y2="11"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <line
+        x1="21"
+        y1="8"
+        x2="27"
+        y2="8"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

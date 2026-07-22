@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const CubeAxisIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.3388 16.4685L23.8237 18.5022L22.9978 20.3237L18.5128 18.29L19.3388 16.4685Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.66124 16.4685L0.176307 18.5022L1.00225 20.3237L5.48718 18.29L4.66124 16.4685Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 1V5.5H11V1H13Z" fill="currentColor" data-color="color-2" />
+      <path d="M12 3.40454L3.05884 7.40454L12 11.4045L20.9412 7.40454L12 3.40454Z" fill="currentColor" />
+      <path d="M11 13.148L3 9.56909V18.5691L11 22.148V13.148Z" fill="currentColor" />
+      <path d="M13 13.148V22.148L21 18.5691V9.56909L13 13.148Z" fill="currentColor" />
+    </svg>
+  );
+};

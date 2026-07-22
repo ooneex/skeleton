@@ -1,0 +1,53 @@
+import type { SVGProps } from "react";
+
+export const CroupierIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M36 44V36V36.75"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M12 44V36V36.75"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M34.6988 14.0464C30.0938 14.6963 27.6526 12.3052 27 11H26C22.1548 16.7677 15.2294 14.8348 13.2185 13.196"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M3 45V42.676C3 40.489 4.42125 38.5559 6.50862 37.9036L16.8948 34.6579C18.1473 34.2665 19 33.1066 19 31.7944V28.5214C13.9738 25.4404 13.9057 20.1517 13.3252 14.9266C12.6183 8.56429 17.5985 3 24 3C30.4015 3 35.3817 8.56429 34.6748 14.9266C34.0942 20.1517 34.0262 25.4404 29 28.5214V31.7944C29 33.1066 29.8527 34.2665 31.1052 34.6579L41.4914 37.9036C43.5788 38.5559 45 40.489 45 42.676V45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M29 39H28.6429L24 41.1429L19.3571 39H19V44H19.3571L24 41.1429L28.6429 44H29V39Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M24 41.1429L19.3571 39H19V44H19.3571L24 41.1429ZM24 41.1429L28.6429 39H29V44H28.6429L24 41.1429Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

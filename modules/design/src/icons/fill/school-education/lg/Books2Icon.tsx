@@ -1,0 +1,41 @@
+import type { SVGProps } from "react";
+
+export const Books2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M39 30H12.5C10.567 30 9 28.433 9 26.5V21.5C9 19.567 10.567 18 12.5 18H39V30ZM15 22.5V25.5H26V22.5H15Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34 16H7.5C5.56701 16 4 14.433 4 12.5V7.5C4 5.567 5.56701 4 7.5 4H34V16ZM10 8.5V11.5H21V8.5H10Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M32 44H5.5C3.56701 44 2 42.433 2 40.5V35.5C2 33.567 3.56701 32 5.5 32H32V44ZM8 36.5V39.5H19V36.5H8Z"
+        fill="currentColor"
+      />
+      <path
+        d="M43.5 18C45.433 18 47 19.567 47 21.5V26.5C47 28.433 45.433 30 43.5 30H42V18H43.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M38.5 4C40.433 4 42 5.567 42 7.5V12.5C42 14.433 40.433 16 38.5 16H37V4H38.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M36.5 32C38.433 32 40 33.567 40 35.5V40.5C40 42.433 38.433 44 36.5 44H35V32H36.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

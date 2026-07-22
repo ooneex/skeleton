@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const FileSrtIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.5 19L13.3321 18.4453L13.0352 18H12.5V19ZM14.5 22V23H16.3685L15.3321 21.4453L14.5 22ZM14.3404 21H13.3404V23H14.3404V21ZM11.5 20H12.5V18H11.5V20ZM11.6679 19.5547L13.6679 22.5547L15.3321 21.4453L13.3321 18.4453L11.6679 19.5547ZM14.5 21H14.3404V23H14.5V21Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M10 22V15H12.5C13.6046 15 14.5 15.8954 14.5 17V17C14.5 18.1046 13.6046 19 12.5 19H10.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M6 15H3.75C2.7835 15 2 15.7835 2 16.75V16.75C2 17.7165 2.7835 18.5 3.75 18.5H5.25C6.2165 18.5 7 19.2835 7 20.25V20.25C7 21.2165 6.2165 22 5.25 22H3"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M19.5 22V15M19.5 15H22M19.5 15L17 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M4 9H11V2" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" data-cap="butt" fill="none" />
+      <path
+        d="M4 11V9.07843C4 8.54799 4.21071 8.03929 4.58579 7.66421L9.66421 2.58579C10.0393 2.21071 10.548 2 11.0784 2H18C19.1046 2 20 2.89543 20 4V11"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

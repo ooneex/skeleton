@@ -1,0 +1,43 @@
+import type { SVGProps } from "react";
+
+export const VideoStreamingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M43 39L43 21C43 18.7909 41.2091 17 39 17L24 17L9 17C6.79086 17 5 18.7909 5 21L5 39C5 41.2091 6.79086 43 9 43L39 43C41.2091 43 43 41.2091 43 39Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M19 23L32 30L19 37V23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M13.3934 7.39334C19.2513 1.53548 28.7487 1.53548 34.6066 7.39334"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M17.636 11.636C21.1507 8.12127 26.8492 8.12127 30.364 11.636"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

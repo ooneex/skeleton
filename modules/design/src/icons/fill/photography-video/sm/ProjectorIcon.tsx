@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const ProjectorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M7 18V22H5V18H7Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 18V22H17V18H19Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 10.5C2 10.032 2.04287 9.57394 2.1249 9.12964C0.894929 9.50415 0 10.6476 0 12V17C0 18.6569 1.34314 20 3 20L21 20C22.6569 20 24 18.6569 24 17V12C24 10.3431 22.6569 9 21 9H16.85C16.9484 9.48466 17 9.9863 17 10.5C17 14.6421 13.6421 18 9.5 18C5.35786 18 2 14.6421 2 10.5ZM19 14H18V16H19H20H21V14H20H19Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M10.5 0V3H8.5V0H10.5Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2.78248 2.36826L4.9038 4.48958L3.48959 5.90379L1.36827 3.78247L2.78248 2.36826Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.6317 3.7825L15.5104 5.90382L14.0962 4.48961L16.2175 2.36829L17.6317 3.7825Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.5 5C6.46243 5 4 7.46243 4 10.5C4 13.5376 6.46243 16 9.5 16C12.5376 16 15 13.5376 15 10.5C15 7.46243 12.5376 5 9.5 5ZM11 10.5C11 11.3284 10.3284 12 9.5 12C8.67157 12 8 11.3284 8 10.5C8 9.67157 8.67157 9 9.5 9C10.3284 9 11 9.67157 11 10.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

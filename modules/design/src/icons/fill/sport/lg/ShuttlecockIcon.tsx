@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const ShuttlecockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M46 30L25.7471 36.875L22.0928 33.2207L42.6475 19H46V30Z" fill="currentColor" />
+      <path
+        d="M4.29841 35.2163L6.8226 32.692L11.0652 36.9347L15.3079 41.1773L12.7837 43.7015C10.4406 46.0447 6.64161 46.0447 4.29848 43.7015C1.95537 41.3584 1.9553 37.5594 4.29841 35.2163Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M22.5781 37.9502L17.9092 39.5361L8.46289 30.0898L10.0479 25.4189L22.5781 37.9502Z" fill="currentColor" />
+      <path
+        d="M39 9V17.8672L37.9131 18.6182L37.918 18.624L19.9365 31.0654L16.9336 28.0625L29.3721 10.0791L29.3828 10.0869L30.1338 9H39Z"
+        fill="currentColor"
+      />
+      <path d="M29 5.34473L14.7773 25.9062L11.123 22.252L18 2H29V5.34473Z" fill="currentColor" />
+    </svg>
+  );
+};

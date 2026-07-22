@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const PhoneHeartbeatIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94036 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 15L24 15L24 5C24 3.89543 23.1046 3 22 3L10 3L9.7959 3.01074C8.78722 3.113 8 3.96435 8 5L8 15L6 15L6 5C6 2.85996 7.68056 1.11211 9.79395 1.00488L10 0.999999Z"
+        fill="currentColor"
+      />
+      <path
+        d="M18.6387 20.6104L20.9697 17.4111L21.2686 17H30V19H22.2861L18.3613 24.3896L13.0547 14.2598L10.8613 19H2V17H9.58301L12.9443 9.73926L18.6387 20.6104Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M14 25V27H10V25H14Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M10 29L22 29C23.1046 29 24 28.1046 24 27L24 21L26 21L26 27C26 29.2091 24.2091 31 22 31L10 31C7.79086 31 6 29.2091 6 27L6 21L8 21L8 27C8 28.1046 8.89543 29 10 29Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

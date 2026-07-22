@@ -1,0 +1,83 @@
+import type { SVGProps } from "react";
+
+export const SelectAreaIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 6L2 4.5C2 3.11929 3.11929 2 4.5 2L6 2L6 4L4.5 4C4.22386 4 4 4.22386 4 4.5L4 6L2 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 6L20 4.5C20 4.22386 19.7761 4 19.5 4L18 4L18 2L19.5 2C20.8807 2 22 3.11929 22 4.5L22 6L20 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 19.5C4 19.7761 4.22386 20 4.5 20L6 20L6 22L4.5 22C3.11929 22 2 20.8807 2 19.5L2 18L4 18L4 19.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 11L2 8L4 8L4 11L2 11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 16L2 13L4 13L4 16L2 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 11L20 8L22 8L22 11L20 11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 2L11 2L11 4L8 4L8 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 2L16 2L16 4L13 4L13 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 20L11 20L11 22L8 22L8 20Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.9507 17.3649L17.3649 15.9507L22.4143 21L21 22.4143L15.9507 17.3649Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.4189 21.3596L21.3595 13.4191L9.41311 9.413L13.4189 21.3596Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

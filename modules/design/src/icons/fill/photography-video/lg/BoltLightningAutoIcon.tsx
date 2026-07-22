@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const BoltLightningAutoIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M10.5885 3L4.745 28.4031L15.9384 28.4481L14.2296 44.1575L36.148 18.102H21.9834L25.3389 3H10.5885Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42 41.5H34V38.5H42V41.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M36.4755 30H39.523L45.4037 45H41.4999V43.2617L38.0015 34.3383L34.5 43.3015V45H30.6157L36.4755 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

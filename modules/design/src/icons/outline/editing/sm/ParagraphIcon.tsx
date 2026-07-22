@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const ParagraphIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15 4C15 2.34315 13.6569 1 12 1C10.3431 1 9 2.34315 9 4V4C9 5.24417 9.64094 6.40059 10.696 7.06L15.3475 9.96719C16.3755 10.6097 17 11.7364 17 12.9487V12.9487C17 14.6993 15.7122 16.1831 13.9791 16.4296L12.7476 16.6048L13.0687 16.5646"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M9 20C9 21.6569 10.3431 23 12 23C13.6569 23 15 21.6569 15 20V20C15 18.7558 14.3591 17.5994 13.304 16.94L8.63757 14.0235C7.61886 13.3868 7 12.2702 7 11.0689V11.0689C7 9.31469 8.30417 7.83403 10.0443 7.61258L11.3516 7.44621L11.0305 7.48636"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const ShipSideIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M15 9V3H20V9" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M10 20.5V9H28L34.5 19.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M9.33648 35L35.9098 35C37.8037 35 39.535 33.93 40.382 32.2361L45 23V19L3 21L4.38673 30.7071C4.73862 33.1704 6.84823 35 9.33648 35Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M43.9 40C43.4367 42.2822 41.419 44 39 44C36.2386 44 34 41.7614 34 39C34 41.7614 31.7614 44 29 44C26.2386 44 24 41.7614 24 39C24 41.7614 21.7614 44 19 44C16.2386 44 14 41.7614 14 39C14 41.7614 11.7614 44 9 44C6.58104 44 4.56329 42.2822 4.10002 40"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M33 30C34.6569 30 36 28.6569 36 27C36 25.3431 34.6569 24 33 24C31.3431 24 30 25.3431 30 27C30 28.6569 31.3431 30 33 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

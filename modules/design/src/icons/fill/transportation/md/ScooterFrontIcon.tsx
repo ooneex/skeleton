@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const ScooterFrontIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 7V5H7V7H12Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M20 7V5H25V7H20Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 19C17.6569 19 19 20.3431 19 22L19 29C19 30.6569 17.6569 32 16 32C14.3431 32 13 30.6569 13 29L13 22C13 20.3431 14.3431 19 16 19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M19.1835 7.40076C17.7139 9.75473 14.2861 9.75473 12.8165 7.40076L12.645 7.46589C9.32289 8.72741 7 12.0991 7 16V27H11L11 22C11 19.2386 13.2386 17 16 17C18.7614 17 21 19.2386 21 22V27H25L25 16C25 12.0991 22.6771 8.72741 19.355 7.46589L19.1835 7.40076Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 3C14.3431 3 13 4.34315 13 6C13 7.65685 14.3431 9 16 9C17.6569 9 19 7.65685 19 6C19 4.34315 17.6569 3 16 3ZM11 6C11 3.23858 13.2386 1 16 1C18.7614 1 21 3.23858 21 6C21 8.76142 18.7614 11 16 11C13.2386 11 11 8.76142 11 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const MapPenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M10 2.31592L1 5.81592V28.9618L10 25.4618V2.31592Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.8992 16.0908C27.2827 14.7074 29.5258 14.7074 30.9093 16.0908C32.2928 17.4744 32.2928 19.7175 30.9093 21.101L22.3785 29.6317L16.9033 30.0966L17.3683 24.6215L25.8992 16.0908Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M15.143 27.1894L12 25.6179V2.38184L20 6.38184V19.1613L15.9541 23.2071C15.6204 23.5408 15.4154 23.9818 15.3755 24.4521L15.143 27.1894Z"
+        fill="currentColor"
+      />
+      <path
+        d="M22 17.1614L24.4849 14.6765C26.2487 12.9127 28.9055 12.5862 31 13.6969V3.03809L22 6.53808V17.1614Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

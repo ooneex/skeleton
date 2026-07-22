@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const CloverIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 12C8.6412 15.3588 6.90181 17.5 5 17.5C2.60134 17.5 1.40009 14.5999 3.0962 12.9038L4 12L3.0962 11.0962C1.40009 9.40009 2.60134 6.5 5 6.5C6.90635 6.5 8.6412 8.6412 12 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M12 12C15.3588 15.3588 17.0982 17.5 19 17.5C21.3987 17.5 22.5999 14.5999 20.9038 12.9038L20 12L20.9038 11.0962C22.5999 9.40009 21.3987 6.5 19 6.5C17.0937 6.5 15.3588 8.6412 12 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M12 12C15.3588 15.3588 17.5 17.0982 17.5 19C17.5 21.3987 14.5999 22.5999 12.9038 20.9038L12 20L11.0962 20.9038C9.40009 22.5999 6.5 21.3987 6.5 19C6.5 17.0937 8.6412 15.3588 12 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M12 12C15.3588 8.6412 17.5 6.90181 17.5 5C17.5 2.60134 14.5999 1.40009 12.9038 3.0962L12 4L11.0962 3.0962C9.40009 1.40009 6.5 2.60134 6.5 5C6.5 6.90635 8.6412 8.6412 12 12Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

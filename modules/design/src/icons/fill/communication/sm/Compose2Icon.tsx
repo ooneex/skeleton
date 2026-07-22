@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Compose2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m18,22H5c-1.654,0-3-1.346-3-3V6c0-1.654,1.346-3,3-3h6v2h-6c-.552,0-1,.449-1,1v13c0,.551.448,1,1,1h13c.552,0,1-.449,1-1v-6h2v6c0,1.654-1.346,3-3,3Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m21.707,2.293c-1.178-1.18-3.236-1.18-4.414,0l-9.196,9.196-1.471,5.886,5.886-1.472,9.195-9.196c1.217-1.217,1.217-3.197,0-4.414Zm-1.414,3l-1.707,1.707-1.586-1.586,1.707-1.707c.424-.424,1.162-.424,1.586,0,.437.437.437,1.149,0,1.586Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

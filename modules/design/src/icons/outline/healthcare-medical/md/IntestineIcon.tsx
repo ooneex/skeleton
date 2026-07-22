@@ -1,0 +1,36 @@
+import type { SVGProps } from "react";
+
+export const IntestineIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M19 30V26C19 23.7909 17.2092 22 15 22L14.6667 22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M22 15H11C7.68629 15 5 12.3137 5 9V9C5 5.68629 7.68629 3 11 3H22C23.6569 3 25 4.34314 25 6V6C25 7.65685 23.6569 9 22 9H20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11 9C14.7815 9 19.6435 9 23.5025 9C27.0923 9 30 11.9101 30 15.5V15.5C30 19.0899 27.0899 22 23.5 22H11"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M22 15H9.00002C5.68631 15 3.00002 17.6863 3.00002 21V21C3.00002 24.3137 5.68631 27 9.00002 27H14V30"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const Cloud2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.90398 20.8784C7.39853 12.5504 14.564 6 23.2667 6C32.2414 6 39.5936 12.965 39.6661 21.6655C43.8173 22.4427 47 25.9595 47 30.25C47 35.1205 42.9032 39 37.9333 39H10.8C5.4253 39 1 34.8048 1 29.5455C1 25.6398 3.45141 22.3242 6.90398 20.8784Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

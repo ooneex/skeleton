@@ -1,0 +1,69 @@
+import type { SVGProps } from "react";
+
+export const MoonCloudSnowIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M21.4929 2.51415L21.5 2.50708"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M3.00001 5.00707L3.00708 5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.5 9.53229C21.5407 9.01513 22.3527 8.10698 22.744 7.00004L22.6681 7.0113C19.3489 7.50347 16.4966 4.65118 16.9888 1.33198L17 1.2561C15.8191 1.67349 14.8644 2.56981 14.3694 3.71168"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        strokeLinejoin="bevel"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M4 20.8963C2.10544 20.4847 1 18.8965 1 17C1 15.2267 2.18182 13.7333 3.72727 13.36C3.90909 9.72 6.83732 7 10.4737 7C14.1101 7 17.0909 9.62667 17.3636 13.2667C19.3636 13.2667 21 14.9467 21 17C21 18.7736 19.8809 20.4676 17.9648 20.8963"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11 23V17"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M8.40193 21.5L13.5981 18.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M8.40193 18.5L13.5981 21.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,98 @@
+import type { SVGProps } from "react";
+
+export const SaintBasilCathedralIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24 2V4.5V3.25"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M43 32H37"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11 32H5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M11 43H18V34H20.5L23.7842 28.9999H24.2085L27.5 34H30V43H37"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M37 27V43H43V27" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M5 27V43H11V27" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M24 24V21" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M31 29.01V29" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M17 29.01V29" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M14 24H34" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M21.4457 13.0837L19 24" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M26.5639 13.0837L29 24" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M23 40V43H25V40C25 39.4477 24.5523 39 24 39C23.4477 39 23 39.4477 23 40Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M40 11L40 16.5V16" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M8 11L8 16.5V16" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M38 13H42" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M6 13H10" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M27.4404 13C28.4163 12.2564 28.9969 11.1395 29 10C29 7.791 27.0131 6.57143 23.9995 4C20.9858 6.57143 19 7.791 19 10C19.0031 11.1395 19.5837 12.2564 20.5596 13H27.4404Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M2.21851 23.5372C8.02899 23.4242 10.8162 21.5613 12.2726 19.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M45.7625 23.5369C39.9649 23.4201 37.1822 21.5591 35.7273 19.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M43.6523 27C45.1543 26.2663 45.9962 24.7261 46 23.3333C46 20.6334 43.6158 19.1429 39.9993 16C36.3829 19.1429 34 20.6334 34 23.3333C34.0038 24.7261 34.8137 26.1374 36.3384 27H43.6523Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M4.34706 27C2.84502 26.2663 2.0031 24.7261 1.99932 23.3333C1.99932 20.6334 4.38355 19.1429 7.99997 16C11.6164 19.1429 13.9993 20.6334 13.9993 23.3333C13.9955 24.7261 13.1856 26.1374 11.6609 27H4.34706Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

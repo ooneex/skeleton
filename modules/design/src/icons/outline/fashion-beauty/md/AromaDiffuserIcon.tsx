@@ -1,0 +1,70 @@
+import type { SVGProps } from "react";
+
+export const AromaDiffuserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.875 14.5L13 15L12.25 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M19.125 14.5L19 15L19.75 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 2V15V14.6979"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M28 17.9223C28 20.0888 22.6274 21.8451 16 21.8451C9.37258 21.8451 4 20.0888 4 17.9223"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M7.5 13.1549C5.33708 13.8644 4 14.8431 4 15.9239V25.0772C4 27.2437 9.37258 29 16 29C22.6274 29 28 27.2437 28 25.0772V15.9239C28 14.8431 26.6629 13.8644 24.5 13.1549"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11.5 9.40135C9.90353 9.70918 8.61706 10.1758 7.83492 10.7364C7.29913 11.1204 7 11.5486 7 12C7 13.6569 11.0294 15 16 15C20.9706 15 25 13.6569 25 12C25 10.8896 23.1901 9.92006 20.5 9.40135"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M10 3L12.3236 12.2944"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M22 3L19.6764 12.2944"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

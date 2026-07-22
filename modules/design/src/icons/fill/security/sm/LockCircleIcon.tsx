@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const LockCircleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m17,8h-2v-3c0-1.654-1.346-3-3-3s-3,1.346-3,3v3h-2v-3c0-2.757,2.243-5,5-5s5,2.243,5,5v3Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+      <path
+        d="m12,6c-4.962,0-9,4.038-9,9s4.038,9,9,9,9-4.038,9-9-4.038-9-9-9Zm1,9.722v2.278h-2v-2.278c-.595-.347-1-.985-1-1.722,0-1.103.897-2,2-2s2,.897,2,2c0,.737-.405,1.375-1,1.722Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

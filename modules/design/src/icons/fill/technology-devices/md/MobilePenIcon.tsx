@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const MobilePenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 14.5L24 5C24 3.89543 23.1046 3 22 3L10 3C8.89543 3 8 3.89543 8 5L8 27C8 28.1046 8.89543 29 10 29L14 29L14 31L10 31C7.79086 31 6 29.2091 6 27L6 5C6 2.79086 7.79086 0.999999 10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 14.5L24 14.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94035 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M29.9093 17.0908C28.5258 15.7074 26.2827 15.7074 24.8992 17.0908L16.3684 25.6215L15.9033 31.0966L21.3786 30.6317L29.9093 22.101C31.2928 20.7175 31.2928 18.4744 29.9093 17.0908Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

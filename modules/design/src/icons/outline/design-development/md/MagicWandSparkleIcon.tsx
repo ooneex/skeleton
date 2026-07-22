@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const MagicWandSparkleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 29L17.5 14.5L16.8306 15.1694"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M27 5L25.133 10.5814L28.6889 15.332L22.7849 15.2255L19.4007 20.0281L17.6189 14.3811L11.9719 12.5993L16.7745 9.21509L16.668 3.31115L21.4186 6.867L27 5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M9.5 4.5L8 1L6.5 4.5L3 6L6.5 7.5L8 11L9.5 7.5L13 6L9.5 4.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M27.5 23.5L26 20L24.5 23.5L21 25L24.5 26.5L26 30L27.5 26.5L31 25L27.5 23.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

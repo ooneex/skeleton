@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CirclePercentageIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2ZM16.5 21C18.9853 21 21 18.9853 21 16.5C21 14.0147 18.9853 12 16.5 12C14.0147 12 12 14.0147 12 16.5C12 18.9853 14.0147 21 16.5 21ZM36 31.5C36 33.9853 33.9853 36 31.5 36C29.0147 36 27 33.9853 27 31.5C27 29.0147 29.0147 27 31.5 27C33.9853 27 36 29.0147 36 31.5ZM34 11.8787L36.1213 14L14 36.1213L11.8787 34L34 11.8787Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

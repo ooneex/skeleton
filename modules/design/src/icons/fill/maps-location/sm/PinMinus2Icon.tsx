@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const PinMinus2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 23.3233C11.3577 22.7666 10.7262 22.2035 10.1231 21.6038C9.40109 20.886 8.43647 19.8656 7.46926 18.6571C5.57987 16.2963 3.5 12.9991 3.5 9.75768C3.5 4.19409 7.85959 1 12 1C16.1404 1 20.5 4.19409 20.5 9.75768C20.5 12.9991 18.4201 16.2963 16.5307 18.6571C15.5635 19.8656 14.5989 20.886 13.8769 21.6038C13.2738 22.2035 12.6423 22.7666 12 23.3233ZM8 8.5V10.5H16V8.5H8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

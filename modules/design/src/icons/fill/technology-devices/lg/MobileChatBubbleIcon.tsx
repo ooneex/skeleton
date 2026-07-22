@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const MobileChatBubbleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 8.5C20 7.67157 20.6716 7 21.5 7L26.5 7C27.3284 7 28 7.67157 28 8.5C28 9.32843 27.3284 10 26.5 10L21.5 10C20.6716 10 20 9.32843 20 8.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M23 29.5C23 28.1193 24.1193 27 25.5 27H41.5C42.8807 27 44 28.1193 44 29.5V39.5C44 40.8807 42.8807 42 41.5 42H29.0554L23 46.0794V29.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M20 43H16C14.3431 43 13 41.6568 13 40L13 8C13 6.34314 14.3431 5 16 5L32 5C33.6569 5 35 6.34315 35 8L35 24H38L38 8C38 4.68629 35.3137 2 32 2L16 2C12.6863 2 10 4.68629 10 8V40C10 43.3137 12.6863 46 16 46H20V43Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

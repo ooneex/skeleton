@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const KettleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20 9V4H16.5V2H22V9C22 9.79565 21.6837 10.5585 21.1211 11.1211C20.5585 11.6837 19.7957 12 19 12H18V10H19C19.2652 10 19.5195 9.89457 19.707 9.70703C19.8946 9.51949 20 9.26522 20 9Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20.5547 18.4629C20.8898 20.3045 19.4745 22 17.6025 22H5.3457C3.4999 22 2.09143 20.349 2.38281 18.5264L3.9541 8.70117L1 3.77734V2H17.5557L20.5547 18.4629ZM10 15V17H13V15H10ZM10 13H13V11H10V13ZM10 9H13V7H10V9Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

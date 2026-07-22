@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const PowerDrillIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M27 8H31V10H27V8Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 5.21922L29 6.71922V11.2808L23 12.7808V5.21922Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.1274 21.2368L7.9344 17H13.5876L13.1091 20.8276L20.5491 22.2127C21.9698 22.4772 23 23.7169 23 25.162V29H4V25.1623C4 23.4406 5.10172 21.912 6.73509 21.3675L7.1274 21.2368ZM8 25V27H13V25H8Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 3H7C4.79086 3 3 4.79086 3 7V11C3 13.2091 4.79086 15 7 15H18V3ZM8 10V8H12V10H8Z"
+        fill="currentColor"
+      />
+      <path d="M20 15L25 13.7749V4.22512L20 3V15Z" fill="currentColor" />
+    </svg>
+  );
+};

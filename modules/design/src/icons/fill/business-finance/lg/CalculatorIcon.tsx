@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CalculatorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M35 2C38.3137 2 41 4.68629 41 8V40C41 43.3137 38.3137 46 35 46H13C9.68629 46 7 43.3137 7 40V8C7 4.68629 9.68629 2 13 2H35ZM12 7L36 7V20L12 20L12 7ZM12 23H18V26H12V23ZM12 28V31H18V28H12ZM12 33H18V36H12V33ZM12 38V41H18V38H12ZM21 23H27V26H21V23ZM30 23V26H36V23H30ZM21 28H27V31H21V28ZM21 33V36H27V33H21ZM21 38H27V41H21V38ZM30 28H36V41H30V28Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

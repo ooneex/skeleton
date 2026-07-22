@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const SnowmanHeadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24.6389 28.9995C24.8248 28.0218 25.286 27.086 26.0224 26.3158C26.3242 26.0003 26.659 25.7274 27.018 25.4995L27.1766 25.3966L27.0973 25.448"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M29.5 30.5C29 32.5 29.4292 33.5799 29.9292 33.9132L29.761 33.7742"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <circle cx="24" cy="24" r="21" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M25.3221 24.8704L36.6789 28.0752C38.6213 28.6233 38.6213 31.3767 36.6789 31.9248L25.3221 35.1296C23.4241 35.6652 21.3854 35.1089 20.0224 33.6836C18.0521 31.6231 18.0521 28.3769 20.0224 26.3164C21.3854 24.8911 23.4241 24.3348 25.3221 24.8704Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <circle
+        cx="17"
+        cy="17"
+        r="4"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M28 19H35"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

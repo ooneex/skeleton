@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const RadioIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M38.8492 38.8492C42.6495 35.049 45 29.799 45 24C45 18.201 42.6495 12.951 38.8492 9.15076"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14.4541 14.454C12.011 16.8971 10.5 20.2721 10.5 24C10.5 27.7279 12.011 31.1029 14.4541 33.5459"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M9.15076 9.15076C5.3505 12.951 3 18.201 3 24C3 29.799 5.3505 35.049 9.15076 38.8492"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M33.5459 33.5459C35.9889 31.1029 37.5 27.7279 37.5 24C37.5 20.2721 35.9889 16.8971 33.5459 14.454"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

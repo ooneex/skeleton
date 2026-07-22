@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const EraserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 4L5 3.5C5 2.11929 6.11929 0.999997 7.5 0.999997L16.5 0.999998C17.8807 0.999998 19 2.11929 19 3.5L19 4L5 4Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.5 23C6.11929 23 5 21.8807 5 20.5L5 20L19 20L19 20.5C19 21.8807 17.8807 23 16.5 23L7.5 23Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 6H20V18L4 18V6ZM10 11H8V16H10V11Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

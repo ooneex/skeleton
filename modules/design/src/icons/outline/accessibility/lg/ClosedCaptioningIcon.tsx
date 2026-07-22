@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const ClosedCaptioningIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M40 7H8C5.23858 7 3 9.23858 3 12V36C3 38.7614 5.23858 41 8 41H40C42.7614 41 45 38.7614 45 36V12C45 9.23858 42.7614 7 40 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M20.4771 30.1688C19.354 30.5739 18.1657 30.7719 16.9729 30.7517C15.3143 30.8529 13.6961 30.2138 12.5551 29.0052C11.4366 27.5851 10.883 25.8027 11 24C10.973 22.7644 11.2295 21.5379 11.7494 20.4149C12.2153 19.4269 12.9715 18.6054 13.9189 18.0608C14.9384 17.5004 16.0885 17.2191 17.252 17.2483C18.5416 17.2371 19.8154 17.5252 20.9722 18.0923"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M35.9793 30.1688C34.8563 30.5739 33.668 30.7719 32.4752 30.7517C30.8121 30.8574 29.1894 30.216 28.0461 29.0052C26.9299 27.5851 26.3785 25.8027 26.5 24C26.473 22.7644 26.7296 21.5379 27.2494 20.4149C27.7176 19.4269 28.4737 18.6054 29.4212 18.0608C30.4407 17.4982 31.5908 17.2191 32.7543 17.2483C34.0416 17.2371 35.3154 17.5252 36.4722 18.0923"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

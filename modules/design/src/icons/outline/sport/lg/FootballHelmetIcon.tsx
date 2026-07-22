@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const FootballHelmetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 37.5L25 35.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M40 23C40 14.7157 33.2843 8 25 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M17 23V32.6888C17 37.9352 12.9455 42.2896 7.71247 42.6634L3 43V32L25 30.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M33 37C34.3807 37 35.5 35.8807 35.5 34.5C35.5 33.1193 34.3807 32 33 32C31.6193 32 30.5 33.1193 30.5 34.5C30.5 35.8807 31.6193 37 33 37Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M25 34.9286V26C25 24.3431 23.6569 23 22 23H5C5 11.9543 13.9543 3 25 3C36.0457 3 45 11.9543 45 23V25.8571L41.7829 30.6232C41.3658 31.2412 41.1429 31.9698 41.1429 32.7155V34.9286C41.1429 39.3863 37.5292 43 33.0714 43C28.6137 43 25 39.3863 25 34.9286Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

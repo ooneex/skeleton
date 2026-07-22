@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const FileVvtIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 19H30V21H27V30H25V21H22V19Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7.72078 30H5.27927L1.6126 19H4.10231V20.1446L6.50003 27.3377L8.90605 20.1197V19H11.3875L7.72078 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.7208 30H15.2793L11.6126 19H14.1023V20.1446L16.5 27.3377L18.906 20.1197V19H21.3875L17.7208 30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.2426 1C12.1818 1 11.1644 1.42143 10.4142 2.17157L4.17157 8.41421C3.42143 9.16436 3 10.1818 3 11.2426V17H29V5C29 2.79086 27.2091 1 25 1H13.2426ZM13 11V3L5 11H13Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

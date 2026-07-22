@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+
+export const ChristTheRedeemerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M39 40V46H9V40H39Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M27.5 9V5.5C27.5 3.567 25.933 2 24 2C22.067 2 20.5 3.567 20.5 5.5V9H4V10C4 12.7614 6.23858 15 9 15H10.3008C11.0894 16.8088 12.8815 17.9999 14.8828 18H17.9512L17.7812 21.9336C21.7751 24.7047 25.7792 25.9649 30.4082 26.3574L30.0488 18H33.1172C35.1185 17.9999 36.9106 16.8088 37.6992 15H39C41.7614 15 44 12.7614 44 10V9H27.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M17.6318 25.4121C21.7394 27.9001 25.9136 29.0294 30.5381 29.376L30.8672 37H17.1328L17.6318 25.4121Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

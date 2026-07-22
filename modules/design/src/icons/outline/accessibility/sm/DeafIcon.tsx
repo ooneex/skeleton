@@ -1,0 +1,48 @@
+import type { SVGProps } from "react";
+
+export const DeafIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="21"
+        y1="3"
+        x2="22"
+        y2="2"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m8.351,21.205c.65.512,1.458.792,2.292.795h-.016c2.052,0,3.306-1.668,3.714-3.636.944-4.545,4.659-4.545,4.659-10,0-3.515-2.91-6.364-6.5-6.364-3.465,0-6.297,2.655-6.49,6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m15,8.364c0-1.303-1.121-2.364-2.5-2.364-1.328,0-2.424.979-2.496,2.229"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <line
+        x1="2"
+        y1="22"
+        x2="12"
+        y2="12"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

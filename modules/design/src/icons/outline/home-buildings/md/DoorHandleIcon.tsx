@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const DoorHandleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M14 23V25" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M21 8L21 5C21 3.34315 19.6569 2 18 2L10 2C8.34315 2 7 3.34315 7 5L7 27C7 28.6569 8.34315 30 10 30L18 30C19.6569 30 21 28.6569 21 27L21 14"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M14 14L29 14C30.1046 14 31 13.1046 31 12L31 10C31 8.89543 30.1046 8 29 8L14 8C12.8954 8 12 8.89543 12 10L12 12C12 13.1046 12.8954 14 14 14Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14 23C12.8947 23 12 22.1053 12 21C12 19.8947 12.8947 19 14 19C15.1053 19 16 19.8947 16 21C16 22.1053 15.1053 23 14 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

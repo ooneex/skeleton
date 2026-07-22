@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const OutdoorSeatingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 8.00001V14H15V8.00001H17Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 16V29H15V16H17Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.59441 3.25088C11.6121 2.42548 13.7947 2 16 2C18.2053 2 20.388 2.42548 22.4056 3.25088C24.4233 4.07632 26.2338 5.28453 27.7154 6.80124L28 7.09264V10H4V7.09264L4.28464 6.80124C5.76617 5.28453 7.57667 4.07632 9.59441 3.25088Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 16H24V18H8V16Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 15V29H28V24H22L22 29H20V22.5C20 21.1193 21.1193 20 22.5 20H28V15H30Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 15V29H4V24H10L10 29H12V22.5C12 21.1193 10.8807 20 9.5 20H4V15H2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

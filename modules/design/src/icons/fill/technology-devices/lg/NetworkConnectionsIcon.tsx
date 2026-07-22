@@ -1,0 +1,73 @@
+import type { SVGProps } from "react";
+
+export const NetworkConnectionsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M39.9481 21.1622L20.9481 36.6622L19.0518 34.3376L38.0518 18.8376L39.9481 21.1622Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M42.4552 21.3638L38.4552 37.3638L35.5448 36.6362L39.5448 20.6362L42.4552 21.3638Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.3143 19.4667L10.3143 25.4667L9.68567 22.5333L37.6857 16.5333L38.3143 19.4667Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M37.4429 16.3927L22.4429 10.3927L23.557 7.6073L38.557 13.6073L37.4429 16.3927Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.1319 10.9843L9.13186 22.4843L6.86804 20.5157L16.868 9.01575L19.1319 10.9843Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 25C1 22.2386 3.23858 20 6 20C8.76142 20 11 22.2386 11 25C11 27.7614 8.76142 30 6 30C3.23858 30 1 27.7614 1 25Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 8C16 5.79086 17.7909 4 20 4C22.2091 4 24 5.79086 24 8C24 10.2091 22.2091 12 20 12C17.7909 12 16 10.2091 16 8Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M37 17C37 14.2386 39.2386 12 42 12C44.7614 12 47 14.2386 47 17C47 19.7614 44.7614 22 42 22C39.2386 22 37 19.7614 37 17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14 37C14 34.7909 15.7909 33 18 33C20.2091 33 22 34.7909 22 37C22 39.2091 20.2091 41 18 41C15.7909 41 14 39.2091 14 37Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31 41C31 38.2386 33.2386 36 36 36C38.7614 36 41 38.2386 41 41C41 43.7614 38.7614 46 36 46C33.2386 46 31 43.7614 31 41Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

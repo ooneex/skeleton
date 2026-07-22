@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceTongueWinkIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2ZM28 17H36V20H28V17ZM35 30H29V35C29 37.7614 26.7614 40 24 40C21.2386 40 19 37.7614 19 35V30H13V27H35V30ZM16 15C14.3431 15 13 16.3431 13 18C13 19.6569 14.3431 21 16 21C17.6569 21 19 19.6569 19 18C19 16.3431 17.6569 15 16 15Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

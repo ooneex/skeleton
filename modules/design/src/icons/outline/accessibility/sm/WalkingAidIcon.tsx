@@ -1,0 +1,68 @@
+import type { SVGProps } from "react";
+
+export const WalkingAidIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <line
+        x1="20"
+        y1="18"
+        x2="14"
+        y2="18"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+      />
+      <circle
+        cx="12"
+        cy="3"
+        r="2"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m5,22v-4l-.79-3.95c-.131-.656.074-1.334.547-1.806l3.613-3.613c.861-.861,2.284-.759,3.014.214l1.403,1.871c.138.184.335.314.557.37l3.656.914"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <path
+        d="m20,22v-6c0-.591-.177-1.139-.472-1.603"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m14.212,14.91c-.132.339-.212.704-.212,1.09v6"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <circle
+        cx="20"
+        cy="22"
+        r="1"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

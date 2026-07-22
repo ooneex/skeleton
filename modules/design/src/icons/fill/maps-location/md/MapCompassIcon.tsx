@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const MapCompassIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M10 2.31592L1 5.81592V28.9618L10 25.4618V2.31592Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.3186 27.3186L31.4034 15.5967L19.6814 18.6814L16.5967 30.4034L28.3186 27.3186ZM25.3334 23.0001C25.3334 23.7364 24.7364 24.3334 24.0001 24.3334C23.2637 24.3334 22.6667 23.7364 22.6667 23.0001C22.6667 22.2637 23.2637 21.6667 24.0001 21.6667C24.7364 21.6667 25.3334 22.2637 25.3334 23.0001Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M15.3474 27.2918L12 25.6181V2.38208L20 6.38209V16.5295L19.1724 16.7473C18.4752 16.9308 17.9307 17.4753 17.7472 18.1725L15.3474 27.2918Z"
+        fill="currentColor"
+      />
+      <path
+        d="M22 16.0031L30.8944 13.6624C30.9295 13.6532 30.9647 13.6449 31 13.6377V3.03809L22 6.53808V16.0031Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

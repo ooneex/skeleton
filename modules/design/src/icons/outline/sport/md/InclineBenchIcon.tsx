@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const InclineBenchIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M27.4241 28H27L24 20H23.3333"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M18.7767 20H28C28.5523 20 29 19.5522 29 19C29 17.3431 27.6569 16 26 16H19.9256C19.6537 16 19.3935 15.8892 19.2049 15.6932L7.72136 3.7545C6.53556 2.5217 4.56059 2.52836 3.38312 3.76913L3.2961 3.86083C2.92809 4.24862 2.93019 4.85728 3.30086 5.24253L16.6148 19.08C17.1804 19.6678 17.9609 20 18.7767 20Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M4.67603 28H5.00001L9.30399 17.24"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M24 28H30" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path d="M2 28H8" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+    </svg>
+  );
+};

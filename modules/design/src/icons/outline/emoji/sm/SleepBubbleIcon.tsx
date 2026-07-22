@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const SleepBubbleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M4 23C5.10457 23 6 22.1046 6 21C6 19.8954 5.10457 19 4 19C2.89543 19 2 19.8954 2 21C2 22.1046 2.89543 23 4 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M7.13361 14.3726C7.6 21.2841 17.3477 21.8098 19.1424 16.0565C21.2258 16.1663 23 14.4069 23 12.2962C23 10.0362 21.9 8.67506 19.1424 8.12684C20.25 3.74109 17.1295 1 13.2222 1C10.297 1 7.13361 2.33115 7.13361 6.45432C3.75 5.38575 1 7.29069 1 10.4135C1 13.5244 3.75 15.2537 7.13361 14.3726Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11 8H15V8.625L11 12.375V13H15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

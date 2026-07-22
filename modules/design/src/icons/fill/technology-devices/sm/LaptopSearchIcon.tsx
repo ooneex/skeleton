@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const LaptopSearchIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 4C4.44772 4 4 4.44772 4 5V15H2V5C2 3.34315 3.34315 2 5 2H12V4H5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.5 4C16.1193 4 15 5.11929 15 6.5C15 7.88071 16.1193 9 17.5 9C18.8807 9 20 7.88071 20 6.5C20 5.11929 18.8807 4 17.5 4ZM13 6.5C13 4.01472 15.0147 2 17.5 2C19.9853 2 22 4.01472 22 6.5C22 8.98528 19.9853 11 17.5 11C15.0147 11 13 8.98528 13 6.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.975 7.56076L23.9142 11.5L22.5 12.9142L18.5608 8.97497L19.975 7.56076Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

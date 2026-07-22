@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const PriorityLowIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.87862 21.793C11.0502 22.9645 12.9497 22.9645 14.1213 21.793L21.7928 14.1214C22.9644 12.9498 22.9644 11.0503 21.7928 9.87874L14.1213 2.20716C12.9497 1.03559 11.0502 1.03559 9.87862 2.20716L2.20705 9.87874C1.03548 11.0503 1.03548 12.9498 2.20705 14.1214L9.87862 21.793ZM12 18.4142L6.58579 13L8 11.5858L12 15.5858L16 11.5858L17.4142 13L12 18.4142Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

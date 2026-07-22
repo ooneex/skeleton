@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const BaggageScaleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.5 4C17.2239 4 17 4.22386 17 4.5V8H15V4.5C15 3.11929 16.1193 2 17.5 2H21.5C22.8807 2 24 3.11929 24 4.5V8H22V4.5C22 4.22386 21.7761 4 21.5 4H17.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M3 7V30H30V24H5V7H3Z" fill="currentColor" />
+      <path
+        d="M6.5 5.5C6.5 6.88071 5.38071 8 4 8C2.61929 8 1.5 6.88071 1.5 5.5C1.5 4.11929 2.61929 3 4 3C5.38071 3 6.5 4.11929 6.5 5.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 6C10.3431 6 9 7.34315 9 9V19C9 20.6569 10.3431 22 12 22H27C28.6569 22 30 20.6569 30 19V9C30 7.34315 28.6569 6 27 6H12ZM17 8H15V20H17V8ZM24 8H22V20H24V8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

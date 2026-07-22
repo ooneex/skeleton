@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const WineBottleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M15 28H33" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path d="M21 8H27" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M15 38H33" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M27 3V17L28.0769 17.4487C31.0581 18.6909 33 21.6037 33 24.8334V45H15V24.8333C15 21.6037 16.9419 18.6909 19.9231 17.4487L21 17V3C21 2.44772 21.4477 2 22 2H26C26.5523 2 27 2.44772 27 3Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const AndroidLogoIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27.157 2.62799L23.6425 8.48548L25.3575 9.51448L28.872 3.65698L27.157 2.62799Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.84298 2.62799L8.35747 8.48548L6.64249 9.51448L3.12799 3.65698L4.84298 2.62799Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M31 20C31 11.7157 24.2843 5 16 5C7.71573 5 1 11.7157 1 20V27H31V20ZM10 21C11.1046 21 12 20.1046 12 19C12 17.8954 11.1046 17 10 17C8.89543 17 8 17.8954 8 19C8 20.1046 8.89543 21 10 21ZM24 19C24 20.1046 23.1046 21 22 21C20.8954 21 20 20.1046 20 19C20 17.8954 20.8954 17 22 17C23.1046 17 24 17.8954 24 19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

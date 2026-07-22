@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const EggsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M2 21C2 15 6.25347 6 11.5 6C16.7465 6 21 15 21 21C21 23.3869 19.9991 25.6761 18.2175 27.364C16.4359 29.0518 14.0196 30 11.5 30C8.98044 30 6.56408 29.0518 4.78249 27.364C3.00089 25.6761 2 23.3869 2 21Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M24.7636 23.3677C25.781 22.9571 26.7162 22.3545 27.5104 21.5836C29.1045 20.0365 30 17.938 30 15.75C30 10.25 26.1943 2 21.5 2C20.0121 2 18.6135 2.82884 17.397 4.13625"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11.5 25C13.9853 25 16 22.9853 16 20.5C16 18.0147 13.9853 16 11.5 16C9.01472 16 7 18.0147 7 20.5C7 22.9853 9.01472 25 11.5 25Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

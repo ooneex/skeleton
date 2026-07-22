@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export const LetterSIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M26 22.5C26 18.3579 22.6421 15 18.5 15H13.5C10.4624 15 8 12.5376 8 9.5C8 6.46243 10.4624 4 13.5 4H24V2H13.5C9.35786 2 6 5.35786 6 9.5C6 13.6421 9.35786 17 13.5 17H18.5C21.5376 17 24 19.4624 24 22.5C24 25.5376 21.5376 28 18.5 28H8V30H18.5C22.6421 30 26 26.6421 26 22.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

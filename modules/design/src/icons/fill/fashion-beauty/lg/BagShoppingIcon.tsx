@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const BagShoppingIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 4C20.6863 4 18 6.68629 18 10V16H15V10C15 5.02944 19.0294 1 24 1C28.9706 1 33 5.02944 33 10V16H30V10C30 6.68629 27.3137 4 24 4Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.09998 13.2H38.9001V23.8933L41.671 36.7344C42.4775 40.4718 39.6294 44 35.806 44H12.194C8.37056 44 5.52247 40.4718 6.32897 36.7344L9.09998 23.8933V13.2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

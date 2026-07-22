@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const CurlingStoneIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M34 16L31.9998 8.69212C31.405 6.51898 29.4303 5.01209 27.1772 5.01209L12.577 5.01209C11.1538 5.01209 10 6.16585 10 7.58909V7.58909C10 8.94579 11.0519 10.0701 12.4056 10.1604L25 11V16"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M3 32H45" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M10.1724 18.4015L10 18.4578C5.94289 19.7321 3 23.5224 3 28V31C3 36.5229 7.47715 41 13 41H35C40.5228 41 45 36.5229 45 31V28C45 23.5224 42.0571 19.7321 38 18.4578L37.8044 18.3962"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <rect
+        x="10"
+        y="16"
+        width="28"
+        height="7"
+        rx="3.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

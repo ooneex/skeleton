@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+
+export const TeepeeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M45.4219 44H32.6387L23.999 30.0674L15.3711 44H2.53223L15.6426 22.7646L20 27.1221L24 23.1221L28.0693 27.1914L32.1748 22.5293L45.4219 44Z"
+        fill="currentColor"
+      />
+      <path
+        d="M30.7949 3.93652L25.7471 12.1104L30.5283 19.8594L27.9307 22.8086L24 18.8789L20 22.8779L17.2627 20.1406L22.2217 12.1094L17.1797 3.93555L19.7334 2.36035L23.9854 9.25391L28.2422 2.36035L30.7949 3.93652Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,39 @@
+import type { SVGProps } from "react";
+
+export const MakeupCreamIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M18 37.75C8.8873 37.75 3 35.3137 3 32"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M3 25.5V38.8636C3 42.2527 10.3873 45 19.5 45C28.6127 45 36 42.2527 36 38.8636V25.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <ellipse cx="19.5" cy="25.5" rx="16.5" ry="6" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M41.0416 31C44.1058 27.9253 46 23.6838 46 19C46 9.61116 38.3888 2 29 2C20.9889 2 14.2721 7.54127 12.4733 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M40.4815 22.5C40.8187 21.3927 41 20.2175 41 19C41 12.3726 35.6274 7 29 7C23.9639 7 19.6524 10.1023 17.8723 14.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,41 @@
+import type { SVGProps } from "react";
+
+export const HangerClothesIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9 25H23"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M19.3333 5.33333C19.3333 3.49238 17.8409 2 16 2C14.159 2 12.6667 3.49238 12.6667 5.33333C12.6667 6.25557 13.193 7.09034 13.8969 7.69383C14.5005 8.21121 15 8.90308 15 9.69803V10.5L2 15V17C2 18.6569 3.34315 20 5 20V20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M27 20V20C28.6569 20 30 18.6569 30 17V15L20 11.5385"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M23 17H9V28C9 29.1046 9.89543 30 11 30H21C22.1046 30 23 29.1046 23 28V17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

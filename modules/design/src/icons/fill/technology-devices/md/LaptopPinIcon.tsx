@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const LaptopPinIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 3.5C20.449 3.5 17.5 6.25638 17.5 9.74028C17.5 13.1829 20.2135 15.9305 23.4774 18.1453L24 18.5L24.5226 18.1453C27.7865 15.9305 30.5 13.1829 30.5 9.74028C30.5 6.25638 27.551 3.5 24 3.5ZM25.8571 9.97755C25.8571 10.9997 25.0257 11.8283 24 11.8283C22.9743 11.8283 22.1429 10.9997 22.1429 9.97755C22.1429 8.95542 22.9743 8.12682 24 8.12682C25.0257 8.12682 25.8571 8.95542 25.8571 9.97755Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 5C5.89543 5 5 5.89543 5 7V21H3V7C3 4.79086 4.79086 3 7 3H17V5H7Z"
+        fill="currentColor"
+      />
+      <path
+        d="M1 23V26C1 27.1046 1.89543 28 3 28H29C30.1046 28 31 27.1046 31 26V23H22C22 23.5523 21.5523 24 21 24H11C10.4477 24 10 23.5523 10 23H1Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

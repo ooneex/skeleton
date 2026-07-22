@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const TopHatIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.3789 27.8419L13.345 28.1838C20.1875 30.6054 27.8123 30.6054 34.6547 28.1839L35.6209 27.8419"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M12 26L6.00775 25.3342C4.32076 25.1468 2.78153 26.3108 2.50249 27.9851V27.9851C2.17591 29.9446 2.41507 32.0043 3.58054 33.613C5.76404 36.6269 8.731 38.7531 12.3267 40.2477C19.7086 43.3159 28.2917 43.316 35.6736 40.2476C39.2692 38.7531 42.236 36.6269 44.4195 33.613C45.5849 32.0043 45.8241 29.9446 45.4975 27.9851V27.9851C45.2185 26.3108 43.6792 25.1468 41.9922 25.3342L36 26"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M10 7L13 34L13.2962 34.1279C20.1272 37.0777 27.8727 37.0777 34.7037 34.1279L35 34L38 7L37.7361 6.92459C28.7583 4.35952 19.2417 4.35952 10.2639 6.92459L10 7Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

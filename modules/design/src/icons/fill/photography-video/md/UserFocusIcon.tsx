@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const UserFocusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 4C4.89543 4 4 4.89543 4 6V11H2V6C2 3.79086 3.79086 2 6 2H11V4H6Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 2H26C28.2091 2 30 3.79086 30 6V11H28V6C28 4.89543 27.1046 4 26 4H21V2Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 21V26C30 28.2091 28.2091 30 26 30H21V28H26C27.1046 28 28 27.1046 28 26V21H30Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 21V26C4 27.1046 4.89543 28 6 28H11V30H6C3.79086 30 2 28.2091 2 26V21H4Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16 15C18.2091 15 20 13.2091 20 11C20 8.79086 18.2091 7 16 7C13.7909 7 12 8.79086 12 11C12 13.2091 13.7909 15 16 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M23.7906 22.6745L22.4275 23.2725C18.3309 25.0695 13.6691 25.0695 9.57258 23.2725L8.20947 22.6745C9.03577 19.1361 12.2089 16.5 16 16.5C19.7912 16.5 22.9643 19.1361 23.7906 22.6745Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

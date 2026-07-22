@@ -1,0 +1,57 @@
+import type { SVGProps } from "react";
+
+export const MedicineIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M30.9879 5.24036L26.8322 19.7426"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M7.75997 34.6754L16.3642 29.7677"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M37.7674 7.06461L24.2445 3.44114C20.2435 2.36908 16.1309 4.74345 15.0589 8.74444C13.9868 12.7454 16.3612 16.858 20.3622 17.93L33.8851 21.5535C37.8861 22.6256 41.9987 20.2512 43.0707 16.2502C44.1428 12.2492 41.7684 8.13667 37.7674 7.06461Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M19.6603 35.4545L12.6603 23.3301C11.2795 20.9387 8.22159 20.1193 5.83013 21.5C3.43866 22.8807 2.61929 25.9387 4 28.3301L11 40.4545C12.3807 42.8459 15.4387 43.6653 17.8301 42.2846C20.2216 40.9039 21.041 37.8459 19.6603 35.4545Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M32.75 39.25L36 36L39.25 32.75"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M36 45C40.9706 45 45 40.9706 45 36C45 31.0294 40.9706 27 36 27C31.0294 27 27 31.0294 27 36C27 40.9706 31.0294 45 36 45Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

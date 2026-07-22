@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const ArrowCornerBottomLeftIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 28.5L22 12C22 10.8954 21.1046 10 20 10L3.5 10L3.5 8L20 8C22.2091 8 24 9.79086 24 12L24 28.5L22 28.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.5 20.5858L23 27.0858L29.5 20.5858L30.9142 22L23 29.9142L15.0858 22L16.5 20.5858Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.4142 2.50003L4.91418 9.00003L11.4142 15.5L9.99997 16.9142L2.08576 9.00003L9.99997 1.08582L11.4142 2.50003Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

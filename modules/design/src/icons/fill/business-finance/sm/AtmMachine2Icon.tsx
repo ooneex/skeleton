@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const AtmMachine2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 0L24 9L18 9L18 7L22 7L22 2L2 2L2 7L6 7L6 9L1.51395e-06 9L1.90735e-06 -1.04907e-06L24 0Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M7 4H14V24H7C5.34315 24 4 22.6569 4 21V7C4 5.34315 5.34315 4 7 4ZM10 8H8L8 12H10V8Z"
+        fill="currentColor"
+      />
+      <path d="M17 24V4C18.6569 4 20 5.34315 20 7L20 21C20 22.6569 18.6569 24 17 24Z" fill="currentColor" />
+    </svg>
+  );
+};

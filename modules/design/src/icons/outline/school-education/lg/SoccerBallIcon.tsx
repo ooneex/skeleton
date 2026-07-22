@@ -1,0 +1,103 @@
+import type { SVGProps } from "react";
+
+export const SoccerBallIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M20.0693 9.33047L21.6465 15.2168"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M8.83356 23.2053L14.3213 24.263"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M32.5135 19.3884L36.7372 15.7285"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M31.5053 30.9493L35.8029 33.5579"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M20.9748 33.7709L18.5573 38.1788"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M27.1096 2.23454L20.0693 9.3305L10.4242 6.70538"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M4.26097 14.3158L8.83353 23.2053L3.35726 31.5676"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M8.69052 39.7801L18.5573 38.1788L24.8183 45.9708"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M34.2767 43.4365L35.8029 33.5579L45.1484 30.0112"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M45.6609 20.2324L36.7372 15.7285L36.2524 5.74378"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M29.694 45.2504C41.4303 42.1057 48.3951 30.0422 45.2504 18.306C42.1057 6.56974 30.0423 -0.395074 18.306 2.74965C6.56975 5.89437 -0.395067 17.9578 2.74965 29.694C5.89437 41.4303 17.9578 48.3951 29.694 45.2504Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <path
+        d="M21.6466 15.2168L14.3213 24.263L20.9748 33.7709L31.5054 30.9493L32.5135 19.3884L21.6466 15.2168Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

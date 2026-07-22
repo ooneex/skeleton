@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const ArrowDotRotateAnticlockwiseIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 5.5C34.2173 5.5 42.5 13.7827 42.5 24C42.5 34.2173 34.2173 42.5 24 42.5H22.5V45.5H24C35.8741 45.5 45.5 35.8741 45.5 24C45.5 12.1259 35.8741 2.5 24 2.5C15.854 2.5 8.76899 7.03005 5.12163 13.7035L5.06165 13.6766L4.45105 15.0391C4.39618 15.1587 4.34237 15.2788 4.28964 15.3994L7.033 16.6134L7.18291 16.2789C10.1101 9.91437 16.5412 5.5 24 5.5Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M7 3V14H18V17H4V3H7Z" fill="currentColor" />
+      <path
+        d="M11.5 45.5C15.366 45.5 18.5 42.366 18.5 38.5C18.5 34.634 15.366 31.5 11.5 31.5C7.63401 31.5 4.5 34.634 4.5 38.5C4.5 42.366 7.63401 45.5 11.5 45.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

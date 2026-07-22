@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const CreativeCommonsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M13.5 12.4C12.8732 11.8349 12.0941 11.5 11.2498 11.5C9.17883 11.5 7.5 13.5147 7.5 16C7.5 18.4853 9.17883 20.5 11.2498 20.5C12.0941 20.5 12.8732 20.1651 13.5 19.6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M23.5 12.4C22.8732 11.8349 22.0941 11.5 21.2498 11.5C19.1788 11.5 17.5 13.5147 17.5 16C17.5 18.4853 19.1788 20.5 21.2498 20.5C22.0941 20.5 22.8732 20.1651 23.5 19.6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

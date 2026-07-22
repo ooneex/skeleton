@@ -1,0 +1,80 @@
+import type { SVGProps } from "react";
+
+export const UserChangeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <circle
+        cx="5.95"
+        cy="3.25"
+        r="2.25"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <polyline
+        points="16.5 6.5 14 4 16.5 1.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m21,7v-1c0-1.105-.895-2-2-2h-5s1,0,1,0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <polyline
+        points="7.5 17.5 10 20 7.5 22.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m3,17v1c0,1.105.895,2,2,2h5s-1,0-1,0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-color="color-2"
+      />
+      <path
+        d="m10.174,13c.005-.084.025-.164.025-.25,0-2.347-1.903-4.25-4.25-4.25s-4.25,1.903-4.25,4.25c0,.086.02.166.025.25h8.45Z"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <circle
+        cx="17.95"
+        cy="13.25"
+        r="2.25"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+      <path
+        d="m22.174,23c.005-.084.025-.164.025-.25,0-2.347-1.903-4.25-4.25-4.25s-4.25,1.903-4.25,4.25c0,.086.02.166.025.25h8.45Z"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

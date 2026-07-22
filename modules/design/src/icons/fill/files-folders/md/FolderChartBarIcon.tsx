@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const FolderChartBarIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M23 16V30H21V16H23Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M27 22V30H25V22H27Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 25V30H17V25H19Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M31 18V30H29V18H31Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M5 3C2.79086 3 1 4.79086 1 7V24C1 26.2091 2.79086 28 5 28H15V25C15 23.8954 15.8954 23 17 23H19V16C19 14.8954 19.8954 14 21 14H23C24.1046 14 25 14.8954 25 16V20H27V18C27 16.8954 27.8954 16 29 16H31V11C31 8.79086 29.2091 7 27 7H17.8L13.6 3H5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

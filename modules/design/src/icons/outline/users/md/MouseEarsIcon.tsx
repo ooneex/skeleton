@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const MouseEarsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M30 8.85C30 5.61878 27.4352 3 24.2726 3C20.8608 3 18.0524 6.081 18.6376 9.78311C17.7864 9.59967 16.9058 9.5 16 9.5C15.0942 9.5 14.215 9.59967 13.3624 9.78311C13.9462 6.07956 11.1378 3 7.7274 3C4.5648 3 2 5.61878 2 8.85C2 11.4789 3.7094 13.6759 6.0446 14.414C3.6912 17.4314 2.7476 21.3546 3.5596 25.2329C7.145 27.6061 11.4094 29 16 29C20.5906 29 24.855 27.6061 28.4404 25.2329C29.251 21.3632 28.313 17.4401 25.9554 14.414C28.2906 13.6759 30 11.4789 30 8.85Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

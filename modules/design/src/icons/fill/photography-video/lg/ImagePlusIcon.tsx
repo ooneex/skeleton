@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const ImagePlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27.5321 22.2841L40.8068 40.4091H5.21289V40.3832L14.1116 29.0272L18.8563 34.6418L27.5321 22.2841Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 21L46 36C46 39.3137 43.3137 42 40 42L7.99999 42C4.68629 42 1.99999 39.3137 1.99999 36L1.99999 12C1.99999 8.68629 4.68628 6 7.99999 6L25 6L25 9L7.99999 9C6.34314 9 4.99999 10.3431 4.99999 12L4.99999 36C4.99999 37.6569 6.34314 39 7.99999 39L40 39C41.6568 39 43 37.6569 43 36L43 21L46 21Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46.5 11C46.5 16.2467 42.2467 20.5 37 20.5C31.7533 20.5 27.5 16.2467 27.5 11C27.5 5.75329 31.7533 1.5 37 1.5C42.2467 1.5 46.5 5.75329 46.5 11ZM38.5 6H35.5V9.5H32V12.5H35.5V16H38.5V12.5H42V9.5H38.5V6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M14 23.5C16.4853 23.5 18.5 21.4853 18.5 19C18.5 16.5147 16.4853 14.5 14 14.5C11.5147 14.5 9.5 16.5147 9.5 19C9.5 21.4853 11.5147 23.5 14 23.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Tablet2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14 12C15.1046 12 16 11.1046 16 10C16 8.89543 15.1046 8 14 8C12.8954 8 12 8.89543 12 10C12 11.1046 12.8954 12 14 12Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6 8C6 4.68629 8.68629 2 12 2H36C39.3137 2 42 4.68629 42 8V40C42 43.3137 39.3137 46 36 46H12C8.68629 46 6 43.3137 6 40V8ZM12 5C10.3431 5 9 6.34315 9 8V40C9 41.6569 10.3431 43 12 43H36C37.6569 43 39 41.6569 39 40V8C39 6.34315 37.6569 5 36 5H12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

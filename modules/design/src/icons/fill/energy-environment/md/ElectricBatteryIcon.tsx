@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const ElectricBatteryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 9H27L27 26H5V9ZM17.1926 12.575L15.4188 11.6512L11.8517 18.5H16.8517L14.8074 22.425L16.5812 23.3488L20.1483 16.5H15.1483L17.1926 12.575Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 0H13V2H8V0Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 0H24V2H19V0Z" fill="currentColor" />
+      <path
+        d="M5.12602 28C5.57006 29.7252 7.13616 31 9 31H23C24.8638 31 26.4299 29.7252 26.874 28H5.12602Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M23 4C24.8638 4 26.4299 5.27477 26.874 7H5.12602C5.57007 5.27477 7.13617 4 9.00001 4H23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

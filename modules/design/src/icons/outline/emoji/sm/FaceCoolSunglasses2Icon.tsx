@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const FaceCoolSunglasses2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M12 18C13.1947 18 14.2671 17.4762 15 16.6458"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M5.5 9H18.5V10C18.5 11.6569 17.1569 13 15.5 13C14.6334 13 13.8513 12.6312 13.305 12.045C12.9936 11.7109 12.7563 11.444 12.4967 11.2386C12.1314 10.9496 11.8686 10.9496 11.5033 11.2386C11.2437 11.444 11.0064 11.7109 10.695 12.045C10.1486 12.6312 9.36662 13 8.5 13C6.84315 13 5.5 11.6569 5.5 10V9Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

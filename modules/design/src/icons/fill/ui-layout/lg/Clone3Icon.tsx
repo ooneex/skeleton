@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const Clone3Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M34 28C34 31.3137 31.3137 34 28 34L10 34C6.68629 34 4 31.3137 4 28L4 10C4 6.68629 6.68629 4 10 4L28 4C31.3137 4 34 6.68629 34 10L34 28Z"
+        fill="currentColor"
+      />
+      <path
+        d="M38 44C41.3137 44 44 41.3137 44 38L44 20C44 16.6863 41.3137 14 38 14L37 14L37 29C37 33.4183 33.4183 37 29 37L14 37L14 38C14 41.3137 16.6863 44 20 44L38 44Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

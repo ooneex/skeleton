@@ -1,0 +1,31 @@
+import type { SVGProps } from "react";
+
+export const ScentedCandleIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 12.5V19C3 20.6569 7.02944 22 12 22C16.9706 22 21 20.6569 21 19V12.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M15.5 9.73529C18.7319 10.1905 21 11.2569 21 12.5C21 14.1568 16.9706 15.5 12 15.5C7.02944 15.5 3 14.1568 3 12.5C3 11.2769 5.19582 10.2247 8.34509 9.75768"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M8 7.84374C8 7.16918 8.5 4.19576 8.5 4.19576L9.625 4.83761L12 1.5C12 1.5 16 4.83761 16 7.84374C16 10.5103 13.9498 11.5 12 11.5C10.0502 11.5 8 10.5103 8 7.84374Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

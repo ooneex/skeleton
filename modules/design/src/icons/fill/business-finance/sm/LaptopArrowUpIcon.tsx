@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const LaptopArrowUpIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11 9H13L12.9753 10.5C12.7245 13.0267 10.5927 15 8 15H2V13H8C9.65685 13 11 11.6569 11 10V9Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V15H20V6C20 5.44772 19.5523 5 19 5H5C4.44772 5 4 5.44772 4 6V15H2V6Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 5.33332L15.5 9.99999L8.49999 9.99999L12 5.33332Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

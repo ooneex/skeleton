@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const Pen4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M3.96191 44.0455L7.97222 31.4133L16.5868 40.028L3.96191 44.0455Z" fill="currentColor" />
+      <path d="M26.2675 12.998L10.0337 29.2319L18.7683 37.9666L35.0022 21.7327L26.2675 12.998Z" fill="currentColor" />
+      <path
+        d="M28.3887 10.8766L37.1233 19.6113L42.6463 14.0883C43.6226 13.112 43.6226 11.5291 42.6463 10.5528L37.4473 5.3536C36.471 4.37726 34.888 4.37725 33.9117 5.35358L28.3887 10.8766Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

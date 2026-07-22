@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CloudDownloadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23.2667 6C14.564 6 7.39853 12.5504 6.90398 20.8784C3.45141 22.3242 1 25.6398 1 29.5455C1 34.8048 5.4253 39 10.8 39H37.9333C42.9032 39 47 35.1205 47 30.25C47 25.9595 43.8173 22.4427 39.6661 21.6655C39.5936 12.965 32.2414 6 23.2667 6ZM22.5 14H25.5V23H34L24 34.5052L14 23H22.5V14Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

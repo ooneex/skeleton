@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const ContactsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M35 46C38.3137 46 41 43.3137 41 40V8C41 4.68629 38.3137 2 35 2H13C9.68629 2 7 4.68629 7 8V40C7 43.3137 9.68629 46 13 46L35 46ZM29 17C29 19.7614 26.7614 22 24 22C21.2386 22 19 19.7614 19 17C19 14.2386 21.2386 12 24 12C26.7614 12 29 14.2386 29 17ZM35.2169 34.7542L35.9981 34.5807C35.8805 28.6162 30.4422 24 24 24C17.5578 24 12.1196 28.6162 12.002 34.5807L12.7831 34.7542C20.2588 36.4153 27.7412 36.4153 35.2169 34.7542Z"
+        fill="currentColor"
+      />
+      <path
+        d="M44 40.8739C45.7252 40.4299 47 38.8638 47 37V11C47 9.13612 45.7252 7.57002 44 7.12598V40.8739Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M4 40.8739C2.27477 40.4299 1 38.8638 1 37V11C1 9.13612 2.27477 7.57002 4 7.12598V40.8739Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

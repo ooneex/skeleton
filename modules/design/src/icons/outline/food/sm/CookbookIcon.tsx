@@ -1,0 +1,66 @@
+import type { SVGProps } from "react";
+
+export const CookbookIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M6.5 22H3V2H17C18.1046 2 19 2.89543 19 4V10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M23 4V5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M23 9V10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M16.4746 14H17.2931C18.7881 14 20 15.2119 20 16.7069V16.7069C20 18.0301 19.0433 19.1594 17.7381 19.377L17 19.5V22H11V19.5L10.2619 19.377C8.95666 19.1594 8 18.0301 8 16.7069V16.7069C8 15.2119 9.21192 14 10.7069 14H11.538"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11.5 15L11.5 14.5C11.5 13.1193 12.6193 12 14 12V12C15.3807 12 16.5 13.1193 16.5 14.5L16.5 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M8 7L7.00004 7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M15 7L12 7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

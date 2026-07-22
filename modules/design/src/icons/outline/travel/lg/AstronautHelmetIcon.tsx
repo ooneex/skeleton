@@ -1,0 +1,42 @@
+import type { SVGProps } from "react";
+
+export const AstronautHelmetIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M11 40L12 45H36L37 40" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M5.50879 31.1945C17.3571 36.239 30.6429 36.239 42.4912 31.1945"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M5.26514 21.7381C10.2328 17.253 14.4296 13.9779 24 13.9779C33.5593 13.9779 37.7574 17.2454 42.7176 21.7225"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path d="M5 23H3.5V30H5.28954" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M43 23H44.5V30H42.6802" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path d="M24 2V6V5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M24 6C13.5066 6 5 14.4568 5 24.8889C5 32.0267 6.6957 37.4787 10.0855 39.6523C10.4758 39.9026 10.9394 40 11.403 40H36.597C37.0606 40 37.5242 39.9026 37.9145 39.6523C41.3043 37.4787 43 32.0267 43 24.8889C43 14.4568 34.4934 6 24 6Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11.2302 28C11 26.5 11.2302 23.5 12 22"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+    </svg>
+  );
+};

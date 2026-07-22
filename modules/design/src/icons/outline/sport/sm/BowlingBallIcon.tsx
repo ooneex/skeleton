@@ -1,0 +1,37 @@
+import type { SVGProps } from "react";
+
+export const BowlingBallIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M13.5 7.5C13.5 8.32843 12.8284 9 12 9C11.1716 9 10.5 8.32843 10.5 7.5C10.5 6.67157 11.1716 6 12 6C12.8284 6 13.5 6.67157 13.5 7.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M16.5 11.5C16.5 12.3284 15.8284 13 15 13C14.1716 13 13.5 12.3284 13.5 11.5C13.5 10.6716 14.1716 10 15 10C15.8284 10 16.5 10.6716 16.5 11.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M10.5 11.5C10.5 12.3284 9.82843 13 9 13C8.17157 13 7.5 12.3284 7.5 11.5C7.5 10.6716 8.17157 10 9 10C9.82843 10 10.5 10.6716 10.5 11.5Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

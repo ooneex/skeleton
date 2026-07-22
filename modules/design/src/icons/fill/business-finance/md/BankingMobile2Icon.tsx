@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const BankingMobile2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.25 5L17.75 5C18.4404 5 19 5.55964 19 6.25C19 6.94035 18.4404 7.5 17.75 7.5L14.25 7.5C13.5596 7.5 13 6.94036 13 6.25C13 5.55964 13.5596 5 14.25 5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M29 20.5001L22 16.2982L15 20.5001V24.0001H16.5V29.0001H15V31.0001H29V29.0001H27.5V24.0001H29V20.5001ZM21 29.0001H18.5V24.0001H21V29.0001ZM23 29.0001H25.5V24.0001H23V29.0001ZM22 22.0001C22.8284 22.0001 23.5 21.3285 23.5 20.5001C23.5 19.6716 22.8284 19.0001 22 19.0001C21.1716 19.0001 20.5 19.6716 20.5 20.5001C20.5 21.3285 21.1716 22.0001 22 22.0001Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 14.5L24 5C24 3.89543 23.1046 3 22 3L10 3C8.89543 3 8 3.89543 8 5L8 27C8 28.1046 8.89543 29 10 29L13 29L13 31L10 31C7.79086 31 6 29.2091 6 27L6 5C6 2.79086 7.79086 0.999999 10 0.999999L22 1C24.2091 1 26 2.79086 26 5L26 14.5L24 14.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

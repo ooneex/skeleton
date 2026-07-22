@@ -1,0 +1,30 @@
+import type { SVGProps } from "react";
+
+export const ArcheryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M46.4482 24L37 32.1904V15.8096L46.4482 24Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M23.5624 39.9182L23.5653 39.9172L24.743 41.6604L22.2587 43.3411L22.2567 43.3391L21.9188 42.8401L21.8436 42.7297L12.5546 29.0208L15.0379 27.3381L23.5624 39.9182Z"
+        fill="currentColor"
+      />
+      <path d="M22.2575 4.66016L24.7428 6.33984L15.0651 20.6738L12.5778 18.9951L22.2575 4.66016Z" fill="currentColor" />
+      <path d="M38 22.5V25.5H30V22.5H38Z" fill="currentColor" data-color="color-2" />
+      <path d="M25.4996 22.5V25.5H0.996704V22.5H25.4996Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M28.5 24C28.5 16.2031 25.236 9.15039 19.9609 4.08206L19.2429 3.38568L20.2825 2.30414L21.322 1.2226L22.0391 1.91799C27.8718 7.52199 31.5 15.3441 31.5 24C31.5 32.6559 27.8718 40.4781 22.0391 46.0821L21.328 46.7837L20.2885 45.7022L19.2489 44.6207L19.9609 43.918C25.236 38.8497 28.5 31.797 28.5 24Z"
+        fill="currentColor"
+      />
+      <path
+        d="M7.83971 24.0009L4.14733 29.1943L1.70201 27.456L4.15905 23.998L1.70201 20.539L4.1483 18.8017L7.83971 24.0009Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M13.3383 24.001L9.65765 29.1934L7.21039 27.459L9.66156 23.999L7.21039 20.5361L9.65863 18.8027L13.3383 24.001Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

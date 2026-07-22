@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const SaltShakerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.6027 24L16.4807 26.9668C15.4025 28.4735 13.2293 28.6519 11.9191 27.3418L4.64961 20.0723C3.33949 18.7621 3.51792 16.5889 5.02461 15.5107L8.00019 13.3828L18.6027 24ZM10.8791 23.707L12.2932 25.1211L14.4143 23L13.0002 21.5859L10.8791 23.707ZM6.8791 19.707L8.29316 21.1211L10.4143 19L9.00019 17.5859L6.8791 19.707Z"
+        fill="currentColor"
+      />
+      <path
+        d="M4.42773 28.9867L3 30.4144L1.58594 29.0003L3.01367 27.5726L4.42773 28.9867Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M4.41443 24L2.98669 25.4277L1.57263 24.0137L3.00037 22.5859L4.41443 24Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M9.42773 28.9867L8 30.4144L6.58594 29.0003L8.01367 27.5726L9.42773 28.9867Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M14.4609 4.49245C16.2136 1.87329 19.9227 1.50844 22.1514 3.73659L28.2598 9.84499C30.4896 12.0751 30.1227 15.7871 27.5 17.5384L19.9854 22.555L9.44043 11.9954L14.4609 4.49245Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

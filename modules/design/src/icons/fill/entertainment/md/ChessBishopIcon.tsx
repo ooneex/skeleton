@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const ChessBishopIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16 12.5C13.5147 12.5 11.5 11.0948 11.5 8.33333C11.5 5.57191 13.5147 2.5 16 2.5C18.4853 2.5 20.5 5.57191 20.5 8.33333C20.5 11.0948 18.4853 12.5 16 12.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16 3C15.1716 3 14.5 2.32843 14.5 1.5C14.5 0.671573 15.1716 -2.7463e-07 16 -2.38419e-07C16.8284 -2.02207e-07 17.5 0.671573 17.5 1.5C17.5 2.32843 16.8284 3 16 3Z"
+        fill="currentColor"
+      />
+      <path
+        d="M28 30H4V28C4 25.7909 5.79086 24 8 24H24C26.2091 24 28 25.7909 28 28V30Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M18.5 13.6553C18.5 16.2286 19.4024 18.7204 21.0498 20.6973L22.1357 22H9.86426L10.9502 20.6973C12.5976 18.7204 13.5 16.2286 13.5 13.6553V11H18.5V13.6553Z"
+        fill="currentColor"
+      />
+      <path d="M22 11V13H10V11H22Z" fill="currentColor" />
+    </svg>
+  );
+};

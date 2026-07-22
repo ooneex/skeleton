@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const HouseMarketGrowthIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M23.207 16.707L22.9014 17.0137L17.5 22.4141L13.5 18.4141L11.5 20.4141L10.0859 19L13.5 15.5859L17.5 19.5859L21.4863 15.5986L21.793 15.293L23.207 16.707Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M23.5 15V19.1182L21.0527 17.8945L20.7549 17.7451L20.6055 17.4473L19.3818 15H23.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M19.3818 13H20.708L12 5.87598L3 13.2393V20L3.00391 20.1543C3.08421 21.7394 4.39489 23 6 23H11.2596L8.67188 20.4141C7.89083 19.633 7.89083 18.367 8.67188 17.5859L12.2373 14.0342C13.0229 13.3934 14.1818 13.4396 14.9141 14.1719L16.2065 15.4644L17.6807 13.9482C18.0451 13.3588 18.6888 13 19.3818 13Z"
+        fill="currentColor"
+      />
+      <path
+        d="M23.7957 10.3594L22.5301 11.9072L11.9998 3.29199L1.47049 11.9072L0.203888 10.3594L11.9998 0.708008L23.7957 10.3594Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,32 @@
+import type { SVGProps } from "react";
+
+export const BarLoaderIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M22.5 2H25.5V10H22.5V2Z" fill="currentColor" />
+      <path opacity="0.6" d="M22.5 38H25.5V46H22.5V38Z" fill="currentColor" />
+      <path opacity="0.8" d="M46 22.5L46 25.5L38 25.5L38 22.5L46 22.5Z" fill="currentColor" />
+      <path opacity="0.4" d="M10 22.5L10 25.5L2 25.5L2 22.5L10 22.5Z" fill="currentColor" />
+      <path
+        opacity="0.3"
+        d="M7.383 9.50432L9.50432 7.383L15.1612 13.0399L13.0398 15.1612L7.383 9.50432Z"
+        fill="currentColor"
+      />
+      <path
+        opacity="0.7"
+        d="M32.8389 34.9601L34.9602 32.8388L40.617 38.4957L38.4957 40.617L32.8389 34.9601Z"
+        fill="currentColor"
+      />
+      <path
+        opacity="0.9"
+        d="M38.4957 7.383L40.617 9.50432L34.9601 15.1612L32.8388 13.0398L38.4957 7.383Z"
+        fill="currentColor"
+      />
+      <path
+        opacity="0.5"
+        d="M13.0399 32.8388L15.1612 34.9602L9.50432 40.617L7.383 38.4957L13.0399 32.8388Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

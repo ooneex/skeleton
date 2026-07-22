@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const AwardMedalIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 9C22.0751 9 27 13.9249 27 20C27 26.0751 22.0751 31 16 31C9.92487 31 5 26.0751 5 20C5 13.9249 9.92487 9 16 9ZM16 14C12.6863 14 10 16.6863 10 20C10 23.3137 12.6863 26 16 26C19.3137 26 22 23.3137 22 20C22 16.6863 19.3137 14 16 14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M10.3584 2L12.4336 7.49512C10.1316 8.15039 8.09183 9.42581 6.50195 11.127L3.66699 3.85449V2H10.3584Z"
+        fill="currentColor"
+      />
+      <path
+        d="M28.333 3.85449L25.4971 11.127C23.9071 9.42583 21.8675 8.15025 19.5654 7.49512L21.6416 2H28.333V3.85449Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16 16C18.2091 16 20 17.7909 20 20C20 22.2091 18.2091 24 16 24C13.7909 24 12 22.2091 12 20C12 17.7909 13.7909 16 16 16Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

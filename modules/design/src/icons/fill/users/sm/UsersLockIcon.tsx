@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const UsersLockIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="m5.5,17c-3.033,0-5.5,2.467-5.5,5.5v1.5h11v-1.5c0-3.033-2.467-5.5-5.5-5.5Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m18.5,17c3.033,0,5.5,2.467,5.5,5.5v1.5h-11v-1.5c0-3.033,2.467-5.5,5.5-5.5Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m4.5,10v-.316c-1.161.414-2,1.514-2,2.816,0,1.654,1.346,3,3,3,1.121,0,2.09-.626,2.604-1.54-2.018-.202-3.604-1.89-3.604-3.96Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m19.5,10v-.316c1.161.414,2,1.514,2,2.816,0,1.654-1.346,3-3,3-1.121,0-2.09-.626-2.604-1.54,2.018-.202,3.604-1.89,3.604-3.96Z"
+        strokeWidth="0"
+        fill="currentColor"
+      />
+      <path
+        d="m15.5,5v-1.5c0-1.93-1.57-3.5-3.5-3.5s-3.5,1.57-3.5,3.5v1.5c-1.103,0-2,.897-2,2v3c0,1.103.897,2,2,2h7c1.103,0,2-.897,2-2v-3c0-1.103-.897-2-2-2Zm-5-1.5c0-.827.673-1.5,1.5-1.5s1.5.673,1.5,1.5v1.5h-3v-1.5Z"
+        fill="currentColor"
+        strokeWidth="0"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

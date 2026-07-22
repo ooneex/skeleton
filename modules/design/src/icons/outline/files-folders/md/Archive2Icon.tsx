@@ -1,0 +1,35 @@
+import type { SVGProps } from "react";
+
+export const Archive2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M15.9988 23L16.0001 24.3333L16.0001 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path d="M3 12H29" stroke="currentColor" strokeWidth="2" data-cap="butt" fill="none" />
+      <path
+        d="M29 26L29 12.4868C29 12.1644 28.948 11.844 28.8461 11.5382L26.6838 5.05132C26.2754 3.82629 25.129 3 23.8377 3L8.16228 3C6.87099 3 5.72457 3.82629 5.31623 5.05132L3.15395 11.5381C3.05198 11.844 3 12.1644 3 12.4868L3 26C3 27.6569 4.34315 29 6 29L26 29C27.6569 29 29 27.6569 29 26Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M21.0002 19.5L16.0002 24.5L11 19.4999"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

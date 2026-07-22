@@ -1,0 +1,38 @@
+import type { SVGProps } from "react";
+
+export const Sign24hIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 0.25L18.6 5.2L17.4 6.8L12 2.75L6.59999 6.8L5.39999 5.2L12 0.25Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M1 13L1 5L23 5L23 13L1 13Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3.48039 17C3.02708 17 2.62324 17.2926 2.48509 17.707L2.13246 18.7649L0.235092 18.1325L0.587725 17.0746C1.00328 15.8279 2.18272 15 3.48039 15C5.12452 15 6.5 16.3305 6.5 18C6.5 18.9443 6.05542 19.8334 5.3 20.4L3.16667 22H6.5V24H0.500003V21.5L4.1 18.8C4.35181 18.6111 4.5 18.3148 4.5 18C4.5 17.4604 4.0454 17 3.48039 17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21.8242 23.5H19.2729L21.9202 17H18.5V15H24V17.1958L21.8242 22.538V23.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.7135 15H12.5V20H13.5V22H12.5V24H10.5V22H6.49998V20.3915L10.7135 15ZM10.5 20V18.5212L9.34425 20H10.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M17 20L14.99 20L14.99 18L17 18L17 20Z" fill="currentColor" />
+    </svg>
+  );
+};

@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const UserPenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M38.576 26.924C40.3851 25.1149 43.3182 25.1149 45.1273 26.924C46.9363 28.7331 46.9363 31.6662 45.1273 33.4753L33.0513 45.5514L25.8919 46.1593L26.5 39L38.576 26.924Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M34.829 26.4282C31.8082 24.2733 28.0525 23 24 23C14.1172 23 6 30.5723 6 40.0375V40.7923L6.73105 40.9647C12.2027 42.2548 17.6762 42.9316 23.1498 42.9951L23.6035 37.6538L34.829 26.4282Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 12C16 7.58172 19.5817 4 24 4C28.4183 4 32 7.58172 32 12C32 16.4183 28.4183 20 24 20C19.5817 20 16 16.4183 16 12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

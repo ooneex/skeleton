@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const User4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14.5 35.5L6.73789 37.5249C4.53624 38.0992 3 40.0877 3 42.363V45H45V42.363C45 40.0877 43.4638 38.0992 41.2621 37.5249L33.5 35.5C31.0659 34.8196 30 34 30 32.0983V29.0193C32.1905 27.5517 33.4397 25.2485 33.9032 22.528L35.055 15.7671C36.1936 9.08385 30.9256 3 24 3C17.0744 3 11.8064 9.08385 12.945 15.7671L14.0968 22.528C14.5603 25.2485 15.8095 27.5517 18 29.0193V32.0983C18 34 16.9341 34.8196 14.5 35.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

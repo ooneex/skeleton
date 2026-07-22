@@ -1,0 +1,12 @@
+import type { SVGProps } from "react";
+
+export const LetterOIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M39 24C39 14.4452 32.1275 7 24 7C15.8725 7 9 14.4452 9 24C9 33.5548 15.8725 41 24 41C32.1275 41 39 33.5548 39 24ZM42 24C42 34.8797 34.0979 44 24 44C13.9021 44 6 34.8797 6 24C6 13.1203 13.9021 4 24 4C34.0979 4 42 13.1203 42 24Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

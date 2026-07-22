@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const SofaIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 7V7.02747C20.8358 7.00932 20.669 7 20.5 7C18.0147 7 16 9.01472 16 11.5V13H8V11.5C8 9.01472 5.98528 7 3.5 7C3.331 7 3.16417 7.00932 3 7.02747V7C3 5.34315 4.34315 4 6 4L18 4C19.6569 4 21 5.34315 21 7ZM13 6H11V11H13V6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 18V22H4V18H6Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M20 18V22H18V18H20Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 17C23 18.6569 21.6569 20 20 20L4 20C2.34315 20 1 18.6569 1 17L1 11.5C1 10.1193 2.11929 9 3.5 9C4.88071 9 6 10.1193 6 11.5L6 15H18V11.5C18 10.1193 19.1193 9 20.5 9C21.8807 9 23 10.1193 23 11.5V17Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

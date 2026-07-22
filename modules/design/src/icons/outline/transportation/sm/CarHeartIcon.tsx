@@ -1,0 +1,37 @@
+import type { SVGProps } from "react";
+
+export const CarHeartIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M22 11.5V19C22 19.5523 21.5523 20 21 20H19C18.4477 20 18 19.5523 18 19V18H6V19C6 19.5523 5.55228 20 5 20H3C2.44772 20 2 19.5523 2 19V12.3541C2 11.5363 2.4979 10.8008 3.25722 10.4971L4.5 10L5.57241 6.4253C5.8262 5.57934 6.60484 5 7.48806 5H9.13795"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M1.00999 8H0.999995" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        d="M18 9.5C19.109 9 23 6.229 23 3.689C23 2.204 21.794 1 20.308 1C19.328 1 18.596 1.614 18 2.303C17.405 1.613 16.672 1 15.692 1C14.205 1 13 2.204 13 3.689C13 6.229 16.891 9 18 9.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M7.5 13.75C7.5 14.4404 6.94036 15 6.25 15C5.55964 15 5 14.4404 5 13.75C5 13.0596 5.55964 12.5 6.25 12.5C6.94036 12.5 7.5 13.0596 7.5 13.75Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M19 13.75C19 14.4404 18.4404 15 17.75 15C17.0596 15 16.5 14.4404 16.5 13.75C16.5 13.0596 17.0596 12.5 17.75 12.5C18.4404 12.5 19 13.0596 19 13.75Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

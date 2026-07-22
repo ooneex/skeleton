@@ -1,0 +1,22 @@
+import type { SVGProps } from "react";
+
+export const RadiatorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 6H4V8H0V6Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M21 14H24V18H21V14Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M9 5L9 19C9 20.6569 10.3431 22 12 22C13.6569 22 15 20.6569 15 19L15 5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16 5L16 19C16 20.6569 17.3431 22 19 22C20.6569 22 22 20.6569 22 19L22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M2 5L2 19C2 20.6569 3.34314 22 5 22C6.65685 22 8 20.6569 8 19L8 5C8 3.34315 6.65685 2 5 2C3.34314 2 2 3.34315 2 5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

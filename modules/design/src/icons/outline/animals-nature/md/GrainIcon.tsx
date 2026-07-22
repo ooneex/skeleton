@@ -1,0 +1,59 @@
+import type { SVGProps } from "react";
+
+export const GrainIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M4.5 10L4 7.00003"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M27.5 10L28 7.00003"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M15.0263 28.0981C15.0263 28.0981 11.3937 29.4649 8.76314 27.9462C6.13253 26.4274 5.5 22.5981 5.5 22.5981C5.5 22.5981 9.13253 21.2312 11.7631 22.75C14.3937 24.2688 15.0263 28.0981 15.0263 28.0981Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M15.0263 19.5C15.0263 19.5 11.3937 20.8669 8.76314 19.3481C6.13253 17.8293 5.5 14 5.5 14C5.5 14 9.13253 12.6331 11.7631 14.1519C14.3937 15.6707 15.0263 19.5 15.0263 19.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M16 13C16 13 13 10.5376 13 7.5C13 4.46243 16 2 16 2C16 2 19 4.46243 19 7.5C19 10.5376 16 13 16 13Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M17 28.0981C17 28.0981 20.6325 29.4649 23.2631 27.9462C25.8937 26.4274 26.5263 22.5981 26.5263 22.5981C26.5263 22.5981 22.8937 21.2312 20.2631 22.75C17.6325 24.2688 17 28.0981 17 28.0981Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M17 19.5C17 19.5 20.6325 20.8669 23.2631 19.3481C25.8937 17.8293 26.5263 14 26.5263 14C26.5263 14 22.8937 12.6331 20.2631 14.1519C17.6325 15.6707 17 19.5 17 19.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+    </svg>
+  );
+};

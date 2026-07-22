@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const TreeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.5 40V46H22.5V40H25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 2.20026L38.0422 23.2119L33.3655 24.0601L42.4815 38.4714L41.1338 39.0264C30.1583 43.5457 17.8418 43.5457 6.86629 39.0264L5.51855 38.4714L14.6346 24.0601L9.95789 23.2119L24 2.20026Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const RainbowIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 9C8.26801 9 2 15.268 2 23V24H0V23C0 14.1634 7.16344 7 16 7C24.8366 7 32 14.1634 32 23V24H30V23C30 15.268 23.732 9 16 9Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 13C10.4772 13 6 17.4772 6 23V24H4V23C4 16.3726 9.37258 11 16 11C22.6274 11 28 16.3726 28 23V24H26V23C26 17.4772 21.5228 13 16 13Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 17C12.6863 17 10 19.6863 10 23V24H8V23C8 18.5817 11.5817 15 16 15C20.4183 15 24 18.5817 24 23V24H22V23C22 19.6863 19.3137 17 16 17Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 21C14.8954 21 14 21.8954 14 23V24H12V23C12 20.7909 13.7909 19 16 19C18.2091 19 20 20.7909 20 23V24H18V23C18 21.8954 17.1046 21 16 21Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ZippedFile2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M14.0001 24H18.0001L19.3638 31H12.6365L14.0001 24Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 3C2.79086 3 1 4.79086 1 7V24C1 26.2091 2.79086 28 5 28H11.1832L12.0369 23.6176C12.2199 22.6781 13.0429 22 14 22H18C18.9571 22 19.7801 22.6781 19.9631 23.6176L20.8168 28H27C29.2091 28 31 26.2091 31 24V11C31 8.79086 29.2091 7 27 7H17.8L13.6 3H5ZM15 13H17V15.5H15V13ZM17 11V8.49999H15V11H17ZM15 17.5H17V20H15V17.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

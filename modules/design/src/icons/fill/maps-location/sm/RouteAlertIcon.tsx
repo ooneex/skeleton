@@ -1,0 +1,15 @@
+import type { SVGProps } from "react";
+
+export const RouteAlertIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M14.0825 5.61106C13.6495 4.85606 12.8725 4.40406 12.0025 4.40406C11.1325 4.40406 10.3555 4.85506 9.92252 5.61106L4.31952 15.4161C3.89052 16.1661 3.89352 17.0601 4.32852 17.8071C4.76252 18.5541 5.53652 19.0001 6.39952 19.0001H12.002H17.6045C18.4675 19.0001 19.2425 18.5541 19.6755 17.8071C20.1105 17.0601 20.1135 16.1661 19.6845 15.4161L14.0825 5.61106ZM11.0025 8.50006H13.0025V13.0001H11.0025V8.50006ZM12.0025 17.0001C11.3125 17.0001 10.7525 16.4401 10.7525 15.7501C10.7525 15.0601 11.3125 14.5001 12.0025 14.5001C12.6925 14.5001 13.2525 15.0601 13.2525 15.7501C13.2525 16.4401 12.6925 17.0001 12.0025 17.0001Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M21 11H24V13H21V11Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 11H3V13H0V11Z" fill="currentColor" />
+    </svg>
+  );
+};

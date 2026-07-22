@@ -1,0 +1,16 @@
+import type { SVGProps } from "react";
+
+export const FolderGalleryIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M29 25H36V32H29V25Z" fill="currentColor" data-color="color-2" />
+      <path d="M39 25H46V32H39V25Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M29 35H36V42H29V35Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M39 35H46V42H39V35Z" fill="currentColor" data-color="color-2" />
+      <path
+        d="M8 4C4.68629 4 2 6.68629 2 10V36C2 39.3137 4.68629 42 8 42H26V26C26 23.7909 27.7909 22 30 22H46V16C46 12.6863 43.3137 10 40 10H27.3333L19.3333 4H8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

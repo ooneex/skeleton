@@ -1,0 +1,30 @@
+import type { SVGProps } from "react";
+
+export const BeerMug2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M18 12H22V15C22 16.6569 20.6569 18 19 18H18"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M18 10.5V20C18 21.1046 17.1046 22 16 22H6C4.89543 22 4 21.1046 4 20L4 10.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M11 1C13.9 1 16.2 3.2 16.5 6C18 6 19.1 7.3 19 8.8C18.9 10.1 17.7 11 16.4 11H12V15C12 16.1046 11.1046 17 9.99999 17C8.89542 17 7.99999 16.1046 7.99999 15V11H5.59999C4.29999 11 3.09999 10.1 2.99999 8.8C2.89999 7.3 3.99999 6 5.49999 6C5.79999 3.2 8.09999 1 11 1Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

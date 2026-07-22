@@ -1,0 +1,49 @@
+import type { SVGProps } from "react";
+
+export const LaptopAlertIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M3 13V5C3 3.89543 3.89543 3 5 3H12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M1 17V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V17H16C16 17.5523 15.5523 18 15 18H9C8.44772 18 8 17.5523 8 17H1Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M13.5 12L13.2661 12C12.4889 12 12.0088 11.152 12.4087 10.4855L16.6425 3.42915C17.0309 2.78181 17.9691 2.78181 18.3575 3.42915L22.5913 10.4855C22.9912 11.152 22.5111 12 21.7338 12H21.4993"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M17.5 8V9.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M17.5 14C18.1904 14 18.75 13.4404 18.75 12.75C18.75 12.0596 18.1904 11.5 17.5 11.5C16.8096 11.5 16.25 12.0596 16.25 12.75C16.25 13.4404 16.8096 14 17.5 14Z"
+        fill="currentColor"
+        data-color="color-2"
+        data-cap="butt"
+        data-stroke="none"
+      />
+    </svg>
+  );
+};

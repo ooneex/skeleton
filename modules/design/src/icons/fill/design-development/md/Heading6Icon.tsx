@@ -1,0 +1,25 @@
+import type { SVGProps } from "react";
+
+export const Heading6Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24.2454 7C21.9007 7 20 8.90072 20 11.2454V20H18V11.2454C18 7.79615 20.7962 5 24.2454 5H24.6115C26.965 5 29.0774 6.44404 29.9318 8.63697L30.2948 9.56875L28.4313 10.2948L28.0682 9.36303C27.5131 7.93823 26.1406 7 24.6115 7H24.2454Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 19.5C18 15.9101 20.9101 13 24.5 13C28.0899 13 31 15.9101 31 19.5V20.5C31 24.0899 28.0899 27 24.5 27C20.9101 27 18 24.0899 18 20.5V19.5ZM24.5 15C22.0147 15 20 17.0147 20 19.5V20.5C20 22.9853 22.0147 25 24.5 25C26.9853 25 29 22.9853 29 20.5V19.5C29 17.0147 26.9853 15 24.5 15Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M1 15H15V17H1V15Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M3 5V27H1V5H3Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 5V27H13V5H15Z" fill="currentColor" />
+    </svg>
+  );
+};

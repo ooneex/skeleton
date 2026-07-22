@@ -1,0 +1,34 @@
+import type { SVGProps } from "react";
+
+export const SunCloudIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M47 25L42 25L42 22L47 22L47 25Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M6 25L1 25L1 22L6 22L6 25Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M25.5 1L25.5 6L22.5 6L22.5 1L25.5 1Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M41.3241 8.79722L37.7886 12.3328L35.6673 10.2114L39.2028 6.6759L41.3241 8.79722Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.79722 6.67589L12.3328 10.2114L10.2114 12.3327L6.6759 8.79721L8.79722 6.67589Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12.8266 35.6615C13.2958 30.1263 17.6197 25 24 25C30.3852 25 34.6636 30.1313 35.1281 35.6615H36.3079C39.1628 35.6615 41.4772 37.9759 41.4772 40.8308C41.4772 43.6857 39.1628 46 36.3079 46H11.6464C8.79151 46 6.47717 43.6857 6.47717 40.8308C6.47717 37.9759 8.79152 35.6615 11.6464 35.6615H12.8266Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M24 10C16.268 10 10 16.268 10 24C10 26.1476 10.4836 28.1823 11.3477 30.001C13.5671 25.4863 18.0353 22 24 22C29.9908 22 34.4381 25.5116 36.6346 30.038C37.5098 28.2099 38 26.1622 38 24C38 16.268 31.732 10 24 10Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

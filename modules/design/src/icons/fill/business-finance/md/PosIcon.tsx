@@ -1,0 +1,24 @@
+import type { SVGProps } from "react";
+
+export const PosIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 6C5 3.79086 6.79086 2 9 2H23C25.2091 2 27 3.79086 27 6V15H16C13.7909 15 12 16.7909 12 19V30H10.9375C8.94451 30 7.3125 28.3972 7.3125 26.4V18.9804L5 16.3804V6ZM9 13H23V6H9V13Z"
+        fill="currentColor"
+      />
+      <path
+        d="M14 24V28.5C14 29.8807 15.1193 31 16.5 31H29.5C30.8807 31 32 29.8807 32 28.5V24H14Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M14 19.5C14 18.1193 15.1193 17 16.5 17H29.5C30.8807 17 32 18.1193 32 19.5V21H14V19.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

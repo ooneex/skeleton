@@ -1,0 +1,20 @@
+import type { SVGProps } from "react";
+
+export const PurseIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 2C14.3431 2 13 3.34315 13 5V9H11V5C11 2.23858 13.2386 0 16 0C18.7614 0 21 2.23858 21 5V9H19V5C19 3.34315 17.6569 2 16 2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path d="M2.13269 14L3.13271 7H28.8672L29.8672 14H2.13269Z" fill="currentColor" />
+      <path
+        d="M15 16H1.84702L1.15149 20.8686C0.462982 25.6881 4.20268 30 9.07108 30H22.9289C27.7973 30 31.537 25.6881 30.8485 20.8686L30.153 16H17V19H15V16Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

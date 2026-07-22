@@ -1,0 +1,28 @@
+import type { SVGProps } from "react";
+
+export const ArrowFromCornerUpRightIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.5858 17L28.2928 2.29294L29.707 3.70716L15 18.4142L13.5858 17Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28 16L28 4L16 4L16 2L30 2L30 16L28 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 2V26C4 27.1046 4.89543 28 6 28H30V30H6C3.79086 30 2 28.2091 2 26V2H4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

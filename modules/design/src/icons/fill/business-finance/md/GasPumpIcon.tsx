@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const GasPumpIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M28 12H31V18H28V12Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M28.3333 5.25244L32 8.91911V20.5C32 22.9853 29.9853 25 27.5 25C25.0147 25 23 22.9853 23 20.5V15H25V20.5C25 21.8807 26.1193 23 27.5 23C28.8807 23 30 21.8807 30 20.5V9.74754L26.9191 6.66665L28.3333 5.25244Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 28H27V30H2V28Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 2C5.79086 2 4 3.79086 4 6V26H25L25 6C25 3.79086 23.2091 2 21 2H8ZM20 7H9V16H20V7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

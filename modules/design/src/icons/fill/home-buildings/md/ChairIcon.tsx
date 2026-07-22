@@ -1,0 +1,21 @@
+import type { SVGProps } from "react";
+
+export const ChairIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M22 23V28H20V23H22Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 23V28H10V23H12Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25 24V30H27V21C27 18.7909 25.2091 17 23 17H9C6.79086 17 5 18.7909 5 21V30H7L7 24H25Z"
+        fill="currentColor"
+      />
+      <path
+        d="M25 15.3414C24.3744 15.1203 23.7013 15 23 15H9C8.29873 15 7.62556 15.1203 7 15.3414V6C7 3.79086 8.79086 2 11 2L21 2C23.2091 2 25 3.79086 25 6L25 15.3414Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

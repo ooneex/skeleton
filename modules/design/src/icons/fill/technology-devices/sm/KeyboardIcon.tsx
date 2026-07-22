@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const KeyboardIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M23 16L23 8C23 6.34315 21.6569 5 20 5L4 5C2.34315 5 1 6.34314 1 8V16C1 17.6568 2.34314 19 4 19L20 19C21.6569 19 23 17.6568 23 16ZM5 9V11H7.01V9H5ZM9 9H11.01V11H9V9ZM9 13V15H15V13H9ZM5 13H7.01V15H5V13ZM17 13V15H19.01V13H17ZM13 9H15.01V11H13V9ZM17 9V11H19.01V9H17Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

@@ -1,0 +1,26 @@
+import type { SVGProps } from "react";
+
+export const OpenInBrowserIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M8 6C4.68629 6 2 8.68629 2 12V36C2 39.3137 4.68629 42 8 42H16.5V39H8C6.34315 39 5 37.6569 5 36V16H43V36C43 37.6569 41.6569 39 40 39H31.5V42H40C43.3137 42 46 39.3137 46 36V12C46 8.68629 43.3137 6 40 6H8Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.5 41.9999V21.9999H22.5V41.9999H25.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15 33.1213L24 24.1213L33 33.1213L35.1213 31L24 19.8787L12.8787 31L15 33.1213Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

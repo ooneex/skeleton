@@ -1,0 +1,57 @@
+import type { SVGProps } from "react";
+
+export const HockeyStickIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M43 16V21C43 22.6569 40.0899 24 36.5 24C32.9101 24 30 22.6569 30 21V16"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M35.5 38.5L30.1407 33.0962"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M6.5 15.5L10.5 13"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M39.0971 30.7617L33.5 43.0001"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M36.5 19C40.0899 19 43 17.6569 43 16C43 14.3431 40.0899 13 36.5 13C32.9101 13 30 14.3431 30 16C30 17.6569 32.9101 19 36.5 19Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M3.14845 7.61049L4.83255 6.54131C5.53193 6.0973 6.45882 6.3043 6.90285 7.00367L24.3801 34.5316L40.2547 30.4605C42.1525 29.9738 44 31.4072 44 33.3664L44 39C44 41.2091 42.2091 43 40 43L26.737 43C25.0317 43 23.444 42.1309 22.5251 40.6943L2.68882 9.68514C2.24133 8.98559 2.44736 8.05558 3.14845 7.61049Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        data-cap="butt"
+        fill="none"
+      />
+    </svg>
+  );
+};

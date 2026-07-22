@@ -1,0 +1,67 @@
+import type { SVGProps } from "react";
+
+export const CarKeyAccessIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9 5H7.48806C6.60484 5 5.8262 5.57934 5.57241 6.4253L4.5 10L3.25722 10.4971C2.4979 10.8008 2 11.5363 2 12.3541V19C2 19.5523 2.44772 20 3 20H5C5.55228 20 6 19.5523 6 19V18H9"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M1.00999 8H0.999995" stroke="currentColor" strokeWidth="2" strokeLinecap="square" fill="none" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4 13H8.01C8.01 14.1046 7.11457 15 6.01 15H4V13Z"
+        fill="currentColor"
+        data-cap="butt"
+        data-stroke="none"
+      />
+      <path
+        d="M13 14L13 7C13 5.89543 13.8954 5 15 5L21 5C22.1046 5 23 5.89543 23 7L23 12"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M18.9397 8.12062L17.0603 8.12062C17.027 8.12062 17 8.09362 17 8.06031C17 8.027 17.027 8 17.0603 8L18.9397 8C18.973 8 19 8.027 19 8.06031C19 8.09362 18.973 8.12062 18.9397 8.12062Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M20.5 20.5C19.1193 20.5 18 19.3807 18 18C18 16.6193 19.1193 15.5 20.5 15.5C21.8807 15.5 23 16.6193 23 18C23 19.3807 21.8807 20.5 20.5 20.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M18 18L13 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M14 18L14 20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

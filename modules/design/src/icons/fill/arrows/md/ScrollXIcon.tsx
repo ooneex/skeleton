@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const ScrollXIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 17H1.5V15H12V17Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M30.5 17H20V15H30.5V17Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.5 16C10.5 12.9624 12.9624 10.5 16 10.5C19.0376 10.5 21.5 12.9624 21.5 16C21.5 19.0376 19.0376 21.5 16 21.5C12.9624 21.5 10.5 19.0376 10.5 16Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M25.4999 9.58582L31.9141 16L25.4999 22.4142L24.0857 21L29.0857 16L24.0857 11L25.4999 9.58582Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.50009 9.58582L0.0858793 16L6.50009 22.4142L7.91431 21L2.91431 16L7.91431 11L6.50009 9.58582Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

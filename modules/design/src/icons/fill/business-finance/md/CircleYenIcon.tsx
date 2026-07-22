@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const CircleYenIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30ZM11.7 7.6L16 13.3333L20.3 7.6L21.9 8.8L17.25 15H22V17H17V19H22V21H17V25H15V21H10V19H15V17H10V15H14.75L10.1 8.8L11.7 7.6Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

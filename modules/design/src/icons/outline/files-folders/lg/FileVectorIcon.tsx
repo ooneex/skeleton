@@ -1,0 +1,45 @@
+import type { SVGProps } from "react";
+
+export const FileVectorIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M20 3V16H7" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" data-cap="butt" fill="none" />
+      <path
+        d="M23 45H12C9.23858 45 7 42.7699 7 40.0084C7 32.8718 7 20.4779 7 16.2381C7 15.4424 7.31607 14.6839 7.87868 14.1213L18.1213 3.87868C18.6839 3.31607 19.447 3 20.2426 3H36C38.7614 3 41 5.23538 41 7.9968C41 12.5541 41 19.0956 41 25.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path d="M35 35V26V26.5" stroke="currentColor" strokeWidth="2" data-color="color-2" data-cap="butt" fill="none" />
+      <path
+        d="M35 39.8033C36.3807 39.8033 37.5 38.684 37.5 37.3033C37.5 35.9226 36.3807 34.8033 35 34.8033C33.6193 34.8033 32.5 35.9226 32.5 37.3033C32.5 38.684 33.6193 39.8033 35 39.8033Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M39.2427 44.6777L41.9868 40.149C43.0648 38.3698 42.9286 36.1091 41.6449 34.4722L35.0001 26L28.3553 34.4722C27.0716 36.1091 26.9354 38.3698 28.0134 40.149L30.7575 44.6777"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        data-color="color-2"
+        data-cap="butt"
+        fill="none"
+      />
+      <path
+        d="M42 45L28 45"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

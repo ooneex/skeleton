@@ -1,0 +1,65 @@
+import type { SVGProps } from "react";
+
+export const Nodes4Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M12 5V19" stroke="currentColor" strokeWidth="2" fill="none" data-cap="butt" />
+      <path d="M18.0622 8.5L5.93784 15.5" stroke="currentColor" strokeWidth="2" fill="none" data-cap="butt" />
+      <path d="M18.0622 15.5L5.93784 8.5" stroke="currentColor" strokeWidth="2" fill="none" data-cap="butt" />
+      <path
+        d="M12 5C13.1046 5 14 4.10457 14 3C14 1.89543 13.1046 1 12 1C10.8954 1 10 1.89543 10 3C10 4.10457 10.8954 5 12 5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M12 23C13.1046 23 14 22.1046 14 21C14 19.8954 13.1046 19 12 19C10.8954 19 10 19.8954 10 21C10 22.1046 10.8954 23 12 23Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M18.0622 8.5C18.6145 9.45658 19.8377 9.78433 20.7943 9.23205C21.7508 8.67976 22.0786 7.45658 21.5263 6.5C20.974 5.54341 19.7508 5.21566 18.7943 5.76794C17.8377 6.32023 17.5099 7.54341 18.0622 8.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M2.4737 17.5C3.02599 18.4566 4.24917 18.7843 5.20575 18.232C6.16234 17.6798 6.49009 16.4566 5.93781 15.5C5.38552 14.5434 4.16234 14.2157 3.20575 14.7679C2.24917 15.3202 1.92142 16.5434 2.4737 17.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M18.0622 15.5C17.5099 16.4566 17.8377 17.6798 18.7943 18.232C19.7508 18.7843 20.974 18.4566 21.5263 17.5C22.0786 16.5434 21.7508 15.3202 20.7943 14.7679C19.8377 14.2157 18.6145 14.5434 18.0622 15.5Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M2.4737 6.49999C1.92142 7.45658 2.24917 8.67976 3.20575 9.23205C4.16234 9.78433 5.38552 9.45658 5.93781 8.5C6.49009 7.54341 6.16234 6.32023 5.20575 5.76794C4.24917 5.21566 3.02599 5.54341 2.4737 6.49999Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

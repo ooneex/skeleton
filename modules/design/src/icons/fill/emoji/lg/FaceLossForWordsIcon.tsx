@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const FaceLossForWordsIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 24C2 11.8497 11.8497 2 24 2C36.1503 2 46 11.8497 46 24C46 36.1503 36.1503 46 24 46C11.8497 46 2 36.1503 2 24ZM29 18C29 16.3431 30.3431 15 32 15C33.6569 15 35 16.3431 35 18C35 19.6569 33.6569 21 32 21C30.3431 21 29 19.6569 29 18ZM16 15C14.3431 15 13 16.3431 13 18C13 19.6569 14.3431 21 16 21C17.6569 21 19 19.6569 19 18C19 16.3431 17.6569 15 16 15Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

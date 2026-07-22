@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const PersonDressIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M16.9583 30.2727V30.2727C14.8585 31.2339 12.6781 29.1024 13.5914 26.9813L16.6738 19.822C17.9337 16.8958 20.814 15 24 15V15V15C27.1859 15 30.0662 16.8958 31.3261 19.822L34.4086 26.9813C35.3219 29.1024 33.1415 31.2339 31.0417 30.2727V30.2727"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M20 40L20.5714 46H24H27.4286L28 40"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M18.8571 17L18.9962 26.2482C18.9987 26.4135 18.9602 26.5768 18.8841 26.7236L11.9998 40H35.9999L29.1159 26.7236C29.0398 26.5768 29.0013 26.4135 29.0038 26.2482L29.1428 17.0318"
+        stroke="currentColor"
+        strokeWidth="2"
+        fill="none"
+        data-cap="butt"
+      />
+      <path
+        d="M24 11C26.4853 11 28.5 8.98528 28.5 6.5C28.5 4.01472 26.4853 2 24 2C21.5147 2 19.5 4.01472 19.5 6.5C19.5 8.98528 21.5147 11 24 11Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

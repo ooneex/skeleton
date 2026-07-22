@@ -1,0 +1,29 @@
+import type { SVGProps } from "react";
+
+export const BranchOutIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M4 32.5H42V35.5H4V32.5Z" fill="currentColor" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30.8787 43L39.8787 34L30.8787 25L33 22.8787L44.1213 34L33 45.1213L30.8787 43Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17.2268 15.5H31V12.5H17.2268C15.3842 12.5 13.6281 13.2821 12.3954 14.6517L3.88161 24.1115L6.11149 26.1184L14.6253 16.6586C15.289 15.9211 16.2346 15.5 17.2268 15.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.8787 23L28.8787 14L19.8787 5.00002L22 2.8787L33.1213 14L22 25.1213L19.8787 23Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

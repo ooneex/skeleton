@@ -1,0 +1,27 @@
+import type { SVGProps } from "react";
+
+export const ArrowsConvergeIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.49991 2.08582L11.4141 7.00003L6.49991 11.9142L5.08569 10.5L8.58569 7.00003L5.08569 3.50003L6.49991 2.08582Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.9141 3.50003L15.4141 7.00003L18.9141 10.5L17.4999 11.9142L12.5857 7.00003L17.4999 2.08582L18.9141 3.50003Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 6C21.6569 6 23 7.34315 23 9L23 18C23 19.6569 21.6569 21 20 21L4 21C2.34315 21 0.999999 19.6569 0.999999 18L1 9C1 7.34314 2.34315 6 4 6L9.5 6L9.5 8L4 8C3.44772 8 3 8.44771 3 9L3 18C3 18.5523 3.44772 19 4 19L20 19C20.5523 19 21 18.5523 21 18L21 9C21 8.44772 20.5523 8 20 8L14.5 8L14.5 6L20 6Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

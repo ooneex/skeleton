@@ -1,0 +1,17 @@
+import type { SVGProps } from "react";
+
+export const ArchiveDownloadIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M12.9999 2H10.9999V8.58579L8.49991 6.08579L7.08569 7.5L11.9999 12.4142L16.9141 7.5L15.4999 6.08579L12.9999 8.58579V2Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M2 19C2 20.6569 3.34315 22 5 22H19C20.6569 22 22 20.6569 22 19V5C22 3.34314 20.6569 2 19 2H15V4H19C19.5523 4 20 4.44772 20 5V14L15 14.0001V17.0001H9V14.0001H4L4 5C4 4.44772 4.44772 4 5 4L9 4V2H5C3.34315 2 2 3.34315 2 5V19Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

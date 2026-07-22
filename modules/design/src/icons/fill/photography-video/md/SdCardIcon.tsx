@@ -1,0 +1,14 @@
+import type { SVGProps } from "react";
+
+export const SdCardIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 30C26.2091 30 28 28.2091 28 26L28 6C28 3.79086 26.2091 2 24 2H13.2592C12.0881 2 10.9759 2.51318 10.2159 3.40415L4.95672 9.56982C4.33921 10.2938 4 11.2141 4 12.1657V26C4 28.2091 5.79086 30 8 30L24 30ZM9 20H23V28H9V20ZM23 7H21V11H23V7ZM19 7V11H17V7H19ZM15 7H13V11H15V7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

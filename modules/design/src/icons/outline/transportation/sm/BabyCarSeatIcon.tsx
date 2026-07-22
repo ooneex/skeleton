@@ -1,0 +1,33 @@
+import type { SVGProps } from "react";
+
+export const BabyCarSeatIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M9 9L8.55707 6.3424C8.23561 4.41365 6.56685 3 4.61149 3L3.18046 3C2.56252 3 2.09248 3.55487 2.19407 4.1644L4.30367 16.822C4.70549 19.2329 6.79144 21 9.23563 21L18.5 21C20.433 21 22 19.3984 22 17.4654V17.4654C22 15.5702 20.4637 14 18.5685 14V14C18.2045 14 17.8554 14.1446 17.598 14.402L17.5 14.5C17.1799 14.8201 16.7456 15 16.2929 15L16 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        fill="none"
+      />
+      <path
+        d="M11.5 13.5L16 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+      <path
+        d="M10 17C11.1046 17 12 16.1046 12 15C12 13.8954 11.1046 13 10 13C8.89543 13 8 13.8954 8 15C8 16.1046 8.89543 17 10 17Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="square"
+        data-color="color-2"
+        fill="none"
+      />
+    </svg>
+  );
+};

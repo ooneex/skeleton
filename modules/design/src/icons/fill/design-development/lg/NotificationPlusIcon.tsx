@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const NotificationPlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 12C46 17.5228 41.5228 22 36 22C30.4772 22 26 17.5228 26 12C26 6.47715 30.4772 2 36 2C41.5228 2 46 6.47715 46 12ZM37.5 6.5V10.5H41.5V13.5H37.5V17.5H34.5V13.5H30.5V10.5H34.5V6.5H37.5Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        d="M25.7523 4H10C6.68629 4 4 6.68629 4 10V38C4 41.3137 6.68629 44 10 44H38C41.3137 44 44 41.3137 44 38V22.2477C41.7941 23.9722 39.0171 25 36 25C28.8203 25 23 19.1797 23 12C23 8.98294 24.0278 6.20594 25.7523 4Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

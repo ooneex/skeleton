@@ -1,0 +1,40 @@
+import type { SVGProps } from "react";
+
+export const CabinetDrawersIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 38H14.618L11.618 44H8V38Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M40 38H33.382L36.382 44H40V38Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 34V23.5H46L46 34C46 37.3137 43.3137 40 40 40H8C4.68629 40 2 37.3137 2 34ZM24 28.5C22.8954 28.5 22 29.3954 22 30.5C22 31.6046 22.8954 32.5 24 32.5C25.1046 32.5 26 31.6046 26 30.5C26 29.3954 25.1046 28.5 24 28.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M46 10L46 20.5H25.5V4L40 4C43.3137 4 46 6.6863 46 10ZM34.5 11.5C33.3954 11.5 32.5 12.3954 32.5 13.5C32.5 14.6046 33.3954 15.5 34.5 15.5C35.6046 15.5 36.5 14.6046 36.5 13.5C36.5 12.3954 35.6046 11.5 34.5 11.5Z"
+        fill="currentColor"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22.5 4H8C4.68629 4 2 6.68629 2 10V20.5H22.5V4ZM13.5 11.5C12.3954 11.5 11.5 12.3954 11.5 13.5C11.5 14.6046 12.3954 15.5 13.5 15.5C14.6046 15.5 15.5 14.6046 15.5 13.5C15.5 12.3954 14.6046 11.5 13.5 11.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};

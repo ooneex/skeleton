@@ -1,0 +1,13 @@
+import type { SVGProps } from "react";
+
+export const EyelinerIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path d="M8 1H10V17H8V1Z" fill="currentColor" />
+      <path d="M27.3857 22H17.6143L18.584 11H26.416L27.3857 22Z" fill="currentColor" />
+      <path d="M12.5 18V15H5.5V18H12.5Z" fill="currentColor" data-color="color-2" />
+      <path d="M13.6211 30L14.5035 20H3.49645L4.3789 30H13.6211Z" fill="currentColor" />
+      <path d="M28.0918 30H16.9082L17.4375 24H27.5625L28.0918 30Z" fill="currentColor" />
+    </svg>
+  );
+};

@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const GymBagIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        d="M32 13C32 8.58172 28.4183 5 24 5C19.5817 5 16 8.58172 16 13V16H13L13 13C13 6.92487 17.9249 2 24 2C30.0751 2 35 6.92487 35 13V16H32V13Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M32 44H16V25H32V44ZM19 35H29V30H19V35Z" fill="currentColor" />
+      <path
+        d="M12.9999 44H9.72063C7.52236 44 5.50707 42.7752 4.49407 40.8242C0.970549 34.038 0.970551 25.962 4.49407 19.1758C5.50707 17.2248 7.52235 16 9.72063 16H12.9999V44Z"
+        fill="currentColor"
+      />
+      <path
+        d="M38.2792 16C40.4775 16 42.4928 17.2248 43.5058 19.1758C47.0293 25.962 47.0293 34.038 43.5058 40.8242C42.4928 42.7752 40.4775 44 38.2792 44H34.9999V16H38.2792Z"
+        fill="currentColor"
+      />
+      <path d="M32 22H16V16H32V22Z" fill="currentColor" />
+    </svg>
+  );
+};

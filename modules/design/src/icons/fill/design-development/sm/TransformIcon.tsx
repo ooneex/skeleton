@@ -1,0 +1,19 @@
+import type { SVGProps } from "react";
+
+export const TransformIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M1 23L14 23L14 10H1V23ZM8 19H10L10 14L5 14L5 16H8V19Z"
+        fill="currentColor"
+      />
+      <path
+        d="M15.75 1C12.2413 1 9.31681 3.4914 8.64498 6.80107C8.56586 7.19086 8.51809 7.59147 8.50421 8H14C14.5304 8 15.0391 8.21071 15.4142 8.58579C15.7893 8.96086 16 9.46957 16 10L16 15.4958C16.4085 15.4819 16.8091 15.4341 17.1989 15.355C20.5086 14.6832 23 11.7587 23 8.25C23 4.24594 19.754 1 15.75 1Z"
+        fill="currentColor"
+        data-color="color-2"
+      />
+    </svg>
+  );
+};

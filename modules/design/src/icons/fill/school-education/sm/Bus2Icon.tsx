@@ -1,0 +1,23 @@
+import type { SVGProps } from "react";
+
+export const Bus2Icon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg height="16" width="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M13 2V12H11V2H13Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M21 11H3V21H6V19H18V21H21V11ZM8.01 14H4V16H6.01C7.11457 16 8.01 15.1046 8.01 14ZM16 14H20.01V16H18C16.8954 16 16 15.1046 16 14Z"
+        fill="currentColor"
+      />
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 8H4V10H0V8Z" fill="currentColor" data-color="color-2" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M20 8H24.01V10H20V8Z" fill="currentColor" data-color="color-2" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5 4C4.44772 4 4 4.44772 4 5V20H5V18H19V20H20V5C20 4.44772 19.5523 4 19 4H5ZM2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V20C22 21.1046 21.1046 22 20 22H19C17.8954 22 17 21.1046 17 20H7C7 21.1046 6.10457 22 5 22H4C2.89543 22 2 21.1046 2 20V5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
