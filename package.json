@@ -30,6 +30,8 @@
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf-viewer/page-navigation": "^3.12.0",
     "@react-pdf-viewer/toolbar": "^3.12.0",
+    "@shikijs/langs": "^4.3.1",
+    "@shikijs/themes": "^4.3.1",
     "@tailwindcss/vite": "^4.3.3",
     "@talosjs/app": "^1.2.4",
     "@talosjs/app-env": "^1.2.3",
@@ -38,6 +40,8 @@
     "@talosjs/container": "^1.1.2",
     "@talosjs/controller": "^1.1.2",
     "@talosjs/database": "^1.1.2",
+    "@talosjs/fetcher": "^1.1.2",
+    "@talosjs/http-response": "^1.1.2",
     "@talosjs/logger": "^1.1.3",
     "@talosjs/mailer": "^1.2.1",
     "@talosjs/middleware": "^1.1.2",
@@ -46,6 +50,7 @@
     "@talosjs/repository": "^1.1.2",
     "@talosjs/role": "^1.1.2",
     "@talosjs/routing": "^1.1.2",
+    "@talosjs/socket-client": "^1.1.2",
     "@talosjs/storage": "^1.1.2",
     "@talosjs/translation": "^1.1.3",
     "@talosjs/types": "^1.1.2",
@@ -72,6 +77,7 @@
     "react-dom": "^19.2.8",
     "react-medium-image-zoom": "^5.4.8",
     "react-resizable-panels": "^4.12.2",
+    "react-shiki": "^0.11.0",
     "react-use-measure": "^2.1.7",
     "recharts": "^3.10.0",
     "reflect-metadata": "^0.2.2",
@@ -80,9 +86,6 @@
     "tailwindcss": "^4.3.3",
     "tw-animate-css": "^1.4.0",
     "typeorm": "^1.0.0",
-    "vaul": "^1.1.2",
-    "@talosjs/fetcher": "^1.1.2",
-    "@talosjs/http-response": "^1.1.2",
-    "@talosjs/socket-client": "^1.1.2"
+    "vaul": "^1.1.2"
   }
 }
