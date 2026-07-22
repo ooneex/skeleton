@@ -1,7 +1,7 @@
 import { SharedModule } from "@module/shared/SharedModule";
-import { DatabaseException, decorator, TypeormDatabase } from "@talosjs/database";
-import { inject } from "@talosjs/container";
 import { AppEnv } from "@talosjs/app-env";
+import { inject } from "@talosjs/container";
+import { DatabaseException, decorator, TypeormDatabase } from "@talosjs/database";
 import { DataSource } from "typeorm";
 
 @decorator.database()
