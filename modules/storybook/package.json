@@ -1,0 +1,14 @@
+{
+  "name": "@module/storybook",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "bun test tests",
+    "lint": "tsc --noEmit && bunx biome lint",
+    "fmt": "bunx biome check --write",
+    "dev": "bun --bun run vite --port 3031",
+    "build": "bun --bun run vite build",
+    "preview": "bun --bun run vite preview"
+  },
+  "type": "module"
+}
