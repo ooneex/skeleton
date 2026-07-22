@@ -1,3 +1,1 @@
-export const sdk = {
-
-};
+export const sdk = {};
