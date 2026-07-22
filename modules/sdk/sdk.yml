@@ -1,0 +1,2 @@
+type: "sdk"
+target: "app" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger"
