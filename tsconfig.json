@@ -53,6 +53,7 @@
   "exclude": [
     "node_modules",
     ".github",
+    ".gitlab",
     ".zed",
     ".vscode"
   ]
