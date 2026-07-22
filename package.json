@@ -1,0 +1,48 @@
+{
+  "name": "skeleton",
+  "workspaces": [
+    "modules/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
+    "@talosjs/cli": "^1.31.1",
+    "@talosjs/command": "^1.6.0",
+    "@talosjs/migrations": "^1.2.1",
+    "@talosjs/seeds": "^1.2.1",
+    "@types/bun": "^1.3.14",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^7.0.2",
+    "undici-types": "^8.8.0"
+  },
+  "dependencies": {
+    "@talosjs/app": "^1.2.4",
+    "@talosjs/app-env": "^1.2.3",
+    "@talosjs/auth": "^1.1.2",
+    "@talosjs/cache": "^1.1.2",
+    "@talosjs/container": "^1.1.2",
+    "@talosjs/controller": "^1.1.2",
+    "@talosjs/database": "^1.1.2",
+    "@talosjs/logger": "^1.1.3",
+    "@talosjs/mailer": "^1.2.1",
+    "@talosjs/middleware": "^1.1.2",
+    "@talosjs/module": "^1.2.0",
+    "@talosjs/rate-limit": "^1.1.2",
+    "@talosjs/repository": "^1.1.2",
+    "@talosjs/role": "^1.1.2",
+    "@talosjs/routing": "^1.1.2",
+    "@talosjs/storage": "^1.1.2",
+    "@talosjs/translation": "^1.1.3",
+    "@talosjs/types": "^1.1.2",
+    "@talosjs/user": "^1.1.2",
+    "@talosjs/utils": "^1.1.2",
+    "@talosjs/validation": "^1.1.2",
+    "apache-arrow": "^21.2.0",
+    "pg": "^8.22.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^1.0.0"
+  }
+}
