@@ -1,0 +1,2 @@
+type: "spa" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger"
+design: "design"
