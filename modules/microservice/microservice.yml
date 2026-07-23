@@ -1,0 +1,1 @@
+type: "microservice" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger"

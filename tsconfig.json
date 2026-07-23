@@ -40,6 +40,9 @@
       ],
       "@module/sdk/*": [
         "./modules/sdk/src/*"
+      ],
+      "@module/microservice/*": [
+        "./modules/microservice/src/*"
       ]
     },
     "types": [
