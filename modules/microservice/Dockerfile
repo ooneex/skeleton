@@ -64,7 +64,7 @@ COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 # Runtime data read from cwd at startup: @talosjs/app loads roles.yml and writes
 # roles.types.ts beside it, so this directory must exist and be writable.
-COPY modules/shared/src/roles.yml ./modules/shared/src/roles.yml
+COPY roles.yml ./roles.yml
 COPY .env.yml ./.env.yml
 # Drop privileges: the official Bun image ships a non-root `bun` user.
 RUN chown -R bun:bun /app/modules
