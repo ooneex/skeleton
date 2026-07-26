@@ -1,5 +1,5 @@
 ---
-name: review
+name: pr-review
 description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch, then checks the Definition of Done and runs the e2e tests that satisfy the issue's testing section.
 when_to_use: Use to review a pull request for an issue awaiting review. Triggers on "review PR <ID>", "review the <module> issues in review", or "review this pull request". Not for reviewing the uncommitted working diff (use code-review) or scaffolding.
 model: sonnet

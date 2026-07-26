@@ -39,7 +39,7 @@ talos agent:skills:create --cwd=tmp/agent-skills-sync --agents=.claude,.codex
 
 ## 3. Map generated files to local paths
 
-`find tmp/agent-skills-sync -type f`. The local counterpart is the same path minus the `tmp/agent-skills-sync/` prefix (e.g. `tmp/agent-skills-sync/.claude/skills/review/SKILL.md` → `.claude/skills/review/SKILL.md`).
+`find tmp/agent-skills-sync -type f`. The local counterpart is the same path minus the `tmp/agent-skills-sync/` prefix (e.g. `tmp/agent-skills-sync/.claude/skills/pr-review/SKILL.md` → `.claude/skills/pr-review/SKILL.md`).
 
 ## 4. Smart-sync each file
 

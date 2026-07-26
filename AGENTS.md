@@ -32,7 +32,7 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 **Workflow**
 - `/commit` — group changes by module into scoped conventional commits.
 - `/pr` — push the current branch and open a pull request with a conventional title and structured body.
-- `/review` — review the working diff against @talosjs conventions + Clean Architecture, then fix.
+- `/pr-review` — review the working diff against @talosjs conventions + Clean Architecture, then fix.
 - `/debug` — diagnose and fix a failing test, exception, or startup error.
 - `/database-migrate` — apply/roll back migrations, run seeds, verify the schema.
 - `/e2e-run` — run the Playwright e2e suite across packages and modules, then triage failures.

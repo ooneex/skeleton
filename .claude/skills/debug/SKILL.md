@@ -14,7 +14,7 @@ context: fork
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Find the root cause of a failure and fix it — don't patch the symptom. For convention cleanups use `optimize`; for review use `review`. **Run every command from the monorepo root.**
+Find the root cause of a failure and fix it — don't patch the symptom. For convention cleanups use `optimize`; for review use `pr-review`. **Run every command from the monorepo root.**
 
 ## 1. Reproduce
 

@@ -1,7 +1,7 @@
 ---
 name: convention-reviewer
 description: Reviews a working diff (or named files/module) against @talosjs conventions and Clean Architecture — naming, DI registration, the dependency rule, exception/env patterns, entity↔migration sync, and test coverage — and returns the findings. It only reviews and reports — it never edits files, creates issues, or runs talos commands.
-when_to_use: Use proactively whenever changed code needs a conventions + architecture review, and especially when the /review skill reviews a large diff.
+when_to_use: Use proactively whenever changed code needs a conventions + architecture review, and especially when the /pr-review skill reviews a large diff.
 tools: Read, Grep, Glob, Bash
 model: sonnet
 effort: high
@@ -11,7 +11,7 @@ color: blue
 
 # Convention Reviewer
 
-Review changed @talosjs code and surface **real convention and architecture violations** grounded in what you actually read. Report findings and stop — never edit files, create issue YAML, or run `talos` commands; the caller (usually `/review`) applies the fixes. Run any read-only command from the **monorepo root**.
+Review changed @talosjs code and surface **real convention and architecture violations** grounded in what you actually read. Report findings and stop — never edit files, create issue YAML, or run `talos` commands; the caller (usually `/pr-review`) applies the fixes. Run any read-only command from the **monorepo root**.
 
 ## Input
 
