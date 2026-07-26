@@ -6,7 +6,7 @@
 # Runtime: Bun.
 #   - Production compiles a single `dist` bundle (`bun run build`). The bundle
 #     resolves `@module/*` tsconfig path aliases at build time, but is NOT fully
-#     standalone — at startup `@talosjs/app` reads `modules/shared/src/roles.yml`
+#     standalone — at startup `@talosjs/app` reads `modules/app/roles.yml`
 #     (via process.cwd()) and native deps (e.g. @lancedb/lancedb) load `.node`
 #     addons from node_modules. So the production image ships the bundle +
 #     production node_modules + that one runtime data file.
@@ -62,12 +62,13 @@ ENV NODE_ENV=production \
 COPY --from=prod-deps /app/node_modules ./node_modules
 # Compiled application bundle.
 COPY --from=build /app/dist ./dist
-# Runtime data read from cwd at startup: @talosjs/app loads roles.yml and writes
-# roles.types.ts beside it, so this directory must exist and be writable.
-COPY modules/shared/src/roles.yml ./modules/shared/src/roles.yml
-COPY .env.yml ./.env.yml
+# Runtime data read from cwd at startup: @talosjs/app loads roles.yml (and, in
+# local dev only, writes roles.types.ts beside it). Both files live at the image
+# root because at runtime cwd and the module root both resolve to /app.
+COPY modules/app/roles.yml ./roles.yml
+COPY modules/app/.env.yml ./.env.yml
 # Drop privileges: the official Bun image ships a non-root `bun` user.
-RUN chown -R bun:bun /app/modules
+RUN chown bun:bun /app/roles.yml /app/.env.yml
 USER bun
 EXPOSE 3500
 # Liveness: the server is healthy as soon as it answers HTTP at all — any
