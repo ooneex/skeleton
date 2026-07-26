@@ -46,7 +46,9 @@ jobs:
             ${{ runner.os }}-talos-
 
       - name: Install Talos CLI
-        run: bun add -g @talosjs/cli
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+          echo "$HOME/.talos/bin" >> "$GITHUB_PATH"
 
       - name: Check
         run: talos monorepo:check
@@ -69,7 +71,9 @@ jobs:
           bun-version: latest
 
       - name: Install Talos CLI
-        run: bun add -g @talosjs/cli
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+          echo "$HOME/.talos/bin" >> "$GITHUB_PATH"
 
       - name: Compute short SHA
         id: sha

@@ -24,12 +24,13 @@
       changes:
         - modules/{{name}}/**/*
   # Install Bun and the Talos CLI into the Docker image so `talos docker:publish`
-  # can build and push. Bun's global bin (with `talos`) lands in ~/.bun/bin.
+  # can build and push. Bun lands in ~/.bun/bin; talos lands in ~/.talos/bin.
   before_script:
-    - apk add --no-cache bash curl unzip
+    - apk add --no-cache bash curl tar unzip
     - curl -fsSL https://bun.sh/install | bash
     - export PATH="$HOME/.bun/bin:$PATH"
-    - bun add -g @talosjs/cli
+    - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+    - export PATH="$HOME/.talos/bin:$PATH"
   script:
     - SHORT_SHA=$(echo "$CI_COMMIT_SHA" | cut -c1-7)
     - >-
@@ -54,10 +55,11 @@
     name: production-{{name}}
     url: $PRODUCTION_URL_{{NAME_UPPER}}
   before_script:
-    - apk add --no-cache bash curl unzip
+    - apk add --no-cache bash curl tar unzip
     - curl -fsSL https://bun.sh/install | bash
     - export PATH="$HOME/.bun/bin:$PATH"
-    - bun add -g @talosjs/cli
+    - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+    - export PATH="$HOME/.talos/bin:$PATH"
   script:
     # Apply migrations before publishing the release image, so the database is
     # ready by the time the platform pulls the new tag.

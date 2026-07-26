@@ -1,7 +1,7 @@
 ---
 name: command-create
 description: Generate a new command class with its test file, then complete the generated code.
-when_to_use: Use when creating a new CLI command that implements the ICommand interface from @talosjs/cli.
+when_to_use: Use when creating a new CLI command that implements the ICommand interface from @talosjs/command.
 model: sonnet
 effort: low
 allowed-tools: Bash(talos command:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
@@ -39,7 +39,7 @@ Read `modules/<module>/src/commands/<Name>Command.ts`, then implement:
 - Inject required dependencies via the constructor
 
 ```typescript
-import { type ICommand, decorator } from "@talosjs/cli";
+import { type ICommand, decorator } from "@talosjs/command";
 
 type CommandOptionsType = {
   name?: string;

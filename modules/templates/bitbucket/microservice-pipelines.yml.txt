@@ -17,7 +17,9 @@ definitions:
         services:
           - docker
         script:
-          - bun add -g @talosjs/cli
+          - apt-get update && apt-get install -y curl
+          - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+          - export PATH="$HOME/.talos/bin:$PATH"
           - SHORT_SHA=$(echo "$BITBUCKET_COMMIT" | cut -c1-7)
           - >-
             talos docker:credentials:create
@@ -35,7 +37,9 @@ definitions:
         services:
           - docker
         script:
-          - bun add -g @talosjs/cli
+          - apt-get update && apt-get install -y curl
+          - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+          - export PATH="$HOME/.talos/bin:$PATH"
           # Apply migrations before publishing the release image, so the database
           # is ready by the time the platform pulls the new tag.
           - APP_ENV=production talos migration:up

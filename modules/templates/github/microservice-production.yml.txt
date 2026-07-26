@@ -43,7 +43,9 @@ jobs:
         run: bun install
 
       - name: Install Talos CLI
-        run: bun add -g @talosjs/cli
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+          echo "$HOME/.talos/bin" >> "$GITHUB_PATH"
 
       # Restore the accumulating per-version migration cache so already-applied
       # migrations are skipped without opening a database connection. The DB

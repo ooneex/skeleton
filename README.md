@@ -1065,7 +1065,7 @@ If you omit arguments, Claude will prompt you for the required values.
 | `/ai-middleware-create` | Generate an AI chat-lifecycle middleware implementing `IMiddleware`, wired to `@talosjs/ai` |
 | `/analytics-create` | Generate an analytics handler class for tracking domain events via `@talosjs/analytics` |
 | `/cache-create` | Generate a cache handler class with key and TTL management via `@talosjs/cache` |
-| `/command-create` | Generate a CLI command class implementing `ICommand` via `@talosjs/cli` |
+| `/command-create` | Generate a CLI command class implementing `ICommand` via `@talosjs/command` |
 | `/controller-create` | Generate an HTTP or WebSocket controller with route type, validation, roles, service, and pub/sub event |
 | `/cron-create` | Generate a cron job class registered in its module via `@talosjs/cron` |
 | `/database-create` | Generate a database adapter class for raw queries via `@talosjs/database` |

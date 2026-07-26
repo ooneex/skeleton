@@ -27,7 +27,9 @@ quality:
       - var/cache/monorepo/
     policy: pull-push
   script:
-    - bun add -g @talosjs/cli
+    - apt-get update && apt-get install -y curl
+    - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+    - export PATH="$HOME/.talos/bin:$PATH"
     - talos monorepo:check
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
@@ -48,12 +50,13 @@ build-image:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(main|staging|develop)$/
   # Install Bun and the Talos CLI into the Docker image so `talos docker:publish`
-  # can build and push. Bun's global bin (with `talos`) lands in ~/.bun/bin.
+  # can build and push. Bun lands in ~/.bun/bin; talos lands in ~/.talos/bin.
   before_script:
-    - apk add --no-cache bash curl unzip
+    - apk add --no-cache bash curl tar unzip
     - curl -fsSL https://bun.sh/install | bash
     - export PATH="$HOME/.bun/bin:$PATH"
-    - bun add -g @talosjs/cli
+    - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
+    - export PATH="$HOME/.talos/bin:$PATH"
   script:
     - SHORT_SHA=$(echo "$CI_COMMIT_SHA" | cut -c1-7)
     - >-

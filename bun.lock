@@ -73,7 +73,6 @@
       },
       "devDependencies": {
         "@biomejs/biome": "^2.5.5",
-        "@talosjs/cli": "^1.31.1",
         "@talosjs/command": "^1.6.0",
         "@talosjs/migrations": "^1.2.1",
         "@talosjs/seeds": "^1.2.1",
@@ -96,6 +95,10 @@
     },
     "modules/design": {
       "name": "@module/design",
+      "version": "0.0.1",
+    },
+    "modules/microservice": {
+      "name": "@module/microservice",
       "version": "0.0.1",
     },
     "modules/sdk": {
@@ -275,6 +278,8 @@
     "@module/app": ["@module/app@workspace:modules/app"],
 
     "@module/design": ["@module/design@workspace:modules/design"],
+
+    "@module/microservice": ["@module/microservice@workspace:modules/microservice"],
 
     "@module/shared": ["@module/shared@workspace:modules/shared"],
 
@@ -671,8 +676,6 @@
     "@talosjs/auth": ["@talosjs/auth@1.1.2", "", { "dependencies": { "@clerk/backend": "^1.24.1", "@talosjs/app-env": "^1.2.3", "@talosjs/container": "^1.1.2", "@talosjs/controller": "^1.1.2", "@talosjs/exception": "^1.1.2", "@talosjs/http-status": "^1.1.2" } }, "sha512-TZZgLBt7GUfkFPsyglM2Br8uBd+zZFSELWv3nzNUWfi4QbmZaHV3ruFQSVnzLlPmeNRA4gwnfCugz8kcxpGQVg=="],
 
     "@talosjs/cache": ["@talosjs/cache@1.1.2", "", { "dependencies": { "@talosjs/app-env": "^1.2.3", "@talosjs/container": "^1.1.2", "@talosjs/exception": "^1.1.2", "@talosjs/http-status": "^1.1.2" } }, "sha512-vERNO5IZmJHt1/wbZr1GwsqU6fzTOgUUA5wBBSP2xY9h9lbQvDh5S3EDiuOErNwgfVznR81btzjSyhm0UAH7Og=="],
-
-    "@talosjs/cli": ["@talosjs/cli@1.31.1", "", { "dependencies": { "@talosjs/command": "^1.6.0", "@talosjs/logger": "^1.1.3", "@talosjs/migrations": "^1.2.1", "@talosjs/seeds": "^1.2.1", "@talosjs/utils": "^1.1.2", "@talosjs/validation": "^1.1.2" }, "bin": { "talos": "dist/index.js", "oo": "dist/index.js" } }, "sha512-ZgWptGyjIJ/rMUNNVcxJd24MoCCd0Sic/Tb1XWb5bAiq4NAMuvUnIfFPDJAyau9vF+Gdg2AC7Czb83IvglbfMQ=="],
 
     "@talosjs/command": ["@talosjs/command@1.6.0", "", { "dependencies": { "@talosjs/app-env": "^1.2.3", "@talosjs/container": "^1.1.2", "@talosjs/exception": "^1.1.2", "@talosjs/http-status": "^1.1.2", "@talosjs/logger": "^1.1.3", "@talosjs/utils": "^1.1.2" } }, "sha512-a1EcwMPdoHcHTmINheNb0G5tunx1Xi+B8fNlOlEP2M7GpHasNX0UJcemqETy5fDjTyXK6PWOB70lk+bDNiNwUA=="],
 
