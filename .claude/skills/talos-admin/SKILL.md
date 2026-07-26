@@ -53,4 +53,4 @@ modules/<name>/                   # type: "admin"
       utils/                    #   Generic pure helpers (formatting, `cn`, guards).
 ```
 
-An admin module is built with the same tooling and conventions as a spa module — reuse `/spa-feature-create` to scaffold feature slices, and treat every client-side authorization check as UX only (the backend must re-enforce it). For the design system this app composes, see `talos-design`; for the shared SPA runtime, see `talos-spa`; for backend module layout, see `talos-module`.
+An admin module is built with the same tooling and conventions as a spa module — reuse `/spa-feature-create` to scaffold feature slices, and treat every client-side authorization check as UX only (the backend must re-enforce it). The design system this admin composes is linked with `--design <design-module>` at creation (recorded as `design: "<design>"` in `<name>.yml`); the backend it calls is linked with `--target <api|microservice module>` (recorded as `target: "<module>"`). For the design system this app composes, see `talos-design`; for the shared SPA runtime, see `talos-spa`; for backend module layout, see `talos-module`.

@@ -38,9 +38,9 @@ talos module:create --name <name>        # Scaffold a module
 talos module:remove --name <name>        # Remove a module + all references
 talos design:create --name <name>        # Scaffold a design module (from @talosjs/design)
 talos design:remove --name <name>        # Remove a design module + all references
-talos spa:create --name <name>           # Scaffold a spa module (from @talosjs/spa)
+talos spa:create --name <name> [--design <design>] [--target <api|microservice>]     # Scaffold a spa module (from @talosjs/spa); --target records the backend it calls
 talos spa:remove --name <name>           # Remove a spa module + all references
-talos admin:create --name <name>         # Scaffold an admin module (back-office dashboard SPA)
+talos admin:create --name <name> [--design <design>] [--target <api|microservice>]   # Scaffold an admin module (back-office dashboard SPA); --target records the backend it calls
 talos admin:remove --name <name>         # Remove an admin module + all references
 talos storybook:create --name <name>     # Scaffold a storybook module (component gallery for a design module)
 talos storybook:remove --name <name>     # Remove a storybook module + all references

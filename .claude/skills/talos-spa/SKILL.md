@@ -53,4 +53,4 @@ modules/<name>/                   # type: "spa"
       utils/                    #   Generic pure helpers (formatting, `cn`, guards).
 ```
 
-For the design system this app composes, see `talos-design`. For backend module layout, see `talos-module`.
+The design system this SPA composes is linked with `--design <design-module>` at creation (recorded as `design: "<design>"` in `<name>.yml`); the backend it calls is linked with `--target <api|microservice module>` (recorded as `target: "<module>"`). For the design system this app composes, see `talos-design`. For backend module layout, see `talos-module`.
