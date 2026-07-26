@@ -6,7 +6,7 @@
 # Runtime: Bun.
 #   - Production compiles a single `dist` bundle (`bun run build`). The bundle
 #     resolves `@module/*` tsconfig path aliases at build time, but is NOT fully
-#     standalone — at startup `@talosjs/app` reads `modules/shared/src/roles.yml`
+#     standalone — at startup `@talosjs/app` reads the module's `roles.yml`
 #     (via process.cwd()) and native deps (e.g. @lancedb/lancedb) load `.node`
 #     addons from node_modules. So the production image ships the bundle +
 #     production node_modules + that one runtime data file.
