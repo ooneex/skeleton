@@ -40,3 +40,4 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `/security-check` — audit all dependencies against the OSV.dev online database (`talos security:check`), report by module/package or file issues.
 - `/translation-translate` — translate/complete a module's `translations.json`/`translations.yml` dictionaries (optionally extracting hardcoded text) into the target locales.
 - `/issue-found`, `/issue-plan`, `/issue-fix` — audit, plan, and implement issues.
+- `/issue-pull`, `/issue-push` — sync issues between Linear and local YAML (pull down, then push back up).
