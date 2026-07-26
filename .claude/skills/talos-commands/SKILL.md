@@ -101,13 +101,13 @@ talos monorepo:check --modules=billing,user --logs           # Scope the gate to
 
 ## Security
 ```bash
-talos security:check                                    # Audit every bun/rust/python module for known vulnerabilities, report by module (sorted by severity)
+talos security:check                                    # Audit every dependency against OSV.dev, report by module/package (sorted by severity)
 talos security:check --modules=billing,user             # Only the named modules (also --packages=a,b)
 talos security:check --audit-level=high                 # Only report high/critical findings (low|moderate|high|critical)
 talos security:check --issues                           # Create one YAML Security issue per vulnerability instead of printing
 ```
 
-`security:check` discovers bun modules (`bun.lock`), rust modules (`Cargo.toml`) and python modules (`requirements.txt`/`pyproject.toml`/`Pipfile`), then runs `bun audit`, `cargo audit` and `pip-audit` respectively — covering every installed dependency through each lockfile. Findings are grouped by module and sorted by severity (critical→low). `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. Missing audit tools (`cargo-audit`, `pip-audit`) are warned and skipped, not fatal. The `/security-check` skill wraps this command.
+`security:check` walks the workspace, parses every lockfile it finds (`bun.lock`, `package-lock.json`, `Cargo.lock`, `requirements.txt`, `Pipfile.lock`, `poetry.lock`, `go.sum`, `Gemfile.lock`, `composer.lock`) and checks each resolved package against the **OSV.dev** online database — covering npm (bun/node/react/typescript), PyPI, crates.io, Go, RubyGems and Packagist. No local audit binary is required (only network access). Findings are grouped by module/package folder name and sorted by severity (critical→low), each citing the OSV advisory id, CVE aliases, patched versions and advisory URL. `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. If OSV.dev is unreachable the command aborts. The `/security-check` skill wraps this command.
 
 ## Release
 ```bash
