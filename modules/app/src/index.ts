@@ -5,7 +5,7 @@ import { CorsMiddleware } from "@talosjs/middleware";
 import { RedisRateLimiter } from "@talosjs/rate-limit";
 import { AppModule } from "./AppModule";
 import { OnAppStart } from "./OnAppStart";
-import "@module/shared/roles.yml";
+import "../roles.yml";
 import "../../../.env.yml";
 
 const app = new App({
