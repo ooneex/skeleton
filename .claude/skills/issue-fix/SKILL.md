@@ -98,6 +98,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `api` | `api-issue-fixer` |
 | `microservice` | `microservice-issue-fixer` |
 | `spa` | `spa-issue-fixer` |
+| `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
 Each fixer implements the `goal` per the module's conventions and Clean Architecture, **creates the e2e tests for the issue's `testing` steps**, runs `talos monorepo:check`, checks off every `dod` and `testing` box, and sets `state: "In Review"` only once **all** boxes pass.

@@ -45,6 +45,7 @@ Using the resolved `type`, invoke the matching founder(s) via the Agent tool, pa
 | `api` | `api-issue-founder` | API module — HTTP/REST contract (status codes, request/response DTOs & validation, versioning, pagination, rate limiting, error-response shape) plus the backend categories |
 | `microservice` | `microservice-issue-founder` | Microservice — service boundaries & data ownership, message/event contracts, idempotency, resilience, consistency, operability, observability, plus the backend categories |
 | `spa` | `spa-issue-founder` **and** `design-issue-founder` | Client-side SPA issues **and** UI/UX design issues |
+| `storybook` | `storybook-issue-founder` **and** `design-issue-founder` | Component-gallery / story-coverage issues **and** UI/UX design issues |
 | `design` | `design-issue-founder` | UI/UX design issues for the design system |
 
 Each founder reads the source itself and returns findings — every finding has a `title`, `priority`, `label`, and a `description` citing the concrete file(s)/line(s). Fold each returned finding into step 3 as if found directly. If a founder reports a missing module or no findings, carry that into the step 4 summary. Founders apply the same coding conventions as the `optimize` skill when judging code quality.

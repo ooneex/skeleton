@@ -19,6 +19,7 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `talos-module` — backend module directory structure plus DI, exception, and TypeScript patterns with examples.
 - `talos-design` — design-system (front-end design module) directory structure, per-folder guidance.
 - `talos-spa` — single-page-app module directory structure, per-folder guidance.
+- `talos-storybook` — storybook module (component-gallery app) directory structure, story model, and per-folder guidance.
 - `talos-env` — reading environment variables via the injected `AppEnv`.
 - `talos-scaffold` — shared workflow behind every `<artifact>-create` generator (run-from-root, `--name`/`--module` inference, registration, lint/format, test baseline).
 

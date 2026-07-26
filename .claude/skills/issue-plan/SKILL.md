@@ -70,6 +70,7 @@ A plan-mode issue is plannable only when `state` is exactly `Todo` (create-mode 
 Read `modules/<module>/<module>.yml` for its `type`, which decides the `goal`'s technical vocabulary (see **Technical Structure by Module Type**):
 - `"module"`/`"api"`/`"microservice"` (or none) — backend → `### Data Model` with TypeORM relations.
 - `"spa"` — front-end SPA → `### Front-End Structure`.
+- `"storybook"` — component gallery → `### Front-End Structure`.
 - `"design"` — design system → `### Design System Structure`.
 
 ### 2. Restructure the Parent Issue
@@ -209,7 +210,7 @@ testing: |
 
 ## Technical Structure by Module Type
 
-The `goal`'s technical subsection follows the module's conventions (from step 1's `<module>.yml` `type`). Use exactly one of the three, matching the type; omit it for issues with no structural component (pure bug fix, copy change, chore).
+The `goal`'s technical subsection follows the module's conventions (from step 1's `<module>.yml` `type`). Use exactly one of the four, matching the type; omit it for issues with no structural component (pure bug fix, copy change, chore).
 
 ### Backend module (`type: "module"`, `"api"`, `"microservice"`, or none) — `### Data Model`
 
@@ -224,6 +225,14 @@ A front-end SPA (TanStack Router + TanStack Query), **not** registered into `App
 - `src/shared/<sub-layer>/` — the only place ≥2 features may import from in common (same sub-layout as a feature).
 
 For a new feature, `talos spa:feature:create --name <Name> --module <module>` (skill `/spa-feature-create`) scaffolds the route, the page/skeleton/error/not-found layouts under `features/<feature>/layouts/`, and example query (`useGet<Name>`) + mutation (`useUpdate<Name>`) hooks under `features/<feature>/hooks/`. Describe the feature, its route path, the layouts, and the hooks needed — spell hooks as `useGet<Name>` / `useUpdate<Name>`, components/layouts in PascalCase.
+
+### Storybook module (`type: "storybook"`) — `### Front-End Structure`
+
+A front-end component gallery (spa-flavour, TanStack Router) that previews a **design module's** components and icons, **not** registered into `AppModule`/`SharedModule`. It renders no domain logic — every preview is a story `meta` object importing the target through the design alias. Name the concrete files/folders to add or change:
+
+- `src/features/<component>/<Name>.stories.tsx` — the stories (the only thing under `features/`); each exports a `meta satisfies Meta<typeof Component>`. Compound sub-components are sibling `<Name><Sub>.stories.tsx` files (title `"<Name>.<Sub>"`, same `meta.group`); icons share `features/icons/` as `<Name>Icon.stories.tsx`. Author with skill `/storybook-story-create` — there is no `talos` generator for stories.
+- `src/shared/` — the gallery engine (`story/types.ts`, `story/registry.ts`, `components/Canvas.tsx`, `Controls.tsx`, `Sidebar.tsx`, `CommandPalette.tsx`); touch only when the discovery/preview/nesting/sectioning logic itself must change.
+- `vite.config.ts` — the design alias(es) (`@module/design` → `../design/src`); import previewed code through the alias, never relative cross-module paths.
 
 ### Design module (`type: "design"`) — `### Design System Structure`
 
