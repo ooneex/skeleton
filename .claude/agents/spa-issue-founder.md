@@ -18,7 +18,7 @@ Focused single-page-application auditor. Given a module and its front-end source
 
 ## Input
 
-Read the named `type: "design"` or `type: "spa"` module's front-end source under `modules/<module>/src/` — components, pages/routes, layouts, state stores/hooks, data-fetching and API clients, routing config — plus its tests under `modules/<module>/tests/` when they clarify intent. Build a complete picture before reporting. If the directory doesn't exist, report the exact path checked and return no findings.
+Read the named `type: "design"`, `type: "spa"`, or `type: "admin"` module's front-end source under `modules/<module>/src/` — components, pages/routes, layouts, state stores/hooks, data-fetching and API clients, routing config — plus its tests under `modules/<module>/tests/` when they clarify intent. Build a complete picture before reporting. If the directory doesn't exist, report the exact path checked and return no findings.
 
 ## What to look for
 

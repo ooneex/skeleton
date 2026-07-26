@@ -98,6 +98,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `api` | `api-issue-fixer` |
 | `microservice` | `microservice-issue-fixer` |
 | `spa` | `spa-issue-fixer` |
+| `admin` | `spa-issue-fixer` |
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 

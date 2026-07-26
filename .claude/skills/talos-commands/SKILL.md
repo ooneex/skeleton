@@ -1,6 +1,6 @@
 ---
 name: talos-commands
-description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/microservice/SDK/docker scaffolding, database migrations and seeds, monorepo task running, releases, and issues.
+description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/admin/microservice/SDK/docker scaffolding, database migrations and seeds, monorepo task running, releases, and issues.
 when_to_use: Use when you need the exact command or flags to run a project task from the terminal.
 user-invocable: false
 ---
@@ -40,6 +40,8 @@ talos design:create --name <name>        # Scaffold a design module (from @talos
 talos design:remove --name <name>        # Remove a design module + all references
 talos spa:create --name <name>           # Scaffold a spa module (from @talosjs/spa)
 talos spa:remove --name <name>           # Remove a spa module + all references
+talos admin:create --name <name>         # Scaffold an admin module (back-office dashboard SPA)
+talos admin:remove --name <name>         # Remove an admin module + all references
 talos storybook:create --name <name>     # Scaffold a storybook module (component gallery for a design module)
 talos storybook:remove --name <name>     # Remove a storybook module + all references
 talos microservice:create --name <name>  # Scaffold a microservice

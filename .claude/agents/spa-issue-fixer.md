@@ -1,7 +1,7 @@
 ---
 name: spa-issue-fixer
-description: Implements a single planned issue in a front-end SPA module (`type: "spa"`) — a TanStack Router + TanStack Query app organized as vertical feature slices (routes, features, shared) — then lints, satisfies the Definition of Done, and marks the issue Done.
-when_to_use: Use proactively whenever a `type: "spa"` issue needs implementing.
+description: Implements a single planned issue in a front-end SPA module (`type: "spa"` or `type: "admin"`) — a TanStack Router + TanStack Query app organized as vertical feature slices (routes, features, shared) — then lints, satisfies the Definition of Done, and marks the issue Done.
+when_to_use: Use proactively whenever a `type: "spa"` or `type: "admin"` issue needs implementing.
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 effort: medium
@@ -34,7 +34,7 @@ Extract `context`, `goal` (with its `## Technical Notes` and `### Front-End Stru
 
 ## Implement (SPA)
 
-A `type: "spa"` module is a TanStack Router + TanStack Query single-page app, **not** registered into `AppModule`/`SharedModule`, organized as vertical slices. Implement the files named in `### Front-End Structure`:
+A `type: "spa"` (or `type: "admin"`) module is a TanStack Router + TanStack Query single-page app, **not** registered into `AppModule`/`SharedModule`, organized as vertical slices. Implement the files named in `### Front-End Structure`:
 
 - `src/routes/<kebab>.tsx` — file-based route mapping to a URL; keep thin, delegate UI to features and data to services.
 - `src/features/<feature>/` — a self-contained slice owning its `assets/`, `components/`, `hooks/` (data fetching / API calls / local UI state), `layouts/`, `services/` (the **only** layer that talks to the backend), `store/` (client state), `styles/`, `types/`, `utils/`. A feature must not import another feature's internals — promote shared code to `src/shared/`.

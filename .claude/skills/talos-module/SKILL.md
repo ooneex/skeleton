@@ -16,7 +16,7 @@ user-invocable: false
 All code lives under `modules/<name>/`. A module owns one business domain:
 ```
 modules/<name>/
-  <name>.yml      # Module manifest — declares type: "module" (or api | microservice | design | spa | sdk)
+  <name>.yml      # Module manifest — declares type: "module" (or api | microservice | design | spa | admin | sdk)
   package.json    # Module package + its dependencies
   src/
     ai/           # AI integration classes — chats/, middlewares/, tools/ subfolders
@@ -47,7 +47,7 @@ modules/<name>/
 
 A module only contains the folders for the artifacts it actually uses — each `talos <artifact>:create` generator creates its `src/` subfolder (and the matching `tests/` one) on demand.
 
-For front-end modules, see `talos-design` (design system) and `talos-spa` (single-page app). For typed config access, see `talos-env`.
+For front-end modules, see `talos-design` (design system), `talos-spa` (single-page app) and `talos-admin` (back-office dashboard). For typed config access, see `talos-env`.
 
 ## Dependency Injection
 
