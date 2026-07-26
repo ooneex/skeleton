@@ -37,6 +37,8 @@ Lead with distributed-systems concerns, then cover the standard backend categori
   - *Secrets & credentials* — hardcoded credentials/API keys/connection strings; plaintext passwords not hashed; secrets in event/message payloads, responses, or URL/query-string tokens; `process.env` read directly instead of `AppEnv`.
   - *Sensitive data exposure* — credentials/PII/full payloads or raw error bodies logged (across service hops), sent to analytics, or returned; no redaction.
   - *Missing validation & hardening* — inbound messages/endpoints without schema validation; no rate limiting on exposed endpoints; token/session caches with no TTL.
+
+  Audit **hand-written source** only. Do **not** audit lockfiles or flag known-CVE vulnerabilities in third-party dependencies — the `/issue-found` skill covers those separately with an OSV.dev dependency scan (`talos security:check`), which you cannot run.
 - **Performance** — N+1 queries, unbounded reads, missing caching, synchronous work in hot paths, large payloads.
 - **Architecture (Clean Architecture)** — dependency-rule violations (controllers/commands → services → repositories → entities, never reversed); business rules outside services; entities importing framework/transport types; dependencies not inverted (no constructor injection).
 - **Missing Tests** — services/handlers without `.spec.ts`, untested retry/failure/redelivery paths, untested edge cases.

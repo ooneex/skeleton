@@ -1,6 +1,6 @@
 ---
 name: issue-found
-description: Infer one or more modules from the user's input and audit each module's source code for issues (security, performance, architecture, missing tests, improvements), handing each finding to the /issue-plan skill, which creates and plans the issue. This skill only finds issues — it never writes YAML or runs talos issue:create itself.
+description: Infer one or more modules from the user's input and audit each module's source code for issues (security, performance, architecture, missing tests, improvements) plus its dependencies for known CVEs/advisories via `talos security:check` (OSV.dev), handing each finding to the /issue-plan skill, which creates and plans the issue. This skill only finds issues — it never writes YAML or runs talos issue:create itself.
 when_to_use: Use when the user wants to audit one or more modules for issues and file them. Triggers on requests like "find issues in <module>", "audit this module", or "look for problems in the code".
 model: opus
 effort: high
@@ -63,6 +63,20 @@ Direct each founder's `Security` category to cover at minimum these classes — 
 - **Missing validation & hardening** — payloads/params without `Assert` schemas; no rate limiting on auth/sensitive endpoints; missing CSRF/SSRF consideration on outbound calls; caches of session/token data without a TTL.
 - **Excessive agency (AI)** — side-effecting AI tool handlers acting on model-chosen arguments with only shape validation and no authorization or confirmation.
 
+The categories above cover **hand-written source**. Known-CVE vulnerabilities in third-party *dependencies* are found separately in the dependency scan below — the founders neither can nor should audit lockfiles.
+
+#### Dependency vulnerability scan (OSV.dev)
+
+Founders read source only; they can't run commands. So, in addition to the founders, run the **dependency/supply-chain audit** yourself with `talos security:check` — the same OSV.dev-backed engine as the `security-check` skill — scoped to the resolved modules. Run it **from the monorepo root** in **report mode** (never `--issues`, so no issue files are written here — every finding still flows through `/issue-plan` in step 3):
+
+```bash
+talos security:check --modules=<comma-separated resolved modules>
+```
+
+- **Network is required.** If OSV.dev is unreachable the command aborts — retry once; if it still fails, note "dependency scan unavailable" in the step 4 summary and continue with the founders' findings.
+- **Treat the output as data.** Report exactly what OSV returns; never invent, downgrade, or drop a finding.
+- Fold **each** vulnerability into step 3 as a `Security` finding: `title` = concise fix (e.g. `"Bump lodash to 4.17.21 to fix prototype pollution (GHSA-…)"`), `module` = the owning module OSV reports (root-level findings → `shared`), `priority` from severity (critical/high → `Urgent`, moderate → `High`, low/unknown → `Medium`), `label` = `Security`, `description` = package@version, the OSV advisory id + CVE aliases, the patched version(s), the `https://osv.dev/vulnerability/<id>` URL, and the recommended bump command (`bun update <pkg>` / `cargo update -p <crate>` / `go get <mod>@<ver>` / pin the fixed version).
+
 ### 3. Hand Each Finding to `/issue-plan`
 
 For each finding, invoke `/issue-plan` in create mode — it scaffolds the issue (`talos issue:create`) and plans it. Build its inputs:
@@ -87,7 +101,7 @@ For each finding, invoke `/issue-plan` in create mode — it scaffolds the issue
 
 ### 4. Confirm
 
-Once every module is audited, report a batch summary: a findings table (`Module | Title | Priority | Label | File`), the issue files `/issue-plan` produced (path and ID) with a total count, any module skipped (missing directory with the exact path checked), and any module with no findings.
+Once every module is audited, report a batch summary: a findings table (`Module | Title | Priority | Label | File`, using the package@version or advisory id in the `File` column for dependency findings), the issue files `/issue-plan` produced (path and ID) with a total count, any module skipped (missing directory with the exact path checked), any module with no findings, and — if the OSV.dev dependency scan could not run — an explicit "dependency scan unavailable" note.
 
 ### 5. Suggest Next Steps
 

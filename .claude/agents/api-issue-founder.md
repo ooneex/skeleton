@@ -31,6 +31,8 @@ Lead with the API boundary, then cover the standard backend categories:
   - *Secrets & credentials* — hardcoded credentials/API keys; plaintext passwords not hashed before persistence; secrets returned in responses or event payloads, or passed as URL/query-string tokens; `process.env` read directly instead of injecting `AppEnv`.
   - *Sensitive data exposure* — credentials/PII/full payloads or raw error bodies in logs, analytics, or error responses; loggers without redaction.
   - *Missing validation & hardening* — endpoints without `Assert` schemas; no rate limiting on auth or expensive/public endpoints; missing CSRF/SSRF consideration on outbound calls.
+
+  Audit **hand-written source** only. Do **not** audit lockfiles or flag known-CVE vulnerabilities in third-party dependencies — the `/issue-found` skill covers those separately with an OSV.dev dependency scan (`talos security:check`), which you cannot run.
 - **Performance** — N+1 queries, unbounded queries without pagination, missing caching on hot read endpoints, synchronous work in request handlers, large payloads.
 - **Architecture (Clean Architecture)** — controllers holding business rules or calling repositories directly; repositories accepting/returning transport types; domain entities importing HTTP/framework types; dependencies not inverted (no constructor injection).
 - **Missing Tests** — controllers/services without `.spec.ts`; untested error responses and status codes; untested validation and edge cases.

@@ -46,6 +46,8 @@ Inspect the module across these categories:
   - *Excessive agency (AI)* — side-effecting AI tool handlers acting on
     model-chosen arguments with only shape validation and no authorization or
     confirmation.
+
+  Audit **hand-written source** only. Do **not** try to audit lockfiles or flag known-CVE vulnerabilities in third-party dependencies — the `/issue-found` skill covers those separately with an OSV.dev dependency scan (`talos security:check`), which you cannot run.
 - **Performance** — N+1 queries, missing indexes, unbounded `find()` without
   pagination, synchronous work in hot paths, missing caching, repeated
   computation, large payloads.
