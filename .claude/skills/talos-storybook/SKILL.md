@@ -23,6 +23,7 @@ modules/<name>/                   # type: "storybook"
     bootstrap/                  # Entry point and build wiring. Rarely edited by hand once scaffolded.
       index.html                #   HTML shell — the single document; mount node + script tag.
       app.tsx                   #   Bootstrap: creates the router + React root and mounts into the shell; wires global providers.
+                                #     Import the design module's Tailwind stylesheet here: `import "@module/<design>/styles/app.css";`.
       routeTree.gen.ts          #   Auto-generated route tree. Tooling output — never edit; Biome-ignored.
     routes/                     # File-based TanStack Router routes driving `routeTree.gen.ts`. Keep thin — the shell that
       __root.tsx                #   hosts the gallery chrome (sidebar, command palette, canvas). Delegate rendering to shared/.

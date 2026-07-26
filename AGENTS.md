@@ -37,5 +37,6 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `/database-migrate` — apply/roll back migrations, run seeds, verify the schema.
 - `/e2e-run` — run the Playwright e2e suite across packages and modules, then triage failures.
 - `/optimize` — enforce coding conventions across a module.
+- `/security-check` — audit bun/rust/python dependencies for known vulnerabilities (`talos security:check`), report by module or file issues.
 - `/translation-translate` — translate/complete a module's `translations.json`/`translations.yml` dictionaries (optionally extracting hardcoded text) into the target locales.
 - `/issue-found`, `/issue-plan`, `/issue-fix` — audit, plan, and implement issues.

@@ -99,6 +99,16 @@ talos monorepo:check --modules=billing,user --logs           # Scope the gate to
 
 `monorepo:check` is shorthand for `monorepo:run --commands=install,build,fmt,lint,test` — the full verification gate in that order, with the same caching, filtering (`--packages`/`--modules`), `--logs`, and `--no-cache` flags.
 
+## Security
+```bash
+talos security:check                                    # Audit every bun/rust/python module for known vulnerabilities, report by module (sorted by severity)
+talos security:check --modules=billing,user             # Only the named modules (also --packages=a,b)
+talos security:check --audit-level=high                 # Only report high/critical findings (low|moderate|high|critical)
+talos security:check --issues                           # Create one YAML Security issue per vulnerability instead of printing
+```
+
+`security:check` discovers bun modules (`bun.lock`), rust modules (`Cargo.toml`) and python modules (`requirements.txt`/`pyproject.toml`/`Pipfile`), then runs `bun audit`, `cargo audit` and `pip-audit` respectively — covering every installed dependency through each lockfile. Findings are grouped by module and sorted by severity (critical→low). `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. Missing audit tools (`cargo-audit`, `pip-audit`) are warned and skipped, not fatal. The `/security-check` skill wraps this command.
+
 ## Release
 ```bash
 talos release:create   # Detect unreleased commits, bump versions, update changelogs, tag, push
