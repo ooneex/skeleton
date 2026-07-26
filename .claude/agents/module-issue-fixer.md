@@ -36,7 +36,7 @@ Extract from the YAML:
 - `dod` — acceptance criteria as checkboxes; **every box must end up satisfied**.
 - `dependencies` — issue IDs that must be done first.
 
-If a `resources` map and/or `spec` block is present, treat those as authoritative for artefacts/names; otherwise derive from `goal`/`dod`. If a `spec` block is present, read: `spec.name` (dot-notation, e.g. `"organization.create"`, else infer `"<entity>.<action>"`), `spec.entity`, `spec.roles` (map slugs via `modules/shared/src/roles.yml`), and `spec.permissions` (`name` in `"entity:action"` format).
+If a `resources` map and/or `spec` block is present, treat those as authoritative for artefacts/names; otherwise derive from `goal`/`dod`. If a `spec` block is present, read: `spec.name` (dot-notation, e.g. `"organization.create"`, else infer `"<entity>.<action>"`), `spec.entity`, `spec.roles` (map slugs via `modules/app/roles.yml`), and `spec.permissions` (`name` in `"entity:action"` format).
 
 Derive the HTTP method from the action: `.create` → `post`; `.read`/`.list`/`.search` → `get`; `.update` → `put`/`patch`; `.delete` → `delete`.
 

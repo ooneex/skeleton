@@ -57,6 +57,15 @@ Build accessible, responsive components: semantic markup, labels/ARIA where need
 
 Run the specs you add (`bun test modules/<module>/tests/...`) and keep them green before the DoD check.
 
+## Sync storybook
+
+**Any design element you create or update must be reflected in the related storybook.** A design system's components and icons are previewed by a sibling `type: "storybook"` module that aliases this design module (`@module/<design>` → `../<design>/src` in its `vite.config.ts`). Whenever this issue adds, changes, or removes a component (or a `cva` variant/size), a sub-component, or an icon, the matching `*.stories.tsx` under the storybook's `src/features/` must be created or updated so the gallery stays in sync.
+
+- **Locate the storybook(s)** that alias this design module: search `modules/*/ packages/*/` for a `type: "storybook"` module whose `vite.config.ts` aliases `modules/<module>/src` (or `packages/<module>/src`). A design module may be previewed by several storybooks; update each.
+- **Delegate the authoring** to the `storybook-story-create` skill (via the Skill tool) for every element this issue touched — it creates a new story or updates the existing one in place against the `meta` model, wiring plain vs. compound components and icons correctly. If no storybook aliases this design module, note that and skip.
+- **New/changed variants or sizes** — ensure the story's `select`/`radio` options mirror the design component's real `cva` option names, each with `usage`; **removed** elements get their stale story removed.
+- Keep the storybook green: the `talos monorepo:check` in Finish must cover the storybook module too.
+
 ## Self-review
 
 Before Finish, check against `optimize-ui`'s self-review checklist: squint test for hierarchy; realistic edge-case content (long/short/empty text, large lists, missing images); and **accessibility** — full keyboard navigation with visible focus on every control, semantic markup with form labels/ARIA and `alt` text, hit areas ≥44×44px (≥40×40px in dense desktop UI), state never signalled by color alone, and a `prefers-reduced-motion` fallback for any added animation. Also check against `optimize-ui`'s `references/ai-slop.md` — no generic gradient-as-brand-color, glassmorphism-as-decoration, stock hero+3-card-grid skeleton, emoji standing in for the design system's icons, or marketing-cliché copy. A component that would look at home in any other product, unchanged, hasn't used this project's design system. Fix what fails rather than shipping it as a caveat.
@@ -69,4 +78,4 @@ Before Finish, check against `optimize-ui`'s self-review checklist: squint test 
 
 ## Report
 
-Concise summary: issue `id`/`title`, implementation path (design), files/artefacts created or updated, DoD status, final issue state, and any step skipped and why.
+Concise summary: issue `id`/`title`, implementation path (design), files/artefacts created or updated, storybook stories created/updated (and the storybook module) or why none, DoD status, final issue state, and any step skipped and why.

@@ -32,3 +32,7 @@ modules/<name>/        # type: "design"
 ```
 
 For the interaction, motion, typography, color, and surface rules every component here must follow — including how to avoid AI-slop visual patterns (stock gradients, glassmorphism-as-decoration, template layouts) — see `optimize-ui`. For the SPA consuming this design system, see `talos-spa`; for backend module layout, see `talos-module`.
+
+## Keep the storybook in sync
+
+This design module is previewed by a sibling **storybook module** (`type: "storybook"`) that aliases its `src/` (`@module/<name>` → `../<name>/src`) and exposes one `*.stories.tsx` per component and icon. **Whenever you create, update, or remove a design element — a component, a `cva` variant/size, a sub-component, or an icon — you must create or update its story in the related storybook** so the gallery never drifts from the system it documents. Locate the storybook(s) aliasing this module (search `modules/*/ packages/*/` for a `vite.config.ts` aliasing `modules/<name>/src` or `packages/<name>/src`; a design module can feed several) and use the `storybook-story-create` skill to author or refresh the stories; remove stories for anything you delete. For the storybook layout and the story `meta` model, see `talos-storybook` and `storybook-story-create`.

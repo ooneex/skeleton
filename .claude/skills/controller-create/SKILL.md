@@ -99,7 +99,7 @@ The HTTP and socket controllers are identical except the `ContextType` import (`
 
 `roles` is an array of plain role strings (e.g. `["ROLE_USER"]`). There is **no `ERole` enum** — don't import from `@talosjs/role` in a controller. Access is hierarchical/graph-based: granting a role also grants every role it inherits (ancestors, directly or transitively). Sibling roles on different branches do **not** satisfy each other.
 
-Available roles live in `modules/shared/src/roles.yml` — **always read that file** to use the project's actual roles, since each project can customize them. Default hierarchy (ancestor → descendant):
+Available roles live in `modules/app/roles.yml` — **always read that file** to use the project's actual roles, since each project can customize them. Default hierarchy (ancestor → descendant):
 
 | Role | Inherits | Description |
 | --- | --- | --- |

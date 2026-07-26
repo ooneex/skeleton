@@ -4,7 +4,7 @@ description: Sync a local design module with upstream skeleton-design — clone 
 when_to_use: Use when pulling upstream changes into an existing design module. To scaffold one from scratch, use `talos design:create`.
 model: sonnet
 effort: high
-allowed-tools: Bash(git clone *), Bash(rm *), Bash(bun add *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(git clone *), Bash(rm *), Bash(bun add *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: [--name=<name>]
 ---
 
@@ -37,9 +37,11 @@ Refresh a design module against upstream `skeleton-design`. Idempotent and addit
 
 5. **Deps.** From the clone's `package.json`, install only deps not already in the root/module `package.json`: `bun add <new>` / `bun add -D <new-dev>`. Don't touch existing versions.
 
-6. **Clean up + verify.**
+6. **Sync storybook.** Any component, `cva` variant/size, sub-component, or icon that this refresh **created or changed** must be reflected in the related storybook so its gallery stays in sync. Find the `type: "storybook"` module(s) that alias this design module (search `modules/*/ packages/*/` for a `vite.config.ts` aliasing `modules/<name>/src` or `packages/<name>/src`; there may be several). For each affected element, delegate to the `storybook-story-create` skill to create the missing `*.stories.tsx` or update the existing one in place under the storybook's `src/features/` — mirroring the design component's real `cva` option names as `select`/`radio` options and removing stories for anything the refresh dropped. If no storybook aliases this design module, note that and skip.
+
+7. **Clean up + verify.**
    ```bash
    rm -rf "$TMPDIR/talos-design-<name>"
    talos monorepo:check --modules=<name> --logs
    ```
-   Fix every failure (usually an unresolved import or type error from the merge). Report files created, files merged, and deps added. Hand app-code failures to the `debug` skill.
+   Fix every failure (usually an unresolved import or type error from the merge). Report files created, files merged, deps added, and storybook stories created/updated (and the storybook module) or why none. Hand app-code failures to the `debug` skill.

@@ -32,7 +32,7 @@ Read the issue and stop if:
 
 Extract `context`, `goal` (with its `## Technical Notes` and `### Data Model` subsection), `dod` (every checkbox must end up satisfied), and `dependencies`. If a `resources` map and/or `spec` block is present, treat those as authoritative artefacts and names; otherwise derive from `goal`/`dod`.
 
-If a `spec` block is present, read: `spec.name` (dot-notation, else infer `"<entity>.<action>"`), `spec.entity`, `spec.roles` (map slugs via `modules/shared/src/roles.yml`), and `spec.permissions` (`name` in `"entity:action"` format).
+If a `spec` block is present, read: `spec.name` (dot-notation, else infer `"<entity>.<action>"`), `spec.entity`, `spec.roles` (map slugs via `modules/app/roles.yml`), and `spec.permissions` (`name` in `"entity:action"` format).
 
 Derive the HTTP method from the action: `.create` → `post`; `.read`/`.list`/`.search` → `get`; `.update` → `put`/`patch`; `.delete` → `delete`.
 
