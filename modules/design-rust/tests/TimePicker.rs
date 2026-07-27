@@ -91,7 +91,17 @@ fn wires_the_triggers_as_small_collapsed_listboxes() {
     assert!(html.contains(r#"data-size="sm""#));
     assert!(html.contains(r#"aria-haspopup="listbox""#));
     assert!(html.contains(r#"aria-expanded="false""#));
-    assert!(html.contains("w-full cursor-pointer"));
+
+    let trigger_class = html
+        .split(r#"data-slot="select-trigger""#)
+        .nth(1)
+        .and_then(|rest| rest.split(r#"class=""#).nth(1))
+        .and_then(|rest| rest.split('"').next())
+        .expect("select trigger class");
+
+    assert!(trigger_class.contains("cursor-pointer"));
+    assert!(trigger_class.contains("w-full"));
+    assert!(!trigger_class.contains("w-fit"));
 }
 
 #[test]
