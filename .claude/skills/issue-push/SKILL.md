@@ -16,7 +16,7 @@ argument-hint: [issue-id ...]
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
 - **Run every command from the monorepo root.**
-- **Linear credentials are required.** `talos issue:push` reads them from `linear.yml`; if the command reports no credentials, tell the user to run `talos linear:credentials:create` and stop.
+- **Linear credentials are required for the default provider.** `talos issue:push` reads them from `linear.yml`; if the command reports no credentials, tell the user to run `talos linear:credentials:create` and stop. When pushing with `--provider=github`, no Linear credentials are needed, but the `gh` CLI must be installed and authenticated (`gh auth login`).
 - **Push publishes local content as-is.** It does not invent, plan, or edit fields. If an issue looks unfinished (empty `title`, missing `goal`/`dod`), surface it — a missing `title` blocks *creating* a brand-new issue in Linear — but still push everything that is ready.
 
 ## 1. Resolve the issue IDs
@@ -33,8 +33,10 @@ Each id maps to a local file `modules/<module>/issues/<ID>.yml`. Collect the ide
 Push the whole batch in one call — `--id` accepts a comma-separated list:
 
 ```bash
-talos issue:push --id=<ID1>,<ID2>,... [--module=<module>]
+talos issue:push --id=<ID1>,<ID2>,... [--module=<module>] [--provider=linear|github]
 ```
+
+**`--provider`** selects the issue tracker. It defaults to `linear`. Pass `--provider=github` to push to the current GitHub repository via the `gh` CLI — the issue is created with `gh issue create` when missing (labels are created as needed) and updated with `gh issue edit` when it exists; `state` maps to open/closed (`Done`/`Closed`/`Canceled` close the issue, anything else reopens it), and priority is not applied since GitHub issues have none. On create, the local file is renamed to the assigned GitHub issue number.
 
 For each id the command:
 - Locates `modules/<module>/issues/<ID>.yml` (preferring `--module` when given, otherwise scanning every module).

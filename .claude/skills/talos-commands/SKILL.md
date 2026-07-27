@@ -52,8 +52,8 @@ talos docker:create --name <service>     # Add a Docker service to docker-compos
 # Issues
 talos issue:create --id <id> --title <title> [--module <name>]  # YAML skeleton (non-interactive)
 talos issue:create --interactive [--module <name>]              # Prompt for ID/title/description
-talos issue:pull --id <id1>,<id2>,... [--module <name>]        # Pull one or more Linear issues as YAML
-talos issue:push --id <id1>,<id2>,...                           # Push one or more local issue YAMLs to Linear (create or update)
+talos issue:pull --id <id1>,<id2>,... [--module <name>] [--provider linear|github]   # Pull one or more issues as YAML (defaults to Linear; GitHub uses the gh CLI)
+talos issue:push --id <id1>,<id2>,... [--provider linear|github]                     # Push one or more local issue YAMLs (create or update; defaults to Linear; GitHub uses the gh CLI)
 ```
 
 Class generators share the form `talos <artifact>:create --name <Name> --module <name>`, where `<artifact>` is one of:
