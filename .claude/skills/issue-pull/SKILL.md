@@ -51,6 +51,16 @@ For every successfully pulled issue, read its written `modules/<module>/issues/<
 
 Collect all Backlog/Todo identifiers first, then hand them to `/issue-plan` together (it plans one or more issues across modules in a single run). Let `/issue-plan` finish before reporting.
 
-## 4. Confirm
+## 4. Validate the written files
 
-Report a batch summary. Per issue: `id`, `title`, module, its written path, whether it was `created` or `updated`, its pulled `state`, and whether it was handed to `/issue-plan` (and the plan outcome, e.g. planned / split into sub-issues). Then list any ids that could not be pulled (unknown in Linear, or a failed request) and, if pulling stopped early, why.
+Tracker payloads are external input and routinely violate the local conventions (missing labels, a state Linear spells differently, a description that never became `context`/`goal`/`dod`/`testing`). Validate the batch from the monorepo root before reporting:
+
+```bash
+talos issue:check --id=<ID1>,<ID2>,...
+```
+
+Repair every diagnostic — casing, the change-type label that must come first, `dod`/`testing` checkbox grammar, an `id` that no longer matches its filename after a GitHub rename — and re-run until it exits `0`. If a finding needs real planning content rather than a mechanical fix, that is `/issue-plan`'s job (step 3), not this skill's. Never hand-write `context`/`goal`/`dod`/`testing` here.
+
+## 5. Confirm
+
+Report a batch summary. Per issue: `id`, `title`, module, its written path, whether it was `created` or `updated`, its pulled `state`, and whether it was handed to `/issue-plan` (and the plan outcome, e.g. planned / split into sub-issues). Then list any ids that could not be pulled (unknown in Linear, or a failed request), any that still fail `talos issue:check` with the rules they violate, and, if pulling stopped early, why.

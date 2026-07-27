@@ -31,7 +31,17 @@ Infer the target modules/packages from whatever the user provides — no flags r
 
 Collect the names into a single de-duplicated list.
 
-## 2. Convert the issues
+## 2. Validate before converting
+
+`issue:convert` **silently skips** any YAML it cannot parse, so a broken file disappears from `issues.json` without failing the run. Validate each destination first, from the monorepo root:
+
+```bash
+talos issue:check --module=<module1>,<module2>,...
+```
+
+Fix every error before converting — a skipped file is a missing issue in the bundle, and nothing downstream will tell you. Warnings do not block the conversion. If the check reports a module has no `issues/` directory, note it and drop that destination.
+
+## 3. Convert the issues
 
 Convert the whole batch in one call — `--destination` accepts a comma-separated list:
 
@@ -47,6 +57,6 @@ For each destination the command:
 
 The command reports `<path> created successfully (<n> issues)` per destination, warns when a destination has no `issues/` directory, and exits non-zero if any destination fails (not found, or a write error).
 
-## 3. Confirm
+## 4. Confirm
 
-Report a batch summary. Per destination: the module name, its resolved `type`, the written `issues.json` path, and the number of issues bundled. Then list any destinations that were skipped (no `issues/` directory) or failed (not found in `modules/` or `packages/`, or a write error), and, if the run stopped early, why.
+Report a batch summary. Per destination: the module name, its resolved `type`, the written `issues.json` path, and the number of issues bundled. Then list any destinations that were skipped (no `issues/` directory) or failed (not found in `modules/` or `packages/`, or a write error), and, if the run stopped early, why. Flag any mismatch between the issue count in the bundle and the number of `*.yml` files in the module's `issues/` directory — that gap is a silently skipped file.

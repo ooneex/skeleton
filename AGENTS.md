@@ -41,3 +41,4 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `/translation-translate` — translate/complete a module's `translations.json`/`translations.yml` dictionaries (optionally extracting hardcoded text) into the target locales.
 - `/issue-found`, `/issue-plan`, `/issue-fix` — audit, plan, and implement issues.
 - `/issue-pull`, `/issue-push` — sync issues between Linear or GitHub and local YAML (pull down, then push back up; `--provider=linear|github`, defaults to `linear`).
+- `/issue-check` — validate every issue YAML (`talos issue:check`): file/YAML integrity, schema, vocabularies, state machine, and the dependency graph.

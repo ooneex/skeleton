@@ -28,7 +28,17 @@ Infer the target local issue IDs from whatever the user provides — no flags re
 
 Each id maps to a local file `modules/<module>/issues/<ID>.yml`. Collect the identifiers into a single de-duplicated list. If the user names a target module (e.g. "push OON-1 from the user module"), pass it as `--module` to disambiguate; otherwise omit it — push searches every module for the file.
 
-## 2. Push the issues
+## 2. Validate before pushing
+
+A push is a write to a shared tracker — publishing a malformed issue is expensive to undo. Validate the batch first, from the monorepo root:
+
+```bash
+talos issue:check --id=<ID1>,<ID2>,...
+```
+
+**Do not push while the check reports errors.** It catches exactly what corrupts a push: a file that no longer parses, an `id` that stopped matching its filename (which makes push look up the wrong issue), a `state` or `priority` outside the vocabulary Linear is matched against, and an unknown label that would be created in the tracker by mistake. Fix mechanical violations in place and re-run; if an issue needs structural work, hand it to `/issue-plan` and exclude it from this push. Warnings do not block a push — note them in the summary.
+
+## 3. Push the issues
 
 Push the whole batch in one call — `--id` accepts a comma-separated list:
 
@@ -46,6 +56,6 @@ For each id the command:
 
 The command reports `Issue <identifier> created in Linear` or `Issue <identifier> updated in Linear` per issue, and exits non-zero if any id fails (file not found, no title on a new issue, or a failed Linear request). Record each result; note any id that failed for the summary and continue.
 
-## 3. Confirm
+## 4. Confirm
 
-Report a batch summary. Per issue: `id`, `title`, module, whether it was `created` or `updated` in Linear, and any rename applied to the local file. Then list any ids that could not be pushed (local file missing, missing title on a new issue, or a failed request) and, if pushing stopped early, why.
+Report a batch summary. Per issue: `id`, `title`, module, whether it was `created` or `updated` in Linear, and any rename applied to the local file. Then list any ids that could not be pushed (local file missing, missing title on a new issue, or a failed request), any excluded by `talos issue:check` with the rules they violated, and, if pushing stopped early, why.

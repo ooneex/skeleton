@@ -84,6 +84,8 @@ If **every** `dod` item is genuinely met **and** every `testing` step's e2e spec
 
 If any `dod` item is unmet or mis-checked, any e2e spec failed, or a `testing` step has no covering spec, leave the state as `In Review` — do not promote an issue with blockers.
 
+After editing the state, run `talos issue:check --id=<ID>` from the monorepo root. `To Merge` is the strictest state the validator knows: it requires `branch`, `pr`, and every `dod`/`testing` box checked. An error here means the promotion was premature — revert the state to `In Review` and report the blocker rather than editing the YAML to silence it.
+
 ## 6. Report
 
-Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).
+Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), the `talos issue:check` result, and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).

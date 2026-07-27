@@ -77,7 +77,7 @@ Each issue is fixed on a dedicated **git branch** off main (not a worktree — f
    | `Documentation` | `docs` |
    | `Build`, `Dependencies` | `build` |
    | `CI` | `ci` |
-   | `Style`, `Formatting` | `style` |
+   | `Style` | `style` |
    | `Improvement`, `Chore`, `Maintenance` | `chore` |
    | `Revert` | `revert` |
 
@@ -111,7 +111,8 @@ Once a fixer returns with its issue at `In Review`, finalise that branch **befor
 - **Push** — push with the `gh` cli only (never `git push`/`git pull`; `gh auth switch` if needed). Never force-push.
 - **Open the PR** — apply the `pr` skill's rules: analyse `git log <main>..<branch>` and `git diff <main>...<branch>`, run `gh pr create` with a conventional `type(scope): Subject` title and a **Summary / Changes / Testing** body factual to the diff, no attribution trailer. If a PR exists (`gh pr view`), `gh pr edit` instead of duplicating. When branched off an earlier batched issue, the PR still targets main — note the dependency in the body.
 - **Link the PR back** — add/overwrite top-level `pr: "<url>"` in the YAML, commit as `chore(<scope>): Link PR to issue <ID>`, and push.
+- **Validate the YAML** — run `talos issue:check --id=<ID>` from the monorepo root. At `In Review` the validator enforces exactly what this step must produce: a `branch` matching `<type>/<ID>-<slug>` with the type derived from the change-type label, a `pr` URL, and **every** `dod` and `testing` box checked. If it errors, the finalisation is incomplete — fix it (or send the issue back to the fixer) before moving to the next issue. Never check a box to satisfy the validator.
 
 ## 4. Confirm
 
-Report a batch summary from the fixers' reports. Per issue: `id`/`title`/module, module type and fixer, files created/updated, DoD status, state (or why not `In Review`), commits and PR URL (or why none), any skipped step. Then list issues that couldn't be fixed (missing file with path checked, unmet dependency, already `In Review`/`Done`, or ambiguous match).
+Report a batch summary from the fixers' reports. Per issue: `id`/`title`/module, module type and fixer, files created/updated, DoD status, state (or why not `In Review`), commits and PR URL (or why none), the `talos issue:check` result, any skipped step. Then list issues that couldn't be fixed (missing file with path checked, unmet dependency, already `In Review`/`Done`, or ambiguous match).

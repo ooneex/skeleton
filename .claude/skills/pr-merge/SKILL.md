@@ -102,6 +102,8 @@ Only when `monorepo:check` is green, every `dod` met, and every `testing` spec g
 
 Only when pushed and branch deleted, set `state: "Done"` in `modules/<module>/issues/<ID>.yml`. Leave `pr:` (and `branch:`) untouched for traceability. If the merge aborted, a check failed, or the push was rejected, leave `To Merge`.
 
+Then run `talos issue:check --id=<ID>` from the monorepo root to confirm the final record is well-formed — a `Done` issue keeps its `branch` and `pr` and all boxes checked. Fix any error before reporting; never drop a field to make it pass.
+
 ## 8. Report
 
-Per issue: `id`/`title`/module, branch + PR URL, merge outcome (clean / conflicts resolved / aborted), verification (`monorepo:check`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed + branch deleted, or blocked with reason), resulting state (`Done` / `To Merge`). Then list every issue skipped in step 2 with its reason.
+Per issue: `id`/`title`/module, branch + PR URL, merge outcome (clean / conflicts resolved / aborted), verification (`monorepo:check`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed + branch deleted, or blocked with reason), resulting state (`Done` / `To Merge`), and the `talos issue:check` result. Then list every issue skipped in step 2 with its reason.

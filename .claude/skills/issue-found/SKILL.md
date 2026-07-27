@@ -100,10 +100,21 @@ For each finding, invoke `/issue-plan` in create mode — it scaffolds the issue
 
 **Labels** (exact casing): `Security`, `Performance`, `Architecture`, `Testing`, `Improvement`, `Refactor`, `Bug`, `Cleanup`, `Database`, `API`, `SPA`, `Design`.
 
-### 4. Confirm
+### 4. Validate the created issues
+
+`/issue-plan` writes one YAML per finding; validate the whole batch before reporting, from the monorepo root:
+
+```bash
+talos issue:check --module=<module1>,<module2>,...
+```
+
+Re-run until it exits `0`. A finding that produced an invalid issue is a finding nobody will act on.
+
+### 5. Confirm
 
 Once every module is audited, report a batch summary: a findings table (`Module | Title | Priority | Label | File`, using the package@version or advisory id in the `File` column for dependency findings), the issue files `/issue-plan` produced (path and ID) with a total count, any module skipped (missing directory with the exact path checked), any module with no findings, and — if the OSV.dev dependency scan could not run — an explicit "dependency scan unavailable" note.
 
-### 5. Suggest Next Steps
+### 6. Suggest Next Steps
 
 - `/issue-fix` — implement a planned issue once ready.
+- `/issue-check` — re-validate the created issues at any time.

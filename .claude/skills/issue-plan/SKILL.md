@@ -174,6 +174,16 @@ dependencies:
 - **Split:** write all sub-issue files, then `rm modules/<module>/issues/<ID>.yml`. Confirm each written and the parent removed, with relative paths.
 - **Not split:** rewrite the parent YAML with the five fields (replacing `description`) plus new labels. Confirm with the relative path.
 
+### 6a. Validate the Written YAML
+
+Every file this skill writes must survive the validator. Run it on the batch from the monorepo root:
+
+```bash
+talos issue:check --id=<ID1>,<ID2>,...
+```
+
+Fix everything it reports and re-run until clean (exit `0`). It catches exactly the mistakes planning makes: a `state`/`priority`/`label` with the wrong casing, a missing change-type label or one not listed first, `dod` lines that are prose instead of `- [ ]` checkboxes, `testing` steps not numbered sequentially from 1, a `description` left behind next to the planned fields, an `id` that no longer matches its filename after a rename, and — critically for step 3a/5 — a `dependencies` entry pointing at a non-existent issue or closing a cycle. Never plan an issue "done" while the check still errors.
+
 ### 7. Confirm the Batch
 
 Report a batch summary. Per issue: `id`, `title`, module, mode (created vs. planned-in-place), final `priority`/`labels`, and whether split (listing sub-issue IDs/titles). Then list skipped/unplannable targets (state not `Todo` + its state; file not found + exact path; ambiguous grouping).
