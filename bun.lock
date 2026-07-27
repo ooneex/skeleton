@@ -101,6 +101,10 @@
       "name": "@module/design",
       "version": "0.0.1",
     },
+    "modules/design-rust": {
+      "name": "@module/design-rust",
+      "version": "0.0.1",
+    },
     "modules/microservice": {
       "name": "@module/microservice",
       "version": "0.0.1",
@@ -289,6 +293,8 @@
     "@module/app": ["@module/app@workspace:modules/app"],
 
     "@module/design": ["@module/design@workspace:modules/design"],
+
+    "@module/design-rust": ["@module/design-rust@workspace:modules/design-rust"],
 
     "@module/microservice": ["@module/microservice@workspace:modules/microservice"],
 
