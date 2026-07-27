@@ -1,0 +1,10 @@
+{
+  "name": "@module/design-rust",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "cargo test",
+    "lint": "cargo clippy --all-targets --quiet",
+    "fmt": "cargo fmt"
+  }
+}
