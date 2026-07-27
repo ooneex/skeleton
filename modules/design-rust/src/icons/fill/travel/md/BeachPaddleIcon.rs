@@ -1,0 +1,37 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct BeachPaddleIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn BeachPaddleIcon(props: BeachPaddleIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M14.5 2C9.4541 2 5 5.85714 5 12C5 15.9496 6.86218 19.0449 10.2991 20.6459C11.3442 21.1328 12 22.0087 12 22.9065V23H17V22.9065C17 22.0087 17.6558 21.1328 18.7009 20.6459C22.1378 19.0449 24 15.9496 24 12C24 5.85714 19.5459 2 14.5 2Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M20 26C20 23.7909 21.7909 22 24 22C26.2091 22 28 23.7909 28 26C28 28.2091 26.2091 30 24 30C21.7909 30 20 28.2091 20 26Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M17 25H12V27.5C12 28.8807 13.1193 30 14.5 30C15.8807 30 17 28.8807 17 27.5V25Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

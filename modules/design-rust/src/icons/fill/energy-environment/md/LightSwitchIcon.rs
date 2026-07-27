@@ -1,0 +1,31 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LightSwitchIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LightSwitchIcon(props: LightSwitchIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            polygon {
+                points: "12.975 16 19 16 19 9 13 9 12.975 16",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            path {
+                d: "m26,2H6c-2.206,0-4,1.794-4,4v20c0,2.206,1.794,4,4,4h20c2.206,0,4-1.794,4-4V6c0-2.206-1.794-4-4-4Zm-4.882,23h-10.236l-1.442-2.884,1.56-6.239V7h10v8.877l1.56,6.239-1.442,2.884Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

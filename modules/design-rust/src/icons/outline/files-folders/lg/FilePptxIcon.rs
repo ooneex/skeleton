@@ -1,0 +1,77 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FilePptxIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FilePptxIcon(props: FilePptxIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M20 3V16H7",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M43.9214 43H44L36.5 30H36.5802",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M43.9214 30H44L36.5 43H36.5802",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M7 24C7 21.7277 7 18.7293 7 16.2422C7 15.4466 7.31607 14.6839 7.87868 14.1213L18.1213 3.87868C18.6839 3.31607 19.447 3 20.2426 3H36C38.7614 3 41 5.23768 41 7.9991C41 13.0203 41 18.769 41 24",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M3 43V30H5.66667C8.0599 30 10 31.9401 10 34.3333V34.3333C10 36.7266 8.0599 38.6667 5.66667 38.6667H3.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M14 43V30H16.6667C19.0599 30 21 31.9401 21 34.3333V34.3333C21 36.7266 19.0599 38.6667 16.6667 38.6667H14.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M28 43V30M28 30H32M28 30H24",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

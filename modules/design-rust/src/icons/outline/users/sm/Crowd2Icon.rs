@@ -1,0 +1,73 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Crowd2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Crowd2Icon(props: Crowd2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m12,5h0c-.829,0-1.5-.671-1.5-1.5h0c0-.829.671-1.5,1.5-1.5h0c.829,0,1.5.671,1.5,1.5h0c0,.829-.671,1.5-1.5,1.5Z",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                fill: "currentColor",
+            }
+            path {
+                d: "m5,6h0c-.829,0-1.5-.671-1.5-1.5h0c0-.829.671-1.5,1.5-1.5h0c.829,0,1.5.671,1.5,1.5h0c0,.829-.671,1.5-1.5,1.5Z",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m19,6h0c.829,0,1.5-.671,1.5-1.5h0c0-.829-.671-1.5-1.5-1.5h0c-.829,0-1.5.671-1.5,1.5h0c0,.829.671,1.5,1.5,1.5Z",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m14,22h-4l-.5-6-2-1,.83-4.981c.112-.672.553-1.259,1.185-1.515,1.657-.672,3.313-.672,4.97,0,.631.256,1.073.843,1.185,1.515l.83,4.981-2,1-.5,6Z",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            path {
+                d: "m4.976,9.023c-.743.019-1.468.243-2.171.743-.201.143-.332.369-.38.61l-.925,4.624,2,1,.5,5h2",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m19.024,9.023c.743.019,1.468.243,2.171.743.201.143.332.369.38.61l.925,4.624-2,1-.5,5h-2",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FileVolumeIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FileVolumeIcon(props: FileVolumeIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M39 24.7104L31.217 29.5H27C25.3431 29.5 24 30.8432 24 32.5L24 37.5C24 39.1569 25.3431 40.5 27 40.5H31.217L39 45.2896V24.7104Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M45 30V40H42V30H45Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M17.4142 3.17157C18.1644 2.42143 19.1818 2 20.2426 2H36C39.3135 2 42 4.68516 42 7.9991L42 24.7104C42 23.6236 41.4122 22.6217 40.4634 22.0916C39.5146 21.5614 38.3533 21.5859 37.4277 22.1555L30.3678 26.5H27C23.6863 26.5 21 29.1863 21 32.5V37.5C21 40.8137 23.6863 43.5 27 43.5H30.3678L34.4303 46H12C8.68629 46 6 43.3137 6 40V16.2422C6 15.1812 6.42153 14.1643 7.17157 13.4142L17.4142 3.17157ZM20 5V16H9L20 5Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

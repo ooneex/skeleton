@@ -1,0 +1,49 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LaptopDevIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LaptopDevIcon(props: LaptopDevIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M13.0858 13L15.5858 10.5L13.0858 8.00009L14.5 6.58586L18.4143 10.5L14.5 14.4143L13.0858 13Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M10.9142 13L8.4142 10.5L10.9142 8.00009L9.50002 6.58586L5.58574 10.5L9.50005 14.4143L10.9142 13Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M0 17V19C0 20.1046 0.89543 21 2 21H22C23.1046 21 24 20.1046 24 19V17H17C17 17.5523 16.5523 18 16 18H8C7.44771 18 7 17.5523 7 17H0Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V15H20V5C20 4.44772 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V15H2V5Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

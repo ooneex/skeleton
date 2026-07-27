@@ -1,0 +1,25 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Feather2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Feather2Icon(props: Feather2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M18.0001 0C19.6031 0 21.1091 0.624 22.2421 1.757C23.3761 2.891 24.0001 4.397 24.0001 6C24.0001 7.603 23.3761 9.109 22.2421 10.243L12.4999 20H8.18506L13.6595 12.1412L13.4505 11.9636L2.41391 23L0.999907 21.586L4.00006 18.586V11.515L13.7551 1.76C14.8911 0.624 16.3971 0 18.0001 0Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

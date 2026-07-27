@@ -1,0 +1,47 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LoveMusicIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LoveMusicIcon(props: LoveMusicIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M10.007 19.8269C6.87421 17.7082 2 13.3984 2 9.378C2 6.408 4.41 4 7.384 4C9.344 4 10.81 5.226 12 6.606C13.192 5.228 14.656 4 16.616 4C19.588 4 22 6.408 22 9.378C22 9.48376 21.9966 9.58973 21.99 9.69585",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M22 14V14C21.0044 13.6681 20.0576 13.205 19.1844 12.6229L19 12.5V19.5V19",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M16.5 22C17.8807 22 19 20.8807 19 19.5C19 18.1193 17.8807 17 16.5 17C15.1193 17 14 18.1193 14 19.5C14 20.8807 15.1193 22 16.5 22Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

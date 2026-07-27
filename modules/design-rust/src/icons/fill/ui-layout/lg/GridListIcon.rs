@@ -1,0 +1,61 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct GridListIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn GridListIcon(props: GridListIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26 6.5H44V9.5H26V6.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26 14.5H44V17.5H26V14.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26 30.5H44V33.5H26V30.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26 38.5H44V41.5H26V38.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 7.5C4 5.567 5.567 4 7.5 4H17.5C19.433 4 21 5.567 21 7.5V17.5C21 19.433 19.433 21 17.5 21H7.5C5.567 21 4 19.433 4 17.5V7.5Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 30.5C4 28.567 5.567 27 7.5 27H17.5C19.433 27 21 28.567 21 30.5V40.5C21 42.433 19.433 44 17.5 44H7.5C5.567 44 4 42.433 4 40.5V30.5Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

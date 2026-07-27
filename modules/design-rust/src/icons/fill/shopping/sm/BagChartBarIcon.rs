@@ -1,0 +1,52 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct BagChartBarIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn BagChartBarIcon(props: BagChartBarIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 2C10.8954 2 10 2.89543 10 4V8H8V4C8 1.79086 9.79086 0 12 0C14.2091 0 16 1.79086 16 4V8H14V4C14 2.89543 13.1046 2 12 2Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M20 13V23H18V13H20Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 16V23H22V16H24Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M16 18V23H14V18H16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M4.00004 11.901V6H20V11H18C16.8954 11 16 11.8954 16 13V16H14C12.8954 16 12 16.8954 12 18V23H5.43962C3.54647 23 2.1266 21.268 2.49788 19.4116L4.00004 11.901Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

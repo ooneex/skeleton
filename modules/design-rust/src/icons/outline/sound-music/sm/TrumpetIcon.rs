@@ -1,0 +1,72 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct TrumpetIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn TrumpetIcon(props: TrumpetIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M15.3034 6.86819C15.6735 5.30406 15.5059 3.52563 15 2H15.5L22 8.5V9C20.4744 8.49415 18.6959 8.32651 17.1318 8.69658C15.5677 9.06665 14.1372 9.86414 13 11C14.1359 9.86281 14.9334 8.43231 15.3034 6.86819Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M6.5 14.5L8 16",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M9.5 11.5L11 13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M3 21L13 11",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M2 20L4 22",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M12.2929 20.1924L15.1213 17.364C16.2929 16.1924 16.2929 14.2929 15.1213 13.1213C13.9497 11.9497 12.0503 11.9497 10.8787 13.1213L9.46447 14.5355L8.05025 15.9497C6.87868 17.1213 6.87868 19.0208 8.05025 20.1924C9.22183 21.364 11.1213 21.364 12.2929 20.1924Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

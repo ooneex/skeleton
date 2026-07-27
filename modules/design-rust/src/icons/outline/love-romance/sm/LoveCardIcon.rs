@@ -1,0 +1,44 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LoveCardIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LoveCardIcon(props: LoveCardIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M19 6V3.49624C19 2.21578 17.8134 1.26514 16.5638 1.54438L2 4.79876V6",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M2 6V20H20C21.1046 20 22 19.1046 22 18V8C22 6.89543 21.1046 6 20 6H2Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M16.5 11.925C16.5 14.215 12.9983 16.5489 12 17C11.0017 16.5489 7.5 14.215 7.5 11.925C7.5 10.5855 8.58525 9.5 9.92325 9.5C10.7669 9.5 11.477 10.0071 12 10.5961C12.523 10.0071 13.2331 9.5 14.0767 9.5C15.4147 9.5 16.5 10.5855 16.5 11.925Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+        }
+    }
+}

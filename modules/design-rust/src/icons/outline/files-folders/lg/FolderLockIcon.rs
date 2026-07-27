@@ -1,0 +1,47 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FolderLockIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FolderLockIcon(props: FolderLockIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M23 41H8C5.23858 41 3 38.7614 3 36V10C3 7.23858 5.23858 5 8 5H19L27 11H40C42.7614 11 45 13.2386 45 16V23",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M43.5 32H30.5C29.1193 32 28 33.1193 28 34.5V40.5C28 41.8807 29.1193 43 30.5 43H43.5C44.8807 43 46 41.8807 46 40.5V34.5C46 33.1193 44.8807 32 43.5 32Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M32.5 32V28.5C32.5 26.0147 34.5147 24 37 24V24C39.4853 24 41.5 26.0147 41.5 28.5V32",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

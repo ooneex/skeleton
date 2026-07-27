@@ -1,12 +1,13 @@
 use dioxus::prelude::*;
 
-use super::Accordion::{AccordionContext, next_item_id};
+use super::Accordion::AccordionContext;
+use crate::hooks::use_id;
 use crate::utils::cn;
 
 /// Per-item state shared with its trigger and panel.
-#[derive(Clone, Copy)]
+#[derive(Clone)]
 pub(crate) struct AccordionItemContext {
-    pub(crate) id: usize,
+    pub(crate) id: String,
     pub(crate) value: Signal<String>,
     pub(crate) disabled: Signal<bool>,
 }
@@ -17,11 +18,11 @@ impl AccordionItemContext {
     }
 
     pub(crate) fn trigger_id(&self) -> String {
-        format!("accordion-trigger-{}", self.id)
+        format!("{}-trigger", self.id)
     }
 
     pub(crate) fn panel_id(&self) -> String {
-        format!("accordion-panel-{}", self.id)
+        format!("{}-panel", self.id)
     }
 }
 
@@ -52,7 +53,7 @@ pub fn AccordionItem(props: AccordionItemProps) -> Element {
         disabled.set(item_disabled);
     }));
 
-    let id = use_hook(next_item_id);
+    let id = use_id("accordion-item");
 
     use_context_provider(|| AccordionItemContext {
         id,

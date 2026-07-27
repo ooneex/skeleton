@@ -1,0 +1,42 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ContrastIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ContrastIcon(props: ContrastIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M12 21V18H20V17.2105L22 21H12Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M19.3611 16H12V13H17V11.5263L19.3611 16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M16.7222 11H12V3H12.5L16.7222 11Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 0.397034L23.6773 22H0.322716L12 0.397034ZM3.67728 20H20.3227L12 4.60298L3.67728 20Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

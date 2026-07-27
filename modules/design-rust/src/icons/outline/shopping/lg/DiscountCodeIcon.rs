@@ -1,0 +1,55 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct DiscountCodeIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn DiscountCodeIcon(props: DiscountCodeIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M3 41L45 41L45 32L43.3887 31.6979C39.6843 31.0033 37 27.7689 37 24C37 20.2311 39.6843 16.9967 43.3887 16.3021L45 16L45 7L3 7L3 16L4.61133 16.3021C8.31566 16.9967 11 20.2311 11 24C11 27.7689 8.31566 31.0033 4.61133 31.6979L3 32L3 41Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M18 30L30 18",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M29 32C30.6569 32 32 30.6569 32 29C32 27.3431 30.6569 26 29 26C27.3431 26 26 27.3431 26 29C26 30.6569 27.3431 32 29 32Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "round",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M19 22C20.6569 22 22 20.6569 22 19C22 17.3431 20.6569 16 19 16C17.3431 16 16 17.3431 16 19C16 20.6569 17.3431 22 19 22Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "round",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

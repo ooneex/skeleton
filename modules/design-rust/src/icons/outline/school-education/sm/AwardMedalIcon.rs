@@ -1,0 +1,53 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct AwardMedalIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn AwardMedalIcon(props: AwardMedalIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M10.1046 8.24312L8 3H3.5V3.5L6.41186 10.7406",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M13.9003 8.24312L16 3H20.5V3.5L17.5738 10.8174",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M12 22C15.866 22 19 18.866 19 15C19 11.134 15.866 8 12 8C8.13401 8 5 11.134 5 15C5 18.866 8.13401 22 12 22Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M12 18C13.6569 18 15 16.6569 15 15C15 13.3431 13.6569 12 12 12C10.3431 12 9 13.3431 9 15C9 16.6569 10.3431 18 12 18Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

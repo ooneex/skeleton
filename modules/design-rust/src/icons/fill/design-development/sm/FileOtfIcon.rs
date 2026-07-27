@@ -1,0 +1,48 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FileOtfIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FileOtfIcon(props: FileOtfIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M17 14H23V16H19V17.5H22V19.5H19V23H17V14Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M8.5 14H15.5V16H13V23H11V16H8.5V14Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M11.0784 1C10.2828 1 9.51972 1.31607 8.95711 1.87868L3.87868 6.95711C3.31607 7.51972 3 8.28278 3 9.07843V12H21V4C21 2.34315 19.6569 1 18 1H11.0784ZM11 9H5L11 3V9Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 16C3.0345 16 2 16.9691 2 18.5C2 20.0309 3.0345 21 4 21C4.9655 21 6 20.0309 6 18.5C6 16.9691 4.9655 16 4 16ZM0 18.5C0 16.1649 1.65179 14 4 14C6.34821 14 8 16.1649 8 18.5C8 20.8351 6.34821 23 4 23C1.65179 23 0 20.8351 0 18.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

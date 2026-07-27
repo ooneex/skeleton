@@ -1,0 +1,52 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct MedicineIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn MedicineIcon(props: MedicineIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M17 28L28 17",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M14.3772 14.3772L8.00005 8.00006L8.29424 8.29425",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M23.2974 11C23.8364 8.7169 23.2157 6.21564 21.435 4.43502C18.7014 1.70135 14.2692 1.70135 11.5355 4.43502L4.46447 11.5061C1.7308 14.2398 1.7308 18.6719 4.46447 21.4056C6.23744 23.1786 8.72487 23.8016 11 23.2748",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M22.5 30C26.6421 30 30 26.6421 30 22.5C30 18.3579 26.6421 15 22.5 15C18.3579 15 15 18.3579 15 22.5C15 26.6421 18.3579 30 22.5 30Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+        }
+    }
+}

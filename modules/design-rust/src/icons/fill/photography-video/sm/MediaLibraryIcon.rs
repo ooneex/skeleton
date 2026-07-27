@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct MediaLibraryIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn MediaLibraryIcon(props: MediaLibraryIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 6L2 16C2 18.2091 3.79086 20 6 20L20 20V22L6 22C2.68629 22 -1.19209e-07 19.3137 0 16L4.17233e-07 6L2 6Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 5C24 3.34315 22.6569 2 21 2H7C5.34315 2 4 3.34315 4 5V15C4 16.6569 5.34314 18 7 18L21 18C22.6569 18 24 16.6569 24 15V5ZM18.9437 10L11 5.23383V14.7662L18.9437 10Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

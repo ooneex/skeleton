@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct DoubleChevronRightIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn DoubleChevronRightIcon(props: DoubleChevronRightIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M15.9999 29.4142L29.4141 16L15.9999 2.58582L14.5857 4.00003L26.5857 16L14.5857 28L15.9999 29.4142Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4.99991 29.4142L18.4141 16L4.99991 2.58582L3.58569 4.00003L15.5857 16L3.58569 28L4.99991 29.4142Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

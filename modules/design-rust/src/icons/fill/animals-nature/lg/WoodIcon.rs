@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct WoodIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn WoodIcon(props: WoodIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M31.4446 12.0041L27.6592 1.90979L14 3.61719V22.1783L6.61013 17.4756L1.67493 22.4108L14 38.5875V44H22.5V30H25.5V44H41.4407L43.8075 5.84198L33.8018 4.93237L31.4446 12.0041ZM38.0965 20L38 30H35L35.1031 20H38.0965ZM25.5 22H22.5V27H25.5V22Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

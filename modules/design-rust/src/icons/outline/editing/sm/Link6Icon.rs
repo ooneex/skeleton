@@ -1,0 +1,61 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Link6IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Link6Icon(props: Link6IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m19.605,10.053c.346,1.043.104,2.238-.726,3.068l-5.757,5.757c-.83.83-2.024,1.072-3.067.726",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            path {
+                d: "m4.395,13.946c-.346-1.043-.103-2.238.726-3.067l5.757-5.757c.83-.83,2.025-1.072,3.068-.726",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            line {
+                x1: "9",
+                y1: "15",
+                x2: "4",
+                y2: "20",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            line {
+                x1: "20",
+                y1: "4",
+                x2: "15",
+                y2: "9",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

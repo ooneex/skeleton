@@ -1,0 +1,59 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct AlbumIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn AlbumIcon(props: AlbumIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 22.5H8.5V25.5H2V22.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 9H9V12H2V9Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 36H9V39H2V36Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 45V3H38C41.3137 3 44 5.68629 44 9V39C44 42.3137 41.3137 45 38 45H6ZM12 9H38V30H12V9Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M29.9443 15.4321L35 21.1198V27H21.0459L29.9443 15.4321Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M20 20.5C21.933 20.5 23.5 18.933 23.5 17C23.5 15.067 21.933 13.5 20 13.5C18.067 13.5 16.5 15.067 16.5 17C16.5 18.933 18.067 20.5 20 20.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

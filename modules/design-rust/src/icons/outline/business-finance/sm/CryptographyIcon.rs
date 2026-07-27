@@ -1,0 +1,77 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct CryptographyIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn CryptographyIcon(props: CryptographyIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M16.5 2.5L22 8L22 16L17.5 20.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M7.5 21.5L2 16L2 8L6.5 3.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M12 22V19L7 14V11",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M12 2V5L17 10V13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M17 19C15.8954 19 15 19.8954 15 21C15 22.1046 15.8954 23 17 23C18.1046 23 19 22.1046 19 21C19 19.8954 18.1046 19 17 19Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+            path {
+                d: "M7 5C8.10457 5 9 4.10457 9 3C9 1.89543 8.10457 1 7 1C5.89543 1 5 1.89543 5 3C5 4.10457 5.89543 5 7 5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+            path {
+                d: "M7 8C5.89543 8 5 8.89543 5 10C5 11.1046 5.89543 12 7 12C8.10457 12 9 11.1046 9 10C9 8.89543 8.10457 8 7 8Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+            path {
+                d: "M17 16C18.1046 16 19 15.1046 19 14C19 12.8954 18.1046 12 17 12C15.8954 12 15 12.8954 15 14C15 15.1046 15.8954 16 17 16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+        }
+    }
+}

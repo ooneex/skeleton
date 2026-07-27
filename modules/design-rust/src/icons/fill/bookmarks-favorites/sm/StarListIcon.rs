@@ -1,0 +1,44 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct StarListIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn StarListIcon(props: StarListIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            rect {
+                x: "13",
+                y: "21",
+                width: "10",
+                height: "2",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m11.417,19.209c-.258-.337-.417-.752-.417-1.209v-2c0-1.104.896-2,2-2h5.554l5.431-5.294-8.281-1.204L12,0l-3.704,7.502L.015,8.706l5.993,5.841-1.415,8.248,6.823-3.586Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            rect {
+                x: "13",
+                y: "16",
+                width: "10",
+                height: "2",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

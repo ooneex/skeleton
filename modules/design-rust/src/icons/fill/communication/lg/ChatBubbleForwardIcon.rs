@@ -1,0 +1,25 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ChatBubbleForwardIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ChatBubbleForwardIcon(props: ChatBubbleForwardIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M8 4C4.68629 4 2 6.68629 2 10V17.5H22.3789L15.8789 11L18.0002 8.87868L28.1215 19L18.0002 29.1213L15.8789 27L22.3789 20.5H2V27.6C2 30.9137 4.68629 33.6 8 33.6H12.5V42.8L27.2857 33.6H40C43.3137 33.6 46 30.9137 46 27.6V10C46 6.68629 43.3137 4 40 4H8Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

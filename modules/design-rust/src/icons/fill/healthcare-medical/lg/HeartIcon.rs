@@ -1,0 +1,25 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct HeartIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn HeartIcon(props: HeartIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M37.995 6.93753C33.063 4.94395 27.5604 6.20908 24 9.97869C20.4411 6.20908 14.9384 4.94395 10.0064 6.93753C3.49154 9.56652 0.30672 17.0399 2.90622 23.5959C6.09398 31.6404 14.1697 37.9087 16.5668 39.6375L23.9912 45L31.4317 39.6375C33.8317 37.9087 41.9075 31.6389 45.0938 23.5959C47.6933 17.0399 44.5099 9.56652 37.995 6.93753Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

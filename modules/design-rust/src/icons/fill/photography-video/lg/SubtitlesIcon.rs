@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct SubtitlesIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SubtitlesIcon(props: SubtitlesIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M40 42C43.3137 42 46 39.3137 46 36L46 12C46 8.68629 43.3137 6 40 6L8 6C4.68629 6 2 8.68629 2 12L2 36C2 39.3137 4.68629 42 8 42L40 42ZM11 31H27V34H11V31ZM30 31V34H37V31H30ZM37 24H21V27H37V24ZM11 24V27H18V24H11Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

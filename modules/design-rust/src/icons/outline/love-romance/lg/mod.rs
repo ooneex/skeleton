@@ -1,0 +1,34 @@
+#![allow(non_snake_case)]
+
+mod BrideIcon;
+pub use BrideIcon::*;
+mod EngagementRingIcon;
+pub use EngagementRingIcon::*;
+mod GroomIcon;
+pub use GroomIcon::*;
+mod HandHeartIcon;
+pub use HandHeartIcon::*;
+mod HandsHeartIcon;
+pub use HandsHeartIcon::*;
+mod HeartArrowIcon;
+pub use HeartArrowIcon::*;
+mod HeartBalloonsIcon;
+pub use HeartBalloonsIcon::*;
+mod HeartLockIcon;
+pub use HeartLockIcon::*;
+mod HeartMinusIcon;
+pub use HeartMinusIcon::*;
+mod HeartPlusIcon;
+pub use HeartPlusIcon::*;
+mod LoveCalendarIcon;
+pub use LoveCalendarIcon::*;
+mod LoveCardIcon;
+pub use LoveCardIcon::*;
+mod LoveMusicIcon;
+pub use LoveMusicIcon::*;
+mod MsgHeartIcon;
+pub use MsgHeartIcon::*;
+mod WeddingArchIcon;
+pub use WeddingArchIcon::*;
+mod WeddingRingsIcon;
+pub use WeddingRingsIcon::*;

@@ -1,0 +1,65 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct VrControllerIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn VrControllerIcon(props: VrControllerIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M10.0001 12.815C5.99241 13.136 3.27089 14.2995 2.74973 16.2445C2.10143 18.664 5.00664 21.7388 10.0001 24.4869L6 26",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M29.5 35.6467L28.7322 41.3971C28.5332 42.8872 27.262 44 25.7586 44H22.2414C20.738 44 19.4668 42.8872 19.2678 41.3971L16.4615 20.3804C12.5757 18.8008 10 16.0358 10 12.8889C10 7.97969 16.268 4 24 4C31.732 4 38 7.97969 38 12.8889C38 16.0358 35.4243 18.8008 31.5385 20.3804L30.1519 30.7645",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M24 14C27.3137 14 30 12.8807 30 11.5C30 10.1193 27.3137 9 24 9C20.6863 9 18 10.1193 18 11.5C18 12.8807 20.6863 14 24 14Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M40 20.5798C43.7481 22.9997 45.8065 25.5571 45.2504 27.6324C44.1982 31.5592 34.177 32.3007 22.7103 29.3538",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22 22C22 20.8954 22.8954 20 24 20C25.1046 20 26 20.8954 26 22C26 23.1046 25.1046 24 24 24C22.8954 24 22 23.1046 22 22Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "round",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

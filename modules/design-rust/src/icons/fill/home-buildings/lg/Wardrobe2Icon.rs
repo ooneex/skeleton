@@ -1,0 +1,75 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Wardrobe2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Wardrobe2Icon(props: Wardrobe2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M30 19V10.5H27V18.3674L27.9037 19H30Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M31 26H37V22.7294L28.5 16.7794L27.5 18L27.9037 19L31 21.1674V26Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 30L6 12.5H9V30H6Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M21 10.5V19H18V10.5H21Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 13L6 8C6 4.68629 8.68629 2 12 2L36 2C39.3137 2 42 4.68629 42 8L42 13L6 13Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M36 46H25.5V33H42L42 40C42 43.3137 39.3137 46 36 46ZM36 41V38H31V41H36Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 33H22.5V46H12C8.68629 46 6 43.3137 6 40V33ZM17 41V38H12V41H17Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M19.5 16.7794L28 22.7294V26H11V22.7294L19.5 16.7794Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M39 30L39 12.5H42V30H39Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

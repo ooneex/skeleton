@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct SuitcaseMusicIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SuitcaseMusicIcon(props: SuitcaseMusicIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M7 1H17V7H15V3H9V7H7V1Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M1 8C1 6.34315 2.34315 5 4 5H20C21.6569 5 23 6.34315 23 8V19C23 20.6569 21.6569 22 20 22H4C2.34315 22 1 20.6569 1 19V8ZM12 8.13148L14.2227 9.61325C14.6009 9.86543 15.0454 10 15.5 10H16.5V12H15.5C14.9853 12 14.4775 11.9077 14 11.7301C13.996 13.07 14 14.4107 14 15.75C14 17.2688 12.7688 18.5 11.25 18.5C9.73122 18.5 8.5 17.2688 8.5 15.75C8.5 14.2312 9.73122 13 11.25 13C11.51 13 11.7616 13.0361 12 13.1035V8.13148Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

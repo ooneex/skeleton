@@ -1,0 +1,86 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct RadiatorIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn RadiatorIcon(props: RadiatorIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 9.5H8.5V12.5H2V9.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 8L4 14L1 14L1 8L4 8Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M13.5 9.5H21.5V12.5H13.5V9.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M13.5 35.5H21.5V38.5H13.5V35.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26.5 9.5H34.5V12.5H26.5V9.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26.5 35.5H34.5V38.5H26.5V35.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M40 38V31H46V38H40Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M32 39L32 9C32 6.23858 34.2386 4 37 4C39.7614 4 42 6.23858 42 9L42 39C42 41.7614 39.7614 44 37 44C34.2386 44 32 41.7614 32 39Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M19 39L19 9C19 6.23858 21.2386 4 24 4C26.7614 4 29 6.23858 29 9L29 39C29 41.7614 26.7614 44 24 44C21.2386 44 19 41.7614 19 39Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 39L6 9C6 6.23858 8.23858 4 11 4C13.7614 4 16 6.23858 16 9L16 39C16 41.7614 13.7614 44 11 44C8.23858 44 6 41.7614 6 39Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

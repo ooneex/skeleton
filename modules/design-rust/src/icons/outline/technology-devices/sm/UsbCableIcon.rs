@@ -1,0 +1,61 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct UsbCableIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn UsbCableIcon(props: UsbCableIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M6 15V19C6 20.1046 6.89543 21 8 21H16C17.1046 21 18 20.1046 18 19V15",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M4 7V3H8V7",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M16 7V3H20V7",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M9 7L3 7L3 13C3 14.1046 3.89543 15 5 15L7 15C8.10457 15 9 14.1046 9 13L9 7Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M21 7L15 7L15 13C15 14.1046 15.8954 15 17 15L19 15C20.1046 15 21 14.1046 21 13L21 7Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

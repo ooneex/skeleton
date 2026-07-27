@@ -1,0 +1,62 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FileMkvIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FileMkvIcon(props: FileMkvIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2.5 28H6.26902L10 33.1896L13.731 28H17.5V44H14.5V32.0697L10 38.3289L5.5 32.0697V44H2.5V28Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M21.3788 37.5H21.0001V37.1213L20.9395 37.0607L21.0001 37V34.5H22.6214L32.1214 44H26.627V42.7482L21.3788 37.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M21.3788 34.5H21.0001V34.8787L20.9395 34.9393L21.0001 35V37.5H22.6214L32.1214 28H26.627V29.2518L21.3788 34.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22.5 28V44H19.5V28H22.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M20.2426 2C19.1818 2 18.1644 2.42143 17.4142 3.17157L7.17157 13.4142C6.42153 14.1643 6 15.1812 6 16.2422V25H42V7.9991C42 4.68516 39.3135 2 36 2H20.2426ZM20 16V5L9 16H20Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M37.6345 44L41.3626 44L46.7473 28L42.9991 28L42.9991 29.732L39.5 40.1292L35.9986 29.6951L35.9986 28L32.2654 28L37.6345 44Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

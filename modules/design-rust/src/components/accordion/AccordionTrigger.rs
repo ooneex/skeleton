@@ -19,9 +19,10 @@ pub fn AccordionTrigger(props: AccordionTriggerProps) -> Element {
     let mut accordion = use_context::<AccordionContext>();
     let item = use_context::<AccordionItemContext>();
 
-    let id = item.id;
+    let id = item.id.clone();
+    let dropped_id = id.clone();
     use_drop(move || {
-        accordion.unregister_trigger(id);
+        accordion.unregister_trigger(&dropped_id);
     });
 
     let is_open = accordion.is_open(&item.value());
@@ -48,7 +49,10 @@ pub fn AccordionTrigger(props: AccordionTriggerProps) -> Element {
                     "**:data-[slot=accordion-trigger-icon]:text-primary",
                     props.class.as_deref().unwrap_or_default(),
                 ]),
-                onmounted: move |event| accordion.register_trigger(id, event.data()),
+                onmounted: {
+                    let id = id.clone();
+                    move |event: MountedEvent| accordion.register_trigger(id.clone(), event.data())
+                },
                 onclick: move |_| {
                     if !is_disabled {
                         accordion.toggle(item.value());
@@ -63,7 +67,7 @@ pub fn AccordionTrigger(props: AccordionTriggerProps) -> Element {
                         _ => return,
                     };
                     event.prevent_default();
-                    accordion.move_focus(id, target);
+                    accordion.move_focus(&id, target);
                 },
                 ..props.attributes,
                 {props.children}

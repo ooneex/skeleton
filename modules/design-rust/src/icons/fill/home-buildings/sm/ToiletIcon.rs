@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ToiletIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ToiletIcon(props: ToiletIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M3 13.8993C3 12.7948 3.89543 11.8993 5 11.8993L19 11.8993C20.1046 11.8993 21 12.7948 21 13.8993C21 17.0199 18.608 19.6195 15.4983 19.8786L15 19.9201V23H9V19.9201L8.50173 19.8786C5.39197 19.6195 3 17.0199 3 13.8993Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M5 4V10H19L19 4C19 2.34315 17.6569 1 16 1H8C6.34315 1 5 2.34315 5 4ZM17.01 6.99999L17.01 4.99999L15 5.00001L15 7.00001L17.01 6.99999Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

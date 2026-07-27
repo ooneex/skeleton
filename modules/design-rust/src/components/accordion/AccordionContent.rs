@@ -20,7 +20,8 @@ pub fn AccordionContent(props: AccordionContentProps) -> Element {
     let accordion = use_context::<AccordionContext>();
     let item = use_context::<AccordionItemContext>();
 
-    let is_open = use_memo(move || accordion.is_open(&item.value()));
+    let value = item.value;
+    let is_open = use_memo(move || accordion.is_open(&value.read().clone()));
     let mut content = use_signal(|| None::<Rc<MountedData>>);
     let mut height = use_signal(|| None::<f64>);
     let mut visible = use_signal(&*is_open);

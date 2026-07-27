@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct HouseUserIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn HouseUserIcon(props: HouseUserIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M16.0001 0.728256L31.4042 12.8315L30.1686 14.4041L16.0001 3.27176L1.83159 14.4041L0.595947 12.8315L16.0001 0.728256Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 26V15.2438L16 5.81525L28 15.2438V26C28 28.2093 26.2093 30 24 30H8C5.79072 30 4 28.2093 4 26ZM20 15.5C20 17.7091 18.2091 19.5 16 19.5C13.7909 19.5 12 17.7091 12 15.5C12 13.2909 13.7909 11.5 16 11.5C18.2091 11.5 20 13.2909 20 15.5ZM23.9401 28C23.455 23.992 20.0851 21 16 21C11.9149 21 8.545 23.992 8.05994 28H23.9401Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

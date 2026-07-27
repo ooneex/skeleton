@@ -1,0 +1,41 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Pen3WritingIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Pen3WritingIcon(props: Pen3WritingIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M2 21H22V23H2V21Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M16.804 8.95161L18.0476 10.1123C18.8748 10.8844 18.8973 12.1885 18.0972 12.9886L16.0858 15L17.5 16.4142L19.5114 14.4028C21.1117 12.8025 21.0667 10.1944 19.4122 8.65019L18.219 7.53656L16.804 8.95161Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M8.00748 17.7481L3.5 18.5L4.25187 13.9925L12.9189 5.3255L16.804 8.9516L8.00748 17.7481Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M18.2191 7.53654L19.1222 6.6334C20.1593 5.59631 20.1593 3.91487 19.1222 2.87779C18.0852 1.8407 16.4037 1.84071 15.3666 2.87779L14.334 3.91044L18.2191 7.53654Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

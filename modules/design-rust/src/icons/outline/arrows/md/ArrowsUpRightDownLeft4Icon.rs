@@ -1,0 +1,85 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ArrowsUpRightDownLeft4IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ArrowsUpRightDownLeft4Icon(props: ArrowsUpRightDownLeft4IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M16 7V11",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M16 21V25",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M11 16L7 16",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M25 16L21 16",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M19.5 7L12.5 7L16 2.50015L19.5 7Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M7 12.5L7 19.5L2.50015 16L7 12.5Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M12.5 25L19.5 25L16 29.4999L12.5 25Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M25 19.5L25 12.5L29.4999 16L25 19.5Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

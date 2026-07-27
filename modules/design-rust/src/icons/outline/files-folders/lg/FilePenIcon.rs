@@ -1,0 +1,46 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FilePenIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FilePenIcon(props: FilePenIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M20 3V16H7",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M41 21.5C41 16.4579 41 11.6066 41 7.99862C41 5.23719 38.7614 3 36 3H20.2426C19.447 3 18.6839 3.31607 18.1213 3.87868L7.87868 14.1213C7.31607 14.6839 7 15.4424 7 16.2381C7 20.4779 7 32.8718 7 40.0084C7 42.7699 9.23858 45 12 45H20",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M30.6139 44.5233L42.4315 32.7056C43.85 31.287 43.85 28.9871 42.4315 27.5685C41.0129 26.15 38.713 26.15 37.2944 27.5685L25.4768 39.3861L25 45L30.6139 44.5233Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

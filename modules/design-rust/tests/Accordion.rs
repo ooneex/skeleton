@@ -65,11 +65,11 @@ fn wires_trigger_and_panel_together() {
         .nth(1)
         .and_then(|rest| rest.split('"').next())
         .expect("aria-controls value");
-    let index = panel_id.rsplit('-').next().expect("panel index");
+    let item_id = panel_id.strip_suffix("-panel").expect("panel id suffix");
 
     assert!(html.contains(&format!(r#"id="{panel_id}""#)));
-    assert!(html.contains(&format!(r#"id="accordion-trigger-{index}""#)));
-    assert!(html.contains(&format!(r#"aria-labelledby="accordion-trigger-{index}""#)));
+    assert!(html.contains(&format!(r#"id="{item_id}-trigger""#)));
+    assert!(html.contains(&format!(r#"aria-labelledby="{item_id}-trigger""#)));
 }
 
 #[test]

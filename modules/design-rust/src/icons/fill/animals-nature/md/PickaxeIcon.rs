@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct PickaxeIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn PickaxeIcon(props: PickaxeIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M23.9141 10.6718L28.3282 7.32819L26.5 5.49997L24.6718 3.67175L21.3282 8.08587",
+                fill: "currentColor",
+            }
+            path {
+                d: "M29.1884 22.3061L9.68375 2.81627L11.195 1.30612C15.5121 2.91147 19.7456 5.74258 23 9C26.2544 12.2574 29.0845 16.4955 30.6837 20.8119L29.1884 22.3061Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M16.5652 12.5199L2.04822 26.0483L5.95172 29.9518L19.4578 15.4103L16.5652 12.5199Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

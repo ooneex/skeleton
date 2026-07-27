@@ -1,0 +1,41 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FileChartPieIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FileChartPieIcon(props: FileChartPieIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M18 13L19.5 14.5L21 16V18H16L16 13H18Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M16 14C13.7909 14 12 15.7909 12 18C12 20.2091 13.7909 22 16 22C18.2091 22 20 20.2091 20 18C20 15.7909 18.2091 14 16 14ZM10 18C10 14.6863 12.6863 12 16 12C19.3137 12 22 14.6863 22 18C22 21.3137 19.3137 24 16 24C12.6863 24 10 21.3137 10 18Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M8.95711 1.87868C9.51972 1.31607 10.2828 1 11.0784 1H18C19.6569 1 21 2.34315 21 4V11.7577C19.6298 10.6582 17.8908 10 16 10C11.5864 10 8 13.5864 8 18C8 19.8908 8.65821 21.6298 9.7577 23H6C4.34315 23 3 21.6569 3 20V9.07843C3 8.28278 3.31607 7.51972 3.87868 6.95711L8.95711 1.87868ZM5 9H11V3L5 9Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

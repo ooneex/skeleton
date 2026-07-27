@@ -1,0 +1,71 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Link6MinusIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Link6MinusIcon(props: Link6MinusIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m18.605,9.053c.346,1.043.104,2.238-.726,3.068l-5.757,5.757c-.83.83-2.024,1.072-3.067.726",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            path {
+                d: "m3.395,12.946c-.346-1.043-.103-2.238.726-3.067l5.757-5.757c.83-.83,2.025-1.072,3.068-.726",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            line {
+                x1: "8",
+                y1: "14",
+                x2: "3",
+                y2: "19",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            line {
+                x1: "19",
+                y1: "3",
+                x2: "14",
+                y2: "8",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            line {
+                x1: "17",
+                y1: "20",
+                x2: "23",
+                y2: "20",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

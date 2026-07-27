@@ -1,0 +1,70 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct CartFullIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn CartFullIcon(props: CartFullIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M17 6C17 3.79086 15.2091 2 13 2C10.7909 2 9 3.79086 9 6",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M17 6L22 1.5L27 6",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M5.57098 6H28L25.641 13.862C25.26 15.131 24.092 16 22.768 16H6.99998",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M6.5 30C7.88071 30 9 28.8807 9 27.5C9 26.1193 7.88071 25 6.5 25C5.11929 25 4 26.1193 4 27.5C4 28.8807 5.11929 30 6.5 30Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M25.5 30C26.8807 30 28 28.8807 28 27.5C28 26.1193 26.8807 25 25.5 25C24.1193 25 23 26.1193 23 27.5C23 28.8807 24.1193 30 25.5 30Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M28 21H6.121C4.863 21 4.164 19.545 4.95 18.563L7 16L5.18398 3.28787C5.07841 2.54889 4.44553 2 3.69906 2H2",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

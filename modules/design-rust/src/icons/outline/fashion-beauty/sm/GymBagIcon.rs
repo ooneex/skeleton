@@ -1,0 +1,43 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct GymBagIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn GymBagIcon(props: GymBagIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M7 21.0047V7C7 4.23858 9.23858 2 12 2V2C14.7614 2 17 4.23858 17 7V21.0047",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M19.4282 9C20.0851 9 20.6856 9.37114 20.9793 9.95868V9.95868C22.5661 13.1323 22.5661 16.8677 20.9793 20.0413V20.0413C20.6856 20.6289 20.0851 21 19.4282 21L4.57184 21C3.91494 21 3.31443 20.6289 3.02066 20.0413V20.0413C1.43387 16.8677 1.43387 13.1323 3.02066 9.95868V9.95868C3.31443 9.37114 3.91494 9 4.57184 9L19.4282 9Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M11 13H13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

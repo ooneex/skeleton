@@ -1,0 +1,85 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Abs2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Abs2Icon(props: Abs2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M19.4343 8L19.5 7.5C19.5 7.5 18 17 20 21H19.936",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M4.56566 8L4.49997 7.5C4.49997 7.5 5.99998 17 3.99998 21H4.06396",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M12 4V5C12 6.65685 10.6569 8 9 8H6.27922C4.37249 8 2.73083 6.65416 2.35689 4.78446L2 3H2.11111",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M12 4V5C12 6.65685 13.3431 8 15 8H17.7208C19.6275 8 21.2692 6.65416 21.6431 4.78446L22 3H21.8889",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M9 15L10 15C11.1046 15 12 14.1046 12 13V13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M9 19L10 19C11.1046 19 12 18.1046 12 17V17",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M15 15L14 15C12.8954 15 12 14.1046 12 13V13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M15 19L14 19C12.8954 19 12 18.1046 12 17V13.3172",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                stroke_linejoin: "round",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

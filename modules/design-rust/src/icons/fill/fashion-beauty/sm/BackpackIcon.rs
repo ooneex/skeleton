@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct BackpackIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn BackpackIcon(props: BackpackIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 2C10.8954 2 10 2.89543 10 4V6H8V4C8 1.79086 9.79086 0 12 0C14.2091 0 16 1.79086 16 4V6H14V4C14 2.89543 13.1046 2 12 2Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 19C4 20.6569 5.34315 22 7 22H17C18.6569 22 20 20.6569 20 19V10C20 6.68629 17.3137 4 14 4H10C6.68629 4 4 6.68629 4 10V19ZM8 15V18H16V15C16 13.3431 14.6569 12 13 12H11C9.34315 12 8 13.3431 8 15Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

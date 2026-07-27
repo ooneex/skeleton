@@ -1,0 +1,32 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct StarPlusIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn StarPlusIcon(props: StarPlusIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m14.231,26.12c-.148-.684-.231-1.392-.231-2.12,0-5.514,4.486-10,10-10,1.588,0,3.086.382,4.421,1.044l3.398-3.312-10.931-1.589L16,.241l-4.888,9.902L.181,11.732l7.91,7.709-1.867,10.886,8.007-4.208Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            path {
+                d: "m24,16c-4.411,0-8,3.589-8,8s3.589,8,8,8,8-3.589,8-8-3.589-8-8-8Zm4.5,9h-3.5v3.5h-2v-3.5h-3.5v-2h3.5v-3.5h2v3.5h3.5v2Z",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

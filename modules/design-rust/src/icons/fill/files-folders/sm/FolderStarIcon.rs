@@ -1,0 +1,32 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct FolderStarIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn FolderStarIcon(props: FolderStarIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M17.2193 10.503L19.2711 14.6332L23.8784 15.2984L20.5443 18.5258L21.3294 23.0722L17.2189 20.9261L13.1068 23.0722L13.8934 18.5257L10.5596 15.2985L15.166 14.6332L17.2193 10.503Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M1 5C1 3.34315 2.34315 2 4 2H10.4142L13.4142 5H20C21.6569 5 23 6.34315 23 8V13.1508L20.5954 12.8037L19.0104 9.61318C18.6726 8.93317 17.9789 8.5031 17.2196 8.50299C16.4603 8.50288 15.7664 8.93275 15.4284 9.61266L13.842 12.8037L10.2737 13.319C9.51868 13.4281 8.89144 13.9571 8.65665 14.6829C8.42186 15.4088 8.62042 16.2049 9.16854 16.7355L11.7424 19.227L11.4356 21H4C2.34315 21 1 19.6569 1 18V5Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

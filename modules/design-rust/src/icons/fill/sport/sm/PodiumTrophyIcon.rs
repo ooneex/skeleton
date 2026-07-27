@@ -1,0 +1,51 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct PodiumTrophyIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn PodiumTrophyIcon(props: PodiumTrophyIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M16.25 2C17.4513 2 17.961 3.52924 17 4.25L15.5996 5.2998L15 2H16.25Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M7.75 2C6.54873 2 6.03899 3.52924 7 4.25L8.40039 5.2998L9 2H7.75Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M11 7H13V13H11V7Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M16 5C16 7.20914 14.2091 9 12 9C9.79086 9 8 7.20914 8 5V1H16V5Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M15 11H9V22H15V11Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M22 16H17V22H22V16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M7 14H2V22H7V14Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

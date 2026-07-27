@@ -1,0 +1,44 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Mobile2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Mobile2Icon(props: Mobile2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M16 27C16.9665 27 17.75 26.2165 17.75 25.25C17.75 24.2835 16.9665 23.5 16 23.5C15.0335 23.5 14.25 24.2835 14.25 25.25C14.25 26.2165 15.0335 27 16 27Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+            path {
+                d: "M22 2L10 2C8.34315 2 7 3.34315 7 5L7 27C7 28.6569 8.34315 30 10 30L22 30C23.6569 30 25 28.6569 25 27L25 5C25 3.34315 23.6569 2 22 2Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M17.75 6.5L14.25 6.5C14.1119 6.5 14 6.38807 14 6.25C14 6.11193 14.1119 6 14.25 6L17.75 6C17.8881 6 18 6.11193 18 6.25C18 6.38807 17.8881 6.5 17.75 6.5Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

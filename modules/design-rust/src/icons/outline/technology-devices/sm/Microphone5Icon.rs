@@ -1,0 +1,47 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Microphone5IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Microphone5Icon(props: Microphone5IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M14.1924 14.0502L6.41421 20.4142L5.00001 19L3.5858 17.5858L9.94976 9.8076",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                "data-cap": "butt",
+                fill: "none",
+            }
+            path {
+                d: "M2.99999 22L2.5 21.5L1.99997 21",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M11.5 12.5C13.8432 14.8431 17.6421 14.8431 19.9853 12.5C22.3284 10.1569 22.3284 6.35786 19.9853 4.01472C17.6421 1.67157 13.8432 1.67157 11.5 4.01472C9.15686 6.35786 9.15686 10.1569 11.5 12.5Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

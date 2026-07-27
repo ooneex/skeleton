@@ -1,0 +1,59 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ShapesIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ShapesIcon(props: ShapesIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M26 10H38V22H26V10Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M9.5 16C9.5 12.4101 12.4101 9.5 16 9.5C19.5899 9.5 22.5 12.4101 22.5 16C22.5 19.5899 19.5899 22.5 16 22.5C12.4101 22.5 9.5 19.5899 9.5 16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M17.5 26V38H14.5V26H17.5Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22 33.5L10 33.5L10 30.5L22 30.5L22 33.5Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M31.5001 25.0823L38.783 37H24.217L31.5001 25.0823Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M38 4C41.3137 4 44 6.68629 44 10L44 38C44 41.3137 41.3137 44 38 44L10 44C6.68629 44 4 41.3137 4 38L4 10C4 6.68629 6.68629 4 10 4L38 4ZM41 10C41 8.34315 39.6569 7 38 7L10 7C8.34315 7 7 8.34314 7 10L7 38C7 39.6569 8.34315 41 10 41L38 41C39.6569 41 41 39.6569 41 38L41 10Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct DroneIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn DroneIcon(props: DroneIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M7.58582 17H16.4142L20.4142 21L19 22.4142L15.5858 19H8.41424L5.00003 22.4142L3.58582 21L7.58582 17Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4.5 8C2.567 8 1 9.567 1 11.5C1 13.433 2.567 15 4.5 15H6.38197L8.38197 19H15.618L17.618 15H19.5C21.433 15 23 13.433 23 11.5C23 9.567 21.433 8 19.5 8H4.5ZM13.25 13.75C13.25 14.4404 12.6904 15 12 15C11.3096 15 10.75 14.4404 10.75 13.75C10.75 13.0596 11.3096 12.5 12 12.5C12.6904 12.5 13.25 13.0596 13.25 13.75Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M20 3V10H18V3H20Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6 3V10H4V3H6Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M0 4H10V6H0V4Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M14 4L24 4L24 6L14 6L14 4Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ChartPiePercentageIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ChartPiePercentageIcon(props: ChartPiePercentageIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M30 16C30 23.732 23.732 30 16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2V16H30Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M28.9142 4.5L20.5 12.9142L19.0858 11.5L27.5 3.08579L28.9142 4.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M23 5C23 3.89543 22.1046 3 21 3C19.8954 3 19 3.89543 19 5C19 6.10457 19.8954 7 21 7C22.1046 7 23 6.10457 23 5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M29 11C29 9.89543 28.1046 9 27 9C25.8954 9 25 9.89543 25 11C25 12.1046 25.8954 13 27 13C28.1046 13 29 12.1046 29 11Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

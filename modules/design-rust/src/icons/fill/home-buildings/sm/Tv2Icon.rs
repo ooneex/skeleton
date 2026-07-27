@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Tv2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Tv2Icon(props: Tv2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M3 3.5C3 2.11929 4.11929 1 5.5 1H18.5C19.8807 1 21 2.11929 21 3.5V10.5C21 11.8807 19.8807 13 18.5 13H5.5C4.11929 13 3 11.8807 3 10.5V3.5ZM5.5 3C5.22386 3 5 3.22386 5 3.5V9.5C5 9.77614 5.22386 10 5.5 10H18.5C18.7761 10 19 9.77614 19 9.5V3.5C19 3.22386 18.7761 3 18.5 3H5.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M1 17C1 15.8954 1.89543 15 3 15H21C22.1046 15 23 15.8954 23 17V21C23 22.1046 22.1046 23 21 23H3C1.89543 23 1 22.1046 1 21V17ZM5 17H9V19H5V17ZM19 17H15V19H19V17Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

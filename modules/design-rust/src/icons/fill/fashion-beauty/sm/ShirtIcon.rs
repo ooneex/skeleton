@@ -1,0 +1,36 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ShirtIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ShirtIcon(props: ShirtIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M19 3C20.6569 3 22 4.34315 22 6V19C22 20.6569 20.6569 22 19 22H13V10.5654L15.1709 12.4951C15.537 12.8205 16.0102 13 16.5 13H17C18.1046 13 19 12.1046 19 11V3ZM15 15V17H18V15H15Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M5 11C5 12.1046 5.89543 13 7 13H7.5C7.98986 13 8.46299 12.8206 8.8291 12.4951L11 10.5635V22H5C3.34315 22 2 20.6569 2 19V6C2 4.34315 3.34315 3 5 3V11Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M17 11H16.5L12.4492 7.39941L15 4H9L11.5498 7.39941L7.5 11H7V2H17V11Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

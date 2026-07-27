@@ -1,0 +1,53 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct EllipticalTrainerIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn EllipticalTrainerIcon(props: EllipticalTrainerIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M33.7977 30.0581L33.6233 30.0123L40.7885 31.894C43.27 32.5457 45.0001 34.7887 45.0001 37.3544V37.3544C45.0001 40.4724 42.4724 43 39.3545 43H12.1492C7.09626 43 3.00006 38.9038 3.00006 33.8509V33.8509C3.00006 27.8574 8.66673 23.4826 14.465 24.9997L28.2813 28.6146",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M16 34.0001H32.0313C33.3029 34.0001 34.2516 32.829 33.9877 31.5851L31 17.5L24 15L21 7",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M39.5 5.5L37 13L41.5 19L39 26.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M12 38C14.2091 38 16 36.2091 16 34C16 31.7909 14.2091 30 12 30C9.79086 30 8 31.7909 8 34C8 36.2091 9.79086 38 12 38Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

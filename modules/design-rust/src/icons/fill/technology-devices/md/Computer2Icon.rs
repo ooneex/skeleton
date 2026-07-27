@@ -1,0 +1,38 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Computer2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Computer2Icon(props: Computer2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M13 22V29H7V27H11V22H13Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M19 29H27C29.2091 29 31 27.2091 31 25L31 7C31 4.79086 29.2091 3 27 3H19C16.7909 3 15 4.79086 15 7V25C15 27.2091 16.7909 29 19 29ZM23 24C24.1046 24 25 23.1046 25 22C25 20.8954 24.1046 20 23 20C21.8954 20 21 20.8954 21 22C21 23.1046 21.8954 24 23 24ZM20 8V10H26V8H20Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M14.5278 3H5C2.79086 3 1 4.79086 1 7V20C1 22.2091 2.79086 24 5 24L13 24V7C13 5.46329 13.5777 4.06151 14.5278 3Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

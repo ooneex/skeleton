@@ -1,0 +1,37 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Sliders2VerticalIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Sliders2VerticalIcon(props: Sliders2VerticalIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m9,16c0-1.858-1.279-3.411-3-3.858V2h-2v10.142c-1.721.447-3,2-3,3.858s1.279,3.411,3,3.858v2.142h2v-2.142c1.721-.447,3-2,3-3.858Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            path {
+                d: "m16,8c0-1.858-1.279-3.411-3-3.858v-2.142h-2v2.142c-1.721.447-3,2-3,3.858s1.279,3.411,3,3.858v10.142h2v-10.142c1.721-.447,3-2,3-3.858Z",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m23,16c0-1.858-1.279-3.411-3-3.858V2h-2v10.142c-1.721.447-3,2-3,3.858s1.279,3.411,3,3.858v2.142h2v-2.142c1.721-.447,3-2,3-3.858Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

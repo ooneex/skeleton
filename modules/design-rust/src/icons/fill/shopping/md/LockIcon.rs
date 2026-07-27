@@ -1,0 +1,32 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LockIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LockIcon(props: LockIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m23,13h-2v-6c-.008-2.748-2.252-4.992-5.003-5-2.745.008-4.989,2.252-4.997,5.003v5.997h-2v-6c.012-3.85,3.15-6.989,6.997-7,3.853.011,6.991,3.15,7.003,6.997v6.003Z",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+            path {
+                d: "m25,11H7c-2.206,0-4,1.794-4,4v12c0,2.206,1.794,4,4,4h18c2.206,0,4-1.794,4-4v-12c0-2.206-1.794-4-4-4Zm-8,11.837v3.163h-2v-3.163c-1.441-.433-2.5-1.757-2.5-3.337,0-1.93,1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5c0,1.58-1.059,2.903-2.5,3.337Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

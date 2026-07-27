@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct CircleUserSparkleIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn CircleUserSparkleIcon(props: CircleUserSparkleIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1ZM12 5L13.5 8.5L17 10L13.5 11.5L12 15L10.5 11.5L6.99999 10L10.5 8.5L12 5ZM12 15C14.6349 15 16.9223 16.4563 18.1146 18.6039C16.5093 20.091 14.3608 21 12 21C9.63915 21 7.49063 20.091 5.88531 18.6039C7.07761 16.4563 9.36506 15 12 15Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

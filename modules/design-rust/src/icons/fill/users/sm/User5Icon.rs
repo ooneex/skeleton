@@ -1,0 +1,26 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct User5IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn User5Icon(props: User5IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m6.876,18.016l-3.485.999c-1.415.406-2.391,1.7-2.391,3.172v.813h22v-.813c0-1.472-.976-2.767-2.391-3.172l-3.485-.999c-1.275-.356-2.154-.477-2.154-1.774v-1.492c1.89-.154,3.137-.84,4.381-1.982-1.925-2.166-1.851-4.618-1.851-6.268,0-3.038-2.462-5.5-5.5-5.5s-5.5,2.462-5.5,5.5c0,1.65.074,4.102-1.851,6.268,1.244,1.142,2.491,1.707,4.381,1.861v1.613c0,1.297-.879,1.418-2.154,1.774Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

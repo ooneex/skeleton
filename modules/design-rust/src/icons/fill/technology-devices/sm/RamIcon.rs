@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct RamIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn RamIcon(props: RamIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M3 5C1.89543 5 1 5.89543 1 7V15.3192C1 16.0261 1.43646 16.6312 2.05461 16.8795L2.19128 19H9V17H11V19H21.8739L21.9616 16.9276C22.5642 16.7329 23 16.1674 23 15.5V7C23 5.89543 22.1046 5 21 5H3ZM7 9V14H5V9H7ZM11 9H9V14H11V9ZM15 9V14H13V9H15ZM19 9H17V14H19V9Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

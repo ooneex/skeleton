@@ -1,0 +1,55 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct UserList2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn UserList2Icon(props: UserList2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M6.46905 17.6731C10.6149 16.7756 15.3851 16.7756 19.531 17.6731C21.4382 18.0859 22.7993 19.5724 23.3058 21.3112L25 27.1275L22.2314 28.2308C16.3115 30.5897 9.68845 30.5897 3.76862 28.2308L1 27.1275L2.69419 21.3112C3.20069 19.5723 4.56178 18.0859 6.46905 17.6731Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M7.60956 8.57674C6.92356 5.15704 9.54776 2 13 2C16.4522 2 19.0764 5.15704 18.3904 8.57674L17.9087 10.9784C17.4375 13.3269 15.3754 15 13 15C10.6246 15 8.56245 13.3269 8.09134 10.9784L7.60956 8.57674Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22 6H32V8H22V6Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22 11H32V13H22V11Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M25 16H32V18H25V16Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct AtSign2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn AtSign2Icon(props: AtSign2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M16,0a16,16,0,1,0,6.4,30.668l1.832-.8-1.6-3.666L20.8,27A12,12,0,1,1,28,16v2a2,2,0,0,1-4,0V8H20V9.082a8,8,0,1,0,1.42,12.785A5.995,5.995,0,0,0,32,18V16A16.019,16.019,0,0,0,16,0Zm0,20a4,4,0,1,1,4-4A4,4,0,0,1,16,20Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

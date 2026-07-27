@@ -1,0 +1,51 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct GolfShotIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn GolfShotIcon(props: GolfShotIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M3 21H21",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M16 18C17.6569 18 19 16.6569 19 15C19 13.3431 17.6569 12 16 12C14.3431 12 13 13.3431 13 15C13 16.6569 14.3431 18 16 18Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M2.5 2.5L6.12637 14.4699C6.50381 15.7437 7.41142 16 8.74002 16H8.99317",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M20.8755 9.99222L20.9692 9.39888C21.292 7.20039 19.1961 5.42618 17.0811 6.10761L4.81927 10.0589L5.07203 9.97746",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

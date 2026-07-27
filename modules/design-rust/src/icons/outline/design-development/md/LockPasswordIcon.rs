@@ -1,0 +1,109 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LockPasswordIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LockPasswordIcon(props: LockPasswordIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            rect {
+                x: "7",
+                y: "11",
+                width: "18",
+                height: "12",
+                rx: "1.5",
+                ry: "1.5",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+            }
+            path {
+                d: "m21,11v-5c.027-2.734-2.166-4.972-4.9-5h-.1c-2.734-.027-4.972,2.166-5,4.9v5.1",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-cap": "butt",
+            }
+            circle {
+                cx: "16",
+                cy: "29",
+                r: "1",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "9",
+                cy: "29",
+                r: "1",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "2",
+                cy: "29",
+                r: "1",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "30",
+                cy: "29",
+                r: "1",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "23",
+                cy: "29",
+                r: "1",
+                fill: "currentColor",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+            line {
+                x1: "16",
+                y1: "16",
+                x2: "16",
+                y2: "18",
+                fill: "none",
+                stroke: "currentColor",
+                stroke_linecap: "square",
+                stroke_miterlimit: "10",
+                stroke_width: "2",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct SquareSlidersIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SquareSlidersIcon(props: SquareSlidersIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m19,2H5c-1.654,0-3,1.346-3,3v14c0,1.654,1.346,3,3,3h14c1.654,0,3-1.346,3-3V5c0-1.654-1.346-3-3-3Zm-13,6h2v-2h2v6h-2v-2h-2v-2Zm6,8h-6v-2h6v2Zm6,0h-2v2h-2v-6h2v2h2v2Zm0-6h-6v-2h6v2Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

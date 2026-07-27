@@ -1,0 +1,45 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct TropicalDrinkIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn TropicalDrinkIcon(props: TropicalDrinkIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M20.5 33.5H23.5V45H20.5V33.5Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M18.832 2L22.8506 22.0684L19.9092 22.6572L16.373 5H9V2H18.832Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M35 23C35 30.1797 29.1797 36 22 36C14.8203 36 9 30.1797 9 23V11H35V23ZM12 19H32V14H12V19Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M34 3C38.9706 3 43 7.02944 43 12C43 15.5333 40.9628 18.5886 38 20.0615V11C38 9.39489 36.7394 8.08421 35.1543 8.00391L25.9375 8C27.4104 5.03699 30.4666 3 34 3Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M30 43V46H14V43H30Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

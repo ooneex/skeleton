@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LockCircleIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LockCircleIcon(props: LockCircleIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 4C20.6863 4 18 6.68629 18 10V18.5H15V10C15 5.02944 19.0294 1 24 1C28.9706 1 33 5.02944 33 10V18.5H30V10C30 6.68629 27.3137 4 24 4Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 15C15.1634 15 8 22.1634 8 31C8 39.8366 15.1634 47 24 47C32.8366 47 40 39.8366 40 31C40 22.1634 32.8366 15 24 15ZM19 30C19 27.2386 21.2386 25 24 25C26.7614 25 29 27.2386 29 30C29 32.2388 27.5286 34.134 25.5 34.7711V39H22.5V34.7711C20.4714 34.134 19 32.2388 19 30Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+#![allow(non_snake_case)]
+
+mod ArcadeJoystickIcon;
+pub use ArcadeJoystickIcon::*;
+mod AudioMixerIcon;
+pub use AudioMixerIcon::*;
+mod BoardGameIcon;
+pub use BoardGameIcon::*;
+mod ChessBishopIcon;
+pub use ChessBishopIcon::*;
+mod ChessKingIcon;
+pub use ChessKingIcon::*;
+mod ChessKnightIcon;
+pub use ChessKnightIcon::*;
+mod ChessPawnIcon;
+pub use ChessPawnIcon::*;
+mod ChessQueenIcon;
+pub use ChessQueenIcon::*;
+mod ChessTowerIcon;
+pub use ChessTowerIcon::*;
+mod CinemaScreenIcon;
+pub use CinemaScreenIcon::*;
+mod Dice2Icon;
+pub use Dice2Icon::*;
+mod ExhibitionIcon;
+pub use ExhibitionIcon::*;
+mod PlayingCardsIcon;
+pub use PlayingCardsIcon::*;
+mod SaxophoneIcon;
+pub use SaxophoneIcon::*;
+mod SpeakerIcon;
+pub use SpeakerIcon::*;
+mod StageCurtainsIcon;
+pub use StageCurtainsIcon::*;
+mod TheaterIcon;
+pub use TheaterIcon::*;
+mod TheatreMasksIcon;
+pub use TheatreMasksIcon::*;

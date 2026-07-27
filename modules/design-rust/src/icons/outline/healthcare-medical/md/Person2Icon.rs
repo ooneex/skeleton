@@ -1,0 +1,45 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Person2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Person2Icon(props: Person2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M7.0769 20.2L8.77165 13.1009C9.00928 12.1055 9.7446 11.3037 10.7158 10.9811V10.9811C14.1963 9.82477 17.9575 9.82477 21.4381 10.9811V10.9811C22.4092 11.3037 23.1445 12.1055 23.3822 13.1009L25.0769 20.2M12 18.05L12.3846 31H19.5L19.8846 18.05",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M16 31V23.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M16 7C14.342 7 13 5.658 13 4C13 2.342 14.342 1 16 1C17.658 1 19 2.342 19 4C19 5.658 17.658 7 16 7Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+        }
+    }
+}

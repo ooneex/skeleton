@@ -1,0 +1,29 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct TouchActivate2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn TouchActivate2Icon(props: TouchActivate2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M3.43835 12.9024L8.0943 17.4419C8.67341 18.0066 9 18.7811 9 19.5899V22H19.5L20.9563 12.8777C21.2363 11.1655 20.1446 9.52767 18.4522 9.12095L12 7.5V3C12 1.89543 11.1046 1 10 1C8.89543 1 8 1.89543 8 3V12L5.28716 10.4498C4.801 10.172 4.20272 10.1784 3.72259 10.4664C2.85201 10.9888 2.71143 12.1936 3.43835 12.9024Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "2",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

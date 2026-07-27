@@ -1,0 +1,32 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct TravelBagIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn TravelBagIcon(props: TravelBagIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M28 7H20V14H17V4H31V14H28V7Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M38 11C41.3137 11 44 13.6863 44 17V36C44 39.3137 41.3137 42 38 42H10C6.68629 42 4 39.3137 4 36V17C4 13.6863 6.68629 11 10 11H38ZM12 39H15V14H12V39ZM33 39H36V14H33V39ZM19 18V24H29V18H19Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct SquareUserIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SquareUserIcon(props: SquareUserIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M44 38V10C44 6.68629 41.3137 4 38 4H10C6.68629 4 4 6.68629 4 10V38C4 41.3137 6.68629 44 9.99999 44H38C41.3137 44 44 41.3137 44 38ZM24 27C27.5899 27 30.5 24.0899 30.5 20.5C30.5 16.9102 27.5899 14 24 14C20.4102 14 17.5 16.9102 17.5 20.5C17.5 24.0899 20.4102 27 24 27ZM9.14966 41C11.1973 34.6248 17.0589 30 23.9999 30C30.9409 30 36.8025 34.6248 38.8501 41H9.14966Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

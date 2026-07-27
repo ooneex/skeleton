@@ -1,0 +1,43 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Person3ArrowDownIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Person3ArrowDownIcon(props: Person3ArrowDownIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M27 10V24.5H25V10H27Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M21.9999 19.0858L25.9999 23.0858L29.9999 19.0858L31.4141 20.5L25.9999 25.9142L20.5857 20.5L21.9999 19.0858Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M11 8C9.06567 8 7.5 6.43433 7.5 4.5C7.5 2.56567 9.06567 1 11 1C12.9343 1 14.5 2.56567 14.5 4.5C14.5 6.43433 12.9343 8 11 8Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M4.5 25.225L6.86364 12.4417C7.2324 10.4473 8.9718 9 11 9C13.0282 9 14.7676 10.4473 15.1364 12.4417L17.5 25.225L14.5 26.275L14 31H8L7.5 26.275L4.5 25.225Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

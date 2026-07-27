@@ -1,0 +1,65 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct GripDotsIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn GripDotsIcon(props: GripDotsIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            circle {
+                cx: "12",
+                cy: "8.25",
+                r: "1.75",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "12",
+                cy: "15.75",
+                r: "1.75",
+                fill: "currentColor",
+                stroke_width: "0",
+                "data-color": "color-2",
+            }
+            circle {
+                cx: "19.75",
+                cy: "8.25",
+                r: "1.75",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            circle {
+                cx: "4.25",
+                cy: "8.25",
+                r: "1.75",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            circle {
+                cx: "19.75",
+                cy: "15.75",
+                r: "1.75",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+            circle {
+                cx: "4.25",
+                cy: "15.75",
+                r: "1.75",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

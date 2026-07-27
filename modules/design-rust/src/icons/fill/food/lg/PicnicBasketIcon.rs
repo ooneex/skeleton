@@ -1,0 +1,50 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct PicnicBasketIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn PicnicBasketIcon(props: PicnicBasketIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M42.8094 7.0705L33.3311 20.0957L30.9043 18.331L40.3827 5.30585L41.5961 6.18817L42.8094 7.0705Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M5.19493 7.07814L14.6689 20.0958L17.0957 18.3311L7.62169 5.31349L6.40831 6.19581L5.19493 7.07814Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M42 17H28V24H46V21C46 18.7909 44.2091 17 42 17Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M6 17H20V24H2V21C2 18.7909 3.79086 17 6 17Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M28 21H20V6C20 3.79086 21.7909 2 24 2C26.2091 2 28 3.79086 28 6V21Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M43 38C43 41.3137 40.3137 44 37 44H10C6.68629 44 4 41.3137 4 38V27H43V38ZM12 39H15V31H12V39ZM19 31V39H22V31H19ZM26 39H29V31H26V39ZM33 39H36V31H33V39Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

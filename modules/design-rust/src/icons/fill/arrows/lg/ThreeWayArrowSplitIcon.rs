@@ -1,0 +1,61 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ThreeWayArrowSplitIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ThreeWayArrowSplitIcon(props: ThreeWayArrowSplitIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22.5002 44L22.5002 37.5C22.5002 32.8056 18.6946 29 14.0002 29L4 29L4 26L14.0002 26C20.3515 26 25.5002 31.1487 25.5002 37.5L25.5002 44L22.5002 44Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M25.5002 44L25.5002 37.5C25.5002 32.8056 29.3058 29 34.0002 29L44 29L44 26L34.0002 26C27.6489 26 22.5002 31.1487 22.5002 37.5L22.5002 44L25.5002 44Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M22.5002 44L22.5002 5.99978L25.5002 5.99978L25.5002 44L22.5002 44Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M15.3787 12.5L24 3.8787L32.6213 12.5L30.5 14.6213L24 8.12134L17.5 14.6213L15.3787 12.5Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M37.5 18.8787L46.1213 27.5L37.5 36.1213L35.3787 34L41.8787 27.5L35.3787 21L37.5 18.8787Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M10.5 18.8787L1.87869 27.5L10.5 36.1213L12.6213 34L6.12134 27.5L12.6213 21L10.5 18.8787Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

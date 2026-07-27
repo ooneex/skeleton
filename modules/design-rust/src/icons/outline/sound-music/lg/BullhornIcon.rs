@@ -1,0 +1,55 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct BullhornIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn BullhornIcon(props: BullhornIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M13 27V9",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M22.4995 33.5L25.513 42.539C25.999 43.9955 24.9145 45.5 23.3785 45.5H20.6215C19.6525 45.5 18.793 44.8805 18.487 43.961L12.9333 27.3003L12.9998 27.5",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M42 14C44.209 14 46 15.791 46 18C46 20.209 44.209 22 42 22",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M33.1304 33H37V3H33.1304C33.1304 3 31.6957 8.71429 22.6522 8.71429H13.2857C8.15736 8.71429 4 12.8716 4 18C4 23.1284 8.15736 27.2857 13.2857 27.2857H22.6522C31.6957 27.2857 33.1304 33 33.1304 33Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+        }
+    }
+}

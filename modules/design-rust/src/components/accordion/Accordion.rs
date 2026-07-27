@@ -1,17 +1,8 @@
 use std::rc::Rc;
-use std::sync::atomic::{AtomicUsize, Ordering};
 
 use dioxus::prelude::*;
 
 use crate::utils::cn;
-
-static NEXT_ITEM_ID: AtomicUsize = AtomicUsize::new(0);
-
-/// Allocates a process-wide unique id used to wire `aria-controls` /
-/// `aria-labelledby` between a trigger and its panel.
-pub(crate) fn next_item_id() -> usize {
-    NEXT_ITEM_ID.fetch_add(1, Ordering::Relaxed)
-}
 
 /// Where focus should move to when a roving-focus key is pressed on a trigger.
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -26,7 +17,7 @@ pub(crate) enum FocusTarget {
 /// keyboard navigation follows the rendered order.
 #[derive(Clone)]
 pub(crate) struct TriggerHandle {
-    pub(crate) id: usize,
+    pub(crate) id: String,
     pub(crate) element: Rc<MountedData>,
 }
 
@@ -53,19 +44,19 @@ impl AccordionContext {
         self.toggle.call(value);
     }
 
-    pub(crate) fn register_trigger(&mut self, id: usize, element: Rc<MountedData>) {
+    /// Triggers register in mount order, which matches their document order.
+    pub(crate) fn register_trigger(&mut self, id: String, element: Rc<MountedData>) {
         let mut triggers = self.triggers.write();
         triggers.retain(|trigger| trigger.id != id);
         triggers.push(TriggerHandle { id, element });
-        triggers.sort_by_key(|trigger| trigger.id);
     }
 
-    pub(crate) fn unregister_trigger(&mut self, id: usize) {
+    pub(crate) fn unregister_trigger(&mut self, id: &str) {
         self.triggers.write().retain(|trigger| trigger.id != id);
     }
 
     /// Moves focus between triggers, wrapping around at both ends.
-    pub(crate) fn move_focus(&self, from: usize, target: FocusTarget) {
+    pub(crate) fn move_focus(&self, from: &str, target: FocusTarget) {
         let triggers = self.triggers.read().clone();
 
         if triggers.is_empty() {

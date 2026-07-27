@@ -1,0 +1,40 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct TextUppercaseIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn TextUppercaseIcon(props: TextUppercaseIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M10.222 16H2.74343V14H10.222V16Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M5.21272 4H7.78728L12.8666 20H10.4102V18.8721L6.5 6.55492L2.58922 18.8739V20H0.133358L5.21272 4Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 12C12 7.58172 15.5817 4 20 4H22V6H20C16.6863 6 14 8.68629 14 12C14 15.3137 16.6863 18 20 18H21V14H19V12H23V20H20C15.5817 20 12 16.4183 12 12Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

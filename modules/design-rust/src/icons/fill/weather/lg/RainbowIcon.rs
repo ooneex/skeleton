@@ -1,0 +1,47 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct RainbowIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn RainbowIcon(props: RainbowIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 14C12.9543 14 4 22.9543 4 34V35H1L1 34C1 21.2975 11.2975 11 24 11C36.7025 11 47 21.2975 47 34V35H44V34C44 22.9543 35.0457 14 24 14Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 20C16.268 20 10 26.268 10 34V35H7V34C7 24.6112 14.6112 17 24 17C33.3888 17 41 24.6112 41 34V35H38V34C38 26.268 31.732 20 24 20Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 26C19.5817 26 16 29.5817 16 34V35H13V34C13 27.9249 17.9249 23 24 23C30.0751 23 35 27.9249 35 34V35H32V34C32 29.5817 28.4183 26 24 26Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M24 32C22.8954 32 22 32.8954 22 34V35H19V34C19 31.2386 21.2386 29 24 29C26.7614 29 29 31.2386 29 34V35H26V34C26 32.8954 25.1046 32 24 32Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+#![allow(non_snake_case)]
+
+mod ArcadeCharacterIcon;
+pub use ArcadeCharacterIcon::*;
+mod CasinoChipIcon;
+pub use CasinoChipIcon::*;
+mod ClubsSuitIcon;
+pub use ClubsSuitIcon::*;
+mod CroupierIcon;
+pub use CroupierIcon::*;
+mod DiamondsSuitsIcon;
+pub use DiamondsSuitsIcon::*;
+mod GoldCoinIcon;
+pub use GoldCoinIcon::*;
+mod HeartsSuitIcon;
+pub use HeartsSuitIcon::*;
+mod LuckySevenIcon;
+pub use LuckySevenIcon::*;
+mod MarioMushroomIcon;
+pub use MarioMushroomIcon::*;
+mod RocketIcon;
+pub use RocketIcon::*;
+mod RouletteIcon;
+pub use RouletteIcon::*;
+mod ShieldIcon;
+pub use ShieldIcon::*;
+mod SlotMachineIcon;
+pub use SlotMachineIcon::*;
+mod SpadesSuitIcon;
+pub use SpadesSuitIcon::*;
+mod SwordIcon;
+pub use SwordIcon::*;
+mod TreasureChestIcon;
+pub use TreasureChestIcon::*;
+mod WarriorHelmetIcon;
+pub use WarriorHelmetIcon::*;

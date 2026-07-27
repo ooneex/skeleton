@@ -1,0 +1,26 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Gauge6IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Gauge6Icon(props: Gauge6IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "m22.949,11c-.207-2.283-1.111-4.366-2.501-6.034l-2.084,2.084-1.414-1.414,2.084-2.084c-1.667-1.391-3.751-2.294-6.034-2.501v2.949h-2V1.051c-2.283.207-4.366,1.111-6.034,2.501l6.522,6.522c.164-.044.334-.075.511-.075,1.103,0,2,.897,2,2s-.897,2-2,2-2-.897-2-2c0-.178.031-.347.075-.511L3.552,4.966c-1.391,1.667-2.294,3.751-2.501,6.034h2.949v2H1.051c.207,2.283,1.111,4.366,2.501,6.034l2.084-2.084,1.414,1.414-2.084,2.084c1.667,1.391,3.751,2.294,6.034,2.501v-2.949h2v2.949c2.283-.207,4.366-1.111,6.034-2.501l-2.084-2.084,1.414-1.414,2.084,2.084c1.391-1.667,2.294-3.751,2.501-6.034h-2.949v-2h2.949Z",
+                stroke_width: "0",
+                fill: "currentColor",
+            }
+        }
+    }
+}

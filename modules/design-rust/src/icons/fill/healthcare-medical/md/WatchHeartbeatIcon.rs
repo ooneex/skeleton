@@ -1,0 +1,41 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct WatchHeartbeatIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn WatchHeartbeatIcon(props: WatchHeartbeatIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M23.054 2H8.9458L9.61247 0H22.3873L23.054 2Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                d: "M23.054 30H8.9458L9.61247 32H22.3873L23.054 30Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M23 4C25.2091 4 27 5.79086 27 8V16H21.2686L20.9697 16.4111L18.6387 19.6104L12.9443 8.73926L9.58301 16H5V8C5 5.79086 6.79086 4 9 4H23ZM19 8V10H23V8H19Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M18.3613 23.3896L22.2861 18H27V24C27 26.2091 25.2091 28 23 28H9C6.79086 28 5 26.2091 5 24V18H10.8613L13.0547 13.2598L18.3613 23.3896Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

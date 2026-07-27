@@ -1,0 +1,68 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct ChatBotIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn ChatBotIcon(props: ChatBotIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M19 14H20L20 16L19 16",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M3 14H2L2 16L3 16",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M8 9L5 9C3.89543 9 3 9.89543 3 11L3 19C3 20.1046 3.89543 21 5 21L17 21C18.1046 21 19 20.1046 19 19L19 13",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                fill: "none",
+            }
+            path {
+                d: "M13 1H22C22.5523 1 23 1.44772 23 2V8C23 8.55228 22.5523 9 22 9H15L12 11V2C12 1.44772 12.4477 1 13 1Z",
+                stroke: "currentColor",
+                stroke_width: "2",
+                stroke_miterlimit: "10",
+                stroke_linecap: "square",
+                "data-color": "color-2",
+                fill: "none",
+            }
+            path {
+                d: "M13.75 16.25C14.4404 16.25 15 15.6904 15 15C15 14.3096 14.4404 13.75 13.75 13.75C13.0596 13.75 12.5 14.3096 12.5 15C12.5 15.6904 13.0596 16.25 13.75 16.25Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+            path {
+                d: "M8.25 16.5C8.94036 16.5 9.5 15.9404 9.5 15.25C9.5 14.5596 8.94036 14 8.25 14C7.55964 14 7 14.5596 7 15.25C7 15.9404 7.55964 16.5 8.25 16.5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+                "data-cap": "butt",
+                "data-stroke": "none",
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct LetterNIconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn LetterNIcon(props: LetterNIconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M8 4H10.7461L37 38.6924V4H40V44H37.2539L11 9.30664V44H8V4Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

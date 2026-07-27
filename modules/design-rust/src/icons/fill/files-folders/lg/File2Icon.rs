@@ -1,0 +1,27 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct File2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn File2Icon(props: File2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M30.5858 44.8284C29.8356 45.5786 28.8182 46 27.7574 46H12C8.68652 46 6 43.3148 6 40.0009V8C6 4.6863 8.68629 2 12 2H36C39.3137 2 42 4.68629 42 8V31.7578C42 32.8188 41.5785 33.8357 40.8284 34.5858L30.5858 44.8284ZM28 43V32H39L28 43Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct Flower5IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn Flower5Icon(props: Flower5IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 24 24",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M13 14.5V22.098H11V14.5H13Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M11.9999 22.0981C11.9999 22.0981 13.3326 19.04 15.9999 17.5C18.6673 15.96 21.5262 16.5981 21.5262 16.5981C21.5262 16.5981 20.8828 20.4336 18.2631 21.9461C15.5957 23.4861 11.9999 22.0981 11.9999 22.0981Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M12.0001 22.0981C12.0001 22.0981 10.6674 19.04 8.00007 17.5C5.33271 15.96 2.47378 16.5981 2.47378 16.5981C2.47378 16.5981 3.1172 20.4337 5.73692 21.9461C8.40427 23.4861 12.0001 22.0981 12.0001 22.0981Z",
+                fill: "currentColor",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M12 0.43795L14.8313 3.83548L18.5 2.61257V8.5C18.5 12.0899 15.5899 15 12 15C8.41015 15 5.5 12.0899 5.5 8.5V2.61257L9.16872 3.83548L12 0.43795Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}

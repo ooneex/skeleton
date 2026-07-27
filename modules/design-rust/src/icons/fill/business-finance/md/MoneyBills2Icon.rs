@@ -1,0 +1,41 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct MoneyBills2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn MoneyBills2Icon(props: MoneyBills2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 32 32",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M4 5H28V7H4V5Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M7 1H25V3H7V1Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+            path {
+                fill_rule: "evenodd",
+                clip_rule: "evenodd",
+                d: "M32 9H0V31H32V9ZM4 25V27H8V25H4ZM24 13H28V15H24V13ZM16 15C13.2386 15 11 17.2386 11 20C11 22.7614 13.2386 25 16 25C18.7614 25 21 22.7614 21 20C21 17.2386 18.7614 15 16 15Z",
+                fill: "currentColor",
+            }
+        }
+    }
+}

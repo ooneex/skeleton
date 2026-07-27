@@ -1,0 +1,34 @@
+use dioxus::prelude::*;
+
+#[derive(Props, Clone, PartialEq)]
+pub struct SquareLayoutGrid2IconProps {
+    #[props(extends = svg, extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SquareLayoutGrid2Icon(props: SquareLayoutGrid2IconProps) -> Element {
+    rsx! {
+        svg {
+            height: "16",
+            width: "16",
+            view_box: "0 0 48 48",
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            ..props.attributes,
+            path {
+                d: "M46 36C46 39.3137 43.3137 42 40 42H17V39H40C41.6569 39 43 37.6569 43 36V19H46V36Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M2 12C2 8.68629 4.68629 6 8 6H40C43.3137 6 46 8.68629 46 12V16H2L2 12Z",
+                fill: "currentColor",
+            }
+            path {
+                d: "M2 19.5V36C2 39.3137 4.68629 42 8 42H14V19.5H2Z",
+                fill: "currentColor",
+                "data-color": "color-2",
+            }
+        }
+    }
+}
