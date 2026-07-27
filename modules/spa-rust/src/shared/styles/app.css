@@ -1,0 +1,8 @@
+/* Tailwind entry for the spa — the counterpart of the design-system stylesheet
+   import in the TypeScript spa's `app.tsx`. `dx` compiles this file into
+   `assets/app.css` before every build (Dioxus.toml → tailwind_input). */
+@import "../../../../design-rust/src/styles/app.css";
+
+/* Scan this module's own markup so the classes written in `rsx!` survive
+   Tailwind's tree shaking. */
+@source "../../../src";

@@ -1,0 +1,14 @@
+[package]
+name = "spa-rust"
+version = "0.1.0"
+edition = "2024"
+
+# `src/main.rs` is the wasm entry point `dx` builds; `src/lib.rs` keeps the
+# routes and components reachable from `cargo test`, which renders them through
+# `dioxus-ssr` on the host.
+
+[dependencies]
+dioxus = { version = "0.7.9", features = ["router", "web"] }
+
+[dev-dependencies]
+dioxus-ssr = "0.7.9"
