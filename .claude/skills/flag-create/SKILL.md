@@ -4,7 +4,7 @@ description: Generate a new feature flag class with its test file, then complete
 when_to_use: Use when creating a new feature flag that implements the IFeatureFlag interface from @talosjs/feature-flag.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos flag:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos flag:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -101,7 +101,7 @@ describe("<Name>FeatureFlag", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

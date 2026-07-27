@@ -4,7 +4,7 @@ description: Generate a new repository class with its test file, then complete t
 when_to_use: Use when creating a new TypeORM repository for database operations on an entity.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos repository:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos repository:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -196,7 +196,7 @@ describe("<Name>Repository", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

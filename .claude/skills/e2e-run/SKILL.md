@@ -48,7 +48,7 @@ Prefer web-first assertions (`await expect(locator).toBeVisible()`) and role-/te
 Once green, run the full gate so the fix doesn't break lint/format or unit tests:
 
 ```bash
-talos monorepo:check --modules=<module> --logs
+talos check --modules=<module> --logs
 ```
 
 If a failure stems from application code (a controller, DI, an entity) rather than the spec, hand off to the `debug` skill.

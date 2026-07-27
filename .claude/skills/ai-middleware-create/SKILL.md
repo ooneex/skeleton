@@ -4,7 +4,7 @@ description: Generate a new AI middleware class with its test file, then complet
 when_to_use: Use when creating a chat middleware that implements IMiddleware from @talosjs/ai to observe or transform the chat lifecycle.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos ai:middleware:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos ai:middleware:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -76,7 +76,7 @@ Add `<Name>Middleware` to the `getMiddlewares()` array of the chat it applies to
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

@@ -42,7 +42,7 @@ Make the smallest change that addresses the root cause, following project conven
 ## 4. Verify
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Confirm the original failure is gone and nothing else broke. Report the root cause, the fix, and how you verified it.

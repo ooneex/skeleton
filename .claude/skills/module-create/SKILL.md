@@ -4,7 +4,7 @@ description: Scaffold a complete backend business-domain module and complete its
 when_to_use: Use when creating a whole new module (a new domain like `billing`, `catalog`, `order`) — not a single artifact.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos module:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos module:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<name>] [--destination=<app|module>]
 ---
 
@@ -47,7 +47,7 @@ For each planned artifact, invoke its `<artifact>-create` skill with `--module=<
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing. Report the module created, the artifacts filled in, and anything left as a stub for the user to flesh out.

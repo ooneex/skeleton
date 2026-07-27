@@ -4,7 +4,7 @@ description: Generate a new PubSub event class with its test file, then complete
 when_to_use: Use when creating a new publish/subscribe event that extends PubSub from @talosjs/event.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos event:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos event:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>] [--channel=<channel>]
 ---
 
@@ -141,7 +141,7 @@ Add `<Name>Event` to the `events` array in `src/<PascalModuleName>Module.ts` (se
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

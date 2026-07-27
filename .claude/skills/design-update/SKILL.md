@@ -4,7 +4,7 @@ description: Sync a local design module with upstream skeleton-design — clone 
 when_to_use: Use when pulling upstream changes into an existing design module. To scaffold one from scratch, use `talos design:create`.
 model: sonnet
 effort: high
-allowed-tools: Bash(git clone *), Bash(rm *), Bash(bun add *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob, Skill
+allowed-tools: Bash(git clone *), Bash(rm *), Bash(bun add *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: [--name=<name>]
 ---
 
@@ -42,6 +42,6 @@ Refresh a design module against upstream `skeleton-design`. Idempotent and addit
 7. **Clean up + verify.**
    ```bash
    rm -rf "$TMPDIR/talos-design-<name>"
-   talos monorepo:check --modules=<name> --logs
+   talos check --modules=<name> --logs
    ```
    Fix every failure (usually an unresolved import or type error from the merge). Report files created, files merged, deps added, and storybook stories created/updated (and the storybook module) or why none. Hand app-code failures to the `debug` skill.

@@ -54,7 +54,7 @@ Generated `.spec.ts` files share a baseline the artifact skill builds on: class 
 ## Lint and format
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 ## Coding conventions

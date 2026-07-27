@@ -4,7 +4,7 @@ description: Generate a new vector database class with its test file, then compl
 when_to_use: Use when creating a new vector database that extends VectorDatabase from @talosjs/rag.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos vector-database:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos vector-database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -142,7 +142,7 @@ describe("<Name>VectorDatabase", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

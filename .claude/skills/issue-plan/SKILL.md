@@ -198,14 +198,14 @@ comments:
 ## How to Test
 
 `testing` is an **ordered checkbox list** (`1. [ ]`, …) of concrete steps proving the change works end-to-end. Where `dod` states *what must be true*, `testing` states *how to prove it*.
-- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos monorepo:check`, `bun run e2e`, `talos app:start`, a specific `curl`/route).
+- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check`, `bun run e2e`, `talos app:start`, a specific `curl`/route).
 - Cover every `dod` item, including meaningful edge/error cases.
 - Match the module type: backend tests endpoints/services/migrations; SPA/design tests rendered routes and interactions (`talos app:start` + browser flow, `bun run e2e` when a spec exists).
 - Keep self-contained; omit only when nothing is observable (pure chore).
 
 ```yaml
 testing: |
-  1. [ ] Run `talos monorepo:check` from the root — lint, types, tests pass.
+  1. [ ] Run `talos check` from the root — lint, types, tests pass.
   2. [ ] Start with `talos app:start` and open `/users/new`.
   3. [ ] Submit a duplicate email — rejected with 409 and inline error shows.
 ```

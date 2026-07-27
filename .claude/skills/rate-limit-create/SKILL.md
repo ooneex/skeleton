@@ -4,7 +4,7 @@ description: Generate a new rate limiter class with its test file, then complete
 when_to_use: Use when creating a custom request throttling strategy that implements the IRateLimiter interface from @talosjs/rate-limit.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos rate-limit:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos rate-limit:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -69,7 +69,7 @@ Read and replace `modules/<module>/tests/rate-limit/<Name>RateLimiter.spec.ts`:
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

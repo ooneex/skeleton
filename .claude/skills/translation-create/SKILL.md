@@ -4,7 +4,7 @@ description: Generate a new translation class with its test file and a sibling t
 when_to_use: Use when creating a translation that extends the Translation base class from @talosjs/translation (localized, interpolated, pluralized messages).
 model: sonnet
 effort: low
-allowed-tools: Bash(talos translation:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos translation:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -74,7 +74,7 @@ Read and replace `modules/<module>/tests/translations/<Name>Translation.spec.ts`
 ## 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

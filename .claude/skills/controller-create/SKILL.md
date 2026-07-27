@@ -4,7 +4,7 @@ description: Generate a new controller class with route type and test file, then
 when_to_use: Use when creating a new HTTP or WebSocket controller with routing, validation, and role-based access.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos controller:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos controller:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>] [--is-socket=<true|false>] [--route-name=<name>] [--route-path=<path>] [--route-method=<method>]
 ---
 
@@ -175,7 +175,7 @@ Add `<Name>Controller` to the `controllers` array in `src/<PascalModuleName>Modu
 ### 7. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

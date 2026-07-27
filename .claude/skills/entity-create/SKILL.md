@@ -4,7 +4,7 @@ description: Generate a new TypeORM entity class with its test file, then comple
 when_to_use: Use when creating a new database entity with columns, relations, and table mapping.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos entity:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos entity:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>] [--table-name=<table_name>]
 ---
 
@@ -148,7 +148,7 @@ Add `<Name>Entity` to the `entities` array in `src/<PascalModuleName>Module.ts` 
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

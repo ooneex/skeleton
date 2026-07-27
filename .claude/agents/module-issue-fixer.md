@@ -82,7 +82,7 @@ Scaffolds are a starting point — harden every artefact rather than shipping th
 
 ## Finish
 
-1. **Lint & format** — from the project root: `talos monorepo:check`.
+1. **Lint & format** — from the project root: `talos check`.
 2. **Satisfy the DoD** — verify every `dod` checkbox is met and check each satisfied box off in the YAML (`- [ ]` → `- [x]`). Leave any unmet box unchecked and report why.
 3. **Satisfy the testing steps** — run every `testing` step and check its box off (`1. [ ]` → `1. [x]`) **only once it actually passes**. Never check a box you did not run.
 4. **Set the state** — only when **every** `dod` and `testing` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"`. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. If any box is unmet, leave the state untouched and report the blocker.

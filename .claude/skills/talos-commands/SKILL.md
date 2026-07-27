@@ -97,8 +97,8 @@ talos monorepo:run --commands=build --modules=billing,user   # Only the named mo
 talos monorepo:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos monorepo:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for monorepo:run --commands=e2e — run the Playwright e2e suite
-talos monorepo:check                                         # Install, build, fmt, lint and test — the full gate
-talos monorepo:check --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
+talos check                                         # Install, build, fmt, lint and test — the full gate
+talos check --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 ```
 
 `monorepo:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/monorepo/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
@@ -119,26 +119,39 @@ talos security:check --issues                           # Create one YAML Securi
 ```bash
 talos project:check                                   # Run every check and print one aggregated report
 talos project:check --skip=workspace                  # The fast checks only (no install/build/test)
-talos project:check --only=accessibility,security     # Only the named checks
-talos project:check --modules=billing,user            # Scope workspace/accessibility/security/issues to these targets (also --packages=a,b)
+talos project:check --only=conventions,tests,docs      # Only the named checks
+talos project:check --e2e                             # Add the opt-in end-to-end suite
+talos project:check --modules=billing,user            # Scope every module-aware check to these targets (also --packages=a,b)
 talos project:check --audit-level=high                # Only surface high/critical vulnerabilities
 talos project:check --strict                          # Exit 1 when a check only reports warnings
 talos project:check --json                            # Machine-readable report for CI
 talos project:check --logs                            # Stream plain workspace logs (always pass this as an agent)
 ```
 
-`project:check` is the whole-project gate: it runs six checks and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
+`project:check` is the whole-project gate: it runs seventeen checks (plus the opt-in eighteenth) and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
 
 | Check | Runs | Fails when |
 |---|---|---|
 | `workspace` | `monorepo:run --commands=install,build,fmt,lint,test` | a task exits non-zero |
+| `structure` | module manifests and types, `package.json` names, root `workspaces` globs, `tsconfig.json` aliases | a manifest, name or alias target is missing or duplicated |
+| `conventions` | DI decorator vs class-name suffix, direct `process.env` reads, exported `Type`/`I` naming, non-null assertions | a decorated class is misnamed or a source file reads `process.env` |
+| `env` | each `.env.example.yml` against its `.env.yml` | the local file is missing or lacks a documented key |
+| `dependencies` | one range per dependency, unpinned ranges, undeclared imports, unused packages | never — reported as warnings |
+| `docker` | every compose file: unpinned images, services with no `image`/`build`, clashing host ports, missing `restart` | a service is undefined or two services share a host port |
+| `migrations` | timestamp uniqueness and ordering, `up`/`down` presence, seed YAML validity | two migrations collide, a migration has no `up`, or a seed is invalid YAML |
 | `accessibility` | Biome's `a11y` rules over every UI module's `src/` (`design`, `spa`, `admin`, `storybook`) | an enforced a11y rule errors |
+| `translations` | `en` fallback, locale parity and `{{ placeholder }}` drift in every dictionary | a key has no `en` value |
+| `tests` | a mirrored `.spec.ts` for every source file that declares a class or exported function | never — reported as warnings |
+| `docs` | relative links in every markdown document | a link points at a file that does not exist |
 | `security` | the OSV.dev dependency audit | a critical or high vulnerability is found |
+| `secrets` | credential formats in the working tree, and `.env`/`.pem` files tracked by git | a credential is found outside a fixture, or a secret file is tracked |
+| `git` | build output and dependency trees in the index, blobs over 2 MB, `.gitignore` coverage | `node_modules/`, `dist/`, `.next/` or `coverage/` is tracked |
 | `issues` | the `issue:check` conventions | an issue file has an error |
 | `commits` | conventional-commit rules over the unpushed commits (or the last 20) | never — reported as a warning |
 | `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
+| `e2e` | opt-in (`--e2e`) — `monorepo:run --commands=e2e` | a suite exits non-zero |
 
-Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`/`deps`, `commit`, `monorepo`). A check with nothing to inspect (no UI module, no lockfile, no issue file, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-check` skill wraps this command.
+Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `monorepo`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-check` skill wraps this command.
 
 ## Release
 ```bash

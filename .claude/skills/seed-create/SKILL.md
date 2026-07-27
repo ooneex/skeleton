@@ -4,7 +4,7 @@ description: Generate a new database seed file with its test file, then complete
 when_to_use: Use when creating seed data for populating the database using @talosjs/seeds.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos seed:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos seed:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -100,7 +100,7 @@ describe("<Name>Seed", () => {
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

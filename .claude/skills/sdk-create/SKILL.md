@@ -4,7 +4,7 @@ description: Generate a browser SDK module from a target app or microservice's c
 when_to_use: Use when creating a typed client SDK that calls backend controllers over HTTP via @talosjs/fetcher, HTTP streaming / Server-Sent Events via native fetch, or WebSocket via @talosjs/socket-client.
 model: sonnet
 effort: high
-allowed-tools: Bash(talos sdk:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos sdk:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<name>] [--module=<target>]
 ---
 
@@ -265,7 +265,7 @@ stream: (input: {
 ### 8. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

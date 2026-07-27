@@ -4,7 +4,7 @@ description: Generate a new workflow class with its test file, then complete the
 when_to_use: Use when orchestrating a multi-step business process from @talosjs/workflow — a sequence of conditional, reversible transitions with automatic rollback on failure.
 model: sonnet
 effort: high
-allowed-tools: Bash(talos workflow:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos workflow:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -65,7 +65,7 @@ Read and replace `modules/<module>/tests/workflows/<Name>Workflow.spec.ts`.
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

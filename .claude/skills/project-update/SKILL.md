@@ -65,7 +65,7 @@ Only touch files the generator produced. Skip anything under `node_modules/`, `.
 
 ```bash
 rm -rf "$TMPDIR/talos-project-update"
-talos monorepo:check --logs
+talos check --logs
 ```
 
 Fix every failure (usually an unresolved import or type/format error from a merge). Hand app-code failures to the `debug` skill.

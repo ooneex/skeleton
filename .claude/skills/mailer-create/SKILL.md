@@ -4,7 +4,7 @@ description: Generate a new mailer class with its template and test files, then 
 when_to_use: Use when creating a new email sender with JSX template using @talosjs/mailer.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos mailer:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos mailer:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -160,7 +160,7 @@ describe("<Name>MailerTemplate", () => {
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

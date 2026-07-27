@@ -52,7 +52,7 @@ Re-run the scoped check and the module's gate, and don't stop until both are cle
 
 ```bash
 talos project:check --only=accessibility --modules=<module> --logs
-talos monorepo:check --modules=<module> --logs
+talos check --modules=<module> --logs
 ```
 
 ## Report

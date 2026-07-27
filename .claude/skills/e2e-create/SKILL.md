@@ -4,7 +4,7 @@ description: Generate a Playwright end-to-end test with its config, then complet
 when_to_use: Use when adding browser end-to-end tests (Playwright) to a module — a `.spec.ts` under `e2e/`, plus the module's `playwright.config.ts`.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos e2e:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos e2e:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -69,7 +69,7 @@ Trim the `projects` list to the browsers the suite needs; leave the defaults oth
 ## 4. Lint and format
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing. The suite itself runs separately with `bun run e2e` inside `modules/<module>/` (or `talos e2e:run --modules=<module>` from the root — see the `e2e-run` skill) once the target app is running.

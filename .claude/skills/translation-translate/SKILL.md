@@ -49,7 +49,7 @@ Dispatch **`translation-translator`** **once per dictionary file**, passing the 
 ## 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing — a malformed JSON/YAML dictionary or a broken `trans(...)` rewire must be corrected.

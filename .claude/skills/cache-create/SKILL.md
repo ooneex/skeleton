@@ -4,7 +4,7 @@ description: Generate a new cache adapter class with its test file, then complet
 when_to_use: Use when creating a new cache adapter that implements the ICache interface from @talosjs/cache.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos cache:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos cache:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -145,7 +145,7 @@ describe("<Name>Cache", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

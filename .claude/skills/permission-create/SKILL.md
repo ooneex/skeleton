@@ -4,7 +4,7 @@ description: Generate a new permission class with its test file, then complete t
 when_to_use: Use when creating a new permission that extends Permission from @talosjs/permission.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos permission:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos permission:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -144,7 +144,7 @@ describe("<Name>Permission", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

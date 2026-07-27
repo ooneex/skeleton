@@ -4,7 +4,7 @@ description: Generate a new AI chat class with its test file, then complete the 
 when_to_use: Use when creating a chat that extends the Chat base class from @talosjs/ai (model, system prompts, tools, middlewares).
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos ai:chat:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos ai:chat:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -67,7 +67,7 @@ Read and replace `modules/<module>/tests/ai/chats/<Name>Chat.spec.ts`.
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

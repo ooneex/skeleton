@@ -4,7 +4,7 @@ description: Generate a new React component with a happy-dom + React Testing Lib
 when_to_use: Use when adding a presentational or container React component to a SPA module — at the module level or scoped to a feature.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos react:component:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>] [--feature=<feature>]
 ---
 
@@ -115,7 +115,7 @@ describe("ButtonBack", () => {
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

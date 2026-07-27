@@ -4,7 +4,7 @@ description: Generate a new analytics class with its test file, then complete th
 when_to_use: Use when creating a new analytics tracking class that uses the @talosjs/analytics package.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos analytics:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos analytics:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -95,7 +95,7 @@ describe("<Name>Analytics", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

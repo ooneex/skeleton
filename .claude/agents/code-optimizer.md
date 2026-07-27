@@ -51,7 +51,7 @@ Preserve every public contract. If a clean-up would change a public API or obser
 ## 3. Verify
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Tests must pass after just as they did before. Fix every failure you introduced before finishing; if a failure is pre-existing and not yours, say so.

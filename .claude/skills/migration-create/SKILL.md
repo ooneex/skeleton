@@ -4,7 +4,7 @@ description: Generate a new database migration file, then complete the generated
 when_to_use: Use when creating a new database migration for schema changes using @talosjs/migrations.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos migration:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos migration:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--module=<module>]
 ---
 
@@ -45,7 +45,7 @@ Drop each index explicitly in `down()` before dropping the table or column it co
 ### 3. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

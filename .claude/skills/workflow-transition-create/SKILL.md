@@ -4,7 +4,7 @@ description: Generate a new workflow transition class with its test file, then c
 when_to_use: Use when adding a single conditional, reversible step that implements ITransition from @talosjs/workflow for use inside a workflow.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos workflow:transition:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos workflow:transition:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -84,7 +84,7 @@ Add `<Name>Transition` to the `getTransitions()` array of the workflow that shou
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

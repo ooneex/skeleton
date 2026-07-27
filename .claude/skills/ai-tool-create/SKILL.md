@@ -4,7 +4,7 @@ description: Generate a new AI tool class with its test file, then complete the 
 when_to_use: Use when creating a function-calling tool that implements ITool from @talosjs/ai for use by a chat.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos ai:tool:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos ai:tool:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -77,7 +77,7 @@ Add `<Name>Tool` to the `getTools()` array of the chat that should call it.
 ### 5. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.

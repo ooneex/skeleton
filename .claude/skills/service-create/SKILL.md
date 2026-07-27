@@ -4,7 +4,7 @@ description: Generate a new service class with its test file, then complete the 
 when_to_use: Use when creating a new business logic service that implements IService from @talosjs/service.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos service:create *), Bash(talos monorepo:check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos service:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: [--name=<Name>] [--module=<module>]
 ---
 
@@ -100,7 +100,7 @@ describe("<Name>Service", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos monorepo:check
+talos check
 ```
 
 Fix every failure before completing.
