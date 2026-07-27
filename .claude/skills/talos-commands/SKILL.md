@@ -1,6 +1,6 @@
 ---
 name: talos-commands
-description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/admin/microservice/SDK/docker scaffolding, database migrations and seeds, monorepo task running, releases, and issues.
+description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/admin/microservice/SDK/docker scaffolding, database migrations and seeds, monorepo task running, health checks, releases, and issues.
 when_to_use: Use when you need the exact command or flags to run a project task from the terminal.
 user-invocable: false
 ---
@@ -114,6 +114,31 @@ talos security:check --issues                           # Create one YAML Securi
 ```
 
 `security:check` walks the workspace, parses every lockfile it finds (`bun.lock`, `package-lock.json`, `Cargo.lock`, `requirements.txt`, `Pipfile.lock`, `poetry.lock`, `go.sum`, `Gemfile.lock`, `composer.lock`) and checks each resolved package against the **OSV.dev** online database — covering npm (bun/node/react/typescript), PyPI, crates.io, Go, RubyGems and Packagist. No local audit binary is required (only network access). Findings are grouped by module/package folder name and sorted by severity (critical→low), each citing the OSV advisory id, CVE aliases, patched versions and advisory URL. `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. If OSV.dev is unreachable the command aborts. The `/security-check` skill wraps this command.
+
+## Project health
+```bash
+talos project:check                                   # Run every check and print one aggregated report
+talos project:check --skip=workspace                  # The fast checks only (no install/build/test)
+talos project:check --only=accessibility,security     # Only the named checks
+talos project:check --modules=billing,user            # Scope workspace/accessibility/security/issues to these targets (also --packages=a,b)
+talos project:check --audit-level=high                # Only surface high/critical vulnerabilities
+talos project:check --strict                          # Exit 1 when a check only reports warnings
+talos project:check --json                            # Machine-readable report for CI
+talos project:check --logs                            # Stream plain workspace logs (always pass this as an agent)
+```
+
+`project:check` is the whole-project gate: it runs six checks and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
+
+| Check | Runs | Fails when |
+|---|---|---|
+| `workspace` | `monorepo:run --commands=install,build,fmt,lint,test` | a task exits non-zero |
+| `accessibility` | Biome's `a11y` rules over every UI module's `src/` (`design`, `spa`, `admin`, `storybook`) | an enforced a11y rule errors |
+| `security` | the OSV.dev dependency audit | a critical or high vulnerability is found |
+| `issues` | the `issue:check` conventions | an issue file has an error |
+| `commits` | conventional-commit rules over the unpushed commits (or the last 20) | never — reported as a warning |
+| `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
+
+Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`/`deps`, `commit`, `monorepo`). A check with nothing to inspect (no UI module, no lockfile, no issue file, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-check` skill wraps this command.
 
 ## Release
 ```bash

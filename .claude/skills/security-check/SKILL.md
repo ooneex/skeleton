@@ -66,3 +66,7 @@ talos security:check --modules=<module>
 ```
 
 Re-run the full audit once every remediation is applied to confirm the workspace is clean (`✔ No known vulnerabilities found`). If a fix requires a code change beyond a version bump (a breaking major upgrade), hand off to the `debug` or `issue-fix` skill.
+
+## Related
+
+`talos project:check` runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-check` when you want the whole-project verdict, and this skill when you are working the vulnerabilities themselves.
