@@ -7,7 +7,9 @@ pub struct ArrowTriangleLineExpandDiagonalIconProps {
 }
 
 #[component]
-pub fn ArrowTriangleLineExpandDiagonalIcon(props: ArrowTriangleLineExpandDiagonalIconProps) -> Element {
+pub fn ArrowTriangleLineExpandDiagonalIcon(
+    props: ArrowTriangleLineExpandDiagonalIconProps,
+) -> Element {
     rsx! {
         svg {
             height: "16",

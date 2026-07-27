@@ -105,7 +105,7 @@ pub fn Rating(props: RatingProps) -> Element {
     };
 
     // Clone on_value_change for use in both the item buttons and GradientRating.
-    let on_vc_for_select = props.on_value_change;
+    let on_vc_for_select = props.on_value_change.clone();
     let on_vc_for_gradient = props.on_value_change;
 
     // use_callback returns Callback<T> which is Copy — safe to capture in loops.
@@ -113,30 +113,43 @@ pub fn Rating(props: RatingProps) -> Element {
     let tooltips_rc2 = tooltips_rc.clone();
 
     let handle_enter = use_callback(move |item_value: usize| {
-        if !interactive || *is_confirming.read() { return; }
+        if !interactive || *is_confirming.read() {
+            return;
+        }
         hover_value.set(item_value);
-        if let Some(t) = tooltips_rc.as_ref().as_ref().and_then(|ts| ts.get(item_value - 1)) {
+        if let Some(t) = tooltips_rc
+            .as_ref()
+            .as_ref()
+            .and_then(|ts| ts.get(item_value - 1))
+        {
             tooltip_text.set(t.clone());
             is_tooltip_visible.set(true);
         }
     });
 
     let handle_leave = use_callback(move |()| {
-        if !interactive { return; }
+        if !interactive {
+            return;
+        }
         hover_value.set(0);
         is_tooltip_visible.set(false);
     });
 
     let handle_select = use_callback(move |sv: usize| {
-        if !interactive || *is_confirming.read() { return; }
-        if let Some(h) = on_vc_for_select {
+        if !interactive || *is_confirming.read() {
+            return;
+        }
+        if let Some(ref h) = on_vc_for_select {
             h.call(sv as f64);
         }
         hover_value.set(0);
         is_tooltip_visible.set(false);
         if sv >= 3 {
             is_confirming.set(true);
-            sparkle_position.set(Some(ClickPositionType { top: 0.0, left: 0.0 }));
+            sparkle_position.set(Some(ClickPositionType {
+                top: 0.0,
+                left: 0.0,
+            }));
         }
     });
 
@@ -330,7 +343,7 @@ pub fn GradientRating(props: GradientRatingProps) -> Element {
         let pointer_y = client_y - *rect_top.peek();
         let pct = (1.0 - pointer_y / *rect_height.peek()).clamp(0.0, 1.0);
         let new_val = (pct * count as f64).round();
-        if let Some(h) = on_value_change {
+        if let Some(ref h) = on_value_change {
             h.call(new_val);
         }
     });
@@ -386,12 +399,12 @@ pub fn GradientRating(props: GradientRatingProps) -> Element {
                     Key::ArrowUp | Key::ArrowRight => {
                         event.prevent_default();
                         let new_val = (value + 1.0).min(count as f64);
-                        if let Some(h) = on_value_change { h.call(new_val); }
+                        if let Some(ref h) = on_value_change { h.call(new_val); }
                     }
                     Key::ArrowDown | Key::ArrowLeft => {
                         event.prevent_default();
                         let new_val = (value - 1.0).max(0.0);
-                        if let Some(h) = on_value_change { h.call(new_val); }
+                        if let Some(ref h) = on_value_change { h.call(new_val); }
                     }
                     _ => {}
                 }

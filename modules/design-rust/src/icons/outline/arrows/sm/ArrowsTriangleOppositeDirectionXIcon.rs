@@ -7,7 +7,9 @@ pub struct ArrowsTriangleOppositeDirectionXIconProps {
 }
 
 #[component]
-pub fn ArrowsTriangleOppositeDirectionXIcon(props: ArrowsTriangleOppositeDirectionXIconProps) -> Element {
+pub fn ArrowsTriangleOppositeDirectionXIcon(
+    props: ArrowsTriangleOppositeDirectionXIconProps,
+) -> Element {
     rsx! {
         svg {
             height: "16",

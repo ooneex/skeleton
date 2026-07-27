@@ -90,7 +90,7 @@ pub fn ContextMenu(props: ContextMenuProps) -> Element {
     let on_select = props.on_select;
 
     let close = use_callback(move |()| {
-        if let Some(h) = on_close {
+        if let Some(ref h) = on_close {
             h.call(());
         }
     });
@@ -185,7 +185,7 @@ fn RenderItem(props: RenderItemProps) -> Element {
                     tabindex: if disabled { -1i64 } else { 0 },
                     onclick: move |_| {
                         if !disabled {
-                            if let Some(h) = on_select { h.call(value.clone()); }
+                            if let Some(ref h) = on_select { h.call(value.clone()); }
                             on_close.call(());
                         }
                     },
@@ -223,7 +223,7 @@ fn RenderItem(props: RenderItemProps) -> Element {
                     tabindex: if disabled { -1i64 } else { 0 },
                     onclick: move |_| {
                         if !disabled {
-                            if let Some(h) = on_select { h.call(value.clone()); }
+                            if let Some(ref h) = on_select { h.call(value.clone()); }
                             on_close.call(());
                         }
                     },
@@ -284,7 +284,7 @@ fn RenderItem(props: RenderItemProps) -> Element {
                                     key: "{child_index}",
                                     item: child_item.clone(),
                                     index: child_index,
-                                    on_select,
+                                    on_select: on_select.clone(),
                                     on_close,
                                 }
                             }
@@ -320,7 +320,7 @@ fn RenderItem(props: RenderItemProps) -> Element {
                     tabindex: if disabled { -1i64 } else { 0 },
                     onclick: move |_| {
                         if !disabled {
-                            if let Some(h) = on_select { h.call(value.clone()); }
+                            if let Some(ref h) = on_select { h.call(value.clone()); }
                             on_close.call(());
                         }
                     },

@@ -7,7 +7,9 @@ pub struct ArrowsDiagonalOppositeDirectionIconProps {
 }
 
 #[component]
-pub fn ArrowsDiagonalOppositeDirectionIcon(props: ArrowsDiagonalOppositeDirectionIconProps) -> Element {
+pub fn ArrowsDiagonalOppositeDirectionIcon(
+    props: ArrowsDiagonalOppositeDirectionIconProps,
+) -> Element {
     rsx! {
         svg {
             height: "16",

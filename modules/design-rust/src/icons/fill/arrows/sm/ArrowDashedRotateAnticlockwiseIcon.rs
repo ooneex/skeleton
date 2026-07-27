@@ -7,7 +7,9 @@ pub struct ArrowDashedRotateAnticlockwiseIconProps {
 }
 
 #[component]
-pub fn ArrowDashedRotateAnticlockwiseIcon(props: ArrowDashedRotateAnticlockwiseIconProps) -> Element {
+pub fn ArrowDashedRotateAnticlockwiseIcon(
+    props: ArrowDashedRotateAnticlockwiseIconProps,
+) -> Element {
     rsx! {
         svg {
             height: "16",

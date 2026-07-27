@@ -47,7 +47,6 @@ pub fn ResizableHandle(props: ResizableHandleProps) -> Element {
                 if disabled { "pointer-events-none opacity-50" } else { "cursor-col-resize data-[panel-group-direction=vertical]:cursor-row-resize" },
                 props.class.as_deref().unwrap_or_default(),
             ]),
-            ..props.attributes,
             onpointerdown: move |event| {
                 if disabled { return; }
                 let coord = if is_horizontal {
@@ -70,6 +69,7 @@ pub fn ResizableHandle(props: ResizableHandleProps) -> Element {
                     ctx.start_drag.call((handle_index, coord, c_px));
                 });
             },
+            ..props.attributes,
             if props.with_handle {
                 div { class: "bg-border h-10 w-1.5 rounded-[4px] z-10 flex shrink-0" }
             }
