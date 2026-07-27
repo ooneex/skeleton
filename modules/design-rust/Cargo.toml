@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+dioxus = { version = "0.7.9", default-features = false, features = ["macro", "html", "signals", "hooks", "mounted"] }
+tw_merge = "0.1.21"
+
+[dev-dependencies]
+dioxus-ssr = "0.7.9"
