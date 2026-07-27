@@ -1,10 +1,10 @@
 #![allow(non_snake_case)]
 
-mod Tabs;
-mod TabsContent;
-mod TabsIndicator;
-mod TabsList;
-mod TabsTrigger;
+pub mod Tabs;
+pub mod TabsContent;
+pub mod TabsIndicator;
+pub mod TabsList;
+pub mod TabsTrigger;
 
 pub use Tabs::{Tabs, TabsProps};
 pub use TabsContent::{TabsContent, TabsContentProps};

@@ -1,27 +1,35 @@
 #![allow(non_snake_case)]
 
-mod AlertDialog;
-mod AlertDialogAction;
-mod AlertDialogCancel;
-mod AlertDialogContent;
-mod AlertDialogDescription;
-mod AlertDialogFooter;
-mod AlertDialogHeader;
-mod AlertDialogMedia;
-mod AlertDialogOverlay;
-mod AlertDialogPortal;
-mod AlertDialogTitle;
-mod Dialog;
-mod DialogContent;
-mod DialogContext;
-mod DialogDescription;
-mod DialogFooter;
-mod DialogHeader;
-mod DialogOverlay;
-mod DialogPortal;
-mod DialogTitle;
-mod useDialogBehavior;
-mod useDialogPresence;
+// Use #[path] aliases to prevent E0255: module name vs component name collision.
+pub mod AlertDialogAction;
+pub mod AlertDialogCancel;
+pub mod AlertDialogContent;
+pub mod AlertDialogDescription;
+pub mod AlertDialogFooter;
+pub mod AlertDialogHeader;
+pub mod AlertDialogMedia;
+pub mod AlertDialogOverlay;
+pub mod AlertDialogPortal;
+pub mod AlertDialogTitle;
+pub mod DialogContent;
+pub mod DialogContext;
+pub mod DialogDescription;
+pub mod DialogFooter;
+pub mod DialogHeader;
+pub mod DialogOverlay;
+pub mod DialogPortal;
+pub mod DialogTitle;
+#[path = "AlertDialog.rs"]
+pub mod alert_dialog;
+#[path = "Dialog.rs"]
+pub mod dialog_impl;
+pub mod useDialogBehavior;
+pub mod useDialogPresence;
 
-pub use AlertDialog::{AlertDialog, AlertDialogModeType, AlertDialogPropsType, alert, confirm};
-pub use Dialog::Dialog;
+pub use DialogContent::DialogContent;
+pub use DialogDescription::DialogDescription;
+pub use DialogFooter::DialogFooter;
+pub use DialogHeader::DialogHeader;
+pub use DialogTitle::DialogTitle;
+pub use alert_dialog::{AlertDialog, AlertDialogModeType, AlertDialogPropsType, alert, confirm};
+pub use dialog_impl::Dialog;

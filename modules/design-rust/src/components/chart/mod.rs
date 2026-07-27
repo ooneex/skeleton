@@ -1,13 +1,13 @@
 #![allow(non_snake_case)]
 
-mod Chart;
-mod ChartContainer;
-mod ChartLegend;
-mod ChartLegendContent;
-mod ChartStyle;
-mod ChartTooltip;
-mod ChartTooltipContent;
-mod chartContext;
+pub mod Chart;
+pub mod ChartContainer;
+pub mod ChartLegend;
+pub mod ChartLegendContent;
+pub mod ChartStyle;
+pub mod ChartTooltip;
+pub mod ChartTooltipContent;
+pub mod chartContext;
 
 pub use Chart::{ChartContainer as Chart, ChartContainerProps as ChartProps};
 pub use ChartContainer::{ChartContainer, ChartContainerProps};

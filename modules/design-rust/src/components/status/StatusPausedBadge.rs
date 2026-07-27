@@ -10,9 +10,9 @@ pub fn StatusPausedBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Warning,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             MediaPauseIcon { "data-icon": "inline-start" }
             {
                 match props.children {

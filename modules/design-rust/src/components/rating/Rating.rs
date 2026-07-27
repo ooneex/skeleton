@@ -110,7 +110,6 @@ pub fn Rating(props: RatingProps) -> Element {
 
     // use_callback returns Callback<T> which is Copy — safe to capture in loops.
     let tooltips_rc = Rc::new(props.tooltips.clone());
-    let tooltips_rc2 = tooltips_rc.clone();
 
     let handle_enter = use_callback(move |item_value: usize| {
         if !interactive || *is_confirming.read() {

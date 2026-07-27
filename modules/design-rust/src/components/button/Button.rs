@@ -91,6 +91,18 @@ pub struct ButtonProps {
     pub variant: ButtonVariantType,
     #[props(default)]
     pub size: ButtonSizeType,
+    #[props(default)]
+    pub onclick: Option<EventHandler<MouseEvent>>,
+    #[props(default)]
+    pub onkeydown: Option<EventHandler<KeyboardEvent>>,
+    #[props(default)]
+    pub onmouseenter: Option<EventHandler<MouseEvent>>,
+    #[props(default)]
+    pub onmouseleave: Option<EventHandler<MouseEvent>>,
+    #[props(default)]
+    pub onfocus: Option<EventHandler<FocusEvent>>,
+    #[props(default)]
+    pub onblur: Option<EventHandler<FocusEvent>>,
     #[props(extends = button, extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
     pub children: Element,
@@ -98,10 +110,47 @@ pub struct ButtonProps {
 
 #[component]
 pub fn Button(props: ButtonProps) -> Element {
+    let onclick = props.onclick;
+    let onkeydown = props.onkeydown;
+    let onmouseenter = props.onmouseenter;
+    let onmouseleave = props.onmouseleave;
+    let onfocus = props.onfocus;
+    let onblur = props.onblur;
+
     rsx! {
         button {
             "data-slot": "button",
             class: button_variants(props.variant, props.size, props.class.as_deref()),
+            onclick: move |event| {
+                if let Some(handler) = onclick {
+                    handler.call(event);
+                }
+            },
+            onkeydown: move |event| {
+                if let Some(handler) = onkeydown {
+                    handler.call(event);
+                }
+            },
+            onmouseenter: move |event| {
+                if let Some(handler) = onmouseenter {
+                    handler.call(event);
+                }
+            },
+            onmouseleave: move |event| {
+                if let Some(handler) = onmouseleave {
+                    handler.call(event);
+                }
+            },
+            onfocus: move |event| {
+                if let Some(handler) = onfocus {
+                    handler.call(event);
+                }
+            },
+            onblur: move |event| {
+                if let Some(handler) = onblur {
+                    handler.call(event);
+                }
+            },
             ..props.attributes,
             {props.children}
         }

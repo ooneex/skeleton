@@ -5,30 +5,55 @@ use crate::utils::cn;
 /// A single animated digit column. Shows digits 0–9 stacked vertically and
 /// translates in Y so the target digit is centred in the visible slot.
 ///
+/// The pixel row-height is measured once on mount (via `onmounted` +
+/// `get_client_rect`) and stored in a signal; the `translateY` offset uses
+/// `{px}px` for accuracy, falling back to `{n}em` until the measurement
+/// arrives.
+///
 /// The spring animation from `motion/react` is approximated with a CSS
 /// `transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1)`.
-/// `1em` is used as the digit row height (valid because `leading-none` + `tabular-nums`
-/// means every digit is exactly one font-size tall).
 #[component]
 fn Digit(value: i64, place: i64) -> Element {
     let digit_value = (value / place).rem_euclid(10) as i32;
+    let mut row_height = use_signal(|| None::<f64>);
 
     rsx! {
         div {
             class: "relative inline-block w-[1ch] overflow-x-visible overflow-y-clip leading-none tabular-nums",
-            div { class: "invisible", "0" }
+            // Invisible reference glyph — measured once on mount.
+            div {
+                class: "invisible",
+                onmounted: move |event| {
+                    let data = event.data();
+                    spawn(async move {
+                        if let Ok(rect) = data.get_client_rect().await {
+                            if rect.size.height > 0.0 {
+                                row_height.set(Some(rect.size.height));
+                            }
+                        }
+                    });
+                },
+                "0"
+            }
             for i in 0..10i32 {
                 {
                     let offset = (10 + i - digit_value).rem_euclid(10);
-                    // choose the shortest path: if offset > 5, go the other way
+                    // Shortest path: if offset > 5, go the other way.
                     let y: f64 = if offset > 5 { f64::from(offset) - 10.0 } else { f64::from(offset) };
+                    let transform_style = match *row_height.read() {
+                        Some(h) => format!(
+                            "transform: translateY({:.4}px); transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1)",
+                            y * h
+                        ),
+                        None => format!(
+                            "transform: translateY({y}em); transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1)"
+                        ),
+                    };
                     rsx! {
                         span {
                             key: "{i}",
                             class: "absolute inset-0 flex items-center justify-center",
-                            style: format!(
-                                "transform: translateY({y}em); transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1)",
-                            ),
+                            style: transform_style,
                             "{i}"
                         }
                     }

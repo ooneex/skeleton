@@ -10,9 +10,9 @@ pub fn StatusSubmittedBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Info,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             PaperPlaneIcon { "data-icon": "inline-start" }
             {
                 match props.children {

@@ -1,5 +1,5 @@
 #![allow(non_snake_case)]
 
-mod ContextMenu;
+pub mod ContextMenu;
 
 pub use ContextMenu::{ContextMenu, ContextMenuItemType, ContextMenuProps};

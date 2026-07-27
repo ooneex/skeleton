@@ -1,10 +1,10 @@
 #![allow(non_snake_case)]
 
-mod Tooltip;
-mod TooltipContent;
-mod TooltipProvider;
-mod TooltipTrigger;
-mod tooltipContext;
+pub mod Tooltip;
+pub mod TooltipContent;
+pub mod TooltipProvider;
+pub mod TooltipTrigger;
+pub mod tooltipContext;
 
 pub use Tooltip::{Tooltip, TooltipProps};
 pub use TooltipContent::{TooltipContent, TooltipContentProps};

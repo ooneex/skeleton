@@ -1,12 +1,12 @@
 #![allow(non_snake_case)]
 
-mod Breadcrumb;
-mod BreadcrumbEllipsis;
-mod BreadcrumbItem;
-mod BreadcrumbLink;
-mod BreadcrumbList;
-mod BreadcrumbPage;
-mod BreadcrumbSeparator;
+pub mod Breadcrumb;
+pub mod BreadcrumbEllipsis;
+pub mod BreadcrumbItem;
+pub mod BreadcrumbLink;
+pub mod BreadcrumbList;
+pub mod BreadcrumbPage;
+pub mod BreadcrumbSeparator;
 
 pub use Breadcrumb::{Breadcrumb, BreadcrumbProps};
 pub use BreadcrumbEllipsis::{

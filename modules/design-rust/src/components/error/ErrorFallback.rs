@@ -1,7 +1,7 @@
 use dioxus::document::eval;
 use dioxus::prelude::*;
 
-use crate::components::button::{Button, ButtonSizeType, ButtonVariantType, button_variants};
+use crate::components::button::{ButtonSizeType, ButtonVariantType, button_variants};
 use crate::icons::outline::arrows::sm::ArrowLeftIcon;
 use crate::utils::{cn, is_stale_chunk_error, reload_if_stale_chunk_error};
 
@@ -176,13 +176,16 @@ pub fn ErrorFallback(props: ErrorFallbackProps) -> Element {
                 }
                 div {
                     class: "flex gap-3",
-                    Button {
-                        variant: ButtonVariantType::Outline,
+                    button {
+                        r#type: "button",
+                        class: button_variants(ButtonVariantType::Outline, ButtonSizeType::default(), None),
                         onclick: move |_| { spawn(async { let _ = eval("window.history.back();").await; }); },
                         ArrowLeftIcon {}
                         "Go back"
                     }
-                    Button {
+                    button {
+                        r#type: "button",
+                        class: button_variants(ButtonVariantType::Default, ButtonSizeType::default(), None),
                         onclick: move |_| {
                             if stale_chunk {
                                 spawn(async { let _ = eval("window.location.reload();").await; });

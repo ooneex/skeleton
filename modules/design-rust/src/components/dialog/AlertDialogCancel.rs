@@ -1,7 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::components::button::{Button, ButtonSizeType, ButtonVariantType};
-use crate::utils::cn;
+use crate::components::button::{ButtonSizeType, ButtonVariantType, button_variants};
 
 use super::DialogContext::use_dialog_context;
 
@@ -13,6 +12,8 @@ pub struct AlertDialogCancelProps {
     pub size: ButtonSizeType,
     #[props(default)]
     pub class: Option<String>,
+    #[props(default)]
+    pub on_click: Option<EventHandler<MouseEvent>>,
     #[props(extends = button, extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
     pub children: Element,
@@ -23,12 +24,13 @@ pub fn AlertDialogCancel(props: AlertDialogCancelProps) -> Element {
     let ctx = use_dialog_context();
 
     rsx! {
-        Button {
+        button {
             "data-slot": "alert-dialog-cancel",
-            variant: props.variant,
-            size: props.size,
-            class: cn([props.class.as_deref().unwrap_or_default()]),
-            onclick: move |_| {
+            class: button_variants(props.variant, props.size, props.class.as_deref()),
+            onclick: move |e| {
+                if let Some(h) = &props.on_click {
+                    h.call(e);
+                }
                 if let Some(c) = ctx {
                     c.dismiss.call(());
                 }

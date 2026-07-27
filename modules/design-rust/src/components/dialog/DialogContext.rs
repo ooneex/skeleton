@@ -5,6 +5,7 @@ use dioxus::prelude::*;
 /// other sub-component that needs to communicate back to the host.
 #[derive(Clone, Copy)]
 pub(crate) struct DialogContextValue {
+    #[allow(dead_code)]
     pub(crate) open: Signal<bool>,
     pub(crate) dismiss: Callback<()>,
     /// Stable id wired to the title element for `aria-labelledby`.

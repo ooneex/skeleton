@@ -10,9 +10,9 @@ pub fn StatusPendingBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Warning,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             HourglassIcon { "data-icon": "inline-start" }
             {
                 match props.children {

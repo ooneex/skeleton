@@ -1,12 +1,12 @@
 #![allow(non_snake_case)]
 
-mod Card;
-mod CardAction;
-mod CardContent;
-mod CardDescription;
-mod CardFooter;
-mod CardHeader;
-mod CardTitle;
+pub mod Card;
+pub mod CardAction;
+pub mod CardContent;
+pub mod CardDescription;
+pub mod CardFooter;
+pub mod CardHeader;
+pub mod CardTitle;
 
 pub use Card::{Card, CardProps};
 pub use CardAction::{CardAction, CardActionProps};

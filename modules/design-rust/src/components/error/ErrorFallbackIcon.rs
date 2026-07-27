@@ -87,8 +87,8 @@ pub fn ErrorFallbackIcon(props: ErrorFallbackIconProps) -> Element {
                     id: "err-glow",
                     feGaussianBlur { std_deviation: "3", result: "blur" }
                     feMerge {
-                        feMergeNode { r#in: "blur" }
-                        feMergeNode { r#in: "SourceGraphic" }
+                        feMergeNode { _in: "blur" }
+                        feMergeNode { _in: "SourceGraphic" }
                     }
                 }
                 filter {

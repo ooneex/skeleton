@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::components::button::{Button, ButtonSizeType, ButtonVariantType};
+use crate::components::button::{ButtonSizeType, ButtonVariantType, button_variants};
 use crate::icons::outline::ui_layout::sm::XmarkIcon;
 use crate::utils::cn;
 
@@ -67,11 +67,10 @@ pub fn SheetContent(props: SheetContentProps) -> Element {
                 ..props.attributes,
                 {props.children}
                 if props.show_close_button {
-                    Button {
+                    button {
                         "data-slot": "sheet-close",
-                        variant: ButtonVariantType::Ghost,
-                        size: ButtonSizeType::IconSm,
-                        class: "absolute top-4 right-4",
+                        r#type: "button",
+                        class: button_variants(ButtonVariantType::Ghost, ButtonSizeType::IconSm, Some("absolute top-4 right-4")),
                         onclick: move |_| {
                             if let Some(h) = &on_dismiss {
                                 h.call(());

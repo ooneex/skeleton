@@ -1,13 +1,13 @@
 #![allow(non_snake_case)]
 
-mod Blockquote;
-mod Heading;
-mod HighlightText;
-mod InlineCode;
-mod Link;
-mod List;
-mod Table;
-mod Text;
+pub mod Blockquote;
+pub mod Heading;
+pub mod HighlightText;
+pub mod InlineCode;
+pub mod Link;
+pub mod List;
+pub mod Table;
+pub mod Text;
 
 pub use Blockquote::{Blockquote, BlockquoteProps};
 pub use Heading::{H1, H1Props, H2, H2Props, H3, H3Props, H4, H4Props, H5, H5Props, H6, H6Props};

@@ -24,7 +24,7 @@ pub enum AlertDialogModeType {
 }
 
 /// Properties for the imperative `confirm` / `alert` API.
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct AlertDialogPropsType {
     /// `Confirm` (default) shows Cancel + Action; `Alert` shows a single
     /// acknowledge button.
@@ -185,30 +185,16 @@ fn AlertDialogInstance(props: AlertDialogInstanceProps) -> Element {
             AlertDialogFooter {
                 if entry.mode == AlertDialogModeType::Confirm {
                     AlertDialogCancel {
-                        onclick: move |_| resolve_alert(id, false),
+                        on_click: move |_| resolve_alert(id, false),
                         "{entry.cancel_label}"
                     }
                 }
                 AlertDialogAction {
                     variant: entry.confirm_variant,
-                    onclick: move |_| resolve_alert(id, true),
+                    on_click: move |_| resolve_alert(id, true),
                     "{entry.confirm_label}"
                 }
             }
-        }
-    }
-}
-
-impl Default for AlertDialogPropsType {
-    fn default() -> Self {
-        Self {
-            mode: None,
-            title: String::new(),
-            description: None,
-            confirm_label: None,
-            cancel_label: None,
-            confirm_variant: None,
-            size: None,
         }
     }
 }

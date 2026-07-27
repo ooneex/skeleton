@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::components::button::{Button, ButtonVariantType};
+use crate::components::button::{ButtonSizeType, ButtonVariantType, button_variants};
 use crate::utils::cn;
 
 use super::DialogContext::use_dialog_context;
@@ -31,12 +31,13 @@ pub fn DialogFooter(props: DialogFooterProps) -> Element {
             ..props.attributes,
             {props.children}
             if props.show_close_button {
-                Button {
+                button {
                     "data-slot": "dialog-close",
-                    variant: ButtonVariantType::Outline,
+                    r#type: "button",
+                    class: button_variants(ButtonVariantType::Outline, ButtonSizeType::default(), None),
                     onclick: move |_| {
-                        if let Some(ctx) = ctx {
-                            ctx.dismiss.call(());
+                        if let Some(c) = ctx {
+                            c.dismiss.call(());
                         }
                     },
                     "Close"

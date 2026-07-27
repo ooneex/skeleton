@@ -2,7 +2,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use dioxus::prelude::*;
 
-use crate::components::button::{Button, ButtonSizeType, ButtonVariantType};
+use crate::components::button::{ButtonSizeType, ButtonVariantType, button_variants};
 use crate::icons::outline::loaders::sm::SpinnerLoaderIcon;
 use crate::icons::outline::travel::sm::CircleInfoIcon;
 use crate::icons::outline::ui_layout::sm::{
@@ -135,6 +135,7 @@ pub mod toaster {
     use super::{
         TOAST_DURATION_MS, TOAST_STORE, ToastHandleType, ToastStateType, dismiss_toast, emit,
     };
+    use dioxus::prelude::ReadableExt;
 
     pub fn success(
         title: &str,
@@ -277,7 +278,7 @@ fn ToastView(props: ToastViewProps) -> Element {
         if state == ToastStateType::Loading {
             return;
         }
-        spawn(async {
+        spawn(async move {
             let _ = dioxus::document::eval(
                 "await new Promise(r => requestAnimationFrame(r)); dioxus.send(true);",
             )
@@ -315,10 +316,9 @@ fn ToastView(props: ToastViewProps) -> Element {
                         p { class: "mt-0.5 text-xs text-light/50", "{desc}" }
                     }
                 }
-                Button {
-                    variant: ButtonVariantType::Ghost,
-                    size: ButtonSizeType::IconXs,
-                    class: "shrink-0 mt-0.5 text-light/25 hover:text-light/70 hover:bg-light/10",
+                button {
+                    r#type: "button",
+                    class: button_variants(ButtonVariantType::Ghost, ButtonSizeType::IconXs, Some("shrink-0 mt-0.5 text-light/25 hover:text-light/70 hover:bg-light/10")),
                     onclick: move |_| dismiss_toast(id),
                     XmarkIcon { class: "size-3.5" }
                 }

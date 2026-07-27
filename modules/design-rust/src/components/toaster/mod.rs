@@ -1,5 +1,6 @@
 #![allow(non_snake_case)]
 
-mod Toaster;
+#[path = "Toaster.rs"]
+pub mod toaster_mod;
 
-pub use Toaster::{ToastHandleType, Toaster, toaster};
+pub use toaster_mod::{ToastHandleType, Toaster, toaster};

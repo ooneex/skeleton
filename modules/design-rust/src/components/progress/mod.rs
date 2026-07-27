@@ -1,10 +1,10 @@
 #![allow(non_snake_case)]
 
-mod Progress;
-mod ProgressIndicator;
-mod ProgressLabel;
-mod ProgressTrack;
-mod ProgressValue;
+pub mod Progress;
+pub mod ProgressIndicator;
+pub mod ProgressLabel;
+pub mod ProgressTrack;
+pub mod ProgressValue;
 
 pub use Progress::{Progress, ProgressContext, ProgressProps};
 pub use ProgressIndicator::{ProgressIndicator, ProgressIndicatorProps};

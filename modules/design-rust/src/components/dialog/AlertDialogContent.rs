@@ -46,7 +46,7 @@ pub fn AlertDialogContent(props: AlertDialogContentProps) -> Element {
     let description_id = use_id("alert-dialog-description");
     let popup_id = use_id("alert-dialog-popup");
 
-    let open = use_signal(|| props.open);
+    let mut open = use_signal(|| props.open);
     let has_title = use_signal(|| false);
     let has_description = use_signal(|| false);
     let title_id_signal = use_signal(|| title_id.clone());

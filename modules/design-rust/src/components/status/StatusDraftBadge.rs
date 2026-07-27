@@ -10,9 +10,9 @@ pub fn StatusDraftBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Neutral,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             PenIcon { "data-icon": "inline-start" }
             {
                 match props.children {

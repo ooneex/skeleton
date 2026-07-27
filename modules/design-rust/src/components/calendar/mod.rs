@@ -1,3 +1,3 @@
 #![allow(non_snake_case)]
-mod Calendar;
+pub mod Calendar;
 pub use Calendar::{Calendar, CalendarProps};

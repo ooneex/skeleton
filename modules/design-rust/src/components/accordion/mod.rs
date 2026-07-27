@@ -2,10 +2,10 @@
 // a PascalCase file inside its component folder.
 #![allow(non_snake_case)]
 
-mod Accordion;
-mod AccordionContent;
-mod AccordionItem;
-mod AccordionTrigger;
+pub mod Accordion;
+pub mod AccordionContent;
+pub mod AccordionItem;
+pub mod AccordionTrigger;
 
 pub use Accordion::{Accordion, AccordionProps};
 pub use AccordionContent::{AccordionContent, AccordionContentProps};

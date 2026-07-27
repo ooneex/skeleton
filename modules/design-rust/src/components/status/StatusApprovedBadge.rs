@@ -10,9 +10,9 @@ pub fn StatusApprovedBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Success,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             CircleCheckIcon { "data-icon": "inline-start" }
             {
                 match props.children {

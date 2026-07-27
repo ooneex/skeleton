@@ -28,8 +28,10 @@ pub fn Tooltip(props: TooltipProps) -> Element {
     let (open, set_open) =
         crate::hooks::use_controlled_state(props.open, props.default_open, props.on_open_change);
 
-    let trigger_id = use_signal(|| use_id("tooltip-trigger"));
-    let positioner_id = use_signal(|| use_id("tooltip-positioner"));
+    let trigger_id_val = use_id("tooltip-trigger");
+    let positioner_id_val = use_id("tooltip-positioner");
+    let trigger_id = use_signal(|| trigger_id_val.clone());
+    let positioner_id = use_signal(|| positioner_id_val.clone());
 
     // Provide the inner provider context (shadows any outer TooltipProvider).
     use_context_provider(|| TooltipProviderContext { delay: 0.0 });

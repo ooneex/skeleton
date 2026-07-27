@@ -9,6 +9,7 @@ use super::DialogDescription::DialogDescription;
 use super::DialogHeader::DialogHeader;
 use super::DialogTitle::DialogTitle;
 
+#[allow(dead_code)]
 static NEXT_DIALOG_ID: AtomicUsize = AtomicUsize::new(0);
 
 /// Properties accepted by the imperative `dialog_call` API.
@@ -16,7 +17,7 @@ static NEXT_DIALOG_ID: AtomicUsize = AtomicUsize::new(0);
 /// Because Dioxus RSX nodes cannot be transferred across async boundaries,
 /// `children` is limited to a string here. For dialogs with rich content use
 /// `DialogContent` directly.
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct DialogPropsType {
     pub title: Option<String>,
     pub description: Option<String>,
@@ -56,6 +57,7 @@ static DIALOG_STORE: GlobalSignal<Vec<DialogEntry>> = GlobalSignal::new(Vec::new
 ///     }).await;
 /// });
 /// ```
+#[allow(dead_code)]
 pub async fn dialog_call(props: DialogPropsType) {
     let id = NEXT_DIALOG_ID.fetch_add(1, Ordering::Relaxed);
     let result_slot = Arc::new(Mutex::new(None::<()>));
@@ -156,16 +158,6 @@ fn DialogInstance(props: DialogInstanceProps) -> Element {
             if let Some(body) = &entry.props.body {
                 p { "{body}" }
             }
-        }
-    }
-}
-
-impl Default for DialogPropsType {
-    fn default() -> Self {
-        Self {
-            title: None,
-            description: None,
-            body: None,
         }
     }
 }

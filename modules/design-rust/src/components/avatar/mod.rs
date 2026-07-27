@@ -1,11 +1,11 @@
 #![allow(non_snake_case)]
 
-mod Avatar;
-mod AvatarBadge;
-mod AvatarFallback;
-mod AvatarGroup;
-mod AvatarGroupCount;
-mod AvatarImage;
+pub mod Avatar;
+pub mod AvatarBadge;
+pub mod AvatarFallback;
+pub mod AvatarGroup;
+pub mod AvatarGroupCount;
+pub mod AvatarImage;
 
 pub use Avatar::{Avatar, AvatarProps, AvatarSizeType, avatar_variants};
 pub use AvatarBadge::{AvatarBadge, AvatarBadgeProps};

@@ -1,12 +1,12 @@
 #![allow(non_snake_case)]
-mod Pagination;
-mod PaginationContent;
-mod PaginationEllipsis;
-mod PaginationItem;
-mod PaginationLink;
-mod PaginationNext;
-mod PaginationPrevious;
-mod paginationContext;
+pub mod Pagination;
+pub mod PaginationContent;
+pub mod PaginationEllipsis;
+pub mod PaginationItem;
+pub mod PaginationLink;
+pub mod PaginationNext;
+pub mod PaginationPrevious;
+pub mod paginationContext;
 pub use Pagination::{Pagination, PaginationProps};
 pub use PaginationContent::{PaginationContent, PaginationContentProps};
 pub use PaginationEllipsis::{PaginationEllipsis, PaginationEllipsisProps};

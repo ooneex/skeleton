@@ -1,5 +1,5 @@
 #![allow(non_snake_case)]
 
-mod Textarea;
+pub mod Textarea;
 
 pub use Textarea::{Textarea, TextareaProps};

@@ -36,24 +36,13 @@ impl Default for CreateSheetOptionsType {
 }
 
 /// Properties for the basic `Sheet` callable.
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct SheetPropsType {
     pub title: Option<String>,
     pub description: Option<String>,
     pub side: Option<SheetSideType>,
     /// Plain text body rendered inside the sheet.
     pub body: Option<String>,
-}
-
-impl Default for SheetPropsType {
-    fn default() -> Self {
-        Self {
-            title: None,
-            description: None,
-            side: None,
-            body: None,
-        }
-    }
 }
 
 #[derive(Clone)]
@@ -99,6 +88,7 @@ fn close_sheet(id: usize) {
     });
 }
 
+#[allow(dead_code)]
 async fn open_sheet_entry(entry: SheetEntry) {
     let result_for_poll = Arc::clone(&entry.result_slot);
     let waker_for_poll = Arc::clone(&entry.waker_slot);

@@ -10,9 +10,9 @@ pub fn StatusInReviewBadge(props: StatusBadgeProps) -> Element {
     rsx! {
         Badge {
             variant: BadgeVariantType::Info,
-            size: props.size,
+            size: props.size.unwrap_or_default(),
             class: props.class,
-            ..props.attributes,
+            attributes: props.attributes,
             EyeIcon { "data-icon": "inline-start" }
             {
                 match props.children {
