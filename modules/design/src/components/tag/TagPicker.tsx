@@ -163,15 +163,16 @@ export const TagPicker = createDialog<TagPickerPropsType, string[] | null>(
             <ComboboxContent anchor={anchorRef} className={contentClassName}>
               {isPending && <ComboboxEmpty>Loading tags…</ComboboxEmpty>}
               {!isPending && showCreateOption && (
-                <div
-                  className="flex items-center gap-2 px-2 py-1.5 text-sm cursor-pointer hover:bg-accent rounded mx-1 mt-1"
+                <button
+                  type="button"
+                  className="flex w-[calc(100%-0.5rem)] items-center gap-2 px-2 py-1.5 text-sm cursor-pointer hover:bg-accent rounded mx-1 mt-1"
                   onClick={handleCreateTag}
                 >
                   <AddIcon className={cn(tagPickerIconVariants({ size }))} />
                   <span className="text-sm">
                     Create "<span className="text-sm font-medium">{inputValue.trim()}</span>"
                   </span>
-                </div>
+                </button>
               )}
               {!isPending && !showCreateOption && <ComboboxEmpty>No matching tags</ComboboxEmpty>}
               <ComboboxList>

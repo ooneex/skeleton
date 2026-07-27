@@ -1,3 +1,4 @@
+import usePreserveSelection from "@module/design/hooks/usePreserveSelection";
 import { cn } from "@module/design/utils/cn";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -31,6 +32,7 @@ export type FloatingToolbarPropsType = {
 export const FloatingToolbar = ({ className }: FloatingToolbarPropsType) => {
   const { editor, editable } = useEditorContext();
   const [position, setPosition] = useState<FloatingPositionType | null>(null);
+  const preserveSelectionRef = usePreserveSelection<HTMLDivElement>();
 
   useEffect(() => {
     const update = () => {
@@ -71,8 +73,10 @@ export const FloatingToolbar = ({ className }: FloatingToolbarPropsType) => {
 
   return createPortal(
     <div
+      ref={preserveSelectionRef}
+      role="toolbar"
+      aria-label="Text formatting"
       data-slot="editor-floating-toolbar"
-      onMouseDown={(event) => event.preventDefault()}
       style={{ top: position.top, left: position.left, transform: "translate(-50%, calc(-100% - 8px))" }}
       className={cn(
         "fixed z-50 flex items-center gap-1 rounded bg-popover p-1 text-popover-foreground shadow-md",

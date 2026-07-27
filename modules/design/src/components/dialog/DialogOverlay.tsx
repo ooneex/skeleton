@@ -19,6 +19,7 @@ export const DialogOverlay = ({
   const pointerDownOnOverlay = useRef(false);
   return (
     <div
+      role="presentation"
       data-slot="dialog-overlay"
       {...(open ? { "data-open": "" } : { "data-closed": "" })}
       onPointerDown={(event) => {

@@ -62,12 +62,12 @@ export const ImageUploader = ({
     },
     [validate, onAdd],
   );
-  const handleDragOver = useCallback((e: DragEvent<HTMLDivElement>) => {
+  const handleDragOver = useCallback((e: DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(true);
   }, []);
-  const handleDragLeave = useCallback((e: DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = useCallback((e: DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
@@ -81,7 +81,7 @@ export const ImageUploader = ({
     [handleFile, multiple],
   );
   const handleDrop = useCallback(
-    (e: DragEvent<HTMLDivElement>) => {
+    (e: DragEvent<HTMLButtonElement>) => {
       e.preventDefault();
       e.stopPropagation();
       setIsDragging(false);
@@ -111,7 +111,9 @@ export const ImageUploader = ({
             </Button>
           </div>
         ))}
-        <div
+        <button
+          type="button"
+          aria-label="Add image"
           className={cn(
             "group relative size-16 shrink-0 cursor-pointer overflow-hidden rounded border border-dashed border-border transition-all duration-200",
             isDragging ? "border-ring-active bg-muted/40" : "hover:border-ring-active hover:bg-muted/20",
@@ -122,19 +124,19 @@ export const ImageUploader = ({
           onDragOver={handleDragOver}
           onDrop={handleDrop}
         >
-          <div className={cn("flex size-full items-center justify-center", isDragging && "opacity-30")}>
+          <span className={cn("flex size-full items-center justify-center", isDragging && "opacity-30")}>
             <ImagePlusIcon className="size-5 text-primary transition-colors duration-200 group-hover:text-primary/70" />
-          </div>
-          <input
-            ref={fileInputRef}
-            accept={IMAGE_EXTENSIONS.join(",")}
-            aria-label="Image upload"
-            className="sr-only"
-            multiple={multiple}
-            type="file"
-            onChange={handleInputChange}
-          />
-        </div>
+          </span>
+        </button>
+        <input
+          ref={fileInputRef}
+          accept={IMAGE_EXTENSIONS.join(",")}
+          aria-label="Image upload"
+          className="sr-only"
+          multiple={multiple}
+          type="file"
+          onChange={handleInputChange}
+        />
       </div>
       {error && <p className="text-xs text-destructive">{error}</p>}
     </div>

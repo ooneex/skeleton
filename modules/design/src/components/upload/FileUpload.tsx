@@ -350,20 +350,20 @@ const FileUpload = ({
     [simulateUpload, validateFileSize, validateFileType, validateFile, handleError, uploadDelay],
   );
 
-  const handleDragOver = useCallback((e: DragEvent<HTMLDivElement>) => {
+  const handleDragOver = useCallback((e: DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setStatus((prev) => (prev !== "uploading" ? "dragging" : prev));
   }, []);
 
-  const handleDragLeave = useCallback((e: DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = useCallback((e: DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setStatus((prev) => (prev === "dragging" ? "idle" : prev));
   }, []);
 
   const handleDrop = useCallback(
-    (e: DragEvent<HTMLDivElement>) => {
+    (e: DragEvent<HTMLButtonElement>) => {
       e.preventDefault();
       e.stopPropagation();
       if (status === "uploading") return;
@@ -420,42 +420,45 @@ const FileUpload = ({
       >
         <div className={cn("relative", height, status === "dragging" && "opacity-20")}>
           {(status === "idle" || status === "dragging") && (
-            <div
+            <button
+              type="button"
               className="absolute inset-0 flex flex-col items-center justify-center gap-3 cursor-pointer"
               onClick={triggerFileInput}
               onDragLeave={handleDragLeave}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
-              <div className="size-11 rounded bg-muted/60 group-hover:bg-muted/90 flex items-center justify-center transition-colors duration-200">
+              <span className="size-11 rounded bg-muted/60 group-hover:bg-muted/90 flex items-center justify-center transition-colors duration-200">
                 <CloudUploadIcon className="size-5 text-primary" />
-              </div>
+              </span>
 
-              <div className="text-center space-y-0.5">
-                <p className="text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors duration-200">
-                  Click to upload or drag & drop
-                </p>
-                <p className="text-2xs text-muted-foreground">
+              <span className="text-center space-y-0.5">
+                <span className="block text-sm font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors duration-200">
+                  Click to upload or drag &amp; drop
+                </span>
+                <span className="block text-2xs text-muted-foreground">
                   {acceptedFileTypes?.length
                     ? acceptedFileTypes.map((type) => FILE_TYPE_MAP[type].label).join(", ")
                     : "Any file"}
                   {maxFileSize && ` — up to ${formatBytes(maxFileSizeBytes)}`}
-                </p>
-              </div>
+                </span>
+              </span>
+            </button>
+          )}
 
-              <input
-                accept={
-                  acceptedFileTypes?.length
-                    ? acceptedFileTypes.flatMap((type) => FILE_TYPE_MAP[type].extensions).join(",")
-                    : undefined
-                }
-                aria-label="File input"
-                className="sr-only"
-                onChange={handleFileInputChange}
-                ref={fileInputRef}
-                type="file"
-              />
-            </div>
+          {(status === "idle" || status === "dragging") && (
+            <input
+              accept={
+                acceptedFileTypes?.length
+                  ? acceptedFileTypes.flatMap((type) => FILE_TYPE_MAP[type].extensions).join(",")
+                  : undefined
+              }
+              aria-label="File input"
+              className="sr-only"
+              onChange={handleFileInputChange}
+              ref={fileInputRef}
+              type="file"
+            />
           )}
 
           {status === "uploading" && uploadingFile && (

@@ -24,9 +24,8 @@ type InputGroupAddonPropsType = React.ComponentProps<"div"> & VariantProps<typeo
 
 export const InputGroupAddon = ({ className, align = "inline-start", ...props }: InputGroupAddonPropsType) => {
   return (
-    // biome-ignore lint/a11y/useSemanticElements: Addon group within fieldset, not a standalone form group
     <div
-      role="group"
+      role="presentation"
       data-slot="input-group-addon"
       data-align={align}
       className={cn(inputGroupAddonVariants({ align }), className)}

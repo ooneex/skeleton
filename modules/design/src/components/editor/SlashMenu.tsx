@@ -1,4 +1,5 @@
 import { Button } from "@module/design/components/button/Button";
+import usePreserveSelection from "@module/design/hooks/usePreserveSelection";
 import { RedoIcon } from "@module/design/icons/outline/arrows/sm/RedoIcon";
 import { UndoIcon } from "@module/design/icons/outline/arrows/sm/UndoIcon";
 import { Heading1Icon } from "@module/design/icons/outline/design-development/sm/Heading1Icon";
@@ -277,6 +278,7 @@ export const SlashMenu = ({ className }: SlashMenuPropsType) => {
   const [position, setPosition] = useState<{ top: number; left: number } | null>(null);
   const triggerRef = useRef<SlashTriggerType | null>(null);
   const itemRefs = useRef<Map<number, HTMLButtonElement>>(new Map());
+  const preserveSelectionRef = usePreserveSelection<HTMLDivElement>();
 
   const items = useMemo(
     () => (open ? filterItems(query, { showHeadings, showHistory, showMedia }) : []),
@@ -401,8 +403,8 @@ export const SlashMenu = ({ className }: SlashMenuPropsType) => {
 
   return createPortal(
     <div
+      ref={preserveSelectionRef}
       data-slot="editor-slash-menu"
-      onMouseDown={(event) => event.preventDefault()}
       style={{ top: position.top, left: position.left }}
       className={cn(
         "fixed z-50 rounded bg-popover p-1 text-popover-foreground shadow-none ring ring-ring-active",

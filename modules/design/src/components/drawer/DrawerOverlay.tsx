@@ -19,6 +19,7 @@ export const DrawerOverlay = ({
   const pointerDownOnOverlay = useRef(false);
   return (
     <div
+      role="presentation"
       data-slot="drawer-overlay"
       {...(open ? { "data-open": "" } : { "data-closed": "" })}
       onPointerDown={(event) => {
