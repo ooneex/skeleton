@@ -32,5 +32,6 @@ fn wraps_the_index_route_in_the_root_shell() {
     let html = render(app);
 
     assert!(html.contains("<main class=\"flex-1 min-h-0 overflow-y-auto p-0\""));
-    assert!(html.contains("Hello \"/\"!"));
+    // The renderer escapes the quotes around the path.
+    assert!(html.contains("<div>Hello &#34;/&#34;!</div>"));
 }
