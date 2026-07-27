@@ -79,13 +79,14 @@ fn wires_the_input_to_the_list_and_the_active_item() {
     assert!(html.contains(&format!(r#"id="{list_id}""#)));
     assert!(list_id.ends_with("-list"));
 
-    let active_id = html
-        .split(r#"aria-activedescendant=""#)
+    let heading_id = html
+        .split(r#"aria-labelledby=""#)
         .nth(1)
         .and_then(|rest| rest.split('"').next())
-        .expect("aria-activedescendant value");
+        .expect("aria-labelledby value");
 
-    assert!(html.contains(&format!(r#"id="{active_id}""#)));
+    assert!(html.contains(&format!(r#"id="{heading_id}""#)));
+    assert!(html.contains(r#"role="group""#));
 }
 
 #[test]
@@ -183,7 +184,7 @@ fn marks_disabled_items() {
 fn merges_custom_classes_over_defaults() {
     fn app() -> Element {
         rsx! {
-            Command { class: "rounded-none",
+            Command { class: "bg-card",
                 CommandList { class: "max-h-40",
                     CommandItem { value: "a", class: "px-4", "A" }
                 }
@@ -193,8 +194,8 @@ fn merges_custom_classes_over_defaults() {
 
     let html = render(app);
 
-    assert!(html.contains("rounded-none"));
-    assert!(!html.contains("rounded-xl!"));
+    assert!(html.contains("bg-card"));
+    assert!(!html.contains("bg-popover"));
     assert!(html.contains("max-h-40"));
     assert!(!html.contains("max-h-72"));
     assert!(html.contains("px-4"));

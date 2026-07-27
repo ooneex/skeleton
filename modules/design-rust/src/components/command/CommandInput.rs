@@ -36,11 +36,10 @@ pub fn CommandInput(props: CommandInputProps) -> Element {
     let mut context = use_context::<CommandContext>();
 
     let initial = props.value.clone();
-    use_hook(|| {
-        let mut context = context.clone();
-
+    let mut seed = context.clone();
+    use_hook(move || {
         if let Some(initial) = initial {
-            context.set_search(initial);
+            seed.set_search(initial);
         }
     });
 

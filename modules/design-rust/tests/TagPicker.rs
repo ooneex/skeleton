@@ -2,7 +2,11 @@ use design_rust::components::tag::{TagPicker, TagPickerSizeType};
 use dioxus::prelude::*;
 
 fn tags() -> Vec<String> {
-    vec!["rust".to_string(), "dioxus".to_string(), "react".to_string()]
+    vec![
+        "rust".to_string(),
+        "dioxus".to_string(),
+        "react".to_string(),
+    ]
 }
 
 fn picker() -> Element {

@@ -217,6 +217,8 @@ pub struct TagPickerProps {
 ///   implemented here on top of `ComboboxContext`.
 /// * `ComboboxValue` cannot take a render prop in Rust, so the chips are
 ///   rendered directly inside `ComboboxChips`.
+/// * The popup is anchored by the `relative` combobox root instead of the
+///   `useComboboxAnchor` ref, which the Rust `ComboboxContent` does not take.
 #[component]
 pub fn TagPicker(props: TagPickerProps) -> Element {
     let selected = use_signal(|| props.value.clone());
@@ -224,13 +226,15 @@ pub fn TagPicker(props: TagPickerProps) -> Element {
     let mut suggested_tags = use_signal(|| props.suggested_tags.clone());
     let custom_tags = use_signal(Vec::<String>::new);
     let mut allow_create = use_signal(|| props.allow_create);
-    let mut debounced_input =
-        use_signal(|| props.default_input_value.clone().unwrap_or_default());
+    let mut debounced_input = use_signal(|| props.default_input_value.clone().unwrap_or_default());
     let mut input_generation = use_signal(|| 0usize);
 
     let incoming_suggested = props.suggested_tags.clone();
     let incoming_allow_create = props.allow_create;
-    use_effect(use_reactive!(|(incoming_suggested, incoming_allow_create)| {
+    use_effect(use_reactive!(|(
+        incoming_suggested,
+        incoming_allow_create,
+    )| {
         suggested_tags.set(incoming_suggested);
         allow_create.set(incoming_allow_create);
     }));
@@ -299,7 +303,6 @@ pub fn TagPicker(props: TagPickerProps) -> Element {
             }
             Combobox {
                 default_open: props.default_open,
-                input_value: props.default_input_value.clone(),
                 on_input_value_change: move |value: String| debounce_filter.call(value),
                 TagPickerFields {
                     size: props.size,
@@ -346,12 +349,19 @@ fn TagPickerFields(props: TagPickerFieldsProps) -> Element {
 
     // The Rust combobox root only seeds a single value, so the initially
     // selected tags are pushed into its context on the first render.
-    let seed_ctx = ctx.clone();
+    let mut seeded_value = ctx.value;
+    let mut seeded_input = ctx.input_value;
     use_hook(move || {
         let initial = selected.peek().clone();
 
         if !initial.is_empty() {
-            seed_ctx.value.clone().set(initial);
+            seeded_value.set(initial);
+        }
+
+        let draft = debounced_input.peek().clone();
+
+        if !draft.is_empty() {
+            seeded_input.set(draft);
         }
     });
 
@@ -373,12 +383,7 @@ fn TagPickerFields(props: TagPickerFieldsProps) -> Element {
     all_tags.extend(custom_tags.read().iter().cloned());
 
     let tags = visible_tags(&all_tags, &query, &selection);
-    let show_create = can_create(
-        *tag_ctx.allow_create.read(),
-        &query,
-        &all_tags,
-        &selection,
-    );
+    let show_create = can_create(*tag_ctx.allow_create.read(), &query, &all_tags, &selection);
     let draft = ctx.input_value.read().trim().to_string();
 
     let create_ctx = ctx.clone();
@@ -476,7 +481,9 @@ fn TagPickerFields(props: TagPickerFieldsProps) -> Element {
                 for tag in selection.iter() {
                     ComboboxChip { key: "{tag}", value: "{tag}", "{tag}" }
                 }
-                ComboboxChipsInput { placeholder: props.placeholder.clone() }
+                // `ComboboxChipsInput` declares a `placeholder` prop but never
+                // renders it, so the attribute is spread onto the input.
+                ComboboxChipsInput { "placeholder": "{props.placeholder}" }
                 TagIcon { class: tag_picker_icon_variants(props.size, None) }
             }
             if props.is_pending || !tags.is_empty() || show_create {

@@ -46,6 +46,9 @@ pub fn EditorContent(props: EditorContentProps) -> Element {
     // Seed content and install execCommand defaults on first mount.
     let editor_id_init = editor_id.clone();
     let initial_for_init = initial_content.clone();
+    let refresh = ctx.refresh;
+    let emit_change = ctx.emit_change;
+    let task_checkbox_checked = super::commands::TASK_CHECKBOX_CHECKED_CLASS;
     use_effect(move || {
         let id = editor_id_init.clone();
         let content = initial_for_init.clone();
@@ -77,21 +80,13 @@ pub fn EditorContent(props: EditorContentProps) -> Element {
             );
             let _ = eval(&set_js);
         }
-    });
 
-    // Native listeners the framework cannot express: the click handler needs the
-    // real event target to find the task checkbox / anchor under the pointer, and
-    // the paste handler needs the clipboard payload. Both push back through the
-    // eval channel so the Rust side can refresh and emit.
-    let refresh = ctx.refresh;
-    let emit_change = ctx.emit_change;
-    let editor_id_listeners = editor_id.clone();
-    let task_checkbox_checked = super::commands::TASK_CHECKBOX_CHECKED_CLASS;
-    use_future(move || {
-        let id = editor_id_listeners.clone();
-        async move {
-            let js = format!(
-                r#"
+        // Native listeners the framework cannot express: the click handler needs
+        // the real event target to find the task checkbox / anchor under the
+        // pointer, and the paste handler needs the clipboard payload. Both push
+        // back through the eval channel so the Rust side can refresh and emit.
+        let listener_js = format!(
+            r#"
                 (function() {{
                   const el = document.getElementById('{id}');
                   if (!el || window['__editor_dom_listeners_{id}']) return;
@@ -132,13 +127,14 @@ pub fn EditorContent(props: EditorContentProps) -> Element {
                   }}
                 }})()
                 "#
-            );
-            let mut listener = eval(&js);
+        );
+        let mut listener = eval(&listener_js);
+        spawn(async move {
             while listener.recv::<bool>().await.is_ok() {
                 refresh.call(());
                 emit_change.call(());
             }
-        }
+        });
     });
 
     rsx! {

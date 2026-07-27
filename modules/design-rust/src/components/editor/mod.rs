@@ -17,10 +17,10 @@ pub use EditorContent::{EditorContent, EditorContentProps};
 // `EditorContext` module declared above, and every consumer reaches the value
 // through `use_editor_context()` instead.
 pub use EditorContext::{
-    EditorProvider, EditorProviderProps, editor_insert_youtube, editor_redo,
-    editor_set_color, editor_set_highlight, editor_set_link, editor_set_paragraph,
-    editor_set_text_align, editor_toggle_blockquote, editor_toggle_bold, editor_toggle_bullet_list,
-    editor_toggle_heading, editor_toggle_italic, editor_toggle_ordered_list, editor_toggle_strike,
+    EditorProvider, EditorProviderProps, editor_insert_youtube, editor_redo, editor_set_color,
+    editor_set_highlight, editor_set_link, editor_set_paragraph, editor_set_text_align,
+    editor_toggle_blockquote, editor_toggle_bold, editor_toggle_bullet_list, editor_toggle_heading,
+    editor_toggle_italic, editor_toggle_ordered_list, editor_toggle_strike,
     editor_toggle_subscript, editor_toggle_superscript, editor_toggle_task_list,
     editor_toggle_underline, editor_undo, editor_unset_color, editor_unset_highlight,
     editor_unset_link, use_editor_context,

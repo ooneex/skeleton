@@ -25,6 +25,13 @@ static NEXT_TIME_PICKER_ID: AtomicUsize = AtomicUsize::new(0);
 ///   across the async boundary.
 /// - `class` replaces the `className` passed to `createDialog`; it is merged
 ///   over the built-in `max-w-xs` on the dialog panel.
+/// - The TypeScript popups pass `alignItemWithTrigger={false}` to
+///   `SelectContent`. The Rust `SelectContent` always anchors the popup to the
+///   trigger rather than to the selected item, so the flag has no counterpart
+///   and is dropped.
+/// - The current clock time (the fallback when `value` is absent or malformed)
+///   is read through the JS bridge, so it lands one frame after the first
+///   render; until then the selectors show `00:00`.
 #[derive(Clone, Default, PartialEq)]
 pub struct TimePickerPropsType {
     /// Initially selected time, formatted `HH:MM`.
@@ -93,9 +100,7 @@ fn resolve_time(id: usize, value: Option<String>) {
     }
 
     spawn(async move {
-        let mut ev = dioxus::document::eval(
-            "await new Promise(r => setTimeout(r, 200)); dioxus.send(true);",
-        );
+        let mut ev = eval("await new Promise(r => setTimeout(r, 200)); dioxus.send(true);");
         ev.recv::<bool>().await.ok();
         TIME_PICKER_STORE.write().retain(|e| e.id != id);
     });
@@ -183,16 +188,10 @@ fn TimePickerInstance(props: TimePickerInstanceProps) -> Element {
 
     let initial = initial_time(picker.value.as_deref());
     let has_initial = initial.is_some();
-    let mut hour = use_signal(|| {
-        initial
-            .as_ref()
-            .map_or_else(|| "00".to_string(), |(h, _)| h.clone())
-    });
-    let mut minute = use_signal(|| {
-        initial
-            .as_ref()
-            .map_or_else(|| "00".to_string(), |(_, m)| m.clone())
-    });
+    let (initial_hour, initial_minute) =
+        initial.unwrap_or_else(|| ("00".to_string(), "00".to_string()));
+    let mut hour = use_signal(|| initial_hour);
+    let mut minute = use_signal(|| initial_minute);
 
     // Fall back to the current clock time when no valid `value` was supplied.
     // `new Date()` is only reachable through the JS bridge here, so the initial

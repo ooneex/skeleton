@@ -71,14 +71,12 @@ impl PartialEq for CommandPaletteEntry {
 static COMMAND_PALETTE_STORE: GlobalSignal<Vec<CommandPaletteEntry>> = GlobalSignal::new(Vec::new);
 
 /// Buckets items by their `group`, keeping both the group order and the item
-/// order of the input list.
-fn group_items(
-    items: &[CommandPaletteItemType],
-) -> Vec<(Option<String>, Vec<CommandPaletteItemType>)> {
-    let mut groups: Vec<(Option<String>, Vec<CommandPaletteItemType>)> = Vec::new();
+/// order of the input list. Ungrouped items land in the `""` bucket.
+fn group_items(items: &[CommandPaletteItemType]) -> Vec<(String, Vec<CommandPaletteItemType>)> {
+    let mut groups: Vec<(String, Vec<CommandPaletteItemType>)> = Vec::new();
 
     for item in items {
-        let key = item.group.clone();
+        let key = item.group.clone().unwrap_or_default();
 
         match groups.iter_mut().find(|(group, _)| *group == key) {
             Some((_, bucket)) => bucket.push(item.clone()),
@@ -232,7 +230,9 @@ fn CommandPaletteInstance(props: CommandPaletteInstanceProps) -> Element {
                 CommandList {
                     CommandEmpty { "{empty_message}" }
                     for (group , items) in group_items(&entry.props.items) {
-                        CommandGroup { key: "{group.clone().unwrap_or_default()}", heading: group,
+                        CommandGroup {
+                            key: "{group}",
+                            heading: (!group.is_empty()).then(|| group.clone()),
                             for item in items {
                                 CommandItem {
                                     key: "{item.value}",
