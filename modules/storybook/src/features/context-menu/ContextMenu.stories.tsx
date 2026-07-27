@@ -44,12 +44,13 @@ const ContextMenuDemo = ({ label }: ContextMenuDemoPropsType) => {
   return (
     <div className="flex flex-col items-center gap-4">
       <ContextMenu />
-      <div
+      <button
+        type="button"
         onContextMenu={(event) => openContextMenu(event, items).then(setPicked)}
         className="flex h-40 w-80 select-none items-center justify-center rounded-lg border border-dashed border-border text-sm text-muted-foreground"
       >
         {label}
-      </div>
+      </button>
       <p className="text-sm text-muted-foreground">
         {picked ? (
           <>
