@@ -1,7 +1,7 @@
 ---
 name: accessibility-fixer
 description: Fixes the accessibility violations Biome's a11y rules report for one UI module (design, spa, admin or storybook) — semantic elements, labels, alt text, keyboard parity, focus visibility, roles and hit areas — editing components in place without changing their visual design or public props, then re-running the a11y check and the module's lint/test. It edits source files for the one module it is given — it never disables an a11y rule, never edits biome config, never creates issues, and never runs generators.
-when_to_use: Use proactively when the accessibility check of /project-check reports violations, and especially when several UI modules must be fixed at once.
+when_to_use: Use proactively when the accessibility check of /project-fix reports violations, and especially when several UI modules must be fixed at once.
 tools: Read, Edit, Write, Bash, Grep, Glob
 model: sonnet
 effort: high
@@ -25,7 +25,7 @@ Get the violations yourself, scoped to that module:
 
 ```bash
 git status --porcelain
-talos project:check --only=accessibility --modules=<module> --logs
+talos project:check --strict --only=accessibility --modules=<module> --logs
 ```
 
 Each line reads `<file>:<line>  a11y/<rule>  <message>`. The trailing `not enforced — disabled in biome config: …` line lists rules the project switched **off** — those are **out of scope**: never re-enable them and never "fix" them here; report them instead so the caller can decide.
@@ -51,8 +51,8 @@ Never weaken a component to satisfy a rule: if the accessible fix would change t
 Re-run the scoped check and the module's gate, and don't stop until both are clean:
 
 ```bash
-talos project:check --only=accessibility --modules=<module> --logs
-talos project:check --modules=<module> --logs
+talos project:check --strict --only=accessibility --modules=<module> --logs
+talos project:check --strict --modules=<module> --logs
 ```
 
 ## Report

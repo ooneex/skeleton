@@ -107,4 +107,4 @@ Report a summary: issues checked and modules covered, the error/warning counts b
 - `/issue-push` — publish once the issues are valid.
 - `/issue-convert` — regenerate `issues.json` from validated YAML.
 - `/issue-fix` — implement a planned, valid issue.
-- `/project-check` — run this validation alongside every other health check in one report.
+- `/project-fix` — run this validation alongside every other health check in one report, and fix what they surface.

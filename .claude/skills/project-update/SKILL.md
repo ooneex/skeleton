@@ -7,7 +7,7 @@ effort: high
 agent: general-purpose
 context: fork
 argument-hint: [--name=<name>]
-allowed-tools: Bash(talos app:create *), Bash(git *), Bash(rm *), Bash(mkdir *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
+allowed-tools: Bash(talos app:create *), Bash(talos project:check *), Bash(git *), Bash(rm *), Bash(mkdir *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
 ---
 
 # Sync Project Scaffold
@@ -65,10 +65,10 @@ Only touch files the generator produced. Skip anything under `node_modules/`, `.
 
 ```bash
 rm -rf "$TMPDIR/talos-project-update"
-talos check --logs
+talos project:check --strict --logs
 ```
 
-Fix every failure (usually an unresolved import or type/format error from a merge). Hand app-code failures to the `debug` skill.
+`talos project:check --strict --logs` is the only validation step — always run it with both flags, never bare — fix every error and warning it reports (usually an unresolved import or type/format error from a merge), then re-run until it is clean. Hand app-code failures to the `debug` skill.
 
 ## 7. Report
 

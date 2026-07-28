@@ -13,7 +13,7 @@ argument-hint: [issue-id|module|description]
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation, e2e tests, `talos project:check`, DoD, and the `In Review` transition.
+**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation, e2e tests, `talos project:check --strict --logs`, DoD, and the `In Review` transition.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -102,7 +102,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
-Each fixer implements the `goal` per the module's conventions and Clean Architecture, **creates the e2e tests for the issue's `testing` steps**, runs `talos project:check`, checks off every `dod` and `testing` box, and sets `state: "In Review"` only once **all** boxes pass.
+Each fixer implements the `goal` per the module's conventions and Clean Architecture, **creates the e2e tests for the issue's `testing` steps**, runs `talos project:check --strict --logs`, checks off every `dod` and `testing` box, and sets `state: "In Review"` only once **all** boxes pass.
 
 **Dispatch sequentially, one issue at a time, in dependency order** — all fixers share one working tree and one checked-out branch, so concurrent runs clobber each other. Let each finish before switching to the next issue's branch. If a dispatched issue has a dependency **not** in the batch and not yet `In Review`/`Done`, the fixer stops and reports it — carry that into the summary.
 

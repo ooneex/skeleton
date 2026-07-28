@@ -54,7 +54,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns, then prove the accessibility of the result:
 
    ```bash
-   talos project:check --only=accessibility --modules=<module> --logs
+   talos project:check --strict --only=accessibility --modules=<module> --logs
    ```
 
    Fix every reported violation (never by disabling a rule); hand a large backlog to the `accessibility-fixer` agent.

@@ -69,4 +69,4 @@ Re-run the full audit once every remediation is applied to confirm the workspace
 
 ## Related
 
-`talos project:check` runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-check` when you want the whole-project verdict, and this skill when you are working the vulnerabilities themselves.
+`talos project:check --strict --logs` (always run it with both flags, never bare) runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-fix` when you want the whole-project verdict and its fixes, and this skill when you are working the vulnerabilities themselves.

@@ -1,6 +1,6 @@
 ---
 name: pr-merge
-description: Land the PR(s) for issues a reviewer approved (state To Merge) by merging their branches locally. Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, merges the branch into the base locally, resolves conflicts, then re-runs talos project:check plus the issue's dod and testing steps against the merged tree. Only when green does it push the base, delete the branch local+remote, and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
+description: Land the PR(s) for issues a reviewer approved (state To Merge) by merging their branches locally. Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, merges the branch into the base locally, resolves conflicts, then re-runs talos project:check --strict --logs plus the issue's dod and testing steps against the merged tree. Only when green does it push the base, delete the branch local+remote, and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
 when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
 model: sonnet
 effort: high
@@ -13,7 +13,7 @@ argument-hint: [issue-id|module|title]
 
 Run autonomously — never ask questions; pick the recommended option and proceed.
 
-Approve and **land** the PR for an issue promoted to `To Merge` (see `pr-review` for how issues reach that state and the YAML format). Resolve the issue(s) from user input, gate on merge-readiness, merge the branch into the base locally, resolve conflicts, re-verify the merged tree (`talos project:check`, `dod`, `testing`), then push, delete the head branch, and promote to `Done`.
+Approve and **land** the PR for an issue promoted to `To Merge` (see `pr-review` for how issues reach that state and the YAML format). Resolve the issue(s) from user input, gate on merge-readiness, merge the branch into the base locally, resolve conflicts, re-verify the merged tree (`talos project:check --strict --logs`, `dod`, `testing`), then push, delete the head branch, and promote to `Done`.
 
 `<module>` resolves to `modules/<module>/` **or** `packages/<module>/` — check both roots.
 
@@ -80,7 +80,7 @@ Keep the merge commit local until step 6 confirms green.
 ## 5. Verify the merged result
 
 From the monorepo root — all must pass:
-- **`talos project:check`** — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix genuine merge fallout; never weaken the check.
+- **`talos project:check --strict --logs`** — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix genuine merge fallout; never weaken the check.
 - **Definition of Done** — confirm the merged code actually satisfies each `dod` item (read changed files, not just checkboxes).
 - **Testing steps** — for each browser-flow `testing` step, locate the covering spec (`modules/<module>/e2e/<Name>.spec.ts`) and run it via the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when it depends on live app state). Flag any step with no covering spec.
 
@@ -92,7 +92,7 @@ Abort from inside the project directory only, and never with a command that disc
 
 ## 6. Land the change
 
-Only when `talos project:check` is green, every `dod` met, and every `testing` spec green:
+Only when `talos project:check --strict --logs` is green, every `dod` met, and every `testing` spec green:
 
 1. **Approve** — `gh pr review <pr> --approve --body "Approved: issue <ID> passed review and merged clean (To Merge)."` If `gh` rejects it because you authored the PR, note it and continue — the `To Merge` state already carries the sign-off.
 2. **Push the base** — `git push origin <base>` (never force). If rejected (base moved, branch protection), stop, leave `To Merge`, report — don't force-push or override protection unless the user asks.
@@ -110,4 +110,4 @@ Then run `talos issue:check --id=<ID>` from the monorepo root to confirm the fin
 
 ## 8. Report
 
-Per issue: `id`/`title`/module, branch + PR URL, merge outcome (clean / conflicts resolved / aborted), verification (`talos project:check`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed + branch deleted, or blocked with reason), resulting state (`Done` / `To Merge`), and the `talos issue:check` result. Then list every issue skipped in step 2 with its reason.
+Per issue: `id`/`title`/module, branch + PR URL, merge outcome (clean / conflicts resolved / aborted), verification (`talos project:check --strict --logs`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed + branch deleted, or blocked with reason), resulting state (`Done` / `To Merge`), and the `talos issue:check` result. Then list every issue skipped in step 2 with its reason.

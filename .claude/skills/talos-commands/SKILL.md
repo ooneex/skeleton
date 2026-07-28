@@ -117,7 +117,7 @@ talos security:check --issues                           # Create one YAML Securi
 
 ## Project health
 ```bash
-talos project:check                                   # Run every check and print one aggregated report
+talos project:check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
 talos project:check --skip=workspace                  # The fast checks only (no install/build/test)
 talos project:check --only=conventions,tests,docs      # Only the named checks
 talos project:check --e2e                             # Add the opt-in end-to-end suite
@@ -127,6 +127,8 @@ talos project:check --strict                          # Exit 1 when a check only
 talos project:check --json                            # Machine-readable report for CI
 talos project:check --logs                            # Stream plain workspace logs (always pass this as an agent)
 ```
+
+**Always invoke it as `talos project:check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
 
 `project:check` is the whole-project gate: it runs seventeen checks (plus the opt-in eighteenth) and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
 
@@ -151,7 +153,7 @@ talos project:check --logs                            # Stream plain workspace l
 | `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
 | `e2e` | opt-in (`--e2e`) — `monorepo:run --commands=e2e` | a suite exits non-zero |
 
-Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `monorepo`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-check` skill wraps this command.
+Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `monorepo`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
 
 ## Release
 ```bash
