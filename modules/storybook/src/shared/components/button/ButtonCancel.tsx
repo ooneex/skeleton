@@ -1,4 +1,4 @@
-import { XmarkIcon } from "../../icons/outline/ui-layout/sm/XmarkIcon";
+import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
 import { Button } from "./Button";
 
 type ButtonCancelPropsType = Omit<React.ComponentProps<typeof Button>, "variant">;

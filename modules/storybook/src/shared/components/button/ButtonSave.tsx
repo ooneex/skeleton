@@ -1,4 +1,4 @@
-import { FloppyDiskIcon } from "../../icons/outline/files-folders/sm/FloppyDiskIcon";
+import { FloppyDiskIcon } from "@module/design/icons/outline/files-folders/sm/FloppyDiskIcon";
 import { Button } from "./Button";
 
 type ButtonSavePropsType = Omit<React.ComponentProps<typeof Button>, "variant">;

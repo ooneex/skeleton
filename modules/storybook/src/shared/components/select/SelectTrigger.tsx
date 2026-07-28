@@ -1,6 +1,6 @@
 import { Select as SelectPrimitive } from "@base-ui/react/select";
+import { ChevronDownIcon } from "@module/design/icons/outline/arrows/sm/ChevronDownIcon";
 import { cva, type VariantProps } from "class-variance-authority";
-import { ChevronDownIcon } from "../../icons/outline/arrows/sm/ChevronDownIcon";
 import { cn } from "../../utils/cn";
 
 const selectTriggerVariants = cva(

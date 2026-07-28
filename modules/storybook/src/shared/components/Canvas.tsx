@@ -1,11 +1,11 @@
+import { CodeIcon } from "@module/design/icons/outline/design-development/sm/CodeIcon";
+import { CopyIcon } from "@module/design/icons/outline/design-development/sm/CopyIcon";
+import { CheckIcon } from "@module/design/icons/outline/ui-layout/sm/CheckIcon";
+import { EyeIcon } from "@module/design/icons/outline/ui-layout/sm/EyeIcon";
 import type { ComponentType, ReactElement, ReactNode } from "react";
 import { cloneElement, createElement, Fragment, isValidElement, useMemo, useState } from "react";
 import { useShikiHighlighter } from "react-shiki/core";
 import { useThemeScheme } from "../hooks/useTheme";
-import { CodeIcon } from "../icons/outline/design-development/sm/CodeIcon";
-import { CheckIcon } from "../icons/outline/ui-layout/sm/CheckIcon";
-import { CopyIcon } from "../icons/outline/ui-layout/sm/CopyIcon";
-import { EyeIcon } from "../icons/outline/ui-layout/sm/EyeIcon";
 import type { LoadedVariantType, StoryGroupType } from "../story";
 import { cn } from "../utils/cn";
 import { Badge } from "./badge";

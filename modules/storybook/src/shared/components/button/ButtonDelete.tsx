@@ -1,4 +1,4 @@
-import { TrashIcon } from "../../icons/outline/ui-layout/sm/TrashIcon";
+import { TrashIcon } from "@module/design/icons/outline/ui-layout/sm/TrashIcon";
 import { Button } from "./Button";
 
 type ButtonDeletePropsType = Omit<React.ComponentProps<typeof Button>, "variant">;

@@ -1,8 +1,8 @@
+import { ChevronRightIcon } from "@module/design/icons/outline/arrows/sm/ChevronRightIcon";
+import { LayersIcon } from "@module/design/icons/outline/design-development/sm/LayersIcon";
+import { TypographyIcon } from "@module/design/icons/outline/design-development/sm/TypographyIcon";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useThemeScheme } from "../hooks/useTheme";
-import { ChevronRightIcon } from "../icons/outline/arrows/sm/ChevronRightIcon";
-import { LayersIcon } from "../icons/outline/design-development/sm/LayersIcon";
-import { TypographyIcon } from "../icons/outline/design-development/sm/TypographyIcon";
 import type { StoryGroupType } from "../story";
 import { cn } from "../utils/cn";
 import { Button } from "./button";

@@ -1,4 +1,4 @@
-import { PenWritingIcon } from "../../icons/outline/communication/sm/PenWritingIcon";
+import { PenWritingIcon } from "@module/design/icons/outline/communication/sm/PenWritingIcon";
 import { Button } from "./Button";
 
 type ButtonEditPropsType = Omit<React.ComponentProps<typeof Button>, "variant">;

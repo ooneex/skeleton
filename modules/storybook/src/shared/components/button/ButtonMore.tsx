@@ -1,4 +1,4 @@
-import { DotsVerticalIcon } from "../../icons/outline/ui-layout/sm/DotsVerticalIcon";
+import { DotsVerticalIcon } from "@module/design/icons/outline/ui-layout/sm/DotsVerticalIcon";
 import { cn } from "../../utils/cn";
 import { Button } from "./Button";
 

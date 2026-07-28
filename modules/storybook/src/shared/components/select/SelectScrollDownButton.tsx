@@ -1,6 +1,6 @@
 import { Select as SelectPrimitive } from "@base-ui/react/select";
+import { ChevronDownIcon } from "@module/design/icons/outline/arrows/sm/ChevronDownIcon";
 import type * as React from "react";
-import { ChevronDownIcon } from "../../icons/outline/arrows/sm/ChevronDownIcon";
 import { cn } from "../../utils/cn";
 
 /** Scrolls the select list downward when content overflows. */

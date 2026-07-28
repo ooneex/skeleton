@@ -1,8 +1,8 @@
+import { MonitorIcon } from "@module/design/icons/outline/design-development/sm/MonitorIcon";
+import { SunIcon } from "@module/design/icons/outline/energy-environment/sm/SunIcon";
+import { MoonIcon } from "@module/design/icons/outline/weather/sm/MoonIcon";
 import { cva } from "class-variance-authority";
 import type React from "react";
-import { MonitorIcon } from "../../icons/outline/design-development/sm/MonitorIcon";
-import { SunIcon } from "../../icons/outline/energy-environment/sm/SunIcon";
-import { MoonIcon } from "../../icons/outline/weather/sm/MoonIcon";
 import { cn } from "../../utils/cn";
 import { Select } from "../select";
 

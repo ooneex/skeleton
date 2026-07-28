@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "../../icons/outline/arrows/sm/ArrowRightIcon";
+import { ArrowRightIcon } from "@module/design/icons/outline/arrows/sm/ArrowRightIcon";
 import { Button } from "./Button";
 
 type ButtonNextPropsType = Omit<React.ComponentProps<typeof Button>, "variant">;

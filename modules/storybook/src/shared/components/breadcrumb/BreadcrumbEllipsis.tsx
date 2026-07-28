@@ -1,6 +1,6 @@
+import { DotsIcon } from "@module/design/icons/outline/editing/sm/DotsIcon";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
-import { DotsIcon } from "../../icons/outline/editing/sm/DotsIcon";
 import { cn } from "../../utils/cn";
 
 const breadcrumbEllipsisVariants = cva("flex items-center justify-center", {

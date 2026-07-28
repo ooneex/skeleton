@@ -1,10 +1,10 @@
+import { ChevronDownIcon } from "@module/design/icons/outline/arrows/sm/ChevronDownIcon";
+import { LightbulbIcon } from "@module/design/icons/outline/business-finance/sm/LightbulbIcon";
+import { MonitorIcon } from "@module/design/icons/outline/design-development/sm/MonitorIcon";
+import { ChalkboardIcon } from "@module/design/icons/outline/school-education/sm/ChalkboardIcon";
 import { getRouteApi } from "@tanstack/react-router";
 import { type ChangeEvent, type ReactElement, useEffect, useSyncExternalStore } from "react";
 import type { StoryTabType } from "../../routes/index";
-import { ChevronDownIcon } from "../icons/outline/arrows/sm/ChevronDownIcon";
-import { LightbulbIcon } from "../icons/outline/business-finance/sm/LightbulbIcon";
-import { MonitorIcon } from "../icons/outline/design-development/sm/MonitorIcon";
-import { ChalkboardIcon } from "../icons/outline/school-education/sm/ChalkboardIcon";
 import { clearActions, getActions, type LoadedControlType, type LoadedVariantType, subscribeActions } from "../story";
 import { cn } from "../utils/cn";
 import { Markdown } from "../utils/Markdown";

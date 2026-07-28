@@ -1,6 +1,6 @@
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
+import { CheckIcon } from "@module/design/icons/outline/ui-layout/sm/CheckIcon";
 import { cva, type VariantProps } from "class-variance-authority";
-import { CheckIcon } from "../../icons/outline/ui-layout/sm/CheckIcon";
 import { cn } from "../../utils/cn";
 
 const checkboxVariants = cva(

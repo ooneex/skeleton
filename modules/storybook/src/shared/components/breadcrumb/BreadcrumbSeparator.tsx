@@ -1,6 +1,6 @@
+import { ChevronRightIcon } from "@module/design/icons/outline/arrows/sm/ChevronRightIcon";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
-import { ChevronRightIcon } from "../../icons/outline/arrows/sm/ChevronRightIcon";
 import { cn } from "../../utils/cn";
 
 const breadcrumbSeparatorVariants = cva("[&>svg]:text-primary", {
