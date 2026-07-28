@@ -30,13 +30,13 @@ modules/<name>/                   # type: "storybook"
       index.tsx                 #   Index (`/`) route — the gallery landing / default preview.
     features/                   # One folder per storied component; the stories themselves. Nothing else lives here.
       <component>/              #   e.g. `avatar/` — a folder per component grouping its story files.
-        <Name>.stories.tsx      #     The main story: exports a `meta satisfies Meta<typeof Component>`. For a compound
+        <Name>.stories.tsx      #     The main story: exports a `meta satisfies MetaType<typeof Component>`. For a compound
                                 #       component, sibling `<Name><Sub>.stories.tsx` files (title `"<Name>.<Sub>"`) nest
                                 #       automatically under it in the sidebar. See `storybook-story-create`.
       icons/                    #   Icons can share one feature folder (no compound nesting); files `<Name>Icon.stories.tsx`.
     shared/                     # The gallery engine — reused by every route. Do not put stories here.
       story/                    #   The story model + discovery.
-        types.ts                #     `Meta` shape: title, group, tags, component, usage (markdown), props[] (name, control,
+        types.ts                #     `MetaType` shape: title, group, tags, component, usage (markdown), props[] (name, control,
                                 #       options[], default, callback). The contract every `*.stories.tsx` satisfies.
         registry.ts             #     Discovers stories via `import.meta.glob("../../features/**/*.stories.{ts,tsx}")`, keys
                                 #       them by slugified `meta.title`, and yields one sidebar entry + preview per story.

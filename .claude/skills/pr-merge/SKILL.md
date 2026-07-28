@@ -84,7 +84,11 @@ From the monorepo root — all must pass:
 - **Definition of Done** — confirm the merged code actually satisfies each `dod` item (read changed files, not just checkboxes).
 - **Testing steps** — for each browser-flow `testing` step, locate the covering spec (`modules/<module>/e2e/<Name>.spec.ts`) and run it via the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when it depends on live app state). Flag any step with no covering spec.
 
-If any check fails, a `dod` item is unmet, or a `testing` step has no spec/fails: **abort** (`git merge --abort`, or `git reset --hard <base>@{1}` / `git switch <base>`), leave the issue `To Merge`, report the blocker. Do not push.
+If any check fails, a `dod` item is unmet, or a `testing` step has no spec/fails: **abort**, leave the issue `To Merge`, report the blocker. Do not push.
+
+Abort from inside the project directory only, and never with a command that discards uncommitted work without asking:
+- Merge still in progress → `git merge --abort`.
+- Merge already committed locally → `git switch <base>` is enough when the commit is on the branch; to rewind the base itself, ask the user to confirm first, then `git reset --keep <base>@{1}` (it refuses rather than throwing away local changes).
 
 ## 6. Land the change
 
