@@ -6,8 +6,9 @@ use crate::routes::Route;
 /// Id of the mount node declared in `index.html`.
 const ROOT_ELEMENT_ID: &str = "app";
 
-/// Compiled Tailwind sheet, produced by `dx` from `src/shared/styles/app.css`
-/// before the crate is built (`Dioxus.toml` → `tailwind_output`). It is resolved
+/// Compiled Tailwind sheet, produced by `dx` from the design system's
+/// stylesheet before the crate is built (`Dioxus.toml` → `tailwind_output`,
+/// fed by `tailwind_input` in `main.rs`). It is resolved
 /// optionally so `cargo check`/`cargo test` still work on a clean checkout,
 /// where the generated file does not exist yet.
 const APP_CSS: Option<Asset> = option_asset!("/assets/app.css");
