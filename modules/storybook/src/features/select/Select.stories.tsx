@@ -1,6 +1,6 @@
 import { Select } from "@module/design/components/select";
 import type { ComponentProps } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type SelectDemoPropsType = {
   defaultValue?: string;
@@ -149,4 +149,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof SelectDemo>;
+} satisfies MetaType<typeof SelectDemo>;

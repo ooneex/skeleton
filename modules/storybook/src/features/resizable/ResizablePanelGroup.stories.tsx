@@ -1,6 +1,6 @@
 import { ResizablePanelGroup } from "@module/design/components/resizable";
 import type { ComponentProps } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type ResizablePanelGroupDemoPropsType = Pick<
   ComponentProps<typeof ResizablePanelGroup>,
@@ -109,4 +109,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof ResizablePanelGroupDemo>;
+} satisfies MetaType<typeof ResizablePanelGroupDemo>;

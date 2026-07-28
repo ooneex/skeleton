@@ -1,5 +1,5 @@
 import { Blockquote } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Blockquote",
@@ -22,4 +22,4 @@ export const meta = {
       default: "“Design is not just what it looks like and feels like. Design is how it works.”",
     },
   ],
-} satisfies Meta<typeof Blockquote>;
+} satisfies MetaType<typeof Blockquote>;

@@ -1,5 +1,5 @@
 import { Button } from "@module/design/components/button";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Button",
@@ -107,4 +107,4 @@ export const meta = {
       callback: () => undefined,
     },
   ],
-} satisfies Meta<typeof Button>;
+} satisfies MetaType<typeof Button>;

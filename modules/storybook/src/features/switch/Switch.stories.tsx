@@ -1,5 +1,5 @@
 import { Switch } from "@module/design/components/switch";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Switch",
@@ -62,4 +62,4 @@ export const meta = {
       callback: (checked: boolean) => checked,
     },
   ],
-} satisfies Meta<typeof Switch>;
+} satisfies MetaType<typeof Switch>;

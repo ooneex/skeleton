@@ -1,5 +1,5 @@
 import { Tabs } from "@module/design/components/tabs";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const accountTabs = (
   <Tabs defaultValue="overview" className="w-[520px] max-w-full">
@@ -97,4 +97,4 @@ export const meta = {
       callback: (value: string | null) => value,
     },
   ],
-} satisfies Meta<typeof Tabs>;
+} satisfies MetaType<typeof Tabs>;

@@ -1,5 +1,5 @@
 import { SlidingNumber } from "@module/design/components/number";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "SlidingNumber",
@@ -32,4 +32,4 @@ export const meta = {
       default: ".",
     },
   ],
-} satisfies Meta<typeof SlidingNumber>;
+} satisfies MetaType<typeof SlidingNumber>;

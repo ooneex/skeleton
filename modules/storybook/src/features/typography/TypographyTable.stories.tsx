@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const rows = [
   { name: "King's Treasure", king: "John", population: "2000" },
@@ -48,4 +48,4 @@ export const meta = {
       default: composed,
     },
   ],
-} satisfies Meta<typeof Table>;
+} satisfies MetaType<typeof Table>;

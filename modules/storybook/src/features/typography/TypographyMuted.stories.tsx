@@ -1,5 +1,5 @@
 import { Muted } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Muted",
@@ -22,4 +22,4 @@ export const meta = {
       default: "Enter your email address to receive a verification code.",
     },
   ],
-} satisfies Meta<typeof Muted>;
+} satisfies MetaType<typeof Muted>;

@@ -1,5 +1,5 @@
 import { HighlightText } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "HighlightText",
@@ -27,4 +27,4 @@ export const meta = {
       default: "design",
     },
   ],
-} satisfies Meta<typeof HighlightText>;
+} satisfies MetaType<typeof HighlightText>;

@@ -1,5 +1,5 @@
 import { Avatar } from "@module/design/components/avatar";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const person = (
   <Avatar>
@@ -61,4 +61,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies Meta<typeof Avatar>;
+} satisfies MetaType<typeof Avatar>;

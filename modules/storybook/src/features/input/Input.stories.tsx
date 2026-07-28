@@ -18,7 +18,7 @@ import {
 } from "@module/design/components/input";
 import { ScrollArea } from "@module/design/components/scroll-area";
 import type { ReactNode } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type InputExampleType = {
   /** Heading naming the input variant being shown. */
@@ -247,4 +247,4 @@ export const meta = {
       default: <>{examples.map((item) => item.example)}</>,
     },
   ],
-} satisfies Meta<typeof InputShowcase>;
+} satisfies MetaType<typeof InputShowcase>;

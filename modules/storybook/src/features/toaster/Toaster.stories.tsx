@@ -1,6 +1,6 @@
 import { Button } from "@module/design/components/button";
 import { Toaster, toaster } from "@module/design/components/toaster";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type ToasterDemoPropsType = {
   title?: string;
@@ -95,4 +95,4 @@ export const meta = {
       default: 2400,
     },
   ],
-} satisfies Meta<typeof ToasterDemo>;
+} satisfies MetaType<typeof ToasterDemo>;

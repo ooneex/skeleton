@@ -2,7 +2,7 @@ import { Button } from "@module/design/components/button";
 import { Empty } from "@module/design/components/empty";
 import { FolderOpenIcon } from "@module/design/icons/outline/files-folders/sm/FolderOpenIcon";
 import { PlusIcon } from "@module/design/icons/outline/ui-layout/sm/PlusIcon";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const emptyState = (
   <Empty>
@@ -42,4 +42,4 @@ export const meta = {
       default: emptyState,
     },
   ],
-} satisfies Meta<typeof Empty>;
+} satisfies MetaType<typeof Empty>;

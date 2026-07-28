@@ -1,6 +1,6 @@
 import { Button } from "@module/design/components/button";
 import { DropdownMenu } from "@module/design/components/dropdown";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const nested = (
   <DropdownMenu>
@@ -51,4 +51,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof DropdownMenu>;
+} satisfies MetaType<typeof DropdownMenu>;

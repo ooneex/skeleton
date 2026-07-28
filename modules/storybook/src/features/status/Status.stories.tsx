@@ -6,7 +6,7 @@ import {
   statusBadgeMap,
 } from "@module/design/components/status";
 import { useEffect, useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const workflowStatuses = [
   "draft",
@@ -156,4 +156,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies Meta<typeof StatusDemo>;
+} satisfies MetaType<typeof StatusDemo>;

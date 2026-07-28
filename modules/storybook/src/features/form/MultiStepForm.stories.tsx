@@ -2,7 +2,7 @@ import { Card } from "@module/design/components/card";
 import { Field } from "@module/design/components/field";
 import { MultiStepForm } from "@module/design/components/form";
 import { Input } from "@module/design/components/input";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type MultiStepFormDemoPropsType = {
   /** Label on the final-step submit button. */
@@ -125,4 +125,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof MultiStepFormDemo>;
+} satisfies MetaType<typeof MultiStepFormDemo>;

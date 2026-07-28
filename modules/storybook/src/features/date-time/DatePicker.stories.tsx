@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { DatePicker, pickDate } from "@module/design/components/date-time";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type DatePickerDemoPropsType = {
   /** Heading shown above the calendar inside the dialog. */
@@ -58,4 +58,4 @@ export const meta = {
       default: "Select a date",
     },
   ],
-} satisfies Meta<typeof DatePickerDemo>;
+} satisfies MetaType<typeof DatePickerDemo>;

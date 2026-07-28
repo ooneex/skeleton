@@ -1,5 +1,5 @@
 import { RadioGroup } from "@module/design/components/radio-group";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const options = (
   <RadioGroup defaultValue="comfortable" className="w-[240px] max-w-full">
@@ -79,4 +79,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof RadioGroup>;
+} satisfies MetaType<typeof RadioGroup>;

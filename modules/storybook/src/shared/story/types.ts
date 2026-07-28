@@ -35,6 +35,3 @@ export type MetaType<Component> = {
   usage?: string;
   props?: readonly PropType<PropsOfType<Component>>[];
 };
-
-/** Public alias mirroring the ergonomics of the Storybook API, without the dependency. */
-export type Meta<Component> = MetaType<Component>;

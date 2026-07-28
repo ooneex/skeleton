@@ -2,7 +2,7 @@ import { Badge } from "@module/design/components/badge";
 import { Button } from "@module/design/components/button";
 import { TagPicker, type TagPickerPropsType } from "@module/design/components/tag";
 import { useEffect, useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const suggestedTags = ["Design system", "Bugfix", "Frontend", "High priority", "Launch", "Needs review"];
 
@@ -131,4 +131,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies Meta<typeof TagDemo>;
+} satisfies MetaType<typeof TagDemo>;

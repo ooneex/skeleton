@@ -1,5 +1,5 @@
 import { Kbd } from "@module/design/components/kbd";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Kbd",
@@ -22,4 +22,4 @@ export const meta = {
       default: "⌘",
     },
   ],
-} satisfies Meta<typeof Kbd>;
+} satisfies MetaType<typeof Kbd>;

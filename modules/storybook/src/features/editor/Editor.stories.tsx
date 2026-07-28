@@ -1,5 +1,5 @@
 import { Editor } from "@module/design/components/editor";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const sampleContent = [
   "<h2>Welcome to the editor</h2>",
@@ -81,4 +81,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof Editor>;
+} satisfies MetaType<typeof Editor>;

@@ -4,7 +4,7 @@ import { CalendarIcon } from "@module/design/icons/outline/time/sm/CalendarIcon"
 import { GearIcon } from "@module/design/icons/outline/ui-layout/sm/GearIcon";
 import { PlusIcon } from "@module/design/icons/outline/ui-layout/sm/PlusIcon";
 import { UserIcon } from "@module/design/icons/outline/users/sm/UserIcon";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const palette = (
   <Command className="w-[420px] border border-border">
@@ -71,4 +71,4 @@ export const meta = {
       callback: (value: string) => value,
     },
   ],
-} satisfies Meta<typeof Command>;
+} satisfies MetaType<typeof Command>;

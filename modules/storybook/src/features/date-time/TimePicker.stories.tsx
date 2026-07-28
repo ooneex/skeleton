@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { pickTime, TimePicker } from "@module/design/components/date-time";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type TimePickerDemoPropsType = {
   /** Initially selected time, formatted `HH:MM`. */
@@ -78,4 +78,4 @@ export const meta = {
       default: "Done",
     },
   ],
-} satisfies Meta<typeof TimePickerDemo>;
+} satisfies MetaType<typeof TimePickerDemo>;

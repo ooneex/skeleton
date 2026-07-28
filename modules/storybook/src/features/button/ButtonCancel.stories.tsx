@@ -1,5 +1,5 @@
 import { ButtonCancel } from "@module/design/components/button";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Button.Cancel",
@@ -42,4 +42,4 @@ export const meta = {
       callback: () => undefined,
     },
   ],
-} satisfies Meta<typeof ButtonCancel>;
+} satisfies MetaType<typeof ButtonCancel>;

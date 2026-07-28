@@ -1,6 +1,6 @@
 import { Button } from "@module/design/components/button";
 import { Tooltip } from "@module/design/components/tooltip";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const preview = (
   <Tooltip>
@@ -43,4 +43,4 @@ export const meta = {
       callback: (open: boolean) => open,
     },
   ],
-} satisfies Meta<typeof Tooltip>;
+} satisfies MetaType<typeof Tooltip>;

@@ -1,5 +1,5 @@
 import { Large } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Large",
@@ -22,4 +22,4 @@ export const meta = {
       default: "Are you absolutely sure?",
     },
   ],
-} satisfies Meta<typeof Large>;
+} satisfies MetaType<typeof Large>;

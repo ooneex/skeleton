@@ -1,6 +1,6 @@
 import { ThemeSwitcher, type ThemeType } from "@module/design/components/theme";
 import { themeGroups } from "@module/design/components/theme/ThemeSwitcherOption";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const themeFamilyUsage = {
   "clerkship-mode": "clinical training flows and ward-style learner work",
@@ -128,4 +128,4 @@ export const meta = {
       callback: (theme: ThemeType) => theme,
     },
   ],
-} satisfies Meta<typeof ThemeSwitcher>;
+} satisfies MetaType<typeof ThemeSwitcher>;

@@ -1,5 +1,5 @@
 import { Checkbox } from "@module/design/components/checkbox";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Checkbox",
@@ -61,4 +61,4 @@ export const meta = {
       callback: (checked: boolean | "indeterminate") => checked,
     },
   ],
-} satisfies Meta<typeof Checkbox>;
+} satisfies MetaType<typeof Checkbox>;

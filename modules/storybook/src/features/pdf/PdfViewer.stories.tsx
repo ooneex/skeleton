@@ -1,5 +1,5 @@
 import { PdfViewer } from "@module/design/components/pdf";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "PdfViewer",
@@ -46,4 +46,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof PdfViewer>;
+} satisfies MetaType<typeof PdfViewer>;

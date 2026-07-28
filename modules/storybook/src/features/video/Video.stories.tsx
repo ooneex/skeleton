@@ -1,5 +1,5 @@
 import { VideoPlayer } from "@module/design/components/video";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Video",
@@ -41,4 +41,4 @@ export const meta = {
       default: "aspect-video w-[min(48rem,100%)] overflow-hidden rounded-xl border border-border bg-black",
     },
   ],
-} satisfies Meta<typeof VideoPlayer>;
+} satisfies MetaType<typeof VideoPlayer>;

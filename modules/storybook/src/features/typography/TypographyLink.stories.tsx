@@ -1,5 +1,5 @@
 import { Link } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Link",
@@ -38,4 +38,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies Meta<typeof Link>;
+} satisfies MetaType<typeof Link>;

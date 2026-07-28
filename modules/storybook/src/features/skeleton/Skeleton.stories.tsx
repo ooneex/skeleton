@@ -2,7 +2,7 @@ import { Card } from "@module/design/components/card";
 import { ScrollArea } from "@module/design/components/scroll-area";
 import { Skeleton } from "@module/design/components/skeleton";
 import type { ReactNode } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type SkeletonExampleType = {
   /** Heading naming the composition being shown. */
@@ -128,4 +128,4 @@ export const meta = {
       default: <>{examples.map((item) => item.example)}</>,
     },
   ],
-} satisfies Meta<typeof SkeletonShowcase>;
+} satisfies MetaType<typeof SkeletonShowcase>;

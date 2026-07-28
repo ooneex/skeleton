@@ -1,6 +1,6 @@
 import { Button } from "@module/design/components/button";
 import { Popover } from "@module/design/components/popover";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const sharePopover = (
   <Popover>
@@ -50,4 +50,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof Popover>;
+} satisfies MetaType<typeof Popover>;

@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { Dialog } from "@module/design/components/dialog";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type DialogDemoPropsType = {
   /** Heading rendered in the dialog header. */
@@ -76,4 +76,4 @@ export const meta = {
       default: "Body content goes here — any React node you pass as children renders below the header.",
     },
   ],
-} satisfies Meta<typeof DialogDemo>;
+} satisfies MetaType<typeof DialogDemo>;

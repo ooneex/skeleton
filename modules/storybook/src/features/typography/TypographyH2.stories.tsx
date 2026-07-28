@@ -1,5 +1,5 @@
 import { H2 } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "H2",
@@ -22,4 +22,4 @@ export const meta = {
       default: "The quick brown fox jumps over the lazy dog",
     },
   ],
-} satisfies Meta<typeof H2>;
+} satisfies MetaType<typeof H2>;

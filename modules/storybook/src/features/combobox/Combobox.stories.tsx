@@ -1,5 +1,5 @@
 import { Combobox } from "@module/design/components/combobox";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const fruits = ["Apple", "Banana", "Blueberry", "Grapes", "Mango", "Orange", "Pineapple", "Strawberry"];
 
@@ -57,4 +57,4 @@ export const meta = {
       callback: (...args: readonly unknown[]) => args,
     },
   ],
-} satisfies Meta<typeof Combobox>;
+} satisfies MetaType<typeof Combobox>;

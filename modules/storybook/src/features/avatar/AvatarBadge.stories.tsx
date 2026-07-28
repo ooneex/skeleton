@@ -1,5 +1,5 @@
 import { Avatar } from "@module/design/components/avatar";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const badged = (
   <Avatar>
@@ -41,4 +41,4 @@ export const meta = {
       default: "3xl",
     },
   ],
-} satisfies Meta<typeof Avatar>;
+} satisfies MetaType<typeof Avatar>;

@@ -1,5 +1,5 @@
 import { Calendar } from "@module/design/components/calendar";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Calendar",
@@ -64,4 +64,4 @@ export const meta = {
       default: false,
     },
   ],
-} satisfies Meta<typeof Calendar>;
+} satisfies MetaType<typeof Calendar>;

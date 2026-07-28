@@ -1,5 +1,5 @@
 import { FileUpload } from "@module/design/components/upload";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Upload",
@@ -53,4 +53,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof FileUpload>;
+} satisfies MetaType<typeof FileUpload>;

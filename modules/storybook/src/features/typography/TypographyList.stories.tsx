@@ -1,5 +1,5 @@
 import { List } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const items = (
   <List>
@@ -29,4 +29,4 @@ export const meta = {
       default: items,
     },
   ],
-} satisfies Meta<typeof List>;
+} satisfies MetaType<typeof List>;

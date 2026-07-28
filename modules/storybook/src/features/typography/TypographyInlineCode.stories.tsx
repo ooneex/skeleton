@@ -1,5 +1,5 @@
 import { InlineCode } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "InlineCode",
@@ -22,4 +22,4 @@ export const meta = {
       default: "npm install",
     },
   ],
-} satisfies Meta<typeof InlineCode>;
+} satisfies MetaType<typeof InlineCode>;

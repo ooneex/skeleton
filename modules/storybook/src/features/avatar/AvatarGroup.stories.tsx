@@ -1,5 +1,5 @@
 import { Avatar } from "@module/design/components/avatar";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const members = (
   <Avatar.Group>
@@ -37,4 +37,4 @@ export const meta = {
       default: members,
     },
   ],
-} satisfies Meta<typeof Avatar.Group>;
+} satisfies MetaType<typeof Avatar.Group>;

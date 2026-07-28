@@ -1,5 +1,5 @@
 import { Progress } from "@module/design/components/progress";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const uploadProgress = (
   <Progress className="w-80" value={68}>
@@ -48,4 +48,4 @@ export const meta = {
       default: 100,
     },
   ],
-} satisfies Meta<typeof Progress>;
+} satisfies MetaType<typeof Progress>;

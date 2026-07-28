@@ -1,6 +1,6 @@
 import { Sidebar } from "@module/design/components/sidebar";
 import type { ComponentProps } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type SidebarDemoPropsType = Pick<ComponentProps<typeof Sidebar.Provider>, "defaultOpen" | "onOpenChange"> &
   Pick<ComponentProps<typeof Sidebar>, "collapsible" | "side" | "variant">;
@@ -178,4 +178,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof SidebarDemo>;
+} satisfies MetaType<typeof SidebarDemo>;

@@ -1,5 +1,5 @@
 import { Textarea } from "@module/design/components/textarea";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Textarea",
@@ -47,4 +47,4 @@ export const meta = {
       default: false,
     },
   ],
-} satisfies Meta<typeof Textarea>;
+} satisfies MetaType<typeof Textarea>;

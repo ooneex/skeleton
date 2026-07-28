@@ -1,5 +1,5 @@
 import { Small } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Small",
@@ -22,4 +22,4 @@ export const meta = {
       default: "Email address",
     },
   ],
-} satisfies Meta<typeof Small>;
+} satisfies MetaType<typeof Small>;

@@ -1,5 +1,5 @@
 import { ScrollArea } from "@module/design/components/scroll-area";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const activityFeed = (
   <ScrollArea className="h-56 w-80 rounded border" viewportClassName="max-h-56">
@@ -64,4 +64,4 @@ export const meta = {
       default: 0,
     },
   ],
-} satisfies Meta<typeof ScrollArea>;
+} satisfies MetaType<typeof ScrollArea>;

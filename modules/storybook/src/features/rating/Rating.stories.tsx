@@ -1,5 +1,5 @@
 import { Rating } from "@module/design/components/rating";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Rating",
@@ -68,4 +68,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies Meta<typeof Rating>;
+} satisfies MetaType<typeof Rating>;

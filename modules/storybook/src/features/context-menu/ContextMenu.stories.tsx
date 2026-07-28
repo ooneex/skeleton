@@ -4,7 +4,7 @@ import { File2Icon } from "../../shared/icons/outline/files-folders/sm/File2Icon
 import { PlusIcon } from "../../shared/icons/outline/ui-layout/sm/PlusIcon";
 import { Trash2Icon } from "../../shared/icons/outline/ui-layout/sm/Trash2Icon";
 import { UserIcon } from "../../shared/icons/outline/users/sm/UserIcon";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const items: ContextMenuItemType[] = [
   { type: "label", label: "Actions" },
@@ -86,4 +86,4 @@ export const meta = {
       default: "Right-click anywhere in this area",
     },
   ],
-} satisfies Meta<typeof ContextMenuDemo>;
+} satisfies MetaType<typeof ContextMenuDemo>;

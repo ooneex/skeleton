@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { Drawer } from "@module/design/components/drawer";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type DrawerDemoPropsType = {
   /** Heading rendered by `DrawerTitle` inside the drawer header. */
@@ -79,4 +79,4 @@ export const meta = {
         "The body accepts any content — a form, a list, a detail view. Dismiss the drawer with the Escape key or by clicking the overlay.",
     },
   ],
-} satisfies Meta<typeof DrawerDemo>;
+} satisfies MetaType<typeof DrawerDemo>;

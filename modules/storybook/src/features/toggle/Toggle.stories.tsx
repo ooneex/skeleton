@@ -1,5 +1,5 @@
 import { Toggle } from "@module/design/components/toggle";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Toggle",
@@ -76,4 +76,4 @@ export const meta = {
       callback: (pressed: boolean) => pressed,
     },
   ],
-} satisfies Meta<typeof Toggle>;
+} satisfies MetaType<typeof Toggle>;

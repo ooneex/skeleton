@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@module/design/components/breadcrumb";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const trail = (
   <Breadcrumb>
@@ -43,4 +43,4 @@ export const meta = {
       default: trail,
     },
   ],
-} satisfies Meta<typeof Breadcrumb>;
+} satisfies MetaType<typeof Breadcrumb>;

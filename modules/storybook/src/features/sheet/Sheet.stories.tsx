@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { Sheet } from "@module/design/components/sheet";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type SheetDemoPropsType = {
   title?: string;
@@ -102,4 +102,4 @@ export const meta = {
       default: "right",
     },
   ],
-} satisfies Meta<typeof SheetDemo>;
+} satisfies MetaType<typeof SheetDemo>;

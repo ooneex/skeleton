@@ -1,5 +1,5 @@
 import { NotFound } from "@module/design/components/not-found";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "NotFound",
@@ -15,4 +15,4 @@ export const meta = {
     "",
     "**When not to use it** — do not use it for an empty list, a failed data fetch, or a permissions error; those are different states with different recovery paths (retry, request access, adjust filters). Reach for a purpose-built empty/error state there rather than a 404 page.",
   ].join("\n"),
-} satisfies Meta<typeof NotFound>;
+} satisfies MetaType<typeof NotFound>;

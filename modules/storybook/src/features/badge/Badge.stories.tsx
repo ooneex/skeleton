@@ -1,5 +1,5 @@
 import { Badge } from "@module/design/components/badge";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Badge",
@@ -107,4 +107,4 @@ export const meta = {
       default: "xs",
     },
   ],
-} satisfies Meta<typeof Badge>;
+} satisfies MetaType<typeof Badge>;

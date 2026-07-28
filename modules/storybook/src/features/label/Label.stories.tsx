@@ -1,5 +1,5 @@
 import { Label } from "@module/design/components/label";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Label",
@@ -51,4 +51,4 @@ export const meta = {
       default: false,
     },
   ],
-} satisfies Meta<typeof Label>;
+} satisfies MetaType<typeof Label>;

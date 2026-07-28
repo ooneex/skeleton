@@ -1,5 +1,5 @@
 import { Accordion } from "@module/design/components/accordion";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const faq = (
   <Accordion defaultValue={["shipping"]}>
@@ -60,4 +60,4 @@ export const meta = {
       callback: (value: string | readonly string[]) => value,
     },
   ],
-} satisfies Meta<typeof Accordion>;
+} satisfies MetaType<typeof Accordion>;

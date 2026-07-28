@@ -1,5 +1,5 @@
 import { ButtonDelete } from "@module/design/components/button";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Button.Delete",
@@ -42,4 +42,4 @@ export const meta = {
       callback: () => undefined,
     },
   ],
-} satisfies Meta<typeof ButtonDelete>;
+} satisfies MetaType<typeof ButtonDelete>;

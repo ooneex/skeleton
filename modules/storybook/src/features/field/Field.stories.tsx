@@ -5,7 +5,7 @@ import { Input } from "@module/design/components/input";
 import { ScrollArea } from "@module/design/components/scroll-area";
 import { Switch } from "@module/design/components/switch";
 import type { ReactNode } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type FieldExampleType = {
   /** Heading naming the composition being shown. */
@@ -186,4 +186,4 @@ export const meta = {
       default: <>{examples.map((item) => item.example)}</>,
     },
   ],
-} satisfies Meta<typeof FieldShowcase>;
+} satisfies MetaType<typeof FieldShowcase>;

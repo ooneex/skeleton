@@ -1,5 +1,5 @@
 import { Pagination } from "@module/design/components/pagination";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const pages = (
   <Pagination>
@@ -76,4 +76,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies Meta<typeof Pagination>;
+} satisfies MetaType<typeof Pagination>;

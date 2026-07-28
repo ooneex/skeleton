@@ -1,5 +1,5 @@
 import { ErrorFallback } from "@module/design/components/error";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const sampleError = new Error("Cannot read properties of undefined (reading 'name')");
 sampleError.name = "TypeError";
@@ -35,4 +35,4 @@ export const meta = {
       default: () => undefined,
     },
   ],
-} satisfies Meta<typeof ErrorFallback>;
+} satisfies MetaType<typeof ErrorFallback>;

@@ -1,6 +1,6 @@
 import { ImageUploader } from "@module/design/components/upload";
 import { type ComponentProps, useEffect, useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type ImageUploaderDemoPropsType = Pick<
   ComponentProps<typeof ImageUploader>,
@@ -85,4 +85,4 @@ export const meta = {
       callback: (index: number) => index,
     },
   ],
-} satisfies Meta<typeof ImageUploaderDemo>;
+} satisfies MetaType<typeof ImageUploaderDemo>;

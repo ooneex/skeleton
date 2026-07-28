@@ -1,5 +1,5 @@
 import { ImageZoom } from "@module/design/components/image";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "ImageZoom",
@@ -32,4 +32,4 @@ export const meta = {
       default: "aspect-video w-full",
     },
   ],
-} satisfies Meta<typeof ImageZoom>;
+} satisfies MetaType<typeof ImageZoom>;

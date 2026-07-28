@@ -3,7 +3,7 @@ import { pickColor, SimpleColorPicker } from "@module/design/components/color";
 import { cn } from "@module/design/utils/cn";
 import type { SimpleColorType } from "@ooneex/color";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type SimpleColorPickerDemoPropsType = {
   /** Heading shown above the swatch grid inside the dialog. */
@@ -61,4 +61,4 @@ export const meta = {
       default: "Pick a color",
     },
   ],
-} satisfies Meta<typeof SimpleColorPickerDemo>;
+} satisfies MetaType<typeof SimpleColorPickerDemo>;

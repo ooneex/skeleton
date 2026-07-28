@@ -1,5 +1,5 @@
 import { Kbd } from "@module/design/components/kbd";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const shortcut = (
   <Kbd.Group>
@@ -29,4 +29,4 @@ export const meta = {
       default: shortcut,
     },
   ],
-} satisfies Meta<typeof Kbd.Group>;
+} satisfies MetaType<typeof Kbd.Group>;

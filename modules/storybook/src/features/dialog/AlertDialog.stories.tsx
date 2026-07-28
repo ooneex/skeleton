@@ -2,7 +2,7 @@ import { Button } from "@module/design/components/button";
 import { AlertDialog, alert, confirm } from "@module/design/components/dialog";
 import { AlertWarningIcon } from "@module/design/icons/outline/ui-layout/lg/AlertWarningIcon";
 import { useState } from "react";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 type AlertDialogDemoPropsType = {
   /** `confirm` shows Cancel + Action; `alert` shows a single acknowledge button. */
@@ -185,4 +185,4 @@ export const meta = {
       default: "warning",
     },
   ],
-} satisfies Meta<typeof AlertDialogDemo>;
+} satisfies MetaType<typeof AlertDialogDemo>;

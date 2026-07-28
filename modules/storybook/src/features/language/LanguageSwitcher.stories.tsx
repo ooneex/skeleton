@@ -1,5 +1,5 @@
 import { LanguageSwitcher } from "@module/design/components/language";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "LanguageSwitcher",
@@ -91,4 +91,4 @@ export const meta = {
       callback: (language: string) => language,
     },
   ],
-} satisfies Meta<typeof LanguageSwitcher>;
+} satisfies MetaType<typeof LanguageSwitcher>;

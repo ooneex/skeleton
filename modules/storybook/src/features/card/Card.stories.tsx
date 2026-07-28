@@ -1,7 +1,7 @@
 import { Badge } from "@module/design/components/badge";
 import { Button } from "@module/design/components/button";
 import { Card } from "@module/design/components/card";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 const plan = (
   <Card className="w-80">
@@ -65,4 +65,4 @@ export const meta = {
       callback: () => undefined,
     },
   ],
-} satisfies Meta<typeof Card>;
+} satisfies MetaType<typeof Card>;

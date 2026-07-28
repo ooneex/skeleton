@@ -1,5 +1,5 @@
 import { P } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "P",
@@ -23,4 +23,4 @@ export const meta = {
         "The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax.",
     },
   ],
-} satisfies Meta<typeof P>;
+} satisfies MetaType<typeof P>;

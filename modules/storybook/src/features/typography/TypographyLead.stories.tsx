@@ -1,5 +1,5 @@
 import { Lead } from "@module/design/components/typography";
-import type { Meta } from "../../shared/story";
+import type { MetaType } from "../../shared/story";
 
 export const meta = {
   title: "Lead",
@@ -22,4 +22,4 @@ export const meta = {
       default: "A modal dialog that interrupts the user with important content and expects a response.",
     },
   ],
-} satisfies Meta<typeof Lead>;
+} satisfies MetaType<typeof Lead>;
