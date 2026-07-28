@@ -220,8 +220,7 @@ pub fn Select(props: SelectProps) -> Element {
         let last = items
             .read()
             .iter()
-            .filter(|i| !i.disabled)
-            .last()
+            .rfind(|i| !i.disabled)
             .map(|i| i.value.clone());
         focused_value.set(last);
     });

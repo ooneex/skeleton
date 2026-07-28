@@ -127,7 +127,7 @@ pub fn ResizablePanelGroup(props: ResizablePanelGroupProps) -> Element {
         direction.set(dir);
     }));
 
-    let on_layout_drag = props.on_layout.clone();
+    let on_layout_drag = props.on_layout;
     let on_layout_kbd = props.on_layout;
 
     let start_drag = use_callback(move |(handle_idx, coord, c_px): (usize, f64, f64)| {
@@ -173,13 +173,7 @@ pub fn ResizablePanelGroup(props: ResizablePanelGroupProps) -> Element {
         sizes,
         min_sizes,
         max_sizes,
-        dragging,
-        drag_start_coord,
-        drag_start_sizes,
-        container_px,
         start_drag,
-        move_drag,
-        end_drag,
         keyboard_resize,
     });
 
@@ -204,9 +198,9 @@ pub fn ResizablePanelGroup(props: ResizablePanelGroupProps) -> Element {
                     style: if is_horizontal { "cursor: col-resize" } else { "cursor: row-resize" },
                     onpointermove: move |event| {
                         let coord = if is_horizontal {
-                            event.client_coordinates().x as f64
+                            event.client_coordinates().x
                         } else {
-                            event.client_coordinates().y as f64
+                            event.client_coordinates().y
                         };
                         move_drag.call(coord);
                     },

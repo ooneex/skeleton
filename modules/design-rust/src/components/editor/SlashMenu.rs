@@ -16,7 +16,8 @@ use crate::hooks::use_preserve_selection;
 use crate::icons::outline::arrows::sm::{RedoIcon, UndoIcon};
 use crate::icons::outline::design_development::sm::{
     Heading1Icon, Heading2Icon, Heading3Icon, TextAlignCenterIcon, TextAlignJustifyIcon,
-    TextAlignLeftIcon, TextAlignRightIcon, TextItalicIcon, TextStrikethroughIcon, TextUnderlineIcon,
+    TextAlignLeftIcon, TextAlignRightIcon, TextItalicIcon, TextStrikethroughIcon,
+    TextUnderlineIcon,
 };
 use crate::icons::outline::editing::sm::{
     BlockquoteIcon, OrderedListIcon, ParagraphIcon, SubscriptIcon, SuperscriptIcon, TextBoldIcon,

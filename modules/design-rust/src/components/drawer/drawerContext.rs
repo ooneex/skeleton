@@ -3,8 +3,12 @@ use dioxus::prelude::*;
 /// Shared state of a drawer, provided by DrawerContent.
 #[derive(Clone, Copy)]
 pub(crate) struct DrawerContextValue {
+    /// Mirrors the `open`/`dismiss` pair the TypeScript `drawerContext` exposes
+    /// (DrawerContent.tsx:50). No child consumes either one there or here, but
+    /// the shape is kept so the two modules stay comparable.
     #[allow(dead_code)]
     pub(crate) open: Signal<bool>,
+    #[allow(dead_code)]
     pub(crate) dismiss: Callback<()>,
     pub(crate) title_id: Signal<String>,
     pub(crate) description_id: Signal<String>,

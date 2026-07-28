@@ -23,7 +23,7 @@ pub fn InputDescription(props: InputDescriptionProps) -> Element {
         Editor {
             content: props.content.clone(),
             placeholder: props.placeholder.clone(),
-            on_content_change: props.on_content_change.clone(),
+            on_content_change: props.on_content_change,
             class: cn([
                 "min-h-20 rounded border border-border p-2 transition-[color,box-shadow] hover:border-ring-active focus-within:border-ring-active",
                 props.class.as_deref().unwrap_or_default(),

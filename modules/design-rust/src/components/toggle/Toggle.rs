@@ -110,12 +110,10 @@ pub fn Toggle(props: ToggleProps) -> Element {
                 }
             },
             onkeydown: move |event| {
-                if let Key::Character(ref c) = event.key() {
-                    if c == " " {
-                        event.prevent_default();
-                        if !is_disabled {
-                            set_pressed.call(!*pressed.peek());
-                        }
+                if let Key::Character(ref c) = event.key() && c == " " {
+                    event.prevent_default();
+                    if !is_disabled {
+                        set_pressed.call(!*pressed.peek());
                     }
                 }
             },

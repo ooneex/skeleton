@@ -45,6 +45,20 @@ pub const EDITOR_INIT_JS: &str = r#"
 })('{id}')
 "#;
 
+/// Build [`EDITOR_INIT_JS`] for a given editor element, with the Tailwind
+/// task-list classes substituted in.
+pub fn editor_init_js(editor_id: &str) -> String {
+    EDITOR_INIT_JS
+        .replace("{id}", editor_id)
+        .replace("__TASK_LIST_CLASS__", TASK_LIST_CLASS)
+        .replace("__TASK_ITEM_CLASS__", TASK_ITEM_CLASS)
+        .replace("__TASK_CHECKBOX_CLASS__", TASK_CHECKBOX_CLASS)
+        .replace(
+            "__TASK_CHECKBOX_CHECKED_CLASS__",
+            TASK_CHECKBOX_CHECKED_CLASS,
+        )
+}
+
 /// JS that computes a compact state array and sends it back via `dioxus.send`.
 /// The array has exactly 20 elements; each element is a string.
 ///

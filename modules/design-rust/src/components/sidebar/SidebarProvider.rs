@@ -54,12 +54,11 @@ pub fn SidebarProvider(props: SidebarProviderProps) -> Element {
             "#
         ));
 
-        if let Ok(value) = event_stream.recv::<Option<bool>>().await {
-            if let Some(value) = value {
-                if controlled_open.is_none() {
-                    open.set(value);
-                }
-            }
+        if let Ok(value) = event_stream.recv::<Option<bool>>().await
+            && let Some(value) = value
+            && controlled_open.is_none()
+        {
+            open.set(value);
         }
     });
 

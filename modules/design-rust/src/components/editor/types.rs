@@ -23,6 +23,34 @@ pub enum EditorMarkType {
     TextStyle,
 }
 
+/// Anything the editor handle's `is_active` / `get_attributes` helpers
+/// understand — the union of [`EditorBlockType`] and [`EditorMarkType`].
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum EditorActiveNameType {
+    Block(EditorBlockType),
+    Mark(EditorMarkType),
+}
+
+impl From<EditorBlockType> for EditorActiveNameType {
+    fn from(value: EditorBlockType) -> Self {
+        Self::Block(value)
+    }
+}
+
+impl From<EditorMarkType> for EditorActiveNameType {
+    fn from(value: EditorMarkType) -> Self {
+        Self::Mark(value)
+    }
+}
+
+/// Optional qualifiers narrowing an [`EditorActiveNameType`] lookup: the
+/// heading level for `Heading`, the alignment for `Paragraph`.
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
+pub struct EditorActiveAttributesType {
+    pub level: Option<u8>,
+    pub align: Option<EditorAlignType>,
+}
+
 /// Horizontal text alignment.
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
 pub enum EditorAlignType {
@@ -42,9 +70,13 @@ impl EditorAlignType {
             Self::Justify => "justify",
         }
     }
+}
 
-    pub fn from_str(s: &str) -> Self {
-        match s {
+impl From<&str> for EditorAlignType {
+    /// Infallible: any unknown value falls back to `Left`, matching the
+    /// React editor which treats a missing alignment as left-aligned.
+    fn from(value: &str) -> Self {
+        match value {
             "center" => Self::Center,
             "right" => Self::Right,
             "justify" => Self::Justify,

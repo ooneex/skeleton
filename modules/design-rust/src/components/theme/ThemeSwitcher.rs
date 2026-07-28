@@ -6,6 +6,7 @@ use super::ThemeSwitcherOption::{
 };
 use crate::components::select::{
     Select, SelectContent, SelectGroup, SelectLabel, SelectSeparator, SelectTrigger,
+    SelectTriggerSizeType,
 };
 use crate::hooks::use_controlled_state;
 use crate::icons::outline::design_development::sm::MonitorIcon;
@@ -55,12 +56,12 @@ impl ThemeSwitcherSizeType {
         }
     }
 
-    fn as_trigger_str(self) -> &'static str {
+    fn as_trigger_size(self) -> SelectTriggerSizeType {
         match self {
-            Self::Xs => "xs",
-            Self::Sm => "sm",
-            Self::Md => "md",
-            Self::Lg => "lg",
+            Self::Xs => SelectTriggerSizeType::Xs,
+            Self::Sm => SelectTriggerSizeType::Sm,
+            Self::Md => SelectTriggerSizeType::Md,
+            Self::Lg => SelectTriggerSizeType::Lg,
         }
     }
 }
@@ -161,6 +162,7 @@ pub fn ThemeSwitcher(props: ThemeSwitcherProps) -> Element {
             SelectTrigger {
                 "data-slot": "theme-switcher",
                 "aria-label": "Theme",
+                size: size.as_trigger_size(),
                 class: cn(["", props.class.as_deref().unwrap_or_default()]),
                 span { class: "flex items-center gap-2",
                     match current.as_str() {

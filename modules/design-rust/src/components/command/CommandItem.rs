@@ -58,7 +58,7 @@ pub fn CommandItem(props: CommandItemProps) -> Element {
         on_select: props.on_select,
     };
 
-    let is_registered = context.items.peek().iter().any(|item| *item == entry);
+    let is_registered = context.items.peek().contains(&entry);
     if !is_registered {
         context.register(entry);
     }

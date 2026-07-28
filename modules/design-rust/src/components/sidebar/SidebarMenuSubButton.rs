@@ -38,6 +38,13 @@ pub struct SidebarMenuSubButtonProps {
     pub children: Element,
 }
 
+/// Entry of a nested sidebar submenu.
+///
+/// # Limitations
+/// The TypeScript version can swap the rendered element through its `render`
+/// prop, typically for a router link component. Dioxus has no `cloneElement`,
+/// so the sub-button's classes and `data-*` attributes cannot be injected into
+/// a caller-supplied `Element`; this port always renders an `<a>`.
 #[component]
 pub fn SidebarMenuSubButton(props: SidebarMenuSubButtonProps) -> Element {
     rsx! {

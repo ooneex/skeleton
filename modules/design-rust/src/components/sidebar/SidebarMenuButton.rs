@@ -83,6 +83,15 @@ pub struct SidebarMenuButtonProps {
     pub children: Element,
 }
 
+/// Main clickable entry of a sidebar menu item, with an optional tooltip shown
+/// while the sidebar is collapsed.
+///
+/// # Limitations
+/// The TypeScript component takes a `render` element and clones the button
+/// props onto it, which is how callers turn the entry into a router link. There
+/// is no `cloneElement` in Dioxus, so props cannot be pushed into a
+/// caller-supplied `Element` and this port always renders a `<button>`; wrap it
+/// in a link or spread link attributes through `attributes` instead.
 #[component]
 pub fn SidebarMenuButton(props: SidebarMenuButtonProps) -> Element {
     let context = use_sidebar();

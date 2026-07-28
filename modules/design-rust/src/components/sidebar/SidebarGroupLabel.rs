@@ -11,6 +11,14 @@ pub struct SidebarGroupLabelProps {
     pub children: Element,
 }
 
+/// Label heading for a sidebar group; fades out when the sidebar collapses.
+///
+/// # Limitations
+/// The TypeScript version's `render` prop, used to emit a heading element or a
+/// custom component instead of the default wrapper, has no counterpart here.
+/// Without a `cloneElement` in Dioxus the label's classes and `data-*`
+/// attributes cannot be applied to a caller-built `Element`, so this always
+/// renders a `<div>`.
 #[component]
 pub fn SidebarGroupLabel(props: SidebarGroupLabelProps) -> Element {
     rsx! {

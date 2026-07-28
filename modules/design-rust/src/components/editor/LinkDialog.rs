@@ -54,8 +54,8 @@ pub fn LinkDialog(props: LinkDialogProps) -> Element {
                     value: "{url}",
                     oninput: move |e| { url.set(e.value()); error.set(String::new()); },
                     onkeydown: {
-                        let on_submit = props.on_submit.clone();
-                        let on_cancel = props.on_cancel.clone();
+                        let on_submit = props.on_submit;
+                        let on_cancel = props.on_cancel;
                         move |e: KeyboardEvent| {
                             match e.key() {
                                 Key::Enter => {
@@ -94,7 +94,7 @@ pub fn LinkDialog(props: LinkDialogProps) -> Element {
                         r#type: "button",
                         class: "text-xs px-2 py-1 rounded bg-primary text-primary-foreground hover:opacity-90",
                         onclick: {
-                            let on_submit = props.on_submit.clone();
+                            let on_submit = props.on_submit;
                             move |_| {
                                 let href = url.read().clone();
                                 if !href.starts_with("http://") && !href.starts_with("https://") {

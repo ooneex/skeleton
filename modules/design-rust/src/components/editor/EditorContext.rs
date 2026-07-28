@@ -1,6 +1,7 @@
 use dioxus::document::eval;
 use dioxus::prelude::*;
 
+use super::EditorHandle::{EditorHandleType, EditorSelectionType};
 use super::commands::{
     COMPUTE_STATE_JS, TASK_CHECKBOX_CLASS, TASK_ITEM_CLASS, TASK_LIST_CLASS, YOUTUBE_CLASS,
 };
@@ -13,9 +14,7 @@ fn extract_youtube_id(url: &str) -> Option<&str> {
     // youtu.be/<id>
     if let Some(pos) = url.find("youtu.be/") {
         let rest = &url[pos + 9..];
-        let end = rest
-            .find(|c: char| c == '?' || c == '&' || c == '#')
-            .unwrap_or(rest.len());
+        let end = rest.find(['?', '&', '#']).unwrap_or(rest.len());
         let id = &rest[..end];
         if !id.is_empty() {
             return Some(id);
@@ -24,9 +23,7 @@ fn extract_youtube_id(url: &str) -> Option<&str> {
     // ?v=<id> or &v=<id>
     if let Some(pos) = url.find("v=") {
         let rest = &url[pos + 2..];
-        let end = rest
-            .find(|c: char| c == '&' || c == '#')
-            .unwrap_or(rest.len());
+        let end = rest.find(['&', '#']).unwrap_or(rest.len());
         let id = &rest[..end];
         if !id.is_empty() {
             return Some(id);
@@ -37,6 +34,97 @@ fn extract_youtube_id(url: &str) -> Option<&str> {
 
 fn youtube_embed_url(url: &str) -> Option<String> {
     extract_youtube_id(url).map(|id| format!("https://www.youtube.com/embed/{id}"))
+}
+
+// ── State / content readers ──────────────────────────────────────────────────
+
+/// Decode the 20-slot string array produced by [`COMPUTE_STATE_JS`].
+fn parse_editor_state(arr: &[String]) -> EditorStateType {
+    EditorStateType {
+        bold: arr[0] == "1",
+        italic: arr[1] == "1",
+        underline: arr[2] == "1",
+        strike: arr[3] == "1",
+        subscript: arr[4] == "1",
+        superscript: arr[5] == "1",
+        link: arr[6] == "1",
+        link_href: arr[19].clone(),
+        blockquote: arr[7] == "1",
+        paragraph: arr[8] == "1",
+        heading_level: match arr[9].as_str() {
+            "1" => Some(1),
+            "2" => Some(2),
+            "3" => Some(3),
+            _ => None,
+        },
+        bullet_list: arr[10] == "1",
+        ordered_list: arr[11] == "1",
+        task_list: arr[12] == "1",
+        align: EditorAlignType::from(arr[13].as_str()),
+        color: arr[14].clone(),
+        highlight: arr[15].clone(),
+        can_undo: arr[16] == "1",
+        can_redo: arr[17] == "1",
+        is_empty: arr[18] == "1",
+    }
+}
+
+/// Read a fresh selection snapshot straight from the DOM.
+///
+/// The TypeScript `computeEditorState(element)` is synchronous because it walks
+/// the real DOM. There is no DOM access from Rust, so this crosses the `eval`
+/// boundary and is `async`. Resolves to `None` when the editor element is gone.
+pub async fn editor_compute_state(editor_id: &str) -> Option<EditorStateType> {
+    let mut ev = eval(&COMPUTE_STATE_JS.replace("{id}", editor_id));
+    match ev.recv::<Vec<String>>().await {
+        Ok(arr) if arr.len() >= 20 => Some(parse_editor_state(&arr)),
+        _ => None,
+    }
+}
+
+/// JS mirroring the TypeScript `getHTML()`: the trimmed `innerHTML`, or an
+/// empty string when the document holds nothing but whitespace.
+const GET_HTML_JS: &str = r#"
+                (function() {
+                  const el = document.getElementById('{id}');
+                  if (!el) { dioxus.send(''); return; }
+                  if (el.querySelector('img,iframe,[data-youtube],[data-checkbox],hr') ||
+                      (el.textContent || '').replace(/\u200b/g,'').trim().length > 0) {
+                    dioxus.send(el.innerHTML.trim());
+                  } else {
+                    dioxus.send('');
+                  }
+                })()
+                "#;
+
+/// Serialize the document to HTML, empty string when the document is empty.
+///
+/// `async` because the value has to come back across the `eval` boundary; the
+/// TypeScript `getContent()` returns synchronously.
+pub async fn editor_get_content(editor_id: &str) -> String {
+    let mut ev = eval(&GET_HTML_JS.replace("{id}", editor_id));
+    ev.recv::<String>().await.unwrap_or_default()
+}
+
+/// The plain text currently selected inside the editor, trimmed. Empty when the
+/// selection sits outside the editor surface.
+///
+/// `async` for the same reason as [`editor_get_content`].
+pub async fn editor_get_selection(editor_id: &str) -> String {
+    let mut ev = eval(&format!(
+        r#"
+        (function() {{
+          const el = document.getElementById('{editor_id}');
+          const sel = window.getSelection();
+          if (!el || !sel || sel.rangeCount === 0 || !el.contains(sel.anchorNode)) {{
+            dioxus.send('');
+            return;
+          }}
+          dioxus.send(sel.toString().trim());
+        }})()
+        "#
+    ));
+    ev.recv::<String>().await.unwrap_or_default()
 }
 
 // ── Context ──────────────────────────────────────────────────────────────────
@@ -66,27 +154,54 @@ pub struct EditorContext {
     pub on_submit: Option<EventHandler<()>>,
 }
 
-impl EditorContext {
-    /// Run an exec-command JS snippet and refresh state afterwards.
-    pub fn run_command(&self, js: String) {
-        let id = self.editor_id.read().clone();
-        let refresh = self.refresh.clone();
-        let emit = self.emit_change.clone();
-        let js_focus_run = format!(
-            r#"
+/// Focus the editor surface, run `js` against it, then refresh the selection
+/// snapshot and emit the content change. This is the Rust equivalent of the
+/// TypeScript provider's `run(fn)` helper.
+pub fn editor_run_command(
+    editor_id: &str,
+    refresh: Callback<()>,
+    emit_change: Callback<()>,
+    js: &str,
+) {
+    let js_focus_run = format!(
+        r#"
             (function() {{
-              const el = document.getElementById('{id}');
+              const el = document.getElementById('{editor_id}');
               if (el) {{
                 el.focus();
                 {js}
               }}
             }})()
             "#,
-        );
-        let _ = eval(&js_focus_run);
-        refresh.call(());
-        emit.call(());
+    );
+    let _ = eval(&js_focus_run);
+    refresh.call(());
+    emit_change.call(());
+}
+
+impl EditorContext {
+    /// Run an exec-command JS snippet and refresh state afterwards.
+    pub fn run_command(&self, js: String) {
+        let id = self.editor_id.read().clone();
+        editor_run_command(&id, self.refresh, self.emit_change, &js);
     }
+
+    /// The imperative handle for this editor instance.
+    pub fn handle(&self) -> EditorHandleType {
+        EditorHandleType {
+            editor_id: self.editor_id,
+            refresh: self.refresh,
+            emit_change: self.emit_change,
+        }
+    }
+}
+
+/// Access the imperative [`EditorHandleType`] from inside the editor tree.
+///
+/// Callers rendering *outside* the provider (the usual case, mirroring the
+/// React `ref`) should use the `on_handle` prop instead.
+pub fn use_editor_handle() -> EditorHandleType {
+    use_context::<EditorContext>().handle()
 }
 
 pub fn use_editor_context() -> EditorContext {
@@ -115,8 +230,16 @@ pub struct EditorProviderProps {
     pub show_slash_menu: bool,
     #[props(default)]
     pub on_content_change: Option<EventHandler<String>>,
+    /// Fired on every selection change inside the editable surface, with the
+    /// selected text and the imperative handle.
+    #[props(default)]
+    pub on_selection_change: Option<EventHandler<EditorSelectionType>>,
     #[props(default)]
     pub on_submit: Option<EventHandler<()>>,
+    /// Receives the imperative [`EditorHandleType`] once the provider mounts.
+    /// This is the Dioxus stand-in for the React `ref` / `controllerRef`.
+    #[props(default)]
+    pub on_handle: Option<EventHandler<EditorHandleType>>,
     pub children: Element,
 }
 
@@ -129,48 +252,17 @@ pub fn EditorProvider(props: EditorProviderProps) -> Element {
 
     let state: Signal<EditorStateType> = use_signal(empty_editor_state);
 
-    let on_content_change = props.on_content_change.clone();
+    let on_content_change = props.on_content_change;
     let editor_id_for_refresh = editor_id.clone();
     let editor_id_for_emit = editor_id.clone();
 
     // refresh: pull state from the DOM via eval
     let refresh_cb = use_callback(move |_: ()| {
         let id = editor_id_for_refresh.clone();
-        let js = COMPUTE_STATE_JS.replace("{id}", &id);
-        let mut ev = eval(&js);
         let mut state = state;
         spawn(async move {
-            if let Ok(arr) = ev.recv::<Vec<String>>().await {
-                if arr.len() >= 20 {
-                    let new_state = EditorStateType {
-                        bold: arr[0] == "1",
-                        italic: arr[1] == "1",
-                        underline: arr[2] == "1",
-                        strike: arr[3] == "1",
-                        subscript: arr[4] == "1",
-                        superscript: arr[5] == "1",
-                        link: arr[6] == "1",
-                        link_href: arr[19].clone(),
-                        blockquote: arr[7] == "1",
-                        paragraph: arr[8] == "1",
-                        heading_level: match arr[9].as_str() {
-                            "1" => Some(1),
-                            "2" => Some(2),
-                            "3" => Some(3),
-                            _ => None,
-                        },
-                        bullet_list: arr[10] == "1",
-                        ordered_list: arr[11] == "1",
-                        task_list: arr[12] == "1",
-                        align: EditorAlignType::from_str(&arr[13]),
-                        color: arr[14].clone(),
-                        highlight: arr[15].clone(),
-                        can_undo: arr[16] == "1",
-                        can_redo: arr[17] == "1",
-                        is_empty: arr[18] == "1",
-                    };
-                    state.set(new_state);
-                }
+            if let Some(new_state) = editor_compute_state(&id).await {
+                state.set(new_state);
             }
         });
     });
@@ -179,27 +271,9 @@ pub fn EditorProvider(props: EditorProviderProps) -> Element {
     let emit_cb = use_callback(move |_: ()| {
         if let Some(ref cb) = on_content_change {
             let id = editor_id_for_emit.clone();
-            let cb = cb.clone();
-            let js = format!(
-                r#"
-                (function() {{
-                  const el = document.getElementById('{id}');
-                  if (!el) {{ dioxus.send(''); return; }}
-                  // Check empty
-                  if (el.querySelector('img,iframe,[data-youtube],[data-checkbox],hr') ||
-                      (el.textContent || '').replace(/\u200b/g,'').trim().length > 0) {{
-                    dioxus.send(el.innerHTML.trim());
-                  }} else {{
-                    dioxus.send('');
-                  }}
-                }})()
-                "#
-            );
-            let mut ev = eval(&js);
+            let cb = *cb;
             spawn(async move {
-                if let Ok(html) = ev.recv::<String>().await {
-                    cb.call(html);
-                }
+                cb.call(editor_get_content(&id).await);
             });
         }
     });
@@ -228,14 +302,25 @@ pub fn EditorProvider(props: EditorProviderProps) -> Element {
         emit_change: emit_cb,
         on_submit: props.on_submit,
     };
+    let handle = ctx.handle();
     use_context_provider(|| ctx);
+
+    // Hand the imperative handle to the caller once, mirroring the React
+    // `useImperativeHandle` wiring.
+    let on_handle = props.on_handle;
+    use_effect(move || {
+        if let Some(on_handle) = on_handle {
+            on_handle.call(handle);
+        }
+    });
 
     // Install the selectionchange listener once after mount.
     let editor_id_listener = editor_id.clone();
-    let refresh_for_listener = refresh_cb.clone();
+    let refresh_for_listener = refresh_cb;
+    let on_selection_change = props.on_selection_change;
     use_future(move || {
         let id = editor_id_listener.clone();
-        let refresh = refresh_for_listener.clone();
+        let refresh = refresh_for_listener;
         async move {
             let js = format!(
                 r#"
@@ -247,15 +332,18 @@ pub fn EditorProvider(props: EditorProviderProps) -> Element {
                     if (!root) return;
                     const sel = window.getSelection();
                     if (sel && sel.rangeCount > 0 && root.contains(sel.anchorNode)) {{
-                      dioxus.send(true);
+                      dioxus.send(sel.toString().trim());
                     }}
                   }});
                 }})()
                 "#
             );
             let mut listener = eval(&js);
-            while listener.recv::<bool>().await.is_ok() {
+            while let Ok(content) = listener.recv::<String>().await {
                 refresh.call(());
+                if let Some(on_selection_change) = on_selection_change {
+                    on_selection_change.call(EditorSelectionType { content, handle });
+                }
             }
         }
     });
@@ -465,7 +553,16 @@ pub fn editor_toggle_task_list(ctx: &EditorContext) {
               p.innerHTML = content.innerHTML || '<br>';
               frag.appendChild(p);
             }});
+            const firstParagraph = frag.firstChild;
             taskList.replaceWith(frag);
+            // Place caret at start of the first unwrapped paragraph.
+            if (firstParagraph && sel) {{
+              const range = document.createRange();
+              range.selectNodeContents(firstParagraph);
+              range.collapse(true);
+              sel.removeAllRanges();
+              sel.addRange(range);
+            }}
             return;
           }}
           // Find current block

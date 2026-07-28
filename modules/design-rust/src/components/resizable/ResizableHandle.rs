@@ -56,9 +56,9 @@ pub fn ResizableHandle(props: ResizableHandleProps) -> Element {
             onpointerdown: move |event| {
                 if disabled { return; }
                 let coord = if is_horizontal {
-                    event.client_coordinates().x as f64
+                    event.client_coordinates().x
                 } else {
-                    event.client_coordinates().y as f64
+                    event.client_coordinates().y
                 };
                 let group_id = group_id.clone();
                 let prop = if is_horizontal { "offsetWidth" } else { "offsetHeight" };

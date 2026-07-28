@@ -49,8 +49,8 @@ pub fn YouTubeDialog(props: YouTubeDialogProps) -> Element {
                     value: "{url}",
                     oninput: move |e| { url.set(e.value()); error.set(String::new()); },
                     onkeydown: {
-                        let on_submit = props.on_submit.clone();
-                        let on_cancel = props.on_cancel.clone();
+                        let on_submit = props.on_submit;
+                        let on_cancel = props.on_cancel;
                         move |e: KeyboardEvent| {
                             match e.key() {
                                 Key::Enter => {
@@ -78,7 +78,7 @@ pub fn YouTubeDialog(props: YouTubeDialogProps) -> Element {
                         r#type: "button",
                         class: "text-xs px-2 py-1 rounded bg-primary text-primary-foreground hover:opacity-90",
                         onclick: {
-                            let on_submit = props.on_submit.clone();
+                            let on_submit = props.on_submit;
                             move |_| {
                                 let u = url.read().clone();
                                 if !is_valid_yt(&u) { error.set("Please enter a valid YouTube URL".into()); return; }

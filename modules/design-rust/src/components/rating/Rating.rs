@@ -105,7 +105,7 @@ pub fn Rating(props: RatingProps) -> Element {
     };
 
     // Clone on_value_change for use in both the item buttons and GradientRating.
-    let on_vc_for_select = props.on_value_change.clone();
+    let on_vc_for_select = props.on_value_change;
     let on_vc_for_gradient = props.on_value_change;
 
     // use_callback returns Callback<T> which is Copy — safe to capture in loops.
@@ -375,7 +375,7 @@ pub fn GradientRating(props: GradientRatingProps) -> Element {
                 is_pressing.set(true);
                 if let Some(data) = &*icon_ref.read() {
                     let data = data.clone();
-                    let cy = event.client_coordinates().y as f64;
+                    let cy = event.client_coordinates().y;
                     spawn(async move {
                         if let Ok(rect) = data.get_client_rect().await {
                             rect_top.set(rect.origin.y);
@@ -384,12 +384,12 @@ pub fn GradientRating(props: GradientRatingProps) -> Element {
                         do_update.call(cy);
                     });
                 } else {
-                    do_update.call(event.client_coordinates().y as f64);
+                    do_update.call(event.client_coordinates().y);
                 }
             },
             onpointermove: move |event| {
                 if !interactive || !*is_pressing.read() { return; }
-                do_update.call(event.client_coordinates().y as f64);
+                do_update.call(event.client_coordinates().y);
             },
             onpointerup: move |_| { is_pressing.set(false); },
             onkeydown: move |event| {

@@ -284,7 +284,7 @@ fn RenderItem(props: RenderItemProps) -> Element {
                                     key: "{child_index}",
                                     item: child_item.clone(),
                                     index: child_index,
-                                    on_select: on_select.clone(),
+                                    on_select: on_select,
                                     on_close,
                                 }
                             }

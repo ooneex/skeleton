@@ -164,13 +164,13 @@ pub fn Calendar(props: CalendarProps) -> Element {
         let mut e = eval(
             "dioxus.send([new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()])",
         );
-        if let Ok(arr) = e.recv::<Vec<i64>>().await {
-            if arr.len() == 3 {
-                let today = (arr[0] as i32, arr[1] as u8, arr[2] as u8);
-                today_signal.set(Some(today));
-                if view_month_signal.read().is_none() {
-                    view_month_signal.set(Some((today.0, today.1)));
-                }
+        if let Ok(arr) = e.recv::<Vec<i64>>().await
+            && arr.len() == 3
+        {
+            let today = (arr[0] as i32, arr[1] as u8, arr[2] as u8);
+            today_signal.set(Some(today));
+            if view_month_signal.read().is_none() {
+                view_month_signal.set(Some((today.0, today.1)));
             }
         }
     });
@@ -274,7 +274,7 @@ pub fn Calendar(props: CalendarProps) -> Element {
                                         {
                                             let date = (day_info.year, day_info.month, day_info.day);
                                             let is_selected = selected == Some(date);
-                                            let is_disabled = disabled_days.iter().any(|disabled| *disabled == date);
+                                            let is_disabled = disabled_days.contains(&date);
                                             let is_today = today == Some(date);
                                             let is_hidden = day_info.outside && !show_outside_days;
                                             let day_class = cn([

@@ -26,10 +26,8 @@ fn Digit(value: i64, place: i64) -> Element {
                 onmounted: move |event| {
                     let data = event.data();
                     spawn(async move {
-                        if let Ok(rect) = data.get_client_rect().await {
-                            if rect.size.height > 0.0 {
-                                row_height.set(Some(rect.size.height));
-                            }
+                        if let Ok(rect) = data.get_client_rect().await && rect.size.height > 0.0 {
+                            row_height.set(Some(rect.size.height));
                         }
                     });
                 },

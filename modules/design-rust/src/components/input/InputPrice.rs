@@ -569,7 +569,7 @@ pub fn InputPrice(props: InputPriceProps) -> Element {
                 Combobox {
                     value: selected_code.clone(),
                     on_value_change: {
-                        let on_currency_change = props.on_currency_change.clone();
+                        let on_currency_change = props.on_currency_change;
                         move |val: String| {
                             currency.set(val.clone());
                             if let Some(ref cb) = on_currency_change {

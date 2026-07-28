@@ -201,11 +201,11 @@ fn TimePickerInstance(props: TimePickerInstanceProps) -> Element {
             return;
         }
         let mut ev = eval("dioxus.send([new Date().getHours(), new Date().getMinutes()])");
-        if let Ok(parts) = ev.recv::<Vec<i64>>().await {
-            if parts.len() == 2 {
-                hour.set(format!("{:02}", parts[0]));
-                minute.set(format!("{:02}", parts[1]));
-            }
+        if let Ok(parts) = ev.recv::<Vec<i64>>().await
+            && parts.len() == 2
+        {
+            hour.set(format!("{:02}", parts[0]));
+            minute.set(format!("{:02}", parts[1]));
         }
     });
 

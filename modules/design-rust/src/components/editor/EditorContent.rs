@@ -2,7 +2,7 @@ use dioxus::document::eval;
 use dioxus::prelude::*;
 
 use super::EditorContext::use_editor_context;
-use super::commands::EDITOR_INIT_JS;
+use super::commands::editor_init_js;
 use crate::utils::cn;
 
 /// Tailwind prose styling for the editable surface.
@@ -52,19 +52,7 @@ pub fn EditorContent(props: EditorContentProps) -> Element {
     use_effect(move || {
         let id = editor_id_init.clone();
         let content = initial_for_init.clone();
-        let js = EDITOR_INIT_JS
-            .replace("{id}", &id)
-            .replace("__TASK_LIST_CLASS__", super::commands::TASK_LIST_CLASS)
-            .replace("__TASK_ITEM_CLASS__", super::commands::TASK_ITEM_CLASS)
-            .replace(
-                "__TASK_CHECKBOX_CLASS__",
-                super::commands::TASK_CHECKBOX_CLASS,
-            )
-            .replace(
-                "__TASK_CHECKBOX_CHECKED_CLASS__",
-                super::commands::TASK_CHECKBOX_CHECKED_CLASS,
-            );
-        let _ = eval(&js);
+        let _ = eval(&editor_init_js(&id));
 
         // Set initial content if provided and non-empty
         if !content.is_empty() {

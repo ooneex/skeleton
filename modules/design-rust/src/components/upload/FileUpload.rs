@@ -278,7 +278,7 @@ pub fn FileUpload(props: FileUploadProps) -> Element {
     let on_upload_success = props.on_upload_success;
     let on_upload_error = props.on_upload_error;
     let on_file_remove = props.on_file_remove;
-    let validate_file = props.validate_file.clone();
+    let validate_file = props.validate_file;
 
     // Revoke a single object URL.
     let revoke_url = |url: &str| {
@@ -340,11 +340,11 @@ pub fn FileUpload(props: FileUploadProps) -> Element {
         drop(types);
 
         // Custom validator.
-        if let Some(ref validate) = validate_file {
-            if let Some(err) = validate.call(info.clone()) {
-                show_error.call(err);
-                return;
-            }
+        if let Some(ref validate) = validate_file
+            && let Some(err) = validate.call(info.clone())
+        {
+            show_error.call(err);
+            return;
         }
 
         let delay = *upload_delay_ms.peek();
@@ -377,32 +377,27 @@ pub fn FileUpload(props: FileUploadProps) -> Element {
             let mut ev = eval(&format!(
                 r#"const s={step_interval};for(let i=5;i<=100;i+=5){{await new Promise(r=>setTimeout(r,s));dioxus.send(i);}};"#
             ));
-            loop {
-                match ev.recv::<f64>().await {
-                    Ok(p) => {
-                        // Cancelled by resetState or another file selection?
-                        if *upload_gen.peek() != gen_val {
-                            break;
-                        }
-                        if *status.peek() != FileStatusType::Uploading {
-                            break;
-                        }
-                        progress.set(p);
-                        if p >= 100.0 {
-                            if *multiple_sig.peek() {
-                                files.with_mut(|f| f.push(info.clone()));
-                            } else {
-                                files.set(vec![info.clone()]);
-                            }
-                            status.set(FileStatusType::Completed);
-                            uploading_file.set(None);
-                            if let Some(cb) = on_upload_success {
-                                cb.call(info.clone());
-                            }
-                            break;
-                        }
+            while let Ok(p) = ev.recv::<f64>().await {
+                // Cancelled by resetState or another file selection?
+                if *upload_gen.peek() != gen_val {
+                    break;
+                }
+                if *status.peek() != FileStatusType::Uploading {
+                    break;
+                }
+                progress.set(p);
+                if p >= 100.0 {
+                    if *multiple_sig.peek() {
+                        files.with_mut(|f| f.push(info.clone()));
+                    } else {
+                        files.set(vec![info.clone()]);
                     }
-                    Err(_) => break,
+                    status.set(FileStatusType::Completed);
+                    uploading_file.set(None);
+                    if let Some(cb) = on_upload_success {
+                        cb.call(info.clone());
+                    }
+                    break;
                 }
             }
         });
@@ -412,10 +407,10 @@ pub fn FileUpload(props: FileUploadProps) -> Element {
     let remove_file = use_callback(move |index: usize| {
         {
             let f = files.peek();
-            if let Some(info) = f.get(index) {
-                if let Some(ref url) = info.preview_url {
-                    revoke_url(url);
-                }
+            if let Some(info) = f.get(index)
+                && let Some(ref url) = info.preview_url
+            {
+                revoke_url(url);
             }
         }
         files.with_mut(|f| {
@@ -483,35 +478,30 @@ try {{ await dioxus.recv(); }} catch {{}}
 "#
                 );
                 let mut ev = eval(&js);
-                loop {
-                    match ev.recv::<String>().await {
-                        Ok(msg) => {
-                            if msg == "drag" {
-                                if *status.peek() != FileStatusType::Uploading {
-                                    status.set(FileStatusType::Dragging);
-                                }
-                            } else if msg == "leave" {
-                                if *status.peek() == FileStatusType::Dragging {
-                                    status.set(FileStatusType::Idle);
-                                }
-                            } else if let Some(rest) = msg.strip_prefix("file\x00") {
-                                let parts: Vec<&str> = rest.splitn(4, '\x00').collect();
-                                if parts.len() == 4 {
-                                    let info = FileInfo {
-                                        name: parts[0].to_string(),
-                                        size: parts[1].parse().unwrap_or(0),
-                                        mime_type: parts[2].to_string(),
-                                        preview_url: if parts[3].is_empty() {
-                                            None
-                                        } else {
-                                            Some(parts[3].to_string())
-                                        },
-                                    };
-                                    handle_file_select.call(info);
-                                }
-                            }
+                while let Ok(msg) = ev.recv::<String>().await {
+                    if msg == "drag" {
+                        if *status.peek() != FileStatusType::Uploading {
+                            status.set(FileStatusType::Dragging);
                         }
-                        Err(_) => break,
+                    } else if msg == "leave" {
+                        if *status.peek() == FileStatusType::Dragging {
+                            status.set(FileStatusType::Idle);
+                        }
+                    } else if let Some(rest) = msg.strip_prefix("file\x00") {
+                        let parts: Vec<&str> = rest.splitn(4, '\x00').collect();
+                        if parts.len() == 4 {
+                            let info = FileInfo {
+                                name: parts[0].to_string(),
+                                size: parts[1].parse().unwrap_or(0),
+                                mime_type: parts[2].to_string(),
+                                preview_url: if parts[3].is_empty() {
+                                    None
+                                } else {
+                                    Some(parts[3].to_string())
+                                },
+                            };
+                            handle_file_select.call(info);
+                        }
                     }
                 }
             }

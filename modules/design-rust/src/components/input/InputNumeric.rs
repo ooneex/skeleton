@@ -86,8 +86,8 @@ pub fn InputNumeric(props: InputNumericProps) -> Element {
         *internal.read()
     };
 
-    let set_value = {
-        let on_change = props.on_change.clone();
+    let mut set_value = {
+        let on_change = props.on_change;
         move |v: i64| {
             if !is_controlled {
                 internal.set(v);
@@ -105,7 +105,7 @@ pub fn InputNumeric(props: InputNumericProps) -> Element {
     };
 
     let decrement = {
-        let mut set_value = set_value.clone();
+        let mut set_value = set_value;
         move |_: MouseEvent| {
             let new_val = if wrap && current <= min {
                 max
@@ -117,7 +117,7 @@ pub fn InputNumeric(props: InputNumericProps) -> Element {
     };
 
     let increment = {
-        let mut set_value = set_value.clone();
+        let mut set_value = set_value;
         move |_: MouseEvent| {
             let new_val = if wrap && current >= max {
                 min
@@ -159,12 +159,12 @@ pub fn InputNumeric(props: InputNumericProps) -> Element {
                             let raw = event.value();
                             let filtered: String = raw.chars().filter(|c| c.is_ascii_digit()).collect();
                             if filtered.is_empty() {
-                                set_value.clone()(min);
+                                set_value(min);
                                 return;
                             }
                             if let Ok(n) = filtered.parse::<i64>() {
                                 let clamped = n.clamp(min, max);
-                                set_value.clone()(clamped);
+                                set_value(clamped);
                             }
                         },
                     }

@@ -50,10 +50,8 @@ pub fn DrawerContent(props: DrawerContentProps) -> Element {
     let on_dismiss_handler = props.on_dismiss;
     let dismissible = props.dismissible;
     let dismiss = use_callback(move |()| {
-        if dismissible {
-            if let Some(handler) = on_dismiss_handler {
-                handler.call(());
-            }
+        if dismissible && let Some(handler) = on_dismiss_handler {
+            handler.call(());
         }
     });
 

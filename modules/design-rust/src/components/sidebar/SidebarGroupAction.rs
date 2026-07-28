@@ -11,6 +11,12 @@ pub struct SidebarGroupActionProps {
     pub children: Element,
 }
 
+/// Action button pinned to the top-right corner of a sidebar group.
+///
+/// # Limitations
+/// The TypeScript version accepts a `render` element and clones the group-action
+/// props onto it. Dioxus has no `cloneElement`, so props cannot be injected into
+/// a caller-supplied `Element`; this port always renders a `<button>`.
 #[component]
 pub fn SidebarGroupAction(props: SidebarGroupActionProps) -> Element {
     rsx! {

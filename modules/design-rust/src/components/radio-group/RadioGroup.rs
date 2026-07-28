@@ -8,7 +8,6 @@ pub(crate) struct RadioGroupContext {
     pub(crate) value: Signal<Option<String>>,
     pub(crate) set_value: Callback<String>,
     pub(crate) disabled: Signal<bool>,
-    pub(crate) required: Signal<bool>,
 }
 
 impl RadioGroupContext {
@@ -63,7 +62,6 @@ pub fn RadioGroup(props: RadioGroupProps) -> Element {
     let mut selected = use_signal(|| props.value.clone().or(props.default_value.clone()));
 
     let mut disabled = use_signal(|| props.disabled);
-    let mut required = use_signal(|| props.required);
 
     // Mirror controlled value changes.
     let controlled = props.value.clone();
@@ -73,10 +71,9 @@ pub fn RadioGroup(props: RadioGroupProps) -> Element {
         }
     }));
 
-    let (is_disabled, is_required) = (props.disabled, props.required);
-    use_effect(use_reactive!(|(is_disabled, is_required)| {
+    let is_disabled = props.disabled;
+    use_effect(use_reactive!(|(is_disabled,)| {
         disabled.set(is_disabled);
-        required.set(is_required);
     }));
 
     let on_value_change = props.on_value_change;
@@ -91,7 +88,6 @@ pub fn RadioGroup(props: RadioGroupProps) -> Element {
         value: selected,
         set_value,
         disabled,
-        required,
     });
 
     rsx! {

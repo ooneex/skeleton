@@ -70,10 +70,10 @@ pub fn Combobox(props: ComboboxProps) -> Element {
                 value.clone().set(vec![v.clone()]);
             }
         }
-        if let Some(ref iv) = input_prop {
-            if *input_value.peek() != *iv {
-                input_value.clone().set(iv.clone());
-            }
+        if let Some(ref iv) = input_prop
+            && *input_value.peek() != *iv
+        {
+            input_value.clone().set(iv.clone());
         }
     });
 
@@ -83,8 +83,8 @@ pub fn Combobox(props: ComboboxProps) -> Element {
         input_value,
         highlighted_value,
         items,
-        on_value_change: props.on_value_change.clone(),
-        on_input_value_change: props.on_input_value_change.clone(),
+        on_value_change: props.on_value_change,
+        on_input_value_change: props.on_input_value_change,
         disabled: props.disabled,
     };
     use_context_provider(|| ctx);

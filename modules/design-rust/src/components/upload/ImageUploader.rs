@@ -113,31 +113,26 @@ try {{ await dioxus.recv(); }} catch {{}}
                     multiple_js = if multiple { "files.length" } else { "1" },
                 );
                 let mut ev = eval(&js);
-                loop {
-                    match ev.recv::<String>().await {
-                        Ok(msg) => {
-                            if msg == "drag" {
-                                is_dragging.set(true);
-                            } else if msg == "leave" {
-                                is_dragging.set(false);
-                            } else if let Some(rest) = msg.strip_prefix("file\x00") {
-                                let parts: Vec<&str> = rest.splitn(4, '\x00').collect();
-                                if parts.len() == 4 {
-                                    let info = FileInfo {
-                                        name: parts[0].to_string(),
-                                        size: parts[1].parse().unwrap_or(0),
-                                        mime_type: parts[2].to_string(),
-                                        preview_url: if parts[3].is_empty() {
-                                            None
-                                        } else {
-                                            Some(parts[3].to_string())
-                                        },
-                                    };
-                                    handle_file.call(info);
-                                }
-                            }
+                while let Ok(msg) = ev.recv::<String>().await {
+                    if msg == "drag" {
+                        is_dragging.set(true);
+                    } else if msg == "leave" {
+                        is_dragging.set(false);
+                    } else if let Some(rest) = msg.strip_prefix("file\x00") {
+                        let parts: Vec<&str> = rest.splitn(4, '\x00').collect();
+                        if parts.len() == 4 {
+                            let info = FileInfo {
+                                name: parts[0].to_string(),
+                                size: parts[1].parse().unwrap_or(0),
+                                mime_type: parts[2].to_string(),
+                                preview_url: if parts[3].is_empty() {
+                                    None
+                                } else {
+                                    Some(parts[3].to_string())
+                                },
+                            };
+                            handle_file.call(info);
                         }
-                        Err(_) => break,
                     }
                 }
             }

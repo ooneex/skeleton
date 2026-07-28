@@ -16,6 +16,13 @@ pub struct DropdownMenuTriggerProps {
 ///
 /// Sets `aria-haspopup="menu"` and `aria-expanded`; toggles the menu on click
 /// and opens it on `ArrowDown` while closed.
+///
+/// # Limitations
+/// The TypeScript component accepts a `render` element and clones it with the
+/// trigger props applied, so the trigger can be rendered as an `<a>` or a custom
+/// component. A Dioxus `Element` is opaque once built and there is no
+/// `cloneElement` to inject attributes or handlers into it, so this port always
+/// renders a `<button>`.
 #[component]
 pub fn DropdownMenuTrigger(props: DropdownMenuTriggerProps) -> Element {
     let ctx = use_context::<DropdownMenuContext>();

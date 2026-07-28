@@ -87,10 +87,10 @@ pub fn InputOTP(props: InputOTPProps) -> Element {
 
     // Sync controlled value from props.
     use_effect(move || {
-        if let Some(ref v) = props.value {
-            if *otp_value.peek() != *v {
-                otp_value.set(v.clone());
-            }
+        if let Some(ref v) = props.value
+            && *otp_value.peek() != *v
+        {
+            otp_value.set(v.clone());
         }
     });
 
@@ -100,7 +100,7 @@ pub fn InputOTP(props: InputOTPProps) -> Element {
         focused,
     });
 
-    let on_change = props.on_change.clone();
+    let on_change = props.on_change;
 
     rsx! {
         div {

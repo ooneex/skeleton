@@ -323,7 +323,7 @@ pub struct EditorAlignProps {
 pub fn EditorAlign(props: EditorAlignProps) -> Element {
     let ctx = use_editor_context();
     let align = props.align.clone();
-    let align_type = EditorAlignType::from_str(&align);
+    let align_type = EditorAlignType::from(align.as_str());
     let pressed = ctx.state.read().align == align_type;
     rsx! {
         ToolbarToggle {

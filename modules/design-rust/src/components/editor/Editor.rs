@@ -2,6 +2,7 @@ use dioxus::prelude::*;
 
 use super::EditorContent::EditorContent;
 use super::EditorContext::EditorProvider;
+use super::EditorHandle::{EditorHandleType, EditorSelectionType};
 use super::FloatingToolbar::FloatingToolbar;
 use super::SlashMenu::SlashMenu;
 use super::Toolbar::EditorToolbar;
@@ -31,8 +32,15 @@ pub struct EditorProps {
     pub show_toolbar: bool,
     #[props(default)]
     pub on_content_change: Option<EventHandler<String>>,
+    /// Fired on every selection change, with the selected text and the handle.
+    #[props(default)]
+    pub on_selection_change: Option<EventHandler<EditorSelectionType>>,
     #[props(default)]
     pub on_submit: Option<EventHandler<()>>,
+    /// Receives the imperative [`EditorHandleType`] once the editor mounts —
+    /// the Dioxus stand-in for the React `ref`.
+    #[props(default)]
+    pub on_handle: Option<EventHandler<EditorHandleType>>,
 }
 
 /// Convenience wrapper that composes provider + toolbar + content + slash menu.
@@ -54,8 +62,10 @@ pub fn Editor(props: EditorProps) -> Element {
             show_history: props.show_history,
             show_media: props.show_media,
             show_slash_menu: show_slash,
-            on_content_change: props.on_content_change.clone(),
-            on_submit: props.on_submit.clone(),
+            on_content_change: props.on_content_change,
+            on_selection_change: props.on_selection_change,
+            on_submit: props.on_submit,
+            on_handle: props.on_handle,
 
             if show_floating { FloatingToolbar {} }
             if props.show_toolbar && !props.plain_text { EditorToolbar {} }

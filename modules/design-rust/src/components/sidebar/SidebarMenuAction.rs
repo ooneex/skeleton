@@ -13,6 +13,14 @@ pub struct SidebarMenuActionProps {
     pub children: Element,
 }
 
+/// Secondary action rendered alongside a sidebar menu button, optionally only
+/// revealed on hover.
+///
+/// # Limitations
+/// The `render` prop of the TypeScript component is not ported. Dioxus has no
+/// `cloneElement`, so the action's classes and `data-*` attributes cannot be
+/// injected into a caller-supplied `Element`; the action is always a
+/// `<button>`.
 #[component]
 pub fn SidebarMenuAction(props: SidebarMenuActionProps) -> Element {
     rsx! {

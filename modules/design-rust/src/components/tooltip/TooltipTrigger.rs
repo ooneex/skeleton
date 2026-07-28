@@ -14,6 +14,12 @@ pub struct TooltipTriggerProps {
 /// Wraps the element that triggers the tooltip on hover or focus.
 /// Renders a `<span>` by default; apply `display: contents` or wrap a native
 /// element to avoid layout side effects.
+///
+/// # Limitations
+/// The TypeScript component can render into a caller-provided element through
+/// its `render` prop; here the wrapper is always a `<span>`. Dioxus offers no
+/// `cloneElement` equivalent, so the pointer/focus handlers and `data-slot`
+/// cannot be merged into an already-built `Element` — wrap the target instead.
 #[component]
 pub fn TooltipTrigger(props: TooltipTriggerProps) -> Element {
     let ctx = use_context::<TooltipContext>();

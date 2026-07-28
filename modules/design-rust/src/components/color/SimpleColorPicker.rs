@@ -79,7 +79,7 @@ pub fn SimpleColorPicker(props: SimpleColorPickerProps) -> Element {
                         ]),
                         style: "background-color: {hex};",
                         onclick: {
-                            let on_pick = props.on_pick.clone();
+                            let on_pick = props.on_pick;
                             let hex = *hex;
                             move |_| { on_pick.call(Some(hex.to_string())); }
                         },
