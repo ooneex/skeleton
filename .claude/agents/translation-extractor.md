@@ -56,7 +56,7 @@ Add each new key with **only its `en` entry**, preserving file shape (JSON 2-spa
 ## Finish
 
 ```bash
-talos check
+talos project:check
 ```
 
 Confirm the dictionary still parses and the rewired files typecheck/lint. Fix anything you broke.

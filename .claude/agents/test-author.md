@@ -42,7 +42,7 @@ Run the target's tests and iterate until green:
 
 ```bash
 bun test modules/<module>/tests/...    # scope to the target
-talos check
+talos project:check
 ```
 
 If a test fails because the **production code** is wrong, leave the failing test in place (or describe it) and report the defect — do not edit production code to make it pass, and do not weaken the assertion to hide it.

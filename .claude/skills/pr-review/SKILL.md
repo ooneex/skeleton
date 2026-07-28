@@ -1,6 +1,6 @@
 ---
 name: pr-review
-description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch, then checks the Definition of Done and runs the e2e tests that satisfy the issue's testing section.
+description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch, then runs talos project:check, checks the Definition of Done and runs the e2e tests that satisfy the issue's testing section.
 when_to_use: Use to review a pull request for an issue awaiting review. Triggers on "review PR <ID>", "review the <module> issues in review", or "review this pull request". Not for reviewing the uncommitted working diff (use code-review) or scaffolding.
 model: sonnet
 effort: high
@@ -15,7 +15,7 @@ argument-hint: [issue-id|module|title]
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Review the pull request for an issue a fixer marked `In Review` (see `issue-fix` for how issues reach that state and the issue YAML format). This skill **resolves** the issue(s) from user input, **gates** on review-readiness, **switches** onto the issue's remote branch, then **verifies** the Definition of Done and runs the issue's e2e tests. Read-and-verify — it does not implement fixes.
+Review the pull request for an issue a fixer marked `In Review` (see `issue-fix` for how issues reach that state and the issue YAML format). This skill **resolves** the issue(s) from user input, **gates** on review-readiness, **switches** onto the issue's remote branch, then **verifies** the branch with `talos project:check`, the Definition of Done, and the issue's e2e tests. Read-and-verify — it does not implement fixes.
 
 **Rules that apply throughout:**
 - **Run every command from the monorepo root.**
@@ -75,17 +75,18 @@ gh pr checkout <pr>       # <pr> = the issue YAML's pr: URL (or PR number)
 
 Once on the issue's branch:
 
+- **Run `talos project:check`** from the monorepo root — the full workspace gate (install, build, fmt, lint, test) plus the project health checks, run against the branch's code. Report every failure as a blocker; never weaken a check to make it pass, and never fix it here (this skill is read-and-verify — send the issue back to the fixer).
 - **Check the Definition of Done.** Walk each `dod` item and confirm the branch's code actually satisfies it — read the changed files (`git diff main...<branch>`), not just the checkbox state. Note any `dod` item checked off but not genuinely met, or unmet entirely.
 - **Run the e2e tests for the testing section.** For each `testing` step that exercises a browser flow, locate the covering spec — `modules/<module>/e2e/<Name>.spec.ts` — and run it with the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when the result depends on live app state). Triage any failure per `e2e-run` (test vs. app regression) and report it — don't weaken assertions. If a `testing` step has no covering spec, flag the gap.
 
 ## 5. Promote the issue state
 
-If **every** `dod` item is genuinely met **and** every `testing` step's e2e spec ran green (no missing coverage, no failures), the issue is approved — edit `modules/<module>/issues/<ID>.yml` and set `state: "To Merge"`. Leave `branch:` and `pr:` untouched.
+If `talos project:check` is green, **every** `dod` item is genuinely met, **and** every `testing` step's e2e spec ran green (no missing coverage, no failures), the issue is approved — edit `modules/<module>/issues/<ID>.yml` and set `state: "To Merge"`. Leave `branch:` and `pr:` untouched.
 
-If any `dod` item is unmet or mis-checked, any e2e spec failed, or a `testing` step has no covering spec, leave the state as `In Review` — do not promote an issue with blockers.
+If `talos project:check` failed, any `dod` item is unmet or mis-checked, any e2e spec failed, or a `testing` step has no covering spec, leave the state as `In Review` — do not promote an issue with blockers.
 
 After editing the state, run `talos issue:check --id=<ID>` from the monorepo root. `To Merge` is the strictest state the validator knows: it requires `branch`, `pr`, and every `dod`/`testing` box checked. An error here means the promotion was premature — revert the state to `In Review` and report the blocker rather than editing the YAML to silence it.
 
 ## 6. Report
 
-Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), the `talos issue:check` result, and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).
+Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, the `talos project:check` result, DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), the `talos issue:check` result, and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).
