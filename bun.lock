@@ -93,20 +93,12 @@
       "name": "@module/admin",
       "version": "0.0.1",
     },
-    "modules/admin-rust": {
-      "name": "@module/admin-rust",
-      "version": "0.0.1",
-    },
     "modules/app": {
       "name": "@module/app",
       "version": "0.0.1",
     },
     "modules/design": {
       "name": "@module/design",
-      "version": "0.0.1",
-    },
-    "modules/design-rust": {
-      "name": "@module/design-rust",
       "version": "0.0.1",
     },
     "modules/microservice": {
@@ -123,10 +115,6 @@
     },
     "modules/spa": {
       "name": "@module/spa",
-      "version": "0.0.1",
-    },
-    "modules/spa-rust": {
-      "name": "@module/spa-rust",
       "version": "0.0.1",
     },
     "modules/storybook": {
@@ -298,21 +286,15 @@
 
     "@module/admin": ["@module/admin@workspace:modules/admin"],
 
-    "@module/admin-rust": ["@module/admin-rust@workspace:modules/admin-rust"],
-
     "@module/app": ["@module/app@workspace:modules/app"],
 
     "@module/design": ["@module/design@workspace:modules/design"],
-
-    "@module/design-rust": ["@module/design-rust@workspace:modules/design-rust"],
 
     "@module/microservice": ["@module/microservice@workspace:modules/microservice"],
 
     "@module/shared": ["@module/shared@workspace:modules/shared"],
 
     "@module/spa": ["@module/spa@workspace:modules/spa"],
-
-    "@module/spa-rust": ["@module/spa-rust@workspace:modules/spa-rust"],
 
     "@module/storybook": ["@module/storybook@workspace:modules/storybook"],
 
