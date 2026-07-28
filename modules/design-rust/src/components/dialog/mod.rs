@@ -33,3 +33,4 @@ pub use DialogHeader::DialogHeader;
 pub use DialogTitle::DialogTitle;
 pub use alert_dialog::{AlertDialog, AlertDialogModeType, AlertDialogPropsType, alert, confirm};
 pub use dialog_impl::Dialog;
+pub use useDialogBehavior::DialogModalType;

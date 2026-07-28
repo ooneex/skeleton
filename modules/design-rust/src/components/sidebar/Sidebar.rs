@@ -92,7 +92,7 @@ pub fn Sidebar(props: SidebarProps) -> Element {
             div {
                 "data-slot": "sidebar",
                 class: cn([
-                    "bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
+                    "bg-background text-primary flex h-full w-(--sidebar-width) flex-col",
                     props.class.as_deref().unwrap_or_default(),
                 ]),
                 ..props.attributes,
@@ -102,14 +102,30 @@ pub fn Sidebar(props: SidebarProps) -> Element {
     }
 
     if is_mobile {
+        let side_class = if props.side == SidebarSideType::Left {
+            "left-0 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=left]:data-open:slide-in-from-left-10"
+        } else {
+            "right-0 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=right]:data-open:slide-in-from-right-10"
+        };
         return rsx! {
             DrawerContent {
                 open: open_mobile,
                 side: side.to_string(),
                 modal: true,
                 dismissible: true,
-                class: Some("bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden".to_string()),
-                attributes: vec![Attribute::new("style", format!("--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"), None, false)],
+                class: Some(cn([
+                    "bg-background text-primary fixed inset-y-0 z-50 flex h-full w-(--sidebar-width) flex-col p-0 outline-none",
+                    "data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 transition duration-200 ease-in-out",
+                    side_class,
+                ])),
+                attributes: vec![
+                    Attribute::new("style", format!("--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"), None, false),
+                    Attribute::new("tabindex", "-1", None, false),
+                    Attribute::new("data-sidebar", "sidebar", None, false),
+                    Attribute::new("data-slot", "sidebar", None, false),
+                    Attribute::new("data-mobile", "true", None, false),
+                    Attribute::new("data-side", side, None, false),
+                ],
                 on_dismiss: move |()| context.set_open_mobile.call(false),
                 DrawerHeader { class: Some("sr-only".to_string()),
                     DrawerTitle { "Sidebar" }
@@ -128,7 +144,7 @@ pub fn Sidebar(props: SidebarProps) -> Element {
 
     rsx! {
         div {
-            class: "group peer text-sidebar-foreground hidden md:block",
+            class: "group peer text-primary hidden md:block",
             "data-state": state.as_str(),
             "data-collapsible": collapsible_attr,
             "data-variant": variant,
@@ -152,14 +168,14 @@ pub fn Sidebar(props: SidebarProps) -> Element {
                 class: cn([
                     "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex",
                     if props.side == SidebarSideType::Left {
-                        "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]"
+                        "left-0 group-data-[collapsible=offcanvas]:-left-(--sidebar-width)"
                     } else {
-                        "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]"
+                        "right-0 group-data-[collapsible=offcanvas]:-right-(--sidebar-width)"
                     },
                     if props.variant == SidebarVariantType::Floating || props.variant == SidebarVariantType::Inset {
                         "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
                     } else {
-                        "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l"
+                        "group-data-[collapsible=icon]:w-(--sidebar-width-icon) border-ring group-data-[side=left]:border-r group-data-[side=right]:border-l"
                     },
                     props.class.as_deref().unwrap_or_default(),
                 ]),
@@ -167,7 +183,7 @@ pub fn Sidebar(props: SidebarProps) -> Element {
                 div {
                     "data-sidebar": "sidebar",
                     "data-slot": "sidebar-inner",
-                    class: "bg-sidebar group-data-[variant=floating]:ring-sidebar-border group-data-[variant=floating]:rounded group-data-[variant=floating]:ring-1 flex size-full flex-col",
+                    class: "bg-background group-data-[variant=floating]:ring-ring group-data-[variant=floating]:rounded group-data-[variant=floating]:ring-1 flex size-full flex-col",
                     {props.children}
                 }
             }

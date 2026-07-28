@@ -6,7 +6,7 @@ use crate::utils::cn;
 use super::AlertDialogOverlay::AlertDialogOverlay;
 use super::AlertDialogPortal::AlertDialogPortal;
 use super::DialogContext::DialogContextValue;
-use super::useDialogBehavior::use_dialog_behavior;
+use super::useDialogBehavior::{DialogModalType, use_dialog_behavior};
 
 #[derive(Clone, Copy, PartialEq, Eq, Default)]
 pub enum AlertDialogSizeType {
@@ -65,7 +65,7 @@ pub fn AlertDialogContent(props: AlertDialogContentProps) -> Element {
     });
 
     // Alert dialogs are always modal; outside clicks do NOT dismiss them.
-    use_dialog_behavior(open, true, popup_id.clone(), dismiss);
+    use_dialog_behavior(open, DialogModalType::Modal, popup_id.clone(), dismiss);
 
     use_context_provider(|| DialogContextValue {
         open,

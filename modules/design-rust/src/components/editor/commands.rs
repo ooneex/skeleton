@@ -1,3 +1,5 @@
+use dioxus::document::eval;
+
 /// Tailwind classes applied to editor-generated task list structures.
 pub const TASK_LIST_CLASS: &str = "m-0 flex list-none flex-col gap-1 !p-0";
 pub const TASK_ITEM_CLASS: &str = "flex items-start gap-2";
@@ -135,18 +137,46 @@ pub const COMPUTE_STATE_JS: &str = r#"
 })('{id}')
 "#;
 
-/// JS to install a persistent `selectionchange` listener that pushes state
-/// whenever the selection moves. Uses a flag to avoid duplicate installs.
-pub const INSTALL_SELECTION_LISTENER_JS: &str = r#"
-(function(id) {
-  if (window['__editor_listener_' + id]) return;
-  window['__editor_listener_' + id] = true;
-  document.addEventListener('selectionchange', function() {
-    const root = document.getElementById(id);
-    if (!root) return;
-    const sel = window.getSelection();
-    if (!sel || sel.rangeCount === 0 || !root.contains(sel.anchorNode)) return;
-    __COMPUTE_STATE__
-  });
-})('{id}')
-"#;
+/// Snapshot the current selection so it can be restored after focus moves away
+/// (e.g. while a dialog is open).
+///
+/// The TS counterpart (`saveSelection`) returns a cloned `Range` to the caller.
+/// A `Range` cannot cross the JS boundary, so the clone is parked on `window`
+/// under a per-editor key and [`restore_selection`] reads it back — the range
+/// stays valid exactly as long as the TS one does, i.e. while the editor DOM is
+/// untouched.
+pub fn save_selection(editor_id: &str) {
+    let _ = eval(&format!(
+        r#"
+        (function() {{
+          const root = document.getElementById('{editor_id}');
+          const sel = window.getSelection();
+          if (!sel || sel.rangeCount === 0 || !root || !root.contains(sel.anchorNode)) {{
+            window['__editor_saved_range_{editor_id}'] = null;
+            return;
+          }}
+          window['__editor_saved_range_{editor_id}'] = sel.getRangeAt(0).cloneRange();
+        }})()
+        "#
+    ));
+}
+
+/// Restore a selection previously captured with [`save_selection`]. Focuses the
+/// editor first, because the caret can only be placed inside a focused
+/// `contentEditable` surface.
+pub fn restore_selection(editor_id: &str) {
+    let _ = eval(&format!(
+        r#"
+        (function() {{
+          const range = window['__editor_saved_range_{editor_id}'];
+          if (!range) return;
+          const root = document.getElementById('{editor_id}');
+          if (root) root.focus();
+          const sel = window.getSelection();
+          if (!sel) return;
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }})()
+        "#
+    ));
+}

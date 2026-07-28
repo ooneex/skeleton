@@ -135,7 +135,7 @@ pub fn SidebarProvider(props: SidebarProviderProps) -> Element {
                 "data-slot": "sidebar-wrapper",
                 style: "--sidebar-width: {SIDEBAR_WIDTH}; --sidebar-width-icon: {SIDEBAR_WIDTH_ICON};",
                 class: cn([
-                    "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex h-svh w-full",
+                    "group/sidebar-wrapper has-data-[variant=inset]:bg-background flex h-svh w-full",
                     props.class.as_deref().unwrap_or_default(),
                 ]),
                 ..props.attributes,

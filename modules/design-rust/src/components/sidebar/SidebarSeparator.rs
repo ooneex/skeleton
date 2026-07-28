@@ -16,7 +16,7 @@ pub fn SidebarSeparator(props: SidebarSeparatorProps) -> Element {
     rsx! {
         Separator {
             class: Some(cn([
-                "bg-sidebar-border mx-2 w-auto",
+                "bg-ring mx-2 h-px w-auto shrink-0",
                 props.class.as_deref().unwrap_or_default(),
             ])),
             attributes: props.attributes,

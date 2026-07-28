@@ -80,20 +80,8 @@ pub(crate) struct ResizablePanelGroupContext {
     pub(crate) min_sizes: Signal<Vec<f64>>,
     /// Per-panel maximum size in percent (100 = unconstrained).
     pub(crate) max_sizes: Signal<Vec<f64>>,
-    /// Index of the handle currently being dragged, or `None`.
-    pub(crate) dragging: Signal<Option<usize>>,
-    /// Pointer coordinate (client X or Y) at drag start.
-    pub(crate) drag_start_coord: Signal<f64>,
-    /// Snapshot of `sizes` taken when the drag started.
-    pub(crate) drag_start_sizes: Signal<Vec<f64>>,
-    /// Pixel width/height of the container (updated when a drag begins).
-    pub(crate) container_px: Signal<f64>,
     /// Called by a handle when the user presses the pointer on it.
     pub(crate) start_drag: Callback<(usize, f64, f64)>, // (handle_idx, coord, container_px)
-    /// Called by the drag overlay on every pointer move.
-    pub(crate) move_drag: Callback<f64>, // current coord
-    /// Called by the drag overlay on pointer up.
-    pub(crate) end_drag: Callback<Vec<f64>>, // final sizes → on_layout
     /// Called by a focused handle on keyboard events; carries `(handle_idx, step_pct)`.
     /// `step_pct` is signed: positive = expand left panel, negative = shrink it.
     pub(crate) keyboard_resize: Callback<(usize, f64)>,

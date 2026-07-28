@@ -7,7 +7,7 @@ use crate::utils::cn;
 use super::DialogContext::DialogContextValue;
 use super::DialogOverlay::DialogOverlay;
 use super::DialogPortal::DialogPortal;
-use super::useDialogBehavior::use_dialog_behavior;
+use super::useDialogBehavior::{DialogModalType, use_dialog_behavior};
 
 #[derive(Props, Clone, PartialEq)]
 pub struct DialogContentProps {
@@ -21,10 +21,11 @@ pub struct DialogContentProps {
     /// Show the floating close button in the top-right corner.
     #[props(default = false)]
     pub show_close_button: bool,
-    /// `true` (default) locks scroll and blocks page interaction.
-    /// `false` keeps the page fully interactive.
-    #[props(default = true)]
-    pub modal: bool,
+    /// [`DialogModalType::Modal`] (default) locks scroll and blocks page
+    /// interaction. [`DialogModalType::TrapFocus`] keeps the page interactive
+    /// but holds focus in the dialog. [`DialogModalType::None`] does neither.
+    #[props(default)]
+    pub modal: DialogModalType,
     /// Disable dismissal by clicking the overlay (Escape still closes).
     #[props(default = false)]
     pub disable_pointer_dismissal: bool,
@@ -81,13 +82,13 @@ pub fn DialogContent(props: DialogContentProps) -> Element {
         DialogPortal {
             DialogOverlay {
                 open: props.open,
-                blocking: props.modal,
+                blocking: props.modal.is_blocking(),
                 on_dismiss: overlay_dismiss,
             }
             div {
                 id: popup_id,
                 role: "dialog",
-                "aria-modal": props.modal.then_some("true"),
+                "aria-modal": props.modal.is_blocking().then_some("true"),
                 "aria-labelledby": (*has_title.read()).then(|| title_id.clone()),
                 "aria-describedby": (*has_description.read()).then(|| description_id.clone()),
                 tabindex: "-1",

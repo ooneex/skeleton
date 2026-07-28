@@ -16,9 +16,9 @@ pub enum SidebarMenuButtonVariantType {
 impl SidebarMenuButtonVariantType {
     pub fn class(self) -> &'static str {
         match self {
-            Self::Default => "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+            Self::Default => "hover:bg-muted hover:text-primary",
             Self::Outline => {
-                "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground ring-1 ring-sidebar-border hover:ring-sidebar-accent"
+                "bg-background hover:bg-muted hover:text-primary ring-1 ring-ring hover:ring-muted"
             }
         }
     }
@@ -59,7 +59,7 @@ pub fn sidebar_menu_button_variants(
     class: Option<&str>,
 ) -> String {
     cn([
-        "ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded p-2 text-left text-sm group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button flex w-full items-center overflow-hidden outline-hidden group/menu-button disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&_svg]:size-4 [&_svg]:shrink-0",
+        "ring-ring hover:bg-muted hover:text-primary active:bg-muted active:text-primary data-active:bg-muted data-active:text-primary data-open:hover:bg-muted data-open:hover:text-primary gap-2 rounded p-2 text-left text-sm group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button flex w-full items-center overflow-hidden outline-hidden group/menu-button disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&_svg]:size-4 [&_svg]:shrink-0",
         variant.class(),
         size.class(),
         class.unwrap_or_default(),
@@ -130,6 +130,7 @@ pub fn SidebarMenuButton(props: SidebarMenuButtonProps) -> Element {
             TooltipContent {
                 side: Some(AnchorSideType::Right),
                 align: Some(AnchorAlignType::Center),
+                class: Some("bg-background text-primary".to_string()),
                 "{tooltip}"
             }
         }
