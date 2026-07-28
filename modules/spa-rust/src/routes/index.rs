@@ -4,6 +4,6 @@ use dioxus::prelude::*;
 #[component]
 pub fn Index() -> Element {
     rsx! {
-        div { "Hello \"/\"!" }
+        div { "Hello 2 \"/\"!" }
     }
 }

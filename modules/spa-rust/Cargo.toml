@@ -2,10 +2,9 @@
 name = "spa-rust"
 version = "0.1.0"
 edition = "2024"
-# Tests are named after the source file they cover, `<source>_spec.rs`, and live in
-# subfolders mirroring `src/`. Cargo only auto-discovers `tests/*.rs`, so `tests/` is
-# declared by hand below. Add a `[[test]]` entry for every new spec file.
-autotests = false
+# Tests live flat in `tests/` as `<source path>_spec.rs` — the source file they cover
+# with its folders folded into the name (`src/routes/index.rs` -> `routes_index_spec.rs`).
+# Cargo auto-discovers them, so a new spec needs no entry here.
 
 # Both entry points live in `src/bootstrap/`. `main.rs` is the wasm entry point
 # `dx` builds — and carries the `dx` config in its doc comment; `lib.rs` keeps the
@@ -24,27 +23,3 @@ dioxus = { version = "0.7.9", features = ["router", "web"] }
 
 [dev-dependencies]
 dioxus-ssr = "0.7.9"
-
-[[test]]
-name = "bootstrap_app"
-path = "tests/bootstrap/app_spec.rs"
-
-[[test]]
-name = "bootstrap_report_web_vitals"
-path = "tests/bootstrap/reportWebVitals_spec.rs"
-
-[[test]]
-name = "routes_table"
-path = "tests/routes/mod_spec.rs"
-
-[[test]]
-name = "routes_root_layout"
-path = "tests/routes/__root_spec.rs"
-
-[[test]]
-name = "routes_index"
-path = "tests/routes/index_spec.rs"
-
-[[test]]
-name = "routes_not_found"
-path = "tests/routes/notFound_spec.rs"

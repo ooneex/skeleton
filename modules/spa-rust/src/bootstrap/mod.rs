@@ -7,7 +7,7 @@
 //! `crate_dir().join("index.html")` — hardcoded, with no `Dioxus.toml` key to
 //! point elsewhere. A missing file is not an error either; `dx` falls back to
 //! its own bundled shell, which mounts at `#main` instead of the
-//! [`ROOT_ELEMENT_ID`](app) this app launches into, so the build still succeeds
+//! `ROOT_ELEMENT_ID` this app launches into, so the build still succeeds
 //! and the page renders blank.
 
 mod app;
