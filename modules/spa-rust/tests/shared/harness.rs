@@ -1,4 +1,4 @@
-//! Rendering helpers shared by every `.spec.rs` in this folder.
+//! Rendering helpers shared by every `_spec.rs` in this folder.
 //!
 //! Pulled in with `#[path = "../shared/harness.rs"] mod harness;` rather than
 //! being a test target of its own, so `Cargo.toml` never lists it.
