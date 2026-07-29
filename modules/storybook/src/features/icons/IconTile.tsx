@@ -3,6 +3,13 @@ import { Badge } from "../../shared/components/badge";
 import type { IconEntryType, IconSizeType, IconStyleType } from "./icons.data";
 import { type IconComponentType, loadIcon } from "./icons.loader";
 
+/** Each icon variant is authored at its own pixel size — the svg itself declares 16px, so the tile sets it. */
+const SIZE_CLASSES: Record<IconSizeType, string> = {
+  sm: "size-4",
+  md: "size-6",
+  lg: "size-8",
+};
+
 type IconTilePropsType = {
   icon: IconEntryType;
   style: IconStyleType;
@@ -30,11 +37,15 @@ export const IconTile = ({ icon, style, size, activeTag, onTagSelect }: IconTile
 
   return (
     <div
-      className="flex flex-col items-center gap-2 rounded-lg border border-border p-3 text-center transition-colors hover:bg-muted/50"
+      className="flex flex-col items-center gap-2 rounded-lg border-[0.3px] border-border bg-card p-3 text-center text-card-foreground transition-colors hover:bg-muted/50"
       title={`${icon.label} (${icon.name})`}
     >
       <div className="flex h-10 w-10 items-center justify-center text-foreground">
-        {Icon ? <Icon className="size-6" /> : <div className="size-6 animate-pulse rounded bg-muted" />}
+        {Icon ? (
+          <Icon className={SIZE_CLASSES[size]} />
+        ) : (
+          <div className={`${SIZE_CLASSES[size]} animate-pulse rounded bg-muted`} />
+        )}
       </div>
       <span className="w-full truncate text-xs font-medium text-foreground">{icon.label}</span>
       <div className="flex flex-wrap justify-center gap-1">
