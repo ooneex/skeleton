@@ -5,7 +5,7 @@ when_to_use: Use when adding browser end-to-end tests (Playwright) to a module â
 model: sonnet
 effort: low
 allowed-tools: Bash(talos e2e:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Playwright E2E Test

@@ -6,7 +6,7 @@ model: sonnet
 effort: high
 agent: general-purpose
 context: fork
-argument-hint: [--name=<name>]
+argument-hint: '[--name=<name>]'
 allowed-tools: Bash(talos app:create *), Bash(talos project:check *), Bash(git *), Bash(rm *), Bash(mkdir *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
 ---
 

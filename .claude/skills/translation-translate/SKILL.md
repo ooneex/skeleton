@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 agent: general-purpose
 context: fork
-argument-hint: [module...] [locale...]
+argument-hint: '[module...] [locale...]'
 ---
 
 # Translate Module Translations

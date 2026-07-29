@@ -5,7 +5,7 @@ when_to_use: Use when creating a new database entity with columns, relations, an
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos entity:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>] [--table-name=<table_name>]
+argument-hint: '[--name=<Name>] [--module=<module>] [--table-name=<table_name>]'
 ---
 
 # Make Entity Class

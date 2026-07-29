@@ -5,7 +5,7 @@ when_to_use: Use when creating a chat that extends the Chat base class from @tal
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos ai:chat:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make AI Chat Class

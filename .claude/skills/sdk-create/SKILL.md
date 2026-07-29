@@ -5,7 +5,7 @@ when_to_use: Use when creating a typed client SDK that calls backend controllers
 model: sonnet
 effort: high
 allowed-tools: Bash(talos sdk:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<name>] [--module=<target>]
+argument-hint: '[--name=<name>] [--module=<target>]'
 ---
 
 # Make SDK Module

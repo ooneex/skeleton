@@ -5,7 +5,7 @@ when_to_use: Use when creating a new permission that extends Permission from @ta
 model: sonnet
 effort: low
 allowed-tools: Bash(talos permission:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Permission Class

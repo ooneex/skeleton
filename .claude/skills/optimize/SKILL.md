@@ -6,7 +6,7 @@ model: sonnet
 effort: high
 agent: general-purpose
 context: fork
-argument-hint: [module]
+argument-hint: '[module]'
 ---
 
 # Optimize Codebase

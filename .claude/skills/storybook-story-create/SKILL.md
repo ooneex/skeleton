@@ -5,7 +5,7 @@ when_to_use: Use when (re-)creating storybook stories for one or more design-sys
 model: sonnet
 effort: medium
 allowed-tools: Read, Edit, Write, Bash, Grep, Glob
-argument-hint: <component / icon names or design paths> [→ target storybook module]
+argument-hint: '<component / icon names or design paths> [→ target storybook module]'
 ---
 
 # Create Storybook Stories

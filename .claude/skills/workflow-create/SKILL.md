@@ -5,7 +5,7 @@ when_to_use: Use when orchestrating a multi-step business process from @talosjs/
 model: sonnet
 effort: high
 allowed-tools: Bash(talos workflow:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Workflow Class

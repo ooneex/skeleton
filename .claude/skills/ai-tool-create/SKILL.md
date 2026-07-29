@@ -5,7 +5,7 @@ when_to_use: Use when creating a function-calling tool that implements ITool fro
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos ai:tool:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make AI Tool Class

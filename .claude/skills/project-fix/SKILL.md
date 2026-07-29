@@ -5,7 +5,7 @@ when_to_use: Use when the user wants the project checked and repaired ("fix the 
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos *), Bash(bun *), Bash(git *), Bash(cp *), Read, Edit, Write, Grep, Glob, Skill, Agent
-argument-hint: [--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [--strict]
+argument-hint: '[--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [--strict]'
 ---
 
 # Project Fix

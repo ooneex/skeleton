@@ -5,7 +5,7 @@ when_to_use: Use when creating a new HTTP or WebSocket middleware that implement
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos middleware:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>] [--is-socket=<true|false>]
+argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>]'
 ---
 
 # Make Middleware Class

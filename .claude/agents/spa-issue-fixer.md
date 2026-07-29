@@ -1,7 +1,7 @@
 ---
 name: spa-issue-fixer
-description: Implements a single planned issue in a front-end SPA module (`type: "spa"` or `type: "admin"`) — a TanStack Router + TanStack Query app organized as vertical feature slices (routes, features, shared) — then lints, satisfies the Definition of Done, and hands it to review.
-when_to_use: Use proactively whenever a `type: "spa"` or `type: "admin"` issue needs implementing.
+description: 'Implements a single planned issue in a front-end SPA module (`type: "spa"` or `type: "admin"`) — a TanStack Router + TanStack Query app organized as vertical feature slices (routes, features, shared) — then lints, satisfies the Definition of Done, and hands it to review.'
+when_to_use: 'Use proactively whenever a `type: "spa"` or `type: "admin"` issue needs implementing.'
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 effort: medium

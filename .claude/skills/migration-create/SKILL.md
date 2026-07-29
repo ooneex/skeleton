@@ -5,7 +5,7 @@ when_to_use: Use when creating a new database migration for schema changes using
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos migration:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--module=<module>]
+argument-hint: '[--module=<module>]'
 ---
 
 # Make Migration

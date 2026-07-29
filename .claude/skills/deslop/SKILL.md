@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 agent: general-purpose
 context: fork
-argument-hint: [module|files]
+argument-hint: '[module|files]'
 ---
 
 # Remove AI Slop

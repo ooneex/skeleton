@@ -4,7 +4,7 @@ description: Rewrite prose so it reads as if a person wrote it, stripping the te
 when_to_use: Use when drafting or editing any human-facing copy — docs, READMEs, commit bodies, PR descriptions, comments, emails, changelogs, marketing, UI text — and you want it to sound natural, not machine-produced.
 model: sonnet
 effort: medium
-argument-hint: [file|text]
+argument-hint: '[file|text]'
 ---
 
 # Humanize Text

@@ -5,7 +5,7 @@ when_to_use: Use when creating a new publish/subscribe event that extends PubSub
 model: sonnet
 effort: low
 allowed-tools: Bash(talos event:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>] [--channel=<channel>]
+argument-hint: '[--name=<Name>] [--module=<module>] [--channel=<channel>]'
 ---
 
 # Make PubSub Event Class

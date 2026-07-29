@@ -4,7 +4,7 @@ description: Infer one or more modules from the user's input and audit each modu
 when_to_use: Use when the user wants to audit one or more modules for issues and file them. Triggers on requests like "find issues in <module>", "audit this module", or "look for problems in the code".
 model: opus
 effort: high
-argument-hint: [module|"all modules"]
+argument-hint: '[module|"all modules"]'
 ---
 
 # Issue Found

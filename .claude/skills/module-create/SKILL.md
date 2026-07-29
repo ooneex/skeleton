@@ -5,7 +5,7 @@ when_to_use: Use when creating a whole new module (a new domain like `billing`, 
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos module:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<name>] [--destination=<app|module>]
+argument-hint: '[--name=<name>] [--destination=<app|module>]'
 ---
 
 # Make Module

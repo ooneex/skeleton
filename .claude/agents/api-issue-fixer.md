@@ -1,7 +1,7 @@
 ---
 name: api-issue-fixer
-description: Implements a single planned issue in a backend API module (`type: "api"`) — controllers and routes with correct HTTP semantics (status codes, request/response DTOs & validation, pagination, roles/permissions), plus the supporting services, repositories, entities, and migrations — following Clean Architecture, then lints, satisfies the Definition of Done, and hands it to review.
-when_to_use: Use proactively whenever a `type: "api"` issue needs implementing.
+description: 'Implements a single planned issue in a backend API module (`type: "api"`) — controllers and routes with correct HTTP semantics (status codes, request/response DTOs & validation, pagination, roles/permissions), plus the supporting services, repositories, entities, and migrations — following Clean Architecture, then lints, satisfies the Definition of Done, and hands it to review.'
+when_to_use: 'Use proactively whenever a `type: "api"` issue needs implementing.'
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 effort: medium

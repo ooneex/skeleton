@@ -4,7 +4,7 @@ description: Bundle a module or package's local issue YAML files into a single i
 when_to_use: Use when the user wants to compile or export a module's YAML issues into a single issues.json for the app to consume. Triggers on requests like "convert the user module issues", "bundle issues.json for spa and admin", or "regenerate issues.json".
 model: sonnet
 effort: low
-argument-hint: [module ...]
+argument-hint: '[module ...]'
 ---
 
 # Issue Convert

@@ -5,7 +5,7 @@ when_to_use: Use when adding a feature to a SPA module built on @tanstack/react-
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos spa:feature:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make SPA Feature

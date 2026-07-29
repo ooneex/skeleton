@@ -6,7 +6,7 @@ model: sonnet
 effort: high
 agent: general-purpose
 context: fork
-argument-hint: [issue-id|module|title]
+argument-hint: '[issue-id|module|title]'
 ---
 
 # Merge Pull Request

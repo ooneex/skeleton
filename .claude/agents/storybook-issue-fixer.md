@@ -1,7 +1,7 @@
 ---
 name: storybook-issue-fixer
-description: Implements a single planned issue in a front-end storybook module (`type: "storybook"`) — a component-gallery app that previews a design module's components and icons via story `meta` objects (features/stories + shared story engine) — then lints, satisfies the Definition of Done, and hands it to review.
-when_to_use: Use proactively whenever a `type: "storybook"` issue needs implementing.
+description: 'Implements a single planned issue in a front-end storybook module (`type: "storybook"`) — a component-gallery app that previews a design module''s components and icons via story `meta` objects (features/stories + shared story engine) — then lints, satisfies the Definition of Done, and hands it to review.'
+when_to_use: 'Use proactively whenever a `type: "storybook"` issue needs implementing.'
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 effort: medium

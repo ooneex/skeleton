@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 agent: general-purpose
 context: fork
-argument-hint: [issue-id|module|description]
+argument-hint: '[issue-id|module|description]'
 ---
 
 # Issue Fix

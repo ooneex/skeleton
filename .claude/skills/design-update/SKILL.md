@@ -5,7 +5,7 @@ when_to_use: Use when pulling upstream changes into an existing design module. T
 model: sonnet
 effort: high
 allowed-tools: Bash(git clone *), Bash(rm *), Bash(bun add *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
-argument-hint: [--name=<name>]
+argument-hint: '[--name=<name>]'
 ---
 
 # Update Design Module

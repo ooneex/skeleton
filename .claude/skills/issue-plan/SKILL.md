@@ -4,7 +4,7 @@ description: Create and plan one or more YAML issues from the user's input. Infe
 when_to_use: Use when the user wants to create and plan one or more YAML issues from descriptions or existing issue files. Triggers on requests like "create an issue", "plan this issue", or "turn this into issues".
 model: opus
 effort: high
-argument-hint: [issue-id|description]
+argument-hint: '[issue-id|description]'
 ---
 
 # Issue Plan

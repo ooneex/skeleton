@@ -5,7 +5,7 @@ when_to_use: Use when adding a presentational or container React component to a 
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>] [--feature=<feature>]
+argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 ---
 
 # Make React Component

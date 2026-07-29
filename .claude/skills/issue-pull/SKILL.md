@@ -4,7 +4,7 @@ description: Pull one or more issues from Linear into local YAML files with talo
 when_to_use: Use when the user wants to pull existing Linear issues into the repo. Triggers on requests like "pull issue OON-123456", "pull these Linear issues", or "sync issue <ID> from Linear".
 model: sonnet
 effort: medium
-argument-hint: [issue-id ...|linear-url]
+argument-hint: '[issue-id ...|linear-url]'
 ---
 
 # Issue Pull

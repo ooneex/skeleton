@@ -5,7 +5,7 @@ when_to_use: Use when the user wants to scan dependencies for known CVEs/advisor
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos security:check *), Bash(talos issue:push *), Read, Edit, Grep, Glob
-argument-hint: [--issues] [--modules=<a,b>] [--packages=<a,b>] [--audit-level=<low|moderate|high|critical>]
+argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--audit-level=<low|moderate|high|critical>]'
 ---
 
 # Security Check

@@ -5,7 +5,7 @@ when_to_use: Use when creating a new S3-compatible storage adapter that extends 
 model: sonnet
 effort: low
 allowed-tools: Bash(talos storage:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Storage Class

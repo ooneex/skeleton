@@ -6,7 +6,7 @@ model: sonnet
 effort: high
 agent: general-purpose
 context: fork
-argument-hint: [--agents=.claude,.codex]
+argument-hint: '[--agents=.claude,.codex]'
 allowed-tools: Bash(talos agent:skills:create *), Bash(mkdir *), Bash(rm *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
 ---
 

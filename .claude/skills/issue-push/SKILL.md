@@ -4,7 +4,7 @@ description: Push one or more local YAML issues to Linear with talos issue:push,
 when_to_use: Use when the user wants to publish or sync local issues up to Linear. Triggers on requests like "push issue OON-123456 to Linear", "push these issues", or "sync my local issue <ID> up to Linear".
 model: sonnet
 effort: medium
-argument-hint: [issue-id ...]
+argument-hint: '[issue-id ...]'
 ---
 
 # Issue Push

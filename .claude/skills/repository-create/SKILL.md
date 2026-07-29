@@ -5,7 +5,7 @@ when_to_use: Use when creating a new TypeORM repository for database operations 
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos repository:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Repository Class

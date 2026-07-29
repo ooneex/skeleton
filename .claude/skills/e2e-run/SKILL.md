@@ -5,7 +5,7 @@ when_to_use: Use when running existing Playwright e2e tests — a whole suite, a
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos e2e:run *), Bash(talos monorepo:run *), Bash(talos app:start *), Read, Edit, Grep, Glob
-argument-hint: [--modules=<a,b>] [--packages=<a,b>] [--logs] [--no-cache]
+argument-hint: '[--modules=<a,b>] [--packages=<a,b>] [--logs] [--no-cache]'
 ---
 
 # Run E2E Tests

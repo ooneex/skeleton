@@ -5,7 +5,7 @@ when_to_use: Use when creating a new CLI command that implements the ICommand in
 model: sonnet
 effort: low
 allowed-tools: Bash(talos command:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Command Class

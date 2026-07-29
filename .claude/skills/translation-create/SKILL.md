@@ -5,7 +5,7 @@ when_to_use: Use when creating a translation that extends the Translation base c
 model: sonnet
 effort: low
 allowed-tools: Bash(talos translation:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Translation Class

@@ -5,7 +5,7 @@ when_to_use: Use when creating a new HTTP or WebSocket controller with routing, 
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos controller:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>] [--is-socket=<true|false>] [--route-name=<name>] [--route-path=<path>] [--route-method=<method>]
+argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>] [--route-name=<name>] [--route-path=<path>] [--route-method=<method>]'
 ---
 
 # Make Controller Class

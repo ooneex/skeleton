@@ -5,7 +5,7 @@ when_to_use: Use when creating a custom request throttling strategy that impleme
 model: sonnet
 effort: low
 allowed-tools: Bash(talos rate-limit:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: [--name=<Name>] [--module=<module>]
+argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Rate Limiter Class

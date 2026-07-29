@@ -5,7 +5,7 @@ when_to_use: Use when the user wants to verify, lint, or repair issue YAML files
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos issue:check *), Read, Edit, Grep, Glob, Skill
-argument-hint: [module|issue-id ...] [--strict]
+argument-hint: '[module|issue-id ...] [--strict]'
 ---
 
 # Issue Check
