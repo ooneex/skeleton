@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from "@module/design/icons/outline/arrows/sm/ChevronRightIcon";
 import { LayersIcon } from "@module/design/icons/outline/design-development/sm/LayersIcon";
+import { ShapesIcon } from "@module/design/icons/outline/design-development/sm/ShapesIcon";
 import { TypographyIcon } from "@module/design/icons/outline/design-development/sm/TypographyIcon";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useThemeScheme } from "../hooks/useTheme";
@@ -58,6 +59,7 @@ const variantId = (group: StoryGroupType): string => group.variants[0]?.id ?? gr
 /** Icon shown next to each sidebar section label, keyed by the section's `group` name. */
 const SECTION_ICONS: Record<string, typeof LayersIcon> = {
   Typography: TypographyIcon,
+  Icons: ShapesIcon,
 };
 
 const sectionIcon = (label: string): typeof LayersIcon => SECTION_ICONS[label] ?? LayersIcon;
