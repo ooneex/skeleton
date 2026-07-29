@@ -22,8 +22,9 @@ Create separate commits per modified module, following the project's conventiona
 1. **Analyze** — `git status --porcelain`.
 2. **Group by module** — files under `modules/<name>/` → scope = module name; all others → scope `common`.
 3. **Screen for secrets** — before staging, skip anything credential-like (`.env*`, `*.pem`, `*.key`, `*credentials*`, private keys, tokens). Do **not** commit these; surface them to the user.
-4. **Commit each group** — stage the files, pick the type, commit as `type(scope): Subject`.
-5. **Push** — after all commits, push using **only** the `gh` cli (never `git push`/`git pull` or ssh/http). Use `gh auth switch` to find the active account. Never force-push unless the user explicitly asks.
+4. **Commit each module/package group** — stage the files, pick the type, commit as `type(scope): Subject`.
+5. **Sweep the rest** — re-run `git status --porcelain`. Everything still uncommitted (root configs, lock files, CI, docs, scripts, `.claude/`, …) goes into one or more `common`-scoped commits, split by type when the leftovers are genuinely different kinds of change (e.g. `chore(common)` for deps, `docs(common)` for markdown). Repeat until `git status --porcelain` is empty apart from files skipped in step 3.
+6. **Push** — after all commits, push using **only** the `gh` cli (never `git push`/`git pull` or ssh/http). Use `gh auth switch` to find the active account. Never force-push unless the user explicitly asks.
 
 ## Message Format
 

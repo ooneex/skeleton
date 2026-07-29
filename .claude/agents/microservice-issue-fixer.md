@@ -54,6 +54,23 @@ Derive artefacts from `### Data Model` and the `dod`, then run the matching gene
 
 When a `goal` describes a multi-step business process (conditional, reversible steps that roll back together on failure), use `@talosjs/workflow` (`packages/workflow/`) scaffolded via `/workflow-create` and `/workflow-transition-create` — not hand-rolled orchestration. Only when the work genuinely calls for it.
 
+## Session & preference state
+
+The project's key-value store is **Redis** — wired as `cache: RedisCache` (`@talosjs/cache`) in `modules/app/src/index.ts`, configured under `cache.redis.url` / `CACHE_REDIS_URL` in `.env.yml`, and served by the `redis` service in `modules/app/docker-compose.yml`. `UpstashRedisCache` is the hosted swap-in and `FilesystemCache` is local/test only. Postgres is the relational store; there is no Valkey, MongoDB, or Memcached here — never introduce one.
+
+Keep short-lived, user-scoped state in Redis rather than in a Postgres table:
+
+- **Sessions & tokens** — session records, refresh/reset tokens, one-time codes, verification challenges, throttling counters.
+- **Preferences** — locale/lang, theme, timezone, layout, notification toggles, feature opt-ins.
+- Do **not** create an entity + migration for this state. If a preference must survive a cache flush, keep the entity as the source of truth and use Redis only as the read cache in front of it.
+
+Implement it with `/cache-create --name=<Name> --module=<module>` (an `ICache`: `get`, `set(key, value, ttl?)`, `delete`, `deleteByPrefix`, `has`, `clear`), inject it into the service via the constructor, and:
+
+- Namespace keys so `deleteByPrefix` can invalidate a whole subject: `session:<userId>:<sessionId>`, `prefs:<userId>`.
+- Always set an explicit `ttl` on sessions, tokens, and codes. Preferences may live without one, but must be deleted or rewritten on every update.
+- Store an opaque reference — never a plaintext password, secret, or full credential.
+- Treat every read as a possible miss (`undefined`) with a defined fallback; a cache outage must degrade, not crash the request.
+
 ## Clean Architecture
 
 Respect the **dependency rule** — dependencies point inward, never the reverse:
