@@ -8,8 +8,6 @@ import { Tabs } from "../../shared/components/tabs";
 import { IconTile } from "./IconTile";
 import { ICONS, type IconEntryType, type IconSizeType, type IconStyleType } from "./icons.data";
 
-type StyleFilterType = "all" | IconStyleType;
-
 const PAGE_SIZE = 150;
 
 const SIZE_OPTIONS: readonly { value: IconSizeType; label: string }[] = [
@@ -34,7 +32,7 @@ const matchesQuery = (icon: IconEntryType, needle: string): boolean => {
  */
 export const IconGallery = () => {
   const [query, setQuery] = useState("");
-  const [style, setStyle] = useState<StyleFilterType>("all");
+  const [style, setStyle] = useState<IconStyleType>("outline");
   const [size, setSize] = useState<IconSizeType>("sm");
   const [activeTag, setActiveTag] = useState<string>();
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -48,7 +46,6 @@ export const IconGallery = () => {
   }, [query, size, activeTag]);
 
   const visible = filtered.slice(0, visibleCount);
-  const renderStyle: IconStyleType = style === "all" ? "outline" : style;
 
   const onQueryChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setQuery(event.target.value);
@@ -56,7 +53,7 @@ export const IconGallery = () => {
   };
 
   const onStyleChange = (value: string): void => {
-    setStyle(value as StyleFilterType);
+    setStyle(value as IconStyleType);
     setVisibleCount(PAGE_SIZE);
   };
 
@@ -86,9 +83,12 @@ export const IconGallery = () => {
           </div>
           <Tabs value={style} onValueChange={onStyleChange}>
             <Tabs.List size="sm">
-              <Tabs.Trigger value="all">All</Tabs.Trigger>
-              <Tabs.Trigger value="outline">Outline</Tabs.Trigger>
-              <Tabs.Trigger value="fill">Fill</Tabs.Trigger>
+              <Tabs.Trigger value="outline" className="data-active:bg-primary data-active:text-primary-foreground">
+                Outline
+              </Tabs.Trigger>
+              <Tabs.Trigger value="fill" className="data-active:bg-primary data-active:text-primary-foreground">
+                Fill
+              </Tabs.Trigger>
               <Tabs.Indicator />
             </Tabs.List>
           </Tabs>
@@ -112,7 +112,7 @@ export const IconGallery = () => {
           {activeTag ? (
             <button type="button" onClick={() => onTagSelect(activeTag)}>
               <Badge variant="secondary" size="xs" className="cursor-pointer">
-                tag: {activeTag} ✕
+                tag: {activeTag}
               </Badge>
             </button>
           ) : null}
@@ -129,7 +129,7 @@ export const IconGallery = () => {
                 <IconTile
                   key={`${icon.category}/${icon.name}`}
                   icon={icon}
-                  style={renderStyle}
+                  style={style}
                   size={size}
                   activeTag={activeTag}
                   onTagSelect={onTagSelect}

@@ -4,7 +4,7 @@ import { IconGallery } from "./IconGallery";
 export const meta = {
   title: "Icons",
   group: "Icons",
-  tags: ["icons", "gallery", "search"],
+  tags: [],
   component: IconGallery,
   usage: [
     "**What** — a searchable, filterable gallery of every icon shipped by `@module/design/icons`: over 3,000 glyphs across two styles (`fill`, `outline`), three sizes (`sm` 16px, `md` 24px, `lg` 32px), and dozens of categories such as Arrows, UI & Layout, Weather, and Business & Finance.",

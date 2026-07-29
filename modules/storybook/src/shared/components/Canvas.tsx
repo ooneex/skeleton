@@ -214,6 +214,9 @@ const CodePreview = ({ code }: { code: string }) => {
 
 export const Canvas = ({ group, variant, args }: CanvasPropsType) => {
   const component = group.component as ComponentType<Record<string, unknown>>;
+  // The icon gallery is a self-contained search/filter page, not a single previewable
+  // component instance — there's no meaningful JSX snippet to show for it.
+  const showCodeToggle = group.title !== "Icons";
   const [view, setView] = useState<PreviewViewType>("design");
   // When the story passes an instance of the component itself as `children` (the compound
   // root story previews `<Avatar>…</Avatar>` directly), apply the remaining args — `size`
@@ -252,32 +255,34 @@ export const Canvas = ({ group, variant, args }: CanvasPropsType) => {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="inline-flex gap-0.5 rounded-md" data-slot="button-group">
-            <Button
-              variant={view === "design" ? "secondary" : "ghost"}
-              size="icon-xs"
-              aria-label="Design preview"
-              aria-pressed={view === "design"}
-              onClick={() => setView("design")}
-            >
-              <EyeIcon />
-            </Button>
-            <Button
-              variant={view === "code" ? "secondary" : "ghost"}
-              size="icon-xs"
-              aria-label="Code preview"
-              aria-pressed={view === "code"}
-              onClick={() => setView("code")}
-            >
-              <CodeIcon />
-            </Button>
-          </div>
+          {showCodeToggle ? (
+            <div className="inline-flex gap-0.5 rounded-md" data-slot="button-group">
+              <Button
+                variant={view === "design" ? "secondary" : "ghost"}
+                size="icon-xs"
+                aria-label="Design preview"
+                aria-pressed={view === "design"}
+                onClick={() => setView("design")}
+              >
+                <EyeIcon />
+              </Button>
+              <Button
+                variant={view === "code" ? "secondary" : "ghost"}
+                size="icon-xs"
+                aria-label="Code preview"
+                aria-pressed={view === "code"}
+                onClick={() => setView("code")}
+              >
+                <CodeIcon />
+              </Button>
+            </div>
+          ) : null}
           <ThemeSwitcher />
         </div>
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-auto p-2">
-        {view === "design" ? (
+        {!showCodeToggle || view === "design" ? (
           <div
             // `contain-layout` establishes a containing block for `position: fixed` descendants
             // (app shells like Sidebar render fixed to the viewport by design), so the preview

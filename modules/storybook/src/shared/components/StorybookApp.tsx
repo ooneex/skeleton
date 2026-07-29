@@ -128,14 +128,16 @@ export const StorybookApp = () => {
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <Canvas group={group} variant={variant} args={args} />
-        <Controls
-          variant={variant}
-          args={args}
-          onChange={setArg}
-          onReset={resetArgs}
-          collapsed={controlsCollapsed}
-          onCollapsedChange={setControlsCollapsed}
-        />
+        {group.title === "Icons" ? null : (
+          <Controls
+            variant={variant}
+            args={args}
+            onChange={setArg}
+            onReset={resetArgs}
+            collapsed={controlsCollapsed}
+            onCollapsedChange={setControlsCollapsed}
+          />
+        )}
       </div>
       {palette}
     </div>
