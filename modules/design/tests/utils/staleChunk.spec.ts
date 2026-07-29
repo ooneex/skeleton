@@ -12,41 +12,61 @@ const stubBrowser = (): BrowserStubType => {
   const store = new Map<string, string>();
   const stub: BrowserStubType = { store, reloads: 0 };
 
-  globalThis.sessionStorage = {
-    getItem: (key: string) => store.get(key) ?? null,
-    setItem: (key: string, value: string) => {
-      store.set(key, value);
-    },
-    removeItem: (key: string) => {
-      store.delete(key);
-    },
-    clear: () => store.clear(),
-    key: (index: number) => [...store.keys()][index] ?? null,
-    get length() {
-      return store.size;
-    },
-  } as Storage;
-
-  globalThis.window = {
-    location: {
-      reload: () => {
-        stub.reloads += 1;
+  // happy-dom defines `window`/`sessionStorage` as non-writable globals, so a plain
+  // assignment throws. Use `defineProperty` (configurable) to override them instead,
+  // and restore the originals the same way afterwards.
+  Object.defineProperty(globalThis, "sessionStorage", {
+    configurable: true,
+    value: {
+      getItem: (key: string) => store.get(key) ?? null,
+      setItem: (key: string, value: string) => {
+        store.set(key, value);
       },
-    },
-  } as unknown as Window & typeof globalThis;
+      removeItem: (key: string) => {
+        store.delete(key);
+      },
+      clear: () => store.clear(),
+      key: (index: number) => [...store.keys()][index] ?? null,
+      get length() {
+        return store.size;
+      },
+    } as Storage,
+  });
+
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: {
+      location: {
+        reload: () => {
+          stub.reloads += 1;
+        },
+      },
+    } as unknown as Window & typeof globalThis,
+  });
 
   return stub;
 };
 
 let browser: BrowserStubType;
+let originalWindow: PropertyDescriptor | undefined;
+let originalSessionStorage: PropertyDescriptor | undefined;
 
 beforeEach(() => {
+  originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  originalSessionStorage = Object.getOwnPropertyDescriptor(globalThis, "sessionStorage");
   browser = stubBrowser();
 });
 
 afterEach(() => {
-  Reflect.deleteProperty(globalThis, "sessionStorage");
-  Reflect.deleteProperty(globalThis, "window");
+  // Restore (rather than delete) since happy-dom registers real `window`/`sessionStorage`
+  // globals for the whole test run — deleting them here would break every test file
+  // that runs after this one in the same `bun test` process.
+  if (originalSessionStorage) {
+    Object.defineProperty(globalThis, "sessionStorage", originalSessionStorage);
+  }
+  if (originalWindow) {
+    Object.defineProperty(globalThis, "window", originalWindow);
+  }
 });
 
 describe("isStaleChunkError", () => {
