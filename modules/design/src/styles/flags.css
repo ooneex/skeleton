@@ -1,0 +1,36 @@
+/**
+ * Country flag colours. Flags represent a fixed national identity, not a themeable
+ * surface — these values are intentionally constant across light/dark/secondary themes,
+ * but still centralized here (instead of scattered hex literals) so every flag component
+ * references a single named source.
+ */
+@theme {
+  --color-flag-english-navy: #002781;
+  --color-flag-english-red: #d10d24;
+  --color-flag-english-white: #e6e6e6;
+
+  --color-flag-france-blue: #01209f;
+  --color-flag-france-red: #ef4234;
+  --color-flag-france-white: #e6e6e6;
+
+  --color-flag-germany-red: #ee0000;
+  --color-flag-germany-gold: #fdcf00;
+
+  --color-flag-greece-blue: #010080;
+  --color-flag-greece-white: #e6e6e6;
+
+  --color-flag-portugal-green: #006600;
+  --color-flag-portugal-red: #fe0000;
+  --color-flag-portugal-yellow: #fafb00;
+
+  --color-flag-romania-yellow: #fad314;
+  --color-flag-romania-red: #ce1127;
+  --color-flag-romania-blue: #00377b;
+
+  --color-flag-spain-red: #c60b1e;
+  --color-flag-spain-yellow: #ffc300;
+  --color-flag-spain-emblem: #91443a;
+
+  --color-flag-sweeden-blue: #0a5189;
+  --color-flag-sweeden-yellow: #efd358;
+}

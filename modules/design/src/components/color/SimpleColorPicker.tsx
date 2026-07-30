@@ -59,7 +59,7 @@ export const SimpleColorPicker = createDialog<SimpleColorPickerPropsType, Simple
                   "motion-safe:hover:scale-110",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                   isSelected && "ring-2 ring-primary ring-offset-2 ring-offset-background",
-                  color === "#FFFFFF" && !isSelected && "ring ring-ring-active",
+                  SIMPLE_COLOR_NAMES[color] === "White" && !isSelected && "ring ring-ring-active",
                 )}
                 style={{ backgroundColor: color }}
               >

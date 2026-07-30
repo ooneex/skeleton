@@ -6,8 +6,8 @@ export const GermanyFlag = (props: SVGProps<SVGSVGElement>) => {
       <title>germany</title>
       <g>
         <path d="M48,18H0V8c0-1.105,0.895-2,2-2h44c1.105,0,2,0.895,2,2V18z" />
-        <rect y="18" fill="#EE0000" width="48" height="12" />
-        <path fill="#FDCF00" d="M48,40c0,1.105-0.895,2-2,2H2c-1.105,0-2-0.895-2-2V30h48V40z" />
+        <rect y="18" fill="var(--color-flag-germany-red)" width="48" height="12" />
+        <path fill="var(--color-flag-germany-gold)" d="M48,40c0,1.105-0.895,2-2,2H2c-1.105,0-2-0.895-2-2V30h48V40z" />
       </g>
     </svg>
   );

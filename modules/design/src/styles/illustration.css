@@ -1,0 +1,47 @@
+/**
+ * Decorative illustration colours used by empty/error-state artwork and playful
+ * animations (spinner, sparkles). These are fixed accent palettes for illustrations,
+ * not surface colours — centralized here instead of hand-written hex in component files.
+ */
+@theme {
+  /* ErrorFallbackIcon */
+  --color-illustration-red-300: #fca5a5;
+  --color-illustration-red-500: #ef4444;
+  --color-illustration-red-600: #dc2626;
+  --color-illustration-orange-500: #f97316;
+  --color-illustration-amber-300: #fcd34d;
+  --color-illustration-amber-500: #f59e0b;
+  --color-illustration-yellow-500: #eab308;
+  --color-illustration-blue-300: #93c5fd;
+  --color-illustration-blue-500: #3b82f6;
+  --color-illustration-indigo-500: #6366f1;
+  --color-illustration-violet-500: #8b5cf6;
+  --color-illustration-purple-500: #a855f7;
+  --color-illustration-rose-500: #f43f5e;
+  --color-illustration-emerald-300: #6ee7b7;
+  --color-illustration-emerald-500: #10b981;
+  --color-illustration-emerald-600: #059669;
+
+  /* FileUploadProgress spinner */
+  --color-spinner-pink: #ff2e7e;
+  --color-spinner-yellow: #ffd600;
+  --color-spinner-cyan: #00e5ff;
+  --color-spinner-rose: #ff3d71;
+  --color-spinner-green: #4ade80;
+  --color-spinner-blue: #2196f3;
+  --color-spinner-amber: #ffa726;
+  --color-spinner-magenta: #ff1493;
+  --color-spinner-lemon: #ffeb3b;
+  --color-spinner-teal: #00bcd4;
+  --color-spinner-fuchsia: #ff4081;
+  --color-spinner-lime: #76ff03;
+  --color-spinner-azure: #448aff;
+  --color-spinner-orange: #ff3d00;
+
+  /* Rating sparkles */
+  --color-sparkle-pink: #f778ba;
+  --color-sparkle-cyan: #63d2f2;
+  --color-sparkle-yellow: #f9dd70;
+  --color-sparkle-purple: #a57bf1;
+  --color-sparkle-green: #72e8a4;
+}

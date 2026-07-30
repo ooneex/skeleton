@@ -6,6 +6,8 @@
 @import "./shape.css";
 @import "./brand.css";
 @import "./status.css";
+@import "./flags.css";
+@import "./illustration.css";
 @import "./themes/light.css";
 @import "./themes/dark.css";
 @import "./themes/secondary.css";

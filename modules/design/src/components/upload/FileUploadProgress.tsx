@@ -64,20 +64,20 @@ export const FileUploadProgress = ({ progress }: FileUploadProgressPropsType) =>
       </style>
 
       <g className="g-spin" mask="url(#progress-mask)" strokeDasharray="18% 40%" strokeWidth="10">
-        <circle cx="120" cy="120" opacity="0.95" r="150" stroke="#FF2E7E" />
-        <circle cx="120" cy="120" opacity="0.95" r="140" stroke="#FFD600" />
-        <circle cx="120" cy="120" opacity="0.95" r="130" stroke="#00E5FF" />
-        <circle cx="120" cy="120" opacity="0.95" r="120" stroke="#FF3D71" />
-        <circle cx="120" cy="120" opacity="0.95" r="110" stroke="#4ADE80" />
-        <circle cx="120" cy="120" opacity="0.95" r="100" stroke="#2196F3" />
-        <circle cx="120" cy="120" opacity="0.95" r="90" stroke="#FFA726" />
-        <circle cx="120" cy="120" opacity="0.95" r="80" stroke="#FF1493" />
-        <circle cx="120" cy="120" opacity="0.95" r="70" stroke="#FFEB3B" />
-        <circle cx="120" cy="120" opacity="0.95" r="60" stroke="#00BCD4" />
-        <circle cx="120" cy="120" opacity="0.95" r="50" stroke="#FF4081" />
-        <circle cx="120" cy="120" opacity="0.95" r="40" stroke="#76FF03" />
-        <circle cx="120" cy="120" opacity="0.95" r="30" stroke="#448AFF" />
-        <circle cx="120" cy="120" opacity="0.95" r="20" stroke="#FF3D00" />
+        <circle cx="120" cy="120" opacity="0.95" r="150" stroke="var(--color-spinner-pink)" />
+        <circle cx="120" cy="120" opacity="0.95" r="140" stroke="var(--color-spinner-yellow)" />
+        <circle cx="120" cy="120" opacity="0.95" r="130" stroke="var(--color-spinner-cyan)" />
+        <circle cx="120" cy="120" opacity="0.95" r="120" stroke="var(--color-spinner-rose)" />
+        <circle cx="120" cy="120" opacity="0.95" r="110" stroke="var(--color-spinner-green)" />
+        <circle cx="120" cy="120" opacity="0.95" r="100" stroke="var(--color-spinner-blue)" />
+        <circle cx="120" cy="120" opacity="0.95" r="90" stroke="var(--color-spinner-amber)" />
+        <circle cx="120" cy="120" opacity="0.95" r="80" stroke="var(--color-spinner-magenta)" />
+        <circle cx="120" cy="120" opacity="0.95" r="70" stroke="var(--color-spinner-lemon)" />
+        <circle cx="120" cy="120" opacity="0.95" r="60" stroke="var(--color-spinner-teal)" />
+        <circle cx="120" cy="120" opacity="0.95" r="50" stroke="var(--color-spinner-fuchsia)" />
+        <circle cx="120" cy="120" opacity="0.95" r="40" stroke="var(--color-spinner-lime)" />
+        <circle cx="120" cy="120" opacity="0.95" r="30" stroke="var(--color-spinner-azure)" />
+        <circle cx="120" cy="120" opacity="0.95" r="20" stroke="var(--color-spinner-orange)" />
       </g>
     </svg>
   </div>

@@ -1,7 +1,13 @@
 import { motion } from "motion/react";
 import { useMemo } from "react";
 
-const SPARKLE_COLORS = ["#F778BA", "#63D2F2", "#F9DD70", "#A57BF1", "#72E8A4"];
+const SPARKLE_COLORS = [
+  "var(--color-sparkle-pink)",
+  "var(--color-sparkle-cyan)",
+  "var(--color-sparkle-yellow)",
+  "var(--color-sparkle-purple)",
+  "var(--color-sparkle-green)",
+];
 const PARTICLE_COUNT = 12;
 
 export type ClickPositionType = { top: number; left: number };
