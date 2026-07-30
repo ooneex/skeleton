@@ -6,7 +6,7 @@ export const TabsIndicator = ({ className, ...props }: TabsPrimitive.Indicator.P
     <TabsPrimitive.Indicator
       data-slot="tabs-indicator"
       className={cn(
-        "absolute transition-all duration-200 ease-out",
+        "absolute top-[var(--active-tab-top)] left-[var(--active-tab-left)] w-[var(--active-tab-width)] h-[var(--active-tab-height)] transition-all duration-200 ease-out",
         "data-[activation-direction=left]:duration-200 data-[activation-direction=right]:duration-200",
         "data-[activation-direction=up]:duration-200 data-[activation-direction=down]:duration-200",
         "group-data-[variant=default]/tabs-list:rounded group-data-[variant=default]/tabs-list:bg-tabs-accent",
@@ -15,12 +15,6 @@ export const TabsIndicator = ({ className, ...props }: TabsPrimitive.Indicator.P
         "group-data-[orientation=vertical]/tabs:group-data-[variant=line]/tabs-list:right-0 group-data-[orientation=vertical]/tabs:group-data-[variant=line]/tabs-list:w-0.5",
         className,
       )}
-      style={{
-        top: "var(--active-tab-top)",
-        left: "var(--active-tab-left)",
-        width: "var(--active-tab-width)",
-        height: "var(--active-tab-height)",
-      }}
       {...props}
     />
   );
