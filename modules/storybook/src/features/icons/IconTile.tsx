@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { Badge } from "../../shared/components/badge";
-import type { IconEntryType, IconSizeType, IconStyleType } from "./icons.data";
-import { type IconComponentType, loadIcon } from "./icons.loader";
+import type { IconEntryType, IconSizeType } from "./icons.manifest";
 
 /** Each icon variant is authored at its own pixel size — the svg itself declares 16px, so the tile sets it. */
 const SIZE_CLASSES: Record<IconSizeType, string> = {
@@ -12,37 +10,25 @@ const SIZE_CLASSES: Record<IconSizeType, string> = {
 
 type IconTilePropsType = {
   icon: IconEntryType;
-  style: IconStyleType;
+  svg: string | undefined;
   size: IconSizeType;
   activeTag: string | undefined;
   onTagSelect: (tag: string) => void;
 };
 
 /** One icon in the gallery grid: the glyph itself (lazily loaded), its label, and up to three clickable search tags. */
-export const IconTile = ({ icon, style, size, activeTag, onTagSelect }: IconTilePropsType) => {
-  const [Icon, setIcon] = useState<IconComponentType>();
-
-  useEffect(() => {
-    let cancelled = false;
-    setIcon(undefined);
-    loadIcon(style, icon.category, size, icon.name).then((loaded) => {
-      if (!cancelled) {
-        setIcon(() => loaded);
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [style, size, icon.category, icon.name]);
-
+export const IconTile = ({ icon, svg, size, activeTag, onTagSelect }: IconTilePropsType) => {
   return (
     <div
       className="flex flex-col items-center gap-2 rounded-lg border-[0.3px] border-border bg-card p-3 text-center text-card-foreground transition-colors hover:bg-muted/50"
       title={`${icon.label} (${icon.name})`}
     >
       <div className="flex h-10 w-10 items-center justify-center text-foreground">
-        {Icon ? (
-          <Icon className={SIZE_CLASSES[size]} />
+        {svg ? (
+          <div
+            className={`${SIZE_CLASSES[size]} [&_svg]:h-full [&_svg]:w-full`}
+            dangerouslySetInnerHTML={{ __html: svg }}
+          />
         ) : (
           <div className={`${SIZE_CLASSES[size]} animate-pulse rounded bg-muted`} />
         )}

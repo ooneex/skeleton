@@ -1,11 +1,33 @@
 import { PdfViewer } from "@module/design/components/pdf";
+import { lazy, Suspense } from "react";
 import type { MetaType } from "../../shared/story";
+import type { PdfViewerStoryPropsType } from "./PdfViewer.story-content";
+
+const PdfViewerStoryContent = lazy(async () => {
+  const mod = await import("./PdfViewer.story-content");
+  return { default: mod.PdfViewerStoryContent };
+});
+
+const PdfViewerStory = (props: PdfViewerStoryPropsType) => (
+  <Suspense
+    fallback={
+      <div className="h-150 w-full max-w-2xl rounded border border-border p-6 text-sm text-muted-foreground">
+        Loading PDF viewer…
+      </div>
+    }
+  >
+    <PdfViewerStoryContent {...props} />
+  </Suspense>
+);
+
+PdfViewerStory.displayName = "PdfViewer";
 
 export const meta = {
   title: "PdfViewer",
   group: "Components",
   tags: [],
   component: PdfViewer,
+  storyComponent: PdfViewerStory,
   usage: [
     "**PdfViewer** renders a PDF document inline from a URL. It embeds `@react-pdf-viewer` with its own `pdf.js` worker, fits each page to the container width, scrolls smoothly through the document, and — with `toolbar` enabled — floats a control bar for search, zoom, page navigation, fullscreen, and single/dual page view. If the file cannot be loaded it swaps in an `Empty` state instead of failing silently.",
     "",
@@ -46,4 +68,4 @@ export const meta = {
       callback: () => {},
     },
   ],
-} satisfies MetaType<typeof PdfViewer>;
+} satisfies MetaType<typeof PdfViewer, typeof PdfViewerStory>;

@@ -20,6 +20,28 @@ export default defineConfig({
   build: {
     outDir: "../../dist",
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes("node_modules/@react-pdf-viewer") || id.includes("node_modules/pdfjs-dist")) {
+            return "storybook-pdf";
+          }
+          if (id.includes("node_modules/recharts")) {
+            return "storybook-chart";
+          }
+          if (
+            id.includes("node_modules/react-shiki") ||
+            id.includes("node_modules/shiki") ||
+            id.includes("node_modules/@shikijs") ||
+            id.includes("/src/shared/components/CanvasCodePreview.tsx") ||
+            id.includes("/src/shared/components/codeHighlighter.ts")
+          ) {
+            return "storybook-code";
+          }
+          return undefined;
+        },
+      },
+    },
   },
   plugins: [
     devtools(),

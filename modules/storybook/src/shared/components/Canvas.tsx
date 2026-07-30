@@ -1,21 +1,16 @@
 import { CodeIcon } from "@module/design/icons/outline/design-development/sm/CodeIcon";
-import { CopyIcon } from "@module/design/icons/outline/design-development/sm/CopyIcon";
-import { CheckIcon } from "@module/design/icons/outline/ui-layout/sm/CheckIcon";
 import { EyeIcon } from "@module/design/icons/outline/ui-layout/sm/EyeIcon";
 import type { ComponentType, ReactElement, ReactNode } from "react";
-import { cloneElement, createElement, Fragment, isValidElement, useMemo, useState } from "react";
-import { useShikiHighlighter } from "react-shiki/core";
-import { useThemeScheme } from "../hooks/useTheme";
-import type { LoadedVariantType, StoryGroupType } from "../story";
+import { cloneElement, createElement, Fragment, isValidElement, lazy, Suspense, useMemo, useState } from "react";
+import type { LoadedStoryGroupType, LoadedVariantType } from "../story";
 import { cn } from "../utils/cn";
 import { Badge } from "./badge";
 import { Breadcrumb } from "./breadcrumb";
 import { Button } from "./button";
-import { useCodeHighlighter } from "./codeHighlighter";
 import { ThemeSwitcher } from "./theme";
 
 type CanvasPropsType = {
-  group: StoryGroupType;
+  group: LoadedStoryGroupType;
   variant: LoadedVariantType;
   args: Record<string, unknown>;
 };
@@ -157,60 +152,10 @@ const CodeFallback = ({ code }: { code: string }) => (
   </pre>
 );
 
-/** Syntax-highlighted snippet, following the active light/dark theme. */
-const HighlightedCode = ({
-  code,
-  highlighter,
-}: {
-  code: string;
-  highlighter: NonNullable<ReturnType<typeof useCodeHighlighter>>;
-}) => {
-  const scheme = useThemeScheme();
-  const highlighted = useShikiHighlighter(code, "tsx", scheme === "dark" ? "github-dark" : "github-light", {
-    highlighter,
-  });
-
-  return highlighted ? <div className={codePanelClass}>{highlighted}</div> : <CodeFallback code={code} />;
-};
-
-/** Copies the snippet to the clipboard, flipping to a check for confirmation. */
-const CopyCodeButton = ({ code }: { code: string }) => {
-  const [copied, setCopied] = useState(false);
-
-  const copy = async (): Promise<void> => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      setCopied(false);
-    }
-  };
-
-  return (
-    <Button
-      variant="outline"
-      size="icon-xs"
-      className="absolute top-2 right-2 shrink-0"
-      onClick={copy}
-      aria-label="Copy code"
-    >
-      {copied ? <CheckIcon /> : <CopyIcon />}
-    </Button>
-  );
-};
-
-/** TypeScript code view: Shiki-highlighted once its grammar loads, plain text until then. */
-const CodePreview = ({ code }: { code: string }) => {
-  const highlighter = useCodeHighlighter();
-
-  return (
-    <div className="relative flex min-h-0 flex-1 flex-col">
-      <CopyCodeButton code={code} />
-      {highlighter ? <HighlightedCode code={code} highlighter={highlighter} /> : <CodeFallback code={code} />}
-    </div>
-  );
-};
+const CanvasCodePreview = lazy(async () => {
+  const mod = await import("./CanvasCodePreview");
+  return { default: mod.CanvasCodePreview };
+});
 
 export const Canvas = ({ group, variant, args }: CanvasPropsType) => {
   const component = group.component as ComponentType<Record<string, unknown>>;
@@ -294,7 +239,9 @@ export const Canvas = ({ group, variant, args }: CanvasPropsType) => {
             {previewElement}
           </div>
         ) : (
-          <CodePreview code={snippet} />
+          <Suspense fallback={<CodeFallback code={snippet} />}>
+            <CanvasCodePreview code={snippet} />
+          </Suspense>
         )}
       </div>
     </section>

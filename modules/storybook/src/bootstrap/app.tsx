@@ -1,4 +1,4 @@
-import "@module/design/styles/app.css";
+import "./app.css";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";

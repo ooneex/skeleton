@@ -1,11 +1,11 @@
-import { type ChangeEvent, type ReactNode, useMemo, useState } from "react";
+import { type ChangeEvent, type ReactNode, useEffect, useMemo, useState } from "react";
 import { Badge } from "../../shared/components/badge";
 import { Input } from "../../shared/components/input";
 import { ScrollArea } from "../../shared/components/scroll-area";
 import { Select } from "../../shared/components/select";
 import { Tabs } from "../../shared/components/tabs";
 import { IconTile } from "./IconTile";
-import { ICONS, type IconEntryType, type IconSizeType, type IconStyleType } from "./icons.data";
+import { type IconEntryType, type IconSizeType, type IconStyleType, loadIconManifest } from "./icons.manifest";
 
 const PAGE_SIZE = 150;
 
@@ -35,19 +35,41 @@ export type IconGalleryPropsType = {
  * are all internal state, so it renders the same whether previewed here or dropped into an app.
  */
 export const IconGallery = ({ searchIcon }: IconGalleryPropsType) => {
+  const [icons, setIcons] = useState<readonly IconEntryType[]>([]);
+  const [loadError, setLoadError] = useState<string>();
   const [query, setQuery] = useState("");
   const [style, setStyle] = useState<IconStyleType>("outline");
   const [size, setSize] = useState<IconSizeType>("sm");
   const [activeTag, setActiveTag] = useState<string>();
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    void loadIconManifest()
+      .then((loaded) => {
+        if (!cancelled) {
+          setIcons(loaded);
+        }
+      })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setLoadError(error instanceof Error ? error.message : "Unable to load the icon catalogue.");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    return ICONS.filter(
+    return icons.filter(
       (icon) =>
         icon.sizes.includes(size) && (!activeTag || icon.tags.includes(activeTag)) && matchesQuery(icon, needle),
     );
-  }, [query, size, activeTag]);
+  }, [activeTag, icons, query, size]);
 
   const visible = filtered.slice(0, visibleCount);
 
@@ -127,7 +149,11 @@ export const IconGallery = ({ searchIcon }: IconGalleryPropsType) => {
 
       <ScrollArea className="min-h-0 flex-1">
         <div className="p-3">
-          {visible.length === 0 ? (
+          {loadError ? <p className="p-8 text-center text-sm text-destructive">{loadError}</p> : null}
+          {!loadError && icons.length === 0 ? (
+            <p className="p-8 text-center text-sm text-muted-foreground">Loading icons…</p>
+          ) : null}
+          {icons.length > 0 && visible.length === 0 ? (
             <p className="p-8 text-center text-sm text-muted-foreground">No icons match your search.</p>
           ) : (
             <div className="grid grid-cols-5 gap-2">
@@ -135,7 +161,7 @@ export const IconGallery = ({ searchIcon }: IconGalleryPropsType) => {
                 <IconTile
                   key={`${icon.category}/${icon.name}`}
                   icon={icon}
-                  style={style}
+                  svg={icon.svgs[style]?.[size]}
                   size={size}
                   activeTag={activeTag}
                   onTagSelect={onTagSelect}
@@ -143,7 +169,7 @@ export const IconGallery = ({ searchIcon }: IconGalleryPropsType) => {
               ))}
             </div>
           )}
-          {visibleCount < filtered.length ? (
+          {icons.length > 0 && visibleCount < filtered.length ? (
             <div className="flex justify-center pt-4">
               <button
                 type="button"

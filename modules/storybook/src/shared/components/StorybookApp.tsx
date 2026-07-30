@@ -1,7 +1,7 @@
 import { getRouteApi } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import type { LoadedVariantType, StoryGroupType } from "../story";
-import { loadStoryGroups } from "../story";
+import type { LoadedStoryGroupType, LoadedVariantType, StoryGroupType } from "../story";
+import { loadStoryGroup, loadStoryGroups } from "../story";
 import { Canvas } from "./Canvas";
 import { CommandPalette } from "./CommandPalette";
 import { Controls } from "./Controls";
@@ -11,11 +11,16 @@ const route = getRouteApi("/");
 
 type SelectionType = {
   group: StoryGroupType;
+  variant: StoryGroupType["variants"][number];
+};
+
+type LoadedSelectionType = {
+  group: LoadedStoryGroupType;
   variant: LoadedVariantType;
 };
 
-const matchesQuery = (group: StoryGroupType, variant: LoadedVariantType, query: string): boolean => {
-  const haystack = [group.title, variant.name, ...group.tags, ...variant.controls.map((control) => control.name)]
+const matchesQuery = (group: StoryGroupType, variant: StoryGroupType["variants"][number], query: string): boolean => {
+  const haystack = [group.title, group.group, variant.name, ...group.tags, ...variant.searchableControls]
     .join(" ")
     .toLowerCase();
   return haystack.includes(query);
@@ -50,6 +55,7 @@ export const StorybookApp = () => {
   const groups = useMemo(() => loadStoryGroups(), []);
   const visibleGroups = useMemo(() => filterGroups(groups, query), [groups, query]);
   const selected = useMemo(() => findVariant(visibleGroups, story), [visibleGroups, story]);
+  const [loadedSelection, setLoadedSelection] = useState<LoadedSelectionType>();
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [controlsCollapsed, setControlsCollapsed] = useState(false);
 
@@ -63,6 +69,39 @@ export const StorybookApp = () => {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const groupId = selected?.group.id;
+
+    if (!groupId) {
+      setLoadedSelection(undefined);
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    if (loadedSelection?.group.id !== groupId) {
+      setLoadedSelection(undefined);
+    }
+
+    void loadStoryGroup(groupId).then((group) => {
+      if (cancelled || !group) {
+        return;
+      }
+
+      const variant = group.variants.find((item) => item.id === selected?.variant.id) ?? group.variants[0];
+      if (!variant) {
+        return;
+      }
+
+      setLoadedSelection({ group, variant });
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selected?.group.id, selected?.variant.id]);
 
   const setQuery = (value: string): void => {
     navigate({ search: (prev) => ({ ...prev, q: value === "" ? undefined : value }) });
@@ -98,7 +137,24 @@ export const StorybookApp = () => {
     );
   }
 
-  const { group, variant } = selected;
+  if (!loadedSelection) {
+    return (
+      <div className="flex h-screen w-full bg-background text-foreground">
+        <Sidebar
+          groups={visibleGroups}
+          selectedId={selected.variant.id}
+          query={query}
+          onQueryChange={setQuery}
+          onSelect={selectStory}
+          onOpenPalette={() => setPaletteOpen(true)}
+        />
+        <div className="flex flex-1 items-center justify-center text-muted-foreground">Loading story…</div>
+        {palette}
+      </div>
+    );
+  }
+
+  const { group, variant } = loadedSelection;
   const overrides = story === variant.id ? (props ?? {}) : {};
   const args = { ...variant.args, ...overrides };
 

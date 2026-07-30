@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../../../design/src/styles/typography.css";
+@import "../../../design/src/styles/shape.css";
+@import "../../../design/src/styles/brand.css";
+@import "../../../design/src/styles/status.css";
+@import "../../../design/src/styles/flags.css";
+@import "../../../design/src/styles/illustration.css";
+@import "../../../design/src/styles/themes/light.css";
+@import "../../../design/src/styles/themes/dark.css";
+@import "../../../design/src/styles/themes/secondary.css";
+
+@source "../../..";
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+    unicode-range:
+      U+0000-00FF,
+      U+0131,
+      U+0152-0153,
+      U+02BB-02BC,
+      U+02C6,
+      U+02DA,
+      U+02DC,
+      U+0304,
+      U+0308,
+      U+0329,
+      U+2000-206F,
+      U+20AC,
+      U+2122,
+      U+2191,
+      U+2193,
+      U+2212,
+      U+2215,
+      U+FEFF,
+      U+FFFD;
+  }
+
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url("/fonts/space-grotesk-latin-ext.woff2") format("woff2");
+    unicode-range:
+      U+0100-02BA,
+      U+02BD-02C5,
+      U+02C7-02CC,
+      U+02CE-02D7,
+      U+02DD-02FF,
+      U+0304,
+      U+0308,
+      U+0329,
+      U+1D00-1DBF,
+      U+1E00-1E9F,
+      U+1EF2-1EFF,
+      U+2020,
+      U+20A0-20AB,
+      U+20AD-20C0,
+      U+2113,
+      U+2C60-2C7F,
+      U+A720-A7FF;
+  }
+
+  html {
+    @apply font-sans bg-background text-foreground leading-relaxed tracking-normal;
+  }
+
+  body {
+    @apply overflow-hidden;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full border border-solid border-transparent;
+  }
+
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .input-otp-caret {
+    animation: caret-blink 1.25s ease-out infinite;
+  }
+
+  .pdf-toolbar {
+    --rpv-core__minimal-button-color: var(--color-primary-900);
+    --rpv-core__minimal-button--hover-background-color: var(--color-primary-100);
+    --rpv-core__minimal-button--disabled-color: var(--color-primary-300);
+    --rpv-core__minimal-button--selected-background-color: var(--color-primary-100);
+    --rpv-core__textbox-background-color: var(--color-primary-50);
+    --rpv-core__textbox-border-color: var(--color-primary-200);
+    --rpv-core__textbox-color: var(--color-primary-900);
+    --rpv-core__separator-border-bottom-color: var(--color-primary-200);
+    --rpv-core__popover-body-background-color: var(--color-light);
+    --rpv-core__popover-body-border-color: var(--color-primary-200);
+    --rpv-core__popover-body-color: var(--color-primary-900);
+    --rpv-core__tooltip-body-background-color: var(--color-light);
+    --rpv-core__tooltip-body-color: var(--color-primary);
+    @apply text-primary-900 font-sans;
+  }
+
+  .pdf-toolbar .rpv-core__minimal-button {
+    @apply rounded transition-[background-color] duration-150 ease-in;
+  }
+
+  .pdf-toolbar .rpv-core__textbox {
+    @apply rounded font-sans text-[0.8rem] w-12 text-center;
+  }
+
+  .pdf-toolbar .rpv-core__tooltip-body {
+    @apply rounded font-sans text-xs font-medium px-3 py-1.5 shadow-md;
+  }
+
+  .pdf-toolbar .rpv-core__tooltip-body-arrow {
+    @apply hidden;
+  }
+
+  .pdf-toolbar .rpv-zoom__popover-target-scale {
+    @apply text-foreground font-sans text-[0.8rem];
+  }
+}

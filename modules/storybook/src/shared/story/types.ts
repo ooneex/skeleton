@@ -25,13 +25,15 @@ export type PropType<Props> = {
   callback?: (...args: readonly any[]) => unknown;
 };
 
-export type MetaType<Component> = {
+export type MetaType<Component, StoryComponent = Component> = {
   title: string;
   /** Sidebar grouping this component belongs to. */
   group?: string;
   tags?: readonly string[];
   component: Component;
+  /** Optional story-specific preview component when the documented component needs a heavier demo wrapper. */
+  storyComponent?: StoryComponent;
   /** Markdown format — guidance on when to reach for this component. */
   usage?: string;
-  props?: readonly PropType<PropsOfType<Component>>[];
+  props?: readonly PropType<PropsOfType<StoryComponent>>[];
 };
