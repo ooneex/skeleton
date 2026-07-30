@@ -1,0 +1,17 @@
+services:
+  # Dragonfly - Redis-compatible in-memory data store
+  # Docs: https://www.dragonflydb.io/docs
+  # Connection: redis://localhost:6379
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly:v1.36.0
+    container_name: dragonfly
+    restart: "on-failure"
+    ulimits:
+      memlock: -1
+    ports:
+      - "6379:6379"
+    volumes:
+      - dragonfly_data:/data:rw
+
+volumes:
+  dragonfly_data:

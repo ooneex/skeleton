@@ -1,5 +1,6 @@
 pub struct Templates {
     pub clickhouse: &'static str,
+    pub dragonfly: &'static str,
     pub elasticsearch: &'static str,
     pub grafana: &'static str,
     pub jaeger: &'static str,
@@ -21,6 +22,7 @@ pub struct Templates {
 
 pub const TEMPLATES: Templates = Templates {
     clickhouse: include_str!("./clickhouse.txt"),
+    dragonfly: include_str!("./dragonfly.txt"),
     elasticsearch: include_str!("./elasticsearch.txt"),
     grafana: include_str!("./grafana.txt"),
     jaeger: include_str!("./jaeger.txt"),
