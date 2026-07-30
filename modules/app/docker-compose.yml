@@ -17,18 +17,20 @@ services:
       - POSTGRES_PASSWORD=talos
       - PGDATA=/var/lib/postgresql/data/pgdata
 
-  # Redis - In-memory data store for caching and sessions
-  # Docs: https://redis.io/docs/
+  # Dragonfly - Redis-compatible in-memory data store
+  # Docs: https://www.dragonflydb.io/docs
   # Connection: redis://localhost:6379
-  redis:
-    image: redis:8.4-alpine
-    container_name: skeleton_redis
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly:v1.36.0
+    container_name: skeleton_dragonfly
     restart: "on-failure"
+    ulimits:
+      memlock: -1
     ports:
       - "6379:6379"
     volumes:
-      - skeleton_redis_data:/data:rw
+      - skeleton_dragonfly_data:/data:rw
 
 volumes:
   skeleton_db_data:
-  skeleton_redis_data:
+  skeleton_dragonfly_data:
