@@ -1,1 +1,1 @@
-export const sdk = {};
+export { app } from "./app";

@@ -1,12 +1,12 @@
 import { describe, expect, test } from "bun:test";
-import { sdk } from "../src/index";
+import { app } from "../src/index";
 
 describe("sdk", () => {
   test("should expose an api surface object", () => {
-    expect(sdk).toBeObject();
+    expect(app).toBeObject();
   });
 
-  test("should not carry any api method yet", () => {
-    expect(Object.keys(sdk)).toEqual([]);
+  test("should expose the healthCheck api method", () => {
+    expect(typeof app.api.healthCheck).toBe("function");
   });
 });
