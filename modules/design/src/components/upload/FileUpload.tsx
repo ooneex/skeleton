@@ -6,57 +6,11 @@ import { PlusIcon } from "@module/design/icons/outline/ui-layout/sm/PlusIcon";
 import { TrashIcon } from "@module/design/icons/outline/ui-layout/sm/TrashIcon";
 import { cn } from "@module/design/utils/cn";
 import { type DragEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FileUploadProgress } from "./FileUploadProgress";
 import { formatBytes, type MaxFileSizeType, parseFileSize } from "./fileSize";
+import { type AcceptedFileType, FILE_TYPE_MAP } from "./fileTypes";
 
 type FileStatusType = "idle" | "dragging" | "uploading" | "completed" | "error";
-
-type AcceptedFileType = "image" | "pdf" | "video" | "audio" | "document" | "spreadsheet" | "archive";
-
-const FILE_TYPE_MAP: Record<AcceptedFileType, { mimeTypes: string[]; extensions: string[]; label: string }> = {
-  image: {
-    mimeTypes: ["image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml"],
-    extensions: [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"],
-    label: "Images",
-  },
-  pdf: {
-    mimeTypes: ["application/pdf"],
-    extensions: [".pdf"],
-    label: "PDF",
-  },
-  video: {
-    mimeTypes: ["video/mp4", "video/webm", "video/ogg", "video/quicktime"],
-    extensions: [".mp4", ".webm", ".ogg", ".mov"],
-    label: "Videos",
-  },
-  audio: {
-    mimeTypes: ["audio/mpeg", "audio/wav", "audio/ogg", "audio/webm"],
-    extensions: [".mp3", ".wav", ".ogg", ".webm"],
-    label: "Audio",
-  },
-  document: {
-    mimeTypes: [
-      "application/msword",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      "text/plain",
-    ],
-    extensions: [".doc", ".docx", ".txt"],
-    label: "Documents",
-  },
-  spreadsheet: {
-    mimeTypes: [
-      "application/vnd.ms-excel",
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "text/csv",
-    ],
-    extensions: [".xls", ".xlsx", ".csv"],
-    label: "Spreadsheets",
-  },
-  archive: {
-    mimeTypes: ["application/zip", "application/x-rar-compressed", "application/x-7z-compressed"],
-    extensions: [".zip", ".rar", ".7z"],
-    label: "Archives",
-  },
-};
 
 type FileErrorType = {
   message: string;
@@ -86,87 +40,6 @@ type FileUploadPropsType = {
 
 const DEFAULT_MAX_FILE_SIZE: MaxFileSizeType = "5MB";
 const UPLOAD_STEP_SIZE = 5;
-
-const UploadingAnimation = ({ progress }: { progress: number }) => (
-  <div className="relative h-16 w-16">
-    <svg
-      aria-label={`Upload progress: ${Math.round(progress)}%`}
-      className="h-full w-full"
-      fill="none"
-      viewBox="0 0 240 240"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>Upload Progress Indicator</title>
-
-      <defs>
-        <mask id="progress-mask">
-          <rect fill="black" height="240" width="240" />
-          <circle
-            cx="120"
-            cy="120"
-            fill="white"
-            r="120"
-            strokeDasharray={`${(progress / 100) * 754}, 754`}
-            transform="rotate(-90 120 120)"
-          />
-        </mask>
-      </defs>
-
-      <style>
-        {`
-                    @keyframes rotate-cw {
-                        from { transform: rotate(0deg); }
-                        to { transform: rotate(360deg); }
-                    }
-                    @keyframes rotate-ccw {
-                        from { transform: rotate(360deg); }
-                        to { transform: rotate(0deg); }
-                    }
-                    .g-spin circle {
-                        transform-origin: 120px 120px;
-                    }
-                    .g-spin circle:nth-child(1) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(2) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(3) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(4) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(5) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(6) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(7) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(8) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(9) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(10) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(11) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(12) { animation: rotate-ccw 8s linear infinite; }
-                    .g-spin circle:nth-child(13) { animation: rotate-cw 8s linear infinite; }
-                    .g-spin circle:nth-child(14) { animation: rotate-ccw 8s linear infinite; }
-
-                    .g-spin circle:nth-child(2n) { animation-delay: 0.2s; }
-                    .g-spin circle:nth-child(3n) { animation-delay: 0.3s; }
-                    .g-spin circle:nth-child(5n) { animation-delay: 0.5s; }
-                    .g-spin circle:nth-child(7n) { animation-delay: 0.7s; }
-                `}
-      </style>
-
-      <g className="g-spin" mask="url(#progress-mask)" strokeDasharray="18% 40%" strokeWidth="10">
-        <circle cx="120" cy="120" opacity="0.95" r="150" stroke="#FF2E7E" />
-        <circle cx="120" cy="120" opacity="0.95" r="140" stroke="#FFD600" />
-        <circle cx="120" cy="120" opacity="0.95" r="130" stroke="#00E5FF" />
-        <circle cx="120" cy="120" opacity="0.95" r="120" stroke="#FF3D71" />
-        <circle cx="120" cy="120" opacity="0.95" r="110" stroke="#4ADE80" />
-        <circle cx="120" cy="120" opacity="0.95" r="100" stroke="#2196F3" />
-        <circle cx="120" cy="120" opacity="0.95" r="90" stroke="#FFA726" />
-        <circle cx="120" cy="120" opacity="0.95" r="80" stroke="#FF1493" />
-        <circle cx="120" cy="120" opacity="0.95" r="70" stroke="#FFEB3B" />
-        <circle cx="120" cy="120" opacity="0.95" r="60" stroke="#00BCD4" />
-        <circle cx="120" cy="120" opacity="0.95" r="50" stroke="#FF4081" />
-        <circle cx="120" cy="120" opacity="0.95" r="40" stroke="#76FF03" />
-        <circle cx="120" cy="120" opacity="0.95" r="30" stroke="#448AFF" />
-        <circle cx="120" cy="120" opacity="0.95" r="20" stroke="#FF3D00" />
-      </g>
-    </svg>
-  </div>
-);
-
 const FileUpload = ({
   onUploadSuccess = () => {},
   onUploadError = () => {},
@@ -464,7 +337,7 @@ const FileUpload = ({
           {status === "uploading" && uploadingFile && (
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
               <div className="mb-4">
-                <UploadingAnimation progress={progress} />
+                <FileUploadProgress progress={progress} />
               </div>
 
               <div className="mb-4 space-y-1.5 text-center">
@@ -493,7 +366,9 @@ const FileUpload = ({
                       <img
                         alt={file.name}
                         className="h-14 w-14 rounded-md object-cover"
+                        height={56}
                         src={previewUrls[index] ?? undefined}
+                        width={56}
                       />
                     ) : file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf") ? (
                       <div className="flex h-14 w-14 items-center justify-center rounded-md bg-muted">

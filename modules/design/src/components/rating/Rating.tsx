@@ -3,19 +3,16 @@ import { cn } from "@module/design/utils/cn";
 import { AnimatePresence, motion } from "motion/react";
 import {
   type ComponentProps,
-  type Dispatch,
   type ElementType,
-  type KeyboardEvent as ReactKeyboardEvent,
   type MouseEvent as ReactMouseEvent,
-  type PointerEvent as ReactPointerEvent,
-  type RefObject,
-  type SetStateAction,
   useCallback,
   useId,
   useMemo,
   useRef,
   useState,
 } from "react";
+import { GradientRating } from "./RatingGradient";
+import { type ClickPositionType, RatingSparkles } from "./RatingSparkles";
 
 const DEFAULT_COLORS = {
   fill: "text-yellow-500 fill-yellow-500",
@@ -23,10 +20,6 @@ const DEFAULT_COLORS = {
 };
 
 const DEFAULT_EMOJIS = ["😡", "😟", "😐", "😊", "😍"];
-
-const FILL_CLIP_STYLE = { clipPath: "inset(100% 0 0 0)" };
-
-type ClickPositionType = { top: number; left: number };
 
 export type RatingPropsType = ComponentProps<"div"> & {
   value: number;
@@ -316,7 +309,7 @@ export const Rating = ({
           )}
         </AnimatePresence>
 
-        {sparklePosition && <Sparkles position={sparklePosition} onComplete={handleSparkleComplete} />}
+        {sparklePosition && <RatingSparkles position={sparklePosition} onComplete={handleSparkleComplete} />}
 
         {variant === "gradient" ? (
           <GradientRating
@@ -344,168 +337,4 @@ export const Rating = ({
   );
 };
 
-type GradientRatingPropsType = {
-  value: number;
-  count: number;
-  readOnly: boolean;
-  disabled: boolean;
-  isConfirming: boolean;
-  setIsConfirming: Dispatch<SetStateAction<boolean>>;
-  setSparklePosition: Dispatch<SetStateAction<ClickPositionType | null>>;
-  containerRef: RefObject<HTMLDivElement | null>;
-  Icon: ElementType<{ className?: string }>;
-  colors: { fill: string; empty: string };
-  onValueChange?: (value: number) => void;
-};
-
-export const GradientRating = (props: GradientRatingPropsType) => {
-  const {
-    value,
-    count,
-    readOnly,
-    disabled,
-    isConfirming,
-    setIsConfirming,
-    setSparklePosition,
-    containerRef,
-    Icon,
-    colors,
-    onValueChange,
-  } = props;
-  const iconContainerRef = useRef<HTMLDivElement>(null);
-  const prevValueRef = useRef(value);
-
-  const interactive = !disabled && !readOnly;
-  const fillInset = 100 - (value / count) * 100;
-
-  const updateValue = useCallback(
-    (newValue: number) => {
-      onValueChange?.(newValue);
-
-      if (interactive && prevValueRef.current < count && newValue === count) {
-        const iconRect = iconContainerRef.current?.getBoundingClientRect();
-        const containerRect = containerRef.current?.getBoundingClientRect();
-        if (iconRect && containerRect) {
-          setIsConfirming(true);
-          setSparklePosition({
-            top: iconRect.top - containerRect.top + iconRect.height / 2,
-            left: iconRect.left - containerRect.left + iconRect.width / 2,
-          });
-        }
-      }
-      prevValueRef.current = newValue;
-    },
-    [onValueChange, interactive, count, containerRef, setIsConfirming, setSparklePosition],
-  );
-
-  const handlePointerInteraction = useCallback(
-    (e: ReactPointerEvent<HTMLDivElement>) => {
-      if (readOnly || disabled || isConfirming) return;
-      const rect = iconContainerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const pointerY = e.clientY - rect.top;
-      const percentage = Math.max(0, Math.min(1, 1 - pointerY / rect.height));
-      updateValue(Math.round(percentage * count));
-    },
-    [readOnly, disabled, isConfirming, count, updateValue],
-  );
-
-  const handlePointerMove = useCallback(
-    (e: ReactPointerEvent<HTMLDivElement>) => {
-      if (e.buttons === 1) handlePointerInteraction(e);
-    },
-    [handlePointerInteraction],
-  );
-
-  const handleKeyDown = useCallback(
-    (e: ReactKeyboardEvent<HTMLDivElement>) => {
-      if (readOnly || disabled || isConfirming) return;
-      if (e.key === "ArrowUp" || e.key === "ArrowRight") {
-        e.preventDefault();
-        updateValue(Math.min(count, value + 1));
-      } else if (e.key === "ArrowDown" || e.key === "ArrowLeft") {
-        e.preventDefault();
-        updateValue(Math.max(0, value - 1));
-      }
-    },
-    [readOnly, disabled, isConfirming, count, value, updateValue],
-  );
-
-  return (
-    <div
-      ref={iconContainerRef}
-      className={cn("relative h-8 w-8 rating-item", {
-        "cursor-pointer": interactive,
-        "cursor-not-allowed opacity-50": disabled || readOnly,
-      })}
-      onPointerDown={handlePointerInteraction}
-      onPointerMove={handlePointerMove}
-      onKeyDown={handleKeyDown}
-      aria-label="Gradient rating"
-      role="slider"
-      tabIndex={interactive ? 0 : -1}
-      aria-valuemin={0}
-      aria-valuemax={count}
-      aria-valuenow={value}
-    >
-      <Icon className={cn("h-full w-full", colors.empty)} />
-      <motion.div
-        className="absolute top-0 left-0 h-full w-full"
-        style={FILL_CLIP_STYLE}
-        animate={{ clipPath: `inset(${fillInset}% 0 0 0)` }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-      >
-        <Icon className={cn("h-full w-full", colors.fill)} />
-      </motion.div>
-    </div>
-  );
-};
-GradientRating.displayName = "GradientRating";
-
-const SPARKLE_COLORS = ["#F778BA", "#63D2F2", "#F9DD70", "#A57BF1", "#72E8A4"];
-const PARTICLE_COUNT = 12;
-
-type SparklesPropsType = {
-  position: ClickPositionType;
-  onComplete: () => void;
-};
-
-const Sparkles = ({ position, onComplete }: SparklesPropsType) => {
-  const angleOffset = useMemo(() => Math.random() * 360, []);
-
-  return (
-    <div
-      className="absolute pointer-events-none"
-      style={{ top: position.top, left: position.left, transform: "translate(-50%, -50%)" }}
-    >
-      {Array.from({ length: PARTICLE_COUNT }, (_, index) => {
-        const angle = (360 / PARTICLE_COUNT) * index + angleOffset;
-        const radius = 50;
-        const x = Math.cos((angle * Math.PI) / 180) * radius;
-        const y = Math.sin((angle * Math.PI) / 180) * radius;
-        const color = SPARKLE_COLORS[index % SPARKLE_COLORS.length];
-        return (
-          <motion.svg
-            key={index}
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            className="absolute top-1/2 left-1/2"
-            style={{ x: "-50%", y: "-50%" }}
-            initial={{ x: 0, y: 0, scale: 0, opacity: 1, rotate: angle - 90 }}
-            animate={{ x, y, scale: [0, 1, 0], opacity: [1, 1, 0] }}
-            transition={{ duration: 0.7, ease: "easeOut", times: [0, 0.5, 1] }}
-            onAnimationComplete={index === 0 ? onComplete : undefined}
-          >
-            <path
-              d="M6 0L7.34315 4.65685L12 6L7.34315 7.34315L6 12L4.65685 7.34315L0 6L4.65685 4.65685L6 0Z"
-              fill={color}
-            />
-          </motion.svg>
-        );
-      })}
-    </div>
-  );
-};
 Rating.displayName = "Rating";

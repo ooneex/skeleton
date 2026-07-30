@@ -39,7 +39,7 @@
 
   --primary: oklch(0.47 0.08 191);
   --primary-foreground: var(--light);
-  --secondary: oklch(0.58 0.11 62);
+  --secondary: oklch(0.57 0.11 62);
   --secondary-foreground: var(--light);
 
   --muted: oklch(0.955 0.016 186);

@@ -38,13 +38,13 @@
   --popover: oklch(1 0 0);
   --popover-foreground: var(--foreground);
 
-  --primary: oklch(0.58 0.11 62);
+  --primary: oklch(0.57 0.11 62);
   --primary-foreground: var(--light);
   --secondary: oklch(0.7 0.1 185);
   --secondary-foreground: var(--secondary-900);
 
   --muted: oklch(0.955 0.016 76);
-  --muted-foreground: oklch(0.55 0.028 70);
+  --muted-foreground: oklch(0.53 0.028 70);
   --accent: var(--muted);
   --accent-foreground: var(--primary-900);
 
