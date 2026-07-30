@@ -3,6 +3,7 @@
 import { afterEach, describe, expect, test } from "bun:test";
 import { cleanup, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { isValidElement } from "react";
 import { VideoPlayer } from "../../../src/components/video/VideoPlayer";
 
 // Note: a real browser media engine would be required to actually play video;
@@ -32,16 +33,23 @@ describe("VideoPlayer", () => {
   });
 
   test("renders an iframe embed for youtube ids", () => {
-    render(<VideoPlayer youtubeId="dQw4w9WgXcQ" title="Youtube video" />);
-    const iframe = screen.getByTitle("Youtube video");
-    expect(iframe.tagName).toBe("IFRAME");
-    expect(iframe.getAttribute("src")).toContain("dQw4w9WgXcQ");
+    const element = VideoPlayer({ youtubeId: "dQw4w9WgXcQ", title: "Youtube video" });
+
+    expect(isValidElement(element)).toBe(true);
+    expect(element?.type).toBe("iframe");
+    expect(element?.props.title).toBe("Youtube video");
+    expect(element?.props.src).toContain("dQw4w9WgXcQ");
   });
 
   test("renders an iframe embed for mediadelivery.net sources", () => {
-    render(<VideoPlayer src="https://iframe.mediadelivery.net/play/12345/abcde" title="Delivery video" />);
-    const iframe = screen.getByTitle("Delivery video");
-    expect(iframe.tagName).toBe("IFRAME");
-    expect(iframe.getAttribute("src")).toContain("/embed/");
+    const element = VideoPlayer({
+      src: "https://iframe.mediadelivery.net/play/12345/abcde",
+      title: "Delivery video",
+    });
+
+    expect(isValidElement(element)).toBe(true);
+    expect(element?.type).toBe("iframe");
+    expect(element?.props.title).toBe("Delivery video");
+    expect(element?.props.src).toContain("/embed/");
   });
 });

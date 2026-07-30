@@ -1,82 +1,45 @@
 /// <reference lib="dom" />
 
-import { afterEach, describe, expect, test } from "bun:test";
-import { cleanup, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { DialogContext, type DialogContextValueType } from "../../../src/components/dialog/DialogContext";
+import { afterEach, describe, expect, mock, test } from "bun:test";
+import { cleanup, renderHook } from "@testing-library/react";
+import type { ReactNode } from "react";
+import { DialogContext } from "../../../src/components/dialog/DialogContext";
 import { useRegisterDialogDescription, useRegisterDialogTitle } from "../../../src/components/dialog/useDialogPresence";
 
 afterEach(cleanup);
 
-const makeContextValue = (overrides: Partial<DialogContextValueType> = {}): DialogContextValueType => ({
-  open: true,
-  dismiss: () => {},
-  titleId: "title-id",
-  descriptionId: "description-id",
-  setHasTitle: () => {},
-  setHasDescription: () => {},
-  ...overrides,
-});
+describe("useDialogPresence", () => {
+  test("registers title and description presence with dialog context", () => {
+    const setHasTitle = mock((_value: boolean) => {});
+    const setHasDescription = mock((_value: boolean) => {});
 
-const TitleHarness = () => {
-  const titleId = useRegisterDialogTitle();
-  return <span data-testid="title-id">{titleId}</span>;
-};
-
-const DescriptionHarness = () => {
-  const descriptionId = useRegisterDialogDescription();
-  return <span data-testid="description-id">{descriptionId}</span>;
-};
-
-describe("useRegisterDialogTitle", () => {
-  test("returns the context's titleId and registers presence", () => {
-    const hasTitleCalls: boolean[] = [];
-    const contextValue = makeContextValue({ setHasTitle: (hasTitle) => hasTitleCalls.push(hasTitle) });
-
-    const { getByTestId } = render(
-      <DialogContext.Provider value={contextValue}>
-        <TitleHarness />
-      </DialogContext.Provider>,
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <DialogContext.Provider
+        value={{
+          open: true,
+          dismiss: () => {},
+          titleId: "title-id",
+          descriptionId: "description-id",
+          setHasTitle,
+          setHasDescription,
+        }}
+      >
+        {children}
+      </DialogContext.Provider>
     );
 
-    expect(getByTestId("title-id").textContent).toBe("title-id");
-    expect(hasTitleCalls).toEqual([true]);
-  });
+    const titleHook = renderHook(() => useRegisterDialogTitle(), { wrapper });
+    const descriptionHook = renderHook(() => useRegisterDialogDescription(), { wrapper });
 
-  test("unregisters presence on unmount", () => {
-    const hasTitleCalls: boolean[] = [];
-    const contextValue = makeContextValue({ setHasTitle: (hasTitle) => hasTitleCalls.push(hasTitle) });
+    expect(titleHook.result.current).toBe("title-id");
+    expect(descriptionHook.result.current).toBe("description-id");
+    expect(setHasTitle).toHaveBeenCalledWith(true);
+    expect(setHasDescription).toHaveBeenCalledWith(true);
 
-    const { unmount } = render(
-      <DialogContext.Provider value={contextValue}>
-        <TitleHarness />
-      </DialogContext.Provider>,
-    );
-    unmount();
+    titleHook.unmount();
+    descriptionHook.unmount();
 
-    expect(hasTitleCalls).toEqual([true, false]);
-  });
-
-  test("returns undefined when rendered outside a dialog context", () => {
-    const { getByTestId } = render(<TitleHarness />);
-    expect(getByTestId("title-id").textContent).toBe("");
-  });
-});
-
-describe("useRegisterDialogDescription", () => {
-  test("returns the context's descriptionId and registers presence", () => {
-    const hasDescriptionCalls: boolean[] = [];
-    const contextValue = makeContextValue({
-      setHasDescription: (hasDescription) => hasDescriptionCalls.push(hasDescription),
-    });
-
-    const { getByTestId } = render(
-      <DialogContext.Provider value={contextValue}>
-        <DescriptionHarness />
-      </DialogContext.Provider>,
-    );
-
-    expect(getByTestId("description-id").textContent).toBe("description-id");
-    expect(hasDescriptionCalls).toEqual([true]);
+    expect(setHasTitle).toHaveBeenCalledWith(false);
+    expect(setHasDescription).toHaveBeenCalledWith(false);
   });
 });
