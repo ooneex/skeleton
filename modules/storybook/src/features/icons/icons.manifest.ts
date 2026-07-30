@@ -74,28 +74,39 @@ const toIconEntry = (icon: RawIconEntryType): IconEntryType => {
 
 let manifestPromise: Promise<readonly IconEntryType[]> | undefined;
 
-const readManifestText = async (response: Response): Promise<string> => {
+/**
+ * A static file server that recognizes the `.br` extension (e.g. Vite's dev server) sends this
+ * response with a `Content-Encoding: br` header, which `fetch` transparently decodes before the
+ * bytes ever reach JS — leaving plain JSON, starting with `{`. A host that serves it as an opaque
+ * file instead hands over the raw Brotli stream, which never starts with `{`. Browsers have no
+ * built-in Brotli decoder for that case (`DecompressionStream` only implements
+ * `gzip`/`deflate`/`deflate-raw` — https://developer.mozilla.org/docs/Web/API/DecompressionStream),
+ * so a small WASM decoder is lazy-loaded only when actually needed, instead of shipping an
+ * uncompressed (~7x larger) manifest.
+ */
+const isPlainJson = (bytes: Uint8Array): boolean => bytes[0] === 0x7b; /* "{" */
+
+const readManifestBytes = async (response: Response): Promise<Uint8Array> => {
   if (!response.ok) {
     throw new Error(`Failed to load icon manifest (${response.status})`);
   }
-  if (!response.body) {
-    throw new Error("Icon manifest response body is missing.");
-  }
-  if (!("DecompressionStream" in globalThis)) {
-    throw new Error("This browser does not support Brotli decompression.");
+
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  if (isPlainJson(bytes)) {
+    return bytes;
   }
 
-  const body = response.body.pipeThrough(
-    new DecompressionStream("brotli" as never) as unknown as TransformStream<Uint8Array, Uint8Array>,
-  );
-  return new Response(body).text();
+  const { default: brotliPromise } = await import("brotli-dec-wasm");
+  const brotli = await brotliPromise;
+  return brotli.decompress(bytes);
 };
 
 /** Loads the compressed icon manifest the first time the icon gallery is opened. */
 export const loadIconManifest = async (): Promise<readonly IconEntryType[]> => {
   manifestPromise ??= fetch(ICON_MANIFEST_URL)
-    .then(readManifestText)
-    .then((payload) => {
+    .then(readManifestBytes)
+    .then((bytes) => {
+      const payload = new TextDecoder().decode(bytes);
       const manifest = JSON.parse(payload) as RawIconManifestType;
       return manifest.icons.map(toIconEntry);
     });
