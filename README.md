@@ -639,7 +639,7 @@ oo database:create --name User --module user
 
 ### Docker
 
-Adds a Docker service to `modules/app/docker-compose.yml`. Creates the file if it does not exist. Available services: `postgres`, `mysql`, `mongodb`, `redis`, `rabbitmq`, `nats`, `elasticsearch`, `clickhouse`, `minio`, `memcached`, `prometheus`, `grafana`, `jaeger`, `keycloak`, `vault`, `temporal`, `libretranslate`, `maildev`:
+Adds a Docker service to `modules/app/docker-compose.yml`. Creates the file if it does not exist. Available services: `postgres`, `mysql`, `mongodb`, `redis`, `dragonfly`, `rabbitmq`, `nats`, `elasticsearch`, `clickhouse`, `minio`, `memcached`, `prometheus`, `grafana`, `jaeger`, `keycloak`, `vault`, `temporal`, `libretranslate`, `maildev`:
 
 ```bash
 oo docker:create
