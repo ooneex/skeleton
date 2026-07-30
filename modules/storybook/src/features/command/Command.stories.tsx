@@ -7,7 +7,7 @@ import { UserIcon } from "@module/design/icons/outline/users/sm/UserIcon";
 import type { MetaType } from "../../shared/story";
 
 const palette = (
-  <Command className="w-[420px] border border-border">
+  <Command className="w-105 border border-border">
     <Command.Input placeholder="Type a command or search…" />
     <Command.List>
       <Command.Empty>No results found.</Command.Empty>

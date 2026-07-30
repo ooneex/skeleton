@@ -6,7 +6,7 @@ import { cn } from "../../utils/cn";
 const checkboxVariants = cva(
   "ring-border data-checked:bg-primary data-checked:text-primary-foreground data-checked:ring-primary aria-invalid:aria-checked:ring-primary aria-invalid:ring-destructive hover:ring-ring-active focus-visible:ring-ring-active flex items-center justify-center rounded ring bg-transparent transition-[color,box-shadow] group-has-disabled/field:opacity-50 peer relative shrink-0 outline-none after:absolute after:-inset-x-3 after:-inset-y-2 disabled:cursor-not-allowed disabled:opacity-50",
   {
-    variants: { size: { xs: "size-3.5", sm: "size-4", md: "size-[1.125rem]", lg: "size-5" } },
+    variants: { size: { xs: "size-3.5", sm: "size-4", md: "size-4.5", lg: "size-5" } },
     defaultVariants: { size: "sm" },
   },
 );

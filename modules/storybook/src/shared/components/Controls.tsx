@@ -200,11 +200,14 @@ export const Controls = ({ variant, args, onChange, onReset, collapsed, onCollap
                   {controls.map((control) => {
                     const controlUsage = getControlUsage(control, args[control.name]);
                     return (
-                      <div key={control.name} className="grid grid-cols-[8rem_1fr] items-center gap-3">
-                        <label htmlFor={`control-${control.name}`} className="pt-1 text-sm text-muted-foreground">
+                      <div key={control.name} className="flex items-center gap-3">
+                        <label
+                          htmlFor={`control-${control.name}`}
+                          className="w-32 shrink-0 pt-1 text-sm text-muted-foreground"
+                        >
                           {control.name}
                         </label>
-                        <div className="grid gap-1">
+                        <div className="grid flex-1 gap-1">
                           {renderControl(control, args[control.name], onChange)}
                           {controlUsage ? (
                             <Markdown content={controlUsage} className="text-xs text-muted-foreground" />

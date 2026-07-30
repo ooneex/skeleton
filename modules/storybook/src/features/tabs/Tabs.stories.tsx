@@ -2,7 +2,7 @@ import { Tabs } from "@module/design/components/tabs";
 import type { MetaType } from "../../shared/story";
 
 const accountTabs = (
-  <Tabs defaultValue="overview" className="w-[520px] max-w-full">
+  <Tabs defaultValue="overview" className="w-130 max-w-full">
     <Tabs.List variant="default" size="sm">
       <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
       <Tabs.Trigger value="billing">Billing</Tabs.Trigger>

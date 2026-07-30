@@ -24,7 +24,7 @@ export const meta = {
     {
       name: "className",
       control: "text",
-      default: "h-[600px] w-full max-w-2xl",
+      default: "h-150 w-full max-w-2xl",
     },
     {
       name: "toolbar",

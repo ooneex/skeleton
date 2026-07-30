@@ -124,7 +124,7 @@ export const CommandPalette = ({ groups, open, onOpenChange, onSelect }: Command
                         <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                           <div className="flex items-baseline gap-2">
                             <span className="truncate font-medium">{variant.name}</span>
-                            <span className="ml-auto shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                            <span className="ml-auto shrink-0 rounded bg-muted px-1.5 py-0.5 text-2xs font-medium uppercase tracking-wide text-muted-foreground">
                               {group.title}
                             </span>
                           </div>

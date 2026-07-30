@@ -2,7 +2,7 @@ import { RadioGroup } from "@module/design/components/radio-group";
 import type { MetaType } from "../../shared/story";
 
 const options = (
-  <RadioGroup defaultValue="comfortable" className="w-[240px] max-w-full">
+  <RadioGroup defaultValue="comfortable" className="w-60 max-w-full">
     <div className="flex items-center gap-3 text-sm">
       <RadioGroup.Item value="default" />
       <span>Default</span>
