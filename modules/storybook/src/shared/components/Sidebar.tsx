@@ -113,7 +113,7 @@ export const Sidebar = ({ groups, selectedId, onSelect, onOpenPalette }: Sidebar
   return (
     <aside className="flex w-64 shrink-0 flex-col border-r border-border bg-muted/30 p-0 gap-4">
       <div className="px-3 pt-2">
-        <img src={logoSrc} alt="Ooneex" className="block h-7 w-auto" />
+        <img alt="Ooneex" className="block h-7 w-auto" height={28} src={logoSrc} width={112} />
       </div>
       <div className="px-3">
         <button

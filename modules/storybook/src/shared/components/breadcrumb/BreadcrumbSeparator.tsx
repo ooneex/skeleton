@@ -30,5 +30,3 @@ export const BreadcrumbSeparator = ({ children, className, size = "sm", ...props
     </li>
   );
 };
-
-export { breadcrumbSeparatorVariants };

@@ -1,4 +1,6 @@
 import { recordAction } from "./actionLog";
+import { formatArg } from "./formatArg";
+import { storyLogger } from "./logger";
 
 export type MockFnType = ((...args: readonly unknown[]) => void) & {
   calls: unknown[][];
@@ -15,8 +17,7 @@ export const fn = (): MockFnType => {
   const base = (...args: readonly unknown[]): void => {
     calls.push([...args]);
     recordAction("fn", args);
-    // biome-ignore lint/suspicious/noConsole: action logging is the intended output of a preview spy
-    console.info("[action]", ...args);
+    storyLogger.info("[action]", { args: args.map(formatArg).join(", ") });
   };
 
   return Object.assign(base, {

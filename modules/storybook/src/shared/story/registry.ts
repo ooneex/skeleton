@@ -1,5 +1,7 @@
 import type { ComponentType } from "react";
 import { recordAction } from "./actionLog";
+import { formatArg } from "./formatArg";
+import { storyLogger } from "./logger";
 import type { ControlKindType, MetaType, PropOptionType } from "./types";
 
 export type LoadedControlType = {
@@ -42,8 +44,7 @@ const withAction =
   (name: string, callback: (...args: readonly unknown[]) => unknown) =>
   (...args: readonly unknown[]): unknown => {
     recordAction(name, args);
-    // biome-ignore lint/suspicious/noConsole: action logging is the intended output of a preview spy
-    console.info("[action]", name, ...args);
+    storyLogger.info(`[action] ${name}`, { args: args.map(formatArg).join(", ") });
     return callback(...args);
   };
 

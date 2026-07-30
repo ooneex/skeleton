@@ -1,5 +1,4 @@
-import { GridSearchIcon } from "@module/design/icons/outline/ui-layout/sm/GridSearchIcon";
-import { type ChangeEvent, useMemo, useState } from "react";
+import { type ChangeEvent, type ReactNode, useMemo, useState } from "react";
 import { Badge } from "../../shared/components/badge";
 import { Input } from "../../shared/components/input";
 import { ScrollArea } from "../../shared/components/scroll-area";
@@ -25,12 +24,17 @@ const matchesQuery = (icon: IconEntryType, needle: string): boolean => {
   return needle.split(/\s+/).every((term) => haystack.includes(term));
 };
 
+export type IconGalleryPropsType = {
+  /** Icon rendered inside the search box, sourced from `@module/design/icons`. */
+  searchIcon: ReactNode;
+};
+
 /**
  * The `Icons` story page: a single searchable, filterable gallery of every icon shipped by
- * `@module/design/icons`. It takes no props — the search box, tag chips, and size/style filters
+ * `@module/design/icons`. Besides `searchIcon`, the search box, tag chips, and size/style filters
  * are all internal state, so it renders the same whether previewed here or dropped into an app.
  */
-export const IconGallery = () => {
+export const IconGallery = ({ searchIcon }: IconGalleryPropsType) => {
   const [query, setQuery] = useState("");
   const [style, setStyle] = useState<IconStyleType>("outline");
   const [size, setSize] = useState<IconSizeType>("sm");
@@ -72,7 +76,9 @@ export const IconGallery = () => {
       <div className="flex flex-col gap-3 border-b border-border p-3">
         <div className="flex flex-wrap items-center gap-2">
           <div className="relative min-w-56 flex-1">
-            <GridSearchIcon className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
+            <span className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground">
+              {searchIcon}
+            </span>
             <Input
               size="sm"
               placeholder="Search by name or tag…"

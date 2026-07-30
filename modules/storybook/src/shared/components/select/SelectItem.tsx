@@ -54,5 +54,3 @@ export const SelectItem = ({ className, size = "sm", children, ...props }: Selec
     </SelectPrimitive.Item>
   );
 };
-
-export { selectItemVariants };

@@ -5,7 +5,14 @@ import { ChalkboardIcon } from "@module/design/icons/outline/school-education/sm
 import { getRouteApi } from "@tanstack/react-router";
 import { type ChangeEvent, type ReactElement, useEffect, useSyncExternalStore } from "react";
 import type { StoryTabType } from "../../routes/index";
-import { clearActions, getActions, type LoadedControlType, type LoadedVariantType, subscribeActions } from "../story";
+import {
+  clearActions,
+  formatArg,
+  getActions,
+  type LoadedControlType,
+  type LoadedVariantType,
+  subscribeActions,
+} from "../story";
 import { cn } from "../utils/cn";
 import { Markdown } from "../utils/Markdown";
 import { Button } from "./button";
@@ -49,7 +56,7 @@ const renderControl = (
           id={id}
           size="xs"
           type="color"
-          value={typeof value === "string" ? value : "#000000"}
+          value={typeof value === "string" ? value : undefined}
           onChange={(event: ChangeEvent<HTMLInputElement>) => onChange(control.name, event.target.value)}
           className="h-8 w-16 p-1"
         />
@@ -102,44 +109,6 @@ const renderControl = (
 
 const getControlUsage = (control: LoadedControlType, value: unknown): string | undefined =>
   control.options?.find((option) => option.name === value)?.usage;
-
-const formatArg = (value: unknown): string => {
-  if (typeof value === "string") {
-    return value;
-  }
-  if (value === null || value === undefined) {
-    return String(value);
-  }
-  if (typeof value === "function") {
-    return `[Function ${value.name || "anonymous"}]`;
-  }
-  if (typeof value === "object") {
-    if (typeof Event !== "undefined" && value instanceof Event) {
-      return `[${value.constructor.name} ${value.type}]`;
-    }
-    if ("nativeEvent" in value && "type" in value) {
-      return `[SyntheticEvent ${String((value as { type: unknown }).type)}]`;
-    }
-  }
-  try {
-    const seen = new WeakSet();
-    const json = JSON.stringify(value, (_key, val) => {
-      if (typeof val === "object" && val !== null) {
-        if (seen.has(val)) {
-          return "[Circular]";
-        }
-        seen.add(val);
-      }
-      return val;
-    });
-    if (json !== undefined) {
-      return json;
-    }
-  } catch {
-    // fall through to a readable label below
-  }
-  return Object.prototype.toString.call(value);
-};
 
 const formatTime = (time: number): string => new Date(time).toLocaleTimeString();
 

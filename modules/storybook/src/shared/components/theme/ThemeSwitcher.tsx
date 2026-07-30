@@ -33,7 +33,7 @@ const themeLabelVariants = cva("text-foreground", {
   },
 });
 
-export type ThemeSwitcherPropsType = {
+type ThemeSwitcherPropsType = {
   value?: ThemeType;
   defaultValue?: ThemeType;
   onChange?: (theme: ThemeType) => void;

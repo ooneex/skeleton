@@ -19,5 +19,3 @@ type BreadcrumbItemPropsType = ComponentProps<"li"> & VariantProps<typeof breadc
 export const BreadcrumbItem = ({ className, size = "sm", ...props }: BreadcrumbItemPropsType) => {
   return <li data-slot="breadcrumb-item" className={cn(breadcrumbItemVariants({ size, className }))} {...props} />;
 };
-
-export { breadcrumbItemVariants };

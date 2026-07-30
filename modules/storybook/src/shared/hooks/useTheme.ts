@@ -8,7 +8,7 @@ import {
 import { useControlledState } from "./useControlledState";
 
 /** `localStorage` key under which the last chosen theme is persisted. */
-export const THEME_STORAGE_KEY = "theme";
+const THEME_STORAGE_KEY = "theme";
 
 /** Read the persisted theme, ignoring unknown/removed codes and storage errors. */
 const readStoredTheme = (): ThemeType | undefined => {
@@ -76,7 +76,7 @@ export const useTheme = ({
  * useApplyTheme("dark");
  * ```
  */
-export const useApplyTheme = (theme: ThemeType): void => {
+const useApplyTheme = (theme: ThemeType): void => {
   useEffect(() => {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -133,35 +133,4 @@ export const useThemeScheme = (): ThemeSchemeType => {
   }, []);
 
   return scheme;
-};
-
-/**
- * Track the resolved theme code from `<html data-theme>` (with `system` already
- * resolved to a concrete theme). Unlike {@link useThemeScheme}, this follows every
- * theme change — including two themes that share a light/dark scheme but differ in
- * their accent colors — so consumers can react to the exact palette in effect:
- *
- * ```tsx
- * const theme = useDocumentTheme();
- * ```
- */
-export const useDocumentTheme = (): string => {
-  const [theme, setTheme] = useState<string>(() =>
-    typeof document === "undefined" ? "" : (document.documentElement.dataset.theme ?? ""),
-  );
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const sync = () => setTheme(root.dataset.theme ?? "");
-
-    const observer = new MutationObserver(sync);
-    observer.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-
-    // Re-read in case the theme changed between render and effect.
-    sync();
-
-    return () => observer.disconnect();
-  }, []);
-
-  return theme;
 };

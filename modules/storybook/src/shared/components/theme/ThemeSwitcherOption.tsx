@@ -89,7 +89,7 @@ const themeIconVariants = cva("shrink-0", {
   },
 });
 
-export type ThemeSwitcherOptionPropsType = Omit<React.ComponentProps<typeof Select.Item>, "value"> & {
+type ThemeSwitcherOptionPropsType = Omit<React.ComponentProps<typeof Select.Item>, "value"> & {
   value: ThemeType;
 };
 

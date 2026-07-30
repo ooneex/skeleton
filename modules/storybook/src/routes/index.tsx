@@ -1,5 +1,10 @@
+import { ErrorFallback } from "@module/design/components/error";
+import { PageLoader } from "@module/design/components/loader";
+import { NotFound } from "@module/design/components/not-found";
 import { createFileRoute } from "@tanstack/react-router";
 import { StorybookApp } from "../shared/components/StorybookApp";
+
+const RouteNotFound = () => <NotFound />;
 
 /** Tab sections of the Controls panel, persisted in the URL query search. */
 export const STORY_TABS = ["controls", "description", "usage", "logs"] as const;
@@ -29,5 +34,8 @@ const validateSearch = (search: Record<string, unknown>): StorySearchType => {
 
 export const Route = createFileRoute("/")({
   validateSearch,
+  notFoundComponent: RouteNotFound,
+  errorComponent: ErrorFallback,
+  pendingComponent: PageLoader,
   component: StorybookApp,
 });

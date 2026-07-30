@@ -50,5 +50,3 @@ export const SelectTrigger = ({ className, size = "sm", children, ...props }: Se
     </SelectPrimitive.Trigger>
   );
 };
-
-export { selectTriggerVariants };

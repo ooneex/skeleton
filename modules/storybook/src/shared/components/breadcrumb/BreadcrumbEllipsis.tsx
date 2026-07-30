@@ -31,5 +31,3 @@ export const BreadcrumbEllipsis = ({ className, size = "sm", ...props }: Breadcr
     </span>
   );
 };
-
-export { breadcrumbEllipsisVariants };
