@@ -4,7 +4,7 @@ description: Writes and repairs meaningful bun:test tests for a target file or m
 when_to_use: Use proactively whenever code needs tests written or under-tested code needs coverage, and especially when the /optimize, /pr-review, or /issue-fix workflows need tests authored.
 tools: Read, Edit, Write, Bash, Grep, Glob
 model: sonnet
-effort: medium
+effort: high
 memory: project
 color: yellow
 ---

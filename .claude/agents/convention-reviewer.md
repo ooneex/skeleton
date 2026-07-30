@@ -3,7 +3,7 @@ name: convention-reviewer
 description: Reviews a working diff (or named files/module) against @talosjs conventions and Clean Architecture — naming, DI registration, the dependency rule, exception/env patterns, entity↔migration sync, and test coverage — and returns the findings. It only reviews and reports — it never edits files, creates issues, or runs talos commands.
 when_to_use: Use proactively whenever changed code needs a conventions + architecture review, and especially when the /pr-review skill reviews a large diff.
 tools: Read, Grep, Glob, Bash
-model: sonnet
+model: opus
 effort: high
 memory: project
 color: blue

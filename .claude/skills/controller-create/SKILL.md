@@ -3,7 +3,7 @@ name: controller-create
 description: Generate a new controller class with route type and test file, then complete the generated code.
 when_to_use: Use when creating a new HTTP or WebSocket controller with routing, validation, and role-based access.
 model: sonnet
-effort: medium
+effort: high
 allowed-tools: Bash(talos controller:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>] [--route-name=<name>] [--route-path=<path>] [--route-method=<method>]'
 ---

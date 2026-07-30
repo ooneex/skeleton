@@ -2,7 +2,7 @@
 name: pr-merge
 description: Land the PR(s) for issues a reviewer approved (state To Merge) by merging their branches locally. Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, merges the branch into the base locally, resolves conflicts, then re-runs talos project:check --strict --logs plus the issue's dod and testing steps against the merged tree. Only when green does it push the base, delete the branch local+remote, and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
 when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
-model: sonnet
+model: opus
 effort: high
 agent: general-purpose
 context: fork

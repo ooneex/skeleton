@@ -3,7 +3,7 @@ name: project-fix
 description: Run `talos project:check --strict --logs` — the project's full health check (workspace gate, structure, conventions, env, dependencies, docker, migrations, accessibility, translations, tests, docs, security, secrets, git, issues, commits, hygiene) — then fix every error and warning it reports and re-run until clean.
 when_to_use: Use when the user wants the project checked and repaired ("fix the project", "run all checks and fix everything", "pre-release audit"), or as the gate before a release or a merge. Scope to one dimension with `--only=<check>`.
 model: sonnet
-effort: medium
+effort: high
 allowed-tools: Bash(talos *), Bash(bun *), Bash(git *), Bash(cp *), Read, Edit, Write, Grep, Glob, Skill, Agent
 argument-hint: '[--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [--strict]'
 ---

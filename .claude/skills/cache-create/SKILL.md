@@ -3,7 +3,7 @@ name: cache-create
 description: Generate a new cache adapter class with its test file, then complete the generated code.
 when_to_use: Use when creating a new cache adapter that implements the ICache interface from @talosjs/cache.
 model: sonnet
-effort: low
+effort: medium
 allowed-tools: Bash(talos cache:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--name=<Name>] [--module=<module>]'
 ---

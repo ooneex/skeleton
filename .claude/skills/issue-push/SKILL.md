@@ -3,7 +3,7 @@ name: issue-push
 description: Push one or more local YAML issues to Linear with talos issue:push, inferring which issue IDs to push from the user's request. Creates the issue in Linear when it does not exist yet and updates it in place when it does, syncing title, state, priority, labels, and a structured description (module, context, goal, dod, testing, dependencies). Reads modules/<module>/issues/<ID>.yml.
 when_to_use: Use when the user wants to publish or sync local issues up to Linear. Triggers on requests like "push issue OON-123456 to Linear", "push these issues", or "sync my local issue <ID> up to Linear".
 model: sonnet
-effort: medium
+effort: low
 argument-hint: '[issue-id ...]'
 ---
 

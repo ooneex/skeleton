@@ -3,7 +3,7 @@ name: module-create
 description: Scaffold a complete backend business-domain module and complete its initial artifacts. Runs talos module:create, then drives the per-artifact create skills to fill in the entity, repository, service, controller, and any other artifacts the domain needs.
 when_to_use: Use when creating a whole new module (a new domain like `billing`, `catalog`, `order`) — not a single artifact.
 model: sonnet
-effort: medium
+effort: high
 allowed-tools: Bash(talos module:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--name=<name>] [--destination=<app|module>]'
 ---

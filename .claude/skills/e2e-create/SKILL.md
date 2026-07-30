@@ -3,7 +3,7 @@ name: e2e-create
 description: Generate a Playwright end-to-end test with its config, then complete the spec with real browser assertions.
 when_to_use: Use when adding browser end-to-end tests (Playwright) to a module — a `.spec.ts` under `e2e/`, plus the module's `playwright.config.ts`.
 model: sonnet
-effort: low
+effort: medium
 allowed-tools: Bash(talos e2e:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--name=<Name>] [--module=<module>]'
 ---

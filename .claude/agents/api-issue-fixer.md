@@ -4,7 +4,7 @@ description: 'Implements a single planned issue in a backend API module (`type: 
 when_to_use: 'Use proactively whenever a `type: "api"` issue needs implementing.'
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
-effort: medium
+effort: high
 memory: project
 color: green
 ---

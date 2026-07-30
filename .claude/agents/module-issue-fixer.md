@@ -4,7 +4,7 @@ description: 'Implements a single planned issue in a backend business-domain mod
 when_to_use: Use proactively whenever a backend `module` issue needs implementing, and especially when the /issue-fix skill dispatches a backend module.
 tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
-effort: medium
+effort: high
 memory: project
 color: green
 ---
