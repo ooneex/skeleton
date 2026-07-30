@@ -19,7 +19,6 @@ ${colorConfig
 `,
     )
     .join("\n");
-  // biome-ignore lint/security/noDangerouslySetInnerHtml: shadcn chart component injects CSS variables for theme support
   return <style dangerouslySetInnerHTML={{ __html: cssVars }} />;
 };
 ChartStyle.displayName = "Chart.Style";

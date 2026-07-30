@@ -377,8 +377,6 @@ export const SlashMenu = ({ className }: SlashMenuPropsType) => {
     return () => element.removeEventListener("keydown", onKeyDown, true);
   }, [editor, open, items, activeIndex, applyItem, close]);
 
-  // Reset the highlighted item whenever the result set changes.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: reset on new results
   useEffect(() => {
     setActiveIndex(0);
   }, [query]);
