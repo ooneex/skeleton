@@ -74,5 +74,5 @@ EXPOSE 3500
 # Liveness: the server is healthy as soon as it answers HTTP at all — any
 # response (200/401/404) resolves the fetch; only a refused connection fails.
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD ["bun", "-e", "fetch(`http://127.0.0.1:${process.env.PORT||3500}/healthcheck`).then(()=>process.exit(0)).catch(()=>process.exit(1))"]
+  CMD ["bun", "-e", "fetch(`http://127.0.0.1:${process.env.PORT||3500}/api/v1/health`).then(()=>process.exit(0)).catch(()=>process.exit(1))"]
 CMD ["bun", "run", "dist/index.js"]

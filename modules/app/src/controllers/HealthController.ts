@@ -11,7 +11,7 @@ type HealthRouteType = {
   version: 1,
   description: "Report whether the app is up and reachable",
   response: Assert({ status: "string", timestamp: "string" }),
-  roles: ["ROLE_GUEST"],
+  roles: [],
 })
 export class HealthController {
   public async index(context: ContextType<HealthRouteType>) {
