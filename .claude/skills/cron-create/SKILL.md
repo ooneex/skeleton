@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 # Make Cron Class
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** Pick the recommended option and proceed.
 
 Generate a cron class and test file, then complete the implementation (cron-specific parts only).

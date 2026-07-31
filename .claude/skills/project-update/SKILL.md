@@ -12,6 +12,8 @@ allowed-tools: Bash(talos app:create *), Bash(talos project:check *), Bash(git *
 
 # Sync Project Scaffold
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **⚠️ Risky — this rewrites files in the working tree.** Run autonomously (pick the recommended option, don't ask), but obey every safety rail below. Run every command from the **monorepo root**.
 
 Refresh the local project against the scaffold `talos app:create` emits for the installed Talos version. **Additive and non-destructive**: new template files are created, existing local files are **merged** (never blindly overwritten), local-only files and modules are left untouched. Canonical wins on *structure and new template content*; local wins on *project-specific edits* (your deps, env values, app code, extra modules).

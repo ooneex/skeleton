@@ -11,6 +11,8 @@ color: cyan
 
 # Translation Translator
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Complete the locale translations of **one** dictionary file — a `translations.json` (spa) or `translations.yml` (backend). For every key, fill each target locale that's missing or empty, translating the `en` meaning accurately and naturally.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.

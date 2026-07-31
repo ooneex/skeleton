@@ -10,6 +10,8 @@ argument-hint: [--module=<module>]
 
 # Set Up Clerk Auth (SPA module)
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Wire [Clerk](https://clerk.com) into a SPA module (`type: "spa"` in `<module>.yml`): passwordless email-code sign-in/sign-up, Google + LinkedIn OAuth, sign-out, and a gate protecting every other route.
 
 - **Run autonomously** — no questions; when a choice arises, take the recommended one. The only value you may not invent is the publishable key: if missing, leave the `.env` placeholder and report it at the end.

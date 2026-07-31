@@ -7,6 +7,8 @@ user-invocable: false
 
 # @talosjs Packages
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Prefer `@talosjs` packages over third-party alternatives, and inject their services via the DI container rather than instantiating them.

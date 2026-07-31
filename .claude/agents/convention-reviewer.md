@@ -11,6 +11,8 @@ color: blue
 
 # Convention Reviewer
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Review changed @talosjs code and surface **real convention and architecture violations** grounded in what you actually read. Report findings and stop — never edit files, create issue YAML, or run `talos` commands; the caller (usually `/pr-review`) applies the fixes. Run any read-only command from the **monorepo root**.
 
 ## Input

@@ -12,6 +12,8 @@ allowed-tools: Bash(talos agent:skills:create *), Bash(mkdir *), Bash(rm *), Bas
 
 # Update Agent Skills
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — don't ask questions; pick the recommended option. Run every command from the monorepo root.**
 
 Refresh the assistant config with the **canonical** templates `talos agent:skills:create` emits for the installed Talos version, keeping local customizations. Canonical wins on *structure and new content*; local wins on *project-specific edits*. Regenerate into a throwaway folder, then merge file-by-file into the working tree.

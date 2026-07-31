@@ -9,6 +9,8 @@ argument-hint: '[issue-id|description]'
 
 # Issue Plan
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
 Plan one or more issues across one or more modules. Each input is **either** an existing issue (ID/path) **or** a free-form description; output is a planned issue restructured into `context` / `goal` / `dod` / `testing` / `dependencies`, labelled, with state and priority set, optionally split into ordered, self-contained sub-issues (same structure).

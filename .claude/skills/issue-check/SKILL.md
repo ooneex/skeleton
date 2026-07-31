@@ -10,6 +10,8 @@ argument-hint: '[module|issue-id ...] [--strict]'
 
 # Issue Check
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 **Resolve** the scope from the user's request, **run** `talos issue:check`, then **repair** every mechanical violation in place and hand anything requiring judgement to `/issue-plan`. The command only reads — it never edits, plans, or publishes an issue.

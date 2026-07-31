@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 # Make Rate Limiter Class
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions;** pick the recommended option and proceed. **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` — check both roots before assuming a path is missing.
 
 Generate a rate limiter class and test file, then complete the implementation. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, lint/format, coding conventions); this covers only the rate-limit-specific parts.

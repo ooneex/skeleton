@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 # Make Storage Class
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Generate a storage class and test file, then complete the implementation. Follow the `talos-scaffold` skill (run-from-root, `--name`/`--module` inference, module registration, lint/format, conventions); this covers only the storage-specific parts.

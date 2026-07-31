@@ -11,6 +11,8 @@ color: purple
 
 # Accessibility Fixer
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Make **one** UI module keyboard- and screen-reader-usable by fixing the accessibility violations reported for it — without changing how it looks or what it exports.
 
 - **Do not** disable or downgrade a rule, add an inline suppression, edit `biome.jsonc`, redesign a component, change public props, create issue YAML, or run generator commands.

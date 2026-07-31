@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 # Make SPA Feature
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Generate a SPA feature — a route, its page layout, the route's pending/error/not-found boundaries, and example TanStack Query read/write hooks — then complete it. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, lint/format, conventions); this covers only the SPA-feature-specific parts.

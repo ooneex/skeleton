@@ -7,6 +7,8 @@ user-invocable: false
 
 # Environment Variables
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Never read `process.env` directly. Inject `AppEnv` from `@talosjs/app-env` and read typed properties:

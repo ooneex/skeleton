@@ -11,6 +11,8 @@ color: magenta
 
 # Marketing Post Writer
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Write the copy of **one** marketing post — the `title`, `content` and `hashtags` of `modules/<module>/marketing/<ID>/<ID>.yml` — so it reads like a person announcing a real change to the people who use it.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -56,6 +58,16 @@ If a single post lists platforms whose shapes genuinely conflict (X and Medium),
 - Active voice, plain verbs, short sentences. Vary sentence length so it doesn't read as generated.
 - Second person for the reader, first-person plural only where the team is genuinely the subject.
 - Apply the `humanize` skill's rules to the draft before you save it.
+
+## The media renders from your copy
+
+The post's image and video are Remotion renders of the claim you write (`/marketing-create`, step 3), so keep it renderable:
+
+- `title` ≤ 60 characters — it is set at display size on a card and must not wrap mid-word or overflow.
+- The first supporting sentence doubles as the card's subtitle — keep one under 100 characters.
+- If the post has a video, the body should break into 2–4 beats of ≤ 40 characters that read in order (what you do, then what happens). Report them alongside your copy.
+
+You do not render anything and you never touch `images`/`videos`.
 
 ## Edit
 

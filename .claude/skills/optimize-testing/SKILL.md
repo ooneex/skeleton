@@ -7,6 +7,8 @@ user-invocable: false
 
 # Testing Conventions
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
 Apply when pruning or improving a module's tests (`optimize` skill, step 6).

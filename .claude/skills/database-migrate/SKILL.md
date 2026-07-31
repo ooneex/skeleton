@@ -8,6 +8,8 @@ effort: high
 
 # Database Migrate
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Drive the database lifecycle with the `talos` commands. This is the *runtime* workflow — scaffold new migration/seed files with `migration-create` / `seed-create`, then come back here to apply them.

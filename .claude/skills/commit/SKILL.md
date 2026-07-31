@@ -11,6 +11,8 @@ allowed-tools: Bash(gh:*)
 
 # Commit by Module
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Just commit. Start immediately — do not ask the user questions, do not present menus or numbered options (e.g. "1. Commit / 2. Review / 3. Something else"), do not ask for confirmation.** Run the workflow below to completion autonomously. When a choice arises, pick the recommended option and proceed.
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.

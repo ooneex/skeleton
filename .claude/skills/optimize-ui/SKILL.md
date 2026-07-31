@@ -7,6 +7,8 @@ user-invocable: false
 
 # UI & React Patterns (design & spa modules)
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
 Apply **only** to a React module (`design` or `spa`) — `optimize` calls this for step 7. `<module>` = `modules/<module>/` or `packages/<module>/`; check both roots.

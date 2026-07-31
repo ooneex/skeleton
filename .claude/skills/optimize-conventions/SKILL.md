@@ -7,6 +7,8 @@ user-invocable: false
 
 # Coding Conventions
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
 Used by the `optimize` skill (steps 3–5) to enforce conventions and remove duplication/dead code.

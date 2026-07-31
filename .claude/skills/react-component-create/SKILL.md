@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 
 # Make React Component
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
 Generate a React component and its test, then complete both. Follow the shared `talos-scaffold` workflow (run-from-root, `--name`/`--module` inference, lint/format, conventions); this covers only the component-specific parts.

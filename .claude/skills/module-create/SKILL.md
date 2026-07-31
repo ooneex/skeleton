@@ -10,6 +10,8 @@ argument-hint: '[--name=<name>] [--destination=<app|module>]'
 
 # Make Module
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions;** pick the recommended option and proceed. **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` — check both roots before assuming a path is missing.
 
 Scaffold a new business-domain module, then complete the artifacts that give it its first vertical slice. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, module registration, lint/format, conventions); this skill covers only the module-level orchestration.

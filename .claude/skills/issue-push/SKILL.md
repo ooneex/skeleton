@@ -9,6 +9,8 @@ argument-hint: '[issue-id ...]'
 
 # Issue Push
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 **Resolve** the local issue IDs from the user's request, then **push** them to Linear with `talos issue:push`. Each issue is created in Linear when it does not exist yet, and updated in place when it does. The command never plans or restructures — it publishes the YAML exactly as it stands.

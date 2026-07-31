@@ -9,6 +9,8 @@ argument-hint: '[module|"all modules"]'
 
 # Issue Found
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 Infer which modules to audit (one or more), then for each delegate the audit to the **founder sub-agent** matching its type. Each founder reads the module's source and returns findings; this skill **orchestrates** and hands every finding to `/issue-plan`, which creates and plans the issue.

@@ -11,6 +11,8 @@ argument-hint: '[issue-id|module|title]'
 
 # Merge Pull Request
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Run autonomously — never ask questions; pick the recommended option and proceed.
 
 Approve and **land** the PR for an issue promoted to `To Merge` (see `pr-review` for how issues reach that state and the YAML format). Resolve the issue(s) from user input, gate on merge-readiness, merge the branch into the base locally, resolve conflicts, re-verify the merged tree (`talos project:check --strict --logs`, `dod`, `testing`), then push, delete the head branch, and promote to `Done`.

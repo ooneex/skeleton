@@ -10,6 +10,8 @@ argument-hint: '[--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [-
 
 # Project Fix
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Run autonomously — no questions. Fix, don't silence: never disable a rule, delete a test, or weaken an assertion to make a check pass.
 
 ## 1. Run

@@ -10,6 +10,8 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 # Make Feature Flag Class
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** Pick the recommended option and proceed.
 
 Generate a feature flag class and test file, then complete the implementation (feature-flag-specific parts only). Follow the shared `talos-scaffold` skill for run-from-root, `--name`/`--module` inference, module registration, lint/format, and coding conventions.

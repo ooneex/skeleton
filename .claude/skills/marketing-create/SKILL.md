@@ -1,22 +1,24 @@
 ---
 name: marketing-create
-description: Create one or more marketing post resources inside a module — scaffold each post with talos marketing:create, then write the copy, hashtags, and platform list into modules/<module>/marketing/<ID>/<ID>.yml and file its images/videos under the a-f0-9 naming rule.
-when_to_use: Use when the user wants a social/marketing post for a module — drafting a launch announcement, a feature post, a campaign across several platforms, or attaching images/videos to an existing post. Triggers on "create a marketing post", "announce this feature on LinkedIn and X", or "add a marketing resource for <module>".
+description: Create one or more marketing post resources inside a module — infer the media the request calls for, render it with Remotion, then scaffold the post with talos marketing:create and write the copy, hashtags, and platform list into modules/<module>/marketing/<ID>/<ID>.yml with its images/videos filed under the a-f0-9 naming rule.
+when_to_use: Use when the user wants a social/marketing post for a module — drafting a launch announcement, a feature post, a campaign across several platforms, or producing/attaching the images and videos that go with one. Triggers on "create a marketing post", "announce this feature on LinkedIn and X", "make a reel for <module>", or "add a marketing resource for <module>".
 model: opus
 effort: medium
-allowed-tools: Bash(talos marketing:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos marketing:create *), Bash(talos check *), Bash(bunx remotion *), Bash(bun add *), Bash(bun -e *), Read, Edit, Write, Grep, Glob
 argument-hint: '[description] [--module=<module>] [--platform=<platform>]'
 ---
 
 # Marketing Create
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
-Create a marketing post resource per module. Each post is a self-contained folder holding its copy and its media.
+Create a marketing post resource per module. Each post is a self-contained folder holding its copy and its media, and the media is **generated with Remotion** — see `references/remotion-studio.md` for the studio and the render commands.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (once extracted into a shared package). Check both roots; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
 - **Run every command from the monorepo root.**
-- **Never invent product facts.** Copy is written from the user's description, the module's README, and its source — nothing else.
+- **Never invent product facts.** Copy and media are built from the user's description, the module's README, and its source — nothing else.
 
 ## Resource structure
 
@@ -69,26 +71,15 @@ state: "Todo"
 |--------|---------|--------|
 | `--module` | `shared` | Match the subject to a module under `modules/`. Verify it exists; otherwise use `shared` and say so. |
 | `--title` | required | From the user's description — verb + noun, no hype. |
-| `--content` | required | The post body (step 3). |
+| `--content` | required | The post body (step 2). |
 | `--hashtag` | none | Repeatable. 2–5 tags drawn from the product vocabulary. |
 | `--platform` | `X` | Repeatable. Every platform the user named; default to `X` when unspecified. |
-| `--image` / `--video` | none | Repeatable path to an existing `.png` / `.mp4` — copied into the post and renamed automatically. |
+| `--image` / `--video` | none | Repeatable path to the `.png` / `.mp4` rendered in step 4 — copied into the post and renamed automatically. |
 | `--state` | `Todo` | Leave at the default. |
 
-**One post per platform voice.** If the platforms want materially different copy (a 280-character X post vs a long-form Medium article), create one post per voice rather than one post listing every platform.
+**One post per platform voice.** If the platforms want materially different copy (a 280-character X post vs a long-form Medium article) or a different media format (a landscape card vs a vertical reel), create one post per voice rather than one post listing every platform.
 
-### 2. Scaffold the post
-
-```bash
-talos marketing:create \
-  --module=<module> --title="<title>" --content="<content>" \
-  [--hashtag=<tag>]... [--platform=<platform>]... \
-  [--image=<path>]... [--video=<path>]...
-```
-
-The command creates the post folder, its `images/` and `videos/` folders, and writes the YAML. Media passed with `--image`/`--video` is copied in and renamed to 6 `a-f0-9` characters — **never name media by hand**; re-run the command or copy the name it produced.
-
-### 3. Write the copy
+### 2. Write the copy
 
 Read the module's `README.md` and the source behind the change, then write `content` for the target platforms:
 
@@ -98,18 +89,79 @@ Read the module's `README.md` and the source behind the change, then write `cont
 - **No emoji walls, no hype adjectives, no "we're excited to announce".** Apply the `humanize` skill to the draft before saving it.
 - Hashtags go in the `hashtags` list, not inside `content` — the publisher appends them per platform.
 
-Rewrite `content` in the YAML if the generated body needs work.
+The copy comes first because the media renders **from** it: the still's title is the post's claim, the reel's lines are the post's beats.
 
-### 4. Attach the media
+### 3. Decide the media
+
+Infer what to produce from the request — do not ask, and do not produce media nobody asked for and nothing calls for.
+
+**The user said so explicitly** — obey it. "with a video", "a reel", "an animation", "a demo" → one video. "an image", "a card", "a banner", "a visual", "a thumbnail" → one image. "with visuals", "the whole thing", "images and video" → one of each. "text only", "no media", "just the copy" → none; skip to step 5.
+
+**The user did not say** — decide from the platform and the change:
+
+| Signal | Media |
+|--------|-------|
+| Primary platform is TikTok or Instagram, or the user said "reel"/"story" | one video (media-first platforms; a text-only post there is dead on arrival) |
+| The change is motion-shaped — a flow, a sequence of steps, a before/after, something that *happens* | one video |
+| The change is a fact, a number, a name, a single new capability | one image |
+| Primary platform is Medium or Reddit | one image (a header card); those platforms carry their own body text |
+| Primary platform is Discord, Telegram, WhatsApp or Messenger | one image, or none if the copy is a one-liner |
+| Anything else | one image |
+
+**Count:** one image and at most one video per post. More than one of either means the campaign wants more than one post — split it (step 1).
+
+Then pick the composition and props:
+
+- **Format** — from the post's primary platform, per the table at the end of `references/remotion-studio.md` (`card-landscape` / `card-portrait` / `card-vertical`, `reel-landscape` / `reel-vertical`).
+- **Still props** — `eyebrow` (the module or feature area, 1–2 words, may be empty), `title` (the post's claim, ≤ 60 characters so it survives a thumbnail), `subtitle` (one supporting line, ≤ 100 characters), `accent` (a colour from the design module's tokens).
+- **Reel props** — `title` (same claim), `lines` (2–4 beats of ≤ 40 characters each, in order: what you do, then what happens), `accent`, `durationInSeconds` (6–10 for vertical, up to 20 for landscape; never longer than it takes to read the lines twice).
+
+### 4. Render the media with Remotion
+
+Read `references/remotion-studio.md` and follow it: bootstrap `remotion/` if it is missing, then render into `var/marketing/` (gitignored).
+
+Write each composition's props to `var/marketing/<slug>-card.json` / `-reel.json` with the Write tool first — that creates the folder and keeps marketing copy (full of apostrophes and quotes) out of the shell. Then:
+
+```bash
+bunx remotion still remotion/index.ts <card-format> "var/marketing/<slug>-card.png" --props="var/marketing/<slug>-card.json"
+```
+
+```bash
+bunx remotion render remotion/index.ts <reel-format> "var/marketing/<slug>-reel.mp4" --props="var/marketing/<slug>-reel.json"
+```
+
+These run unchanged on macOS, Linux and Windows — one command per line, double quotes, no inline JSON. `references/remotion-studio.md` §0 has the full rule set and the per-OS requirements.
+
+Open the rendered still and check it before you attach it: the title must not overflow or wrap mid-word, the contrast must hold, and nothing may be clipped at the edges. Fix the props (shorter title, shorter subtitle) and re-render rather than shipping a broken card. For a video, render one frame first with `remotion still <reel-format> ... --frame=<n>` to check the layout before paying for the full render.
+
+Never render into `modules/<module>/marketing/` — the generator is what files and names media.
+
+### 5. Scaffold the post
+
+One line, double-quoted values, repeating `--hashtag`/`--platform` as needed:
+
+```bash
+talos marketing:create --module=<module> --title="<title>" --content="<content>" --hashtag="<tag>" --platform="<platform>" --image="var/marketing/<slug>-card.png" --video="var/marketing/<slug>-reel.mp4"
+```
+
+The command creates the post folder, its `images/` and `videos/` folders, writes the YAML, and copies each `--image`/`--video` in under a fresh 6-character `a-f0-9` name — **never name media by hand**. Rewrite `content` in the YAML afterwards if the generated body needs work.
+
+### 6. Media on an existing post
 
 - Images are `.png`, videos `.mp4` — the command rejects anything else.
-- To add media to an existing post, copy the file into `images/`/`videos/` under a fresh 6-character `a-f0-9` name and add that name to the matching list in the YAML.
+- Render into `var/marketing/` exactly as in step 4, then copy the file into the post's `images/`/`videos/` under a fresh 6-character `a-f0-9` name and add that name to the matching list in the YAML.
+- Copy it with Bun rather than `cp`/`copy`, so the step works on every OS — the media is binary, so the Write tool can't do it:
+
+  ```bash
+  bun -e "require('node:fs').copyFileSync('var/marketing/<slug>-card.png','modules/<module>/marketing/<ID>/images/<a-f0-9>.png')"
+  ```
+
 - Every name in `images`/`videos` must exist on disk, and every file on disk must be listed. Delete the `.gitkeep` from a media folder once it holds a real file.
 
-### 5. Verify
+### 7. Verify
 
 ```bash
 talos check
 ```
 
-Confirm the folder name, the file name and the `id` all match, and that the YAML parses.
+Confirm the folder name, the file name and the `id` all match, that the YAML parses, and that every listed media file is on disk with a valid `a-f0-9` name.

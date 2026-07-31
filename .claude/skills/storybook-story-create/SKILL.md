@@ -10,6 +10,8 @@ argument-hint: '<component / icon names or design paths> [→ target storybook m
 
 # Create Storybook Stories
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask questions.** Infer the targets and target storybook module from the request; on any remaining choice, pick the recommended option and proceed.
 
 Author `*.stories.tsx` files under a storybook module's `src/features/` to preview components/icons from a design module's `src/`. There is **no `talos` generator** — write the files by hand against the `meta` model. For the storybook module layout, the `meta` shape, the registry, and the Canvas/Sidebar/palette engine, see `talos-storybook`; the authoring-critical rules below assume that background.

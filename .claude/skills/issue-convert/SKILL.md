@@ -9,6 +9,8 @@ argument-hint: '[module ...]'
 
 # Issue Convert
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 **Resolve** the destination modules/packages from the user's request, then **convert** each one's `issues/*.yml` files into a single `issues.json` with `talos issue:convert`. The command only reads and bundles the existing YAML — it never edits, plans, or publishes issues.

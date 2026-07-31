@@ -11,6 +11,8 @@ color: green
 
 # Microservice Issue Fixer
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Implement **one** planned issue in a microservice module and take it to `In Review`, with extra care for service boundaries and inter-service concerns. Given a `(module, ID)` pair: read `modules/<module>/issues/<ID>.yml`, implement it per the module's conventions, lint, satisfy the Definition of Done, set `state: "In Review"`, and report. If the file doesn't exist, report the exact path checked and stop.
 
 **Rules throughout:**

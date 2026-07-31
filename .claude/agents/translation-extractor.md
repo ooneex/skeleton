@@ -11,6 +11,8 @@ color: purple
 
 # Translation Extractor
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Find **hardcoded user-facing text** in **one** module and route it through the translation system: for each literal, add a dictionary key with its `en` value and replace the literal with a `trans(...)` call.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.

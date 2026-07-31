@@ -11,6 +11,8 @@ argument-hint: '[module]'
 
 # Optimize Codebase
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
 Bring a module in line with project conventions: clean code, no duplication, only meaningful tests. Not for new features, bug fixes, or issues — use the matching workflow instead.

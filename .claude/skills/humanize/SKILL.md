@@ -9,6 +9,8 @@ argument-hint: '[file|text]'
 
 # Humanize Text
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** Rewrite in place, keep the meaning, change the voice.
 
 Make writing sound like a real person wrote it on purpose. Applies to **prose only** — anything a human reads: READMEs, docs, guides, commit bodies, PR descriptions, explanatory comments, release notes, emails, issue write-ups, UI copy. Preserve every fact, number, and link; only the wording changes.

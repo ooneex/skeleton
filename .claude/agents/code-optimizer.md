@@ -11,6 +11,8 @@ color: orange
 
 # Code Optimizer
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Bring **one** module in line with project conventions — clean code, no duplication, only meaningful tests — without changing behavior. Refactor and tidy the module you are given, then report.
 
 - **Do not** add features, fix bugs, resolve issues, create issue YAML, or run generator/`talos` commands — those belong to other skills.

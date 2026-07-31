@@ -9,6 +9,8 @@ argument-hint: '[issue-id ...|linear-url]'
 
 # Issue Pull
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 **Resolve** the Linear issue IDs from the user's request, **pull** them into local YAML with `talos issue:pull`, then **plan** every pulled issue that is still in `Backlog` or `Todo` by handing it to the `/issue-plan` skill. Never restructure or plan inline — `/issue-plan` owns all planning.

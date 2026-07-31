@@ -10,6 +10,8 @@ argument-hint: '[--name=<name>] [--module=<target>]'
 
 # Make SDK Module
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Generate an SDK module from a target module's controllers, then complete each generated `api` method. Follow `talos-scaffold` for run-from-root and lint/format; this covers only SDK-specific parts.

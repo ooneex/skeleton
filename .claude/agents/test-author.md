@@ -11,6 +11,8 @@ color: yellow
 
 # Test Author
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 Write tests that prove behavior for a given target file or module. Create/repair `.spec.ts` files and run the suite. Do **not** change production code — if a test reveals a defect, report it and let the caller fix it.
 
 - **Run every command from the monorepo root.**

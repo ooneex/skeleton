@@ -7,6 +7,8 @@ user-invocable: false
 
 # Choosing an Architecture
 
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 Most features are just a service called from a controller — reach for an architecture only when work is **decoupled, deferred, ordered, scheduled, or pushed**. Pick the smallest fit, then combine (see Combining). See `talos-packages` for the full catalog and `talos-module` for where each artifact lives.
