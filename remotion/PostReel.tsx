@@ -43,8 +43,12 @@ const Line: React.FC<{
 };
 
 export const PostReel: React.FC<PostReelProps> = ({ title, lines, accent }) => {
-  const { width } = useVideoConfig();
+  const { width, durationInFrames } = useVideoConfig();
   const unit = width / 100;
+  // Spread the reveals across the clip so the last line lands with time left to
+  // read it, whatever duration the post asks for.
+  const titleDelay = durationInFrames * 0.04;
+  const step = (durationInFrames * 0.62) / Math.max(lines.length, 1);
 
   return (
     <AbsoluteFill
@@ -69,7 +73,7 @@ export const PostReel: React.FC<PostReelProps> = ({ title, lines, accent }) => {
         <Line
           key={line}
           text={line}
-          delay={12 + index * 10}
+          delay={titleDelay + step * (index + 1)}
           size={unit * 3.2}
           weight={400}
           color={brand.muted}
