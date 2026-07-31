@@ -5,7 +5,7 @@ when_to_use: Use when adding or repairing Clerk auth (sign-in, sign-up, sign-out
 model: sonnet
 effort: high
 allowed-tools: Bash(talos spa:feature:create *), Bash(talos translation:create *), Bash(talos monorepo:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
-argument-hint: [--module=<module>]
+argument-hint: '[--module=<module>]'
 ---
 
 # Set Up Clerk Auth (SPA module)
