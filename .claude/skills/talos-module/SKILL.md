@@ -43,6 +43,8 @@ modules/<name>/
     utils/        # Utility/helper functions shared across the module
     workflows/    # Workflow classes — transitions/ subfolder for each step
   tests/          # Tests mirroring src/ structure
+  issues/         # Issue YAML files — <ID>.yml (see the /issue-* skills)
+  marketing/      # Marketing post resources — <ID>/<ID>.yml + images/ + videos/ (see /marketing-create)
 ```
 
 A module only contains the folders for the artifacts it actually uses — each `talos <artifact>:create` generator creates its `src/` subfolder (and the matching `tests/` one) on demand.

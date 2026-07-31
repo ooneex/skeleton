@@ -56,7 +56,14 @@ talos issue:pull --id <id1>,<id2>,... [--module <name>] [--provider linear|githu
 talos issue:push --id <id1>,<id2>,... [--provider linear|github]                     # Push one or more local issue YAMLs (create or update; defaults to Linear; GitHub uses the gh CLI)
 talos issue:convert --destination <mod1>,<mod2>,...             # Bundle a module/package's issues/*.yml into a single issues.json (src/shared/ for spa|storybook|swagger|admin, otherwise src/)
 talos issue:check [--module <mod1>,<mod2>,...] [--id <id1>,<id2>,...] [--strict] [--json]  # Validate every issue YAML against the issue conventions
+
+# Marketing
+talos marketing:create [--module <name>] [--title <title>] [--content <content>] \
+  [--hashtag <tag>]... [--platform <platform>]... [--image <file.png>]... [--video <file.mp4>]... [--state <state>]
+                                         # Create a marketing post resource under modules/<module>/marketing/<ID>/
 ```
+
+`marketing:create` writes `modules/<module>/marketing/<ID>/<ID>.yml` (id, module, title, content, hashtags, images, videos, platforms, state) plus the post's `images/` and `videos/` folders. Media passed with `--image`/`--video` is copied in and renamed to 6 `a-f0-9` characters. Platforms are `X` (alias `twitter`), `Instagram`, `Facebook`, `LinkedIn`, `TikTok`, `Threads`, `WhatsApp`, `Telegram`, `Messenger`, `Discord`, `Reddit`, `Medium`; states are `Todo`, `In Review` (alias `in-review`) and `Published`. The `/marketing-create` skill wraps this command.
 
 `issue:check` walks `modules/*/issues/*.yml` and `packages/*/issues/*.yml` and validates each file at four levels: **file integrity** (UTF-8, no BOM/CRLF/tab indentation, size cap, `<ID>.yml` naming), **YAML integrity** (parses, is a mapping, no duplicate top-level keys), **schema** (closed field set; `id` matches the filename, `module` the owning directory; exact-cased `state`/`priority`/`labels` vocabularies; `dod` checkbox and `testing` numbered-checkbox grammar; `branch`/`pr` shape) and **cross-file** rules (unique ids, resolvable dependencies, no self-dependency or cycle). Each finding prints as `SEVERITY <rule> <message>`; the command exits `1` on any error (or on any warning with `--strict`), and never edits a file. The `/issue-check` skill wraps this command.
 
