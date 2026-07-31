@@ -113,26 +113,30 @@ Infer what to produce from the request — do not ask, and do not produce media 
 Then pick the composition and props:
 
 - **Format** — from the post's primary platform, per the table at the end of `references/remotion-studio.md` (`card-landscape` / `card-portrait` / `card-vertical`, `reel-landscape` / `reel-vertical`).
-- **Still props** — `eyebrow` (the module or feature area, 1–2 words, may be empty), `title` (the post's claim, ≤ 60 characters so it survives a thumbnail), `subtitle` (one supporting line, ≤ 100 characters), `accent` (a colour from the design module's tokens).
-- **Reel props** — `title` (same claim), `lines` (2–4 beats of ≤ 40 characters each, in order: what you do, then what happens), `accent`, `durationInSeconds` (6–10 for vertical, up to 20 for landscape; never longer than it takes to read the lines twice).
+- **Still props** — `eyebrow` (the module or feature area, 1–2 words, may be empty), `title` (the post's claim, ≤ 60 characters so it survives a thumbnail), `subtitle` (one supporting line, ≤ 100 characters), `footnote` (the wordmark or domain), `accent` + `accentAlt` (two adjacent colours from the design module's tokens — never a complementary pair).
+- **Reel props** — `title` (the hook scene), `lines` (**one scene each**, ≤ 40 characters, in order: what you do, then what happens), `cta` (the outro scene — the one thing to do next), `footnote`, `accent`, `accentAlt`, `durationInSeconds` — **20 or 45, nothing else**. 20s is the default and takes 4–6 beats; 45s is the long cut for a launch or a walkthrough and needs 8–12. The beats share 60% of the cut, so too few lines for the duration leaves each scene stranded on screen.
+
+The compositions are designed assets, not slides — layered backdrop, blooms, grain, the project's own typeface, kinetic type. The reel is *cut* into scenes (hook → one per beat → outro) over a continuous backdrop; never let it degrade into one held frame that text stacks onto. `references/remotion-studio.md` §0.1 is the quality bar they are held to; read it before you change a component, and never downgrade a render to a flat background with centred text.
 
 ### 4. Render the media with Remotion
 
-Read `references/remotion-studio.md` and follow it: bootstrap `remotion/` if it is missing, then render into `var/marketing/` (gitignored).
+Read `references/remotion-studio.md` and follow it: bootstrap `var/remotion/` if it is missing, then render into `var/marketing/` (gitignored).
 
 Write each composition's props to `var/marketing/<slug>-card.json` / `-reel.json` with the Write tool first — that creates the folder and keeps marketing copy (full of apostrophes and quotes) out of the shell. Then:
 
 ```bash
-bunx remotion still remotion/index.ts <card-format> "var/marketing/<slug>-card.png" --props="var/marketing/<slug>-card.json"
+bunx remotion still var/remotion/index.ts <card-format> "var/marketing/<slug>-card.png" --props="var/marketing/<slug>-card.json" --public-dir="modules/design/src/fonts" --scale=2
 ```
 
 ```bash
-bunx remotion render remotion/index.ts <reel-format> "var/marketing/<slug>-reel.mp4" --props="var/marketing/<slug>-reel.json"
+bunx remotion render var/remotion/index.ts <reel-format> "var/marketing/<slug>-reel.mp4" --props="var/marketing/<slug>-reel.json" --public-dir="modules/design/src/fonts" --crf=18
 ```
+
+All three flags are load-bearing. `--public-dir` is what lets the compositions load the project's own typeface from `modules/design/src/fonts/` — without it the render fails rather than falling back to a system face. `--scale=2` sends stills out at twice the composition size so the type survives the platform's recompression, and `--crf=18` replaces Remotion's default, which leaves visible blocking in the dark gradients these compositions are built on.
 
 These run unchanged on macOS, Linux and Windows — one command per line, double quotes, no inline JSON. `references/remotion-studio.md` §0 has the full rule set and the per-OS requirements.
 
-Open the rendered still and check it before you attach it: the title must not overflow or wrap mid-word, the contrast must hold, and nothing may be clipped at the edges. Fix the props (shorter title, shorter subtitle) and re-render rather than shipping a broken card. For a video, render one frame first with `remotion still <reel-format> ... --frame=<n>` to check the layout before paying for the full render.
+Open the rendered still and check it before you attach it: the title must not overflow or wrap mid-word, the contrast must hold, and nothing may be clipped at the edges. Fix the props (shorter title, shorter subtitle) and re-render rather than shipping a broken card. For a video, sample one frame per scene with `remotion still <reel-format> ... --frame=<n>` before paying for the full render — the hook, a couple of beats, and the outro. A beat whose line is too long only breaks in its own scene, and a full render is an expensive way to find that out.
 
 Never render into `modules/<module>/marketing/` — the generator is what files and names media.
 
