@@ -1,5 +1,6 @@
 import { AbsoluteFill, useVideoConfig } from "remotion";
 import { brand } from "./brand";
+import { StorybookUi } from "./StorybookUi";
 
 export type PostCardProps = {
   eyebrow: string;
@@ -16,8 +17,9 @@ export const postCardDefaults: PostCardProps = {
 };
 
 export const PostCard: React.FC<PostCardProps> = ({ eyebrow, title, subtitle, accent }) => {
-  const { width } = useVideoConfig();
+  const { width, height } = useVideoConfig();
   const unit = width / 100;
+  const isVertical = height > width;
 
   return (
     <AbsoluteFill
@@ -25,39 +27,66 @@ export const PostCard: React.FC<PostCardProps> = ({ eyebrow, title, subtitle, ac
         backgroundColor: brand.background,
         color: brand.text,
         fontFamily: brand.font,
-        padding: unit * 8,
+        padding: unit * 6,
         justifyContent: "center",
         gap: unit * 3,
       }}
     >
       <div
         style={{
-          width: unit * 8,
-          height: unit * 0.7,
-          borderRadius: unit * 0.35,
-          backgroundColor: accent,
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `radial-gradient(circle at 50% 50%, ${brand.muted} 0%, transparent 60%)`,
+          opacity: 0.55,
         }}
       />
-      {eyebrow ? (
+      <div
+        style={{ position: "relative", display: "flex", flexDirection: "column", gap: unit * 3 }}
+      >
         <div
           style={{
-            fontSize: unit * 2.2,
-            letterSpacing: unit * 0.15,
-            textTransform: "uppercase",
-            color: brand.muted,
+            width: unit * 8,
+            height: unit * 0.7,
+            borderRadius: unit * 0.35,
+            backgroundColor: accent,
           }}
-        >
-          {eyebrow}
+        />
+        {eyebrow ? (
+          <div
+            style={{
+              fontSize: unit * 1.9,
+              letterSpacing: unit * 0.14,
+              textTransform: "uppercase",
+              color: brand.mutedText,
+            }}
+          >
+            {eyebrow}
+          </div>
+        ) : null}
+        <div style={{ fontSize: unit * 6, fontWeight: 700, lineHeight: 1.05, textWrap: "balance" }}>
+          {title}
         </div>
-      ) : null}
-      <div style={{ fontSize: unit * 7, fontWeight: 700, lineHeight: 1.05, textWrap: "balance" }}>
-        {title}
+        {subtitle ? (
+          <div
+            style={{
+              fontSize: unit * 2.8,
+              lineHeight: 1.35,
+              color: brand.mutedText,
+              maxWidth: "85%",
+            }}
+          >
+            {subtitle}
+          </div>
+        ) : null}
+        <StorybookUi
+          unit={unit * 0.84}
+          canvasHeight={isVertical ? unit * 40 : unit * 24}
+          selectedIndex={0}
+          variantProgress={0}
+          statesProgress={1}
+          accent={accent}
+        />
       </div>
-      {subtitle ? (
-        <div style={{ fontSize: unit * 3.2, lineHeight: 1.35, color: brand.muted, maxWidth: "85%" }}>
-          {subtitle}
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };
