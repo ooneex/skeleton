@@ -40,14 +40,27 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 2. **Map (sub-agent)** — reading every file inline floods context. Spawn one read-only `Explore` sub-agent scoped to `modules/<module>/` returning *only* a digest, not file contents:
    - **Inventory** — each type, interface, class, standalone function + path.
    - **Naming violations** — type not ending `Type`; interface not starting `I`; non-arrow standalone function; method/property missing visibility; non-null assertion (`!`); optional entity property missing `null`/`nullable`.
-   - **Duplication** — repeated logic, types, or utilities + paths.
+   - **Duplication** — near-duplicates only: the same logic with renamed variables, two types describing one shape, utilities that differ by a line. Verbatim copies come from `project:check` in step 4 — don't spend the agent's budget hunting them.
    - **Dead code** — unused imports, unreachable branches, unused vars, empty files.
 
    Apply every fix yourself in the steps below.
 
 3. **Conventions** — invoke `optimize-conventions`, then fix each reported violation; rename and update all references.
 
-4. **Duplication & dead code** — extract shared logic into helper arrows or base classes; consolidate types; merge near-duplicate utilities; delete dead code.
+4. **Duplication & dead code** — find the verbatim copies with the check rather than by eye:
+
+   ```bash
+   talos project:check --only=duplication --modules=<module> --logs
+   ```
+
+   Each warning reads `<file>:<line>  duplication.block  <n> lines repeated at <file>:<line>, …`. Read every location it names before touching anything — the block that moves is the one whose module owns the logic.
+
+   - **Widen the scope when the copy lives elsewhere.** The check only compares the modules it is given, so a block shared with another module stays invisible under a single `--modules`. Pass both (`--modules=<module>,<other>`) when you suspect one, and put the extraction in the module that owns the concept — or in a shared package when neither does.
+   - **Fix it, then re-run.** Extract into a helper arrow, a base class, or a shared type; delete the copies; re-run the command until the block is gone.
+   - **Leaving a block alone is a valid answer.** Two blocks that read alike today but answer to different owners will diverge tomorrow, and merging them couples the two. Say which blocks you left and why in the report — the check warns, it never fails.
+   - **It only sees literal copies of 12+ lines.** A copy with its identifiers renamed, or a shorter one, will not appear — those come from the step 2 digest, and are fixed the same way.
+
+   Then delete the dead code the digest listed: unused imports, unreachable branches, unused vars, empty files.
 
 5. **Performance** — apply the performance rules from `optimize-conventions`.
 
