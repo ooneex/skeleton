@@ -1,0 +1,24 @@
+id: "EFA-522484"
+module: "storybook"
+title: "How Storybook works"
+content: |
+  Storybook is where every component in the design system lives on its own page.
+
+  You pick a component from the sidebar, change its props from the controls panel, and it re-renders in front of you. No app to boot, no fake data to wire up, no clicking through four screens to reach the one button you changed.
+
+  That means you build a component against its real states first: loading, empty, error, disabled, long text, right-to-left. The states you would otherwise discover in production.
+
+  Open the sidebar and start with any component.
+hashtags:
+  - "storybook"
+  - "designsystem"
+  - "frontend"
+  - "react"
+  - "ui"
+images:
+  - "c9f41e.png"
+videos:
+  - "1e472f.mp4"
+platforms:
+  - "Instagram"
+state: "Todo"
