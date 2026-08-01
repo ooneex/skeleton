@@ -1,0 +1,47 @@
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@module/design/components/typography";
+import type { FieldType } from "../route";
+
+type FieldTablePropsType = {
+  title: string;
+  fields: readonly FieldType[];
+  /** Path parameters are required by construction, so the column is dropped for them. */
+  alwaysRequired?: boolean;
+};
+
+/** One documented group of values — path params, queries, headers, payload fields. */
+export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTablePropsType) => {
+  if (fields.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="flex flex-col gap-2">
+      <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{title}</h3>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-48">Name</TableHead>
+            <TableHead className="w-40">Type</TableHead>
+            <TableHead>Description</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {fields.map((field) => (
+            <TableRow key={field.name}>
+              <TableCell className="align-top font-mono text-xs">
+                {field.name}
+                {alwaysRequired || field.required ? (
+                  <span className="ml-1 text-destructive" title="Required">
+                    *
+                  </span>
+                ) : null}
+              </TableCell>
+              <TableCell className="align-top font-mono text-xs text-muted-foreground">{field.type}</TableCell>
+              <TableCell className="align-top text-sm text-muted-foreground">{field.description ?? "—"}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </section>
+  );
+};
