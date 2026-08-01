@@ -273,6 +273,42 @@ oo sdk:create --name payment-sdk --module payment    # from a microservice
 
 ---
 
+## Swagger
+
+A swagger module is a generated **API explorer** — a browser app that documents every route your controllers serve and lets a reader run them against a live backend. It is not Swagger UI over a JSON file: the interface is built from your own design module, and each route is a typed TypeScript file rather than a spec parsed at runtime.
+
+### Why Swagger?
+
+An API's documentation is read by the people least able to correct it — a new teammate, an integrator, someone debugging at 2am. Handwritten docs drift silently, and a generic spec viewer answers "what is the shape" without answering "when do I call this, and what does it cost me". Generating the routes from the controllers keeps the facts honest, while leaving the prose in the repo keeps the judgement with the people who have it.
+
+**Benefits:**
+
+- **Generated from the controllers** — verb, path, version, roles and the declared `params`/`queries`/`payload` fields come straight from each `@Route` decorator, so they cannot drift.
+- **Hand-written prose is preserved** — re-running the generator adds the new routes and never overwrites a route file you have completed.
+- **Runnable, not just readable** — a try-it panel sends the real request, shows the status, duration, body and headers, and hands you the equivalent `curl` line. Streaming and SSE routes append each chunk as it arrives.
+- **Signed in with Clerk** — a sign-in button in the header; once signed in, routes guarded by roles become executable, with a fresh session token resolved at send time. The documentation itself stays public.
+- **Your design system** — every component comes from the linked design module, so the explorer looks like the product and follows its themes.
+- **Still publishes a spec** — `public/openapi.json` is written for consumers that want OpenAPI 3.1, and an in-app button exports the richer document your prose and examples produce.
+
+**Good practices:**
+
+- Re-run the generator whenever you add or change a controller, and delete the route files of controllers you removed.
+- Pass the prefix your backend actually mounts (`--prefix`); a wrong one makes every request 404.
+- Document every status a route answers with, not just the happy path — the error cases are what a reader came for.
+- Give every field a realistic, safe example: it seeds the try-it form, so a route is runnable before anything is typed.
+
+### Create a swagger
+
+Generates a swagger module from a target module's controllers. The target is an `app`/`api` module (aggregating every backend `module` and `api` module) or a `microservice` module (its own controllers only). It creates a module marked `type: swagger`, writes one `src/features/<module>/<Name>.route.ts` per controller, publishes `public/openapi.json`, aliases the design module, and — like a SPA — leaves the module out of `AppModule` and `SharedModule`:
+
+```bash
+oo swagger:create                                            # name "swagger", from the app module
+oo swagger:create --name api-docs --module app --design design
+oo swagger:create --name payment-docs --module payment --prefix gateway
+```
+
+---
+
 ## Migrations
 
 Migrations are versioned, incremental SQL scripts that evolve your database schema over time. Each migration lives in `modules/<name>/src/migrations/` and is executed in order, making every schema change reproducible, reviewable, and reversible.
@@ -1080,6 +1116,7 @@ If you omit arguments, Claude will prompt you for the required values.
 | `/rate-limit-create` | Generate a rate limiter class implementing `IRateLimiter` via `@talosjs/rate-limit` |
 | `/repository-create` | Generate a repository class for typed data access via `@talosjs/repository` |
 | `/sdk-create` | Generate a typed, browser-ready SDK from a module's controllers |
+| `/swagger-create` | Generate a custom API explorer from a module's controllers, then complete each route's prose, examples and error statuses |
 | `/service-create` | Generate a service class implementing `IService` with business logic and tests |
 | `/spa-feature-create` | Generate a SPA feature slice — route, layouts, and TanStack Query hooks |
 | `/storage-create` | Generate a file storage class for asset management via `@talosjs/storage` |

@@ -20,6 +20,7 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `talos-design` — design-system (front-end design module) directory structure, per-folder guidance.
 - `talos-spa` — single-page-app module directory structure, per-folder guidance.
 - `talos-storybook` — storybook module (component-gallery app) directory structure, story model, and per-folder guidance.
+- `talos-swagger` — swagger module (custom API-explorer app) directory structure, route model, request runner, and per-folder guidance.
 - `talos-env` — reading environment variables via the injected `AppEnv`.
 - `talos-scaffold` — shared workflow behind every `<artifact>-create` generator (run-from-root, `--name`/`--module` inference, registration, lint/format, test baseline).
 
@@ -27,6 +28,7 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `/module-create` — scaffold a whole module and complete its first vertical slice.
 - `/<artifact>-create` scaffolds a single artefact and completes its code + tests: `ai-chat`, `ai-middleware`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`.
 - `/sdk-create` — generate a typed browser SDK from an app or microservice's controllers.
+- `/swagger-create` — generate a custom API explorer from an app or microservice's controllers, then complete each route's prose, field docs, examples and error statuses.
 - `/marketing-create` — scaffold a module's marketing post resource (`marketing/<ID>/`), write its copy, hashtags, and platform list, and render its image/video with Remotion.
 - `/workflow-create` + `/workflow-transition-create` — scaffold a transition-based workflow (from `@talosjs/workflow`) and its conditional, reversible steps.
 
