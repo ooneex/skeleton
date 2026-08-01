@@ -1,5 +1,7 @@
 import { ScrollArea } from "@module/design/components/scroll-area";
 import { Tabs } from "@module/design/components/tabs";
+import { PaperPlaneIcon } from "@module/design/icons/outline/communication/sm/PaperPlaneIcon";
+import { BookOpenIcon } from "@module/design/icons/outline/school-education/sm/BookOpenIcon";
 import { getRouteApi } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePersistentState } from "../hooks/usePersistentState";
@@ -16,6 +18,10 @@ const route = getRouteApi("/");
 
 /** `localStorage` key for the API origin, so it survives a reload. */
 const BASE_URL_KEY = "swagger:base-url";
+
+/** The active tab carries its own underline — see the `Tabs.List` comment below. */
+const TAB_CLASS =
+  "-mb-px flex-none border-b-2 border-transparent px-3 pb-2 data-active:border-primary data-active:text-foreground";
 
 /**
  * The explorer.
@@ -88,10 +94,19 @@ export const SwaggerApp = () => {
         />
         {selected ? (
           <Tabs value={tab ?? "docs"} onValueChange={(value) => setTab(String(value))} className="min-h-0 flex-1">
-            <Tabs.List className="mx-6 mt-3">
-              <Tabs.Trigger value="docs">Documentation</Tabs.Trigger>
-              <Tabs.Trigger value="try">Try it</Tabs.Trigger>
-              <Tabs.Indicator />
+            {/* No `Tabs.Indicator`: the design system's is unusable in both variants —
+                `default` paints with the undefined `tabs-accent` token, and `line` has
+                its `h-0.5` overridden by the inline height the primitive sets. The
+                active state is carried by the trigger itself instead. */}
+            <Tabs.List variant="line" size="md" className="mx-6 mt-3 w-full justify-start border-b border-border">
+              <Tabs.Trigger value="docs" className={TAB_CLASS}>
+                <BookOpenIcon />
+                Documentation
+              </Tabs.Trigger>
+              <Tabs.Trigger value="try" className={TAB_CLASS}>
+                <PaperPlaneIcon />
+                Try it
+              </Tabs.Trigger>
             </Tabs.List>
             <ScrollArea className="min-h-0 flex-1">
               <Tabs.Content value="docs" className="px-6 py-4">

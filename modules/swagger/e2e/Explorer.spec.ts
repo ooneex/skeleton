@@ -17,7 +17,7 @@ test("opens a documented route and shows its contract", async ({ page }) => {
   await expect(page.getByText("Report whether the app is up and reachable.")).toBeVisible();
   await expect(page.getByText("Public", { exact: true })).toBeVisible();
   await expect(page.getByText("app.health.check")).toBeVisible();
-  await expect(page.getByText("200", { exact: true })).toBeVisible();
+  await expect(page.getByText("The app is up.", { exact: false })).toBeVisible();
 });
 
 test("shows the curl line for the selected route in the try-it tab", async ({ page }) => {
@@ -32,6 +32,6 @@ test("shows the curl line for the selected route in the try-it tab", async ({ pa
 test("keeps the selected route in the url so it can be shared", async ({ page }) => {
   await page.goto("/?route=get-api-v1-health&tab=try");
 
-  await expect(page.getByRole("tab", { name: "Try it" })).toHaveAttribute("data-selected", "");
+  await expect(page.getByRole("tab", { name: "Try it" })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("button", { name: "Send" })).toBeVisible();
 });
