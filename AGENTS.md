@@ -39,6 +39,7 @@ Skills load on demand — invoke or let them activate when relevant; don't dupli
 - `/e2e-run` — run the Playwright e2e suite across packages and modules, then triage failures.
 - `/optimize` — enforce coding conventions across a module.
 - `/security-check` — audit all dependencies against the OSV.dev online database (`talos security:check`), report by module/package or file issues.
+- `/coverage-check` — run every module's suite with coverage (`talos coverage:check`), report line/function rates per module with the least-covered files, or file issues.
 - `/project-fix` — run every health check in one pass (always `talos project:check --strict --logs`, never bare) and fix every error and warning it reports: the workspace gate, structure, framework conventions, env files, dependencies, Docker compose, migrations and seeds, UI accessibility, translations, test coverage, markdown links, vulnerabilities, secrets, the git index, issue YAML, commit messages, source hygiene, and the opt-in end-to-end suite.
 - `/translation-translate` — translate/complete a module's `translations.json`/`translations.yml` dictionaries (optionally extracting hardcoded text) into the target locales.
 - `/issue-found`, `/issue-plan`, `/issue-fix` — audit, plan, and implement issues.
