@@ -124,6 +124,18 @@ talos security:check --issues                           # Create one YAML Securi
 
 `security:check` walks the workspace, parses every lockfile it finds (`bun.lock`, `package-lock.json`, `Cargo.lock`, `requirements.txt`, `Pipfile.lock`, `poetry.lock`, `go.sum`, `Gemfile.lock`, `composer.lock`) and checks each resolved package against the **OSV.dev** online database — covering npm (bun/node/react/typescript), PyPI, crates.io, Go, RubyGems and Packagist. No local audit binary is required (only network access). Findings are grouped by module/package folder name and sorted by severity (critical→low), each citing the OSV advisory id, CVE aliases, patched versions and advisory URL. `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. If OSV.dev is unreachable the command aborts. The `/security-check` skill wraps this command.
 
+## Test coverage
+```bash
+talos coverage:check                                    # Run every module's suite with coverage, report per module (worst first)
+talos coverage:check --modules=billing,user             # Only the named modules (also --packages=a,b)
+talos coverage:check --threshold=80                     # Judge against 80% instead of the default 90%
+talos coverage:check --logs                             # Print the output of every suite that fails
+talos coverage:check --concurrency=1                    # Run the suites one at a time (default: cores, capped at 8)
+talos coverage:check --issues                           # Create one YAML issue per failing/under-covered module instead of printing
+```
+
+`coverage:check` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table bun prints (falling back to the module's `lcov.info`). Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
+
 ## Project health
 ```bash
 talos project:check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs

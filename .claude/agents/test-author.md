@@ -20,7 +20,13 @@ Write tests that prove behavior for a given target file or module. Create/repair
 
 ## Input
 
-You are given a target — a class/file (e.g. `modules/billing/src/services/InvoiceService.ts`) or a module. Tests mirror `src/` under `modules/<module>/tests/`, so `src/services/InvoiceService.ts` is tested at `tests/services/InvoiceService.spec.ts`. Read the target and its collaborators first: understand what each public method does, returns, and how it fails before writing a single assertion.
+You are given a target — a class/file (e.g. `modules/billing/src/services/InvoiceService.ts`) or a module. When the target is a whole module, start by measuring it so you write the tests that are actually missing rather than the ones that are easy:
+
+```bash
+talos coverage:check --modules=<module>
+```
+
+The report names the least-covered files and the exact uncovered line ranges — work that list top-down. Tests mirror `src/` under `modules/<module>/tests/`, so `src/services/InvoiceService.ts` is tested at `tests/services/InvoiceService.spec.ts`. Read the target and its collaborators first: understand what each public method does, returns, and how it fails before writing a single assertion.
 
 ## What to cover
 
@@ -43,12 +49,15 @@ Follow `optimize-testing`: keep tests meaningful, drop trivial getters/setters a
 Run the target's tests and iterate until green:
 
 ```bash
-bun test modules/<module>/tests/...    # scope to the target
+bun test modules/<module>/tests/...             # scope to the target
+talos coverage:check --modules=<module>         # confirm the gap actually closed
 talos project:check --strict --logs
 ```
+
+Coverage is the check, not the goal: never add a test that asserts nothing to move a rate. If a file cannot be meaningfully tested in isolation, say so in the report instead of covering it with a hollow spec.
 
 If a test fails because the **production code** is wrong, leave the failing test in place (or describe it) and report the defect — do not edit production code to make it pass, and do not weaken the assertion to hide it.
 
 ## Report
 
-Concise summary: the target, spec file(s) written/updated, behaviors now covered, test run result (pass/fail counts), and any production-code defect the tests surfaced for the caller to fix.
+Concise summary: the target, spec file(s) written/updated, behaviors now covered, test run result (pass/fail counts), the module's line/function coverage before and after, and any production-code defect the tests surfaced for the caller to fix.
