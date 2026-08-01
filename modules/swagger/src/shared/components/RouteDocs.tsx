@@ -67,6 +67,15 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
 
       <section className="flex flex-col gap-3">
         <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Responses</h3>
+        {transport === "http" ? (
+          <p className="text-xs text-muted-foreground">
+            Examples show the <code className="rounded bg-muted px-1 py-0.5">data</code> payload — what the SDK returns.
+            On the wire it arrives wrapped in the standard envelope (
+            <code className="rounded bg-muted px-1 py-0.5">success</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5">status</code>,{" "}
+            <code className="rounded bg-muted px-1 py-0.5">message</code>, …), which is what the runner shows.
+          </p>
+        ) : null}
         {(meta.responses ?? []).length === 0 ? (
           <p className="text-sm text-muted-foreground">No response documented yet.</p>
         ) : (
@@ -79,7 +88,7 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
                 <span className="text-sm text-muted-foreground">{response.description ?? ""}</span>
               </div>
               {response.example === undefined ? null : (
-                <JsonBlock label={`${response.status} body`} value={response.example} />
+                <JsonBlock label={`${response.status} data`} value={response.example} />
               )}
             </div>
           ))

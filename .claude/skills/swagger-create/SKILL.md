@@ -101,6 +101,14 @@ responses: [
 
 Read the controller and the services it calls: every thrown exception is a status. `@talosjs/exception` types map to their HTTP status, and the validation layer answers `422` on any route with an `Assert`ed payload.
 
+**`example` is the `data` payload, not the wire body.** An `http` route answers inside the `ResponseDataType` envelope:
+
+```jsonc
+{ "key": null, "data": { "status": "ok" }, "message": null, "success": true, "status": 200, /* … */ }
+```
+
+Document the **inner `data`** — it is what the SDK hands back (`return response.data`) and what a consumer builds against. Repeating the envelope on every route would bury the one part that differs. The try-it panel shows the real, unwrapped response, and the docs tab says so. Streaming and SSE routes bypass the envelope entirely, so there the example *is* the wire body.
+
 ### 6. Declare the transport
 
 `transport` defaults to `"http"` (or `"socket"` when the method is). Set it explicitly when the controller does not return JSON — this is **not** in the route metadata, so open the controller's `index` to tell:

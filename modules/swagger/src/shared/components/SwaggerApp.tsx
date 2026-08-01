@@ -34,7 +34,9 @@ export const SwaggerApp = () => {
   const selected = useMemo(() => findRoute(routes, routeId) ?? visibleRoutes[0], [routes, routeId, visibleRoutes]);
 
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [baseURL, setBaseURL] = usePersistentState(BASE_URL_KEY, "http://localhost:3000");
+  // Matches the `app.port` an api module ships with in `.env.example.yml`, so
+  // the explorer talks to a freshly started backend without being reconfigured.
+  const [baseURL, setBaseURL] = usePersistentState(BASE_URL_KEY, "http://localhost:8030");
   const [auth, setAuth] = useState<AuthStateType>(() => ({
     status: isClerkConfigured ? "signed-out" : "unavailable",
   }));

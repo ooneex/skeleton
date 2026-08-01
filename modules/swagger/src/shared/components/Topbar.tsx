@@ -57,7 +57,7 @@ export const Topbar = ({ meta, routes, baseURL, onBaseURLChange, auth, onAuthCha
           id={id}
           size="xs"
           value={baseURL}
-          placeholder="http://localhost:3000"
+          placeholder="http://localhost:8030"
           className="max-w-72 font-mono"
           onChange={(event) => onBaseURLChange(event.target.value)}
         />
