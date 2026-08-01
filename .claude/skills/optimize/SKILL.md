@@ -64,7 +64,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 
 5. **Performance** — apply the performance rules from `optimize-conventions`.
 
-6. **Tests** — invoke `optimize-testing`, then prune trivial tests, keep/improve meaningful ones, consolidate redundancy.
+6. **Tests** — invoke `optimize-testing`, then prune trivial tests, keep/improve meaningful ones, consolidate redundancy. Measure the result with `talos coverage:check --modules=<module>`: pruning should drop hollow tests without losing covered behaviour, so report the before/after rates and add the tests the report names as missing (hand a large gap to the `test-author` agent).
 
 7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns, then prove the accessibility of the result:
 
