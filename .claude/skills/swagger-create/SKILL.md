@@ -1,11 +1,11 @@
 ---
 name: swagger-create
 description: Generate a custom API-explorer module from a target app or microservice's controllers, then complete each generated route meta — prose, field docs, examples and error statuses — so every endpoint is documented and runnable against a live backend.
-when_to_use: Use when creating or refreshing the swagger module that documents an API — scaffolding the explorer, adding the routes of new controllers, or completing the descriptions, examples and responses of existing ones. Also use to wire its optional Clerk sign-in.
+when_to_use: Use when creating or refreshing the swagger module that documents an API — scaffolding the explorer, adding the routes of new controllers, or completing the descriptions, examples and responses of existing ones. Also use to set up its environments (base URL, bearer token, {{variables}}).
 model: sonnet
 effort: high
 allowed-tools: Bash(talos swagger:create *), Bash(talos check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefix=<prefix>]'
+argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefix=<prefix>] [--force]'
 ---
 
 # Make Swagger Module
@@ -37,7 +37,9 @@ talos swagger:create --name=<name> --module=<target> --design=<design> --prefix=
 - `--design` — the design module the explorer is styled from. Defaults to the one you pick from the existing design modules; a missing one is scaffolded for you.
 - `--prefix` — the route prefix the backend mounts controllers under, baked into every `path` (`/<prefix>/v<version><route>`). Defaults to `api`. **Read the target's bootstrap and pass the prefix it actually mounts** — a wrong prefix makes every Send 404.
 
-**Re-running is safe and is the intended workflow.** The generator replaces the engine, keeps `src/features/**` it already found, and **never overwrites an existing `*.route.ts`**. Re-run it whenever a controller is added, renamed or removed — new routes appear as stubs, hand-written prose survives, and `public/openapi.json` is republished.
+**Re-running is safe and is the intended workflow.** On a module that already exists the generator writes **only** `src/features/**` and `public/openapi.json` — the explorer itself is never reinstalled, so an environment panel, a custom column or any other local change survives. An existing `*.route.ts` is never overwritten either. Re-run it whenever a controller is added, renamed or removed.
+
+Pass `--force` to reinstall the explorer from the template. It discards every local change to the engine, so reach for it only to recover a broken module or to pull an upstream redesign.
 
 After a re-run, **delete the route files of controllers that no longer exist**; the generator cannot tell a removed route from one it simply did not regenerate.
 
@@ -120,24 +122,17 @@ Document the **inner `data`** — it is what the SDK hands back (`return respons
 | `context.response.sse(...)` | `"sse"` | reads `data:` frames, appending each as it lands |
 | `@Route.socket(...)` | `"socket"` | documents it; the Send button is withheld |
 
-### 7. Wire the Clerk sign-in
+### 7. Set up the environments
 
-Sign-in is what makes a route with non-empty `roles` runnable. The scaffold ships it; you only supply the key.
+The explorer runs every request against the **active environment**, which carries the origin, a bearer token and free-form `{{variables}}`. They live in `localStorage`, so nothing here is committed and nothing travels in a shared link.
 
-1. `bun add @clerk/clerk-react` at the **project root** if absent.
-2. `modules/<name>/.env` (Vite reads it via `envDir: "../.."`):
-   ```dotenv
-   VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxx
-   ```
-   Only `VITE_` vars reach the browser. **Never** put a Clerk *secret* key here.
-3. If the key is unavailable, leave the placeholder and **report it at the end** — the explorer still renders, protected routes just show "sign in to run it".
+Create one per target the API is reached at — `Local` on `http://localhost:8030`, `Staging`, `Production` — from the switcher in the header. Then:
 
-Invariants to preserve:
+- **Put the bearer token on the environment.** A route with non-empty `roles` becomes runnable as soon as the active environment has one; without it the Send button explains what is missing instead of failing at the API.
+- **Reference `{{variables}}` anywhere** — the base URL, a header value, a path parameter, the JSON body. A name the environment cannot resolve is left standing and blocks Send, so the gap is visible before the request goes out.
+- `baseURL` and `token` are exposed as variables too, so a header can read `{{token}}` without duplicating it.
 
-- **`ClerkAuthButton.tsx` is the only file that imports `@clerk/clerk-react`.** The Clerk-vs-no-Clerk branch lives in `AuthButton`, at a component boundary, because a publishable key that is absent for the app's lifetime must not turn a hook call into a conditional one.
-- **The runner asks for a token at send time** via `auth.getToken()`. Never cache a token in state — Clerk's rotate on a ~60 s cadence and a cached one 401s.
-- **No auth gate on `__root.tsx`.** The documentation is public; only execution needs a session. A swagger that redirects to `/sign-in` has failed at its job. (A product SPA that *does* need the full gated flow uses `clerk-auth-setup` instead.)
-- The backend must accept the explorer's origin in CORS and accept a Clerk session token as its bearer, or every Send fails before it reaches a status.
+**Clerk is not part of the template.** To replace the pasted token with a real sign-in button, run the `clerk-auth-setup` skill against the swagger module — it has a dedicated branch for `type: "swagger"` that installs the provider and the button *without* an auth gate, because the documentation stays public. The backend must also register `ClerkAuthMiddleware` and accept the explorer's origin in CORS, or every Send fails before reaching a status.
 
 ### 8. Verify
 
@@ -156,10 +151,10 @@ An `openapi` failure means a route moved and the generator was not re-run — re
 
 Finally, smoke-test with `bun --bun run dev` from the module:
 
-1. The sidebar lists every documented route, sectioned by module.
+1. The sidebar nests the routes by path — `/admin/stats` sits inside an `admin` folder.
 2. ⌘K finds a route by path, title and key.
 3. A public route Sends against the running backend and shows a status, a duration and a body.
-4. A protected route shows "sign in to run it" signed out, and Sends signed in.
+4. A protected route explains what it needs while the environment has no token, and Sends once it does.
 5. The **OpenAPI** button downloads a document whose paths match the sidebar.
 
 Report anything unverifiable — a placeholder publishable key, a backend that is not running, a CORS origin you cannot configure.

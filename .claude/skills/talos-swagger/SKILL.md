@@ -1,6 +1,6 @@
 ---
 name: talos-swagger
-description: Directory structure and conventions for a swagger module — the custom API-explorer app (bootstrap, routes, features/route metas, shared route model + registry + request runner + OpenAPI export, Clerk sign-in) that documents and runs a backend module's controllers, with per-folder usage guidance.
+description: Directory structure and conventions for a swagger module — the custom API-explorer app (bootstrap, routes, features/route metas, shared route model + registry + request runner + OpenAPI export, named environments) that documents and runs a backend module's controllers, with per-folder usage guidance.
 when_to_use: Use when creating or navigating a swagger module — the app that documents an API's routes and lets a reader execute them against a live backend.
 user-invocable: false
 ---
@@ -38,8 +38,8 @@ modules/<name>/                   # type: "swagger"
     bootstrap/                  # Entry point and build wiring. Rarely edited by hand once scaffolded.
       index.html                #   HTML shell — mount node + script tag.
       app.css                   #   Tailwind entry; imports the design module's stylesheets and fonts.
-      app.tsx                   #   Creates the router + React root. Wraps it in `ClerkProvider` **only** when
-                                #     `VITE_CLERK_PUBLISHABLE_KEY` is set — Clerk is optional and the docs read fine without it.
+      app.tsx                   #   Creates the router + React root. No auth provider — the template authenticates from
+                                #     the environment's pasted token. `clerk-auth-setup` adds Clerk on top when wanted.
       routeTree.gen.ts          #   Auto-generated route tree. Tooling output — never edit; Biome-ignored.
     routes/                     # File-based TanStack Router routes.
       __root.tsx                #   The shell. There is no auth gate: the documentation is public.
@@ -53,29 +53,34 @@ modules/<name>/                   # type: "swagger"
       route/                    #   The route model and everything done with it.
         types.ts                #     `RouteMetaType`: title, group, key, version, method, path, transport, roles,
                                 #       summary/description, params/queries/headers, payload, responses.
-        navigation.ts           #     Pure helpers — `routeId`, `findRoute`, `buildSections`, `filterRoutes`. Bundler-free,
-                                #       which is what makes them testable under `bun test`.
+        navigation.ts           #     Pure helpers — `routeId`, `findRoute`, `filterRoutes`, plus `buildTree`, which folds
+                                #       the routes into folders by path segment (`/admin/stats` → an `admin` folder).
+                                #       Bundler-free, which is what makes them testable under `bun test`.
         registry.ts             #     Discovery via `import.meta.glob("../../features/**/*.route.ts")`. The **only**
                                 #       file that touches a Vite transform — never import it from a spec.
         request.ts              #     The runner: `buildEndpoint`, `buildHeaders`, `sendRequest`, `toCurl`, plus the
                                 #       streaming (`ndjson`) and SSE readers. Native `fetch` — no @talosjs client.
         openapi.ts              #     `toOpenApiDocument` — the in-browser OpenAPI 3.1 export behind the header button.
         index.ts                #     Barrel. Import from `../route`, not from the files, outside `shared/route/`.
+      store/                    #   State that outlives a reload.
+        environments.ts         #     Named environments — each with its own `baseURL`, bearer token and `{{variables}}`,
+                                #       persisted in `localStorage`. Never in the URL: they hold credentials.
       components/               #   The explorer UI. Only touch these to change the engine, not to add a route.
-        SwaggerApp.tsx          #     Layout + state: selection, filter, API base URL, auth.
-        Sidebar.tsx             #     Routes sectioned by `meta.group`, each with its method badge and path.
-        Topbar.tsx              #     Method/path/title, the API base URL field, the OpenAPI export, auth, theme.
+        SwaggerApp.tsx          #     Layout + state: selection, filter, active environment.
+        Sidebar.tsx             #     The folder tree, collapsible, auto-opened on the selected route.
+        Topbar.tsx              #     Method/path/title, the environment switcher, the OpenAPI export, theme.
+        EnvironmentEditor.tsx   #     The active environment's URL, token (masked) and variables.
         CommandPalette.tsx      #     ⌘K jump-to over path, title and route key.
-        AuthButton.tsx          #     Branches on whether Clerk is configured — the boundary that keeps Clerk's
-        ClerkAuthButton.tsx     #       hooks out of a conditional. The one file that imports `@clerk/clerk-react`.
-        RouteDocs.tsx           #     The contract: roles, prose, field tables, response examples.
+        RouteDocs.tsx           #     The contract, in two halves: Input (params/queries/headers/body) and Output.
         TryIt.tsx               #     The form + Send, the curl line, streamed chunks, the response.
+        FieldInput.tsx          #     One editable value, typed from the field's declared type.
+        HeaderEditor.tsx        #     Free-form request headers — add, rename, disable, remove.
         FieldTable.tsx          #     One documented group of values.
         ResponseViewer.tsx      #     Status, duration, body, headers.
         JsonBlock.tsx           #     Read-only code surface with a copy button.
         MethodBadge.tsx         #     The verb, coloured from the design system's status palette.
       hooks/                    #   `usePersistentState` — the settings that belong to the reader's machine.
-      utils/                    #   `cn`, `json` (format/validate/copy/download), `clerk` (the publishable key), `Markdown`.
+      utils/                    #   `cn`, `json`, `interpolate` (`{{variable}}` resolution), `Markdown`.
   tests/                        # Mirrors `src/` as `*.spec.ts`. Never import `shared/route/registry` — `import.meta.glob`
                                 #   does not exist outside Vite.
   e2e/                          # Playwright specs driving the explorer.
@@ -84,12 +89,14 @@ modules/<name>/                   # type: "swagger"
 ## Conventions
 
 - **Route metas only under `src/features/`.** Every documented endpoint is a `*.route.ts` exporting one `meta satisfies RouteMetaType`, filed under the backend module that serves it. One file, one route.
-- **The generator owns the facts, you own the prose.** `talos swagger:create` writes what a `@Route` decorator states — verb, path, version, roles, declared fields — and re-running it **never overwrites an existing route file**. Descriptions, examples and error statuses are written by hand and survive every regeneration. To author or complete them, use the `swagger-create` skill.
+- **The generator owns the facts, you own the prose *and the engine*.** `talos swagger:create` writes what a `@Route` decorator states — verb, path, version, roles, declared fields. On a module that already exists it writes **only** `src/features/**` and `public/openapi.json`: the explorer is meant to be extended, so a re-run never reinstalls it. `--force` is the explicit way to ask for the template back. An existing route file is never overwritten either. To author or complete route metas, use the `swagger-create` skill.
+- **Routes are foldered by path, not by module.** `buildTree` splits each `meta.path` after the version segment, so `/api/v1/admin/stats` files under `admin` whatever module serves it. `meta.group` survives for the palette and the OpenAPI tags.
+- **Every value passes through `{{variable}}` resolution** before it is sent — URL, headers, parameters and body. An unresolved name is left standing and the Send button is blocked, so a missing variable is visible rather than silently blank.
 - **The engine is `shared/`.** Documenting an endpoint means adding a route file, not editing `SwaggerApp`/`Sidebar`/`TryIt`/`registry` — only touch those when the discovery, layout or execution logic itself must change.
 - **Compose only from the design module** (`@module/design/...`). A missing primitive is added to the design module, never styled inline here. This is what makes the explorer look like the product rather than like a third-party tool.
 - **Never import the documented module.** A swagger is a browser bundle; pulling a controller in ships server code to the client and `talos project:check --only=boundaries` reports it as an error.
 - **A response `example` documents the `data` payload, not the wire body.** An `http` route answers inside the `ResponseDataType` envelope (`success`, `status`, `message`, …); the meta documents what is *inside* `data`, matching what the SDK returns. The try-it panel shows the real unwrapped response. `stream` and `sse` bypass the envelope, so there the example is the wire body.
-- **Auth is optional and read-only-by-default.** Without `VITE_CLERK_PUBLISHABLE_KEY` the docs still render; only the Send button on a route with non-empty `roles` is withheld. The token is resolved through `getToken()` **at send time**, never cached — Clerk's session tokens rotate.
+- **Auth is a property of the environment.** The template ships no identity provider: a route with non-empty `roles` runs when the active environment carries a bearer token, and is withheld with an explanation when it does not. Clerk is installed on top with `clerk-auth-setup`, which adds a sign-in button that mints a fresh token per request rather than replacing this field.
 - **`public/openapi.json` is the published contract.** `talos project:check --only=openapi` compares it against the controllers, so re-run `talos swagger:create` whenever a route is added, renamed or removed — never hand-edit it. The in-app **OpenAPI** button exports the richer document the route metas produce (full URLs, your prose, your examples); that one is a download, not a checked artifact.
 
-For authoring or updating route files, see `swagger-create`. For the typed client that calls the same routes, see `sdk-create`; for the design system this explorer is built from, see `talos-design`; for the general single-page-app layout it shares, see `talos-spa`; for backend module layout and the controllers it documents, see `talos-module`.
+Clerk is not part of the template; `clerk-auth-setup` installs a sign-in button on top of the environment token. For authoring or updating route files, see `swagger-create`. For the typed client that calls the same routes, see `sdk-create`; for the design system this explorer is built from, see `talos-design`; for the general single-page-app layout it shares, see `talos-spa`; for backend module layout and the controllers it documents, see `talos-module`.

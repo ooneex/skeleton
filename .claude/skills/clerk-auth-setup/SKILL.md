@@ -1,16 +1,27 @@
 ---
 name: clerk-auth-setup
-description: Set up Clerk authentication in a SPA module — ClerkProvider bootstrap, an auth gate on the root route, the sign-in / sign-up / sign-out / sso-callback routes, and the passwordless email-code + OAuth features.
-when_to_use: Use when adding or repairing Clerk auth (sign-in, sign-up, sign-out, OAuth/SSO, route protection) in a SPA module built on @tanstack/react-router and @clerk/clerk-react.
+description: Set up Clerk authentication in a SPA module — ClerkProvider bootstrap, an auth gate on the root route, the sign-in / sign-up / sign-out / sso-callback routes, and the passwordless email-code + OAuth features. Also installs the sign-in button of a swagger module, which needs a session token but no gate.
+when_to_use: Use when adding or repairing Clerk auth (sign-in, sign-up, sign-out, OAuth/SSO, route protection) in a SPA module built on @tanstack/react-router and @clerk/clerk-react, or when adding Clerk sign-in to a swagger module so its protected routes become runnable.
 model: sonnet
 effort: high
 allowed-tools: Bash(talos spa:feature:create *), Bash(talos translation:create *), Bash(talos monorepo:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--module=<module>]'
 ---
 
-# Set Up Clerk Auth (SPA module)
+# Set Up Clerk Auth
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
+**Read `<module>.yml` first — the module's `type:` decides which half of this skill applies.**
+
+| `type:` | What to install | Where |
+|---|---|---|
+| `spa`, `admin` | The full gated flow: provider, auth gate, sign-in/sign-up/sign-out/sso-callback routes, OAuth | Sections 1–8 below |
+| `swagger` | A sign-in button that supplies a session token to the try-it runner. **No gate, no auth routes** | The "Swagger modules" section at the end |
+
+Doing the SPA sections on a swagger module is a mistake: it would put the API documentation behind a login, and the documentation is meant to be public.
+
+## SPA and admin modules
 
 Wire [Clerk](https://clerk.com) into a SPA module (`type: "spa"` in `<module>.yml`): passwordless email-code sign-in/sign-up, Google + LinkedIn OAuth, sign-out, and a gate protecting every other route.
 
@@ -254,3 +265,84 @@ Manual smoke test with `bun --bun run dev`:
 4. Each OAuth button → provider → `/sso-callback` → `/`.
 
 Fix every failure before completing, and report anything unverifiable (placeholder publishable key, OAuth provider not enabled in the Clerk dashboard).
+
+---
+
+## Swagger modules
+
+A swagger module (`type: "swagger"`) documents an API and runs its routes. The documentation is public; only the **Send** button on a route with non-empty `roles` needs a session. So there is no gate, no `sign-in` route and no auth feature to build — just a button that hands a fresh token to the runner.
+
+Out of the box the explorer authenticates from the **environment's bearer token**, pasted by hand. This section replaces that manual step with Clerk, and leaves the manual field as the fallback for anyone without a Clerk account.
+
+### 1. Install and configure
+
+```bash
+bun add @clerk/clerk-react     # at the project root
+```
+
+`modules/<module>/.env` (Vite reads it via `envDir: "../.."`):
+
+```dotenv
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_xxx
+```
+
+Never a Clerk *secret* key — only `VITE_` vars reach the browser, and the secret belongs to the backend's `CLERK_SECRET_KEY`.
+
+### 2. Gate the provider on the key, not on the route
+
+`src/bootstrap/app.tsx` mounts `ClerkProvider` **only when a key is configured**, so a workspace without one still gets a working explorer:
+
+```tsx
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY as string | undefined;
+
+const app = <RouterProvider router={router} />;
+const tree = PUBLISHABLE_KEY ? (
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">{app}</ClerkProvider>
+) : (
+  app
+);
+```
+
+Leave `__root.tsx` alone. **Adding an `AuthGate` here is the one mistake that breaks the module's purpose.**
+
+### 3. Add the button, in one file
+
+`src/shared/components/ClerkAuthButton.tsx` — the only file that may import `@clerk/clerk-react`:
+
+```tsx
+const { isLoaded, isSignedIn, getToken } = useAuth();
+const clerk = useClerk();
+// signed out → <Button onClick={() => clerk.openSignIn()}>Sign in</Button>
+// signed in  → the email + a sign-out button, and onToken(async () => (await getToken()) ?? undefined)
+```
+
+Two invariants:
+
+- **Report a `getToken` function, never a token string.** Clerk's session tokens rotate on a ~60 s cadence; the runner must mint one at send time or it will 401 on the second request.
+- **Branch on the key at a component boundary**, not inside a hook. Whether Clerk is configured is fixed for the app's lifetime, so `AuthButton` picks between `ClerkAuthButton` and the manual field — that is what keeps Clerk's hooks out of a conditional call.
+
+Clerk's hosted modal (`openSignIn`) is the right call here, unlike in a SPA: this is a developer tool, and a docs app has no business owning an auth flow.
+
+### 4. Feed the runner
+
+The token resolver reaches `TryIt` through `SwaggerApp`, alongside the environment. Where the runner reads `environment.token`, prefer the Clerk token when one is available and fall back to the pasted one:
+
+```ts
+const bearerToken = (await auth.getToken?.()) ?? environment.token;
+```
+
+That ordering matters: it keeps every environment usable without Clerk, and lets a signed-in reader override a stale pasted token without editing anything.
+
+### 5. Verify
+
+```bash
+talos check
+```
+
+Then, with the backend running:
+
+1. Signed out, a public route still Sends.
+2. A route with `roles` shows "sign in to run it" and its Send is disabled.
+3. **Sign in** opens Clerk, and the email appears in the header.
+4. The same protected route now Sends and answers 200 — or 406 if the account lacks the role, which is authorisation working, not auth failing.
+5. The backend must accept the explorer's origin in CORS and register `ClerkAuthMiddleware`, or every Send fails before reaching a status.

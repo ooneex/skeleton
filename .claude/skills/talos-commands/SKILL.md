@@ -46,7 +46,7 @@ talos admin:create --name <name> [--design <design>] [--target <api|microservice
 talos admin:remove --name <name>         # Remove an admin module + all references
 talos storybook:create --name <name>     # Scaffold a storybook module (component gallery for a design module)
 talos storybook:remove --name <name>     # Remove a storybook module + all references
-talos swagger:create --name <name> [--module <target>] [--design <design>] [--prefix <prefix>]  # Scaffold a swagger module (custom API explorer) and generate one route file per controller
+talos swagger:create --name <name> [--module <target>] [--design <design>] [--prefix <prefix>] [--force]  # Scaffold a swagger module (custom API explorer) and generate one route file per controller; on an existing module writes routes + spec only (--force reinstalls the explorer)
 talos swagger:remove --name <name>       # Remove a swagger module + all references
 talos microservice:create --name <name>  # Scaffold a microservice
 talos microservice:remove --name <name>  # Remove a microservice + all references
