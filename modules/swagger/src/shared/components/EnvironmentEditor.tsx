@@ -46,8 +46,8 @@ export const EnvironmentEditor = ({
   };
 
   return (
-    <section className="flex flex-col gap-4 border-b border-border bg-muted/20 px-6 py-4">
-      <div className="grid gap-3 sm:grid-cols-3">
+    <section className="flex flex-col gap-4 p-4">
+      <div className="grid gap-3">
         <div className="flex flex-col gap-1">
           <Label htmlFor={`${id}-name`} className="text-xs">
             Name

@@ -17,7 +17,6 @@ import {
   saveEnvironments,
 } from "../store/environments";
 import { CommandPalette } from "./CommandPalette";
-import { EnvironmentEditor } from "./EnvironmentEditor";
 import { RouteDocs } from "./RouteDocs";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
@@ -120,18 +119,11 @@ export const SwaggerApp = () => {
           environment={environment}
           onSelectEnvironment={setActiveId}
           onCreateEnvironment={createEnvironment}
+          onChangeEnvironment={updateEnvironment}
+          onRemoveEnvironment={removeEnvironment}
           editorOpen={editorOpen}
-          onToggleEditor={() => setEditorOpen((open) => !open)}
+          onEditorOpenChange={setEditorOpen}
         />
-        {editorOpen ? (
-          <EnvironmentEditor
-            environment={environment}
-            removable={environments.length > 1}
-            onChange={updateEnvironment}
-            onRemove={removeEnvironment}
-            onClose={() => setEditorOpen(false)}
-          />
-        ) : null}
         {selected ? (
           <Tabs value={tab ?? "docs"} onValueChange={(value) => setTab(String(value))} className="min-h-0 flex-1">
             {/* No `Tabs.Indicator`: the design system's is unusable in both variants —

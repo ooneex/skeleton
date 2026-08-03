@@ -6,7 +6,7 @@ test("renders the api reference home page", async ({ page }) => {
   await expect(page).toHaveTitle("API Reference");
   await expect(page.getByRole("img", { name: "API reference" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Jump to a route/i })).toBeVisible();
-  await expect(page.getByLabel("Environment")).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Environment", exact: true })).toBeVisible();
 });
 
 test("opens a documented route and shows its contract", async ({ page }) => {
