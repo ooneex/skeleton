@@ -93,3 +93,19 @@ test("blocks Send while a required field is empty", async ({ page }) => {
   await expect(page.getByText("Required field left empty: avatar")).toBeVisible();
   await expect(page.getByRole("button", { name: "Send" })).toBeDisabled();
 });
+
+test("renders a field name as the code spells it, and nests an object", async ({ page }) => {
+  await page.goto("/?route=post-api-v1-media-upload&tab=try");
+
+  // A nested group has no input of its own — only its leaves, dotted.
+  const nested = page.getByLabel("author.displayName");
+  await expect(nested).toBeVisible();
+  await expect(page.getByLabel("author", { exact: true })).toBeHidden();
+
+  // The uppercasing is CSS, so the DOM text cannot reveal it: `userId` rendered
+  // as `USERID` loses the word boundary, and only the computed style says so.
+  const transform = await page
+    .locator('label[for="' + (await nested.getAttribute("id")) + '"]')
+    .evaluate((node) => getComputedStyle(node).textTransform);
+  expect(transform).toBe("none");
+});

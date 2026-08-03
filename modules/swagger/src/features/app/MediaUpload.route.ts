@@ -15,6 +15,15 @@ export const meta = {
       { name: "avatar", type: "file", required: true },
       { name: "caption", type: "string", required: false },
       { name: "visibility", type: '"public" | "private"', required: false },
+      {
+        name: "author",
+        type: "object",
+        required: false,
+        fields: [
+          { name: "displayName", type: "string", required: true },
+          { name: "avatarUrl", type: "url", required: false },
+        ],
+      },
     ],
   },
   responses: [{ status: 200, fields: [{ name: "url", type: "string", required: true }] }],

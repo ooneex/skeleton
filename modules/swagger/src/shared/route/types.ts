@@ -27,6 +27,13 @@ export type FieldType = {
   description?: string;
   /** Prefilled in the try-it form, so a route is runnable without reading the docs first. */
   example?: unknown;
+  /**
+   * The members of a nested object, when the declared type is one.
+   *
+   * `address: { city: string; zip: string }` documents `address` as an object
+   * carrying two fields, rather than printing the whole literal as its type.
+   */
+  fields?: readonly FieldType[];
 };
 
 /** One documented outcome, keyed by the status the controller answers with. */

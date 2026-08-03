@@ -2,7 +2,7 @@ import { Label } from "@module/design/components/label";
 import { Textarea } from "@module/design/components/textarea";
 import { useId } from "react";
 import type { FieldType, RequestBodyType, RouteMetaType } from "../route";
-import { bodyKindOf } from "../route";
+import { bodyKindOf, flattenFields } from "../route";
 import { isValidJson } from "../utils/json";
 import { FieldInput } from "./FieldInput";
 import { FilePicker } from "./FilePicker";
@@ -29,7 +29,8 @@ export const isFileField = (field: FieldType): boolean => field.type.trim().toLo
 export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPropsType) => {
   const id = useId();
   const kind = bodyKindOf(meta);
-  const fields = meta.payload?.fields ?? [];
+  // A multipart part is flat on the wire, so a nested group becomes dotted leaves.
+  const fields = flattenFields(meta.payload?.fields);
 
   if (kind === "multipart" && body.kind === "multipart") {
     return (

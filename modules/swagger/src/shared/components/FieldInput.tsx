@@ -63,10 +63,14 @@ export const FieldInput = ({ field, value, onChange, id, invalid = false }: Fiel
 
   return (
     <div className="flex flex-col gap-1">
-      <Label htmlFor={id} className="flex items-baseline gap-1.5 font-mono text-xs">
+      {/* `normal-case` and `tracking-normal` undo the design Label's uppercasing:
+          a field name is an identifier copied from the route type, and
+          `userId` rendered as `USERID` loses the word boundary. The declared
+          type is not repeated here — the docs tab has a column for it, and the
+          placeholder falls back to it when there is no example. */}
+      <Label htmlFor={id} className="gap-1 font-mono text-xs normal-case tracking-normal">
         {field.name}
         {field.required ? <span className="text-destructive">*</span> : null}
-        <span className="font-sans text-2xs font-normal text-muted-foreground">{field.type}</span>
       </Label>
 
       {isBoolean(field.type) ? (

@@ -86,7 +86,7 @@ export const FilePicker = ({
 
   return (
     <div className="flex flex-col gap-1">
-      <Label htmlFor={id} className="flex items-baseline gap-1.5 font-mono text-xs">
+      <Label htmlFor={id} className="gap-1 font-mono text-xs normal-case tracking-normal">
         {label}
         {required ? <span className="text-destructive">*</span> : null}
       </Label>

@@ -3,6 +3,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FieldType, RequestBodyType, RequestErrorType, RequestResultType, RouteMetaType } from "../route";
 import {
   bodyKindOf,
+  flattenFields,
   hasBody,
   isProtected,
   missingRequired,
@@ -31,7 +32,9 @@ type TryItPropsType = {
 
 /** Seed every documented field with its example, so Send works before anything is typed. */
 const seedValues = (fields: readonly FieldType[] = []): Record<string, string> =>
-  Object.fromEntries(fields.map((field) => [field.name, field.example === undefined ? "" : String(field.example)]));
+  Object.fromEntries(
+    flattenFields(fields).map((field) => [field.name, field.example === undefined ? "" : String(field.example)]),
+  );
 
 /** Resolve `{{variables}}` inside a body, whichever shape it has. Files pass through. */
 const resolveBody = (body: RequestBodyType, variables: Record<string, string>): RequestBodyType =>
@@ -53,7 +56,7 @@ const seedBody = (meta: RouteMetaType): RequestBodyType =>
 
 /** The route's own documented headers become the editor's starting rows. */
 const seedHeaders = (fields: readonly FieldType[] = []): HeaderRowType[] =>
-  fields.map((field) => ({
+  flattenFields(fields).map((field) => ({
     name: field.name,
     value: field.example === undefined ? "" : String(field.example),
     enabled: field.required ?? false,
@@ -78,7 +81,7 @@ const FieldGroup = ({ title, fields, values, onChange, idPrefix, missing }: Fiel
     <section className="flex flex-col gap-2">
       <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{title}</h3>
       <div className="grid gap-3 sm:grid-cols-2">
-        {fields.map((field) => (
+        {flattenFields(fields).map((field) => (
           <FieldInput
             key={field.name}
             field={field}

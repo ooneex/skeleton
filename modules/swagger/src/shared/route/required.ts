@@ -1,3 +1,4 @@
+import { flattenFields } from "./fields";
 import type { RequestBodyType } from "./request";
 import type { FieldType, RouteMetaType } from "./types";
 
@@ -25,19 +26,19 @@ const isBlank = (value: string | undefined): boolean => (value ?? "").trim() ===
 export const missingRequired = (meta: RouteMetaType, values: FormValuesType): string[] => {
   const missing: string[] = [];
 
-  for (const field of meta.params ?? []) {
+  for (const field of flattenFields(meta.params)) {
     if (isBlank(values.params[field.name])) {
       missing.push(field.name);
     }
   }
 
-  for (const field of meta.queries ?? []) {
+  for (const field of flattenFields(meta.queries)) {
     if (field.required && isBlank(values.queries[field.name])) {
       missing.push(field.name);
     }
   }
 
-  for (const field of meta.headers ?? []) {
+  for (const field of flattenFields(meta.headers)) {
     if (field.required && isBlank(values.headers[field.name])) {
       missing.push(field.name);
     }
@@ -46,7 +47,7 @@ export const missingRequired = (meta: RouteMetaType, values: FormValuesType): st
   // A JSON body is free text: only its syntax can be checked, which the editor
   // already does. A multipart body is a form, so every field can be.
   if (values.body.kind === "multipart") {
-    for (const field of meta.payload?.fields ?? []) {
+    for (const field of flattenFields(meta.payload?.fields)) {
       if (!field.required) {
         continue;
       }
