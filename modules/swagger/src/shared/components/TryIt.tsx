@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FieldType, RequestBodyType, RequestErrorType, RequestResultType, RouteMetaType } from "../route";
-import { bodyKindOf, hasBody, isProtected, sendRequest, toCurl, transportOf } from "../route";
+import { bodyKindOf, hasBody, isProtected, missingRequired, sendRequest, toCurl, transportOf } from "../route";
 import type { EnvironmentType } from "../store/environments";
 import { variablesOf } from "../store/environments";
 import { interpolate, interpolateAll, missingPlaceholders } from "../utils/interpolate";
@@ -54,9 +54,11 @@ type FieldGroupPropsType = {
   values: Record<string, string>;
   onChange: (name: string, value: string) => void;
   idPrefix: string;
+  /** Names the route requires that are still empty. */
+  missing: readonly string[];
 };
 
-const FieldGroup = ({ title, fields, values, onChange, idPrefix }: FieldGroupPropsType) => {
+const FieldGroup = ({ title, fields, values, onChange, idPrefix, missing }: FieldGroupPropsType) => {
   if (fields.length === 0) {
     return null;
   }
@@ -71,6 +73,7 @@ const FieldGroup = ({ title, fields, values, onChange, idPrefix }: FieldGroupPro
             field={field}
             id={`${idPrefix}-${field.name}`}
             value={values[field.name] ?? ""}
+            invalid={missing.includes(field.name)}
             onChange={(value) => onChange(field.name, value)}
           />
         ))}
@@ -149,6 +152,18 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
     [environment.baseURL, body, params, queries, headers, variables],
   );
 
+  /** Documented values the route requires that are still empty. */
+  const required = useMemo(
+    () =>
+      missingRequired(meta, {
+        params,
+        queries,
+        headers: toHeaderRecord(headers),
+        body,
+      }),
+    [meta, params, queries, headers, body],
+  );
+
   const blockedReason = (): string | undefined => {
     if (transport === "socket") {
       return "A socket route is documented here, not executed.";
@@ -161,6 +176,9 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
     }
     if (missing.length > 0) {
       return `Undefined variable${missing.length > 1 ? "s" : ""}: ${missing.map((name) => `{{${name}}}`).join(", ")}`;
+    }
+    if (required.length > 0) {
+      return `Required field${required.length > 1 ? "s" : ""} left empty: ${required.join(", ")}`;
     }
     return undefined;
   };
@@ -200,6 +218,7 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
         values={params}
         onChange={(name, value) => setParams((previous) => ({ ...previous, [name]: value }))}
         idPrefix={`${id}-param`}
+        missing={required}
       />
       <FieldGroup
         title="Query parameters"
@@ -207,11 +226,12 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
         values={queries}
         onChange={(name, value) => setQueries((previous) => ({ ...previous, [name]: value }))}
         idPrefix={`${id}-query`}
+        missing={required}
       />
 
       <HeaderEditor rows={headers} onChange={setHeaders} />
 
-      {hasBody(meta.method) ? <BodyEditor meta={meta} body={body} onChange={setBody} /> : null}
+      {hasBody(meta.method) ? <BodyEditor meta={meta} body={body} onChange={setBody} missing={required} /> : null}
 
       <section className="flex flex-wrap items-center gap-3">
         <Button size="sm" disabled={Boolean(blocked) || !payloadValid || running} onClick={() => void send()}>

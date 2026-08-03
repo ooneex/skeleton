@@ -9,6 +9,8 @@ type FieldInputPropsType = {
   value: string;
   onChange: (value: string) => void;
   id: string;
+  /** The route requires this value and it is still empty. */
+  invalid?: boolean;
 };
 
 /** The literals of a `"draft" | "published"` union, or nothing when it isn't one. */
@@ -54,7 +56,7 @@ const isBoolean = (type: string): boolean => ["boolean", "bool"].includes(type.t
  * Everything is carried as a string — that is what travels on the wire, and it
  * keeps a `{{variable}}` usable in any field regardless of its declared type.
  */
-export const FieldInput = ({ field, value, onChange, id }: FieldInputPropsType) => {
+export const FieldInput = ({ field, value, onChange, id, invalid = false }: FieldInputPropsType) => {
   const options = enumOptionsOf(field.type);
   const usesVariable = value.includes("{{");
 
@@ -75,8 +77,12 @@ export const FieldInput = ({ field, value, onChange, id }: FieldInputPropsType) 
         <select
           id={id}
           value={value}
+          aria-invalid={invalid}
           onChange={(event) => onChange(event.target.value)}
-          className="ring-ring hover:ring-ring-active focus-visible:ring-ring-active h-8 w-full rounded-[min(var(--radius-md),10px)] bg-transparent px-2.5 py-1 text-sm ring outline-none"
+          className={cn(
+            "ring-ring hover:ring-ring-active focus-visible:ring-ring-active h-8 w-full rounded-[min(var(--radius-md),10px)] bg-transparent px-2.5 py-1 text-sm ring outline-none",
+            invalid && "ring-destructive",
+          )}
         >
           <option value="">—</option>
           {options.map((option) => (
@@ -91,8 +97,9 @@ export const FieldInput = ({ field, value, onChange, id }: FieldInputPropsType) 
           type={usesVariable ? "text" : inputTypeOf(field.type)}
           value={value}
           placeholder={field.example === undefined ? field.type : String(field.example)}
+          aria-invalid={invalid}
           onChange={(event) => onChange(event.target.value)}
-          className={cn(usesVariable && "font-mono text-primary")}
+          className={cn(usesVariable && "font-mono text-primary", invalid && "ring-destructive")}
         />
       )}
 

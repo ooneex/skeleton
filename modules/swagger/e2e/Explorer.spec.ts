@@ -85,3 +85,11 @@ test("keeps the selected route in the url so it can be shared", async ({ page })
   await expect(page.getByRole("tab", { name: "Try it" })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("button", { name: "Send" })).toBeVisible();
 });
+
+test("blocks Send while a required field is empty", async ({ page }) => {
+  await page.goto("/?route=post-api-v1-media-upload&tab=try");
+
+  // `avatar` is required and no file has been chosen yet.
+  await expect(page.getByText("Required field left empty: avatar")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Send" })).toBeDisabled();
+});

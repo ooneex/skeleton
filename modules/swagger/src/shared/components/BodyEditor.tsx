@@ -11,6 +11,8 @@ type BodyEditorPropsType = {
   meta: RouteMetaType;
   body: RequestBodyType;
   onChange: (body: RequestBodyType) => void;
+  /** Names the route requires that are still empty. */
+  missing?: readonly string[];
 };
 
 /** A field that carries a real file rather than a value typed into a box. */
@@ -24,7 +26,7 @@ export const isFileField = (field: FieldType): boolean => field.type.trim().toLo
  * `multipart` body is edited field by field instead, because a file has to stay
  * a `File` all the way to `FormData` and cannot survive a round-trip as text.
  */
-export const BodyEditor = ({ meta, body, onChange }: BodyEditorPropsType) => {
+export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPropsType) => {
   const id = useId();
   const kind = bodyKindOf(meta);
   const fields = meta.payload?.fields ?? [];
@@ -64,6 +66,7 @@ export const BodyEditor = ({ meta, body, onChange }: BodyEditorPropsType) => {
                   field={field}
                   id={`${id}-${field.name}`}
                   value={body.fields[field.name] ?? ""}
+                  invalid={missing.includes(field.name)}
                   onChange={(value) => onChange({ ...body, fields: { ...body.fields, [field.name]: value } })}
                 />
               ),
