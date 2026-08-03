@@ -101,8 +101,11 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
                 <Badge size="sm" variant={response.status < 400 ? "success" : "danger"}>
                   {response.status}
                 </Badge>
-                <span className="text-sm text-muted-foreground">{response.description ?? ""}</span>
+                {response.description ? (
+                  <span className="text-sm text-muted-foreground">{response.description}</span>
+                ) : null}
               </div>
+              <FieldTable title="Body" fields={response.fields ?? []} />
               {response.example === undefined ? null : (
                 <JsonBlock label={`${response.status} data`} value={response.example} />
               )}

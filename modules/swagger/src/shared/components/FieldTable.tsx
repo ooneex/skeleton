@@ -8,11 +8,21 @@ type FieldTablePropsType = {
   alwaysRequired?: boolean;
 };
 
-/** One documented group of values — path params, queries, headers, payload fields. */
+/**
+ * One documented group of values — path params, queries, headers, payload or
+ * response fields.
+ *
+ * The Description column only appears when at least one field has one. Most of
+ * what the generator can read off a controller is name, type and optionality;
+ * printing an empty third column for every route would be scaffolding, not
+ * documentation.
+ */
 export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTablePropsType) => {
   if (fields.length === 0) {
     return null;
   }
+
+  const described = fields.some((field) => (field.description ?? "") !== "");
 
   return (
     <section className="flex flex-col gap-2">
@@ -21,8 +31,8 @@ export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTable
         <TableHeader>
           <TableRow>
             <TableHead className="w-48">Name</TableHead>
-            <TableHead className="w-40">Type</TableHead>
-            <TableHead>Description</TableHead>
+            <TableHead className={described ? "w-40" : undefined}>Type</TableHead>
+            {described ? <TableHead>Description</TableHead> : null}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -37,7 +47,9 @@ export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTable
                 ) : null}
               </TableCell>
               <TableCell className="align-top font-mono text-xs text-muted-foreground">{field.type}</TableCell>
-              <TableCell className="align-top text-sm text-muted-foreground">{field.description ?? "—"}</TableCell>
+              {described ? (
+                <TableCell className="align-top text-sm text-muted-foreground">{field.description ?? ""}</TableCell>
+              ) : null}
             </TableRow>
           ))}
         </TableBody>

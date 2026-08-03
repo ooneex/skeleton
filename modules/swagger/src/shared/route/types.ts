@@ -34,7 +34,12 @@ export type ResponseType = {
   status: number;
   /** Markdown — when the route answers with this status. */
   description?: string;
-  /** The body shape, rendered as JSON next to the description. */
+  /**
+   * The shape the route declares in its `response` block, field by field.
+   * Written by `talos swagger:create` straight from the route type.
+   */
+  fields?: readonly FieldType[];
+  /** A concrete body, rendered as JSON next to the shape. */
   example?: unknown;
 };
 
