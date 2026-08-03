@@ -1,47 +1,80 @@
 # AGENTS.md
 
-Guidance for AI coding agents in this repository.
+Router for AI coding assistants. Every capability below ships as a **skill** (a task procedure) or an **agent** (a narrow specialist). Load the one that matches the task instead of improvising — this file stays small on purpose.
 
-A lean index. Coding conventions, reference, and task workflows live in conditionally-activated **skills** (below) so this file stays small and avoids loading unused context. Reach for a skill when you need the detail behind a task.
+## Project
 
-## Project Overview
+{{NAME}} is a modular TypeScript/Bun backend on the **@talosjs** ecosystem. Code lives in independent modules under `modules/`, each owning its controllers, services, repositories, entities, migrations, and seeds.
 
-{{NAME}} is a modular, enterprise-grade TypeScript/Bun backend powered by the **@talosjs** ecosystem. Code lives in independent modules under `modules/`, each owning its controllers, services, repositories, entities, migrations, and seeds.
+## How to reach a skill or an agent
 
-## Skills
+This file is shared by every assistant; the same skills and agents are installed under a different layout for each. Find yours:
 
-Skills load on demand — invoke or let them activate when relevant; don't duplicate their content here.
+| Assistant | Skills | Agents |
+|---|---|---|
+| Claude | `.claude/skills/<name>/SKILL.md` — auto-activate, or `/<name>` | `.claude/agents/<name>.md` — real sub-agents, dispatch with the Task tool |
+| Codex | `.codex/skills/<name>/SKILL.md` | `.codex/agents/<name>.toml` |
+| Zed | `.agents/skills/<name>/SKILL.md` | same folder, agents installed as skills |
+| Cursor | `/<name>` (`.cursor/commands`) | `/<name>` — same command list |
+| Gemini | `/<name>` (`.gemini/commands`) | `/agents/<name>` |
+| Windsurf | `/<name>` (`.windsurf/workflows`) | `/<name>` — same workflow list |
+| Cline | `.clinerules/workflows/<name>.md` | same workflows folder |
+| Continue | `/<name>` (`.continue/prompts`) | `/<name>` — same prompt list |
+| Roo Code | `/<name>` (`.roo/commands`) | custom modes in `.roomodes` |
+| Junie | `.junie/skills/<name>.md` — read on demand | `.junie/agents/<name>.md` — read on demand |
 
-**Reference**
-- `talos-packages` — full @talosjs package catalog (pick the right package for a feature).
-- `talos-architecture` — choosing/combining execution architectures (event-driven, queue, workflow, cron, real-time).
-- `talos-commands` — the `talos` CLI commands (app lifecycle, generators, database, monorepo tasks, release, issues).
-- `talos-module` — backend module directory structure plus DI, exception, and TypeScript patterns with examples.
-- `talos-design` — design-system (front-end design module) directory structure, per-folder guidance.
-- `talos-spa` — single-page-app module directory structure, per-folder guidance.
-- `talos-storybook` — storybook module (component-gallery app) directory structure, story model, and per-folder guidance.
-- `talos-env` — reading environment variables via the injected `AppEnv`.
-- `talos-scaffold` — shared workflow behind every `<artifact>-create` generator (run-from-root, `--name`/`--module` inference, registration, lint/format, test baseline).
+Only Claude and Roo run agents as separate actors. Everywhere else an agent is a document: read it and follow it yourself, in the current session.
 
-**Generators**
-- `/module-create` — scaffold a whole module and complete its first vertical slice.
-- `/<artifact>-create` scaffolds a single artefact and completes its code + tests: `ai-chat`, `ai-middleware`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`.
-- `/sdk-create` — generate a typed browser SDK from an app or microservice's controllers.
-- `/marketing-create` — scaffold a module's marketing post resource (`marketing/<ID>/`), write its copy, hashtags, and platform list, and render its image/video with Remotion.
-- `/workflow-create` + `/workflow-transition-create` — scaffold a transition-based workflow (from `@talosjs/workflow`) and its conditional, reversible steps.
+## Routing
 
-**Workflow**
-- `/commit` — group changes by module into scoped conventional commits.
-- `/pr` — push the current branch and open a pull request with a conventional title and structured body.
-- `/pr-review` — review the working diff against @talosjs conventions + Clean Architecture, then fix.
-- `/debug` — diagnose and fix a failing test, exception, or startup error.
-- `/database-migrate` — apply/roll back migrations, run seeds, verify the schema.
-- `/e2e-run` — run the Playwright e2e suite across packages and modules, then triage failures.
-- `/optimize` — enforce coding conventions across a module.
-- `/security-check` — audit all dependencies against the OSV.dev online database (`talos security:check`), report by module/package or file issues.
-- `/coverage-check` — run every module's suite with coverage (`talos coverage:check`), report line/function rates per module with the least-covered files, or file issues.
-- `/project-fix` — run every health check in one pass (always `talos project:check --strict --logs`, never bare) and fix every error and warning it reports: the workspace gate, structure, framework conventions, env files, dependencies, Docker compose, migrations and seeds, UI accessibility, translations, test coverage, markdown links, vulnerabilities, secrets, the git index, issue YAML, commit messages, source hygiene, and the opt-in end-to-end suite.
-- `/translation-translate` — translate/complete a module's `translations.json`/`translations.yml` dictionaries (optionally extracting hardcoded text) into the target locales.
-- `/issue-found`, `/issue-plan`, `/issue-fix` — audit, plan, and implement issues.
-- `/issue-pull`, `/issue-push` — sync issues between Linear or GitHub and local YAML (pull down, then push back up; `--provider=linear|github`, defaults to `linear`).
-- `/issue-check` — validate every issue YAML (`talos issue:check`): file/YAML integrity, schema, vocabularies, state machine, and the dependency graph.
+### To learn how something works → reference skill
+
+| Question | Skill |
+|---|---|
+| Which @talosjs package? | `talos-packages` |
+| Event / queue / workflow / cron / real-time? | `talos-architecture` |
+| Which `talos` CLI command? | `talos-commands` |
+| Backend module layout, DI, exceptions | `talos-module` |
+| Front-end layout | `talos-design`, `talos-spa`, `talos-admin`, `talos-storybook` |
+| Env vars | `talos-env` |
+| Code style / test style / UI craft | `optimize-conventions`, `optimize-testing`, `optimize-ui` |
+| Generator mechanics (shared by every `*-create`) | `talos-scaffold` |
+
+### To create something → generator skill
+
+- Whole module: `module-create` — scaffolds it and completes the first vertical slice.
+- One artefact: `<artifact>-create` where artifact is `ai-chat`, `ai-middleware`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `react-component`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`, `workflow`, `workflow-transition`.
+- Also `sdk-create` (typed browser SDK from controllers), `storybook-story-create`, `marketing-create`, `clerk-auth-setup`.
+
+Every generator runs from the repo root and follows `talos-scaffold`.
+
+### To change or verify code → workflow skill
+
+| Task | Skill |
+|---|---|
+| Something is broken | `debug` |
+| Enforce conventions in a module | `optimize` |
+| Clean the working diff before committing | `deslop` |
+| Make prose read as human-written | `humanize` |
+| Migrations / seeds / schema | `database-migrate` |
+| Run the Playwright suite | `e2e-run` |
+| Translate dictionaries | `translation-translate` |
+| Full health check, then fix everything | `project-fix` (always `talos project:check --strict --logs`) |
+| Coverage report | `coverage-check` |
+| Dependency CVE audit | `security-check` |
+| Pull upstream scaffold / design / assistant config | `project-update`, `design-update`, `agent-skills-update` |
+
+### To ship → `commit` → `pr` → `pr-review` → `pr-merge`
+
+### Issues (YAML under `modules/<module>/issues/`)
+
+`issue-found` (audit) → `issue-plan` (structure) → `issue-fix` (implement + PR) → `issue-check` (validate) → `issue-convert` (bundle to JSON). Sync with Linear via `issue-pull` / `issue-push`.
+
+## Agents
+
+Skills dispatch these; reach for one directly only when the task is exactly its scope.
+
+- **Audit a module**, report only: `<type>-issue-founder` for `module`, `api`, `microservice`, `spa`, `design`, `storybook`.
+- **Implement one planned issue**: `<type>-issue-fixer`, same six types. Pick by the issue's `type` field — untyped means `module`.
+- **Review a working diff** against conventions + Clean Architecture: `convention-reviewer`.
+- **Narrow fixes**: `code-optimizer` (quality, no behaviour change), `test-author` (tests only), `accessibility-fixer` (one UI module), `translation-extractor` (hardcoded text → dictionary), `translation-translator` (fill locales), `marketing-post-writer` (post copy).
