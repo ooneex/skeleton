@@ -16,8 +16,8 @@ Apply when pruning or improving a module's tests (`optimize` skill, step 6).
 ## Conventions
 
 - Test files mirror `src/` under `tests/` with the `.spec.ts` suffix.
-- Run `talos monorepo:run --commands=test` (all modules) or `bun test tests` (inside a module).
-- Measure what the tests reach with `talos coverage:check --modules=<module>` — it names the least-covered files and their uncovered lines, which is the work list for this skill (see `/coverage-check`). Modules are expected to clear 90% lines and functions, and each module's `bunfig.toml` pins its own `coverageThreshold`.
+- **Never run `bun test tests`.** Always run `talos coverage:check --strict --modules=<module>` — it runs the module's suite and measures it in one pass.
+- `talos coverage:check --strict --modules=<module>` names the least-covered files and their uncovered lines, which is the work list for this skill (see `/coverage-check`). Keep working until **every line, statement and function is covered** — 100%, not just the 90% floor each module's `bunfig.toml` pins via `coverageThreshold`.
 - Every public method with logic needs ≥1 happy-path + ≥1 edge-case test.
 - Avoid trivial existence checks — test actual behavior.
 - Keep tests deterministic: no random values, no time-dependent data.
@@ -27,4 +27,4 @@ Apply when pruning or improving a module's tests (`optimize` skill, step 6).
 - Remove trivial tests (class name checks, method existence) unless they are smoke tests for generated code
 - Keep and improve tests that verify actual business logic, edge cases, error handling
 - Consolidate redundant test cases into parameterized patterns
-- Never pad a coverage rate: a line executed by a test that asserts nothing is uncovered in every sense that matters. Re-run `talos coverage:check --modules=<module>` after pruning so the report reflects the tests that are actually left.
+- Never pad a coverage rate: a line executed by a test that asserts nothing is uncovered in every sense that matters. Re-run `talos coverage:check --strict --modules=<module>` after pruning so the report reflects the tests that are actually left.
