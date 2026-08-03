@@ -1,6 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { Select } from "@module/design/components/select";
 import { ThemeSwitcher } from "@module/design/components/theme";
+import { DownloadIcon } from "@module/design/icons/outline/arrows/sm/DownloadIcon";
 import type { RouteEntryType, RouteMetaType } from "../route";
 import { toOpenApiDocument } from "../route";
 import type { EnvironmentType } from "../store/environments";
@@ -55,6 +56,7 @@ export const Topbar = ({
         )}
         <div className="ml-auto flex items-center gap-2">
           <Button variant="outline" size="xs" onClick={exportSpec}>
+            <DownloadIcon />
             OpenAPI
           </Button>
           <ThemeSwitcher size="xs" />
