@@ -9,7 +9,7 @@ user-invocable: false
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -107,7 +107,7 @@ talos monorepo:run --commands=build --modules=billing,user   # Only the named mo
 talos monorepo:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos monorepo:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for monorepo:run --commands=e2e — run the Playwright e2e suite
-talos check --strict                                         # Install, build, fmt, lint and test — the full gate
+talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
 talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 ```
 
@@ -127,12 +127,11 @@ talos security:check --issues                           # Create one YAML Securi
 
 ## Test coverage
 ```bash
-talos coverage:check                                    # Run every module's suite with coverage, report per module (worst first)
-talos coverage:check --modules=billing,user             # Only the named modules (also --packages=a,b)
-talos coverage:check --threshold=80                     # Judge against 80% instead of the default 90%
-talos coverage:check --logs                             # Print the output of every suite that fails
-talos coverage:check --concurrency=1                    # Run the suites one at a time (default: cores, capped at 8)
-talos coverage:check --issues                           # Create one YAML issue per failing/under-covered module instead of printing
+talos coverage:check --logs                             # Run every module's suite with coverage, report per module (worst first)
+talos coverage:check --logs --modules=billing,user      # Only the named modules (also --packages=a,b)
+talos coverage:check --logs --threshold=80              # Judge against 80% instead of the default 90%
+talos coverage:check --logs --concurrency=1             # Run the suites one at a time (default: cores, capped at 8)
+talos coverage:check --logs --issues                    # Create one YAML issue per failing/under-covered module instead of printing
 ```
 
 `coverage:check` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table bun prints (falling back to the module's `lcov.info`). Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
@@ -140,14 +139,13 @@ talos coverage:check --issues                           # Create one YAML issue 
 ## Project health
 ```bash
 talos project:check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
-talos project:check --skip=workspace                  # The fast checks only (no install/build/test)
-talos project:check --only=conventions,tests,docs      # Only the named checks
-talos project:check --e2e                             # Add the opt-in end-to-end suite
-talos project:check --modules=billing,user            # Scope every module-aware check to these targets (also --packages=a,b)
-talos project:check --audit-level=high                # Only surface high/critical vulnerabilities
-talos project:check --strict                          # Exit 1 when a check only reports warnings
-talos project:check --json                            # Machine-readable report for CI
-talos project:check --logs                            # Stream plain workspace logs (always pass this as an agent)
+talos project:check --logs --skip=workspace           # The fast checks only (no install/build/test)
+talos project:check --logs --only=conventions,tests,docs  # Only the named checks
+talos project:check --logs --e2e                      # Add the opt-in end-to-end suite
+talos project:check --logs --modules=billing,user     # Scope every module-aware check to these targets (also --packages=a,b)
+talos project:check --logs --audit-level=high         # Only surface high/critical vulnerabilities
+talos project:check --logs --strict                   # Exit 1 when a check only reports warnings
+talos project:check --logs --json                     # Machine-readable report for CI
 ```
 
 **Always invoke it as `talos project:check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
