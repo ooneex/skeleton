@@ -49,7 +49,6 @@ export const Topbar = ({
           <>
             <MethodBadge method={meta.method} className="px-2 py-1 text-xs" />
             <span className="truncate font-mono text-sm text-foreground">{meta.path}</span>
-            <span className="truncate text-sm text-muted-foreground">{meta.title}</span>
           </>
         ) : (
           <span className="text-sm text-muted-foreground">Select a route</span>
