@@ -13,7 +13,13 @@ export type TransportType = "http" | "stream" | "sse" | "socket";
 export type FieldType = {
   /** The name the route expects, spelled exactly as it travels on the wire. */
   name: string;
-  /** The type as the route declares it — `string`, `number`, `uuid`, `"a" | "b"`, … */
+  /**
+   * The type as the route declares it — `string`, `number`, `uuid`, `"a" | "b"`, …
+   *
+   * Two names drive an upload control rather than a text box: `file` picks a
+   * real file for a `multipart` body, and `base64` picks one and encodes it
+   * into a JSON string field.
+   */
   type: string;
   /** Whether the route rejects the request when it is absent. Path params always are. */
   required?: boolean;
@@ -32,8 +38,17 @@ export type ResponseType = {
   example?: unknown;
 };
 
+/**
+ * How a body travels. `json` is the default; `multipart` is what a route that
+ * accepts a file uses — the framework reads those through `request.files`,
+ * which only exists for `multipart/form-data`.
+ */
+export type BodyKindType = "json" | "multipart";
+
 /** The request body of a route that carries one. */
 export type PayloadType = {
+  /** Defaults to `"json"`. Set `"multipart"` on any route reading `request.files`. */
+  contentType?: BodyKindType;
   /** Markdown — what the body represents as a whole. */
   description?: string;
   /** Per-field documentation, the way `params`/`queries` document theirs. */

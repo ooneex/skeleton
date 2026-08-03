@@ -88,6 +88,22 @@ Every entry of `params`, `queries`, `headers` and `payload.fields` needs a **`de
 - Add a **`headers`** entry only for a header the controller reads itself. `Authorization` is wired by the explorer — never document it.
 - **`payload.example`** is what the Send button actually posts. Keep it valid JSON and consistent with the fields you documented.
 
+**Uploads.** A controller reads a file through `context.request.files[name]`, which only exists for `multipart/form-data`. So a route taking a file declares it:
+
+```typescript
+payload: {
+  contentType: "multipart",
+  fields: [
+    { name: "avatar", type: "file", required: true, description: "PNG or JPEG, 2 MB max." },
+    { name: "caption", type: "string", description: "Shown under the avatar." },
+  ],
+},
+```
+
+`talos swagger:create` writes both lines for you when the route type names a `RequestFile`. The try-it panel then renders a file picker per `file` field, sends a real `FormData`, and never names the `Content-Type` — `fetch` has to generate the boundary. Do **not** give a `multipart` payload an `example`: there is no JSON body to seed.
+
+A field typed **`base64`** is the other case — a file carried inside a JSON body. It stays a `json` payload; the panel adds a picker that encodes the chosen file and writes it into that field. Use it only when the API really expects base64: multipart is the framework's own path, and base64 inflates a body by a third.
+
 ### 5. Complete the responses
 
 List **every** status the route answers with, success first — the error cases are what a reader comes for.

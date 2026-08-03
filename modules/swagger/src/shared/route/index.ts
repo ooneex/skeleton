@@ -12,8 +12,9 @@ export {
 } from "./navigation";
 export { operationOf, schemaOfExample, schemaOfType, toOpenApiDocument } from "./openapi";
 export { loadRoutes } from "./registry";
-export type { RequestErrorType, RequestInputType, RequestResultType } from "./request";
+export type { RequestBodyType, RequestErrorType, RequestInputType, RequestResultType } from "./request";
 export {
+  bodyKindOf,
   buildEndpoint,
   buildHeaders,
   buildUrl,
@@ -23,4 +24,12 @@ export {
   toCurl,
   transportOf,
 } from "./request";
-export type { FieldType, MethodType, PayloadType, ResponseType, RouteMetaType, TransportType } from "./types";
+export type {
+  BodyKindType,
+  FieldType,
+  MethodType,
+  PayloadType,
+  ResponseType,
+  RouteMetaType,
+  TransportType,
+} from "./types";

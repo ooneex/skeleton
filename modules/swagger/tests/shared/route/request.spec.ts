@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  bodyKindOf,
   buildEndpoint,
   buildHeaders,
   buildUrl,
@@ -98,7 +99,7 @@ describe("transportOf", () => {
 
 describe("buildHeaders", () => {
   test("should add a json content type when a body travels", () => {
-    expect(buildHeaders(input({ payload: "{}" }))["Content-Type"]).toBe("application/json");
+    expect(buildHeaders(input({ body: { kind: "json", text: "{}" } }))["Content-Type"]).toBe("application/json");
   });
 
   test("should not add a content type when there is no body", () => {
@@ -120,7 +121,7 @@ describe("buildHeaders", () => {
 
 describe("toCurl", () => {
   test("should spell the verb, the url, the headers and the body", () => {
-    const command = toCurl(input({ payload: '{"plan":"pro"}', bearerToken: "abc" }));
+    const command = toCurl(input({ body: { kind: "json", text: '{"plan":"pro"}' }, bearerToken: "abc" }));
 
     expect(command).toContain("curl -X POST 'http://localhost:3000/api/v1/entitlement/42/grants'");
     expect(command).toContain("-H 'Authorization: Bearer abc'");
@@ -128,10 +129,60 @@ describe("toCurl", () => {
   });
 
   test("should escape a single quote so the line stays one shell argument", () => {
-    expect(toCurl(input({ payload: `{"name":"o'brien"}` }))).toContain(`o'\\''brien`);
+    expect(toCurl(input({ body: { kind: "json", text: `{"name":"o'brien"}` } }))).toContain(`o'\\''brien`);
   });
 
   test("should omit the body on a verb that carries none", () => {
-    expect(toCurl(input({ meta: meta({ method: "get" }), payload: "{}" }))).not.toContain("-d");
+    expect(toCurl(input({ meta: meta({ method: "get" }), body: { kind: "json", text: "{}" } }))).not.toContain("-d");
+  });
+});
+
+describe("bodyKindOf", () => {
+  test("should default to json", () => {
+    expect(bodyKindOf(meta())).toBe("json");
+  });
+
+  test("should honour a multipart declaration", () => {
+    expect(bodyKindOf(meta({ payload: { contentType: "multipart" } }))).toBe("multipart");
+  });
+});
+
+describe("buildHeaders with a body", () => {
+  test("should add a json content type for a json body", () => {
+    expect(buildHeaders(input({ body: { kind: "json", text: "{}" } }))["Content-Type"]).toBe("application/json");
+  });
+
+  test("should never name the content type of a multipart body", () => {
+    // `fetch` generates the boundary; naming the type ourselves would drop it.
+    const headers = buildHeaders(input({ body: { kind: "multipart", fields: {}, files: {} } }));
+
+    expect(headers["Content-Type"]).toBeUndefined();
+  });
+
+  test("should not add a content type for an empty json body", () => {
+    expect(buildHeaders(input({ body: { kind: "json", text: "" } }))["Content-Type"]).toBeUndefined();
+  });
+});
+
+describe("toCurl with a multipart body", () => {
+  const upload = meta({ method: "post", payload: { contentType: "multipart" } });
+
+  test("should render each field as a -F part", () => {
+    const command = toCurl(input({ meta: upload, body: { kind: "multipart", fields: { caption: "hi" }, files: {} } }));
+
+    expect(command).toContain("-F 'caption=hi'");
+  });
+
+  test("should render a file as -F name=@filename", () => {
+    const file = new File(["x"], "avatar.png", { type: "image/png" });
+    const command = toCurl(input({ meta: upload, body: { kind: "multipart", fields: {}, files: { avatar: file } } }));
+
+    expect(command).toContain("-F 'avatar=@avatar.png'");
+  });
+
+  test("should skip a field left empty rather than send a blank part", () => {
+    const command = toCurl(input({ meta: upload, body: { kind: "multipart", fields: { caption: "" }, files: {} } }));
+
+    expect(command).not.toContain("-F 'caption='");
   });
 });

@@ -73,6 +73,8 @@ modules/<name>/                   # type: "swagger"
         CommandPalette.tsx      #     ⌘K jump-to over path, title and route key.
         RouteDocs.tsx           #     The contract, in two halves: Input (params/queries/headers/body) and Output.
         TryIt.tsx               #     The form + Send, the curl line, streamed chunks, the response.
+        BodyEditor.tsx          #     The request body: a raw JSON editor, or a field-by-field form for `multipart`.
+        FilePicker.tsx          #     Choose a file — sent as-is in a multipart part, or encoded into a base64 field.
         FieldInput.tsx          #     One editable value, typed from the field's declared type.
         HeaderEditor.tsx        #     Free-form request headers — add, rename, disable, remove.
         FieldTable.tsx          #     One documented group of values.
@@ -91,6 +93,7 @@ modules/<name>/                   # type: "swagger"
 - **Route metas only under `src/features/`.** Every documented endpoint is a `*.route.ts` exporting one `meta satisfies RouteMetaType`, filed under the backend module that serves it. One file, one route.
 - **The generator owns the facts, you own the prose *and the engine*.** `talos swagger:create` writes what a `@Route` decorator states — verb, path, version, roles, declared fields. On a module that already exists it writes **only** `src/features/**` and `public/openapi.json`: the explorer is meant to be extended, so a re-run never reinstalls it. `--force` is the explicit way to ask for the template back. An existing route file is never overwritten either. To author or complete route metas, use the `swagger-create` skill.
 - **Routes are foldered by path, not by module.** `buildTree` splits each `meta.path` after the version segment, so `/api/v1/admin/stats` files under `admin` whatever module serves it. `meta.group` survives for the palette and the OpenAPI tags.
+- **A file travels as `multipart`, not as text.** `payload.contentType: "multipart"` switches the body editor to a field-by-field form and the runner to `FormData`, which is the only shape `request.files` is built from. A `base64` field is the exception: it stays inside a JSON body and the picker encodes into it.
 - **Every value passes through `{{variable}}` resolution** before it is sent — URL, headers, parameters and body. An unresolved name is left standing and the Send button is blocked, so a missing variable is visible rather than silently blank.
 - **The engine is `shared/`.** Documenting an endpoint means adding a route file, not editing `SwaggerApp`/`Sidebar`/`TryIt`/`registry` — only touch those when the discovery, layout or execution logic itself must change.
 - **Compose only from the design module** (`@module/design/...`). A missing primitive is added to the design module, never styled inline here. This is what makes the explorer look like the product rather than like a third-party tool.
