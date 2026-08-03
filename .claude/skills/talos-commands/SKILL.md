@@ -9,6 +9,8 @@ user-invocable: false
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
@@ -52,8 +54,7 @@ talos sdk:create                         # Generate a browser SDK from module co
 talos docker:create --name <service>     # Add a Docker service to docker-compose.yml
 
 # Issues
-talos issue:create --id <id> --title <title> [--module <name>]  # YAML skeleton (non-interactive)
-talos issue:create --interactive [--module <name>]              # Prompt for ID/title/description
+talos issue:create --title <title> [--module <name>] [--priority <p>] [--label <l1,l2>] [--description <text>]  # YAML skeleton; <ID> is auto-generated, state is always Todo
 talos issue:pull --id <id1>,<id2>,... [--module <name>] [--provider linear|github]   # Pull one or more issues as YAML (defaults to Linear; GitHub uses the gh CLI)
 talos issue:push --id <id1>,<id2>,... [--provider linear|github]                     # Push one or more local issue YAMLs (create or update; defaults to Linear; GitHub uses the gh CLI)
 talos issue:convert --destination <mod1>,<mod2>,...             # Bundle a module/package's issues/*.yml into a single issues.json (src/shared/ for spa|storybook|swagger|admin, otherwise src/)
@@ -195,25 +196,16 @@ talos docker:publish --tag=edge                    # Override the image tag (def
 
 ## Credentials
 ```bash
+talos credentials:create --provider=<provider>                                             # Save a provider token to ~/.talos/credentials/<provider>.yml
 talos npm:credentials:create [--token <token>]                                             # Save an npm Granular Access Token to ~/.talos/credentials/npm.yml
-talos github:credentials:create [--token <token>]                                          # Save a GitHub Personal Access Token to ~/.talos/credentials/github.yml
-talos gitlab:credentials:create [--token <token>]                                          # Save a GitLab Personal Access Token to ~/.talos/credentials/gitlab.yml
-talos bitbucket:credentials:create [--username <user>] [--token <token>]                   # Save a Bitbucket app password to ~/.talos/credentials/bitbucket.yml
-talos linear:credentials:create [--token <token>]                                          # Save a Linear Personal API key to ~/.talos/credentials/linear.yml
-talos jira:credentials:create [--base-url <url>] [--email <email>] [--token <token>]       # Save a Jira API token to ~/.talos/credentials/jira.yml
 talos docker:credentials:create [--registry <host>] [--username <user>] [--token <token>]  # Save a Docker registry access token to ~/.talos/credentials/docker.yml
 ```
 
+`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts.
+
 Credentials are stored per-user under `~/.talos/credentials/*.yml` in a `profiles.default` block. Each command prompts (masked) for anything not passed as a flag and prints the URL where the token can be created.
 
-The `*:secret:push` commands create/update a CI secret on the repository resolved from the `origin` remote in the current directory's `.git/config`. Each prompts (masked) for name/value when not passed as a flag, then prints the settings URL:
-```bash
-talos github:secret:push [--name <name>] [--value <value>]                                 # GitHub Actions secret; reads github.yml, encrypts via `gh secret set`
-talos gitlab:secret:push [--name <name>] [--value <value>]                                 # GitLab masked CI/CD variable; reads gitlab.yml, uses the GitLab API
-talos bitbucket:secret:push [--name <name>] [--value <value>]                              # Bitbucket secured Pipelines variable; reads bitbucket.yml, uses the Bitbucket API
-```
-
-`github:secret:push` requires the `gh` CLI (it performs the local encryption GitHub mandates); `gitlab:secret:push` and `bitbucket:secret:push` call the provider REST APIs directly. Run the matching `*:credentials:create` first.
+There is no `talos *:secret:push`. Push a CI secret with the provider's own CLI/API — e.g. `gh secret set <NAME>` for GitHub Actions.
 
 ## Assistant & Shell setup
 ```bash

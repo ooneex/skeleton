@@ -11,6 +11,8 @@ argument-hint: '[issue-id|description]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
 Plan one or more issues across one or more modules. Each input is **either** an existing issue (ID/path) **or** a free-form description; output is a planned issue restructured into `context` / `goal` / `dod` / `testing` / `dependencies`, labelled, with state and priority set, optionally split into ordered, self-contained sub-issues (same structure).
@@ -56,8 +58,8 @@ Per create-mode target, derive fields from its slice of the description:
 
 ```bash
 talos issue:create \
-  --title="<title>" --module=<module> --state="Todo" --priority="<priority>" \
-  [--labels="<label1>,<label2>"] [--description="<description>"]
+  --title="<title>" --module=<module> --priority="<priority>" \
+  [--label="<label1>,<label2>"] [--description="<description>"]
 ```
 
 Writes a skeleton to `modules/<module>/issues/<ID>.yml` (`<ID>` auto-generated). Note `<ID>`/`<module>`, continue to step 1.

@@ -6,6 +6,10 @@ Router for AI coding assistants. Every capability below ships as a **skill** (a 
 
 {{NAME}} is a modular TypeScript/Bun backend on the **@talosjs** ecosystem. Code lives in independent modules under `modules/`, each owning its controllers, services, repositories, entities, migrations, and seeds.
 
+## CLI first
+
+Reach for the `talos` or `bun` CLI before doing the same work by hand — it is faster, deterministic, and costs a fraction of the tokens. `talos <artifact>:create` scaffolds files; `talos check --strict` (plus `fmt`, `lint`, `test`, `project:check`, `issue:check`, `coverage:check`, `security:check`, `e2e:run`) verifies them; a single `rg` / `git` / `ls` beats reading files one by one. `talos help` and `talos <command> --help` list what exists — check there first, and write a manual procedure only when no command covers it. Package manager is `bun`/`bunx` only, never `npm`, `npx`, `yarn`, or `pnpm`.
+
 ## How to reach a skill or an agent
 
 This file is shared by every assistant; the same skills and agents are installed under a different layout for each. Find yours:

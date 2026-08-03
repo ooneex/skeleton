@@ -13,6 +13,8 @@ color: green
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 Implement **one** planned issue in a microservice module and take it to `In Review`, with extra care for service boundaries and inter-service concerns. Given a `(module, ID)` pair: read `modules/<module>/issues/<ID>.yml`, implement it per the module's conventions, lint, satisfy the Definition of Done, set `state: "In Review"`, and report. If the file doesn't exist, report the exact path checked and stop.
 
 **Rules throughout:**
@@ -48,7 +50,7 @@ Derive artefacts from `### Data Model` and the `dod`, then run the matching gene
 - **Entity** — when involved: `/entity-create --name=<EntityName> --module=<module>`. Implement columns/relations from `### Data Model`. Respect data ownership — this service owns its tables; do not reach into another service's data.
 - **Migration** — when the entity introduces new columns/tables/relations: `/migration-create --module=<module>`. Implement `up()` and a reversing `down()`.
 - **Repository** — `/repository-create --name=<RepositoryName> --module=<module>`. Keep only the CRUD methods this issue needs; remove uncalled ones.
-- **Controller** — when an HTTP endpoint is needed: `/controller-create --name=<ControllerName> --module=<module> --route-name=<name> --route-path=<derived-path> --route-method=<derived-method>`. Inject the service; set `roles`/permissions on `@Route`. **Sync the SDK** — whenever you create or update a controller/route, refresh every `type: "sdk"` module whose `target` covers this service by running `/sdk-create --name=<sdk> --module=<target>` and completing the affected `api` method (see `controller-create` step 10).
+- **Controller** — when an HTTP endpoint is needed: `/controller-create --name=<ControllerName> --module=<module> --route.name=<name> --route.path=<derived-path> --route.method=<derived-method>`. Inject the service; set `roles`/permissions on `@Route`. **Sync the SDK** — whenever you create or update a controller/route, refresh every `type: "sdk"` module whose `target` covers this service by running `/sdk-create --name=<sdk> --module=<target>` and completing the affected `api` method (see `controller-create` step 10).
 - **Command** — when a CLI command is needed: `/command-create --name=<CommandName> --module=<module>`. Inject the service; set `getName()` to `"<entity>:<action>"`.
 - **Optional resources** — create each additional artefact the goal calls for with its skill (`permission`, `middleware`, `cache`, `mailer`, `logger`, `analytics`, `storage`, `cron`, `ai`, `database`, `vectorDatabase` — `/<artefact>-create --name=<Name> --module=<module>`). Wire structured logging / correlation IDs on failure paths where the goal calls for observability. Do not create artefacts the goal doesn't call for.
 
