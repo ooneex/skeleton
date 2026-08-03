@@ -115,8 +115,67 @@ describe("operationOf", () => {
     expect(operationOf(meta({ payload: { example: { plan: "pro" } } })).requestBody).toBeUndefined();
   });
 
+  test("should nest a body schema the way the fields nest", () => {
+    const operation = operationOf(
+      meta({
+        method: "post",
+        payload: {
+          fields: [
+            {
+              name: "author",
+              type: "object",
+              required: true,
+              fields: [{ name: "displayName", type: "string", required: true }],
+            },
+          ],
+        },
+      }),
+    );
+
+    expect(bodySchema(operation)).toEqual({
+      type: "object",
+      properties: {
+        author: { type: "object", properties: { displayName: { type: "string" } }, required: ["displayName"] },
+      },
+      required: ["author"],
+    });
+  });
+
+  test("should carry a file payload as a form rather than as json", () => {
+    const operation = JSON.parse(
+      JSON.stringify(
+        operationOf(
+          meta({
+            method: "post",
+            payload: { contentType: "multipart", fields: [{ name: "avatar", type: "file", required: true }] },
+          }),
+        ),
+      ),
+    );
+
+    expect(operation.requestBody.content["application/json"]).toBeUndefined();
+    expect(operation.requestBody.content["multipart/form-data"].schema.properties.avatar).toEqual({
+      type: "string",
+      format: "binary",
+    });
+  });
+
   test("should default to a 200 when no response is documented", () => {
     expect(operationOf(meta()).responses).toEqual({ "200": { description: "Successful response" } });
+  });
+
+  test("should describe the answer as the envelope it travels in", () => {
+    const responses = JSON.parse(
+      JSON.stringify(
+        operationOf(meta({ responses: [{ status: 200, fields: [{ name: "granted", type: "boolean" }] }] })),
+      ),
+    ).responses;
+    const schema = responses["200"].content["application/json"].schema;
+
+    // The documented fields name what goes in `data`; the wire carries the
+    // whole envelope, and that is what a consumer parses.
+    expect(schema.properties.success).toEqual({ type: "boolean" });
+    expect(schema.properties.data.properties.granted).toEqual({ type: "boolean" });
   });
 
   test("should answer a streaming route with its own media type", () => {

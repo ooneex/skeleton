@@ -101,6 +101,42 @@ describe("missingRequired", () => {
     expect(missingRequired(route, values())).toEqual([]);
   });
 
+  test("should leave an untouched optional group alone", () => {
+    const route = meta({
+      queries: [
+        {
+          name: "filter",
+          type: "object",
+          required: false,
+          fields: [
+            { name: "since", type: "date", required: true },
+            { name: "author", type: "string", required: false },
+          ],
+        },
+      ],
+    });
+
+    expect(missingRequired(route, values())).toEqual([]);
+  });
+
+  test("should require the rest of an optional group once one of its fields is filled", () => {
+    const route = meta({
+      queries: [
+        {
+          name: "filter",
+          type: "object",
+          required: false,
+          fields: [
+            { name: "since", type: "date", required: true },
+            { name: "author", type: "string", required: false },
+          ],
+        },
+      ],
+    });
+
+    expect(missingRequired(route, values({ queries: { "filter.author": "ada" } }))).toEqual(["filter.since"]);
+  });
+
   test("should report nothing for a route that takes nothing", () => {
     expect(missingRequired(meta({ path: "/api/v1/health", method: "get" }), values())).toEqual([]);
   });

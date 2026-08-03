@@ -61,34 +61,65 @@ export const meta = {
   path: "/api/v2/entitlement/:userId/grants",
   roles: ["ROLE_ADMIN"],
   summary: "Grant an entitlement to a user",   // the decorator's `description`
-  description: "",                             // ← yours
-  params: [{ name: "userId", type: "string", required: true, description: "" }],   // ← descriptions yours
+  description: "…",                            // the JSDoc above the decorator
+  params: [{ name: "userId", type: "string", required: true, description: "…" }],
   payload: {
-    fields: [{ name: "plan", type: '"free" | "pro"', required: true, description: "" }],
+    fields: [{ name: "plan", type: '"free" | "pro"', required: true, description: "…" }],
   },
-  responses: [{ status: 200, description: "" }],   // ← yours, plus every error status
+  responses: [{ status: 200, fields: [{ name: "granted", type: "boolean", required: true }] }],
 } satisfies RouteMetaType;
 ```
 
-Everything below is what you write.
+### 3. Write the documentation — in the controller
 
-### 3. Complete the prose
+**Never edit a `*.route.ts`.** `src/features/` is wiped and rebuilt on every run, so anything written there is lost on the next regeneration. Documentation lives in the controller, as **JSDoc**, and the generator lifts it. That is also the point: the prose sits next to the code it describes, and a reviewer changing a field sees the sentence that has to change with it.
 
-- **`summary`** — one line, imperative, no trailing period beyond the sentence. Keep the decorator's wording unless it is empty or misleading.
-- **`description`** — markdown, and the reason the explorer exists. Cover, in order: **what** the route does, **when to call it**, **what it costs** (does it hit the database, send an email, charge a card, hold a lock?), and **when not to** (the cheaper route, the idempotency caveat, the rate limit). Be concrete: name the entity it touches, the side effects it has, the route to reach for instead.
-- **`tags`** — free-form labels the palette searches. Use them for cross-cutting concerns (`billing`, `monitoring`, `webhook`), not to restate the group.
-- **`deprecated: true`** on a route that still serves but should not be adopted. Say what replaces it in the `description`.
+Write two kinds of block, then **re-run the generator** (step 1).
 
-### 4. Complete the fields
+**Above the decorator — the route's prose.** It becomes `description` in the meta and in the OpenAPI operation. The decorator's own `description:` stays the one-line `summary`; leave it alone unless it is empty or misleading.
 
-Every entry of `params`, `queries`, `headers` and `payload.fields` needs a **`description`** and, wherever a caller could sensibly be handed one, an **`example`**.
+```typescript
+/**
+ * Grant an entitlement to a user.
+ *
+ * Charges the payment method on file and is **not** idempotent — a repeat call
+ * grants a second seat. Call `entitlement.preview` first to check the price.
+ * Answers 409 when the user already holds the plan.
+ */
+@Route.post("/entitlement/:userId/grants", { … })
+```
 
-- **`description`** answers *what makes a value valid*, not what the name already says. `"The user's id"` for `userId` is noise; `"The id of the user the entitlement is granted to. Must be an existing, non-deleted user."` is documentation.
-- **`example`** seeds the try-it form, so a route is runnable before anything is typed. Give a **realistic, safe** value: a plausible uuid, a small page size, a test-mode identifier. Never a real credential, a production id, or personal data.
-- **`type`** is copied from the route type — leave it alone unless it is wrong. It drives the OpenAPI schema: `uuid`/`email`/`url`/`date`/`datetime` gain a `format`, a union of quoted literals becomes an `enum`, a trailing `[]` becomes an array.
-- **`required`** mirrors the route type's optionality. Path parameters are always required, whatever the meta says.
+Cover, in order: **what** it does, **when to call it**, **what it costs** (database, email, card, lock?), and **when not to** (the cheaper route, the idempotency caveat, the rate limit). Name the entity it touches and the route to reach for instead.
+
+**Above a route-type member — the field's documentation.** It becomes that field's `description`, shown in the explorer's Description column and published on the OpenAPI parameter or schema property.
+
+```typescript
+export type GrantRouteType = {
+  queries: {
+    /** Which slice to read, 1-based. Defaults to the first page. */
+    page?: number;
+  };
+  response: {
+    /** Where the returned slice sits in the whole set. */
+    page: {
+      /** 1-based, echoing the `page` query. */
+      index: number;
+    };
+  };
+};
+```
+
+- A description answers *what makes a value valid*, not what the name already says. `"The user's id"` for `userId` is noise; `"The id of the user the entitlement is granted to. Must be an existing, non-deleted user."` is documentation.
+- Nesting is documented at every level — the block above a group describes the group, the blocks inside it describe its members.
+- Only `/** … */` documents. A `// …` line is an aside to whoever reads the controller and is not published.
+- Leave a member undocumented rather than restating its name. An empty cell is honest; noise is not.
+- **`type`** and **`required`** are read off the route type — change the type, not the meta. The type drives the OpenAPI schema: `uuid`/`email`/`url`/`date`/`datetime` gain a `format`, a union of quoted literals becomes an `enum`, a trailing `[]` becomes an array, a nested object literal becomes a nested schema.
+
+### 4. What the generator cannot read yet
+
+`example`, `tags`, `deprecated`, extra error statuses and a non-default `transport` have **no controller-side home**, so they cannot survive a regeneration. Do not write them into a route file expecting them to last. Say what you would have put in an `example` or a `409` in the route's JSDoc prose instead, where it does survive.
+
 - Add a **`headers`** entry only for a header the controller reads itself. `Authorization` is wired by the explorer — never document it.
-- **`payload.example`** is what the Send button actually posts. Keep it valid JSON and consistent with the fields you documented.
 
 **Uploads.** A controller reads a file through `context.request.files[name]`, which only exists for `multipart/form-data`. So a route taking a file declares it:
 
@@ -106,28 +137,19 @@ payload: {
 
 A field typed **`base64`** is the other case — a file carried inside a JSON body. It stays a `json` payload; the panel adds a picker that encodes the chosen file and writes it into that field. Use it only when the API really expects base64: multipart is the framework's own path, and base64 inflates a body by a third.
 
-### 5. Complete the responses
+### 5. Document the answer
 
-List **every** status the route answers with, success first — the error cases are what a reader comes for.
+The generator writes one `200` from the route type's `response` block, field by field, with the JSDoc you put on each member. That is the shape a caller builds against, so document it the same way you document a payload.
 
-```typescript
-responses: [
-  { status: 200, description: "The entitlement is active.", example: { id: "…", plan: "pro" } },
-  { status: 403, description: "The caller lacks ROLE_ADMIN." },
-  { status: 404, description: "No user carries that id." },
-  { status: 409, description: "The user already holds this entitlement — the grant is not re-applied." },
-],
-```
+The other statuses have nowhere to be declared yet (step 4), so name them **in the route's JSDoc prose**: read the controller and the services it calls — every thrown exception is a status. `@talosjs/exception` types map to their HTTP status, and the validation layer answers `422` on any route with an `Assert`ed payload.
 
-Read the controller and the services it calls: every thrown exception is a status. `@talosjs/exception` types map to their HTTP status, and the validation layer answers `422` on any route with an `Assert`ed payload.
-
-**`example` is the `data` payload, not the wire body.** An `http` route answers inside the `ResponseDataType` envelope:
+**A `response` block describes `data`, not the wire body.** An `http` route answers inside the `ResponseDataType` envelope:
 
 ```jsonc
 { "key": null, "data": { "status": "ok" }, "message": null, "success": true, "status": 200, /* … */ }
 ```
 
-Document the **inner `data`** — it is what the SDK hands back (`return response.data`) and what a consumer builds against. Repeating the envelope on every route would bury the one part that differs. The try-it panel shows the real, unwrapped response, and the docs tab says so. Streaming and SSE routes bypass the envelope entirely, so there the example *is* the wire body.
+The route type names the **inner `data`** — it is what the SDK hands back (`return response.data`) and what a consumer builds against, and repeating the envelope on every route would bury the one part that differs. The explorer's Output tab documents `data`; `public/openapi.json` wraps it back in the envelope, because a spec describes the wire. The try-it panel shows the real, unwrapped response, and the docs tab says so. Streaming and SSE routes bypass the envelope entirely.
 
 ### 6. Declare the transport
 

@@ -12,15 +12,26 @@ export const meta = {
   payload: {
     contentType: "multipart",
     fields: [
-      { name: "avatar", type: "file", required: true },
-      { name: "caption", type: "string", required: false },
-      { name: "visibility", type: '"public" | "private"', required: false },
+      { name: "avatar", type: "file", required: true, description: "PNG or JPEG, 2 MB max." },
+      { name: "caption", type: "string", required: false, description: "Shown under the image, 140 characters max." },
+      {
+        name: "visibility",
+        type: '"public" | "private"',
+        required: false,
+        description: "Defaults to private until the image is reviewed.",
+      },
       {
         name: "author",
         type: "object",
         required: false,
+        description: "Credited under the image. Omit it entirely, or fill the whole group.",
         fields: [
-          { name: "displayName", type: "string", required: true },
+          {
+            name: "displayName",
+            type: "string",
+            required: true,
+            description: "The name shown, not the account handle.",
+          },
           { name: "avatarUrl", type: "url", required: false },
         ],
       },
@@ -30,13 +41,14 @@ export const meta = {
     {
       status: 200,
       fields: [
-        { name: "url", type: "url", required: true },
+        { name: "url", type: "url", required: true, description: "Public CDN address of the stored image." },
         {
           name: "dimensions",
           type: "object",
           required: true,
+          description: "The stored image, after any downscaling.",
           fields: [
-            { name: "width", type: "number", required: true },
+            { name: "width", type: "number", required: true, description: "Pixels." },
             { name: "height", type: "number", required: true },
           ],
         },

@@ -9,13 +9,8 @@ type FieldTablePropsType = {
   alwaysRequired?: boolean;
 };
 
-/** Whether any field, at any depth, carries a description worth a column. */
-const anyDescribed = (fields: readonly FieldType[]): boolean =>
-  fields.some((field) => (field.description ?? "") !== "" || anyDescribed(field.fields ?? []));
-
 type FieldRowsPropsType = {
   fields: readonly FieldType[];
-  described: boolean;
   alwaysRequired: boolean;
   depth: number;
 };
@@ -27,7 +22,7 @@ type FieldRowsPropsType = {
  * reader scans a single column of names, and the shape stays legible three
  * levels down where a table-in-a-table would not.
  */
-const FieldRows = ({ fields, described, alwaysRequired, depth }: FieldRowsPropsType) => (
+const FieldRows = ({ fields, alwaysRequired, depth }: FieldRowsPropsType) => (
   <>
     {fields.map((field) => (
       <Fragment key={`${depth}-${field.name}`}>
@@ -43,12 +38,10 @@ const FieldRows = ({ fields, described, alwaysRequired, depth }: FieldRowsPropsT
             </span>
           </TableCell>
           <TableCell className="align-top font-mono text-xs text-muted-foreground">{field.type}</TableCell>
-          {described ? (
-            <TableCell className="align-top text-sm text-muted-foreground">{field.description ?? ""}</TableCell>
-          ) : null}
+          <TableCell className="align-top text-sm text-muted-foreground">{field.description ?? ""}</TableCell>
         </TableRow>
         {(field.fields ?? []).length > 0 ? (
-          <FieldRows fields={field.fields ?? []} described={described} alwaysRequired={false} depth={depth + 1} />
+          <FieldRows fields={field.fields ?? []} alwaysRequired={false} depth={depth + 1} />
         ) : null}
       </Fragment>
     ))}
@@ -59,17 +52,16 @@ const FieldRows = ({ fields, described, alwaysRequired, depth }: FieldRowsPropsT
  * One documented group of values — path params, queries, headers, payload or
  * response fields.
  *
- * The Description column only appears when at least one field has one. Most of
- * what the generator can read off a controller is name, type and optionality;
- * printing an empty third column for every route would be scaffolding, not
- * documentation.
+ * The Description column is always present, empty cells included. A field's
+ * description is the JSDoc written above it in the controller's route type,
+ * which `talos swagger:create` lifts into the meta — so an empty cell is not a
+ * gap in the explorer, it is prose nobody has written yet, and showing the
+ * column is what makes that visible.
  */
 export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTablePropsType) => {
   if (fields.length === 0) {
     return null;
   }
-
-  const described = anyDescribed(fields);
 
   return (
     <section className="flex flex-col gap-2">
@@ -78,12 +70,12 @@ export const FieldTable = ({ title, fields, alwaysRequired = false }: FieldTable
         <TableHeader>
           <TableRow>
             <TableHead className="w-64">Name</TableHead>
-            <TableHead className={described ? "w-40" : undefined}>Type</TableHead>
-            {described ? <TableHead>Description</TableHead> : null}
+            <TableHead className="w-40">Type</TableHead>
+            <TableHead>Description</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          <FieldRows fields={fields} described={described} alwaysRequired={alwaysRequired} depth={0} />
+          <FieldRows fields={fields} alwaysRequired={alwaysRequired} depth={0} />
         </TableBody>
       </Table>
     </section>

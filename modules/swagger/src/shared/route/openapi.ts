@@ -18,6 +18,9 @@ const SCALARS: Record<string, string> = {
   float: "number",
   boolean: "boolean",
   bool: "boolean",
+  // An upload travels as raw bytes multipart-side and as base64 JSON-side.
+  file: "string",
+  base64: "string",
 };
 
 /** The `format:` a scalar name implies, where JSON Schema has one for it. */
@@ -27,6 +30,8 @@ const FORMATS: Record<string, string> = {
   url: "uri",
   date: "date",
   datetime: "date-time",
+  file: "binary",
+  base64: "byte",
 };
 
 /**
@@ -88,12 +93,64 @@ export const schemaOfExample = (value: unknown): SchemaType => {
   }
 };
 
+/**
+ * The schema one documented field describes, nesting included.
+ *
+ * A field that lists members is an object whatever its declared `type` says —
+ * the members are the more precise statement of the two.
+ */
+export const schemaOfField = (field: FieldType): SchemaType => {
+  const children = field.fields ?? [];
+  if (children.length === 0) {
+    return schemaOfType(field.type);
+  }
+  const object = objectSchema(children);
+  return field.type.trim().endsWith("[]") ? { type: "array", items: object } : object;
+};
+
+/** The object schema a list of documented fields adds up to. */
+export const objectSchema = (fields: readonly FieldType[]): SchemaType => {
+  const required = fields.filter((field) => field.required).map((field) => field.name);
+  return {
+    type: "object",
+    properties: Object.fromEntries(fields.map((field) => [field.name, schemaOfField(field)])),
+    ...(required.length > 0 ? { required } : {}),
+  };
+};
+
+/**
+ * The wire shape of a successful answer.
+ *
+ * A route's documented fields name what the handler puts in `data`; the
+ * framework wraps it in an envelope before it reaches the network. A consumer
+ * reading the specification parses the envelope, so that is what the schema has
+ * to describe.
+ */
+export const envelopeSchema = (fields: readonly FieldType[]): SchemaType => ({
+  type: "object",
+  properties: {
+    key: { type: ["string", "null"] },
+    data: objectSchema(fields),
+    message: { type: ["string", "null"] },
+    success: { type: "boolean" },
+    done: { type: "boolean" },
+    status: { type: "integer" },
+    isClientError: { type: "boolean" },
+    isServerError: { type: "boolean" },
+    isNotFound: { type: "boolean" },
+    isUnauthorized: { type: "boolean" },
+    isForbidden: { type: "boolean" },
+    app: { type: "object", properties: { env: { type: "string" } } },
+  },
+  required: ["data", "success", "status"],
+});
+
 const parameter = (field: FieldType, location: "path" | "query" | "header"): SchemaType => ({
   name: field.name,
   in: location,
   required: location === "path" ? true : (field.required ?? false),
   ...(field.description ? { description: field.description } : {}),
-  schema: schemaOfType(field.type),
+  schema: schemaOfField(field),
   ...(field.example === undefined ? {} : { example: field.example }),
 });
 
@@ -108,23 +165,19 @@ const requestBodyOf = (meta: RouteMetaType): SchemaType | undefined => {
     return undefined;
   }
 
-  const { fields, example, description } = meta.payload;
-  const schema =
-    fields && fields.length > 0
-      ? {
-          type: "object",
-          properties: Object.fromEntries(fields.map((field) => [field.name, schemaOfType(field.type)])),
-          required: fields.filter((field) => field.required).map((field) => field.name),
-        }
-      : schemaOfExample(example);
+  const { fields, example, description, contentType } = meta.payload;
+  const schema = fields && fields.length > 0 ? objectSchema(fields) : schemaOfExample(example);
+  // A form carries its fields as parts, so there is no JSON document to show
+  // as an example next to the schema.
+  const media = contentType === "multipart" ? "multipart/form-data" : "application/json";
 
   return {
     required: true,
     ...(description ? { description } : {}),
     content: {
-      "application/json": {
+      [media]: {
         schema,
-        ...(example === undefined ? {} : { example }),
+        ...(example === undefined || media !== "application/json" ? {} : { example }),
       },
     },
   };
@@ -147,15 +200,25 @@ const responsesOf = (meta: RouteMetaType): SchemaType => {
 
   const responses: SchemaType = {};
   for (const response of documented) {
+    // The declared shape is the better source; an example is the fallback for
+    // a meta written by hand that never listed its fields.
+    const fields = response.fields ?? [];
+    const schema =
+      fields.length > 0
+        ? envelopeSchema(fields)
+        : response.example === undefined
+          ? undefined
+          : schemaOfExample(response.example);
+
     responses[String(response.status)] = {
-      description: response.description ?? "",
-      ...(response.example === undefined
+      description: response.description ?? "Successful response",
+      ...(schema === undefined
         ? {}
         : {
             content: {
               [mediaType(meta)]: {
-                schema: schemaOfExample(response.example),
-                example: response.example,
+                schema,
+                ...(response.example === undefined ? {} : { example: response.example }),
               },
             },
           }),

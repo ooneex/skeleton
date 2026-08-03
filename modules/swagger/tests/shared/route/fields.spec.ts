@@ -28,13 +28,23 @@ describe("flattenFields", () => {
     expect(flat[0]?.name).toBe("a.b.c");
   });
 
-  test("should make every leaf of an optional group optional", () => {
-    // Nothing to fill in when the group itself is omitted.
+  test("should keep a required leaf required and name the optional group it sits under", () => {
+    // The contract inside the group holds; whether the group is in play at all
+    // is a separate question, which `within` lets the validator ask.
     const flat = flattenFields([
       { name: "author", type: "object", required: false, fields: [{ name: "name", type: "string", required: true }] },
     ]);
 
-    expect(flat[0]?.required).toBe(false);
+    expect(flat[0]?.required).toBe(true);
+    expect(flat[0]?.within).toBe("author");
+  });
+
+  test("should leave a leaf outside any optional group unqualified", () => {
+    const flat = flattenFields([
+      { name: "author", type: "object", required: true, fields: [{ name: "name", type: "string", required: true }] },
+    ]);
+
+    expect(flat[0]?.within).toBeUndefined();
   });
 
   test("should keep a required leaf of a required group required", () => {
