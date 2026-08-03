@@ -1,8 +1,7 @@
 import { Button } from "@module/design/components/button";
 import type { CommenterModeType, CommenterRectType } from "@module/design/components/commenter";
-import { Commenter } from "@module/design/components/commenter";
+import { COMMENTER_ATTRIBUTE, Commenter } from "@module/design/components/commenter";
 import { Input } from "@module/design/components/input";
-import { Kbd } from "@module/design/components/kbd";
 import { useEffect, useState } from "react";
 import type { MetaType } from "../../shared/story";
 
@@ -52,7 +51,8 @@ const CommenterDemo = ({ defaultMode = "edit", defaultOpen = true, ...handlers }
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap items-center gap-2">
+      {/* Marked as commenter chrome so edit mode does not swallow these clicks into a comment target. */}
+      <div {...{ [COMMENTER_ATTRIBUTE]: "story-controls" }} className="flex flex-wrap items-center gap-2">
         <Button size="xs" variant={mode === "edit" ? "default" : "outline"} onClick={() => setMode("edit")}>
           Edit mode
         </Button>
@@ -62,9 +62,6 @@ const CommenterDemo = ({ defaultMode = "edit", defaultOpen = true, ...handlers }
         <Button size="xs" variant="ghost" onClick={() => setOpen((current) => !current)}>
           {open ? "Hide widget" : "Show widget"}
         </Button>
-        <span className="text-muted-foreground text-xs">
-          or press <Kbd>mod+shift+e</Kbd> / <Kbd>mod+shift+v</Kbd> / <Kbd>mod+shift+c</Kbd>
-        </span>
       </div>
 
       <section id="commenter-demo-page" className="border-border flex flex-col gap-3 rounded-lg border p-4">
@@ -107,7 +104,7 @@ export const meta = {
     "",
     "**How to use it** — mount it once at the root of the app. Give it the four CRUD endpoints (`listUrl`, `createUrl`, `updateUrl`, `deleteUrl`, the last two accepting an `:id` placeholder) and it talks to the backend itself through `@talosjs/fetcher` and TanStack Query, seeding and invalidating its own cache. Without endpoints it falls back to the `comments` prop with the `onCreate` / `onUpdate` / `onDelete` callbacks, and with neither it simply keeps the comments in memory — which is what this preview does. It renders nothing unless `VITE_COMMENTER_ENABLED` is truthy or `enabled` is passed, so production builds stay untouched.",
     "",
-    "**Modes and shortcuts** — `mod+shift+c` shows and hides the panel, `mod+shift+e` switches to edit mode (clicking the page pins a new comment), `mod+shift+v` back to view mode (read only), and Escape steps back out of the capture, then the draft, then edit mode, then the panel. Note that in edit mode the widget swallows page clicks to turn them into comment targets — including clicks on this gallery's own chrome, so the preview mirrors all three toggles as buttons above the demo page.",
+    "**Modes** — the panel header carries everything: the edit toggle (clicking the page pins a new comment), the view toggle (read only) and the close button. Note that in edit mode the widget swallows page clicks to turn them into comment targets, so anything that must stay clickable — like the toggles above the demo page — has to be marked with the `data-commenter` attribute.",
     "",
     "**When to use it** — for design review, QA passes and staging feedback, where the fastest report is the one written on top of the thing being reported. It keeps the reviewer in the page instead of in a ticket form, and hands the team the element, the screenshot and the environment along with the words.",
     "",
