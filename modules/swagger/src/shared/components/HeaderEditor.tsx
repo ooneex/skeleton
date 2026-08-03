@@ -1,5 +1,7 @@
 import { Button } from "@module/design/components/button";
+import { Checkbox } from "@module/design/components/checkbox";
 import { Input } from "@module/design/components/input";
+import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
 import { useId } from "react";
 
 /** One header row. Kept as a list, not a record, so a half-typed name stays editable. */
@@ -51,12 +53,11 @@ export const HeaderEditor = ({ rows, onChange }: HeaderEditorPropsType) => {
             // The row's position is its identity: names are edited character by
             // character and are empty on a fresh row, so they cannot be keys.
             <div key={`${id}-${index}`} className="flex items-center gap-1.5">
-              <input
-                type="checkbox"
+              <Checkbox
+                size="sm"
                 checked={row.enabled}
                 aria-label={row.name === "" ? `Enable header ${index + 1}` : `Enable ${row.name}`}
-                onChange={(event) => update(index, { enabled: event.target.checked })}
-                className="size-3.5 shrink-0 accent-primary"
+                onCheckedChange={(checked) => update(index, { enabled: checked === true })}
               />
               <Input
                 size="xs"
@@ -80,7 +81,7 @@ export const HeaderEditor = ({ rows, onChange }: HeaderEditorPropsType) => {
                 aria-label={`Remove header ${index + 1}`}
                 onClick={() => onChange(rows.filter((_, position) => position !== index))}
               >
-                ×
+                <XmarkIcon />
               </Button>
             </div>
           ))}

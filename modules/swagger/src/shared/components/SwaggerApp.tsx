@@ -1,5 +1,7 @@
+import { Empty } from "@module/design/components/empty";
 import { ScrollArea } from "@module/design/components/scroll-area";
 import { Tabs } from "@module/design/components/tabs";
+import { InlineCode } from "@module/design/components/typography";
 import { PaperPlaneIcon } from "@module/design/icons/outline/communication/sm/PaperPlaneIcon";
 import { BookOpenIcon } from "@module/design/icons/outline/school-education/sm/BookOpenIcon";
 import { getRouteApi } from "@tanstack/react-router";
@@ -156,7 +158,16 @@ export const SwaggerApp = () => {
             </ScrollArea>
           </Tabs>
         ) : (
-          <div className="flex flex-1 items-center justify-center text-muted-foreground">No routes documented yet.</div>
+          <div className="flex flex-1 items-center justify-center p-6">
+            <Empty>
+              <Empty.Header>
+                <Empty.Title>No route documented yet</Empty.Title>
+                <Empty.Description>
+                  Run <InlineCode>talos swagger:create</InlineCode> to generate one meta per registered controller.
+                </Empty.Description>
+              </Empty.Header>
+            </Empty>
+          </div>
         )}
       </div>
 

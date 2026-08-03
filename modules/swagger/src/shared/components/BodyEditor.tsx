@@ -48,6 +48,7 @@ export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPro
                   id={`${id}-${field.name}`}
                   label={field.name}
                   required={field.required}
+                  invalid={missing.includes(field.name)}
                   description={field.description}
                   file={body.files[field.name]}
                   onPick={(file) => {

@@ -1,10 +1,14 @@
 import { Button } from "@module/design/components/button";
+import { Select } from "@module/design/components/select";
 import { ThemeSwitcher } from "@module/design/components/theme";
 import type { RouteEntryType, RouteMetaType } from "../route";
 import { toOpenApiDocument } from "../route";
 import type { EnvironmentType } from "../store/environments";
 import { downloadJson } from "../utils/json";
 import { MethodBadge } from "./MethodBadge";
+
+/** Sentinel value of the "create one" entry, kept out of the environment ids. */
+const NEW_ENVIRONMENT = "__new";
 
 type TopbarPropsType = {
   meta?: RouteMetaType;
@@ -62,25 +66,32 @@ export const Topbar = ({
         <label htmlFor="swagger-environment" className="text-xs text-muted-foreground">
           Environment
         </label>
-        <select
-          id="swagger-environment"
+        <Select
           value={environment.id}
-          onChange={(event) => {
-            if (event.target.value === "__new") {
+          onValueChange={(next) => {
+            const id = String(next ?? "");
+            if (id === NEW_ENVIRONMENT) {
               onCreateEnvironment();
               return;
             }
-            onSelectEnvironment(event.target.value);
+            onSelectEnvironment(id);
           }}
-          className="ring-ring hover:ring-ring-active focus-visible:ring-ring-active h-6 rounded-[min(var(--radius-md),8px)] bg-transparent px-2 text-xs ring outline-none"
         >
-          {environments.map((entry) => (
-            <option key={entry.id} value={entry.id}>
-              {entry.name}
-            </option>
-          ))}
-          <option value="__new">+ New environment…</option>
-        </select>
+          <Select.Trigger id="swagger-environment" size="xs" className="min-w-40">
+            <Select.Value size="xs" />
+          </Select.Trigger>
+          <Select.Content>
+            {environments.map((entry) => (
+              <Select.Item key={entry.id} value={entry.id} size="xs">
+                {entry.name}
+              </Select.Item>
+            ))}
+            <Select.Separator />
+            <Select.Item value={NEW_ENVIRONMENT} size="xs">
+              New environment…
+            </Select.Item>
+          </Select.Content>
+        </Select>
 
         <Button variant="ghost" size="xs" aria-expanded={editorOpen} onClick={onToggleEditor}>
           {editorOpen ? "Close" : "Edit"}

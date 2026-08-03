@@ -1,6 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { Input } from "@module/design/components/input";
 import { Label } from "@module/design/components/label";
+import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
 import { useId, useState } from "react";
 import type { EnvironmentType } from "../store/environments";
 
@@ -142,7 +143,7 @@ export const EnvironmentEditor = ({
                 aria-label={`Remove variable ${index + 1}`}
                 onClick={() => commitRows(rows.filter((_, position) => position !== index))}
               >
-                ×
+                <XmarkIcon />
               </Button>
             </div>
           ))

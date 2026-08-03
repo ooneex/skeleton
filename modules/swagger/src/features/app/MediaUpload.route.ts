@@ -14,6 +14,7 @@ export const meta = {
     fields: [
       { name: "avatar", type: "file", required: true },
       { name: "caption", type: "string", required: false },
+      { name: "visibility", type: '"public" | "private"', required: false },
     ],
   },
   responses: [{ status: 200, fields: [{ name: "url", type: "string", required: true }] }],

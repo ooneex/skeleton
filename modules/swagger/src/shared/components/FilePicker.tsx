@@ -1,12 +1,16 @@
 import { Button } from "@module/design/components/button";
 import { Label } from "@module/design/components/label";
+import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
 import { useRef, useState } from "react";
+import { cn } from "../utils/cn";
 
 type FilePickerPropsType = {
   id: string;
   label: string;
   required?: boolean;
   description?: string;
+  /** The route requires this file and none has been chosen. */
+  invalid?: boolean;
   /** The picked file, for a multipart field. */
   file?: File;
   onPick?: (file: File | undefined) => void;
@@ -52,6 +56,7 @@ export const FilePicker = ({
   id,
   label,
   required,
+  invalid = false,
   description,
   file,
   onPick,
@@ -93,7 +98,13 @@ export const FilePicker = ({
           className="sr-only"
           onChange={(event) => handle(event.target.files?.[0])}
         />
-        <Button variant="outline" size="xs" onClick={() => input.current?.click()}>
+        <Button
+          variant="outline"
+          size="xs"
+          aria-invalid={invalid}
+          className={cn(invalid && "ring-1 ring-destructive")}
+          onClick={() => input.current?.click()}
+        >
           Choose file
         </Button>
         {shown ? (
@@ -112,7 +123,7 @@ export const FilePicker = ({
                 handle(undefined);
               }}
             >
-              ×
+              <XmarkIcon />
             </Button>
           </>
         ) : (

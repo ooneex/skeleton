@@ -1,5 +1,6 @@
 import { Input } from "@module/design/components/input";
 import { Label } from "@module/design/components/label";
+import { Select } from "@module/design/components/select";
 import { Switch } from "@module/design/components/switch";
 import type { FieldType } from "../route";
 import { cn } from "../utils/cn";
@@ -74,23 +75,23 @@ export const FieldInput = ({ field, value, onChange, id, invalid = false }: Fiel
           <span className="text-xs text-muted-foreground">{value === "true" ? "true" : "false"}</span>
         </div>
       ) : options.length > 0 && !usesVariable ? (
-        <select
-          id={id}
-          value={value}
-          aria-invalid={invalid}
-          onChange={(event) => onChange(event.target.value)}
-          className={cn(
-            "ring-ring hover:ring-ring-active focus-visible:ring-ring-active h-8 w-full rounded-[min(var(--radius-md),10px)] bg-transparent px-2.5 py-1 text-sm ring outline-none",
-            invalid && "ring-destructive",
-          )}
-        >
-          <option value="">—</option>
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+        <Select value={value} onValueChange={(next) => onChange(String(next ?? ""))}>
+          <Select.Trigger
+            id={id}
+            size="sm"
+            aria-invalid={invalid}
+            className={cn("w-full", invalid && "ring-destructive")}
+          >
+            <Select.Value placeholder="—" />
+          </Select.Trigger>
+          <Select.Content>
+            {options.map((option) => (
+              <Select.Item key={option} value={option}>
+                {option}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select>
       ) : (
         <Input
           id={id}
