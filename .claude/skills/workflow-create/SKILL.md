@@ -67,7 +67,7 @@ Read and replace `modules/<module>/tests/workflows/<Name>Workflow.spec.ts`.
 ### 4. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

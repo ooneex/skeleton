@@ -71,7 +71,7 @@ Read and replace `modules/<module>/tests/rate-limit/<Name>RateLimiter.spec.ts`:
 ### 4. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

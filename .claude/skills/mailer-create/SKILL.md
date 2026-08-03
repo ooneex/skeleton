@@ -162,7 +162,7 @@ describe("<Name>MailerTemplate", () => {
 ### 5. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

@@ -47,7 +47,7 @@ Drop each index explicitly in `down()` before dropping the table or column it co
 ### 3. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

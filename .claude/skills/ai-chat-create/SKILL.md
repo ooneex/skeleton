@@ -69,7 +69,7 @@ Read and replace `modules/<module>/tests/ai/chats/<Name>Chat.spec.ts`.
 ### 4. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

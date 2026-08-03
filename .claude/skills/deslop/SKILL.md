@@ -40,7 +40,7 @@ Review only the changed lines (plus surrounding file for context); don't touch c
 ## Verify
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing. Keep the final summary concise (1-3 sentences): what was removed and why, and anything left alone because it would change behavior.

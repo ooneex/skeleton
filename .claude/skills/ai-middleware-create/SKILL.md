@@ -78,7 +78,7 @@ Add `<Name>Middleware` to the `getMiddlewares()` array of the chat it applies to
 ### 5. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

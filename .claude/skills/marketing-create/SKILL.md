@@ -165,7 +165,7 @@ The command creates the post folder, its `images/` and `videos/` folders, writes
 ### 7. Verify
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Confirm the folder name, the file name and the `id` all match, that the YAML parses, and that every listed media file is on disk with a valid `a-f0-9` name.

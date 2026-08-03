@@ -141,7 +141,7 @@ Query components by role/text/label (not test IDs) and assert with jest-dom matc
 ### 7. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing.

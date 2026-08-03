@@ -44,6 +44,6 @@ Refresh a design module against upstream `skeleton-design`. Idempotent and addit
 7. **Clean up + verify.**
    ```bash
    rm -rf "$TMPDIR/talos-design-<name>"
-   talos check --modules=<name> --logs
+   talos check --strict --modules=<name> --logs
    ```
    Fix every failure (usually an unresolved import or type error from the merge). Report files created, files merged, deps added, and storybook stories created/updated (and the storybook module) or why none. Hand app-code failures to the `debug` skill.

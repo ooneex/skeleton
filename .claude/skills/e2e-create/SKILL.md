@@ -71,7 +71,7 @@ Trim the `projects` list to the browsers the suite needs; leave the defaults oth
 ## 4. Lint and format
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing. The suite itself runs separately with `bun run e2e` inside `modules/<module>/` (or `talos e2e:run --modules=<module>` from the root — see the `e2e-run` skill) once the target app is running.

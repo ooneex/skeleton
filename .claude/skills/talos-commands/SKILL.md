@@ -106,8 +106,8 @@ talos monorepo:run --commands=build --modules=billing,user   # Only the named mo
 talos monorepo:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos monorepo:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for monorepo:run --commands=e2e — run the Playwright e2e suite
-talos check                                         # Install, build, fmt, lint and test — the full gate
-talos check --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
+talos check --strict                                         # Install, build, fmt, lint and test — the full gate
+talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 ```
 
 `monorepo:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/monorepo/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.

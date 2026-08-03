@@ -44,7 +44,7 @@ Make the smallest change that addresses the root cause, following project conven
 ## 4. Verify
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Confirm the original failure is gone and nothing else broke. Report the root cause, the fix, and how you verified it.

@@ -49,7 +49,7 @@ For each planned artifact, invoke its `<artifact>-create` skill with `--module=<
 ### 4. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict
 ```
 
 Fix every failure before completing. Report the module created, the artifacts filled in, and anything left as a stub for the user to flesh out.

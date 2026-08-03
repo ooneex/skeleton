@@ -77,7 +77,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 8. **Verify** — from the root:
 
    ```bash
-   talos check
+   talos check --strict
    ```
 
    Fix every failure before completing.
