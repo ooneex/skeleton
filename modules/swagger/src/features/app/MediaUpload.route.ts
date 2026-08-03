@@ -26,5 +26,21 @@ export const meta = {
       },
     ],
   },
-  responses: [{ status: 200, fields: [{ name: "url", type: "string", required: true }] }],
+  responses: [
+    {
+      status: 200,
+      fields: [
+        { name: "url", type: "url", required: true },
+        {
+          name: "dimensions",
+          type: "object",
+          required: true,
+          fields: [
+            { name: "width", type: "number", required: true },
+            { name: "height", type: "number", required: true },
+          ],
+        },
+      ],
+    },
+  ],
 } satisfies RouteMetaType;
