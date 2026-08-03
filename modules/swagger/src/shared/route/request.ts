@@ -53,6 +53,14 @@ const BODY_METHODS: readonly MethodType[] = ["post", "put", "patch"];
 
 export const hasBody = (method: MethodType): boolean => BODY_METHODS.includes(method);
 
+/**
+ * Whether a route carries a request payload at all.
+ *
+ * A socket route does — in its message, not in an HTTP body — so asking the
+ * verb alone would document it as taking nothing.
+ */
+export const carriesPayload = (meta: RouteMetaType): boolean => hasBody(meta.method) || transportOf(meta) === "socket";
+
 export const transportOf = (meta: RouteMetaType): TransportType =>
   meta.transport ?? (meta.method === "socket" ? "socket" : "http");
 

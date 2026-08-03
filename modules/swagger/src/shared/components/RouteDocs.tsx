@@ -1,6 +1,6 @@
 import { Badge } from "@module/design/components/badge";
 import type { RouteMetaType } from "../route";
-import { hasBody, transportOf } from "../route";
+import { carriesPayload, transportOf } from "../route";
 import { Markdown } from "../utils/Markdown";
 import { FieldTable } from "./FieldTable";
 import { JsonBlock } from "./JsonBlock";
@@ -24,7 +24,7 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
     (meta.params ?? []).length === 0 &&
     (meta.queries ?? []).length === 0 &&
     (meta.headers ?? []).length === 0 &&
-    !(hasBody(meta.method) && meta.payload);
+    !(carriesPayload(meta) && meta.payload);
 
   return (
     <div className="flex flex-col gap-6">
@@ -67,9 +67,11 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
         <FieldTable title="Query parameters" fields={meta.queries ?? []} />
         <FieldTable title="Headers" fields={meta.headers ?? []} />
 
-        {hasBody(meta.method) && meta.payload ? (
+        {carriesPayload(meta) && meta.payload ? (
           <div className="flex flex-col gap-3">
-            <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Request body</h3>
+            <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              {transport === "socket" ? "Message payload" : "Request body"}
+            </h3>
             {meta.payload.description ? <Markdown content={meta.payload.description} /> : null}
             <FieldTable title="Fields" fields={meta.payload.fields ?? []} />
             {meta.payload.example === undefined ? null : (

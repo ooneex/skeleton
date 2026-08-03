@@ -55,3 +55,13 @@ test("documents a socket route as WS and shows its contract", async ({ page }) =
   await expect(page.getByText("Stream activity events as they happen")).toBeVisible();
   await expect(page.getByText("A WebSocket route.", { exact: false })).toBeVisible();
 });
+
+test("documents the message payload of a socket route", async ({ page }) => {
+  await page.goto("/?route=socket-api-v1-feed");
+
+  // A socket carries its payload in the message, so the docs must not claim the
+  // route takes nothing.
+  await expect(page.getByText("This route takes no parameter and no body.")).toBeHidden();
+  await expect(page.getByText("Message payload")).toBeVisible();
+  await expect(page.getByText("channel", { exact: false }).first()).toBeVisible();
+});

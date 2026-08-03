@@ -18,6 +18,7 @@ export {
   buildEndpoint,
   buildHeaders,
   buildUrl,
+  carriesPayload,
   hasBody,
   isProtected,
   sendRequest,

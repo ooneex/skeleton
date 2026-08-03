@@ -4,6 +4,7 @@ import {
   buildEndpoint,
   buildHeaders,
   buildUrl,
+  carriesPayload,
   hasBody,
   isProtected,
   toCurl,
@@ -199,5 +200,19 @@ describe("the environment token", () => {
   test("should reach the curl line as its real value", () => {
     // A curl that 401s when pasted is worse than no curl at all.
     expect(toCurl(input({ bearerToken: "abc" }))).toContain("-H 'Authorization: Bearer abc'");
+  });
+});
+
+describe("carriesPayload", () => {
+  test("should be true for the verbs that carry an http body", () => {
+    expect(carriesPayload(meta({ method: "post" }))).toBe(true);
+  });
+
+  test("should be true for a socket route — the payload is in its message", () => {
+    expect(carriesPayload(meta({ method: "socket" }))).toBe(true);
+  });
+
+  test("should be false for a get", () => {
+    expect(carriesPayload(meta({ method: "get" }))).toBe(false);
   });
 });
