@@ -324,7 +324,7 @@ A **PUT/PATCH update** combines the two patterns above: `params` (with `new Asse
 
 `ContextType<T>` from `@talosjs/socket` extends the HTTP context and adds a `channel` object:
 
-- `channel.send(response)` — send to this client only · `channel.publish(response)` — broadcast to all channel subscribers
+- `channel.send(response)` — send to this client only · `channel.publish(response)` — broadcast to all channel subscribers. Both take an **`IResponse`**, which `context.response.json(data)` builds — passing a raw object does not type-check.
 - `channel.subscribe()` / `channel.unsubscribe()` / `channel.isSubscribed()` — manage pub/sub
 - `channel.close(code?, reason?)` — close the connection · `channel.ws` — raw `ServerWebSocket` instance
 
@@ -351,7 +351,7 @@ export class ChatMessageController {
     }
 
     // Bind the message to the authenticated sender — never trust a client-supplied id.
-    const reply = context.response.create({
+    const reply = context.response.json({
       userId: context.user?.id ?? "",
       message,
       sentAt: new Date().toISOString(),

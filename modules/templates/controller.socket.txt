@@ -37,8 +37,10 @@ export class {{NAME}}Controller implements IController<{{TYPE_NAME}}RouteType> {
   public async index(context: ContextType<{{TYPE_NAME}}RouteType>): Promise<void> {
     // const { id } = context.params;
 
-    await context.channel.send({
+    // `channel.send` takes an `IResponse`, not a raw object, and
+    // `response.json` is what builds one.
+    await context.channel.send(context.response.json({
 
-    });
+    }));
   }
 }
