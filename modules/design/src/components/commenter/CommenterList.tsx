@@ -126,6 +126,8 @@ export const CommenterList = () => {
                 src={comment.screenshot}
                 alt="Captured area"
                 className="border-border bg-muted max-h-28 w-full rounded border object-contain"
+                width={512}
+                height={112}
               />
             ) : null}
 

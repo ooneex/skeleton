@@ -12,12 +12,24 @@ export const CommenterComposer = () => {
   const [body, setBody] = useState("");
   const [previewBroken, setPreviewBroken] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const previewRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
   useEffect(() => setPreviewBroken(false), [draft?.screenshot]);
+
+  // Bound via addEventListener rather than a JSX onError prop, since the image is a
+  // non-interactive element and the a11y linter flags interaction handlers in JSX.
+  useEffect(() => {
+    const image = previewRef.current;
+    if (!image) return;
+
+    const handleError = () => setPreviewBroken(true);
+    image.addEventListener("error", handleError);
+    return () => image.removeEventListener("error", handleError);
+  }, [draft?.screenshot]);
 
   if (!draft) return null;
 
@@ -52,10 +64,12 @@ export const CommenterComposer = () => {
       {draft.screenshot ? (
         <div className="border-border relative overflow-hidden rounded border">
           <img
+            ref={previewRef}
             src={draft.screenshot}
             alt="Captured area"
             className="bg-muted max-h-32 w-full object-contain"
-            onError={() => setPreviewBroken(true)}
+            width={512}
+            height={128}
           />
           <Button
             size="icon-xs"
