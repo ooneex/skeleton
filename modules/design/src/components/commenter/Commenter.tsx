@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { collectBrowserContext } from "./browserContext";
 import { CommenterCaptureOverlay } from "./CommenterCaptureOverlay";
 import { CommenterPins } from "./CommenterPins";
@@ -114,10 +114,18 @@ const CommenterRoot = ({
     (next: CommenterModeType) => {
       setModeState(next);
       onModeChange?.(next);
-      if (next === "view") setDraft(null);
     },
     [onModeChange],
   );
+
+  // Leaving edit mode drops the draft, whether the host drove the change through
+  // the `mode` prop or the widget switched it from its own header.
+  useEffect(() => {
+    if (mode === "edit") return;
+
+    setDraft(null);
+    setCapturing(false);
+  }, [mode]);
 
   const select = useCallback(
     (id: string | null) => {

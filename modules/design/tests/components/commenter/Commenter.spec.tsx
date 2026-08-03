@@ -114,6 +114,24 @@ describe("Commenter", () => {
     target.remove();
   });
 
+  test("leaving edit mode drops the open draft, even when the host owns the mode", async () => {
+    const user = userEvent.setup();
+    const target = document.createElement("div");
+    target.id = "target";
+    document.body.append(target);
+
+    const { rerender } = render(<Commenter enabled defaultOpen mode="edit" />);
+    await user.click(target);
+    expect(await screen.findByRole("textbox", { name: "Comment" })).toBeInTheDocument();
+
+    rerender(<Commenter enabled defaultOpen mode="view" />);
+
+    expect(screen.queryByRole("textbox", { name: "Comment" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "View mode" })).toHaveAttribute("aria-pressed", "true");
+
+    target.remove();
+  });
+
   test("drops the draft from the composer cancel button", async () => {
     const user = userEvent.setup();
     const target = document.createElement("div");
