@@ -219,7 +219,12 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
 
   if (transport === "socket") {
     return (
-      <SocketPanel url={socketUrl({ ...resolved, bearerToken })} example={meta.payload?.example} blocked={blocked} />
+      <SocketPanel
+        url={socketUrl({ ...resolved, bearerToken })}
+        example={meta.payload?.example}
+        queries={resolved.queries}
+        blocked={blocked}
+      />
     );
   }
 

@@ -16,9 +16,15 @@ test("opens, exchanges and closes a socket route", async ({ page }) => {
       }
       send(raw: string) {
         const sent = JSON.parse(raw);
-        setTimeout(() => this.onmessage?.({ data: JSON.stringify({ success: true, data: { echo: sent.payload } }) }), 20);
+        setTimeout(
+          () => this.onmessage?.({ data: JSON.stringify({ success: true, data: { echo: sent.payload } }) }),
+          20,
+        );
       }
-      close() { this.readyState = 3; this.onclose?.({ code: 1000, reason: "" }); }
+      close() {
+        this.readyState = 3;
+        this.onclose?.({ code: 1000, reason: "" });
+      }
     }
     (window as unknown as { WebSocket: unknown }).WebSocket = FakeSocket;
   });
@@ -33,6 +39,9 @@ test("opens, exchanges and closes a socket route", async ({ page }) => {
 
   await page.getByRole("button", { name: "Send message" }).click();
   await expect(page.getByText("SENT")).toBeVisible();
+  // The message must carry `queries`, even empty: a route declaring `queries:`
+  // rejects a message that omits the key with INVALID_QUERY.
+  await expect(page.locator("pre").filter({ hasText: "queries" }).first()).toBeVisible();
   await expect(page.getByText("RECEIVED")).toBeVisible();
   await expect(page.getByText("orders", { exact: false }).first()).toBeVisible();
 

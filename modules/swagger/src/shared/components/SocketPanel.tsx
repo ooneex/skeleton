@@ -13,6 +13,12 @@ type SocketPanelPropsType = {
   url: string;
   /** Seeds the composer, so a route is sendable before anything is typed. */
   example?: unknown;
+  /**
+   * The queries the message carries. A socket route validates them out of the
+   * message body, not the URL, and a route declaring `queries:` rejects a
+   * message that omits the key entirely — so this always travels, even empty.
+   */
+  queries: Record<string, string>;
   /** Set when the route cannot be run at all — no origin, missing variable, … */
   blocked?: string;
 };
@@ -41,7 +47,7 @@ const STATUS_VARIANT: Record<StatusType, "neutral" | "warning" | "success" | "da
  * many times over it, and everything that crosses the wire is appended to a
  * log rather than replacing a single result.
  */
-export const SocketPanel = ({ url, example, blocked }: SocketPanelPropsType) => {
+export const SocketPanel = ({ url, example, queries, blocked }: SocketPanelPropsType) => {
   const id = useId();
   const [status, setStatus] = useState<StatusType>("idle");
   const [payload, setPayload] = useState<string>(() => formatJson(example ?? {}));
@@ -83,8 +89,9 @@ export const SocketPanel = ({ url, example, blocked }: SocketPanelPropsType) => 
 
   const send = (): void => {
     const parsed = JSON.parse(payload === "" ? "{}" : payload) as Record<string, unknown>;
-    socket.current?.send({ payload: parsed });
-    log("sent", parsed);
+    const message = { payload: parsed, queries };
+    socket.current?.send(message);
+    log("sent", message);
   };
 
   const valid = isValidJson(payload);
