@@ -15,6 +15,10 @@ type CommenterDemoPropsType = {
   onSelect?: (comment: unknown) => void;
 };
 
+/** Reads a theme colour by CSS variable name, so the stub never hardcodes a hex value the theme can't override. */
+const themeColor = (variable: string): string =>
+  getComputedStyle(document.documentElement).getPropertyValue(variable).trim() || "currentcolor";
+
 /**
  * The real capture asks for the screen-share permission, which a gallery preview should
  * not trigger — this stub returns a flat placeholder of the selected size instead, so the
@@ -27,9 +31,9 @@ const captureStub = async (rect: CommenterRectType): Promise<string> => {
 
   const context = canvas.getContext("2d");
   if (context) {
-    context.fillStyle = "#94a3b8";
+    context.fillStyle = themeColor("--muted-foreground");
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = "#0f172a";
+    context.fillStyle = themeColor("--foreground");
     context.font = "14px sans-serif";
     context.fillText(`${canvas.width}×${canvas.height}`, 8, 24);
   }
