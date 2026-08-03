@@ -110,11 +110,19 @@ Rules:
 
 ### 3a. Scan Existing Issues for Dependencies
 
-For each module touched, glob existing issues (`modules/<module>/issues/*.yml` and `packages/` equivalent) and read each `id`, `title`, `goal`.
-- Wire a dependency only when this issue **genuinely can't be implemented until the other completes** (an API this UI calls, an entity this migration extends). Add the prerequisite's `id`.
+Scan **every issue in the project**, not just the modules in this batch — a prerequisite often lives in another module (the API issue a SPA issue waits on, the entity a migration extends). From the monorepo root:
+
+```bash
+bun -e 'for (const f of new Bun.Glob("{modules,packages}/*/issues/*.yml").scanSync(".")) console.log(f)'
+```
+
+Read each candidate's `id`, `module`, `state`, `title`, and `goal`. Batch the reads — grep titles/states across the set first, then open in full only those plausibly related to the issue being planned.
+
+- Wire a dependency only when this issue **genuinely can't be implemented until the other completes**. Add the prerequisite's `id`.
 - **Skip `Done` issues** — only `Todo`/`Planned`/`In Progress` can be prerequisites.
 - Cross-module is fine — reference the ID regardless of location.
-- Never invent a dependency; keep the graph acyclic (no self-dependency).
+- Also check the reverse direction: if an existing `Todo`/`Planned` issue can't proceed until *this* one lands, add this issue's `id` to that issue's `dependencies` and note the edit in step 7.
+- Never invent a dependency; keep the graph acyclic (no self-dependency, no edge back into a chain that already reaches this issue).
 
 Apply to the parent (step 2) and each sub-issue (step 5), on top of intra-batch wiring.
 
