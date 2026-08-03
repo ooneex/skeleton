@@ -116,11 +116,11 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
 
   const transport = transportOf(meta);
   const needsToken = isProtected(meta);
-  // Sent on every route once the environment carries one, not just the ones
-  // that declare roles: an API commonly answers a public route differently to a
-  // known caller, and a token you configured and cannot see leaving is
-  // indistinguishable from a broken explorer.
-  const bearerToken = environment.token.trim() === "" ? undefined : environment.token;
+  // Only the routes that declare roles carry the token. A public route is
+  // exercised as an anonymous caller would exercise it, which is what makes its
+  // result trustworthy — and it keeps a credential away from every endpoint
+  // that has no business seeing one.
+  const bearerToken = needsToken && environment.token.trim() !== "" ? environment.token : undefined;
   const payloadValid = body.kind !== "json" || isValidJson(body.text);
   const variables = useMemo(() => variablesOf(environment), [environment]);
 

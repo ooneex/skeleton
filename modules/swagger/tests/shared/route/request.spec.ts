@@ -188,10 +188,8 @@ describe("toCurl with a multipart body", () => {
 });
 
 describe("the environment token", () => {
-  test("should travel on a public route too", () => {
-    // An API often answers a public route differently to a known caller, so the
-    // explorer forwards whatever the environment carries.
-    expect(buildHeaders(input({ meta: meta({ roles: [] }), bearerToken: "abc" })).Authorization).toBe("Bearer abc");
+  test("should be forwarded when the caller supplies one", () => {
+    expect(buildHeaders(input({ bearerToken: "abc" })).Authorization).toBe("Bearer abc");
   });
 
   test("should be absent when the environment has none", () => {
