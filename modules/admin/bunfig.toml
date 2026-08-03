@@ -12,4 +12,4 @@ coveragePathIgnorePatterns = [
   "dist/**",
 ]
 # Thresholds are enforced per file, so they are capped by the least-covered file.
-coverageThreshold = { lines = 0.9, functions = 0.5, statements = 0.9 }
+coverageThreshold = { lines = 0.99, functions = 0.99, statements = 0.99 }
