@@ -65,6 +65,7 @@ Every generator runs from the repo root and follows `talos-scaffold`.
 | Translate dictionaries | `translation-translate` |
 | Full health check, then fix everything | `project-fix` (always `talos project:check --strict --logs`) |
 | Coverage report | `coverage-check` |
+| Move content to or from a bucket | `storage-push`, `storage-pull` |
 | Dependency CVE audit | `security-check` |
 | Pull upstream scaffold / design / assistant config | `project-update`, `design-update`, `agent-skills-update` |
 

@@ -190,6 +190,19 @@ talos docker:publish --modules=billing,user        # Only the named modules (als
 talos docker:publish --tag=edge                    # Override the image tag (default: package.json version, else latest)
 ```
 
+## Storage
+```bash
+talos storage:push --provider=<cloudflare|bunny|s3> --from=<path> --destination=<bucket path>  # Upload a local file or folder to a bucket
+talos storage:push --provider=cloudflare --from=modules/web/dist --destination=my-bucket/site  # R2: the first destination segment is the bucket
+talos storage:push --provider=s3 --from=var/backup --destination=backups/2026-08 --zip         # Send one zip archive instead of the files
+talos storage:pull --provider=<cloudflare|bunny|s3> --from=<bucket path> --destination=<folder> # Download a bucket path into a local folder
+talos storage:pull --provider=s3 --from=backups/2026-08 --destination=var/restore --unzip       # Unpack each archive that comes down
+```
+
+`storage:push` reads `~/.talos/credentials/<provider>.yml` and uploads over HTTP — Cloudflare R2 and Amazon S3 through the S3 REST API signed with Signature Version 4, Bunny through its storage API. A folder uploads as one object per file, keyed by its path relative to the folder; a single file lands under `--destination` by its own name; `--zip` packs the source into one archive named after it (`dist/` → `dist.zip`). The bucket comes from the profile for `s3` (`bucket`) and `bunny` (`storageZone`), and from the **first segment of `--destination`** for `cloudflare`, whose profile only stores the account endpoint. Objects carry a `Content-Type` inferred from their extension, upload in parallel, and overwrite in place — a push never deletes. Any object that fails prints `<key>: HTTP <status>` and the run exits `1`. Missing options are prompted for, so pass them all in a script.
+
+`storage:pull` is the mirror: it lists `--from` and writes every object under `--destination`, each keeping its path relative to the prefix, creating the folder if needed. A prefix that lists nothing is retried as a single object key, so a typo surfaces as a `404` instead of an empty success. `--unzip` unpacks each `.zip` into a folder named after it (`dist.zip` → `dist/`) rather than writing the archive. Keys arrive from the remote, so any key — or zip entry — that would climb out of `--destination` is skipped with a warning. Like the push it overwrites in place and never deletes, so it mirrors rather than syncs. The `/storage-push` and `/storage-pull` skills wrap these commands.
+
 `npm:publish` packs each target with `bun pm pack` (so workspace deps resolve to real version ranges), then publishes the extracted copy with `npm`, reading the token from `~/.talos/credentials/npm.yml`. `docker:publish` logs in once with `~/.talos/credentials/docker.yml`, then for each target shipping a `Dockerfile` runs `docker build`/`docker push`, tagging `<username>/<name>:<tag>` (non-`docker.io` registries are prefixed). Both accept `--packages`/`--modules` (comma-separated; default all) and `--silent`. Run the matching `*:credentials:create` first.
 
 ## Credentials
@@ -199,7 +212,7 @@ talos npm:credentials:create [--token <token>]                                  
 talos docker:credentials:create [--registry <host>] [--username <user>] [--token <token>]  # Save a Docker registry access token to ~/.talos/credentials/docker.yml
 ```
 
-`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts.
+`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`, plus the three object stores `storage:push` uses — `cloudflare` (alias `r2`), `bunny`, `s3`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password`, `--access-key`, `--secret-key`, `--endpoint`, `--region`, `--bucket`, `--storage-zone` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts.
 
 Credentials are stored per-user under `~/.talos/credentials/*.yml` in a `profiles.default` block. Each command prompts (masked) for anything not passed as a flag and prints the URL where the token can be created.
 
