@@ -113,6 +113,11 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
 
   const transport = transportOf(meta);
   const needsToken = isProtected(meta);
+  // Sent on every route once the environment carries one, not just the ones
+  // that declare roles: an API commonly answers a public route differently to a
+  // known caller, and a token you configured and cannot see leaving is
+  // indistinguishable from a broken explorer.
+  const bearerToken = environment.token.trim() === "" ? undefined : environment.token;
   const payloadValid = body.kind !== "json" || isValidJson(body.text);
   const variables = useMemo(() => variablesOf(environment), [environment]);
 
@@ -175,7 +180,7 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
     try {
       const response = await sendRequest({
         ...resolved,
-        bearerToken: needsToken ? environment.token : undefined,
+        bearerToken,
         signal: next.signal,
         onChunk: (chunk) => setChunks((previous) => [...previous, chunk]),
       });
@@ -220,7 +225,10 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
         {blocked ? <span className="text-xs text-muted-foreground">{blocked}</span> : null}
       </section>
 
-      <JsonBlock label="curl" value={toCurl({ ...resolved, bearerToken: needsToken ? "<token>" : undefined })} />
+      {/* The real token, not a placeholder: a curl line that 401s when pasted is
+          worse than no curl line at all. It is the reader's own credential, and
+          the same panel already reveals it behind Show. */}
+      <JsonBlock label="curl" value={toCurl({ ...resolved, bearerToken })} />
 
       {chunks.length > 0 ? <JsonBlock label={`${chunks.length} chunks`} value={chunks} /> : null}
 

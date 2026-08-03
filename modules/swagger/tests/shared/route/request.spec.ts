@@ -186,3 +186,20 @@ describe("toCurl with a multipart body", () => {
     expect(command).not.toContain("-F 'caption='");
   });
 });
+
+describe("the environment token", () => {
+  test("should travel on a public route too", () => {
+    // An API often answers a public route differently to a known caller, so the
+    // explorer forwards whatever the environment carries.
+    expect(buildHeaders(input({ meta: meta({ roles: [] }), bearerToken: "abc" })).Authorization).toBe("Bearer abc");
+  });
+
+  test("should be absent when the environment has none", () => {
+    expect(buildHeaders(input({ bearerToken: undefined })).Authorization).toBeUndefined();
+  });
+
+  test("should reach the curl line as its real value", () => {
+    // A curl that 401s when pasted is worse than no curl at all.
+    expect(toCurl(input({ bearerToken: "abc" }))).toContain("-H 'Authorization: Bearer abc'");
+  });
+});
