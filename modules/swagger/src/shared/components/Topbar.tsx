@@ -101,12 +101,6 @@ export const Topbar = ({
           {environment.baseURL}
           {meta?.path ?? ""}
         </span>
-
-        <span className="ml-auto text-2xs text-muted-foreground">
-          {environment.token.trim() === ""
-            ? "No token — protected routes cannot run"
-            : "Requests are signed with the environment token"}
-        </span>
       </div>
     </header>
   );
