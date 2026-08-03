@@ -222,7 +222,10 @@ export const sendRequest = async (input: RequestInputType): Promise<RequestResul
   const transport = transportOf(input.meta);
 
   if (transport === "socket") {
-    throw { message: "A socket route is documented here, not executed.", duration: 0 } as RequestErrorType;
+    throw {
+      message: "A socket route is opened by the socket panel, not sent as a request.",
+      duration: 0,
+    } as RequestErrorType;
   }
 
   let body: BodyInit | undefined;

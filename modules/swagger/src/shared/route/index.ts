@@ -26,6 +26,8 @@ export {
 } from "./request";
 export type { FormValuesType } from "./required";
 export { missingRequired } from "./required";
+export type { SocketFrameType, SocketUrlInputType } from "./socket";
+export { frameStamp, socketUrl } from "./socket";
 export type {
   BodyKindType,
   FieldType,

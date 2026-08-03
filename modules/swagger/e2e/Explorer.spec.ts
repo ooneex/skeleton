@@ -29,7 +29,7 @@ test("splits the documentation into input and output", async ({ page }) => {
 });
 
 test("shows the curl line and a header editor in the try-it tab", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/?route=get-api-v1-health");
 
   await page.getByRole("tab", { name: "Try it" }).click();
 
@@ -39,7 +39,7 @@ test("shows the curl line and a header editor in the try-it tab", async ({ page 
 });
 
 test("lets a header be added and disabled", async ({ page }) => {
-  await page.goto("/?tab=try");
+  await page.goto("/?route=get-api-v1-health&tab=try");
 
   await page.getByRole("button", { name: "Add header" }).click();
   await page.getByLabel("Header 1 name").fill("X-Tenant");
@@ -53,7 +53,7 @@ test("lets a header be added and disabled", async ({ page }) => {
 });
 
 test("resolves an environment variable into the request", async ({ page }) => {
-  await page.goto("/?tab=try");
+  await page.goto("/?route=get-api-v1-health&tab=try");
 
   await page.getByRole("button", { name: "Edit" }).click();
   await page.getByRole("button", { name: "Add variable" }).click();
@@ -69,7 +69,7 @@ test("resolves an environment variable into the request", async ({ page }) => {
 });
 
 test("blocks Send while a variable cannot be resolved", async ({ page }) => {
-  await page.goto("/?tab=try");
+  await page.goto("/?route=get-api-v1-health&tab=try");
 
   await page.getByRole("button", { name: "Add header" }).click();
   await page.getByLabel("Header 1 name").fill("X-Region");

@@ -37,11 +37,13 @@ talos swagger:create --name=<name> --module=<target> --design=<design> --prefix=
 - `--design` — the design module the explorer is styled from. Defaults to the one you pick from the existing design modules; a missing one is scaffolded for you.
 - `--prefix` — the route prefix the backend mounts controllers under, baked into every `path` (`/<prefix>/v<version><route>`). Defaults to `api`. **Read the target's bootstrap and pass the prefix it actually mounts** — a wrong prefix makes every Send 404.
 
-**Re-running is safe and is the intended workflow.** On a module that already exists the generator writes **only** `src/features/**` and `public/openapi.json` — the explorer itself is never reinstalled, so an environment panel, a custom column or any other local change survives. An existing `*.route.ts` is never overwritten either. Re-run it whenever a controller is added, renamed or removed.
+**Re-running is safe and is the intended workflow.** On a module that already exists the generator writes **only** `src/features/**` and `public/openapi.json` — the explorer itself is never reinstalled, so an environment panel, a custom column or any other local change survives. Re-run it whenever a controller changes in any way.
 
 Pass `--force` to reinstall the explorer from the template. It discards every local change to the engine, so reach for it only to recover a broken module or to pull an upstream redesign.
 
-After a re-run, **delete the route files of controllers that no longer exist**; the generator cannot tell a removed route from one it simply did not regenerate.
+`src/features/` is **generated output**, rebuilt from scratch on every run. A meta therefore cannot drift from its controller, and the meta of a controller you deleted or unregistered retires on the next run — there is nothing to clean up by hand. The flip side is that anything written into a route file is lost: the meta states what the decorator and the route type state, and nothing else.
+
+Only the controllers a module's `<Name>Module.ts` actually **registers** are documented. A `*Controller.ts` nobody registers serves nothing, so publishing it would advertise a route the app does not answer.
 
 ### 2. Understand the generated shape
 
@@ -136,7 +138,7 @@ Document the **inner `data`** — it is what the SDK hands back (`return respons
 | `context.response.json(...)` | `"http"` (default) | buffers one body |
 | `context.response.stream(...)` | `"stream"` | reads newline-delimited chunks, appending each as it lands |
 | `context.response.sse(...)` | `"sse"` | reads `data:` frames, appending each as it lands |
-| `@Route.socket(...)` | `"socket"` | documents it; the Send button is withheld |
+| `@Route.socket(...)` | `"socket"` | opens a real connection: Connect, send as often as you like, read the frame log |
 
 ### 7. Set up the environments
 

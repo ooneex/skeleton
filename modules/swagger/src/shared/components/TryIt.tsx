@@ -1,7 +1,16 @@
 import { Button } from "@module/design/components/button";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FieldType, RequestBodyType, RequestErrorType, RequestResultType, RouteMetaType } from "../route";
-import { bodyKindOf, hasBody, isProtected, missingRequired, sendRequest, toCurl, transportOf } from "../route";
+import {
+  bodyKindOf,
+  hasBody,
+  isProtected,
+  missingRequired,
+  sendRequest,
+  socketUrl,
+  toCurl,
+  transportOf,
+} from "../route";
 import type { EnvironmentType } from "../store/environments";
 import { variablesOf } from "../store/environments";
 import { interpolate, interpolateAll, missingPlaceholders } from "../utils/interpolate";
@@ -12,6 +21,7 @@ import type { HeaderRowType } from "./HeaderEditor";
 import { HeaderEditor, toHeaderRecord } from "./HeaderEditor";
 import { JsonBlock } from "./JsonBlock";
 import { ResponseViewer } from "./ResponseViewer";
+import { SocketPanel } from "./SocketPanel";
 
 type TryItPropsType = {
   meta: RouteMetaType;
@@ -165,9 +175,6 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
   );
 
   const blockedReason = (): string | undefined => {
-    if (transport === "socket") {
-      return "A socket route is documented here, not executed.";
-    }
     if (resolved.baseURL.trim() === "") {
       return "The active environment has no base URL.";
     }
@@ -209,6 +216,12 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
       setRunning(false);
     }
   };
+
+  if (transport === "socket") {
+    return (
+      <SocketPanel url={socketUrl({ ...resolved, bearerToken })} example={meta.payload?.example} blocked={blocked} />
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6">

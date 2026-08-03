@@ -60,6 +60,9 @@ modules/<name>/                   # type: "swagger"
                                 #       file that touches a Vite transform — never import it from a spec.
         request.ts              #     The runner: `buildEndpoint`, `buildHeaders`, `sendRequest`, `toCurl`, plus the
                                 #       streaming (`ndjson`) and SSE readers. Native `fetch` — no @talosjs client.
+        socket.ts               #     `socketUrl` — the `ws://` address of a socket route, token included as a query
+                                #       parameter, since a browser cannot set a header on a WebSocket.
+        required.ts             #     The documented values a route requires that the form has left empty.
         openapi.ts              #     `toOpenApiDocument` — the in-browser OpenAPI 3.1 export behind the header button.
         index.ts                #     Barrel. Import from `../route`, not from the files, outside `shared/route/`.
       store/                    #   State that outlives a reload.
@@ -73,6 +76,8 @@ modules/<name>/                   # type: "swagger"
         CommandPalette.tsx      #     ⌘K jump-to over path, title and route key.
         RouteDocs.tsx           #     The contract, in two halves: Input (params/queries/headers/body) and Output.
         TryIt.tsx               #     The form + Send, the curl line, streamed chunks, the response.
+        SocketPanel.tsx         #     A socket route instead: Connect/Disconnect, a composer that can be sent many
+                                #       times, and an append-only log of every frame that crossed the wire.
         BodyEditor.tsx          #     The request body: a raw JSON editor, or a field-by-field form for `multipart`.
         FilePicker.tsx          #     Choose a file — sent as-is in a multipart part, or encoded into a base64 field.
         FieldInput.tsx          #     One editable value, typed from the field's declared type.
@@ -93,6 +98,7 @@ modules/<name>/                   # type: "swagger"
 - **Route metas only under `src/features/`.** Every documented endpoint is a `*.route.ts` exporting one `meta satisfies RouteMetaType`, filed under the backend module that serves it. One file, one route.
 - **The generator owns the facts, you own the prose *and the engine*.** `talos swagger:create` writes what a `@Route` decorator states — verb, path, version, roles, declared fields. On a module that already exists it writes **only** `src/features/**` and `public/openapi.json`: the explorer is meant to be extended, so a re-run never reinstalls it. `--force` is the explicit way to ask for the template back. An existing route file is never overwritten either. To author or complete route metas, use the `swagger-create` skill.
 - **Routes are foldered by path, not by module.** `buildTree` splits each `meta.path` after the version segment, so `/api/v1/admin/stats` files under `admin` whatever module serves it. `meta.group` survives for the palette and the OpenAPI tags.
+- **A socket route is opened, not sent.** `transport: "socket"` swaps the try-it tab for `SocketPanel`: the connection is explicit, the composer is reusable, and the exchange is a log rather than one result. `sendRequest` still refuses a socket — it is `fetch`-based and always will be.
 - **A file travels as `multipart`, not as text.** `payload.contentType: "multipart"` switches the body editor to a field-by-field form and the runner to `FormData`, which is the only shape `request.files` is built from. A `base64` field is the exception: it stays inside a JSON body and the picker encodes into it.
 - **Every value passes through `{{variable}}` resolution** before it is sent — URL, headers, parameters and body. An unresolved name is left standing and the Send button is blocked, so a missing variable is visible rather than silently blank.
 - **The engine is `shared/`.** Documenting an endpoint means adding a route file, not editing `SwaggerApp`/`Sidebar`/`TryIt`/`registry` — only touch those when the discovery, layout or execution logic itself must change.
