@@ -1,32 +1,41 @@
 import { Button } from "@module/design/components/button";
-import { Input } from "@module/design/components/input";
 import { ThemeSwitcher } from "@module/design/components/theme";
-import { useId } from "react";
 import type { RouteEntryType, RouteMetaType } from "../route";
 import { toOpenApiDocument } from "../route";
+import type { EnvironmentType } from "../store/environments";
 import { downloadJson } from "../utils/json";
-import type { AuthStateType } from "./AuthButton";
-import { AuthButton } from "./AuthButton";
 import { MethodBadge } from "./MethodBadge";
 
 type TopbarPropsType = {
   meta?: RouteMetaType;
   routes: RouteEntryType[];
-  baseURL: string;
-  onBaseURLChange: (value: string) => void;
-  auth: AuthStateType;
-  onAuthChange: (state: AuthStateType) => void;
+  environments: EnvironmentType[];
+  environment: EnvironmentType;
+  onSelectEnvironment: (id: string) => void;
+  onCreateEnvironment: () => void;
+  editorOpen: boolean;
+  onToggleEditor: () => void;
 };
 
 /**
- * The selected route's identity plus the two settings every request depends on:
- * where the API lives, and who is calling it.
+ * The selected route's identity, plus the environment every request is sent
+ * against — the one setting that changes what "Send" actually does.
  */
-export const Topbar = ({ meta, routes, baseURL, onBaseURLChange, auth, onAuthChange }: TopbarPropsType) => {
-  const id = useId();
-
+export const Topbar = ({
+  meta,
+  routes,
+  environments,
+  environment,
+  onSelectEnvironment,
+  onCreateEnvironment,
+  editorOpen,
+  onToggleEditor,
+}: TopbarPropsType) => {
   const exportSpec = (): void => {
-    downloadJson("openapi.json", toOpenApiDocument(routes, { title: "API", version: "1.0.0", baseURL }));
+    downloadJson(
+      "openapi.json",
+      toOpenApiDocument(routes, { title: "API", version: "1.0.0", baseURL: environment.baseURL }),
+    );
   };
 
   return (
@@ -45,32 +54,48 @@ export const Topbar = ({ meta, routes, baseURL, onBaseURLChange, auth, onAuthCha
           <Button variant="outline" size="xs" onClick={exportSpec}>
             OpenAPI
           </Button>
-          <AuthButton onChange={onAuthChange} />
           <ThemeSwitcher size="xs" />
         </div>
       </div>
+
       <div className="flex flex-wrap items-center gap-2">
-        <label htmlFor={id} className="text-xs text-muted-foreground">
-          API base URL
+        <label htmlFor="swagger-environment" className="text-xs text-muted-foreground">
+          Environment
         </label>
-        <Input
-          id={id}
-          size="xs"
-          value={baseURL}
-          placeholder="http://localhost:8030"
-          className="max-w-72 font-mono"
-          onChange={(event) => onBaseURLChange(event.target.value)}
-        />
-        {meta ? (
-          // The template, not a filled-in URL: the try-it panel owns the values,
-          // and showing `/users/` for an unfilled `:id` reads as a broken route.
-          <span className="truncate font-mono text-2xs text-muted-foreground">
-            {`${baseURL.replace(/\/$/, "")}${meta.path}`}
-          </span>
-        ) : null}
-        {auth.status === "signed-in" ? (
-          <span className="ml-auto text-2xs text-muted-foreground">Requests are signed with your session token</span>
-        ) : null}
+        <select
+          id="swagger-environment"
+          value={environment.id}
+          onChange={(event) => {
+            if (event.target.value === "__new") {
+              onCreateEnvironment();
+              return;
+            }
+            onSelectEnvironment(event.target.value);
+          }}
+          className="ring-ring hover:ring-ring-active focus-visible:ring-ring-active h-6 rounded-[min(var(--radius-md),8px)] bg-transparent px-2 text-xs ring outline-none"
+        >
+          {environments.map((entry) => (
+            <option key={entry.id} value={entry.id}>
+              {entry.name}
+            </option>
+          ))}
+          <option value="__new">+ New environment…</option>
+        </select>
+
+        <Button variant="ghost" size="xs" aria-expanded={editorOpen} onClick={onToggleEditor}>
+          {editorOpen ? "Close" : "Edit"}
+        </Button>
+
+        <span className="truncate font-mono text-2xs text-muted-foreground">
+          {environment.baseURL}
+          {meta?.path ?? ""}
+        </span>
+
+        <span className="ml-auto text-2xs text-muted-foreground">
+          {environment.token.trim() === ""
+            ? "No token — protected routes cannot run"
+            : "Requests are signed with the environment token"}
+        </span>
       </div>
     </header>
   );

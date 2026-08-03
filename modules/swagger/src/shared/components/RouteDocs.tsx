@@ -20,6 +20,11 @@ const TRANSPORT_HINT: Record<string, string> = {
 export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
   const transport = transportOf(meta);
   const hint = TRANSPORT_HINT[transport];
+  const takesNothing =
+    (meta.params ?? []).length === 0 &&
+    (meta.queries ?? []).length === 0 &&
+    (meta.headers ?? []).length === 0 &&
+    !(hasBody(meta.method) && meta.payload);
 
   return (
     <div className="flex flex-col gap-6">
@@ -50,23 +55,34 @@ export const RouteDocs = ({ meta }: RouteDocsPropsType) => {
         {hint ? <p className="text-xs text-muted-foreground">{hint}</p> : null}
       </section>
 
-      <FieldTable title="Path parameters" fields={meta.params ?? []} alwaysRequired />
-      <FieldTable title="Query parameters" fields={meta.queries ?? []} />
-      <FieldTable title="Headers" fields={meta.headers ?? []} />
+      <section className="flex flex-col gap-4">
+        <h2 className="border-b border-border pb-1 text-xs font-semibold uppercase tracking-wide text-foreground">
+          Input
+        </h2>
+        {takesNothing ? (
+          <p className="text-sm text-muted-foreground">This route takes no parameter and no body.</p>
+        ) : null}
 
-      {hasBody(meta.method) && meta.payload ? (
-        <section className="flex flex-col gap-3">
-          <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Request body</h3>
-          {meta.payload.description ? <Markdown content={meta.payload.description} /> : null}
-          <FieldTable title="Fields" fields={meta.payload.fields ?? []} />
-          {meta.payload.example === undefined ? null : (
-            <JsonBlock label="Example request" value={meta.payload.example} />
-          )}
-        </section>
-      ) : null}
+        <FieldTable title="Path parameters" fields={meta.params ?? []} alwaysRequired />
+        <FieldTable title="Query parameters" fields={meta.queries ?? []} />
+        <FieldTable title="Headers" fields={meta.headers ?? []} />
+
+        {hasBody(meta.method) && meta.payload ? (
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Request body</h3>
+            {meta.payload.description ? <Markdown content={meta.payload.description} /> : null}
+            <FieldTable title="Fields" fields={meta.payload.fields ?? []} />
+            {meta.payload.example === undefined ? null : (
+              <JsonBlock label="Example request" value={meta.payload.example} />
+            )}
+          </div>
+        ) : null}
+      </section>
 
       <section className="flex flex-col gap-3">
-        <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Responses</h3>
+        <h2 className="border-b border-border pb-1 text-xs font-semibold uppercase tracking-wide text-foreground">
+          Output
+        </h2>
         {transport === "http" ? (
           <p className="text-xs text-muted-foreground">
             Examples show the <code className="rounded bg-muted px-1 py-0.5">data</code> payload — what the SDK returns.
