@@ -62,7 +62,7 @@ export const CommenterCaptureOverlay = ({ onSelect, onCancel }: CommenterCapture
       onPointerCancel={onCancel}
     >
       <p className="bg-popover text-popover-foreground border-border absolute inset-x-0 top-4 mx-auto w-fit rounded border px-3 py-1.5 text-xs shadow-lg">
-        Drag to select an area — press Escape to cancel
+        Drag to select an area — click anywhere to cancel
       </p>
       {rect ? (
         <div

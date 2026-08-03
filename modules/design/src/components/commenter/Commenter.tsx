@@ -16,16 +16,12 @@ import type {
   CommenterDraftType,
   CommenterModeType,
   CommenterRectType,
-  CommenterShortcutsType,
   CommenterSubmitType,
 } from "./types";
 import { useCreateComment } from "./useCreateComment";
 import { useDeleteComment } from "./useDeleteComment";
 import { useGetComments } from "./useGetComments";
-import { useShortcuts } from "./useShortcuts";
 import { type CommenterPatchType, useUpdateComment } from "./useUpdateComment";
-
-const DEFAULT_SHORTCUTS = { toggle: "mod+shift+c", edit: "mod+shift+e", view: "mod+shift+v" };
 
 export type CommenterPropsType = CommenterEndpointsType & {
   /** Overrides the `VITE_COMMENTER_ENABLED` environment flag. */
@@ -52,7 +48,6 @@ export type CommenterPropsType = CommenterEndpointsType & {
   author?: CommenterAuthorType;
   /** Screenshot strategy. Defaults to the native screen-capture API. */
   capture?: CommenterCaptureType;
-  shortcuts?: CommenterShortcutsType;
   /** Reuse the app's query client instead of the widget's own isolated one. */
   queryClient?: QueryClient;
   className?: string;
@@ -82,12 +77,10 @@ const CommenterRoot = ({
   onSelect,
   author,
   capture = captureArea,
-  shortcuts: shortcutsProp,
   className,
 }: CommenterPropsType) => {
   const active = enabled ?? isCommenterEnabled();
   const page = pageProp ?? window.location.pathname;
-  const shortcuts = useMemo(() => ({ ...DEFAULT_SHORTCUTS, ...shortcutsProp }), [shortcutsProp]);
 
   const [openState, setOpenState] = useState(defaultOpen);
   const [modeState, setModeState] = useState(defaultMode);
@@ -220,41 +213,6 @@ const CommenterRoot = ({
 
   const onPick = useCallback((anchor: CommenterAnchorType) => setDraft({ anchor }), []);
 
-  const dismiss = useCallback(() => {
-    if (capturing) {
-      setCapturing(false);
-      return;
-    }
-    if (draft) {
-      setDraft(null);
-      return;
-    }
-    if (mode === "edit") {
-      setMode("view");
-      return;
-    }
-
-    setOpen(false);
-  }, [capturing, draft, mode, setMode, setOpen]);
-
-  useShortcuts(
-    {
-      [shortcuts.toggle]: () => setOpen(!open),
-      [shortcuts.edit]: () => {
-        setOpen(true);
-        setMode("edit");
-      },
-      [shortcuts.view]: () => {
-        setOpen(true);
-        setMode("view");
-      },
-      escape: () => {
-        if (open) dismiss();
-      },
-    },
-    active,
-  );
-
   const value = useMemo<CommenterContextValueType>(
     () => ({
       mode,
@@ -280,7 +238,6 @@ const CommenterRoot = ({
       cancelCapture: () => setCapturing(false),
       applyCapture,
       close: () => setOpen(false),
-      shortcuts,
     }),
     [
       mode,
@@ -309,7 +266,6 @@ const CommenterRoot = ({
       captureError,
       applyCapture,
       setOpen,
-      shortcuts,
     ],
   );
 
@@ -349,9 +305,8 @@ const CommenterRoot = ({
  * keeps the comments in memory.
  *
  * It renders nothing unless `VITE_COMMENTER_ENABLED` is truthy (or `enabled`
- * is passed), so production builds stay untouched. `mod+shift+c` shows and
- * hides it, `mod+shift+e` / `mod+shift+v` switch between edit and view mode,
- * and Escape backs out of the current step.
+ * is passed), so production builds stay untouched. The panel is driven from
+ * its own header: the edit / view toggles and the close button.
  */
 export const Commenter = ({ queryClient, ...props }: CommenterPropsType) => {
   const client = useMemo(

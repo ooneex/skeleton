@@ -4,6 +4,7 @@ export { type CommenterCaptureType, captureArea } from "./captureArea";
 export { isCommenterEnabled } from "./commenterEnv";
 export { commenterKeys } from "./commenterKeys";
 export { type CommenterEndpointsType, resolveUrl } from "./commenterRequest";
+export { COMMENTER_ATTRIBUTE } from "./elementAnchor";
 export type {
   CommenterAnchorType,
   CommenterAuthorType,
@@ -11,7 +12,6 @@ export type {
   CommenterDraftType,
   CommenterModeType,
   CommenterRectType,
-  CommenterShortcutsType,
   CommenterSubmitType,
 } from "./types";
 export { useCreateComment } from "./useCreateComment";

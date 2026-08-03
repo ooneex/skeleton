@@ -16,7 +16,6 @@ import type {
   CommenterRectType,
   CommenterSubmitType,
 } from "../../../src/components/commenter/types";
-import { matchesShortcut } from "../../../src/components/commenter/useShortcuts";
 
 afterEach(cleanup);
 
@@ -53,37 +52,31 @@ describe("Commenter", () => {
     expect(screen.getByText(/Ada/)).toBeInTheDocument();
   });
 
-  test("toggles visibility with the keyboard shortcut", async () => {
+  test("hides itself from the close button", async () => {
     const user = userEvent.setup();
     const onOpenChange = mock(() => {});
-    render(<Commenter enabled onOpenChange={onOpenChange} />);
+    render(<Commenter enabled defaultOpen onOpenChange={onOpenChange} />);
+
+    await user.click(screen.getByRole("button", { name: "Hide commenter" }));
 
     expect(screen.queryByRole("region", { name: "Feedback commenter" })).not.toBeInTheDocument();
-
-    await user.keyboard("{Control>}{Shift>}c{/Shift}{/Control}");
-
-    expect(screen.getByRole("region", { name: "Feedback commenter" })).toBeInTheDocument();
-    expect(onOpenChange).toHaveBeenCalledWith(true);
-
-    await user.keyboard("{Control>}{Shift>}c{/Shift}{/Control}");
-
-    expect(screen.queryByRole("region", { name: "Feedback commenter" })).not.toBeInTheDocument();
+    expect(onOpenChange).toHaveBeenCalledWith(false);
   });
 
-  test("switches between edit and view mode from the keyboard", async () => {
+  test("switches between edit and view mode from the header toggles", async () => {
     const user = userEvent.setup();
     const onModeChange = mock(() => {});
     render(<Commenter enabled defaultOpen onModeChange={onModeChange} />);
 
-    await user.keyboard("{Control>}{Shift>}e{/Shift}{/Control}");
+    await user.click(screen.getByRole("button", { name: "Edit mode" }));
 
     expect(onModeChange).toHaveBeenLastCalledWith("edit");
-    expect(screen.getByRole("button", { name: /Edit mode/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "Edit mode" })).toHaveAttribute("aria-pressed", "true");
 
-    await user.keyboard("{Control>}{Shift>}v{/Shift}{/Control}");
+    await user.click(screen.getByRole("button", { name: "View mode" }));
 
     expect(onModeChange).toHaveBeenLastCalledWith("view");
-    expect(screen.getByRole("button", { name: /View mode/ })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "View mode" })).toHaveAttribute("aria-pressed", "true");
   });
 
   test("view mode never opens the composer on a page click", async () => {
@@ -121,7 +114,7 @@ describe("Commenter", () => {
     target.remove();
   });
 
-  test("escape drops the draft, then leaves edit mode, then hides the widget", async () => {
+  test("drops the draft from the composer cancel button", async () => {
     const user = userEvent.setup();
     const target = document.createElement("div");
     target.id = "target";
@@ -131,14 +124,8 @@ describe("Commenter", () => {
     await user.click(target);
     expect(await screen.findByRole("textbox", { name: "Comment" })).toBeInTheDocument();
 
-    await user.keyboard("{Escape}");
+    await user.click(screen.getByRole("button", { name: "Cancel" }));
     expect(screen.queryByRole("textbox", { name: "Comment" })).not.toBeInTheDocument();
-
-    await user.keyboard("{Escape}");
-    expect(screen.getByRole("button", { name: /View mode/ })).toHaveAttribute("aria-pressed", "true");
-
-    await user.keyboard("{Escape}");
-    expect(screen.queryByRole("region", { name: "Feedback commenter" })).not.toBeInTheDocument();
 
     target.remove();
   });
@@ -251,19 +238,5 @@ describe("elementAnchor", () => {
 
     expect(created).toMatchObject({ selector: "#boxed", offsetX: 0.25, offsetY: 0.25 });
     target.remove();
-  });
-});
-
-describe("matchesShortcut", () => {
-  test("matches modifiers and key", () => {
-    const event = new KeyboardEvent("keydown", { key: "c", ctrlKey: true, shiftKey: true });
-
-    expect(matchesShortcut(event, "mod+shift+c")).toBe(true);
-    expect(matchesShortcut(event, "mod+c")).toBe(false);
-    expect(matchesShortcut(event, "shift+c")).toBe(false);
-  });
-
-  test("matches a bare key", () => {
-    expect(matchesShortcut(new KeyboardEvent("keydown", { key: "Escape" }), "escape")).toBe(true);
   });
 });

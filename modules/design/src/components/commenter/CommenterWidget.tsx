@@ -1,5 +1,4 @@
 import { Button } from "@module/design/components/button";
-import { Kbd } from "@module/design/components/kbd";
 import { Pen2Icon } from "@module/design/icons/outline/communication/sm/Pen2Icon";
 import { EyeIcon } from "@module/design/icons/outline/ui-layout/sm/EyeIcon";
 import { GripDotsIcon } from "@module/design/icons/outline/ui-layout/sm/GripDotsIcon";
@@ -21,7 +20,7 @@ type CommenterWidgetPropsType = {
 
 /** Draggable panel holding the mode switch, the composer and the comment list. */
 export const CommenterWidget = ({ className }: CommenterWidgetPropsType) => {
-  const { mode, setMode, comments, draft, close, hidden, shortcuts } = useCommenterContext();
+  const { mode, setMode, comments, draft, close, hidden } = useCommenterContext();
   const { position, dragging, handleProps } = useDraggable({
     defaultPosition: { x: Math.max(8, window.innerWidth - WIDGET_SIZE.width - 24), y: 24 },
     storageKey: STORAGE_KEY,
@@ -57,7 +56,7 @@ export const CommenterWidget = ({ className }: CommenterWidgetPropsType) => {
             size="icon-xs"
             variant={mode === "edit" ? "default" : "ghost"}
             aria-pressed={mode === "edit"}
-            aria-label={`Edit mode (${shortcuts.edit})`}
+            aria-label="Edit mode"
             onClick={() => setMode("edit")}
           >
             <Pen2Icon />
@@ -66,7 +65,7 @@ export const CommenterWidget = ({ className }: CommenterWidgetPropsType) => {
             size="icon-xs"
             variant={mode === "view" ? "default" : "ghost"}
             aria-pressed={mode === "view"}
-            aria-label={`View mode (${shortcuts.view})`}
+            aria-label="View mode"
             onClick={() => setMode("view")}
           >
             <EyeIcon />
@@ -81,9 +80,6 @@ export const CommenterWidget = ({ className }: CommenterWidgetPropsType) => {
 
       <footer className="border-border text-muted-foreground flex items-center justify-between gap-2 border-t px-3 py-1.5 text-2xs">
         <span>{mode === "edit" ? "Click an element to comment" : "Read only"}</span>
-        <Kbd.Group>
-          <Kbd>{shortcuts.toggle}</Kbd>
-        </Kbd.Group>
       </footer>
     </section>,
     document.body,

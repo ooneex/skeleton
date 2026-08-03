@@ -3,7 +3,7 @@ import { Textarea } from "@module/design/components/textarea";
 import { PaperPlaneIcon } from "@module/design/icons/outline/communication/sm/PaperPlaneIcon";
 import { CropIcon } from "@module/design/icons/outline/design-development/sm/CropIcon";
 import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
-import { type KeyboardEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCommenterContext } from "./commenterContext";
 
 /** Draft editor: comment body, optional area screenshot, submit and cancel. */
@@ -28,13 +28,6 @@ export const CommenterComposer = () => {
     setBody("");
   };
 
-  const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
-      event.preventDefault();
-      void send();
-    }
-  };
-
   return (
     <div className="flex flex-col gap-2 p-3">
       <p className="text-muted-foreground truncate text-xs">
@@ -48,7 +41,6 @@ export const CommenterComposer = () => {
         placeholder="What's wrong here?"
         rows={3}
         onChange={(event) => setBody(event.target.value)}
-        onKeyDown={onKeyDown}
       />
 
       {shooting ? (

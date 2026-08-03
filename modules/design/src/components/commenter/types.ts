@@ -55,12 +55,3 @@ export type CommenterSubmitType = CommenterDraftType & {
   /** Browser snapshot taken at submit time. */
   context: CommenterBrowserContextType;
 };
-
-export type CommenterShortcutsType = {
-  /** Show or hide the widget. Defaults to `mod+shift+c`. */
-  toggle?: string;
-  /** Switch to edit mode. Defaults to `mod+shift+e`. */
-  edit?: string;
-  /** Switch to view mode. Defaults to `mod+shift+v`. */
-  view?: string;
-};

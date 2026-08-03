@@ -31,7 +31,6 @@ export type CommenterContextValueType = {
   cancelCapture: () => void;
   applyCapture: (rect: CommenterRectType) => Promise<void>;
   close: () => void;
-  shortcuts: { toggle: string; edit: string; view: string };
 };
 
 export const CommenterContext = createContext<CommenterContextValueType | null>(null);
