@@ -7,6 +7,7 @@ import {
   isProtected,
   missingRequired,
   sendRequest,
+  socketMessageQueries,
   socketUrl,
   toCurl,
   transportOf,
@@ -222,7 +223,7 @@ export const TryIt = ({ meta, environment }: TryItPropsType) => {
       <SocketPanel
         url={socketUrl({ ...resolved, bearerToken })}
         example={meta.payload?.example}
-        queries={resolved.queries}
+        queries={socketMessageQueries(resolved.queries, bearerToken)}
         blocked={blocked}
       />
     );

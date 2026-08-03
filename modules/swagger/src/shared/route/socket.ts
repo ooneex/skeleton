@@ -43,3 +43,14 @@ export const socketUrl = (input: SocketUrlInputType): string => {
 
 /** The clock stamp a frame is logged under. */
 export const frameStamp = (at: Date): string => at.toTimeString().slice(0, 8);
+
+/**
+ * The `queries` a socket message must carry.
+ *
+ * The server overwrites `context.queries` from every message, and the auth
+ * middleware runs per message reading `context.queries.bearerToken` — so a
+ * message that omits the token undoes the one the connection URL carried, and
+ * the route answers as if nobody were signed in.
+ */
+export const socketMessageQueries = (queries: Record<string, string>, bearerToken?: string): Record<string, string> =>
+  bearerToken ? { ...queries, bearerToken } : { ...queries };

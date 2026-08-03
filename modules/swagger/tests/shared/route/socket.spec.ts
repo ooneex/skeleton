@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { frameStamp, socketUrl } from "../../../src/shared/route/socket";
+import { frameStamp, socketMessageQueries, socketUrl } from "../../../src/shared/route/socket";
 import type { RouteMetaType } from "../../../src/shared/route/types";
 
 const meta = (overrides: Partial<RouteMetaType> = {}): RouteMetaType => ({
@@ -61,5 +61,22 @@ describe("socketUrl", () => {
 describe("frameStamp", () => {
   test("should render the wall clock as HH:MM:SS", () => {
     expect(frameStamp(new Date(2026, 0, 1, 9, 5, 3))).toBe("09:05:03");
+  });
+});
+
+describe("socketMessageQueries", () => {
+  test("should carry the token in every message", () => {
+    // The server overwrites `context.queries` from each message, and the auth
+    // middleware reads the token from there — omitting it undoes the URL.
+    expect(socketMessageQueries({ since: "10" }, "abc")).toEqual({ since: "10", bearerToken: "abc" });
+  });
+
+  test("should leave the queries alone when there is no token", () => {
+    expect(socketMessageQueries({ since: "10" })).toEqual({ since: "10" });
+  });
+
+  test("should still be an object when there is nothing to send", () => {
+    // A route declaring `queries:` rejects a message that omits the key.
+    expect(socketMessageQueries({})).toEqual({});
   });
 });
