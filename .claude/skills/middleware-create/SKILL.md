@@ -12,6 +12,8 @@ argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — do not ask the user questions;** pick the recommended option and proceed. **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` — check both roots before assuming a path is missing.
 
 Generate a middleware class and test file, then complete the implementation. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, module registration, lint/format, coding conventions); this covers only the middleware-specific parts.
@@ -104,7 +106,7 @@ Add `<Name>Middleware` to the `middlewares` array in `src/<PascalModuleName>Modu
 ### 5. Lint, format, and test
 
 ```bash
-talos check
+talos check --strict --logs
 ```
 
 Fix every failure before completing.

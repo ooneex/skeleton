@@ -104,8 +104,9 @@ test("renders a field name as the code spells it, and nests an object", async ({
 
   // The uppercasing is CSS, so the DOM text cannot reveal it: `userId` rendered
   // as `USERID` loses the word boundary, and only the computed style says so.
+  const nestedId = await nested.getAttribute("id");
   const transform = await page
-    .locator('label[for="' + (await nested.getAttribute("id")) + '"]')
+    .locator(`label[for="${nestedId}"]`)
     .evaluate((node) => getComputedStyle(node).textTransform);
   expect(transform).toBe("none");
 });

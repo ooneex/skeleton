@@ -11,6 +11,8 @@ argument-hint: '[issue-id ...]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
 **Resolve** the local issue IDs from the user's request, then **push** them to Linear with `talos issue:push`. Each issue is created in Linear when it does not exist yet, and updated in place when it does. The command never plans or restructures — it publishes the YAML exactly as it stands.
@@ -18,7 +20,7 @@ argument-hint: '[issue-id ...]'
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
 - **Run every command from the monorepo root.**
-- **Linear credentials are required for the default provider.** `talos issue:push` reads them from `linear.yml`; if the command reports no credentials, tell the user to run `talos linear:credentials:create` and stop. When pushing with `--provider=github`, no Linear credentials are needed, but the `gh` CLI must be installed and authenticated (`gh auth login`).
+- **Linear credentials are required for the default provider.** `talos issue:push` reads them from `linear.yml`; if the command reports no credentials, tell the user to run `talos credentials:create --provider=linear` and stop. When pushing with `--provider=github`, no Linear credentials are needed, but the `gh` CLI must be installed and authenticated (`gh auth login`).
 - **Push publishes local content as-is.** It does not invent, plan, or edit fields. If an issue looks unfinished (empty `title`, missing `goal`/`dod`), surface it — a missing `title` blocks *creating* a brand-new issue in Linear — but still push everything that is ready.
 
 ## 1. Resolve the issue IDs

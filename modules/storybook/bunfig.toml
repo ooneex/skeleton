@@ -1,0 +1,16 @@
+[test]
+coverage = true
+coverageReporter = ["text", "lcov"]
+coverageDir = "coverage"
+coverageSkipTestFiles = true
+coveragePathIgnorePatterns = [
+  "../**",
+  "**/routeTree.gen.ts",
+  "**/*.d.ts",
+  "src/features/stories/**",
+  "e2e/**",
+  "public/**",
+  "dist/**",
+]
+# Thresholds are enforced per file, so they are capped by the least-covered file.
+coverageThreshold = { lines = 0.99, functions = 0.99, statements = 0.99 }

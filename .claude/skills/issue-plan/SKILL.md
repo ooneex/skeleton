@@ -11,6 +11,8 @@ argument-hint: '[issue-id|description]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
 Plan one or more issues across one or more modules. Each input is **either** an existing issue (ID/path) **or** a free-form description; output is a planned issue restructured into `context` / `goal` / `dod` / `testing` / `dependencies`, labelled, with state and priority set, optionally split into ordered, self-contained sub-issues (same structure).
@@ -56,8 +58,8 @@ Per create-mode target, derive fields from its slice of the description:
 
 ```bash
 talos issue:create \
-  --title="<title>" --module=<module> --state="Todo" --priority="<priority>" \
-  [--labels="<label1>,<label2>"] [--description="<description>"]
+  --title="<title>" --module=<module> --priority="<priority>" \
+  [--label="<label1>,<label2>"] [--description="<description>"]
 ```
 
 Writes a skeleton to `modules/<module>/issues/<ID>.yml` (`<ID>` auto-generated). Note `<ID>`/`<module>`, continue to step 1.
@@ -110,11 +112,19 @@ Rules:
 
 ### 3a. Scan Existing Issues for Dependencies
 
-For each module touched, glob existing issues (`modules/<module>/issues/*.yml` and `packages/` equivalent) and read each `id`, `title`, `goal`.
-- Wire a dependency only when this issue **genuinely can't be implemented until the other completes** (an API this UI calls, an entity this migration extends). Add the prerequisite's `id`.
+Scan **every issue in the project**, not just the modules in this batch — a prerequisite often lives in another module (the API issue a SPA issue waits on, the entity a migration extends). From the monorepo root:
+
+```bash
+bun -e 'for (const f of new Bun.Glob("{modules,packages}/*/issues/*.yml").scanSync(".")) console.log(f)'
+```
+
+Read each candidate's `id`, `module`, `state`, `title`, and `goal`. Batch the reads — grep titles/states across the set first, then open in full only those plausibly related to the issue being planned.
+
+- Wire a dependency only when this issue **genuinely can't be implemented until the other completes**. Add the prerequisite's `id`.
 - **Skip `Done` issues** — only `Todo`/`Planned`/`In Progress` can be prerequisites.
 - Cross-module is fine — reference the ID regardless of location.
-- Never invent a dependency; keep the graph acyclic (no self-dependency).
+- Also check the reverse direction: if an existing `Todo`/`Planned` issue can't proceed until *this* one lands, add this issue's `id` to that issue's `dependencies` and note the edit in step 7.
+- Never invent a dependency; keep the graph acyclic (no self-dependency, no edge back into a chain that already reaches this issue).
 
 Apply to the parent (step 2) and each sub-issue (step 5), on top of intra-batch wiring.
 
@@ -200,14 +210,14 @@ comments:
 ## How to Test
 
 `testing` is an **ordered checkbox list** (`1. [ ]`, …) of concrete steps proving the change works end-to-end. Where `dod` states *what must be true*, `testing` states *how to prove it*.
-- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check`, `bun run e2e`, `talos app:start`, a specific `curl`/route).
+- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check --strict --logs`, `bun run e2e`, `talos app:start`, a specific `curl`/route).
 - Cover every `dod` item, including meaningful edge/error cases.
 - Match the module type: backend tests endpoints/services/migrations; SPA/design tests rendered routes and interactions (`talos app:start` + browser flow, `bun run e2e` when a spec exists).
 - Keep self-contained; omit only when nothing is observable (pure chore).
 
 ```yaml
 testing: |
-  1. [ ] Run `talos check` from the root — lint, types, tests pass.
+  1. [ ] Run `talos check --strict --logs` from the root — lint, types, tests pass.
   2. [ ] Start with `talos app:start` and open `/users/new`.
   3. [ ] Submit a duplicate email — rejected with 409 and inline error shows.
 ```

@@ -12,6 +12,8 @@ argument-hint: '<component / icon names or design paths> [→ target storybook m
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — never ask questions.** Infer the targets and target storybook module from the request; on any remaining choice, pick the recommended option and proceed.
 
 Author `*.stories.tsx` files under a storybook module's `src/features/` to preview components/icons from a design module's `src/`. There is **no `talos` generator** — write the files by hand against the `meta` model. For the storybook module layout, the `meta` shape, the registry, and the Canvas/Sidebar/palette engine, see `talos-storybook`; the authoring-critical rules below assume that background.
@@ -58,4 +60,4 @@ Compound = the root attaches sub-components as properties, e.g. `Avatar = Object
 2. **Read each target's source.** Component: list `modules/<design>/src/components/<name>/`, read every file + `index.ts`, determine plain vs. compound (`Object.assign(Root, { … })`), sub-components, their props, and `cva` size/variant options. Icon: read the icon file for its props.
 3. **Mirror a sibling story** in the target storybook — the compound example `features/avatar/` and a plain one if present — for structure, `group` usage, and prose depth.
 4. **Write or update** the stories in `src/features/`, reusing real variant/size names as options, each with `usage`.
-5. **Check** — `talos check` (lint, format, test). Fix every failure. Verify mentally against the model: each `meta.title` yields a sidebar entry under its `group`; dotted titles nest; the `size` control resizes the composed preview; every option shows its `usage`.
+5. **Check** — `talos check --strict --logs` (lint, format, test). Fix every failure. Verify mentally against the model: each `meta.title` yields a sidebar entry under its `group`; dotted titles nest; the `size` control resizes the composed preview; every option shows its `usage`.

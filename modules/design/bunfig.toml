@@ -1,2 +1,16 @@
 [test]
 preload = ["./happydom.ts"]
+
+coverage = true
+# The icon set is ~19k files, so a console table is unreadable: report to lcov only.
+coverageReporter = ["lcov"]
+coverageDir = "coverage"
+coverageSkipTestFiles = true
+coveragePathIgnorePatterns = [
+  "../**",
+  "**/*.d.ts",
+  "**/index.ts",
+  "src/fonts/**",
+  "src/styles/**",
+]
+coverageThreshold = { lines = 0.99, functions = 0.99, statements = 0.99 }

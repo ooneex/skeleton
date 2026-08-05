@@ -1,3 +1,4 @@
+import { Commenter } from "@module/design/components/commenter";
 import { ErrorFallback } from "@module/design/components/error";
 import { PageLoader } from "@module/design/components/loader";
 import { NotFound } from "@module/design/components/not-found";
@@ -21,6 +22,8 @@ function RootComponent() {
       <main className="flex-1 min-h-0 overflow-y-auto p-0">
         <Outlet />
       </main>
+      {/* Review the gallery itself — off unless VITE_COMMENTER_ENABLED is set. */}
+      <Commenter />
       <TanStackDevtools
         config={{
           position: "bottom-right",

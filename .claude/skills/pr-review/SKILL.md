@@ -13,6 +13,8 @@ argument-hint: '[issue-id|module|title]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
@@ -78,6 +80,7 @@ gh pr checkout <pr>       # <pr> = the issue YAML's pr: URL (or PR number)
 Once on the issue's branch:
 
 - **Run `talos project:check --strict --logs`** from the monorepo root — the full workspace gate (install, build, fmt, lint, test) plus the project health checks, run against the branch's code. Report every failure as a blocker; never weaken a check to make it pass, and never fix it here (this skill is read-and-verify — send the issue back to the fixer).
+- **Measure the coverage of what changed.** Run `talos coverage:check --modules=<module> --logs` for every module the branch touches. A branch that adds behaviour without tests shows up here as a module under the threshold with the new files named — report it as a blocker and send it back to the fixer rather than approving on a green `project:check` alone.
 - **Check the Definition of Done.** Walk each `dod` item and confirm the branch's code actually satisfies it — read the changed files (`git diff main...<branch>`), not just the checkbox state. Note any `dod` item checked off but not genuinely met, or unmet entirely.
 - **Run the e2e tests for the testing section.** For each `testing` step that exercises a browser flow, locate the covering spec — `modules/<module>/e2e/<Name>.spec.ts` — and run it with the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when the result depends on live app state). Triage any failure per `e2e-run` (test vs. app regression) and report it — don't weaken assertions. If a `testing` step has no covering spec, flag the gap.
 
@@ -91,4 +94,4 @@ After editing the state, run `talos issue:check --id=<ID>` from the monorepo roo
 
 ## 6. Report
 
-Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, the `talos project:check --strict --logs` result, DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), the `talos issue:check` result, and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).
+Per issue reviewed, report: `id`/`title`/module, the branch and PR URL, the `talos project:check --strict --logs` result, the coverage of each touched module (line/function rates and any file the report named), DoD status (each item met / not met / mis-checked), e2e results (specs run, pass/fail, missing coverage), the `talos issue:check` result, and an overall verdict — **approve** (DoD met, tests green — state promoted to `To Merge`) or **changes requested** (with the concrete blockers — state left `In Review`). Then list every issue skipped in step 2 with its reason (not `In Review`, missing `branch`, or missing `pr`).

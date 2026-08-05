@@ -9,6 +9,8 @@ user-invocable: false
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
@@ -54,8 +56,7 @@ talos sdk:create                         # Generate a browser SDK from module co
 talos docker:create --name <service>     # Add a Docker service to docker-compose.yml
 
 # Issues
-talos issue:create --id <id> --title <title> [--module <name>]  # YAML skeleton (non-interactive)
-talos issue:create --interactive [--module <name>]              # Prompt for ID/title/description
+talos issue:create --title <title> [--module <name>] [--priority <p>] [--label <l1,l2>] [--description <text>]  # YAML skeleton; <ID> is auto-generated, state is always Todo
 talos issue:pull --id <id1>,<id2>,... [--module <name>] [--provider linear|github]   # Pull one or more issues as YAML (defaults to Linear; GitHub uses the gh CLI)
 talos issue:push --id <id1>,<id2>,... [--provider linear|github]                     # Push one or more local issue YAMLs (create or update; defaults to Linear; GitHub uses the gh CLI)
 talos issue:convert --destination <mod1>,<mod2>,...             # Bundle a module/package's issues/*.yml into a single issues.json (src/shared/ for spa|storybook|swagger|admin, otherwise src/)
@@ -108,8 +109,8 @@ talos monorepo:run --commands=build --modules=billing,user   # Only the named mo
 talos monorepo:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos monorepo:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for monorepo:run --commands=e2e — run the Playwright e2e suite
-talos check                                         # Install, build, fmt, lint and test — the full gate
-talos check --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
+talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
+talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 ```
 
 `monorepo:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/monorepo/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
@@ -126,17 +127,27 @@ talos security:check --issues                           # Create one YAML Securi
 
 `security:check` walks the workspace, parses every lockfile it finds (`bun.lock`, `package-lock.json`, `Cargo.lock`, `requirements.txt`, `Pipfile.lock`, `poetry.lock`, `go.sum`, `Gemfile.lock`, `composer.lock`) and checks each resolved package against the **OSV.dev** online database — covering npm (bun/node/react/typescript), PyPI, crates.io, Go, RubyGems and Packagist. No local audit binary is required (only network access). Findings are grouped by module/package folder name and sorted by severity (critical→low), each citing the OSV advisory id, CVE aliases, patched versions and advisory URL. `--issues` writes each finding into the owning module's `issues/` folder (root findings → `modules/shared/issues/`) as a `Todo`, `Security`-labelled issue with priority mapped from severity. If OSV.dev is unreachable the command aborts. The `/security-check` skill wraps this command.
 
+## Test coverage
+```bash
+talos coverage:check --logs                             # Run every module's suite with coverage, report per module (worst first)
+talos coverage:check --logs --modules=billing,user      # Only the named modules (also --packages=a,b)
+talos coverage:check --logs --threshold=80              # Judge against 80% instead of the default 90%
+talos coverage:check --logs --concurrency=1             # Run the suites one at a time (default: cores, capped at 8)
+talos coverage:check --logs --issues                    # Create one YAML issue per failing/under-covered module instead of printing
+```
+
+`coverage:check` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table bun prints (falling back to the module's `lcov.info`). Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
+
 ## Project health
 ```bash
 talos project:check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
-talos project:check --skip=workspace                  # The fast checks only (no install/build/test)
-talos project:check --only=conventions,tests,docs      # Only the named checks
-talos project:check --e2e                             # Add the opt-in end-to-end suite
-talos project:check --modules=billing,user            # Scope every module-aware check to these targets (also --packages=a,b)
-talos project:check --audit-level=high                # Only surface high/critical vulnerabilities
-talos project:check --strict                          # Exit 1 when a check only reports warnings
-talos project:check --json                            # Machine-readable report for CI
-talos project:check --logs                            # Stream plain workspace logs (always pass this as an agent)
+talos project:check --logs --skip=workspace           # The fast checks only (no install/build/test)
+talos project:check --logs --only=conventions,tests,docs  # Only the named checks
+talos project:check --logs --e2e                      # Add the opt-in end-to-end suite
+talos project:check --logs --modules=billing,user     # Scope every module-aware check to these targets (also --packages=a,b)
+talos project:check --logs --audit-level=high         # Only surface high/critical vulnerabilities
+talos project:check --logs --strict                   # Exit 1 when a check only reports warnings
+talos project:check --logs --json                     # Machine-readable report for CI
 ```
 
 **Always invoke it as `talos project:check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
@@ -181,29 +192,33 @@ talos docker:publish --modules=billing,user        # Only the named modules (als
 talos docker:publish --tag=edge                    # Override the image tag (default: package.json version, else latest)
 ```
 
+## Storage
+```bash
+talos storage:push --provider=<cloudflare|bunny|s3> --from=<path> --destination=<bucket path>  # Upload a local file or folder to a bucket
+talos storage:push --provider=cloudflare --from=modules/web/dist --destination=my-bucket/site  # R2: the first destination segment is the bucket
+talos storage:push --provider=s3 --from=var/backup --destination=backups/2026-08 --zip         # Send one zip archive instead of the files
+talos storage:pull --provider=<cloudflare|bunny|s3> --from=<bucket path> --destination=<folder> # Download a bucket path into a local folder
+talos storage:pull --provider=s3 --from=backups/2026-08 --destination=var/restore --unzip       # Unpack each archive that comes down
+```
+
+`storage:push` reads `~/.talos/credentials/<provider>.yml` and uploads over HTTP — Cloudflare R2 and Amazon S3 through the S3 REST API signed with Signature Version 4, Bunny through its storage API. A folder uploads as one object per file, keyed by its path relative to the folder; a single file lands under `--destination` by its own name; `--zip` packs the source into one archive named after it (`dist/` → `dist.zip`). The bucket comes from the profile for `s3` (`bucket`) and `bunny` (`storageZone`), and from the **first segment of `--destination`** for `cloudflare`, whose profile only stores the account endpoint. Objects carry a `Content-Type` inferred from their extension, upload in parallel, and overwrite in place — a push never deletes. Any object that fails prints `<key>: HTTP <status>` and the run exits `1`. Missing options are prompted for, so pass them all in a script.
+
+`storage:pull` is the mirror: it lists `--from` and writes every object under `--destination`, each keeping its path relative to the prefix, creating the folder if needed. A prefix that lists nothing is retried as a single object key, so a typo surfaces as a `404` instead of an empty success. `--unzip` unpacks each `.zip` into a folder named after it (`dist.zip` → `dist/`) rather than writing the archive. Keys arrive from the remote, so any key — or zip entry — that would climb out of `--destination` is skipped with a warning. Like the push it overwrites in place and never deletes, so it mirrors rather than syncs. The `/storage-push` and `/storage-pull` skills wrap these commands.
+
 `npm:publish` packs each target with `bun pm pack` (so workspace deps resolve to real version ranges), then publishes the extracted copy with `npm`, reading the token from `~/.talos/credentials/npm.yml`. `docker:publish` logs in once with `~/.talos/credentials/docker.yml`, then for each target shipping a `Dockerfile` runs `docker build`/`docker push`, tagging `<username>/<name>:<tag>` (non-`docker.io` registries are prefixed). Both accept `--packages`/`--modules` (comma-separated; default all) and `--silent`. Run the matching `*:credentials:create` first.
 
 ## Credentials
 ```bash
+talos credentials:create --provider=<provider>                                             # Save a provider token to ~/.talos/credentials/<provider>.yml
 talos npm:credentials:create [--token <token>]                                             # Save an npm Granular Access Token to ~/.talos/credentials/npm.yml
-talos github:credentials:create [--token <token>]                                          # Save a GitHub Personal Access Token to ~/.talos/credentials/github.yml
-talos gitlab:credentials:create [--token <token>]                                          # Save a GitLab Personal Access Token to ~/.talos/credentials/gitlab.yml
-talos bitbucket:credentials:create [--username <user>] [--token <token>]                   # Save a Bitbucket app password to ~/.talos/credentials/bitbucket.yml
-talos linear:credentials:create [--token <token>]                                          # Save a Linear Personal API key to ~/.talos/credentials/linear.yml
-talos jira:credentials:create [--base-url <url>] [--email <email>] [--token <token>]       # Save a Jira API token to ~/.talos/credentials/jira.yml
 talos docker:credentials:create [--registry <host>] [--username <user>] [--token <token>]  # Save a Docker registry access token to ~/.talos/credentials/docker.yml
 ```
 
+`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`, plus the three object stores `storage:push` uses — `cloudflare` (alias `r2`), `bunny`, `s3`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password`, `--access-key`, `--secret-key`, `--endpoint`, `--region`, `--bucket`, `--storage-zone` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts.
+
 Credentials are stored per-user under `~/.talos/credentials/*.yml` in a `profiles.default` block. Each command prompts (masked) for anything not passed as a flag and prints the URL where the token can be created.
 
-The `*:secret:push` commands create/update a CI secret on the repository resolved from the `origin` remote in the current directory's `.git/config`. Each prompts (masked) for name/value when not passed as a flag, then prints the settings URL:
-```bash
-talos github:secret:push [--name <name>] [--value <value>]                                 # GitHub Actions secret; reads github.yml, encrypts via `gh secret set`
-talos gitlab:secret:push [--name <name>] [--value <value>]                                 # GitLab masked CI/CD variable; reads gitlab.yml, uses the GitLab API
-talos bitbucket:secret:push [--name <name>] [--value <value>]                              # Bitbucket secured Pipelines variable; reads bitbucket.yml, uses the Bitbucket API
-```
-
-`github:secret:push` requires the `gh` CLI (it performs the local encryption GitHub mandates); `gitlab:secret:push` and `bitbucket:secret:push` call the provider REST APIs directly. Run the matching `*:credentials:create` first.
+There is no `talos *:secret:push`. Push a CI secret with the provider's own CLI/API — e.g. `gh secret set <NAME>` for GitHub Actions.
 
 ## Assistant & Shell setup
 ```bash
