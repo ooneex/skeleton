@@ -48,6 +48,8 @@ talos admin:create --name <name> [--design <design>] [--target <api|microservice
 talos admin:remove --name <name>         # Remove an admin module + all references
 talos storybook:create --name <name>     # Scaffold a storybook module (component gallery for a design module)
 talos storybook:remove --name <name>     # Remove a storybook module + all references
+talos swagger:create --name <name> [--module <target>] [--design <design>] [--prefix <prefix>] [--force]  # Scaffold a swagger module (custom API explorer) and generate one route file per controller; on an existing module writes routes + spec only (--force reinstalls the explorer)
+talos swagger:remove --name <name>       # Remove a swagger module + all references
 talos microservice:create --name <name>  # Scaffold a microservice
 talos microservice:remove --name <name>  # Remove a microservice + all references
 talos sdk:create                         # Generate a browser SDK from module controllers
@@ -161,7 +163,7 @@ talos project:check --logs --json                     # Machine-readable report 
 | `dependencies` | one range per dependency, unpinned ranges, undeclared imports, unused packages | never — reported as warnings |
 | `docker` | every compose file: unpinned images, services with no `image`/`build`, clashing host ports, missing `restart` | a service is undefined or two services share a host port |
 | `migrations` | timestamp uniqueness and ordering, `up`/`down` presence, seed YAML validity | two migrations collide, a migration has no `up`, or a seed is invalid YAML |
-| `accessibility` | Biome's `a11y` rules over every UI module's `src/` (`design`, `spa`, `admin`, `storybook`) | an enforced a11y rule errors |
+| `accessibility` | Biome's `a11y` rules over every UI module's `src/` (`design`, `spa`, `admin`, `storybook`, `swagger`) | an enforced a11y rule errors |
 | `translations` | `en` fallback, locale parity and `{{ placeholder }}` drift in every dictionary | a key has no `en` value |
 | `tests` | a mirrored `.spec.ts` for every source file that declares a class or exported function | never — reported as warnings |
 | `docs` | relative links in every markdown document | a link points at a file that does not exist |

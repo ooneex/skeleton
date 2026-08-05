@@ -1,0 +1,15 @@
+{
+  "name": "@module/swagger",
+  "description": "",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "bun test tests",
+    "lint": "tsc --noEmit && bunx biome lint",
+    "fmt": "bunx biome check --write",
+    "e2e": "bunx playwright test",
+    "dev": "bun --bun run vite --port 3032",
+    "build": "bun --bun run vite build",
+    "preview": "bun --bun run vite preview"
+  },
+  "type": "module"
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Talos</title>
+    <defs>
+        <!-- Cast-bronze frame: diagonal sheen across the metal -->
+        <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#E9C488"></stop>
+            <stop offset="0.5" stop-color="#BB823C"></stop>
+            <stop offset="1" stop-color="#6E4517"></stop>
+        </linearGradient>
+        <!-- Recessed inner panel -->
+        <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#241A0E"></stop>
+            <stop offset="1" stop-color="#140D07"></stop>
+        </linearGradient>
+        <!-- Embossed T: bright top highlight into deeper bronze -->
+        <linearGradient id="mono" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FCE6BE"></stop>
+            <stop offset="0.5" stop-color="#E0A559"></stop>
+            <stop offset="1" stop-color="#A86C2C"></stop>
+        </linearGradient>
+        <!-- Verdigris patina inlay -->
+        <linearGradient id="patina" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#5FC1B3"></stop>
+            <stop offset="1" stop-color="#2E8C85"></stop>
+        </linearGradient>
+        <!-- Glossy top sheen -->
+        <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.38"></stop>
+            <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Talos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="frame-tile" fill="url(#frame)" x="0" y="0" width="250" height="250" rx="56"></rect>
+        <rect id="gloss-sheen" fill="url(#gloss)" x="0" y="0" width="250" height="132" rx="56"></rect>
+        <rect id="panel-inset" fill="url(#panel)" x="20" y="20" width="210" height="210" rx="42"></rect>
+        <g id="monogram" fill="url(#mono)">
+            <rect id="crossbar" x="59" y="62" width="132" height="30" rx="9"></rect>
+            <rect id="stem" x="110" y="62" width="30" height="122" rx="9"></rect>
+        </g>
+        <rect id="patina-accent" fill="url(#patina)" x="89" y="197" width="72" height="14" rx="7"></rect>
+    </g>
+</svg>

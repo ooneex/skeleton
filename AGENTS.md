@@ -39,7 +39,7 @@ Only Claude and Roo run agents as separate actors. Everywhere else an agent is a
 | Event / queue / workflow / cron / real-time? | `talos-architecture` |
 | Which `talos` CLI command? | `talos-commands` |
 | Backend module layout, DI, exceptions | `talos-module` |
-| Front-end layout | `talos-design`, `talos-spa`, `talos-admin`, `talos-storybook` |
+| Front-end layout | `talos-design`, `talos-spa`, `talos-admin`, `talos-storybook`, `talos-swagger` |
 | Env vars | `talos-env` |
 | Code style / test style / UI craft | `optimize-conventions`, `optimize-testing`, `optimize-ui` |
 | Generator mechanics (shared by every `*-create`) | `talos-scaffold` |
@@ -48,7 +48,7 @@ Only Claude and Roo run agents as separate actors. Everywhere else an agent is a
 
 - Whole module: `module-create` — scaffolds it and completes the first vertical slice.
 - One artefact: `<artifact>-create` where artifact is `ai-chat`, `ai-middleware`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `react-component`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`, `workflow`, `workflow-transition`.
-- Also `sdk-create` (typed browser SDK from controllers), `storybook-story-create`, `marketing-create`, `clerk-auth-setup`.
+- Also `sdk-create` (typed browser SDK from controllers), `swagger-create` (API explorer from controllers, with prose, field docs, examples and error statuses), `storybook-story-create`, `marketing-create`, `clerk-auth-setup`.
 
 Every generator runs from the repo root and follows `talos-scaffold`.
 

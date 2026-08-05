@@ -63,13 +63,23 @@ A module is a vertical slice of the app: one business domain, all of its layers,
 | `design` | The design system consumed by the SPAs |
 | `storybook` | Component gallery previewing a design module |
 | `sdk` | Typed browser client generated from a backend's controllers |
+| `swagger` | API explorer generated from a backend's controllers — documents every route and runs it against a live backend |
 
 Guidelines that matter: name modules after domains (`user`, `billing`), not layers; never reach into another module's internals — go through its public index; register entities in `SharedModule` (the generators do this for you); read config through the injected `AppEnv`, never `process.env`.
 
 ```bash
-talos module:create --name user     # also: spa:create, admin:create, design:create,
-talos module:remove --name user     # microservice:create, storybook:create, sdk:create
+talos module:create --name user     # also: spa:create, admin:create, design:create, microservice:create,
+talos module:remove --name user     # storybook:create, sdk:create, swagger:create
 ```
+
+A swagger module is generated from a target `api` or `microservice` module: the verb, path, version, roles, and declared `params`/`queries`/`payload` of every `@Route` come from the controllers, so they cannot drift, while the prose, examples, and error statuses stay hand-written in `src/features/<module>/<Name>.route.ts` and survive a re-run. It renders with the linked design module, publishes `public/openapi.json`, and signs in with Clerk so role-guarded routes are runnable — the documentation itself stays public.
+
+```bash
+talos swagger:create                                              # name "swagger", from the app module
+talos swagger:create --name payment-docs --module payment --prefix gateway
+```
+
+Re-run the generator whenever a controller changes, pass the prefix the backend actually mounts (a wrong one makes every request 404), document every status a route answers with — not just the happy path — and give each field a realistic, safe example, since it seeds the try-it form.
 
 ## Migrations
 
@@ -155,9 +165,9 @@ Skills are task procedures for AI assistants, installed under `.claude/skills/` 
 
 **Fix and verify:** `debug` (something is broken), `project-fix` (run every check and repair what it reports), `optimize` (conventions, duplication, dead code), `deslop` (clean the diff before committing), `coverage-check`, `security-check`, `e2e-run`.
 
-**Build:** `module-create` for a whole domain, `<artifact>-create` for a single piece (`entity`, `service`, `controller`, `migration`, `seed`, `spa-feature`, `react-component`, …), `sdk-create`, `storybook-story-create`, `clerk-auth-setup`.
+**Build:** `module-create` for a whole domain, `<artifact>-create` for a single piece (`entity`, `service`, `controller`, `migration`, `seed`, `spa-feature`, `react-component`, …), `sdk-create`, `swagger-create`, `storybook-story-create`, `clerk-auth-setup`.
 
-**Learn the conventions:** `talos-module`, `talos-spa`, `talos-design`, `talos-admin`, `talos-storybook`, `talos-env`, `talos-packages`, `talos-architecture`, `talos-commands`, `optimize-conventions`, `optimize-testing`, `optimize-ui`.
+**Learn the conventions:** `talos-module`, `talos-spa`, `talos-design`, `talos-admin`, `talos-storybook`, `talos-swagger`, `talos-env`, `talos-packages`, `talos-architecture`, `talos-commands`, `optimize-conventions`, `optimize-testing`, `optimize-ui`.
 
 **Maintain:** `database-migrate`, `translation-translate`, `project-update`, `design-update`, `agent-skills-update`.
 

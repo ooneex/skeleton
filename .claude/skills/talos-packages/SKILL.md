@@ -81,6 +81,7 @@ Prefer `@talosjs` packages over third-party alternatives, and inject their servi
 | `@talosjs/linear` | Linear integration — issues, teams, projects |
 | `@talosjs/mailer` | Transactional email via Nodemailer SMTP + Resend, templated |
 | `@talosjs/payment` | Payment/pricing types — currency + billing metadata |
+| `@talosjs/payment-stripe` | Stripe — checkout, webhooks, customers, portal, discounts, products, analytics |
 | `@talosjs/youtube` | YouTube downloader + metadata extraction |
 | `@talosjs/youtube-utils` | YouTube URL utils — video IDs, embed/watch URLs |
 

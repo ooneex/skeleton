@@ -132,6 +132,10 @@
       "name": "@module/storybook",
       "version": "0.0.1",
     },
+    "modules/swagger": {
+      "name": "@module/swagger",
+      "version": "0.0.1",
+    },
   },
   "overrides": {
     "@hono/node-server": "^2.0.5",
@@ -385,6 +389,8 @@
     "@module/spa": ["@module/spa@workspace:modules/spa"],
 
     "@module/storybook": ["@module/storybook@workspace:modules/storybook"],
+
+    "@module/swagger": ["@module/swagger@workspace:modules/swagger"],
 
     "@msgpack/msgpack": ["@msgpack/msgpack@2.8.0", "", {}, "sha512-h9u4u/jiIRKbq25PM+zymTyW6bhTzELvOoUd+AvYriWOAKpLGnIamaET3pnHYoI5iYphAHBI4ayx0MehR+VVPQ=="],
 
