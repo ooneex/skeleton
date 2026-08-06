@@ -1,7 +1,7 @@
 ---
 name: ai-chat-create
 description: Generate a new AI chat class with its test file, then complete the generated code.
-when_to_use: Use when creating a chat that extends the Chat base class from @talosjs/ai (model, system prompts, tools, middlewares).
+when_to_use: Use when creating a chat that extends the Chat base class from @talosjs/ai (model, system prompts, tools, middlewares, skills).
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos ai:chat:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
@@ -30,12 +30,13 @@ talos ai:chat:create --name=<name> --module=<module>
 
 - `--name` — chat class name from its purpose ("a chat that answers support questions" → `Support`). Any casing; the CLI normalizes to PascalCase and appends the `Chat` suffix, so omit it.
 
-**Decide whether tools or middlewares are needed** — read the request; don't generate them by default.
+**Decide whether tools, middlewares, or skills are needed** — read the request; don't generate them by default.
 
 - Tools — when the chat must act or fetch data beyond text generation ("look up an order", "search the docs", "send an email", "query the database"). One tool per distinct capability; else `getTools()` stays empty.
 - Middlewares — for cross-cutting behavior on every run ("log each request", "rate-limit", "redact PII", "check authorization"); else `getMiddlewares()` stays empty.
+- Skills — when a whole procedure is worth packaging: instructions plus the tools that carry them out ("handle a refund end to end", "onboard a new tenant"). One skill per procedure; else `getSkills()` stays empty.
 
-If ambiguous, ask the user rather than guess. For each needed tool/middleware, generate it first with `ai-tool-create` / `ai-middleware-create`, then reference the class in `getTools()` / `getMiddlewares()`.
+If ambiguous, ask the user rather than guess. For each needed tool/middleware/skill, generate it first with `ai-tool-create` / `ai-middleware-create` / `ai-skill-create`, then reference the class in `getTools()` / `getMiddlewares()` / `getSkills()`.
 
 ### 2. Complete the chat class
 
@@ -45,10 +46,11 @@ Read `modules/<module>/src/ai/chats/<Name>Chat.ts`, then implement:
 - `getSystemPrompts()` — the system prompts that define the chat's behavior.
 - `getTools()` — the tool classes the model may call (generate with `ai-tool-create`).
 - `getMiddlewares()` — the middleware classes applied to every run (generate with `ai-middleware-create`).
+- `getSkills()` — the skill classes the chat can draw on (generate with `ai-skill-create`). Their catalogue entries are appended to the system prompts and their tools registered automatically, so they don't need to be repeated in `getTools()`.
 
 ```typescript
 import { Chat, decorator } from "@talosjs/ai";
-import type { AiMiddlewareClassType, AiToolClassType } from "@talosjs/ai";
+import type { AiMiddlewareClassType, AiSkillClassType, AiToolClassType } from "@talosjs/ai";
 
 @decorator.chat()
 export class <Name>Chat extends Chat {
@@ -59,6 +61,8 @@ export class <Name>Chat extends Chat {
   public getTools = (): AiToolClassType[] => [];
 
   public getMiddlewares = (): AiMiddlewareClassType[] => [];
+
+  public getSkills = (): AiSkillClassType[] => [];
 }
 ```
 
@@ -66,7 +70,7 @@ export class <Name>Chat extends Chat {
 
 Read and replace `modules/<module>/tests/ai/chats/<Name>Chat.spec.ts`.
 
-**Coverage:** class identity (`name.endsWith("Chat")`); `getModel` returns a non-empty `provider/model` string; `getSystemPrompts`/`getTools`/`getMiddlewares` return arrays; `run` and `stream` exist. After implementing, add assertions for the specific model, prompts, and tools.
+**Coverage:** class identity (`name.endsWith("Chat")`); `getModel` returns a non-empty `provider/model` string; `getSystemPrompts`/`getTools`/`getMiddlewares`/`getSkills` return arrays; `run` and `stream` exist. After implementing, add assertions for the specific model, prompts, tools, and skills.
 
 ### 4. Lint, format, and test
 

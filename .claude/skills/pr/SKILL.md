@@ -1,6 +1,6 @@
 ---
 name: pr
-description: Create a pull request for the current branch. Pushes the branch, analyzes the commits and diff against the base branch, then opens a PR with the GitHub CLI using a conventional title and a structured Summary / Changes / Testing body.
+description: Create a pull request for the current branch. Pushes the branch, analyzes the commits and diff against the base branch, then opens a PR with the GitHub CLI using a conventional title and a structured Summary / Changes / Testing body. A branch built on another unmerged branch is opened as a layer of a stacked PR chain, targeting the branch below it.
 when_to_use: Use when the user wants to open a pull request for the current branch. Triggers on requests like "create a PR", "open a pull request", or "raise a PR".
 model: sonnet
 effort: medium
@@ -22,12 +22,12 @@ Open a pull request for the current branch. **Run every command from the monorep
 
 ## Workflow
 
-1. **Base branch** — usually `main` (`git remote show origin` to confirm the default).
-2. **Current branch** — `git rev-parse --abbrev-ref HEAD`. If it is the base branch, create a feature branch first and move the work to it.
+1. **Current branch** — `git rev-parse --abbrev-ref HEAD`. If it is the repo's default branch, create a feature branch first and move the work to it.
+2. **Base branch** — usually `main` (`git remote show origin` to confirm the default). If the branch belongs to a [stack](#stacked-branches), the base is the branch **below** it instead.
 3. **Sync** — ensure `git status --porcelain` is clean. Commit any uncommitted changes yourself using the `commit` skill's module-grouping, type, and subject rules (`commit` is user-invoked only — do not invoke it as a tool).
-4. **Push** — push using **only** the `gh` cli (never `git push`/`git pull` or ssh/http). Use `gh auth switch` to find the active account. Never force-push unless the user explicitly asks.
+4. **Push** — push using **only** the `gh` cli (never `git push`/`git pull` or ssh/http), or `gh stack push` for a stack branch. Use `gh auth switch` to find the active account. Never force-push unless the user explicitly asks.
 5. **Analyze** — review `git log <base>..<branch>` and `git diff <base>...<branch>` for scope.
-6. **Open** — `gh pr create` with a conventional title and structured body.
+6. **Open** — `gh pr create --base <base>` with a conventional title and structured body.
 7. **Report** — print the PR URL returned by `gh`.
 
 ## Title
@@ -76,6 +76,17 @@ gh pr create \
 EOF
 )"
 ```
+
+## Stacked branches
+
+When the branch builds on another unmerged branch rather than on main, open its PR as a layer of a [stacked PR](https://docs.github.com/en/pull-requests/get-started/about-stacked-prs) chain so reviewers see only that layer's diff and each layer can merge on its own.
+
+Detect it with `gh stack view --short` (needs `gh extension install github/gh-stack`; if the extension or the feature is unavailable, target main and note the dependency in the body). The branch is a layer when `gh stack view` lists it, or when its commits sit on top of another open PR's head.
+
+- **Base** — the branch directly below it in the stack; main for the bottom layer.
+- **Scope** — `git log <base>..<branch>` / `git diff <base>...<branch>` describes only this layer. Open the body with its position and the PR it builds on, e.g. `Layer 2 of 3 — stacked on #123.`
+- **Link** — once two or more layers have PRs, `gh stack sync` links them into a stack on GitHub. Without local tracking, `gh stack link <bottom-branch> … <top-branch>` does the same in one shot, pushing branches and fixing any mis-targeted base.
+- **Rebasing** — `gh stack rebase` / `gh stack sync` only. Never hand-rebase or force-push a stack.
 
 ## Special Cases
 

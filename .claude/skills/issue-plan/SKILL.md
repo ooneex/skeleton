@@ -1,6 +1,6 @@
 ---
 name: issue-plan
-description: Create and plan one or more YAML issues from the user's input. Infers target issues and modules from whatever the user says — existing issue files/IDs and/or free-form descriptions, across one or more modules. For each description it scaffolds the issue with talos issue:create (inferring the module), then plans it — restructuring into context, goal, definition of done, and dependencies, extracting labels, and optionally splitting into ordered sub-issues with the same structure. Reads/writes modules/<module>/issues/<ID>.yml.
+description: Create and plan one or more YAML issues from the user's input. Infers target issues and modules from whatever the user says — existing issue files/IDs and/or free-form descriptions, across one or more modules. For each description it scaffolds the issue with talos issue:create (inferring the module, and scaffolding the module itself when the user names one that doesn't exist yet), then plans it — restructuring into context, goal, definition of done, and dependencies, extracting labels, and optionally splitting into ordered sub-issues with the same structure. Reads/writes modules/<module>/issues/<ID>.yml.
 when_to_use: Use when the user wants to create and plan one or more YAML issues from descriptions or existing issue files. Triggers on requests like "create an issue", "plan this issue", or "turn this into issues".
 model: opus
 effort: high
@@ -26,7 +26,7 @@ Plan one or more issues across one or more modules. Each input is **either** an 
 
 ### Plan Mode First
 
-Investigate in Claude Code's read-only plan mode: resolve targets, read issue files and module configs, work out restructuring/labelling/splitting. Present the plan, then **exit to execute** — all repo writes (`talos issue:create`, YAML rewrites, parent deletion) happen only after leaving plan mode.
+Investigate in Claude Code's read-only plan mode: resolve targets, read issue files and module configs, work out restructuring/labelling/splitting. Present the plan — including any module that has to be scaffolded first (step 0b) — then **exit to execute**: all repo writes (module scaffolding, `talos issue:create`, YAML rewrites, parent deletion) happen only after leaving plan mode.
 
 ### 0. Resolve Targets and Mode
 
@@ -49,7 +49,7 @@ Per create-mode target, derive fields from its slice of the description:
 | Field | Default | Derive |
 |-------|---------|--------|
 | `title` | required | Concise, action-oriented (verb + noun). Use the user's wording; never invent. |
-| `module` | `shared` | Match domain nouns to a module under `modules/` (e.g. "user profile" → `user`). Verify it exists; else `shared` and say so. |
+| `module` | `shared` | Named explicitly by the user → use it verbatim; if it doesn't exist, **create it** (step 0b). Otherwise match domain nouns to an existing module under `modules/`/`packages/` (e.g. "user profile" → `user`); an inferred module that doesn't exist falls back to `shared` — say so, never scaffold on a guess. |
 | `priority` | inferred (step 3) | Infer from description; honor any stated priority. |
 | `labels` | `[]` | Suggest from description (step 3 vocabulary). |
 | `description` | `null` | The user's text as-is. |
@@ -63,6 +63,26 @@ talos issue:create \
 ```
 
 Writes a skeleton to `modules/<module>/issues/<ID>.yml` (`<ID>` auto-generated). Note `<ID>`/`<module>`, continue to step 1.
+
+### 0b. Create an Explicitly Requested Module That Doesn't Exist
+
+Trigger — **both** must hold, otherwise skip this step:
+- The user **names the module explicitly** ("in the `billing` module", "add a `checkout` spa"), rather than it being inferred from domain nouns.
+- Neither `modules/<module>/` nor `packages/<module>/` exists.
+
+Scaffold it **before** `talos issue:create`, so the issue lands in a real module. Pick the generator from the module kind the request describes; a backend domain module is the default when nothing points elsewhere:
+
+```bash
+talos module:create --name=<module> --destination=<app|api-or-microservice module>  # backend domain module (default)
+talos microservice:create --name=<module>                                           # standalone service
+talos spa:create --name=<module> [--design=<design>] [--target=<api|microservice>]   # front-end SPA
+talos admin:create --name=<module> [--design=<design>] [--target=<api|microservice>] # back-office SPA
+talos design:create --name=<module>                                                 # design system
+talos storybook:create --name=<module>                                              # component gallery
+talos swagger:create --name=<module> [--module=<target>]                            # API explorer
+```
+
+Only the module skeleton — this step never fills in artifacts (entities, routes, components); that work is what the issue plans. Then continue to step 0a's `talos issue:create` with the new `<module>`, and read its fresh `<module>.yml` `type` in step 1 as usual. Report each module created in step 7; if the generator fails, fall back to `shared`, note it, and keep going.
 
 ### 1. Locate the Issue File and Module Type
 
@@ -141,6 +161,8 @@ Break into 3–7 small, self-contained, independently implementable sub-issues r
 - Order by implementation sequence via `dependencies` (sub-issue IDs, `[]` when none).
 - Use the same five fields scoped to the sub-issue, `context` also noting how it fits the larger plan.
 
+`dependencies` is what makes the split shippable: `issue-fix` turns a dependency chain into a [stacked PR](https://docs.github.com/en/pull-requests/get-started/about-stacked-prs) chain — one small PR per sub-issue, each targeting the one below, reviewable and mergeable on its own without waiting for the rest. So split along that grain: put foundations (shared types, schema, migrations) in the earliest sub-issues and what builds on them after, and give each sub-issue an honest `dependencies` list. Leave genuinely independent sub-issues at `[]` — they ship as separate PRs instead of being chained for nothing.
+
 When implementation detail is needed, `goal` includes the type-matched subsection. Backend `### Data Model` lists each relation with the exact owning field, decorator, and inverse/FK/join owner:
 ```
 - `EntityA.fieldName` → `@OneToMany(() => EntityB, (b) => b.a)` — one A has many Bs
@@ -198,7 +220,7 @@ Fix everything it reports and re-run until clean (exit `0`). It catches exactly 
 
 ### 7. Confirm the Batch
 
-Report a batch summary. Per issue: `id`, `title`, module, mode (created vs. planned-in-place), final `priority`/`labels`, and whether split (listing sub-issue IDs/titles). Then list skipped/unplannable targets (state not `Todo` + its state; file not found + exact path; ambiguous grouping).
+Report a batch summary. Per issue: `id`, `title`, module (flagging any module scaffolded in step 0b), mode (created vs. planned-in-place), final `priority`/`labels`, and whether split (listing sub-issue IDs/titles). Then list skipped/unplannable targets (state not `Todo` + its state; file not found + exact path; ambiguous grouping).
 
 A not-split parent uses the identical structure (`id`/`module`/`title`/`state`/`priority`/`labels` + five fields), preserving any existing `comments`:
 ```yaml

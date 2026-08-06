@@ -43,11 +43,13 @@ Only Claude and Roo run agents as separate actors. Everywhere else an agent is a
 | Env vars | `talos-env` |
 | Code style / test style / UI craft | `optimize-conventions`, `optimize-testing`, `optimize-ui` |
 | Generator mechanics (shared by every `*-create`) | `talos-scaffold` |
+| Business logic of a domain topic | `explain-topic` — investigates it and writes `topics/TOPIC-<NNN>.md` |
+| What a pull request actually changes | `explain-diff` — explains the diff and writes `prs/PR-<id>.md` |
 
 ### To create something → generator skill
 
 - Whole module: `module-create` — scaffolds it and completes the first vertical slice.
-- One artefact: `<artifact>-create` where artifact is `ai-chat`, `ai-middleware`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `react-component`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`, `workflow`, `workflow-transition`.
+- One artefact: `<artifact>-create` where artifact is `ai-chat`, `ai-middleware`, `ai-skill`, `ai-tool`, `analytics`, `cache`, `command`, `controller`, `cron`, `database`, `e2e`, `entity`, `event`, `flag`, `logger`, `mailer`, `middleware`, `migration`, `permission`, `queue`, `rate-limit`, `react-component`, `repository`, `seed`, `service`, `spa-feature`, `storage`, `translation`, `vector-database`, `workflow`, `workflow-transition`.
 - Also `sdk-create` (typed browser SDK from controllers), `swagger-create` (API explorer from controllers, with prose, field docs, examples and error statuses), `storybook-story-create`, `marketing-create`, `clerk-auth-setup`.
 
 Every generator runs from the repo root and follows `talos-scaffold`.
@@ -71,9 +73,11 @@ Every generator runs from the repo root and follows `talos-scaffold`.
 
 ### To ship → `commit` → `pr` → `pr-review` → `pr-merge`
 
+Work that builds on unmerged work ships as a [stacked PR](https://docs.github.com/en/pull-requests/get-started/about-stacked-prs) chain — one small PR per layer, each targeting the branch below, reviewed and merged bottom-up. Requires `gh extension install github/gh-stack`; rebase only with `gh stack rebase` / `gh stack sync`.
+
 ### Issues (YAML under `modules/<module>/issues/`)
 
-`issue-found` (audit) → `issue-plan` (structure) → `issue-fix` (implement + PR) → `issue-check` (validate) → `issue-convert` (bundle to JSON). Sync with Linear via `issue-pull` / `issue-push`.
+`issue-found` (audit) → `issue-plan` (structure) → `issue-fix` (implement + PR) → `issue-check` (validate) → `issue-convert` (bundle to JSON). Sync with Linear via `issue-pull` / `issue-push`. Issues linked by `dependencies` become the layers of one stack; unrelated ones get their own PR.
 
 ## Agents
 
