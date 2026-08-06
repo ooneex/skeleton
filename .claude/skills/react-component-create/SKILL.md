@@ -66,6 +66,7 @@ import { Button } from "@module/<design>";                   // barrel
 
 Replace the placeholder body with the real UI — a thin arranger over the design primitives. Follow the `optimize-ui` skill (interaction, motion, typography, color, surface): resolve every visual value from design-module tokens, never a hardcoded one-off; avoid AI-slop (`optimize-ui`'s `references/ai-slop.md`).
 
+- **Tables** — if the component renders a table, data grid, or a list with sorting/filtering/pagination/selection, build it with **TanStack Table (`@tanstack/react-table`, latest version)**: `bun add @tanstack/react-table` if missing, declare the features you use with `tableFeatures({...})`, and render via `table.FlexRender`. Never hand-roll that state over a raw `<table>` and never add a pre-built grid (AG Grid, MUI DataGrid, react-table v7, …) — it is headless, so the markup and styling still come from the design primitives. See `optimize-ui`'s `references/data-and-performance.md` and https://tanstack.com/table/latest/docs/framework/react/quick-start.
 - Props type `<Name>PropsType`; prefer extending the underlying props (`React.ComponentProps<typeof Button>`) over redeclaring.
 - Pure and presentational — no data fetching; receive via props or, for containers, a feature hook (`features/<feature>/hooks/`).
 - **One component per file**, named after it; extract sub-pieces into their own file in the same folder.

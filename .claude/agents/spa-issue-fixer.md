@@ -51,6 +51,8 @@ For a **new feature**, scaffold rather than hand-write boilerplate:
 ```
 This creates the route, the page/skeleton/error/not-found layouts under `features/<feature>/layouts/`, and example query (`useGet<Name>`) + mutation (`useUpdate<Name>`) hooks under `features/<feature>/hooks/`. Fill in the route, layouts, hooks, and services to satisfy the `dod`. Name hooks `useGet<Name>` / `useUpdate<Name>`, components/layouts in PascalCase. Data fetching goes through TanStack Query hooks that call the feature's `services/`; never call the backend from a component directly. Handle loading / error / empty states and guard protected routes.
 
+**Tables:** any table, data grid, or list-with-sorting/filtering/pagination is built with **TanStack Table (`@tanstack/react-table`, latest version)** — `bun add @tanstack/react-table` if missing. Never hand-roll that state over a raw `<table>` and never add a pre-built grid (AG Grid, MUI DataGrid, react-table v7, …). It is headless, so the markup and styling still come from the design module's primitives and tokens. Features are opt-in via `tableFeatures({...})` and rendering goes through `table.FlexRender` — see `optimize-ui`'s `references/data-and-performance.md` and https://tanstack.com/table/latest/docs/framework/react/quick-start.
+
 ## Clean Architecture
 
 Layering is `routes → features → services`. Routes stay thin (URL + composition only); UI lives in feature components/layouts; all backend access goes through a feature's `services/`, called via TanStack Query hooks. Features never import another feature's internals — shared code moves to `src/shared/`.

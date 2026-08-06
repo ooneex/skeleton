@@ -113,6 +113,8 @@ As you split (one file per element, except types/styles which group by logic):
 
 If the design module lacks a primitive you need, add it to the design module (`@module/<design>`) so it stays reusable, rather than styling inline in the feature.
 
+If the feature shows a table, data grid, or a list with sorting/filtering/pagination/selection, build it with **TanStack Table (`@tanstack/react-table`, latest version)** — `bun add @tanstack/react-table` if missing. Never hand-roll that state over a raw `<table>` and never add a pre-built grid (AG Grid, MUI DataGrid, react-table v7, …). It is headless: register the features you use with `tableFeatures({...})`, render through `table.FlexRender`, and keep the markup composed from the design module's primitives. Server-paginated tables feed off the feature's TanStack Query hook. See `optimize-ui`'s `references/data-and-performance.md` and https://tanstack.com/table/latest/docs/framework/react/quick-start.
+
 ### 5. Complete the hooks
 
 Read the two hooks in `modules/<module>/src/features/<kebab>/hooks/` and adapt the examples to the real resource. **Hooks are the only layer that talks to the backend** — keep `fetch`/API calls here, and push everything else into its logical folder so the hook stays a focused TanStack Query wrapper:
