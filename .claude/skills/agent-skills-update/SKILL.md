@@ -1,7 +1,7 @@
 ---
 name: agent-skills-update
 description: Sync the project's on-disk assistant config (AGENTS.md, skills, agents) with the canonical templates bundled in the installed Talos CLI. Scaffolds a fresh copy into a tmp folder via talos agent:skills:create, then smart-merges each file into its local counterpart — creating missing files, reconciling diverged ones, and refactoring the result to be token efficient.
-when_to_use: Use to refresh the local config for any Talos-supported assistant (.claude, .codex, .cursor, .gemini, .windsurf, .cline, .junie, .roo, .continue, .zed) — its skills, agents, and AGENTS.md — after upgrading Talos, or to pull upstream template changes without losing local edits. Triggers on "update agent skills", "sync skills", "refresh AGENTS.md".
+when_to_use: Use to refresh the local config for any Talos-supported assistant (.claude, .codex, .cursor, .gemini, .github, .windsurf, .cline, .junie, .roo, .continue, .zed) — its skills, agents, and AGENTS.md — after upgrading Talos, or to pull upstream template changes without losing local edits. Triggers on "update agent skills", "sync skills", "refresh AGENTS.md".
 model: sonnet
 effort: high
 agent: general-purpose
@@ -25,7 +25,7 @@ Refresh the assistant config with the **canonical** templates `talos agent:skill
 Pick the config dirs to sync (multiple allowed, comma-separated or repeated: `--agents=.claude,.codex` = `--agents=.claude --agents=.codex`):
 
 - `--agents` given → use those.
-- Else → every dir present at the root among `.claude`, `.codex`, `.cursor`, `.gemini`, `.windsurf`, `.cline`, `.junie`, `.roo`, `.continue`, `.zed`.
+- Else → every dir present at the root among `.claude`, `.codex`, `.cursor`, `.gemini`, `.windsurf`, `.cline`, `.junie`, `.roo`, `.continue`, `.zed`, plus `.github` only when it already holds `copilot-instructions.md`, `agents/` or `prompts/` — a bare `.github/workflows` is not a Copilot install.
 - None present → `.claude`, `.codex`.
 
 Root `AGENTS.md` is always in scope.
