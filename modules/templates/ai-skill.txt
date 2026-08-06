@@ -1,0 +1,15 @@
+import type { AiToolClassType, ISkill } from "@talosjs/ai";
+import { decorator } from "@talosjs/ai";
+
+@decorator.skill()
+export class {{NAME}}Skill implements ISkill {
+  public getName = (): string => "{{KEBAB}}";
+
+  public getDescription = (): string => "";
+
+  public getWhenToUse = (): string => "";
+
+  public getTools = (): AiToolClassType[] => [];
+
+  public getPrompt = (): string => "";
+}

@@ -1,4 +1,4 @@
-import type { AiMiddlewareClassType, AiToolClassType } from "@talosjs/ai";
+import type { AiMiddlewareClassType, AiSkillClassType, AiToolClassType } from "@talosjs/ai";
 import { Chat, decorator } from "@talosjs/ai";
 
 @decorator.chat()
@@ -10,4 +10,6 @@ export class {{NAME}}Chat extends Chat {
   public getTools = (): AiToolClassType[] => [];
 
   public getMiddlewares = (): AiMiddlewareClassType[] => [];
+
+  public getSkills = (): AiSkillClassType[] => [];
 }

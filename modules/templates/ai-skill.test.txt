@@ -1,0 +1,31 @@
+import { describe, expect, test } from "bun:test";
+import { {{NAME}}Skill } from "@module/{{MODULE}}/ai/skills/{{NAME}}Skill";
+
+describe("{{NAME}}Skill", () => {
+  const skill = new {{NAME}}Skill();
+
+  test("should have class name ending with 'Skill'", () => {
+    expect({{NAME}}Skill.name.endsWith("Skill")).toBe(true);
+  });
+
+  test("should expose a non-empty name", () => {
+    expect(typeof skill.getName()).toBe("string");
+    expect(skill.getName().length).toBeGreaterThan(0);
+  });
+
+  test("should expose a description", () => {
+    expect(typeof skill.getDescription()).toBe("string");
+  });
+
+  test("should expose when it should be used", () => {
+    expect(typeof skill.getWhenToUse()).toBe("string");
+  });
+
+  test("should expose tools as an array", () => {
+    expect(Array.isArray(skill.getTools())).toBe(true);
+  });
+
+  test("should expose a prompt", () => {
+    expect(typeof skill.getPrompt()).toBe("string");
+  });
+});

@@ -25,6 +25,10 @@ describe("{{NAME}}Chat", () => {
     expect(Array.isArray(chat.getMiddlewares())).toBe(true);
   });
 
+  test("should expose skills as an array", () => {
+    expect(Array.isArray(chat.getSkills())).toBe(true);
+  });
+
   test("should have 'run' and 'stream' methods", () => {
     expect(typeof chat.run).toBe("function");
     expect(typeof chat.stream).toBe("function");
