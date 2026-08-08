@@ -4,7 +4,6 @@ description: Create a pull request for the current branch. Pushes the branch, an
 when_to_use: Use when the user wants to open a pull request for the current branch. Triggers on requests like "create a PR", "open a pull request", or "raise a PR".
 model: sonnet
 effort: medium
-context: fork
 ---
 
 # Create Pull Request

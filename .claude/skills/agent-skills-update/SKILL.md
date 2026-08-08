@@ -4,7 +4,6 @@ description: Sync the project's on-disk assistant config (AGENTS.md, skills, age
 when_to_use: Use to refresh the local config for any Talos-supported assistant (.claude, .codex, .cursor, .gemini, .github, .windsurf, .cline, .junie, .roo, .continue, .zed) — its skills, agents, and AGENTS.md — after upgrading Talos, or to pull upstream template changes without losing local edits. Triggers on "update agent skills", "sync skills", "refresh AGENTS.md".
 model: sonnet
 effort: high
-context: fork
 argument-hint: '[--agents=.claude,.codex]'
 allowed-tools: Bash(talos agent:skills:create *), Bash(mkdir *), Bash(rm *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
 ---

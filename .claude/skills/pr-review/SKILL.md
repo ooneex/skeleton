@@ -4,7 +4,6 @@ description: Review a pull request tied to an issue that is In Review. Resolves 
 when_to_use: Use to review a pull request for an issue awaiting review. Triggers on "review PR <ID>", "review the <module> issues in review", or "review this pull request". Not for reviewing the uncommitted working diff (use code-review) or scaffolding.
 model: opus
 effort: high
-context: fork
 argument-hint: '[issue-id|module|title]'
 ---
 

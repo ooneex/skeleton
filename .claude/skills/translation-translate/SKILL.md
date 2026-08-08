@@ -4,7 +4,6 @@ description: Translate and complete the `translations.json` / `translations.yml`
 when_to_use: Use when the user asks to translate a module's translations, complete missing locales, add a language to a dictionary, or localize hardcoded strings. Distinct from `translation-create`, which scaffolds a new translation class/hook.
 model: sonnet
 effort: medium
-context: fork
 argument-hint: '[module...] [locale...]'
 ---
 

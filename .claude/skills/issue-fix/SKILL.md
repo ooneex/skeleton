@@ -4,7 +4,6 @@ description: Resolve one or more issues from the user's input, dispatch each to 
 when_to_use: Use when the user wants to implement one or more existing issues. Triggers on "fix issue <ID>", "implement the issues in <module>", or "work on this issue".
 model: sonnet
 effort: medium
-context: fork
 argument-hint: '[issue-id|module|description]'
 ---
 

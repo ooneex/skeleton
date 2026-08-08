@@ -4,7 +4,6 @@ description: Diagnose and fix a failing test, runtime exception, or startup erro
 when_to_use: Use when something is broken — a test fails, the app won't boot, a request throws — not for new features or convention cleanups.
 model: opus
 effort: high
-context: fork
 ---
 
 # Debug
