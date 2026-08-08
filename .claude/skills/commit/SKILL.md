@@ -30,7 +30,7 @@ Create separate commits per modified module, following the project's conventiona
 5. **Sweep the rest** — re-run `git status --porcelain`. Everything still uncommitted (root configs, lock files, CI, docs, scripts, `.claude/`, …) goes into one or more `common`-scoped commits, split by type when the leftovers are genuinely different kinds of change (e.g. `chore(common)` for deps, `docs(common)` for markdown). Repeat until `git status --porcelain` is empty apart from files skipped in step 3.
 6. **Push** — after all commits, check the remote with `git remote get-url origin` and push accordingly:
    - **SSH remote** (`git@host:owner/repo.git` or `ssh://…`) → push over ssh with `git push`.
-   - **HTTPS remote** (`https://…`) → push with the `gh` cli, and use `gh auth switch` to find the active account.
+   - **HTTPS remote** (`https://github.com/<owner>/<repo>.git`) → push with the `gh` cli, and use `gh auth switch` to find the active account.
 
    Never force-push unless the user explicitly asks.
 

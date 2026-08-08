@@ -7,6 +7,6 @@ export class {{NAME}}Middleware implements IMiddleware {
     // Example: Add custom header
     // context.response.header("X-Custom-Header", "value");
 
-    return context
+    return context;
   }
 }

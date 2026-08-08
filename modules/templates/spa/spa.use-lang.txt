@@ -8,7 +8,7 @@ export const DEFAULT_LANG = "en";
 /** localStorage key holding the last chosen language. */
 export const LANG_STORAGE_KEY = "lang";
 
-type LangStore = {
+type UseLangType = {
   lang: string;
   setLang: (lang: string) => void;
 };
@@ -17,7 +17,7 @@ type LangStore = {
 // `localStorage` throws where it is unavailable (SSR, privacy mode); the throw is
 // caught by `createJSONStorage`, which then skips persistence and keeps the store
 // in memory.
-const useLangStore = create<LangStore>()(
+const useLangStore = create<UseLangType>()(
   persist(
     (set) => ({
       lang: DEFAULT_LANG,
@@ -29,11 +29,6 @@ const useLangStore = create<LangStore>()(
     },
   ),
 );
-
-type UseLangType = {
-  lang: string;
-  setLang: (lang: string) => void;
-};
 
 // Resolves the active language and returns it alongside a setter.
 //
