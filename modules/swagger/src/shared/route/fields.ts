@@ -12,6 +12,9 @@ export type FlatFieldType = FieldType & {
   within?: string;
 };
 
+/** A field that carries a real file rather than a value typed into a box. */
+export const isFileField = (field: FieldType): boolean => field.type.trim().toLowerCase() === "file";
+
 /**
  * The leaves of a field tree, each named by its dotted path.
  *

@@ -1,8 +1,8 @@
 import { Label } from "@module/design/components/label";
 import { Textarea } from "@module/design/components/textarea";
 import { useId } from "react";
-import type { FieldType, RequestBodyType, RouteMetaType } from "../route";
-import { bodyKindOf, flattenFields } from "../route";
+import type { RequestBodyType, RouteMetaType } from "../route";
+import { bodyKindOf, flattenFields, isFileField } from "../route";
 import { isValidJson } from "../utils/json";
 import { FieldInput } from "./FieldInput";
 import { FilePicker } from "./FilePicker";
@@ -14,9 +14,6 @@ type BodyEditorPropsType = {
   /** Names the route requires that are still empty. */
   missing?: readonly string[];
 };
-
-/** A field that carries a real file rather than a value typed into a box. */
-export const isFileField = (field: FieldType): boolean => field.type.trim().toLowerCase() === "file";
 
 /**
  * The request body, in whichever shape the route accepts.

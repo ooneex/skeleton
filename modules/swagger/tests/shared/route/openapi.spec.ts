@@ -44,6 +44,10 @@ describe("schemaOfType", () => {
   test("should stay free-form rather than guess at an unknown type", () => {
     expect(schemaOfType("UserEntity")).toEqual({});
   });
+
+  test("should stay free-form when a union carries no quoted literal", () => {
+    expect(schemaOfType("string | number")).toEqual({});
+  });
 });
 
 describe("schemaOfExample", () => {
@@ -56,6 +60,10 @@ describe("schemaOfExample", () => {
 
   test("should tell an integer apart from a float", () => {
     expect(schemaOfExample(1.5)).toEqual({ type: "number" });
+  });
+
+  test("should describe a boolean", () => {
+    expect(schemaOfExample(true)).toEqual({ type: "boolean" });
   });
 
   test("should describe an array from its first element", () => {

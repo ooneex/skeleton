@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import {
   bodyKindOf,
   buildEndpoint,
@@ -7,6 +7,7 @@ import {
   carriesPayload,
   hasBody,
   isProtected,
+  sendRequest,
   toCurl,
   transportOf,
 } from "../../../src/shared/route/request";
@@ -107,12 +108,27 @@ describe("buildHeaders", () => {
     expect(buildHeaders(input())["Content-Type"]).toBeUndefined();
   });
 
+  test("should not add a content type for an empty json body", () => {
+    expect(buildHeaders(input({ body: { kind: "json", text: "" } }))["Content-Type"]).toBeUndefined();
+  });
+
+  test("should never name the content type of a multipart body", () => {
+    // `fetch` generates the boundary; naming the type ourselves would drop it.
+    const headers = buildHeaders(input({ body: { kind: "multipart", fields: {}, files: {} } }));
+
+    expect(headers["Content-Type"]).toBeUndefined();
+  });
+
   test("should ask for an event stream on an sse route", () => {
     expect(buildHeaders(input({ meta: meta({ method: "get", transport: "sse" }) })).Accept).toBe("text/event-stream");
   });
 
   test("should forward the bearer token", () => {
     expect(buildHeaders(input({ bearerToken: "abc" })).Authorization).toBe("Bearer abc");
+  });
+
+  test("should omit Authorization when the environment has no token", () => {
+    expect(buildHeaders(input({ bearerToken: undefined })).Authorization).toBeUndefined();
   });
 
   test("should keep the route's own headers", () => {
@@ -148,23 +164,6 @@ describe("bodyKindOf", () => {
   });
 });
 
-describe("buildHeaders with a body", () => {
-  test("should add a json content type for a json body", () => {
-    expect(buildHeaders(input({ body: { kind: "json", text: "{}" } }))["Content-Type"]).toBe("application/json");
-  });
-
-  test("should never name the content type of a multipart body", () => {
-    // `fetch` generates the boundary; naming the type ourselves would drop it.
-    const headers = buildHeaders(input({ body: { kind: "multipart", fields: {}, files: {} } }));
-
-    expect(headers["Content-Type"]).toBeUndefined();
-  });
-
-  test("should not add a content type for an empty json body", () => {
-    expect(buildHeaders(input({ body: { kind: "json", text: "" } }))["Content-Type"]).toBeUndefined();
-  });
-});
-
 describe("toCurl with a multipart body", () => {
   const upload = meta({ method: "post", payload: { contentType: "multipart" } });
 
@@ -188,18 +187,170 @@ describe("toCurl with a multipart body", () => {
   });
 });
 
-describe("the environment token", () => {
-  test("should be forwarded when the caller supplies one", () => {
-    expect(buildHeaders(input({ bearerToken: "abc" })).Authorization).toBe("Bearer abc");
+describe("sendRequest", () => {
+  const originalFetch = global.fetch;
+
+  beforeEach(() => {
+    // biome-ignore lint/suspicious/noExplicitAny: stand-in for whichever signature the test needs
+    global.fetch = mock(async () => new Response("{}")) as any;
   });
 
-  test("should be absent when the environment has none", () => {
-    expect(buildHeaders(input({ bearerToken: undefined })).Authorization).toBeUndefined();
+  afterEach(() => {
+    global.fetch = originalFetch;
   });
 
-  test("should reach the curl line as its real value", () => {
-    // A curl that 401s when pasted is worse than no curl at all.
-    expect(toCurl(input({ bearerToken: "abc" }))).toContain("-H 'Authorization: Bearer abc'");
+  test("should return the parsed body, the status and the response headers", async () => {
+    global.fetch = mock(
+      async () => new Response('{"granted":true}', { status: 201, statusText: "Created", headers: { "X-Test": "1" } }),
+      // biome-ignore lint/suspicious/noExplicitAny: stand-in for whichever signature the test needs
+    ) as any;
+
+    const result = await sendRequest(input({ meta: meta({ method: "get" }) }));
+
+    expect(result.status).toBe(201);
+    expect(result.statusText).toBe("Created");
+    expect(result.body).toEqual({ granted: true });
+    expect(result.headers["x-test"]).toBe("1");
+    expect(result.ok).toBe(true);
+  });
+
+  test("should fall back to the raw text when the body is not json", async () => {
+    global.fetch = mock(async () => new Response("Not Found", { status: 404 })) as unknown as typeof fetch;
+
+    const result = await sendRequest(input({ meta: meta({ method: "get" }) }));
+
+    expect(result.body).toBe("Not Found");
+    expect(result.ok).toBe(false);
+  });
+
+  test("should refuse a socket route without ever calling fetch", async () => {
+    await expect(sendRequest(input({ meta: meta({ method: "socket" }) }))).rejects.toMatchObject({
+      message: "A socket route is opened by the socket panel, not sent as a request.",
+    });
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  test("should reject before sending when the json body is not valid", async () => {
+    await expect(sendRequest(input({ body: { kind: "json", text: "{bad" } }))).rejects.toMatchObject({
+      message: "The payload is not valid JSON.",
+    });
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  test("should send a valid json body as-is", async () => {
+    let sent: BodyInit | undefined;
+    global.fetch = mock(async (_url: string, init?: RequestInit) => {
+      sent = init?.body ?? undefined;
+      return new Response("{}");
+      // biome-ignore lint/suspicious/noExplicitAny: stand-in for whichever signature the test needs
+    }) as any;
+
+    await sendRequest(input({ meta: meta({ method: "post" }), body: { kind: "json", text: '{"plan":"pro"}' } }));
+
+    expect(sent).toBe('{"plan":"pro"}');
+  });
+
+  test("should treat an empty response body as no body at all", async () => {
+    global.fetch = mock(async () => new Response("")) as unknown as typeof fetch;
+
+    const result = await sendRequest(input({ meta: meta({ method: "get" }) }));
+
+    expect(result.body).toBeUndefined();
+    expect(result.raw).toBe("");
+  });
+
+  test("should send a multipart body as FormData", async () => {
+    let sent: BodyInit | undefined;
+    global.fetch = mock(async (_url: string, init?: RequestInit) => {
+      sent = init?.body ?? undefined;
+      return new Response("{}");
+      // biome-ignore lint/suspicious/noExplicitAny: stand-in for whichever signature the test needs
+    }) as any;
+    const file = new File(["x"], "avatar.png");
+
+    await sendRequest(
+      input({
+        meta: meta({ method: "post" }),
+        body: { kind: "multipart", fields: { caption: "hi" }, files: { avatar: file } },
+      }),
+    );
+
+    expect(sent).toBeInstanceOf(FormData);
+    expect((sent as FormData).get("caption")).toBe("hi");
+    expect((sent as FormData).get("avatar")).toBeInstanceOf(File);
+    expect(((sent as FormData).get("avatar") as File).name).toBe("avatar.png");
+  });
+
+  test("should return no body when the streamed response carries none", async () => {
+    global.fetch = mock(async () => new Response(null)) as unknown as typeof fetch;
+
+    const result = await sendRequest(input({ meta: meta({ method: "get", transport: "stream" }) }));
+
+    expect(result.raw).toBe("");
+  });
+
+  test("should stop reading a stream once it is aborted", async () => {
+    const body = new ReadableStream({
+      start(controller) {
+        // Never closes — the abort check is what stops the loop, not the stream ending.
+        controller.enqueue(new TextEncoder().encode("first\n"));
+      },
+    });
+    global.fetch = mock(async () => new Response(body)) as unknown as typeof fetch;
+    const controller = new AbortController();
+    controller.abort();
+
+    const result = await sendRequest(
+      input({ meta: meta({ method: "get", transport: "stream" }), signal: controller.signal }),
+    );
+
+    expect(result.raw).toBe("");
+  });
+
+  test("should deliver each line of a newline-delimited stream to onChunk", async () => {
+    const body = new ReadableStream({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode('{"a":1}\n{"a":2}\n'));
+        controller.close();
+      },
+    });
+    global.fetch = mock(async () => new Response(body)) as unknown as typeof fetch;
+    const chunks: unknown[] = [];
+
+    const result = await sendRequest(
+      input({ meta: meta({ method: "get", transport: "stream" }), onChunk: (chunk: unknown) => chunks.push(chunk) }),
+    );
+
+    expect(chunks).toEqual([{ a: 1 }, { a: 2 }]);
+    expect(result.raw).toBe('{"a":1}\n{"a":2}\n');
+  });
+
+  test("should deliver each data frame of an event stream to onChunk", async () => {
+    const body = new ReadableStream({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode('data: {"tick":1}\n\ndata: {"tick":2}\n\n'));
+        controller.close();
+      },
+    });
+    global.fetch = mock(async () => new Response(body)) as unknown as typeof fetch;
+    const chunks: unknown[] = [];
+
+    await sendRequest(
+      input({ meta: meta({ method: "get", transport: "sse" }), onChunk: (chunk: unknown) => chunks.push(chunk) }),
+    );
+
+    expect(chunks).toEqual([{ tick: 1 }, { tick: 2 }]);
+  });
+
+  test("should reject with the failure reason when the request never reaches a status", async () => {
+    global.fetch = mock(async () => {
+      throw new Error("network down");
+      // biome-ignore lint/suspicious/noExplicitAny: stand-in for whichever signature the test needs
+    }) as any;
+
+    await expect(sendRequest(input({ meta: meta({ method: "get" }) }))).rejects.toMatchObject({
+      message: "network down",
+    });
   });
 });
 

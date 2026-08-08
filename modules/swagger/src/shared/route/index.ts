@@ -1,4 +1,4 @@
-export { flattenFields } from "./fields";
+export { flattenFields, isFileField } from "./fields";
 export type { RouteEntryType, RouteFolderType, RouteSectionType } from "./navigation";
 export {
   buildSections,

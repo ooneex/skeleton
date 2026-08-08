@@ -5,6 +5,7 @@ import {
   bodyKindOf,
   flattenFields,
   hasBody,
+  isFileField,
   isProtected,
   missingRequired,
   sendRequest,
@@ -17,7 +18,7 @@ import type { EnvironmentType } from "../store/environments";
 import { variablesOf } from "../store/environments";
 import { interpolate, interpolateAll, missingPlaceholders } from "../utils/interpolate";
 import { formatJson, isValidJson } from "../utils/json";
-import { BodyEditor, isFileField } from "./BodyEditor";
+import { BodyEditor } from "./BodyEditor";
 import { FieldInput } from "./FieldInput";
 import type { HeaderRowType } from "./HeaderEditor";
 import { HeaderEditor, toHeaderRecord } from "./HeaderEditor";

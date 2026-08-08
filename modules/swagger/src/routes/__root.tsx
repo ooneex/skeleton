@@ -8,31 +8,29 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 const RouteNotFound = () => <NotFound />;
 
+const RootComponent = () => (
+  <>
+    <main className="min-h-0 flex-1 overflow-hidden p-0">
+      <Outlet />
+    </main>
+    <TanStackDevtools
+      config={{
+        position: "bottom-right",
+      }}
+      plugins={[
+        hotkeysDevtoolsPlugin(),
+        {
+          name: "Tanstack Router",
+          render: <TanStackRouterDevtoolsPanel />,
+        },
+      ]}
+    />
+  </>
+);
+
 export const Route = createRootRoute({
   notFoundComponent: RouteNotFound,
   errorComponent: ErrorFallback,
   pendingComponent: PageLoader,
   component: RootComponent,
 });
-
-function RootComponent() {
-  return (
-    <>
-      <main className="min-h-0 flex-1 overflow-hidden p-0">
-        <Outlet />
-      </main>
-      <TanStackDevtools
-        config={{
-          position: "bottom-right",
-        }}
-        plugins={[
-          hotkeysDevtoolsPlugin(),
-          {
-            name: "Tanstack Router",
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
-    </>
-  );
-}

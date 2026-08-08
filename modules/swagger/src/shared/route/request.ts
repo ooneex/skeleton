@@ -124,13 +124,18 @@ const collectHeaders = (headers: Headers): Record<string, string> => {
 };
 
 /**
- * Read a newline-delimited stream, handing each line to `onChunk` as it lands
- * and keeping the whole body for the response panel.
+ * Drain a streamed response body chunk by chunk, decoding the bytes and
+ * handing the growing buffer to `extract` after each one so it can pull out
+ * whatever frames are complete and return what is left unconsumed.
+ *
+ * `readStream` and `readEventStream` differ only in how a frame is delimited
+ * and parsed — this carries the reading, decoding and abort handling once for
+ * both.
  */
-const readStream = async (
+const drainStream = async (
   response: Response,
-  onChunk: ((chunk: unknown) => void) | undefined,
   signal: AbortSignal | undefined,
+  extract: (buffer: string) => string,
 ): Promise<string> => {
   const reader = response.body?.getReader();
   if (!reader) {
@@ -152,8 +157,22 @@ const readStream = async (
     }
     const text = decoder.decode(value, { stream: true });
     raw += text;
-    buffer += text;
+    buffer = extract(buffer + text);
+  }
 
+  return raw;
+};
+
+/**
+ * Read a newline-delimited stream, handing each line to `onChunk` as it lands
+ * and keeping the whole body for the response panel.
+ */
+const readStream = (
+  response: Response,
+  onChunk: ((chunk: unknown) => void) | undefined,
+  signal: AbortSignal | undefined,
+): Promise<string> =>
+  drainStream(response, signal, (buffer) => {
     let newline = buffer.indexOf("\n");
     while (newline !== -1) {
       const line = buffer.slice(0, newline).trim();
@@ -163,42 +182,19 @@ const readStream = async (
       }
       newline = buffer.indexOf("\n");
     }
-  }
-
-  return raw;
-};
+    return buffer;
+  });
 
 /**
  * Read a `text/event-stream`, delivering one parsed `data:` payload per frame.
  * Comment and keep-alive frames carry no `data:` line and are skipped.
  */
-const readEventStream = async (
+const readEventStream = (
   response: Response,
   onChunk: ((chunk: unknown) => void) | undefined,
   signal: AbortSignal | undefined,
-): Promise<string> => {
-  const reader = response.body?.getReader();
-  if (!reader) {
-    return "";
-  }
-
-  const decoder = new TextDecoder();
-  let buffer = "";
-  let raw = "";
-
-  for (;;) {
-    if (signal?.aborted) {
-      await reader.cancel();
-      break;
-    }
-    const { done, value } = await reader.read();
-    if (done) {
-      break;
-    }
-    const text = decoder.decode(value, { stream: true });
-    raw += text;
-    buffer += text;
-
+): Promise<string> =>
+  drainStream(response, signal, (buffer) => {
     let boundary = buffer.indexOf("\n\n");
     while (boundary !== -1) {
       const frame = buffer.slice(0, boundary);
@@ -213,10 +209,8 @@ const readEventStream = async (
       }
       boundary = buffer.indexOf("\n\n");
     }
-  }
-
-  return raw;
-};
+    return buffer;
+  });
 
 /**
  * Run one documented route against a live backend and report what came back.

@@ -1,7 +1,7 @@
 import type { FlatFieldType } from "./fields";
-import { flattenFields } from "./fields";
+import { flattenFields, isFileField } from "./fields";
 import type { RequestBodyType } from "./request";
-import type { FieldType, RouteMetaType } from "./types";
+import type { RouteMetaType } from "./types";
 
 /** Everything the try-it form holds, in the shape the check reads it. */
 export type FormValuesType = {
@@ -11,9 +11,6 @@ export type FormValuesType = {
   headers: Record<string, string>;
   body: RequestBodyType;
 };
-
-/** A file field carries a `File`, never a string typed into a box. */
-const isFileField = (field: FieldType): boolean => field.type.trim().toLowerCase() === "file";
 
 const isBlank = (value: string | undefined): boolean => (value ?? "").trim() === "";
 
