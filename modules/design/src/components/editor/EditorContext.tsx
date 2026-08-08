@@ -22,7 +22,7 @@ import {
 } from "./commands";
 import { type EditorControllerType, type EditorStateType, EMPTY_EDITOR_STATE } from "./types";
 
-type EditorContextValue = {
+type EditorContextValueType = {
   editor: EditorControllerType;
   state: EditorStateType;
   editable: boolean;
@@ -41,10 +41,10 @@ type EditorContextValue = {
   handlePaste: (event: ReactClipboardEvent<HTMLDivElement>) => void;
 };
 
-const EditorContext = createContext<EditorContextValue | null>(null);
+const EditorContext = createContext<EditorContextValueType | null>(null);
 
 /** Access the editor controller and reactive state from any child component. */
-export const useEditorContext = (): EditorContextValue => {
+export const useEditorContext = (): EditorContextValueType => {
   const context = useContext(EditorContext);
   if (!context) {
     throw new Error("Editor components must be rendered inside <Editor> or <Editor.Root>.");
@@ -324,7 +324,7 @@ export const EditorProvider = ({
     [plainText],
   );
 
-  const value = useMemo<EditorContextValue>(
+  const value = useMemo<EditorContextValueType>(
     () => ({
       editor,
       state,

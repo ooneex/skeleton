@@ -4,8 +4,8 @@ import { DialogDescription } from "@module/design/components/dialog/DialogDescri
 import { DialogFooter } from "@module/design/components/dialog/DialogFooter";
 import { DialogHeader } from "@module/design/components/dialog/DialogHeader";
 import { DialogTitle } from "@module/design/components/dialog/DialogTitle";
-import { Input } from "@module/design/components/input/Input";
 import { useEffect, useRef, useState } from "react";
+import { UrlDialogField } from "./UrlDialogField";
 
 type LinkDialogPropsType = {
   initialHref: string;
@@ -44,24 +44,17 @@ export const LinkDialog = createDialog<LinkDialogPropsType, LinkDialogResultType
           <DialogTitle>{isActive ? "Edit Link" : "Add Link"}</DialogTitle>
           <DialogDescription>Enter the URL you want to link to.</DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-2">
-          <Input
-            ref={inputRef}
-            placeholder="https://www.google.com"
-            value={url}
-            onChange={(event) => {
-              setUrl(event.target.value);
-              setError("");
-            }}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                handleSubmit();
-              }
-            }}
-          />
-          {error && <p className="text-destructive text-sm">{error}</p>}
-        </div>
+        <UrlDialogField
+          ref={inputRef}
+          placeholder="https://www.google.com"
+          value={url}
+          error={error}
+          onChange={(value) => {
+            setUrl(value);
+            setError("");
+          }}
+          onSubmit={handleSubmit}
+        />
         <DialogFooter>
           {isActive ? (
             <Button variant="destructive" className="mr-auto" onClick={() => call.end({ remove: true })}>

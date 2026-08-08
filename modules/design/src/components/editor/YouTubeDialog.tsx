@@ -4,9 +4,9 @@ import { DialogDescription } from "@module/design/components/dialog/DialogDescri
 import { DialogFooter } from "@module/design/components/dialog/DialogFooter";
 import { DialogHeader } from "@module/design/components/dialog/DialogHeader";
 import { DialogTitle } from "@module/design/components/dialog/DialogTitle";
-import { Input } from "@module/design/components/input/Input";
 import { getId } from "@ooneex/youtube-utils";
 import { useEffect, useRef, useState } from "react";
+import { UrlDialogField } from "./UrlDialogField";
 
 /**
  * Imperative "embed YouTube video" dialog. Mount `<YouTubeDialog />` once, then
@@ -37,24 +37,17 @@ export const YouTubeDialog = createDialog<void, string | null>(
           <DialogTitle>Embed YouTube Video</DialogTitle>
           <DialogDescription>Enter the URL of the YouTube video you want to embed.</DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-2">
-          <Input
-            ref={inputRef}
-            placeholder="https://www.youtube.com/watch?v=..."
-            value={url}
-            onChange={(event) => {
-              setUrl(event.target.value);
-              setError("");
-            }}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                handleSubmit();
-              }
-            }}
-          />
-          {error && <p className="text-destructive text-sm">{error}</p>}
-        </div>
+        <UrlDialogField
+          ref={inputRef}
+          placeholder="https://www.youtube.com/watch?v=..."
+          value={url}
+          error={error}
+          onChange={(value) => {
+            setUrl(value);
+            setError("");
+          }}
+          onSubmit={handleSubmit}
+        />
         <DialogFooter>
           <Button variant="outline" onClick={() => call.end(null)}>
             Cancel

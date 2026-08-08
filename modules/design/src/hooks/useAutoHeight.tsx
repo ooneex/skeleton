@@ -1,13 +1,13 @@
 import * as React from "react";
 
-type AutoHeightOptions = {
+type AutoHeightOptionsType = {
   includeParentBox?: boolean;
   includeSelfBox?: boolean;
 };
 
 export const useAutoHeight = <T extends HTMLElement = HTMLDivElement>(
   deps: React.DependencyList = [],
-  options: AutoHeightOptions = {
+  options: AutoHeightOptionsType = {
     includeParentBox: true,
     includeSelfBox: false,
   },
