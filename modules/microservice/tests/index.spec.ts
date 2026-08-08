@@ -3,6 +3,7 @@ import { RedisCache } from "@talosjs/cache";
 import { TerminalLogger } from "@talosjs/logger";
 import { CorsMiddleware } from "@talosjs/middleware";
 import { RedisRateLimiter } from "@talosjs/rate-limit";
+import { MicroserviceModule } from "../src/MicroserviceModule";
 import { OnAppStart } from "../src/OnAppStart";
 
 const appConfigurations: Array<Record<string, unknown>> = [];
@@ -37,8 +38,8 @@ describe("microservice bootstrap", () => {
     expect(config.cache).toBe(RedisCache);
     expect(config.rateLimiter).toBe(RedisRateLimiter);
     expect(config.cors).toBe(CorsMiddleware);
-    expect(config.middlewares).toEqual([]);
-    expect(config.cronJobs).toEqual([]);
+    expect(config.middlewares).toEqual(MicroserviceModule.middlewares);
+    expect(config.cronJobs).toEqual(MicroserviceModule.cronJobs);
     expect(config.onStart).toBe(OnAppStart);
   });
 });
