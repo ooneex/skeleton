@@ -3,21 +3,14 @@ import { Fragment } from "react";
 import { useTheme } from "../../hooks/useTheme";
 import { cn } from "../../utils/cn";
 import { Select } from "../select";
-import { ThemeSwitcherOption, type ThemeType, themeGroups, themeIcons, themeLabels } from "./ThemeSwitcherOption";
-
-const themeIconVariants = cva("shrink-0", {
-  variants: {
-    size: {
-      xs: "size-3.5",
-      sm: "size-4",
-      md: "size-4.5",
-      lg: "size-5",
-    },
-  },
-  defaultVariants: {
-    size: "sm",
-  },
-});
+import {
+  ThemeSwitcherOption,
+  type ThemeType,
+  themeGroups,
+  themeIcons,
+  themeIconVariants,
+  themeLabels,
+} from "./ThemeSwitcherOption";
 
 const themeLabelVariants = cva("text-foreground", {
   variants: {

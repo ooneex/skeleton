@@ -1,19 +1,9 @@
-import { Card } from "@module/design/components/card";
-import { ScrollArea } from "@module/design/components/scroll-area";
 import { Skeleton } from "@module/design/components/skeleton";
 import type { ReactNode } from "react";
+import { type ShowcaseExampleType, ShowcaseGallery } from "../../shared/components/ShowcaseGallery";
 import type { MetaType } from "../../shared/story";
 
-type SkeletonExampleType = {
-  /** Heading naming the composition being shown. */
-  title: string;
-  /** One line on when to reach for this shape. */
-  description: string;
-  /** The live skeleton composition. */
-  example: ReactNode;
-};
-
-const examples: SkeletonExampleType[] = [
+const examples: ShowcaseExampleType[] = [
   {
     title: "Text lines",
     description: "Staggered bars mimicking a heading over two lines of body copy.",
@@ -87,23 +77,7 @@ const examples: SkeletonExampleType[] = [
  * rather than a single configurable instance. `children` is accepted only so the code panel can
  * serialize the examples; the rendered gallery ignores it and builds its own cards from `examples`.
  */
-const SkeletonShowcase = (_props: { children?: ReactNode }) => {
-  return (
-    <ScrollArea className="h-full w-full" viewportClassName="h-full">
-      <div className="grid gap-6 p-6 md:grid-cols-2">
-        {examples.map((item) => (
-          <Card key={item.title} className="w-full">
-            <Card.Header>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Description>{item.description}</Card.Description>
-            </Card.Header>
-            <Card.Content>{item.example}</Card.Content>
-          </Card>
-        ))}
-      </div>
-    </ScrollArea>
-  );
-};
+const SkeletonShowcase = (_props: { children?: ReactNode }) => <ShowcaseGallery examples={examples} />;
 SkeletonShowcase.displayName = "Skeleton";
 
 export const meta = {

@@ -1,6 +1,7 @@
 import { Command } from "cmdk";
 import type { SVGProps } from "react";
 import type { StoryGroupType } from "../story";
+import { groupBy } from "../utils/groupBy";
 import { ScrollArea } from "./scroll-area";
 
 type CommandPalettePropsType = {
@@ -29,18 +30,11 @@ const mainComponents = (groups: StoryGroupType[]): StoryGroupType[] => {
 };
 
 /** Partition the story groups into sections keyed by each group's `group`. */
-const buildSections = (groups: StoryGroupType[]): SectionType[] => {
-  const sections: SectionType[] = [];
-  for (const group of groups) {
-    const section = sections.find((candidate) => candidate.group === group.group);
-    if (section) {
-      section.groups.push(group);
-    } else {
-      sections.push({ group: group.group, groups: [group] });
-    }
-  }
-  return sections;
-};
+const buildSections = (groups: StoryGroupType[]): SectionType[] =>
+  Array.from(
+    groupBy(groups, (group) => group.group),
+    ([group, sectionGroups]) => ({ group, groups: sectionGroups }),
+  );
 
 /** First sentence of a variant's markdown `usage`, stripped of emphasis, for a one-line palette hint. */
 const summarize = (usage: string | undefined): string | undefined => {

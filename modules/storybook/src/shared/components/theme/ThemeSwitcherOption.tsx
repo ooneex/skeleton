@@ -75,7 +75,7 @@ export const themeSchemes = Object.fromEntries(
 /** The parenthesised scheme suffix shown next to a theme label, e.g. `(Dark)`. */
 const schemeSuffixes = { light: "(Light)", dark: "(Dark)" } as const satisfies Record<ThemeSchemeType, string>;
 
-const themeIconVariants = cva("shrink-0", {
+export const themeIconVariants = cva("shrink-0", {
   variants: {
     size: {
       xs: "size-3.5",

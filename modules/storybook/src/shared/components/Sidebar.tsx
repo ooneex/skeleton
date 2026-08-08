@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useThemeScheme } from "../hooks/useTheme";
 import type { StoryGroupType } from "../story";
 import { cn } from "../utils/cn";
+import { groupBy } from "../utils/groupBy";
 import { Button } from "./button";
 import { Kbd } from "./kbd";
 import { ScrollArea } from "./scroll-area";
@@ -24,7 +25,6 @@ type SidebarPropsType = {
   onOpenPalette: () => void;
 };
 
-/** A compound component (title `Avatar`) and its dot-namespaced sub-components (`Avatar.Image`, …). */
 type TreeNodeType = {
   group: StoryGroupType;
   children: StoryGroupType[];
@@ -71,19 +71,11 @@ type SectionType = {
 };
 
 /** Partition the folded tree into sections keyed by each top-level node's `group`. */
-const buildSections = (nodes: TreeNodeType[]): SectionType[] => {
-  const sections: SectionType[] = [];
-  for (const node of nodes) {
-    const label = node.group.group;
-    const section = sections.find((candidate) => candidate.group === label);
-    if (section) {
-      section.nodes.push(node);
-    } else {
-      sections.push({ group: label, nodes: [node] });
-    }
-  }
-  return sections;
-};
+const buildSections = (nodes: TreeNodeType[]): SectionType[] =>
+  Array.from(
+    groupBy(nodes, (node) => node.group.group),
+    ([group, groupNodes]) => ({ group, nodes: groupNodes }),
+  );
 
 export const Sidebar = ({ groups, selectedId, onSelect, onOpenPalette }: SidebarPropsType) => {
   const listRef = useRef<HTMLDivElement>(null);

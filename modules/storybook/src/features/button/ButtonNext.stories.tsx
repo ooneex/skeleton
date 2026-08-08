@@ -1,5 +1,6 @@
 import { ButtonNext } from "@module/design/components/button";
 import type { MetaType } from "../../shared/story";
+import { BUTTON_NAVIGATION_SIZE_PROP } from "./buttonNavigationSizeOptions";
 
 export const meta = {
   title: "Button.Next",
@@ -26,17 +27,7 @@ export const meta = {
       control: "boolean",
       default: false,
     },
-    {
-      name: "size",
-      control: "select",
-      options: [
-        { name: "xs", usage: "Smallest (24px). Use in dense toolbars and inline paginators." },
-        { name: "sm", usage: "Compact (32px). The default — fits forms and card footers." },
-        { name: "md", usage: "Standard (36px). Use where the action is a focal point of the section." },
-        { name: "lg", usage: "Prominent (40px). Use on spacious wizard footers and hero flows." },
-      ],
-      default: "sm",
-    },
+    BUTTON_NAVIGATION_SIZE_PROP,
     {
       name: "onClick",
       callback: () => undefined,

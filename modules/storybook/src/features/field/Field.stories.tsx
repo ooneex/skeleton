@@ -1,22 +1,12 @@
-import { Card } from "@module/design/components/card";
 import { Checkbox } from "@module/design/components/checkbox";
 import { Field } from "@module/design/components/field";
 import { Input } from "@module/design/components/input";
-import { ScrollArea } from "@module/design/components/scroll-area";
 import { Switch } from "@module/design/components/switch";
 import type { ReactNode } from "react";
+import { type ShowcaseExampleType, ShowcaseGallery } from "../../shared/components/ShowcaseGallery";
 import type { MetaType } from "../../shared/story";
 
-type FieldExampleType = {
-  /** Heading naming the composition being shown. */
-  title: string;
-  /** One line on when to reach for this shape. */
-  description: string;
-  /** The live `Field` composition. */
-  example: ReactNode;
-};
-
-const examples: FieldExampleType[] = [
+const examples: ShowcaseExampleType[] = [
   {
     title: "Basic",
     description: "Label, control, and helper text stacked vertically — the default for most inputs.",
@@ -145,23 +135,7 @@ const examples: FieldExampleType[] = [
  * single configurable instance. `children` is accepted only so the code panel can serialize the
  * compositions; the rendered gallery ignores it and builds its own cards from `examples`.
  */
-const FieldShowcase = (_props: { children?: ReactNode }) => {
-  return (
-    <ScrollArea className="h-full w-full" viewportClassName="h-full">
-      <div className="grid gap-6 p-6 md:grid-cols-2">
-        {examples.map((item) => (
-          <Card key={item.title} className="w-full">
-            <Card.Header>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Description>{item.description}</Card.Description>
-            </Card.Header>
-            <Card.Content>{item.example}</Card.Content>
-          </Card>
-        ))}
-      </div>
-    </ScrollArea>
-  );
-};
+const FieldShowcase = (_props: { children?: ReactNode }) => <ShowcaseGallery examples={examples} />;
 FieldShowcase.displayName = "Field";
 
 export const meta = {
