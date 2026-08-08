@@ -4,7 +4,6 @@ description: Land the PR(s) for issues a reviewer approved (state To Merge). Res
 when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
 model: opus
 effort: high
-agent: general-purpose
 context: fork
 argument-hint: '[issue-id|module|title]'
 ---

@@ -4,7 +4,6 @@ description: Sync a local Talos project with the current CLI scaffold — regene
 when_to_use: Use to pull the latest project scaffold (root config, .env.yml, app/shared module baseline, Docker, CI/CD) into an existing project after upgrading Talos, without losing local edits. Triggers on "sync project", "update project scaffold", "refresh config from templates".
 model: sonnet
 effort: high
-agent: general-purpose
 context: fork
 argument-hint: '[--name=<name>]'
 allowed-tools: Bash(talos app:create *), Bash(talos project:check *), Bash(git *), Bash(rm *), Bash(mkdir *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep

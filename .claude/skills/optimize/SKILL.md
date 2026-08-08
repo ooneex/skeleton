@@ -4,7 +4,6 @@ description: Optimize a module's codebase for quality, performance, and clean co
 when_to_use: Use to optimize/clean up/refactor a module — not for new features, bug fixes, or issues.
 model: sonnet
 effort: high
-agent: general-purpose
 context: fork
 argument-hint: '[module]'
 ---
