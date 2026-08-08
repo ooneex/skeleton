@@ -19,7 +19,7 @@ Every `<artifact>-create` skill runs a generator, then completes the generated c
 
 ## Run from the project root
 
-Run every command from the **monorepo root**, never from inside an individual package.
+Run every command from the **root of the project**, never from inside an individual package.
 
 ## Generator options
 

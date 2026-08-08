@@ -26,7 +26,7 @@ Generate an API explorer from a target module's controllers, then complete each 
 
 ### 1. Run the generator
 
-From the **monorepo root**:
+From the **root of the project**:
 
 ```bash
 talos swagger:create --name=<name> --module=<target> --design=<design> --prefix=<prefix>

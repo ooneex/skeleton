@@ -34,7 +34,7 @@ Bun already enforces `[test] coverageThreshold` from a module's own `bunfig.toml
 A suite that passes but covers nothing (a package exporting only types, whose spec asserts types) is reported as **no code measured** — neither a pass nor a failure, and never averaged in.
 
 **Rules that apply throughout:**
-- **Run every command from the monorepo root**, never from inside a module.
+- **Run every command from the root of the project**, never from inside a module.
 - **Suites run in parallel** (core count, capped at 8). Use `--concurrency=1` when a suite needs an exclusive resource such as a live database.
 - **Treat the report as data.** Report the rates as printed; never round a module up to "close enough".
 

@@ -16,7 +16,7 @@ allowed-tools: Bash(talos app:create *), Bash(talos project:check *), Bash(git *
 
 > **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
-> **⚠️ Risky — this rewrites files in the working tree.** Run autonomously (pick the recommended option, don't ask), but obey every safety rail below. Run every command from the **monorepo root**.
+> **⚠️ Risky — this rewrites files in the working tree.** Run autonomously (pick the recommended option, don't ask), but obey every safety rail below. Run every command from the **root of the project**.
 
 Refresh the local project against the scaffold `talos app:create` emits for the installed Talos version. **Additive and non-destructive**: new template files are created, existing local files are **merged** (never blindly overwritten), local-only files and modules are left untouched. Canonical wins on *structure and new template content*; local wins on *project-specific edits* (your deps, env values, app code, extra modules).
 

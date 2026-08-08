@@ -19,7 +19,7 @@ argument-hint: '[issue-id ...]'
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
-- **Run every command from the monorepo root.**
+- **Run every command from the root of the project.**
 - **Linear credentials are required for the default provider.** `talos issue:push` reads them from `linear.yml`; if the command reports no credentials, tell the user to run `talos credentials:create --provider=linear` and stop. When pushing with `--provider=github`, no Linear credentials are needed, but the `gh` CLI must be installed and authenticated (`gh auth login`).
 - **Push publishes local content as-is.** It does not invent, plan, or edit fields. If an issue looks unfinished (empty `title`, missing `goal`/`dod`), surface it — a missing `title` blocks *creating* a brand-new issue in Linear — but still push everything that is ready.
 
@@ -34,7 +34,7 @@ Each id maps to a local file `modules/<module>/issues/<ID>.yml`. Collect the ide
 
 ## 2. Validate before pushing
 
-A push is a write to a shared tracker — publishing a malformed issue is expensive to undo. Validate the batch first, from the monorepo root:
+A push is a write to a shared tracker — publishing a malformed issue is expensive to undo. Validate the batch first, from the root of the project:
 
 ```bash
 talos issue:check --id=<ID1>,<ID2>,...

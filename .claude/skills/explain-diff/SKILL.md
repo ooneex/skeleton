@@ -24,7 +24,7 @@ Two rules shape the whole file:
 - **Business first.** The reader wants to know what is now true for users, actors, and data that was not true before. Spend the words there.
 - **Code concise, not absent.** Per module, a short walkthrough naming the artefacts and the decisions that matter — a new invariant, a changed status code, a nullable column, an N+1 avoided. Skip restating renames, formatting, imports, and generated files. A code block only when a snippet is genuinely the clearest way to state a rule, ≤10 lines.
 
-**Never invent facts.** Every claim traces to the diff, a commit, the linked issue, or the PR conversation. Intent you can't establish goes under *Open Questions*. Run all commands from the monorepo root. Requires the GitHub CLI (`gh`) installed and authenticated (`gh auth status`).
+**Never invent facts.** Every claim traces to the diff, a commit, the linked issue, or the PR conversation. Intent you can't establish goes under *Open Questions*. Run all commands from the root of the project. Requires the GitHub CLI (`gh`) installed and authenticated (`gh auth status`).
 
 ## Workflow
 

@@ -18,7 +18,7 @@ Run autonomously — no questions. Fix, don't silence: never disable a rule, del
 
 ## 1. Run
 
-From the **monorepo root**:
+From the **root of the project**:
 
 ```bash
 talos project:check --strict --logs

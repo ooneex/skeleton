@@ -19,7 +19,7 @@ argument-hint: '[module...] [locale...]'
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Complete the locale translations of one or more modules' dictionaries, and (when asked) first pull hardcoded user-facing text into them. **Run every command from the monorepo root.** Orchestrates two agents:
+Complete the locale translations of one or more modules' dictionaries, and (when asked) first pull hardcoded user-facing text into them. **Run every command from the root of the project.** Orchestrates two agents:
 
 - **`translation-extractor`** — finds hardcoded text in a module and rewires it to `trans(...)`, adding `en` source keys.
 - **`translation-translator`** — fills every target locale of a dictionary from its `en` source.

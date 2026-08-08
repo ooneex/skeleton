@@ -19,7 +19,7 @@ argument-hint: '[description] [--module=<module>] [--platform=<platform>]'
 Create a marketing post resource per module. Each post is a self-contained folder holding its copy and its media, and the media is **generated with Remotion** — see `references/remotion-studio.md` for the studio and the render commands.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (once extracted into a shared package). Check both roots; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
-- **Run every command from the monorepo root.**
+- **Run every command from the root of the project.**
 - **Never invent product facts.** Copy and media are built from the user's description, the module's README, and its source — nothing else.
 
 ## Resource structure

@@ -18,7 +18,7 @@ context: fork
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Open a pull request for the current branch. **Run every command from the monorepo root.** Requires the GitHub CLI (`gh`) installed and authenticated (`gh auth status`).
+Open a pull request for the current branch. **Run every command from the root of the project.** Requires the GitHub CLI (`gh`) installed and authenticated (`gh auth status`).
 
 ## Workflow
 

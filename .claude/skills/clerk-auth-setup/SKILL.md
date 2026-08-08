@@ -4,7 +4,7 @@ description: Set up Clerk authentication in a SPA module — ClerkProvider boots
 when_to_use: Use when adding or repairing Clerk auth (sign-in, sign-up, sign-out, OAuth/SSO, route protection) in a SPA module built on @tanstack/react-router and @clerk/clerk-react, or when adding Clerk sign-in to a swagger module so its protected routes become runnable.
 model: sonnet
 effort: high
-allowed-tools: Bash(talos spa:feature:create *), Bash(talos translation:create *), Bash(talos monorepo:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos spa:feature:create *), Bash(talos translation:create *), Bash(talos workspace:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--module=<module>]'
 ---
 
@@ -257,7 +257,7 @@ Every key needs all locales already used in the module (`en` is the fallback); c
 
 ## 8. Verify
 
-Run `talos monorepo:check --logs`. Add specs under `modules/<module>/tests/` mirroring `src/` (`optimize-testing`): mock `@clerk/clerk-react` and assert each hook's success/failure paths (including `notReady` and non-`complete` statuses), the error-mapping util, and the card's step transitions, auto-submit, and error rendering.
+Run `talos workspace:check --logs`. Add specs under `modules/<module>/tests/` mirroring `src/` (`optimize-testing`): mock `@clerk/clerk-react` and assert each hook's success/failure paths (including `notReady` and non-`complete` statuses), the error-mapping util, and the card's step transitions, auto-submit, and error rendering.
 
 Manual smoke test with `bun --bun run dev`:
 

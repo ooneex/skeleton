@@ -4,7 +4,7 @@ description: Run the Playwright end-to-end suite across packages and modules wit
 when_to_use: Use when running existing Playwright e2e tests — a whole suite, a single module, or as a pre-merge gate. To author a new spec first, use e2e-create.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos e2e:run *), Bash(talos monorepo:run *), Bash(talos app:start *), Read, Edit, Grep, Glob
+allowed-tools: Bash(talos e2e:run *), Bash(talos workspace:run *), Bash(talos app:start *), Read, Edit, Grep, Glob
 argument-hint: '[--modules=<a,b>] [--packages=<a,b>] [--logs] [--no-cache]'
 ---
 
@@ -18,10 +18,10 @@ argument-hint: '[--modules=<a,b>] [--packages=<a,b>] [--logs] [--no-cache]'
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Drive the Playwright end-to-end suite with `talos e2e:run` — the alias for `talos monorepo:run --commands=e2e`. This is the *runtime* workflow: scaffold new specs with `e2e-create`, then come back here to run them.
+Drive the Playwright end-to-end suite with `talos e2e:run` — the alias for `talos workspace:run --commands=e2e`. This is the *runtime* workflow: scaffold new specs with `e2e-create`, then come back here to run them.
 
 **Rules that apply throughout:**
-- **Run every command from the monorepo root**, never from inside a package.
+- **Run every command from the root of the project**, never from inside a package.
 - **The app under test must be reachable.** A spec's `webServer` boots it (e.g. `talos app:start`); if a suite has no `webServer`, start the app yourself before running. A connection refused means the app or its Docker services aren't up.
 - **Always pass `--logs` when running as an agent** — the interactive footer is for a TTY; `--logs` streams plain output you can read.
 - **Only targets with an `e2e` script run.** Targets whose `package.json` lacks it are skipped without error, so an empty run usually means the module was never scaffolded with `e2e-create`.
@@ -34,7 +34,7 @@ talos e2e:run --modules=billing,user --logs   # only the named modules (also --p
 talos e2e:run --no-cache --logs               # ignore the task cache and re-run everything
 ```
 
-`e2e:run` runs each target's `e2e` script (`bunx playwright test`) in workspace dependency order, caching results in `var/cache/monorepo/` keyed by file content, transitive workspace deps, the script text, and root configs. The first failure stops the run and prints the failing task's output; a cache hit replays the previous logs. Use `--no-cache` when a spec's result depends on live app state the cache can't see (a running server, seeded data).
+`e2e:run` runs each target's `e2e` script (`bunx playwright test`) in workspace dependency order, caching results in `var/cache/workspace/` keyed by file content, transitive workspace deps, the script text, and root configs. The first failure stops the run and prints the failing task's output; a cache hit replays the previous logs. Use `--no-cache` when a spec's result depends on live app state the cache can't see (a running server, seeded data).
 
 ## Triage failures
 

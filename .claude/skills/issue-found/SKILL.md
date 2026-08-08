@@ -72,7 +72,7 @@ The categories above cover **hand-written source**. Known-CVE vulnerabilities in
 
 #### Dependency vulnerability scan (OSV.dev)
 
-Founders read source only; they can't run commands. So, in addition to the founders, run the **dependency/supply-chain audit** yourself with `talos security:check` — the same OSV.dev-backed engine as the `security-check` skill — scoped to the resolved modules. Run it **from the monorepo root** in **report mode** (never `--issues`, so no issue files are written here — every finding still flows through `/issue-plan` in step 3):
+Founders read source only; they can't run commands. So, in addition to the founders, run the **dependency/supply-chain audit** yourself with `talos security:check` — the same OSV.dev-backed engine as the `security-check` skill — scoped to the resolved modules. Run it **from the root of the project** in **report mode** (never `--issues`, so no issue files are written here — every finding still flows through `/issue-plan` in step 3):
 
 ```bash
 talos security:check --modules=<comma-separated resolved modules>
@@ -106,7 +106,7 @@ For each finding, invoke `/issue-plan` in create mode — it scaffolds the issue
 
 ### 4. Validate the created issues
 
-`/issue-plan` writes one YAML per finding; validate the whole batch before reporting, from the monorepo root:
+`/issue-plan` writes one YAML per finding; validate the whole batch before reporting, from the root of the project:
 
 ```bash
 talos issue:check --module=<module1>,<module2>,...

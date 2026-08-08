@@ -18,14 +18,14 @@ context: fork
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Find the root cause of a failure and fix it — don't patch the symptom. For convention cleanups use `optimize`; for review use `pr-review`. **Run every command from the monorepo root.**
+Find the root cause of a failure and fix it — don't patch the symptom. For convention cleanups use `optimize`; for review use `pr-review`. **Run every command from the root of the project.**
 
 ## 1. Reproduce
 
 Reproduce the failure with the exact command and capture the full error and stack trace. Don't theorize before you've seen it.
 
 ```bash
-talos monorepo:run --commands=test   # or one file: bun test modules/<module>/tests/...
+talos workspace:run --commands=test   # or one file: bun test modules/<module>/tests/...
 talos app:start                       # for boot / runtime failures
 ```
 

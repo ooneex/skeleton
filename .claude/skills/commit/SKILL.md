@@ -19,7 +19,7 @@ allowed-tools: Bash(git:*), Bash(gh:*)
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Create separate commits per modified module, following the project's conventional-commit rules. **Run every command from the monorepo root.** Messages are linted by a git `commit-msg` hook (`talos commitlint:init` / `talos commitlint:check`).
+Create separate commits per modified module, following the project's conventional-commit rules. **Run every command from the root of the project.** Messages are linted by a git `commit-msg` hook (`talos commitlint:init` / `talos commitlint:check`).
 
 ## Workflow
 

@@ -19,7 +19,7 @@ Plan one or more issues across one or more modules. Each input is **either** an 
 
 **Global rules:**
 - `<module>` = `modules/<module>/` **or** `packages/<module>/` — check both roots.
-- Run all commands from the monorepo root.
+- Run all commands from the root of the project.
 - **Never invent facts** — only restructure/clarify what's in the issue. If the description is missing/empty, tell the user and stop.
 
 ## Workflow
@@ -132,7 +132,7 @@ Rules:
 
 ### 3a. Scan Existing Issues for Dependencies
 
-Scan **every issue in the project**, not just the modules in this batch — a prerequisite often lives in another module (the API issue a SPA issue waits on, the entity a migration extends). From the monorepo root:
+Scan **every issue in the project**, not just the modules in this batch — a prerequisite often lives in another module (the API issue a SPA issue waits on, the entity a migration extends). From the root of the project:
 
 ```bash
 bun -e 'for (const f of new Bun.Glob("{modules,packages}/*/issues/*.yml").scanSync(".")) console.log(f)'
@@ -210,7 +210,7 @@ dependencies:
 
 ### 6a. Validate the Written YAML
 
-Every file this skill writes must survive the validator. Run it on the batch from the monorepo root:
+Every file this skill writes must survive the validator. Run it on the batch from the root of the project:
 
 ```bash
 talos issue:check --id=<ID1>,<ID2>,...

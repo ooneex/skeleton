@@ -1,6 +1,6 @@
 # Remotion studio — bootstrap and render
 
-The `var/remotion/` folder is the **one** Remotion project for the whole monorepo. Every marketing image and video is a render of a composition in it, parameterised with `--props` — you never write a new component per post unless the post needs a genuinely new visual.
+The `var/remotion/` folder is the **one** Remotion project for the whole workspace. Every marketing image and video is a render of a composition in it, parameterised with `--props` — you never write a new component per post unless the post needs a genuinely new visual.
 
 `var/` is gitignored, so the project is scratch space: it is not committed, and a fresh checkout has to bootstrap it again (§2). That is cheap — the seven files below are the whole project — and it keeps generated tooling out of the repo alongside the renders it produces.
 
@@ -15,7 +15,7 @@ Every command in this file has to run unchanged on macOS, Linux and Windows — 
 - **Never inline JSON into `--props`.** Escaping a JSON string differs in every shell. Write the props to a file and pass its path — see §3.
 - **No shell utilities** — no `ls`, `mkdir -p`, `cp`, `rm`, `cat`. Use the Read/Glob/Write tools instead; they are the same everywhere and create parent folders for you.
 - **Forward slashes in paths.** Bun, Node and Remotion accept them on Windows; a backslash breaks on POSIX.
-- **`bunx`, never `npx`.** Bun is this monorepo's runtime and package manager, and `bunx` works the same on all three platforms. Remotion's own docs say `npx`; substitute `bunx` everywhere.
+- **`bunx`, never `npx`.** Bun is this workspace's runtime and package manager, and `bunx` works the same on all three platforms. Remotion's own docs say `npx`; substitute `bunx` everywhere.
 
 **System requirements** (Remotion, not this skill): Node ≥ 16 or Bun ≥ 1.0.3. macOS 15 (Sequoia) or later — older macOS is unsupported. On Linux, libc ≥ 2.35 plus the Chrome shared libraries: `libnss3 libdbus-1-3 libatk1.0-0 libasound2t64 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libgbm-dev libcups2 libcairo2 libpango-1.0-0 libatk-bridge2.0-0` on Ubuntu 22.04+ (`libasound2` on older releases and on Debian; the `mesa-libgbm nss atk at-spi2-atk cups-libs pango alsa-lib` set on Amazon Linux/Fedora). Alpine and nixOS are **not supported** — render elsewhere. Windows needs nothing extra.
 

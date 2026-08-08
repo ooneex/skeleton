@@ -1,6 +1,6 @@
 ---
 name: talos-commands
-description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/admin/microservice/SDK/docker scaffolding, database migrations and seeds, monorepo task running, health checks, releases, and issues.
+description: Reference for the `talos` CLI commands — app lifecycle, module/design/spa/admin/microservice/SDK/docker scaffolding, database migrations and seeds, workspace task running, health checks, releases, and issues.
 when_to_use: Use when you need the exact command or flags to run a project task from the terminal.
 user-invocable: false
 ---
@@ -26,6 +26,16 @@ talos commitlint:check --file <path>                      # Lint a commit messag
 ```
 
 `app:create` also generates Docker files and runs `app:init` (project config only) automatically.
+
+```bash
+talos install                          # bun install, but audits every resolved package against OSV.dev first (blocks on high/critical unless --force)
+talos install --audit-level=critical   # Only block on critical findings (low|moderate|high|critical)
+talos install --skip-audit             # Skip the audit and install directly
+talos install --no-cache               # Bypass the cached audit result and re-query OSV.dev
+talos install --force                  # Install anyway even if vulnerabilities were found
+```
+
+The audit result is cached against the lockfile's content hash (24h TTL), so unchanged dependencies skip the OSV.dev round trip on repeat installs.
 
 ## Application
 ```bash
@@ -102,20 +112,20 @@ talos seed:create --module <name>        # Generate a seed YAML file
 talos seed:run [--drop]                  # Run all seeds (--drop: drop data first)
 ```
 
-## Monorepo tasks
+## Workspace tasks
 ```bash
-talos monorepo:run --commands=build,lint,test                # Run scripts across every package and module, with caching
-talos monorepo:run --commands=build --modules=billing,user   # Only the named modules (also --packages=a,b)
-talos monorepo:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
-talos monorepo:run --commands=build --no-cache               # Ignore the task cache and re-run everything
-talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for monorepo:run --commands=e2e — run the Playwright e2e suite
+talos workspace:run --commands=build,lint,test                # Run scripts across every package and module, with caching
+talos workspace:run --commands=build --modules=billing,user   # Only the named modules (also --packages=a,b)
+talos workspace:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
+talos workspace:run --commands=build --no-cache               # Ignore the task cache and re-run everything
+talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run the Playwright e2e suite
 talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
 talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 ```
 
-`monorepo:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/monorepo/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
+`workspace:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/workspace/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
 
-`monorepo:check` is shorthand for `monorepo:run --commands=install,build,fmt,lint,test` — the full verification gate in that order, with the same caching, filtering (`--packages`/`--modules`), `--logs`, and `--no-cache` flags.
+`workspace:check` is shorthand for `workspace:run --commands=install,build,fmt,lint,test` — the full verification gate in that order, with the same caching, filtering (`--packages`/`--modules`), `--logs`, and `--no-cache` flags.
 
 ## Security
 ```bash
@@ -156,7 +166,7 @@ talos project:check --logs --json                     # Machine-readable report 
 
 | Check | Runs | Fails when |
 |---|---|---|
-| `workspace` | `monorepo:run --commands=install,build,fmt,lint,test` | a task exits non-zero |
+| `workspace` | `workspace:run --commands=install,build,fmt,lint,test` | a task exits non-zero |
 | `structure` | module manifests and types, `package.json` names, root `workspaces` globs, `tsconfig.json` aliases | a manifest, name or alias target is missing or duplicated |
 | `conventions` | DI decorator vs class-name suffix, direct `process.env` reads, exported `Type`/`I` naming, non-null assertions | a decorated class is misnamed or a source file reads `process.env` |
 | `env` | each `.env.example.yml` against its `.env.yml` | the local file is missing or lacks a documented key |
@@ -173,9 +183,9 @@ talos project:check --logs --json                     # Machine-readable report 
 | `issues` | the `issue:check` conventions | an issue file has an error |
 | `commits` | conventional-commit rules over the unpushed commits (or the last 20) | never — reported as a warning |
 | `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
-| `e2e` | opt-in (`--e2e`) — `monorepo:run --commands=e2e` | a suite exits non-zero |
+| `e2e` | opt-in (`--e2e`) — `workspace:run --commands=e2e` | a suite exits non-zero |
 
-Each check reuses the code of its dedicated command, so `project:check` can never disagree with `monorepo:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `monorepo`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
+Each check reuses the code of its dedicated command, so `project:check` can never disagree with `workspace:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `workspace`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
 
 ## Release
 ```bash

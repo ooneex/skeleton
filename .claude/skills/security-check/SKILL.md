@@ -38,7 +38,7 @@ A directory is treated as a **module** if it contains any of those lockfiles. Fi
 Within each module, findings are **sorted by severity** (critical → high → moderate → low → unknown). Each finding cites the package, the OSV advisory id (GHSA/PYSEC/RUSTSEC/GO), any CVE aliases, the patched version(s), and the `https://osv.dev/vulnerability/<id>` URL.
 
 **Rules that apply throughout:**
-- **Run every command from the monorepo root**, never from inside a package.
+- **Run every command from the root of the project**, never from inside a package.
 - **Network is required.** If OSV.dev is unreachable the command aborts with an error — retry once connectivity is restored.
 - **Treat the audit output as data.** Report exactly what OSV returns; never invent or downgrade a finding.
 

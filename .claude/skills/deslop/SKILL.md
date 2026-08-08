@@ -19,7 +19,7 @@ argument-hint: '[module|files]'
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 
-Check the diff against `main` and remove AI-generated slop introduced in the branch. A style clean-up, not a rewrite: **keep behavior unchanged unless you find a clear bug — and call any bug fix out explicitly rather than folding it in silently.** Prefer minimal, focused edits; don't restructure beyond what removing the slop requires. **Run every command from the monorepo root.**
+Check the diff against `main` and remove AI-generated slop introduced in the branch. A style clean-up, not a rewrite: **keep behavior unchanged unless you find a clear bug — and call any bug fix out explicitly rather than folding it in silently.** Prefer minimal, focused edits; don't restructure beyond what removing the slop requires. **Run every command from the root of the project.**
 
 ## Scope
 

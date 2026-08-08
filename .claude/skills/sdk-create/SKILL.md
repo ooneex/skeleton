@@ -25,7 +25,7 @@ Generate an SDK module from a target module's controllers, then complete each ge
 
 ### 1. Run the generator
 
-From the **monorepo root**:
+From the **root of the project**:
 
 ```bash
 talos sdk:create --name=<name> --module=<module>

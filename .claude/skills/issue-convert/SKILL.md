@@ -19,7 +19,7 @@ argument-hint: '[module ...]'
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. The command checks `modules/` first, then `packages/`.
-- **Run every command from the monorepo root.**
+- **Run every command from the root of the project.**
 - **Output location depends on the module `type`** (read from `<module>/<module>.yml`):
   - `spa`, `storybook`, `swagger`, `admin` → `<module>/src/shared/issues.json`
   - everything else → `<module>/src/issues.json`
@@ -37,7 +37,7 @@ Collect the names into a single de-duplicated list.
 
 ## 2. Validate before converting
 
-`issue:convert` **silently skips** any YAML it cannot parse, so a broken file disappears from `issues.json` without failing the run. Validate each destination first, from the monorepo root:
+`issue:convert` **silently skips** any YAML it cannot parse, so a broken file disappears from `issues.json` without failing the run. Validate each destination first, from the root of the project:
 
 ```bash
 talos issue:check --module=<module1>,<module2>,...

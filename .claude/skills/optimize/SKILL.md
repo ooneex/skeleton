@@ -21,7 +21,7 @@ Bring a module in line with project conventions: clean code, no duplication, onl
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
-- Run every command from the **monorepo root**, never from inside a package.
+- Run every command from the **root of the project**, never from inside a package.
 - Start clean: no uncommitted changes (`git status`). Refactor only — never alter behavior or public APIs without checking callers first.
 - Tests must pass before and after. If they were failing before, say so; don't claim a fix you didn't make.
 

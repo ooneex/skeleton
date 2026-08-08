@@ -1,6 +1,6 @@
 ---
 name: explain-topic
-description: Investigate a business topic across the monorepo and write it up as `topics/TOPIC-<NNN>.md` — context, business definition, why the topic exists, the domain rules and vocabulary, the modules and code it touches, the commits that built it, and the issues that plan or resolve it. Reads the codebase, git history, and issue YAML; writes exactly one topic file.
+description: Investigate a business topic across the workspace and write it up as `topics/TOPIC-<NNN>.md` — context, business definition, why the topic exists, the domain rules and vocabulary, the modules and code it touches, the commits that built it, and the issues that plan or resolve it. Reads the codebase, git history, and issue YAML; writes exactly one topic file.
 when_to_use: Use when someone needs to understand the business logic behind a feature, domain concept, or cross-cutting behaviour — onboarding, a spec before planning work, or capturing knowledge that only exists in the code and git history. Triggers on "explain how billing works", "document the invitation topic", "write a topic for the credit system". Not for implementation plans (use `issue-plan`) or code review (use `pr-review`).
 model: opus
 effort: high
@@ -19,7 +19,7 @@ argument-hint: '<topic — a domain concept, feature, or question>'
 
 The deliverable is **business understanding**, not an API reference. A reader who knows nothing about this codebase should finish the file knowing *what the domain concept is, what rules govern it, why it exists, and where it lives*. Describe behaviour and intent; name files only as pointers.
 
-**Never invent facts.** Every claim traces to code, a commit, an issue, or a doc. What you can't establish goes under *Open Questions*, not into the prose. Run all commands from the monorepo root.
+**Never invent facts.** Every claim traces to code, a commit, an issue, or a doc. What you can't establish goes under *Open Questions*, not into the prose. Run all commands from the root of the project.
 
 ## Workflow
 
