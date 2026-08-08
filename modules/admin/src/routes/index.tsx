@@ -5,13 +5,11 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const RouteNotFound = () => <NotFound />;
 
+const RouteComponent = () => <div>Hello "/"!</div>;
+
 export const Route = createFileRoute("/")({
   notFoundComponent: RouteNotFound,
   errorComponent: ErrorFallback,
   pendingComponent: PageLoader,
   component: RouteComponent,
 });
-
-function RouteComponent() {
-  return <div>Hello "/"!</div>;
-}
