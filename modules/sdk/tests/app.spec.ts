@@ -98,7 +98,7 @@ describe("sdk app api", () => {
       key: "app.health.check",
       version: 1,
       description: "Report whether the app is up and reachable",
-      roles: ["ROLE_GUEST"],
+      roles: [],
       endpoint: "/api/v1/health",
     });
   });
