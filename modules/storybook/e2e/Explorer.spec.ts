@@ -4,7 +4,7 @@ test("renders the storybook home page", async ({ page }) => {
   await page.goto("/");
 
   await expect(page).toHaveTitle("Storybook");
-  await expect(page.getByRole("img", { name: "Ooneex" })).toBeVisible();
+  await expect(page.getByRole("img", { name: "Talos" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Jump to/i })).toBeVisible();
 });
 

@@ -7,7 +7,7 @@ export const meta = {
   tags: [],
   component: PageLoader,
   usage: [
-    "**PageLoader** is the full-screen loading state for app-level transitions. It centers the Ooneex logo in a roomy viewport-height container and uses a gentle pulse so the user knows the shell is alive while route data or boot-time work completes.",
+    "**PageLoader** is the full-screen loading state for app-level transitions. It centers the Talos logo in a roomy viewport-height container and uses a gentle pulse so the user knows the shell is alive while route data or boot-time work completes.",
     "",
     "**How to use it** — render it while the whole page or application shell is waiting on critical data, authentication bootstrap, or an initial route load. Because it already owns the viewport height, drop it in place of the page content rather than nesting it inside a cramped card.",
     "",
