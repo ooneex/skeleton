@@ -5,7 +5,7 @@ import { DialogTitle } from "@module/design/components/dialog/DialogTitle";
 import { CheckIcon } from "@module/design/icons/outline/ui-layout/sm/CheckIcon";
 import { CircleMinusIcon as RemoveIcon } from "@module/design/icons/outline/ui-layout/sm/CircleMinusIcon";
 import { cn } from "@module/design/utils/cn";
-import { SIMPLE_COLOR_NAMES, SIMPLE_COLORS, type SimpleColorType } from "@ooneex/color";
+import { SIMPLE_COLOR_NAMES, SIMPLE_COLORS, type SimpleColorType } from "@talosjs/color";
 import type { ReactNode } from "react";
 
 export type SimpleColorPickerPropsType = {

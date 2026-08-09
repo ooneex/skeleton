@@ -25,7 +25,7 @@ import { HighlighterIcon } from "@module/design/icons/outline/school-education/s
 import { BulletListIcon } from "@module/design/icons/outline/ui-layout/sm/BulletListIcon";
 import { CheckListIcon } from "@module/design/icons/outline/ui-layout/sm/CheckListIcon";
 import { cn } from "@module/design/utils/cn";
-import type { SimpleColorType } from "@ooneex/color";
+import type { SimpleColorType } from "@talosjs/color";
 import type { ReactNode } from "react";
 import { restoreSelection, saveSelection } from "./commands";
 import { useEditorContext } from "./EditorContext";

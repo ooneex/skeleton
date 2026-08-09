@@ -8,9 +8,9 @@ import { PageLoader } from "../../../src/components/loader/PageLoader";
 afterEach(cleanup);
 
 describe("PageLoader", () => {
-  test("renders the Ooneex logo", () => {
+  test("renders the Talos logo", () => {
     render(<PageLoader />);
-    expect(screen.getByRole("img", { name: "Ooneex" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "Talos" })).toBeInTheDocument();
   });
 
   test("applies base layout classes", () => {

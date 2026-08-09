@@ -1,6 +1,6 @@
 import { Muted } from "@module/design/components/typography";
 import { cn } from "@module/design/utils/cn";
-import { getEmbedUrl, getId } from "@ooneex/youtube-utils";
+import { getEmbedUrl, getId } from "@talosjs/youtube-utils";
 
 type VideoPlayerPropsType = {
   src?: string;

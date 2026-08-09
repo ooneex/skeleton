@@ -6,7 +6,7 @@ import { ComboboxTrigger } from "@module/design/components/combobox/ComboboxTrig
 import { InputGroup } from "@module/design/components/input/InputGroup";
 import { InputGroupAddon } from "@module/design/components/input/InputGroupAddon";
 import { InputGroupInput } from "@module/design/components/input/InputGroupInput";
-import { CURRENCIES, type CurrencyCodeType } from "@ooneex/currencies";
+import { CURRENCIES, type CurrencyCodeType } from "@talosjs/currencies";
 import { type ComponentProps, useMemo, useState } from "react";
 
 type InputPricePropsType = Omit<ComponentProps<typeof InputGroupInput>, "type"> & {

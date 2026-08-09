@@ -4,7 +4,7 @@ import { DialogDescription } from "@module/design/components/dialog/DialogDescri
 import { DialogFooter } from "@module/design/components/dialog/DialogFooter";
 import { DialogHeader } from "@module/design/components/dialog/DialogHeader";
 import { DialogTitle } from "@module/design/components/dialog/DialogTitle";
-import { getId } from "@ooneex/youtube-utils";
+import { getId } from "@talosjs/youtube-utils";
 import { useEffect, useRef, useState } from "react";
 import { UrlDialogField } from "./UrlDialogField";
 

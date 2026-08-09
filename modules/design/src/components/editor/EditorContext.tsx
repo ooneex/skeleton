@@ -1,4 +1,4 @@
-import { getEmbedUrl } from "@ooneex/youtube-utils";
+import { getEmbedUrl } from "@talosjs/youtube-utils";
 import {
   createContext,
   type ClipboardEvent as ReactClipboardEvent,
