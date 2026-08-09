@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("renders the admin home page", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle("Ooneex");
+  await expect(page).toHaveTitle("Talos");
   await expect(page.getByText('Hello "/"!')).toBeVisible();
 });
 
