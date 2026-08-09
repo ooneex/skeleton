@@ -8,7 +8,7 @@ export const PageLoader = ({ className, ...props }: ComponentProps<"div">) => {
       className={cn("flex flex-col items-center justify-center min-h-screen gap-8", className)}
       {...props}
     >
-      <img alt="Ooneex" className="h-10 animate-pulse" height={40} src="/logo-full.svg" width={160} />
+      <img alt="Talos" className="h-10 animate-pulse" height={40} src="/logo-full.svg" width={160} />
     </div>
   );
 };
