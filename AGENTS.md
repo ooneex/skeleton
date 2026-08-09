@@ -26,7 +26,7 @@ This file is shared by every assistant; the same skills and agents are installed
 | Continue | `/<name>` (`.continue/prompts`) | `/<name>` — same prompt list |
 | Roo Code | `/<name>` (`.roo/commands`) | custom modes in `.roomodes` |
 | Junie | `.junie/skills/<name>.md` — read on demand | `.junie/agents/<name>.md` — read on demand |
-| GitHub Copilot | `/<name>` (`.github/prompts/<name>.prompt.md`) | agent profiles in `.github/agents/<name>.agent.md` |
+| GitHub Copilot | `.github/skills/<name>/SKILL.md` — auto-activate | agent profiles in `.github/agents/<name>.agent.md` |
 
 Only Claude and Roo run agents as separate actors. Everywhere else an agent is a document: read it and follow it yourself, in the current session.
 
