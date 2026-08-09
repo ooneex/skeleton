@@ -1,7 +1,7 @@
 import { Button } from "@module/design/components/button";
 import { pickColor, SimpleColorPicker } from "@module/design/components/color";
 import { cn } from "@module/design/utils/cn";
-import type { SimpleColorType } from "@ooneex/color";
+import type { SimpleColorType } from "@talosjs/color";
 import { useState } from "react";
 import type { MetaType } from "../../shared/story";
 
@@ -46,7 +46,7 @@ export const meta = {
   tags: [],
   component: SimpleColorPickerDemo,
   usage: [
-    "**SimpleColorPicker** is an imperative color-picker dialog built on `react-call`. It shows a grid of preset swatches from `@ooneex/color`, highlights the current value, and resolves the color you click; a **Reset** action resolves `null`. You do not render it inline — you mount the Root once near the top of your app and open it on demand with `await pickColor({ value })`.",
+    "**SimpleColorPicker** is an imperative color-picker dialog built on `react-call`. It shows a grid of preset swatches from `@talosjs/color`, highlights the current value, and resolves the color you click; a **Reset** action resolves `null`. You do not render it inline — you mount the Root once near the top of your app and open it on demand with `await pickColor({ value })`.",
     "",
     "**How to use it** — place `<SimpleColorPicker />` once at the app root. Anywhere you need a color, call `const color = await pickColor({ value: current })`; it resolves with the picked `SimpleColorType`, or `null` when the user presses Reset or dismisses (Escape / outside click), so branch on the result before applying it. Pass a `title` to label the dialog, or a custom `colors` array to narrow the palette. This preview wires that flow to a button and a swatch.",
     "",

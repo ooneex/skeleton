@@ -30,7 +30,7 @@ export const meta = {
   tags: [],
   component: YouTubeDialogDemo,
   usage: [
-    "**YouTubeDialog** is the editor's imperative embed-video modal. It collects a YouTube URL, validates it with `@ooneex/youtube-utils`, and resolves with the accepted URL so the caller can insert the embed back into the document.",
+    "**YouTubeDialog** is the editor's imperative embed-video modal. It collects a YouTube URL, validates it with `@talosjs/youtube-utils`, and resolves with the accepted URL so the caller can insert the embed back into the document.",
     "",
     "**How to use it** — mount `<YouTubeDialog />` once and call `await openYouTubeDialog()` from a toolbar or slash-menu action. If a URL is returned, insert the embed after restoring the user's selection; if it resolves `null`, treat it as a cancel and leave the editor unchanged.",
     "",
