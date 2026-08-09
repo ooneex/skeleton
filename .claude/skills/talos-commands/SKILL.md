@@ -37,6 +37,30 @@ talos install --force                  # Install anyway even if vulnerabilities 
 
 The audit result is cached against the lockfile's content hash (24h TTL), so unchanged dependencies skip the OSV.dev round trip on repeat installs.
 
+```bash
+talos update                           # bun update, but audits the resolved versions against OSV.dev before installing (blocks on high/critical unless --force)
+talos update --deps=lodash,zod         # Update only the named dependencies, comma-separated
+talos update --latest                  # Update ignoring the version range in package.json
+talos update --audit-level=critical    # Only block on critical findings (low|moderate|high|critical)
+talos update --skip-audit              # Skip the audit and update directly
+talos update --no-cache                # Bypass the cached audit result and re-query OSV.dev
+talos update --force                   # Update anyway even if vulnerabilities were found
+```
+
+`update` resolves the target dependency graph first (`bun update --lockfile-only`), audits it, then rolls package.json and the lockfile back to their pre-resolve state if it's blocked — so a blocked update never leaves versions bumped.
+
+```bash
+talos add --deps=lodash,zod            # bun add, but audits the resolved versions against OSV.dev before installing (blocks on high/critical unless --force)
+talos add --deps=jest --dev            # Add to devDependencies
+talos add --deps=left-pad --exact      # Add the exact version instead of a ^range
+talos add --deps=lodash --audit-level=critical  # Only block on critical findings (low|moderate|high|critical)
+talos add --deps=lodash --skip-audit   # Skip the audit and add directly
+talos add --deps=lodash --no-cache     # Bypass the cached audit result and re-query OSV.dev
+talos add --deps=lodash --force        # Add anyway even if vulnerabilities were found
+```
+
+`--deps` is required. Like `update`, `add` resolves first (`bun add --lockfile-only`), audits it, then rolls package.json and the lockfile back if it's blocked.
+
 ## Application
 ```bash
 talos app:start                   # Start Docker services + all runnable modules with hot reload
