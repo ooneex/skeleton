@@ -22,7 +22,7 @@ Generate an AI skill class and test file, then complete the implementation. Foll
 
 > A skill is a *procedure*: instructions plus the tools that carry them out. A tool is a single callable function (`ai-tool-create`); a skill is the know-how for using several of them together. If the request is one capability, make a tool — reach for a skill only when there is a procedure worth writing down.
 
-**How a skill reaches the model.** `Chat` puts only the catalogue — `getName()`, `getDescription()`, `getWhenToUse()` — into a system prompt, and registers the skill's tools plus a built-in `skills_discover` tool on the run. The model reads the catalogue, calls `skills_discover` with the names that fit, and gets back the full `getPrompt()` as the tool result. So the description and when-to-use line are what the model routes on and must stand alone; the prompt is only read once the skill has been chosen, and costs nothing on runs that don't choose it.
+**How a skill reaches the model.** `Chat` appends every declared skill's routing surface (`getDescription()`, `getWhenToUse()`) and full `getPrompt()` to the system prompt, and registers its tools on the run. So a skill in play is paid for on every turn — narrow which skills a request pulls in with `chat.judge()` before a request that only needs some of them.
 
 ## Steps
 
