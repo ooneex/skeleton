@@ -12,19 +12,21 @@ image: oven/bun:latest
 definitions:
   caches:
     bun: ~/.bun/install/cache
-    monorepo: var/cache/monorepo
+    workspace: var/cache
 
   steps:
     - step: &quality
         name: Quality
         caches:
           - bun
-          - monorepo
+          - workspace
         script:
           - apt-get update && apt-get install -y curl
           - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
           - export PATH="$HOME/.talos/bin:$PATH"
-          - talos monorepo:check
+          # Install, build, then measure the suites, lint and score the sources.
+          # `--logs` streams plain output — the interactive view needs a TTY.
+          - talos workspace:check --logs
 
     # The `docker` service exposes the Docker CLI to the step, so `talos
     # docker:publish` can build and push from the Bun image.

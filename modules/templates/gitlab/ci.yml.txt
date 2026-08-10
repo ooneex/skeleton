@@ -24,13 +24,15 @@ quality:
         - bun.lock
     paths:
       - .bun-cache/
-      - var/cache/monorepo/
+      - var/cache/
     policy: pull-push
   script:
     - apt-get update && apt-get install -y curl
     - curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
     - export PATH="$HOME/.talos/bin:$PATH"
-    - talos monorepo:check
+    # Install, build, then measure the suites, lint and score the sources.
+    # `--logs` streams plain output — the interactive view needs a TTY.
+    - talos workspace:check --logs
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH =~ /^(main|staging|develop)$/

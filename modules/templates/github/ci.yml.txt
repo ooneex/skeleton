@@ -35,12 +35,12 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Cache dependencies and monorepo task cache
+      - name: Cache dependencies and workspace task cache
         uses: actions/cache@v4
         with:
           path: |
             ~/.bun/install/cache
-            var/cache/monorepo
+            var/cache
           key: ${{ runner.os }}-talos-${{ hashFiles('bun.lock') }}
           restore-keys: |
             ${{ runner.os }}-talos-
@@ -50,8 +50,10 @@ jobs:
           curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
           echo "$HOME/.talos/bin" >> "$GITHUB_PATH"
 
+      # Install, build, then measure the suites, lint and score the sources.
+      # `--logs` streams plain output — the interactive view needs a TTY.
       - name: Check
-        run: talos monorepo:check
+        run: talos workspace:check --logs
 
   build:
     name: Build Image
