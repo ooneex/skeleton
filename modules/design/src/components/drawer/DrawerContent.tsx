@@ -39,7 +39,7 @@ export const DrawerContent = ({
   useEffect(() => {
     onDismissRef.current = onDismiss;
     dismissibleRef.current = dismissible;
-  });
+  }, [onDismiss, dismissible]);
   const dismiss = useCallback(() => {
     if (dismissibleRef.current) onDismissRef.current?.();
   }, []);

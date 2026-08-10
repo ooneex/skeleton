@@ -9,23 +9,40 @@ const escapeSelector = (value: string): string => {
   return typeof CSS !== "undefined" && CSS.escape ? CSS.escape(value) : value.replace(/([^\w-])/g, "\\$1");
 };
 
+/** `node`'s 1-based position among its same-tag siblings, and how many of them there are. */
+const positionAmongTwins = (parent: Element, node: Element): { position: number; total: number } => {
+  const children = parent.children;
+  let position = 0;
+  let total = 0;
+
+  for (let index = 0; index < children.length; index += 1) {
+    const child = children[index];
+    if (child?.tagName !== node.tagName) continue;
+    total += 1;
+    if (child === node) position = total;
+  }
+
+  return { position, total };
+};
+
 /**
  * Build a selector for `element`, walking up until an id or `data-testid`
  * pins it down. Falls back to `:nth-of-type()` steps when nothing is stable.
  */
 export const buildSelector = (element: Element): string => {
+  // Collected innermost-first — pushing and reversing once beats unshifting per step.
   const steps: string[] = [];
   let node: Element | null = element;
 
   while (node && node !== document.documentElement && steps.length < MAX_SELECTOR_DEPTH) {
     const testId = node.getAttribute("data-testid");
     if (testId) {
-      steps.unshift(`[data-testid="${testId}"]`);
+      steps.push(`[data-testid="${testId}"]`);
       break;
     }
 
     if (node.id) {
-      steps.unshift(`#${escapeSelector(node.id)}`);
+      steps.push(`#${escapeSelector(node.id)}`);
       break;
     }
 
@@ -33,16 +50,16 @@ export const buildSelector = (element: Element): string => {
     const parent: HTMLElement | null = node.parentElement;
 
     if (!parent) {
-      steps.unshift(tag);
+      steps.push(tag);
       break;
     }
 
-    const twins = Array.from(parent.children).filter((child) => child.tagName === node?.tagName);
-    steps.unshift(twins.length > 1 ? `${tag}:nth-of-type(${twins.indexOf(node) + 1})` : tag);
+    const twins = positionAmongTwins(parent, node);
+    steps.push(twins.total > 1 ? `${tag}:nth-of-type(${twins.position})` : tag);
     node = parent;
   }
 
-  return steps.join(" > ");
+  return steps.reverse().join(" > ");
 };
 
 /** Short, readable name for the targeted element — shown next to the draft. */

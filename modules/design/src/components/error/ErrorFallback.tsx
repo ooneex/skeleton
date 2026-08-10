@@ -12,16 +12,18 @@ const parseStackTrace = (stack: string | undefined) => {
   return stack
     .split("\n")
     .filter((line) => line.trim().startsWith("at"))
-    .map((line) => {
+    .map((line, depth) => {
+      // Depth plus the raw line identifies a frame even when a recursive call repeats it.
+      const id = `${depth}:${line.trim()}`;
       const match = line.match(/^\s*at\s+(.+?)\s+\((.+):(\d+):(\d+)\)/);
       if (match) {
-        return { fn: match[1], file: match[2], line: match[3], col: match[4] };
+        return { id, fn: match[1], file: match[2], line: match[3], col: match[4] };
       }
       const matchNoFn = line.match(/^\s*at\s+(.+):(\d+):(\d+)/);
       if (matchNoFn) {
-        return { fn: null, file: matchNoFn[1], line: matchNoFn[2], col: matchNoFn[3] };
+        return { id, fn: null, file: matchNoFn[1], line: matchNoFn[2], col: matchNoFn[3] };
       }
-      return { fn: null, file: line.trim(), line: null, col: null };
+      return { id, fn: null, file: line.trim(), line: null, col: null };
     });
 };
 
@@ -132,7 +134,7 @@ export const ErrorFallback = ({ error, reset }: ErrorComponentProps) => {
               <div className="space-y-0.5">
                 {frames.map((frame, i) => (
                   <div
-                    key={i}
+                    key={frame.id}
                     className={cn(
                       "flex items-baseline gap-3 py-1.5 px-3 rounded font-mono text-xs",
                       i === 0 && "bg-destructive/5 border border-destructive/10",

@@ -29,7 +29,7 @@ export const AlertDialogContent = ({
   const onDismissRef = useRef(onDismiss);
   useEffect(() => {
     onDismissRef.current = onDismiss;
-  });
+  }, [onDismiss]);
   const dismiss = useCallback(() => onDismissRef.current?.(), []);
 
   useDialogBehavior({ open, modal: true, popupRef, onDismiss: dismiss });

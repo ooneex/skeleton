@@ -227,6 +227,18 @@ const placeCaretAtStart = (element: HTMLElement) => {
   selection?.addRange(range);
 };
 
+/** Replace `element` with its own children — used to drop a span left with no attributes. */
+const unwrapElement = (element: HTMLElement) => {
+  const parent = element.parentNode;
+  if (!parent) {
+    return;
+  }
+  while (element.firstChild) {
+    parent.insertBefore(element.firstChild, element);
+  }
+  parent.removeChild(element);
+};
+
 /** Remove an inline style from every element intersecting the selection. */
 const clearInlineStyle = (root: HTMLElement, property: "color" | "backgroundColor") => {
   const selection = window.getSelection();
@@ -256,13 +268,7 @@ const clearInlineStyle = (root: HTMLElement, property: "color" | "backgroundColo
       element.removeAttribute("style");
     }
     if (element.tagName === "SPAN" && element.attributes.length === 0) {
-      const parent = element.parentNode;
-      if (parent) {
-        while (element.firstChild) {
-          parent.insertBefore(element.firstChild, element);
-        }
-        parent.removeChild(element);
-      }
+      unwrapElement(element);
     }
   }
 };
@@ -299,29 +305,35 @@ const createTaskItem = (innerHtml: string, checked = false): HTMLLIElement => {
   return item;
 };
 
+/** Re-apply one task item's classes and checkbox state from its `data-checked` attribute. */
+const normalizeTaskItem = (item: HTMLLIElement) => {
+  item.className = TASK_ITEM_CLASS;
+  const checked = item.getAttribute("data-checked") === "true";
+  let box = item.querySelector<HTMLElement>("[data-checkbox]");
+  if (!box) {
+    box = document.createElement("span");
+    box.setAttribute("data-checkbox", "");
+    box.setAttribute("contenteditable", "false");
+    item.prepend(box);
+  }
+  box.className = TASK_CHECKBOX_CLASS;
+  box.setAttribute("contenteditable", "false");
+  paintCheckbox(box, checked);
+};
+
+/** Re-apply one task list's classes, then normalize each of its items. */
+const normalizeTaskList = (list: HTMLUListElement) => {
+  list.className = TASK_LIST_CLASS;
+  list.querySelectorAll<HTMLLIElement>(":scope > li").forEach(normalizeTaskItem);
+};
+
 /**
  * Normalize persisted task lists after a raw HTML load: re-apply the checkbox
  * classes and check state derived from each item's `data-checked` attribute so
  * round-tripped content renders correctly.
  */
 export const normalizeTaskItems = (root: HTMLElement) => {
-  root.querySelectorAll<HTMLUListElement>('ul[data-type="taskList"]').forEach((list) => {
-    list.className = TASK_LIST_CLASS;
-    list.querySelectorAll<HTMLLIElement>(":scope > li").forEach((item) => {
-      item.className = TASK_ITEM_CLASS;
-      const checked = item.getAttribute("data-checked") === "true";
-      let box = item.querySelector<HTMLElement>("[data-checkbox]");
-      if (!box) {
-        box = document.createElement("span");
-        box.setAttribute("data-checkbox", "");
-        box.setAttribute("contenteditable", "false");
-        item.prepend(box);
-      }
-      box.className = TASK_CHECKBOX_CLASS;
-      box.setAttribute("contenteditable", "false");
-      paintCheckbox(box, checked);
-    });
-  });
+  root.querySelectorAll<HTMLUListElement>('ul[data-type="taskList"]').forEach(normalizeTaskList);
 };
 
 /** Toggle the checked state of the task item owning `checkbox`. */

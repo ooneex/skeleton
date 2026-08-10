@@ -8,7 +8,7 @@ import { CardHeader } from "@module/design/components/card/CardHeader";
 import { CardTitle } from "@module/design/components/card/CardTitle";
 import { cn } from "@module/design/utils/cn";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 import useMeasure from "react-use-measure";
 
 type StepType = {
@@ -25,6 +25,8 @@ type MultiStepFormPropsType = {
   submitLabel?: string;
   submittingLabel?: string;
 };
+
+const SPRING_TRANSITION = { duration: 0.5, type: "spring", bounce: 0 } as const;
 
 const variants = {
   initial: (direction: number) => ({ x: `${110 * direction}%`, opacity: 0 }),
@@ -45,6 +47,7 @@ export const MultiStepForm = ({
 
   const totalSteps = steps.length;
   const isLastStep = currentStep === totalSteps - 1;
+  const heightAnimation = useMemo(() => ({ height: bounds.height > 0 ? bounds.height : "auto" }), [bounds.height]);
 
   const nextStep = () => {
     if (isLastStep) {
@@ -63,7 +66,7 @@ export const MultiStepForm = ({
   };
 
   return (
-    <MotionConfig transition={{ duration: 0.5, type: "spring", bounce: 0 }}>
+    <MotionConfig transition={SPRING_TRANSITION}>
       <motion.div layout>
         <CardHeader className="flex flex-row items-start justify-between space-y-0 px-6 py-4">
           <div className="flex flex-col gap-1">
@@ -71,9 +74,9 @@ export const MultiStepForm = ({
             <CardDescription>{steps[currentStep]?.description}</CardDescription>
           </div>
           <div className="flex items-center gap-1.5 pt-1">
-            {steps.map((_, index) => (
+            {steps.map((step, index) => (
               <div
-                key={index}
+                key={step.title}
                 className={cn(
                   "h-2 rounded-full transition-all duration-300",
                   currentStep === index ? "w-8 bg-primary" : "w-2 bg-primary/20",
@@ -83,11 +86,7 @@ export const MultiStepForm = ({
           </div>
         </CardHeader>
 
-        <motion.div
-          animate={{ height: bounds.height > 0 ? bounds.height : "auto" }}
-          className="relative overflow-hidden"
-          transition={{ type: "spring", bounce: 0, duration: 0.5 }}
-        >
+        <motion.div animate={heightAnimation} className="relative overflow-hidden" transition={SPRING_TRANSITION}>
           <div ref={ref}>
             <CardContent className="px-6 py-2 relative">
               <AnimatePresence mode="popLayout" initial={false} custom={direction}>

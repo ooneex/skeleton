@@ -47,7 +47,7 @@ export const useDialogBehavior = ({ open, modal, popupRef, onDismiss }: UseDialo
   const onDismissRef = useRef(onDismiss);
   useEffect(() => {
     onDismissRef.current = onDismiss;
-  });
+  }, [onDismiss]);
 
   useEffect(() => {
     if (!open) return;

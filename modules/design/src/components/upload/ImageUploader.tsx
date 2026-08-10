@@ -100,7 +100,7 @@ export const ImageUploader = ({
     <div className={cn("flex flex-col gap-1.5", className)}>
       <div className="flex flex-wrap gap-3">
         {images.map((src, index) => (
-          <div key={index} className="relative group">
+          <div key={src} className="relative group">
             <ImageZoom src={src} alt={`Image ${index + 1}`} className="size-16 object-cover rounded" />
             <Button
               onClick={() => onRemove(index)}

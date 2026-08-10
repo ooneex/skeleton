@@ -242,6 +242,20 @@ const detectSlashTrigger = (root: HTMLElement): { query: string; trigger: SlashT
   return { query, trigger: { node: node as Text, from: offset - query.length - 1, to: offset } };
 };
 
+/**
+ * Everything an item can be matched on, lowercased once at module load rather
+ * than on every keystroke: its title, its description and its aliases.
+ */
+const SEARCH_TEXT: Map<SlashMenuItemType, string> = new Map(
+  SLASH_MENU_ITEMS.map((item) => [
+    item,
+    [item.title, item.description, ...(item.aliases ?? [])].join(" ").toLowerCase(),
+  ]),
+);
+
+const matchesQuery = (item: SlashMenuItemType, lowerQuery: string): boolean =>
+  SEARCH_TEXT.get(item)?.includes(lowerQuery) ?? false;
+
 const filterItems = (
   query: string,
   gates: { showHeadings: boolean; showHistory: boolean; showMedia: boolean },
@@ -251,18 +265,71 @@ const filterItems = (
     if (!gates.showHeadings && item.group === "Headings") return false;
     if (!gates.showHistory && item.group === "History") return false;
     if (!gates.showMedia && item.group === "Media") return false;
-    if (!lower) return true;
-    return (
-      item.title.toLowerCase().includes(lower) ||
-      item.description.toLowerCase().includes(lower) ||
-      (item.aliases?.some((alias) => alias.toLowerCase().includes(lower)) ?? false)
-    );
+    return !lower || matchesQuery(item, lower);
   });
 };
 
 export type SlashMenuPropsType = {
   className?: string;
 };
+
+/** A menu item with the flat, keyboard-navigable index it holds across all groups. */
+type IndexedItemType = { item: SlashMenuItemType; index: number };
+
+/** Partition the filtered items by group, keeping each one's flat index for navigation. */
+const groupItems = (items: SlashMenuItemType[]): [string, IndexedItemType[]][] => {
+  const groups = new Map<string, IndexedItemType[]>();
+
+  items.forEach((item, index) => {
+    const bucket = groups.get(item.group);
+    if (bucket) {
+      bucket.push({ item, index });
+    } else {
+      groups.set(item.group, [{ item, index }]);
+    }
+  });
+
+  return Array.from(groups);
+};
+
+type SlashMenuGroupPropsType = {
+  group: string;
+  items: IndexedItemType[];
+  activeIndex: number;
+  onRegister: (index: number, node: HTMLButtonElement | null) => void;
+  onApply: (item: SlashMenuItemType) => void;
+};
+
+const SlashMenuGroup = ({ group, items, activeIndex, onRegister, onApply }: SlashMenuGroupPropsType) => (
+  <div className="flex flex-col gap-1 p-1">
+    <div className="bg-muted/50 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      {group}
+    </div>
+    {items.map(({ item, index }) => {
+      const Icon = item.icon;
+      return (
+        <Button
+          key={item.title}
+          ref={(node) => onRegister(index, node)}
+          variant="ghost"
+          className={cn(
+            "flex h-auto w-full items-center justify-start gap-3 rounded px-2 py-2",
+            index === activeIndex && "bg-accent text-accent-foreground",
+          )}
+          onClick={() => onApply(item)}
+        >
+          <div className="flex size-8 items-center justify-center rounded bg-muted">
+            <Icon className="size-4" />
+          </div>
+          <div className="flex flex-col items-start">
+            <span className="text-sm font-medium">{item.title}</span>
+            <span className="text-xs text-muted-foreground">{item.description}</span>
+          </div>
+        </Button>
+      );
+    })}
+  </div>
+);
 
 /**
  * Slash-command menu. Watches the editor for a `/` trigger, shows a filterable,
@@ -284,6 +351,16 @@ export const SlashMenu = ({ className }: SlashMenuPropsType) => {
     () => (open ? filterItems(query, { showHeadings, showHistory, showMedia }) : []),
     [open, query, showHeadings, showHistory, showMedia],
   );
+
+  const menuStyle = useMemo(() => ({ top: position?.top ?? 0, left: position?.left ?? 0 }), [position]);
+
+  const registerItem = useCallback((index: number, node: HTMLButtonElement | null) => {
+    if (node) {
+      itemRefs.current.set(index, node);
+    } else {
+      itemRefs.current.delete(index);
+    }
+  }, []);
 
   const close = useCallback(() => {
     setOpen(false);
@@ -390,61 +467,26 @@ export const SlashMenu = ({ className }: SlashMenuPropsType) => {
     return null;
   }
 
-  let flatIndex = -1;
-  const groups = items.reduce<Record<string, { item: SlashMenuItemType; index: number }[]>>((accumulator, item) => {
-    flatIndex += 1;
-    const list = accumulator[item.group] ?? [];
-    list.push({ item, index: flatIndex });
-    accumulator[item.group] = list;
-    return accumulator;
-  }, {});
-
   return createPortal(
     <div
       ref={preserveSelectionRef}
       data-slot="editor-slash-menu"
-      style={{ top: position.top, left: position.left }}
+      style={menuStyle}
       className={cn(
         "fixed z-50 rounded bg-popover p-1 text-popover-foreground shadow-none ring ring-ring-active",
         className,
       )}
     >
       <div className="max-h-80 min-w-64 overflow-y-auto">
-        {Object.entries(groups).map(([group, groupItems]) => (
-          <div key={group} className="flex flex-col gap-1 p-1">
-            <div className="bg-muted/50 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              {group}
-            </div>
-            {groupItems.map(({ item, index }) => {
-              const Icon = item.icon;
-              return (
-                <Button
-                  key={item.title}
-                  ref={(node) => {
-                    if (node) {
-                      itemRefs.current.set(index, node);
-                    } else {
-                      itemRefs.current.delete(index);
-                    }
-                  }}
-                  variant="ghost"
-                  className={cn(
-                    "flex h-auto w-full items-center justify-start gap-3 rounded px-2 py-2",
-                    index === activeIndex && "bg-accent text-accent-foreground",
-                  )}
-                  onClick={() => applyItem(item)}
-                >
-                  <div className="flex size-8 items-center justify-center rounded bg-muted">
-                    <Icon className="size-4" />
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <span className="text-sm font-medium">{item.title}</span>
-                    <span className="text-xs text-muted-foreground">{item.description}</span>
-                  </div>
-                </Button>
-              );
-            })}
-          </div>
+        {groupItems(items).map(([group, indexedItems]) => (
+          <SlashMenuGroup
+            key={group}
+            group={group}
+            items={indexedItems}
+            activeIndex={activeIndex}
+            onRegister={registerItem}
+            onApply={applyItem}
+          />
         ))}
       </div>
     </div>,
