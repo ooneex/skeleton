@@ -26,9 +26,6 @@ export default defineConfig({
           if (id.includes("node_modules/@react-pdf-viewer") || id.includes("node_modules/pdfjs-dist")) {
             return "storybook-pdf";
           }
-          if (id.includes("node_modules/recharts")) {
-            return "storybook-chart";
-          }
           if (
             id.includes("node_modules/react-shiki") ||
             id.includes("node_modules/shiki") ||
