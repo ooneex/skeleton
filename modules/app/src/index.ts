@@ -23,6 +23,15 @@ const app = new App({
   cors: CorsMiddleware,
   cronJobs: AppModule.cronJobs,
   onStart: OnAppStart,
+  websocket: {
+    idleTimeout: 120,
+    maxPayloadLength: 1024 * 1024 * 16,
+    backpressureLimit: 1024 * 1024 * 16,
+    closeOnBackpressureLimit: true,
+    sendPings: true,
+    publishToSelf: false,
+    perMessageDeflate: true,
+  },
 });
 
 await app.run();
