@@ -2,6 +2,7 @@ import { Command } from "cmdk";
 import type { SVGProps } from "react";
 import type { StoryGroupType } from "../story";
 import { groupBy } from "../utils/groupBy";
+import { parentTitle } from "../utils/parentTitle";
 import { ScrollArea } from "./scroll-area";
 
 type CommandPalettePropsType = {
@@ -24,8 +25,8 @@ type SectionType = {
 const mainComponents = (groups: StoryGroupType[]): StoryGroupType[] => {
   const titles = new Set(groups.map((group) => group.title));
   return groups.filter((group) => {
-    const dot = group.title.indexOf(".");
-    return !(dot > 0 && titles.has(group.title.slice(0, dot)));
+    const parent = parentTitle(group.title);
+    return parent === undefined || !titles.has(parent);
   });
 };
 
@@ -69,6 +70,50 @@ const monogram = (title: string): string => {
   return letters.toUpperCase();
 };
 
+/** Every variant of one component, as palette items in the section's grid. */
+const PaletteVariants = ({ group, onSelect }: { group: StoryGroupType; onSelect: (id: string) => void }) => (
+  <>
+    {group.variants.map((variant) => {
+      const description = summarize(variant.usage);
+      return (
+        <Command.Item
+          key={variant.id}
+          value={`${group.title} ${variant.name}`}
+          onSelect={() => onSelect(variant.id)}
+          className="flex cursor-pointer items-start gap-3 rounded-md border border-transparent px-2.5 py-2 text-sm text-foreground aria-selected:border-border aria-selected:bg-muted aria-selected:text-foreground"
+        >
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-muted text-xs font-semibold uppercase text-muted-foreground aria-selected:bg-background">
+            {monogram(group.title)}
+          </span>
+          <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+            <div className="flex items-baseline gap-2">
+              <span className="truncate font-medium">{variant.name}</span>
+              <span className="ml-auto shrink-0 rounded bg-muted px-1.5 py-0.5 text-2xs font-medium uppercase tracking-wide text-muted-foreground">
+                {group.title}
+              </span>
+            </div>
+            {description ? <span className="line-clamp-2 text-xs text-muted-foreground">{description}</span> : null}
+          </div>
+        </Command.Item>
+      );
+    })}
+  </>
+);
+
+/** One `group` label and the components filed under it, laid out as a two-column grid. */
+const PaletteSection = ({ section, onSelect }: { section: SectionType; onSelect: (id: string) => void }) => (
+  <Command.Group
+    heading={section.group}
+    className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-muted-foreground"
+  >
+    <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+      {section.groups.map((group) => (
+        <PaletteVariants key={group.id} group={group} onSelect={onSelect} />
+      ))}
+    </div>
+  </Command.Group>
+);
+
 /**
  * ⌘K command palette — a fuzzy jump-to over every variant of every component,
  * matched against the story title. Selecting an item navigates straight to that
@@ -96,42 +141,7 @@ export const CommandPalette = ({ groups, open, onOpenChange, onSelect }: Command
         <ScrollArea viewportClassName="max-h-[60vh] p-1">
           <Command.Empty className="py-6 text-center text-sm text-muted-foreground">No matches.</Command.Empty>
           {buildSections(mainComponents(groups)).map((section) => (
-            <Command.Group
-              key={section.group}
-              heading={section.group}
-              className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-muted-foreground"
-            >
-              <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                {section.groups.flatMap((group) =>
-                  group.variants.map((variant) => {
-                    const description = summarize(variant.usage);
-                    return (
-                      <Command.Item
-                        key={variant.id}
-                        value={`${group.title} ${variant.name}`}
-                        onSelect={() => onSelect(variant.id)}
-                        className="flex cursor-pointer items-start gap-3 rounded-md border border-transparent px-2.5 py-2 text-sm text-foreground aria-selected:border-border aria-selected:bg-muted aria-selected:text-foreground"
-                      >
-                        <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-muted text-xs font-semibold uppercase text-muted-foreground aria-selected:bg-background">
-                          {monogram(group.title)}
-                        </span>
-                        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-                          <div className="flex items-baseline gap-2">
-                            <span className="truncate font-medium">{variant.name}</span>
-                            <span className="ml-auto shrink-0 rounded bg-muted px-1.5 py-0.5 text-2xs font-medium uppercase tracking-wide text-muted-foreground">
-                              {group.title}
-                            </span>
-                          </div>
-                          {description ? (
-                            <span className="line-clamp-2 text-xs text-muted-foreground">{description}</span>
-                          ) : null}
-                        </div>
-                      </Command.Item>
-                    );
-                  }),
-                )}
-              </div>
-            </Command.Group>
+            <PaletteSection key={section.group} section={section} onSelect={onSelect} />
           ))}
         </ScrollArea>
       </Command.List>

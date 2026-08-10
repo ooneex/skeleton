@@ -18,6 +18,9 @@ const workflowStatuses = [
   "archived",
 ] satisfies readonly StatusType[];
 
+/** The badge entry of every status, keyed by status, so a lookup never walks the map. */
+const badgeByStatus = new Map(statusBadgeMap.map((item) => [item.status, item] as const));
+
 type StatusSizeType = "xs" | "sm" | "md" | "lg";
 type StatusDemoPropsType = StatusPickerPropsType & { size?: StatusSizeType };
 
@@ -33,7 +36,7 @@ const StatusDemo = ({
     setSelectedStatus(value);
   }, [value]);
 
-  const selectedBadge = statusBadgeMap.find((item) => item.status === selectedStatus);
+  const selectedBadge = badgeByStatus.get(selectedStatus);
   const SelectedBadge = selectedBadge?.component;
 
   return (
@@ -53,7 +56,7 @@ const StatusDemo = ({
       </Button>
       <div className="flex flex-wrap items-center justify-center gap-2">
         {statuses.map((status) => {
-          const badge = statusBadgeMap.find((item) => item.status === status);
+          const badge = badgeByStatus.get(status);
           if (!badge) return null;
           const BadgeComponent = badge.component;
           return (

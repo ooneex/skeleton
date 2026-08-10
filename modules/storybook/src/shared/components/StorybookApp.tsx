@@ -37,9 +37,26 @@ const filterGroups = (groups: StoryGroupType[], query: string): StoryGroupType[]
     .filter((group) => group.variants.length > 0);
 };
 
-const findVariant = (groups: StoryGroupType[], id: string | undefined): SelectionType | undefined => {
+/** File every variant of `group` under its id, so a story lookup costs one map hit. */
+const indexVariants = (index: Map<string, SelectionType>, group: StoryGroupType): void => {
+  for (const variant of group.variants) {
+    index.set(variant.id, { group, variant });
+  }
+};
+
+/** Index every variant id to the group/variant pair it selects. */
+const buildVariantIndex = (groups: StoryGroupType[]): Map<string, SelectionType> => {
+  const index = new Map<string, SelectionType>();
   for (const group of groups) {
-    const variant = id ? group.variants.find((item) => item.id === id) : group.variants[0];
+    indexVariants(index, group);
+  }
+  return index;
+};
+
+/** The story shown when the URL names none: the first variant of the first non-empty group. */
+const firstVariant = (groups: StoryGroupType[]): SelectionType | undefined => {
+  for (const group of groups) {
+    const variant = group.variants[0];
     if (variant) {
       return { group, variant };
     }
@@ -54,7 +71,11 @@ export const StorybookApp = () => {
   const query = q ?? "";
   const groups = useMemo(() => loadStoryGroups(), []);
   const visibleGroups = useMemo(() => filterGroups(groups, query), [groups, query]);
-  const selected = useMemo(() => findVariant(visibleGroups, story), [visibleGroups, story]);
+  const variantIndex = useMemo(() => buildVariantIndex(visibleGroups), [visibleGroups]);
+  const selected = useMemo(
+    () => (story ? variantIndex.get(story) : firstVariant(visibleGroups)),
+    [variantIndex, visibleGroups, story],
+  );
   const [loadedSelection, setLoadedSelection] = useState<LoadedSelectionType>();
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [controlsCollapsed, setControlsCollapsed] = useState(false);
