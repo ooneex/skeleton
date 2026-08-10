@@ -18,12 +18,16 @@ Apply **only** to a React module (`design` or `spa`) — `optimize` calls this f
 Install missing deps at the project root:
 
 ```bash
-bun add zustand @tanstack/react-query @tanstack/react-table @tanstack/react-virtual @tanstack/react-pacer @tanstack/react-hotkeys
+bun add zustand @tanstack/react-query @tanstack/react-table @tanstack/charts @tanstack/react-virtual @tanstack/react-pacer @tanstack/react-hotkeys
 ```
 
 ## Tables
 
 **Every table or data grid is built with TanStack Table (`@tanstack/react-table`, latest version) — no exceptions.** Never hand-roll sorting/filtering/pagination/selection state over a raw `<table>`, and never introduce a pre-built grid (AG Grid, MUI DataGrid, react-table v7, …). It is headless, so the markup and every visual value still come from the design module's components and tokens. When optimizing existing UI, port hand-rolled tables onto it. See `references/data-and-performance.md` for the setup, the opt-in `tableFeatures` pattern, and the rules; docs at https://tanstack.com/table/latest/docs/overview.
+
+## Charts
+
+**Every chart, graph, plot, sparkline, or dashboard visualization is built with TanStack Charts (`@tanstack/charts`, latest version) — no exceptions.** Never add another charting library (Recharts, Chart.js, ECharts, Nivo, Victory, Highcharts, …) and never hand-roll SVG/canvas plotting or raw D3 selections. It is a typed grammar of marks — you declare data, marks, channels, and scales via `defineChart` and render through `@tanstack/charts/react` — so colors, fonts, and spacing still resolve to the design module's tokens (`--ts-chart-*` variables and inherited `currentColor`). When optimizing existing UI, port charts off whatever library they use. It is pre-alpha, so pin the installed version. See `references/data-and-performance.md` for the setup, mark selection, and the rules; docs at https://tanstack.com/charts/v0/docs/overview and worked examples at https://tanstack.com/charts/catalog.
 
 ## Design system
 
@@ -61,7 +65,7 @@ Read the relevant reference(s) below **before** implementing — each is short, 
 | Reference | Read when touching... |
 |---|---|
 | `references/state-and-hooks.md` | custom hooks, compound components, Zustand global state |
-| `references/data-and-performance.md` | TanStack Query, tables/data grids (Table — mandatory for any table), long lists (Virtual), debounce/throttle (Pacer), keyboard shortcuts (Hotkeys), perceived-speed techniques |
+| `references/data-and-performance.md` | TanStack Query, tables/data grids (Table — mandatory for any table), charts/visualizations (Charts — mandatory for any chart), long lists (Virtual), debounce/throttle (Pacer), keyboard shortcuts (Hotkeys), perceived-speed techniques |
 
 ## Self-review before calling UI work done
 

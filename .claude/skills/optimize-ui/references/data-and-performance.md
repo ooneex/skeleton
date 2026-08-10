@@ -1,4 +1,4 @@
-# Server state, tables, virtualization, rate-limiting & shortcuts
+# Server state, tables, charts, virtualization, rate-limiting & shortcuts
 
 ## Server state — TanStack Query
 
@@ -103,6 +103,52 @@ Rules:
 - Server-driven tables (paginate/sort/filter on the backend) pair TanStack Table with TanStack Query — fetch in a hook, feed the rows in, and let the table manage only the state you don't own.
 - Long tables compose with TanStack Virtual (below) — virtualize the rows without changing any table logic.
 - Migrating from v8? Follow https://tanstack.com/table/latest/docs/framework/react/guide/migrating-to-v9 rather than leaving `useReactTable`/`flexRender` call sites in place.
+
+## Charts & data visualization — TanStack Charts
+
+**Always build charts, graphs, plots, sparklines, and dashboard visualizations with TanStack Charts (latest version) — never pull in another charting library (Recharts, Chart.js, ECharts, Nivo, Victory, Highcharts, react-chartjs-2, …) and never hand-roll SVG/canvas plotting or raw D3 selections.** It is a typed grammar of marks: you declare data, marks, channels, and scales, and it compiles a responsive, accessible, keyed scene (SVG by default, Canvas opt-in). Colors, fonts, and spacing still resolve to the design module's tokens through the `--ts-chart-*` CSS variables and inherited `currentColor`.
+
+TanStack Charts is pre-alpha and its API may change between releases — pin the version you install and re-read the docs before upgrading.
+
+```bash
+bun add @tanstack/charts
+```
+
+Docs: https://tanstack.com/charts/v0/docs/overview · https://tanstack.com/charts/v0/docs/reference/index · catalog of 110 worked examples: https://tanstack.com/charts/catalog
+
+Install only `@tanstack/charts`; everything else is a tree-shakeable subpath — marks and the runtime from the root entry, React from `@tanstack/charts/react`, compact scales from exact `@tanstack/charts/scales/*` entries (there is intentionally no aggregate `/scales` export). Optional capabilities live behind their own subpaths: `/tooltip`, `/transform/*`, `/motion`, `/legend`, `/view`, `/canvas`, `/interaction/*`, `/hierarchy/*`, `/spatial/*`, `/polar`, `/geo`.
+
+Define the chart once with `defineChart`, then render it with the React adapter:
+
+```tsx
+import { Chart } from "@tanstack/charts/react";
+import { defineChart, dot, lineY } from "@tanstack/charts";
+import { scaleBand } from "@tanstack/charts/scales/band";
+import { scaleLinear } from "@tanstack/charts/scales/linear";
+
+const signupsChart = defineChart({
+  marks: [
+    lineY(signups, { x: "month", y: "value", stroke: "var(--ts-chart-series-1)", strokeWidth: 2 }),
+    dot(signups, { x: "month", y: "value", fill: "var(--ts-chart-series-1)", r: 4 }),
+  ],
+  x: { scale: () => scaleBand<string>().padding(0.2) },
+  y: { scale: scaleLinear, nice: true, grid: true, axis: { label: "Signups" } },
+});
+
+export const SignupsChart = () => (
+  <Chart definition={signupsChart} ariaLabel="Monthly signups, January through May" />
+);
+```
+
+Rules:
+- **Pick the mark, not a chart type** — a chart is a composition of marks layered over shared scales (`lineY`, `areaY`, `barY`/`barX`, `rect`/`cell`, `dot`, `ruleX`/`ruleY`, `text`, `boxY`, `treemap`, `sankeyDiagram`, `pie`/`polar`, `geoShape`, …). Layer them in array order; for compound charts with their own scales, use `composeViews` from `@tanstack/charts/view` instead of nesting components.
+- **Define outside render.** Hoist the `defineChart(...)` result to module scope, or memoize it — an inline definition re-compiles the scene every render. Same for the data array.
+- **Prepare data before it reaches a mark.** Grouping, binning, stacking, rolling windows, and normalizing come from TanStack's transform entries (`@tanstack/charts/group`, `/stack`, `/transform/*`) or your query layer — marks consume plain rows, never a special series container.
+- **Accessibility is not optional:** always pass `ariaLabel` describing what the chart shows; keyboard focus is on by default, so don't disable it. Never encode meaning by color alone — pair it with shape, label, or direct annotation, and check series colors against `references/color-contrast.md`.
+- **Let it be responsive:** omit `width` (it follows the container) and omit `margin` (guides are measured automatically). Don't wire your own resize observer.
+- Add the built-in tooltip from `@tanstack/charts/tooltip` before hand-building a hover overlay; motion belongs to `@tanstack/charts/motion`, not ad-hoc CSS transitions on the generated nodes, and must respect `prefers-reduced-motion`.
+- Server-fed charts pair with TanStack Query exactly like tables — fetch in a hook, pass the rows into the marks.
+- When optimizing existing UI, port charts off whatever library they use rather than leaving two charting systems in one app.
 
 ## Long lists — TanStack Virtual
 
