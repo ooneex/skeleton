@@ -11,9 +11,14 @@ describe("{{NAME}}VectorDatabase", () => {
     expect(typeof {{NAME}}VectorDatabase.prototype.getDatabaseUri).toBe("function");
   });
 
-  test("should have 'getEmbeddingModel' method", () => {
-    expect({{NAME}}VectorDatabase.prototype.getEmbeddingModel).toBeDefined();
-    expect(typeof {{NAME}}VectorDatabase.prototype.getEmbeddingModel).toBe("function");
+  test("should default to the qwen embedding model", () => {
+    const db = new {{NAME}}VectorDatabase();
+    expect(db.getEmbeddingModel()).toEqual({ model: "qwen3-embedding-8b" });
+  });
+
+  test("should accept an embedding model override", () => {
+    const db = new {{NAME}}VectorDatabase({ model: "text-embedding-3-small" });
+    expect(db.getEmbeddingModel()).toEqual({ model: "text-embedding-3-small" });
   });
 
   test("should have 'getSchema' method", () => {

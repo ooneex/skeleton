@@ -1,24 +1,28 @@
-import { VectorDatabase, decorator } from "@talosjs/rag";
-import type { EmbeddingModelType, EmbeddingProviderType, FieldValueType } from "@talosjs/rag";
+import { AbstractVectorDatabase, decorator } from "@talosjs/rag";
+import type { EmbeddingModelType, FieldValueType } from "@talosjs/rag";
 import { Utf8 } from "apache-arrow";
 
 type DataType = {
-  name: string;
+  metadata: {
+    name: string;
+  };
 };
 
+const DEFAULT_EMBEDDING_MODEL: EmbeddingModelType = { model: "qwen3-embedding-8b" };
+
 @decorator.vectorDatabase()
-export class {{NAME}}VectorDatabase extends VectorDatabase<DataType> {
+export class {{NAME}}VectorDatabase extends AbstractVectorDatabase<DataType> {
+  public constructor(embeddingModel: EmbeddingModelType = DEFAULT_EMBEDDING_MODEL) {
+    super(embeddingModel);
+  }
+
   public getDatabaseUri(): string {
     return "";
   }
 
-  public getEmbeddingModel(): { provider: EmbeddingProviderType; model: EmbeddingModelType["model"] } {
-    return { provider: "qwen", model: "qwen3-embedding-8b" };
-  }
-
   public getSchema(): { [K in keyof DataType]: FieldValueType } {
     return {
-      name: new Utf8(),
+      metadata: new Utf8(),
     };
   }
 }

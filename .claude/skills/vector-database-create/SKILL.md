@@ -1,7 +1,7 @@
 ---
 name: vector-database-create
 description: Generate a new vector database class with its test file, then complete the generated code.
-when_to_use: Use when creating a new vector database that extends VectorDatabase from @talosjs/rag.
+when_to_use: Use when creating a new vector database that extends AbstractVectorDatabase from @talosjs/rag.
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos vector-database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
@@ -37,40 +37,47 @@ talos vector-database:create --name=<name> --module=<module>
 Read `modules/<module>/src/databases/<Name>VectorDatabase.ts`, then:
 
 - Set `getDatabaseUri()` to the actual LanceDB database path
-- Configure the embedding provider and model in `getEmbeddingModel()`
-- Define custom data fields in `DataType` and map them in `getSchema()`
+- Pick the embedding model — default to `{ model: "qwen3-embedding-8b" }`, or pass `{ model: "text-embedding-3-large" }` (or another OpenAI model) for OpenAI embeddings instead — both are served through OpenRouter's single `OpenrouterEmbeddingFunction`, so only `OPENROUTER_API_KEY` is needed
+- Define custom metadata fields under `DataType["metadata"]` — the runtime schema always stores a single `metadata` column; the type param is what gives `metadata.<field>` filters their shape
 
 ```typescript
-import { type EmbeddingModelType, type EmbeddingProviderType, type FieldValueType, VectorDatabase, decorator } from "@talosjs/rag";
+import { AbstractVectorDatabase, decorator } from "@talosjs/rag";
+import type { EmbeddingModelType, FieldValueType } from "@talosjs/rag";
 import { Utf8 } from "apache-arrow";
 
 type DataType = {
-  name: string;
+  metadata: {
+    name: string;
+  };
 };
 
+const DEFAULT_EMBEDDING_MODEL: EmbeddingModelType = { model: "qwen3-embedding-8b" };
+
 @decorator.vectorDatabase()
-export class <Name>VectorDatabase extends VectorDatabase<DataType> {
+export class <Name>VectorDatabase extends AbstractVectorDatabase<DataType> {
+  public constructor(embeddingModel: EmbeddingModelType = DEFAULT_EMBEDDING_MODEL) {
+    super(embeddingModel);
+  }
+
   public getDatabaseUri(): string {
     return "";
   }
 
-  public getEmbeddingModel(): { provider: EmbeddingProviderType; model: EmbeddingModelType["model"] } {
-    return { provider: "openai", model: "text-embedding-ada-002" };
-  }
-
   public getSchema(): { [K in keyof DataType]: FieldValueType } {
     return {
-      name: new Utf8(),
+      metadata: new Utf8(),
     };
   }
 }
 ```
 
+`getEmbeddingModel()` is inherited from `AbstractVectorDatabase` — it just returns whatever was passed to the constructor. Don't override it; pick the provider by passing (or defaulting) the constructor argument instead.
+
 ### 3. Complete the test file
 
 Read and replace `modules/<module>/tests/databases/<Name>VectorDatabase.spec.ts`:
 
-**Coverage:** class identity (`name.endsWith("VectorDatabase")`, is constructor), `getDatabaseUri` exists and returns a string, `getEmbeddingModel` exists and returns `{ provider, model }` (both non-empty strings, provider is a recognized value), `getSchema` exists and returns a non-empty object with keys matching `DataType` fields, instance isolation.
+**Coverage:** class identity (`name.endsWith("VectorDatabase")`), `getDatabaseUri` exists and returns a string, the default embedding model matches the constructor's default, an explicit embedding model argument overrides it, `getSchema` exists and returns a non-empty object with keys matching `DataType` fields, instance isolation.
 
 ```typescript
 import { describe, expect, test } from "bun:test";
@@ -79,10 +86,6 @@ import { <Name>VectorDatabase } from "@/databases/<Name>VectorDatabase";
 describe("<Name>VectorDatabase", () => {
   test("should have class name ending with 'VectorDatabase'", () => {
     expect(<Name>VectorDatabase.name.endsWith("VectorDatabase")).toBe(true);
-  });
-
-  test("should be a constructor function", () => {
-    expect(typeof <Name>VectorDatabase).toBe("function");
   });
 
   test("should have 'getDatabaseUri' method", () => {
@@ -94,42 +97,25 @@ describe("<Name>VectorDatabase", () => {
     expect(typeof db.getDatabaseUri()).toBe("string");
   });
 
-  test("should have 'getEmbeddingModel' method", () => {
-    expect(typeof <Name>VectorDatabase.prototype.getEmbeddingModel).toBe("function");
+  test("should default to the qwen embedding model", () => {
+    const db = new <Name>VectorDatabase();
+    expect(db.getEmbeddingModel()).toEqual({ model: "qwen3-embedding-8b" });
   });
 
-  test("'getEmbeddingModel' should return an object with 'provider' and 'model' keys", () => {
-    const db = new <Name>VectorDatabase();
-    const embedding = db.getEmbeddingModel();
-    expect(embedding).toBeDefined();
-    expect(typeof embedding.provider).toBe("string");
-    expect(embedding.provider.length).toBeGreaterThan(0);
-    expect(typeof embedding.model).toBe("string");
-    expect(embedding.model.length).toBeGreaterThan(0);
-  });
-
-  test("'getEmbeddingModel' provider should be a recognized value", () => {
-    const db = new <Name>VectorDatabase();
-    const { provider } = db.getEmbeddingModel();
-    expect(["openai", "cohere", "huggingface", "ollama"]).toContain(provider);
+  test("should accept an embedding model override", () => {
+    const db = new <Name>VectorDatabase({ model: "text-embedding-3-small" });
+    expect(db.getEmbeddingModel()).toEqual({ model: "text-embedding-3-small" });
   });
 
   test("should have 'getSchema' method", () => {
     expect(typeof <Name>VectorDatabase.prototype.getSchema).toBe("function");
   });
 
-  test("'getSchema' should return a non-empty object", () => {
-    const db = new <Name>VectorDatabase();
-    const schema = db.getSchema();
-    expect(schema).toBeDefined();
-    expect(Object.keys(schema).length).toBeGreaterThan(0);
-  });
-
   test("'getSchema' keys should match the DataType fields", () => {
     const db = new <Name>VectorDatabase();
     const schema = db.getSchema();
     // Update this list to match the actual DataType fields defined in the class
-    const expectedFields = ["name"];
+    const expectedFields = ["metadata"];
     for (const field of expectedFields) {
       expect(Object.keys(schema)).toContain(field);
     }
