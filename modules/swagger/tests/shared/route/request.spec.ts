@@ -307,6 +307,32 @@ describe("sendRequest", () => {
     expect(result.raw).toBe("");
   });
 
+  test("should hand back what already arrived when a stream is aborted mid-flight", async () => {
+    const controller = new AbortController();
+    const body = new ReadableStream({
+      start(streamController) {
+        // Never closes — the abort raised from onChunk is what ends the read.
+        streamController.enqueue(new TextEncoder().encode("first\n"));
+      },
+    });
+    global.fetch = mock(async () => new Response(body)) as unknown as typeof fetch;
+    const chunks: unknown[] = [];
+
+    const result = await sendRequest(
+      input({
+        meta: meta({ method: "get", transport: "stream" }),
+        signal: controller.signal,
+        onChunk: (chunk: unknown) => {
+          chunks.push(chunk);
+          controller.abort();
+        },
+      }),
+    );
+
+    expect(chunks).toEqual(["first"]);
+    expect(result.raw).toBe("first\n");
+  });
+
   test("should deliver each line of a newline-delimited stream to onChunk", async () => {
     const body = new ReadableStream({
       start(controller) {

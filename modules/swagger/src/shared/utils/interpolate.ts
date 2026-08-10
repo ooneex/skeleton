@@ -20,25 +20,31 @@ export const interpolateAll = (
 
 /** Every `{{name}}` a string reaches for, in order of first appearance. */
 export const placeholdersIn = (value: string): string[] => {
-  const names: string[] = [];
+  // A Set both de-duplicates in one step and keeps first-seen order.
+  const names = new Set<string>();
   for (const match of value.matchAll(PLACEHOLDER)) {
     const name = match[1];
-    if (name && !names.includes(name)) {
-      names.push(name);
+    if (name) {
+      names.add(name);
     }
   }
-  return names;
+  return Array.from(names);
+};
+
+/** Add the `{{names}}` of one string that `variables` cannot resolve to `missing`. */
+const collectMissing = (value: string, variables: Record<string, string>, missing: Set<string>): void => {
+  for (const name of placeholdersIn(value)) {
+    if (!(name in variables)) {
+      missing.add(name);
+    }
+  }
 };
 
 /** The `{{names}}` a request reaches for that the environment cannot resolve. */
 export const missingPlaceholders = (values: readonly string[], variables: Record<string, string>): string[] => {
-  const missing: string[] = [];
+  const missing = new Set<string>();
   for (const value of values) {
-    for (const name of placeholdersIn(value)) {
-      if (!(name in variables) && !missing.includes(name)) {
-        missing.push(name);
-      }
-    }
+    collectMissing(value, variables, missing);
   }
-  return missing;
+  return Array.from(missing);
 };

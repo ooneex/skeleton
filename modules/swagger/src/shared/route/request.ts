@@ -137,8 +137,8 @@ const drainStream = async (
   signal: AbortSignal | undefined,
   extract: (buffer: string) => string,
 ): Promise<string> => {
-  const reader = response.body?.getReader();
-  if (!reader) {
+  const body = response.body;
+  if (!body) {
     return "";
   }
 
@@ -146,18 +146,22 @@ const drainStream = async (
   let buffer = "";
   let raw = "";
 
-  for (;;) {
-    if (signal?.aborted) {
-      await reader.cancel();
-      break;
+  const sink = new WritableStream<Uint8Array>({
+    write: (value) => {
+      const text = decoder.decode(value, { stream: true });
+      raw += text;
+      buffer = extract(buffer + text);
+    },
+  });
+
+  try {
+    // `pipeTo` carries the abort itself: it cancels the source and rejects.
+    await body.pipeTo(sink, { signal });
+  } catch (error) {
+    // Aborting is how a reader stops a stream — hand back what already arrived.
+    if (!signal?.aborted) {
+      throw error;
     }
-    const { done, value } = await reader.read();
-    if (done) {
-      break;
-    }
-    const text = decoder.decode(value, { stream: true });
-    raw += text;
-    buffer = extract(buffer + text);
   }
 
   return raw;
@@ -173,43 +177,47 @@ const readStream = (
   signal: AbortSignal | undefined,
 ): Promise<string> =>
   drainStream(response, signal, (buffer) => {
-    let newline = buffer.indexOf("\n");
-    while (newline !== -1) {
-      const line = buffer.slice(0, newline).trim();
-      buffer = buffer.slice(newline + 1);
-      if (line !== "") {
-        onChunk?.(readBody(line));
+    // Split once: the last piece is whatever follows the final newline, and is
+    // held back as the start of the next frame rather than delivered.
+    const lines = buffer.split("\n");
+    const rest = lines.pop() ?? "";
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed !== "") {
+        onChunk?.(readBody(trimmed));
       }
-      newline = buffer.indexOf("\n");
     }
-    return buffer;
+    return rest;
   });
 
 /**
  * Read a `text/event-stream`, delivering one parsed `data:` payload per frame.
  * Comment and keep-alive frames carry no `data:` line and are skipped.
  */
+/** The payload of one SSE frame: its `data:` lines, joined, each stripped of the optional leading space. */
+const frameData = (frame: string): string =>
+  frame
+    .split("\n")
+    .filter((line) => line.startsWith("data:"))
+    .map((line) => line.slice(5).replace(/^ /, ""))
+    .join("\n");
+
 const readEventStream = (
   response: Response,
   onChunk: ((chunk: unknown) => void) | undefined,
   signal: AbortSignal | undefined,
 ): Promise<string> =>
   drainStream(response, signal, (buffer) => {
-    let boundary = buffer.indexOf("\n\n");
-    while (boundary !== -1) {
-      const frame = buffer.slice(0, boundary);
-      buffer = buffer.slice(boundary + 2);
-      const data = frame
-        .split("\n")
-        .filter((line) => line.startsWith("data:"))
-        .map((line) => line.slice(5).replace(/^ /, ""))
-        .join("\n");
+    // As above: the trailing piece is an incomplete frame and waits for more bytes.
+    const frames = buffer.split("\n\n");
+    const rest = frames.pop() ?? "";
+    for (const frame of frames) {
+      const data = frameData(frame);
       if (data !== "") {
         onChunk?.(readBody(data));
       }
-      boundary = buffer.indexOf("\n\n");
     }
-    return buffer;
+    return rest;
   });
 
 /**

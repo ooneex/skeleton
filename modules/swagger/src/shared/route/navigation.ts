@@ -34,17 +34,18 @@ export const findRoute = (routes: RouteEntryType[], id: string | undefined): Rou
 
 /** Partition the routes into sidebar sections keyed by `meta.group`, in first-seen order. */
 export const buildSections = (routes: RouteEntryType[]): RouteSectionType[] => {
-  const sections: RouteSectionType[] = [];
+  // Keyed by group so a route joins its section in one lookup; a Map keeps insertion order.
+  const sections = new Map<string, RouteSectionType>();
   for (const route of routes) {
     const group = route.meta.group ?? DEFAULT_GROUP;
-    const section = sections.find((candidate) => candidate.group === group);
+    const section = sections.get(group);
     if (section) {
       section.routes.push(route);
     } else {
-      sections.push({ group, routes: [route] });
+      sections.set(group, { group, routes: [route] });
     }
   }
-  return sections;
+  return Array.from(sections.values());
 };
 
 /** Free-text match over everything a reader would type to find a route. */
@@ -97,6 +98,26 @@ export const routeSegments = (path: string): string[] => {
 };
 
 /**
+ * Walk the folder chain `segments` describes below `node`, creating the folders
+ * that don't exist yet. `byPath` indexes every folder already created by its
+ * full prefix, so a step down the chain is a lookup rather than a sibling scan.
+ */
+const descend = (node: RouteFolderType, segments: string[], byPath: Map<string, RouteFolderType>): RouteFolderType => {
+  let current = node;
+  for (const segment of segments) {
+    const path = `${current.path}/${segment}`;
+    let child = byPath.get(path);
+    if (!child) {
+      child = { name: segment, path, folders: [], routes: [] };
+      current.folders.push(child);
+      byPath.set(path, child);
+    }
+    current = child;
+  }
+  return current;
+};
+
+/**
  * Fold the routes into a tree keyed by their path segments, so `/admin/stats`
  * and `/admin/users` meet under one `admin` folder whatever module serves them.
  *
@@ -104,23 +125,13 @@ export const routeSegments = (path: string): string[] => {
  */
 export const buildTree = (routes: RouteEntryType[]): RouteFolderType => {
   const root: RouteFolderType = { name: "", path: "", folders: [], routes: [] };
+  const byPath = new Map<string, RouteFolderType>();
 
   for (const route of routes) {
     const segments = routeSegments(route.meta.path);
     // The leaf is the route itself; only the segments before it are folders.
-    const folders = segments.slice(0, -1);
-
-    let node = root;
-    for (const segment of folders) {
-      const path = `${node.path}/${segment}`;
-      let child = node.folders.find((candidate) => candidate.name === segment);
-      if (!child) {
-        child = { name: segment, path, folders: [], routes: [] };
-        node.folders.push(child);
-      }
-      node = child;
-    }
-    node.routes.push(route);
+    const folder = descend(root, segments.slice(0, -1), byPath);
+    folder.routes.push(route);
   }
 
   return root;

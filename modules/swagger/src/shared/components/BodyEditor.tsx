@@ -1,7 +1,7 @@
 import { Label } from "@module/design/components/label";
 import { Textarea } from "@module/design/components/textarea";
 import { useId } from "react";
-import type { RequestBodyType, RouteMetaType } from "../route";
+import type { FieldType, RequestBodyType, RouteMetaType } from "../route";
 import { bodyKindOf, flattenFields, isFileField } from "../route";
 import { isValidJson } from "../utils/json";
 import { FieldInput } from "./FieldInput";
@@ -15,72 +15,71 @@ type BodyEditorPropsType = {
   missing?: readonly string[];
 };
 
-/**
- * The request body, in whichever shape the route accepts.
- *
- * `json` is a raw editor — it is the only thing that can express an arbitrary
- * nested payload — with a base64 helper for the fields that need one. A
- * `multipart` body is edited field by field instead, because a file has to stay
- * a `File` all the way to `FormData` and cannot survive a round-trip as text.
- */
-export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPropsType) => {
-  const id = useId();
-  const kind = bodyKindOf(meta);
-  // A multipart part is flat on the wire, so a nested group becomes dotted leaves.
-  const fields = flattenFields(meta.payload?.fields);
+/** The same files without `name` — rebuilt rather than `delete`d, which reshapes the object. */
+const withoutFile = (files: Record<string, File>, name: string): Record<string, File> =>
+  Object.fromEntries(Object.entries(files).filter(([key]) => key !== name));
 
-  if (kind === "multipart" && body.kind === "multipart") {
-    return (
-      <section className="flex flex-col gap-3">
-        <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-          Request body · multipart/form-data
-        </h3>
-        {fields.length === 0 ? (
-          <p className="text-xs text-muted-foreground">No field documented — add them to the route meta.</p>
-        ) : (
-          <div className="grid gap-3 sm:grid-cols-2">
-            {fields.map((field) =>
-              isFileField(field) ? (
-                <FilePicker
-                  key={field.name}
-                  id={`${id}-${field.name}`}
-                  label={field.name}
-                  required={field.required}
-                  invalid={missing.includes(field.name)}
-                  description={field.description}
-                  file={body.files[field.name]}
-                  onPick={(file) => {
-                    const files = { ...body.files };
-                    if (file) {
-                      files[field.name] = file;
-                    } else {
-                      delete files[field.name];
-                    }
-                    onChange({ ...body, files });
-                  }}
-                />
-              ) : (
-                <FieldInput
-                  key={field.name}
-                  field={field}
-                  id={`${id}-${field.name}`}
-                  value={body.fields[field.name] ?? ""}
-                  invalid={missing.includes(field.name)}
-                  onChange={(value) => onChange({ ...body, fields: { ...body.fields, [field.name]: value } })}
-                />
-              ),
-            )}
-          </div>
+type MultipartBodyPropsType = {
+  id: string;
+  fields: FieldType[];
+  body: Extract<RequestBodyType, { kind: "multipart" }>;
+  onChange: (body: RequestBodyType) => void;
+  missing: readonly string[];
+};
+
+/** A multipart body, edited field by field so a `File` stays a `File`. */
+const MultipartBody = ({ id, fields, body, onChange, missing }: MultipartBodyPropsType) => (
+  <section className="flex flex-col gap-3">
+    <h3 className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+      Request body · multipart/form-data
+    </h3>
+    {fields.length === 0 ? (
+      <p className="text-xs text-muted-foreground">No field documented — add them to the route meta.</p>
+    ) : (
+      <div className="grid gap-3 sm:grid-cols-2">
+        {fields.map((field) =>
+          isFileField(field) ? (
+            <FilePicker
+              key={field.name}
+              id={`${id}-${field.name}`}
+              label={field.name}
+              required={field.required}
+              invalid={missing.includes(field.name)}
+              description={field.description}
+              file={body.files[field.name]}
+              onPick={(file) =>
+                onChange({
+                  ...body,
+                  files: file ? { ...body.files, [field.name]: file } : withoutFile(body.files, field.name),
+                })
+              }
+            />
+          ) : (
+            <FieldInput
+              key={field.name}
+              field={field}
+              id={`${id}-${field.name}`}
+              value={body.fields[field.name] ?? ""}
+              invalid={missing.includes(field.name)}
+              onChange={(value) => onChange({ ...body, fields: { ...body.fields, [field.name]: value } })}
+            />
+          ),
         )}
-      </section>
-    );
-  }
+      </div>
+    )}
+  </section>
+);
 
-  if (body.kind !== "json") {
-    return null;
-  }
+type JsonBodyPropsType = {
+  id: string;
+  /** The documented fields the route declares as base64, each offered a file helper. */
+  base64Fields: FieldType[];
+  body: Extract<RequestBodyType, { kind: "json" }>;
+  onChange: (body: RequestBodyType) => void;
+};
 
-  const base64Fields = fields.filter((field) => field.type.trim().toLowerCase() === "base64");
+/** A raw JSON editor — the only shape that can express an arbitrary nested payload. */
+const JsonBody = ({ id, base64Fields, body, onChange }: JsonBodyPropsType) => {
   const valid = isValidJson(body.text);
 
   return (
@@ -123,4 +122,31 @@ export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPro
       ))}
     </section>
   );
+};
+
+/**
+ * The request body, in whichever shape the route accepts.
+ *
+ * `json` is a raw editor — it is the only thing that can express an arbitrary
+ * nested payload — with a base64 helper for the fields that need one. A
+ * `multipart` body is edited field by field instead, because a file has to stay
+ * a `File` all the way to `FormData` and cannot survive a round-trip as text.
+ */
+export const BodyEditor = ({ meta, body, onChange, missing = [] }: BodyEditorPropsType) => {
+  const id = useId();
+  const kind = bodyKindOf(meta);
+  // A multipart part is flat on the wire, so a nested group becomes dotted leaves.
+  const fields = flattenFields(meta.payload?.fields);
+
+  if (kind === "multipart" && body.kind === "multipart") {
+    return <MultipartBody id={id} fields={fields} body={body} onChange={onChange} missing={missing} />;
+  }
+
+  if (body.kind !== "json") {
+    return null;
+  }
+
+  const base64Fields = fields.filter((field) => field.type.trim().toLowerCase() === "base64");
+
+  return <JsonBody id={id} base64Fields={base64Fields} body={body} onChange={onChange} />;
 };
