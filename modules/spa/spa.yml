@@ -1,2 +1,5 @@
 type: "spa" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger" | "admin"
 design: "design"
+locales:
+  - en
+  - fr
