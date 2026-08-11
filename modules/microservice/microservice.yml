@@ -1,1 +1,4 @@
 type: "microservice" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger" | "admin"
+locales:
+  - en
+  - fr
