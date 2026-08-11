@@ -272,7 +272,7 @@ Fix every failure before completing, and report anything unverifiable (placehold
 
 ## Swagger modules
 
-A swagger module (`type: "swagger"`) documents an API and runs its routes. The documentation is public; only the **Send** button on a route with non-empty `roles` needs a session. So there is no gate, no `sign-in` route and no auth feature to build — just a button that hands a fresh token to the runner.
+A swagger module (`type: "swagger"`) documents an API and runs its routes. The documentation is public; only the **Send** button on a protected route (`roles` requiring more than the default `ROLE_GUEST`) needs a session. So there is no gate, no `sign-in` route and no auth feature to build — just a button that hands a fresh token to the runner.
 
 Out of the box the explorer authenticates from the **environment's bearer token**, pasted by hand. This section replaces that manual step with Clerk, and leaves the manual field as the fallback for anyone without a Clerk account.
 
@@ -344,7 +344,7 @@ talos check
 Then, with the backend running:
 
 1. Signed out, a public route still Sends.
-2. A route with `roles` shows "sign in to run it" and its Send is disabled.
+2. A protected route (`roles` requiring more than the default `ROLE_GUEST`) shows "sign in to run it" and its Send is disabled.
 3. **Sign in** opens Clerk, and the email appears in the header.
 4. The same protected route now Sends and answers 200 — or 406 if the account lacks the role, which is authorisation working, not auth failing.
 5. The backend must accept the explorer's origin in CORS and register `ClerkAuthMiddleware`, or every Send fails before reaching a status.

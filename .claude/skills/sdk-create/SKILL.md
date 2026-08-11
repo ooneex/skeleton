@@ -52,7 +52,7 @@ Each `api` method takes one `input` object (`params`, `payload`, `queries`, plus
 Rules for every method (forwarded per-transport in steps 5–7):
 
 - **Base URL** — every method takes a required `baseURL: string` (backend origin): pass to the `Fetcher` constructor for HTTP, prepend to the endpoint for streaming/SSE/sockets.
-- **Auth** — a route needs auth when `definition.<method>.roles` is non-empty. Add a required `bearerToken: string` and forward it: `setBearerToken(...)` for HTTP, `Authorization: Bearer` header for streaming/SSE, `bearerToken` query param for sockets. Omit field and forwarding on public routes (`roles: []`).
+- **Auth** — a route needs auth when `definition.<method>.roles` requires more than the default `ROLE_GUEST` (i.e. it's empty, or contains only `"ROLE_GUEST"`, on public routes). Add a required `bearerToken: string` and forward it: `setBearerToken(...)` for HTTP, `Authorization: Bearer` header for streaming/SSE, `bearerToken` query param for sockets. Omit field and forwarding on public routes.
 - **Streaming/SSE detection** — a controller streams instead of returning JSON when its `index` returns `context.response.stream(...)` (streaming) or `context.response.sse(...)` (SSE). This is **not** in route metadata — open the controller to tell (as with the HTTP verb, step 5). Consequences: `@talosjs/fetcher` buffers/JSON-parses the whole body so it can't consume them — use native `fetch` + `response.body.getReader()` (step 6); and these responses bypass the `ResponseDataType` envelope, so the per-message callback receives the **raw** `...RouteType["response"]`, not `ResponseDataType<...>`.
 
 ### 3. Replace the endpoint prefix

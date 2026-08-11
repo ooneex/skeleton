@@ -170,7 +170,7 @@ The explorer runs every request against the **active environment**, which carrie
 
 Create one per target the API is reached at — `Local` on `http://localhost:8030`, `Staging`, `Production` — from the switcher in the header. Then:
 
-- **Put the bearer token on the environment.** A route with non-empty `roles` becomes runnable as soon as the active environment has one; without it the Send button explains what is missing instead of failing at the API.
+- **Put the bearer token on the environment.** A protected route (`roles` requiring more than the default `ROLE_GUEST`) becomes runnable as soon as the active environment has a token; without it the Send button explains what is missing instead of failing at the API.
 - **Reference `{{variables}}` anywhere** — the base URL, a header value, a path parameter, the JSON body. A name the environment cannot resolve is left standing and blocks Send, so the gap is visible before the request goes out.
 - `baseURL` and `token` are exposed as variables too, so a header can read `{{token}}` without duplicating it.
 

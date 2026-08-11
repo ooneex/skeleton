@@ -115,7 +115,7 @@ The HTTP and socket controllers are identical except the `ContextType` import (`
 | `payload` | `AssertType \| IAssert` | no | Whole request body — one `Assert({ ... })` object |
 | `files` | `AssertFile` | no | Upload rules keyed by form field (see **File uploads**) |
 | `response` | `AssertType \| IAssert` | no in the type, **always set it** | Response body shape |
-| `roles` | `RoleType[]` | no | Allowed roles; `[]` means public (see **Roles**) |
+| `roles` | `RoleType[]` | no | Allowed roles; omit for a public route — it defaults to `["ROLE_GUEST"]` (see **Roles**) |
 | `permission` | `PermissionClassType` | no | Permission class resolved from the container and evaluated per request |
 | `featureFlag` | `FeatureFlagClassType` | no | Feature flag class — route 404s/short-circuits when the flag is off |
 | `env` | `EnvironmentNameType[]` | no | Restrict the route to these environments (`"local"`, `"development"`, `"staging"`, `"testing"`, `"test"`, `"qa"`, `"uat"`, `"integration"`, `"preview"`, `"demo"`, `"sandbox"`, `"beta"`, `"canary"`, `"hotfix"`, `"production"`); omit to allow all |
@@ -162,6 +162,8 @@ Every constraint class lives at its own subpath — `@talosjs/validation/constra
 #### Roles
 
 `roles` is an array of plain role strings (e.g. `["ROLE_USER"]`). There is **no `ERole` enum** — don't import from `@talosjs/role` in a controller. Access is hierarchical/graph-based: granting a role also grants every role it inherits (ancestors, directly or transitively). Sibling roles on different branches do **not** satisfy each other.
+
+**`ROLE_GUEST` means public.** Omitting `roles` on the decorator defaults it to `["ROLE_GUEST"]`, and any route whose `roles` array includes `"ROLE_GUEST"` is accessible without authentication — that check bypasses the rest of the array, so don't mix `ROLE_GUEST` in with other roles unless the whole route is meant to be public. To restrict a route, set `roles` to the specific role(s) required and leave `ROLE_GUEST` out entirely.
 
 Available roles live in `modules/app/roles.yml` — **always read that file** to use the project's actual roles, since each project can customize them. Default hierarchy (ancestor → descendant):
 
