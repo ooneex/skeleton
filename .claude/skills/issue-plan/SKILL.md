@@ -252,6 +252,8 @@ testing: |
 
 Module owns controllers, services, repositories, entities, migrations, seeds under `src/`. List TypeORM relations with the exact owning field, decorator, and inverse/FK/join owner (see step 5 block). Reference services/repositories/controllers/DI by `@talosjs` conventions; entities register in `SharedModule`.
 
+When a new entity or column lands, check whether it needs an index — foreign keys, fields used in `WHERE`/`ORDER BY`/lookups, and fields with a uniqueness constraint. List each with its `@Index()`/`@Column({ unique: true })` decorator in `### Data Model`, and add a matching `dod` checkbox (`- [ ] \`fieldName\` — indexed for <lookup/uniqueness reason>`).
+
 ### SPA (`type: "spa"`) — `### Front-End Structure`
 
 Front-end SPA (TanStack Router + Query), **not** registered into `AppModule`/`SharedModule`. Vertical slices — name concrete files/folders:
