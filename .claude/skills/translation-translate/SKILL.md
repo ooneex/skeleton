@@ -33,10 +33,13 @@ For each module the user names, read `modules/<module>/<module>.yml` for its fla
 
 Glob for the actual files (a spa module has one dictionary per feature slice). If a module has no dictionary yet, create it with `/translation-create` first, then translate the result.
 
+`api`, `microservice`, and `spa` module types also declare a `locales:` list in `<module>.yml` (e.g. `locales: [en, fr]`) — the module's authoritative target-locale set, used in step 2.
+
 ## 2. Determine the target locales
 
 - User named languages → use those.
-- Otherwise → the union of every locale already present across the dictionary's leaves, so all keys cover the same set. If only `en` exists and no language was requested, ask which locales to add.
+- Otherwise → read `modules/<module>/<module>.yml`'s `locales:` list (present on `api`, `microservice`, and `spa` module types); that's the module's declared locale set and takes priority over what's already in the dictionary.
+- If the module has no `locales:` list → fall back to the union of every locale already present across the dictionary's leaves, so all keys cover the same set. If only `en` exists and no language was requested, ask which locales to add.
 
 Valid codes: `ar bg cs da de el en eo es et eu fi fr hu hy it ja ko lt nl no pl pt ro ru sk sv th uk zh zh-tw`. `en` is the source and is never overwritten.
 

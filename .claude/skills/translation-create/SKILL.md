@@ -32,10 +32,10 @@ Creates `modules/<module>/src/translations/<Name>Translation.ts`, a sibling `tra
 
 ## 2. Complete the dictionary
 
-Edit `modules/<module>/src/translations/translations.yml` and add the keys the domain needs:
+Check `modules/<module>/<module>.yml` for a `locales:` list (declared on `api`, `microservice`, and `spa` module types, e.g. `locales: [en, fr]`) — that's the locale set every key must cover, beyond the `en` source. Edit `modules/<module>/src/translations/translations.yml` and add the keys the domain needs:
 
 - Nested keys use dot notation: `trans("user.profile.name", ...)`.
-- Each leaf is an object keyed by `LocaleType` (`en`, `fr`, ...); `en` is the fallback.
+- Each leaf is an object keyed by `LocaleType` (`en`, `fr`, ...); `en` is the fallback. Fill every locale from the module's `locales:` list (write `en` yourself, then dispatch `/translation-translate` or the `translation-translator` agent to fill the rest — don't leave declared locales empty).
 - Interpolation uses `{{ param }}` placeholders, filled via `params`.
 - Pluralization uses sibling keys selected by `count`: `<key>` (singular), `<key>_plural` (count > 1 or < 0), `<key>_zero` (optional).
 

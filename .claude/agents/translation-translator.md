@@ -25,7 +25,7 @@ Complete the locale translations of **one** dictionary file — a `translations.
 
 You are told:
 - the dictionary path (e.g. `modules/<module>/src/features/<feature>/translations/translations.json` or `modules/<module>/src/translations/translations.yml`), and
-- the **target locales** (`LocaleType` codes such as `fr`, `es`, `de`). If none given, target the union of every locale already present in the dictionary (so all leaves cover the same locales).
+- the **target locales** (`LocaleType` codes such as `fr`, `es`, `de`). If none given, check the owning module's `<module>.yml` for a `locales:` list (declared on `api`, `microservice`, and `spa` module types) and target that. If the module has no `locales:` list, target the union of every locale already present in the dictionary (so all leaves cover the same locales).
 
 Valid codes: `ar bg cs da de el en eo es et eu fi fr hu hy it ja ko lt nl no pl pt ro ru sk sv th uk zh zh-tw`. `en` is the source/fallback and is never overwritten.
 

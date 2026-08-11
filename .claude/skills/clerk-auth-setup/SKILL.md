@@ -253,7 +253,7 @@ Each feature owns `translations/translations.json` + `use<Name>Translate.ts` (`t
 - `formError.*` — **one key per `authFlowError` code** plus `generic`
 - `error.*`, `notFound.*`, `loading`
 
-Every key needs all locales already used in the module (`en` is the fallback); complete them with `/translation-translate`.
+Every key needs all locales the module declares in its `locales:` list in `<module>.yml` (`en` is the fallback); complete them with `/translation-translate`.
 
 ## 8. Verify
 
