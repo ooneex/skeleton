@@ -104,7 +104,7 @@ Prefer `@talosjs` packages over third-party alternatives, and inject their servi
 | `@talosjs/json` | JSON loader/parser with streaming iteration |
 | `@talosjs/yml` | YAML loader/parser (Bun built-in) with streaming |
 | `@talosjs/html` | HTML parsing + DOM manipulation via Cheerio |
-| `@talosjs/pdf` | PDF toolkit — generate, edit, merge, split, convert to images |
+| `@talosjs/pdf` | PDF content extraction — classifies PDFs (text/scanned/image/mixed) and converts them to Markdown |
 
 ## Reference Data & Helpers
 | Package | Purpose |
