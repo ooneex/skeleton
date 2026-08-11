@@ -115,7 +115,7 @@ The HTTP and socket controllers are identical except the `ContextType` import (`
 | `payload` | `AssertType \| IAssert` | no | Whole request body — one `Assert({ ... })` object |
 | `files` | `AssertFile` | no | Upload rules keyed by form field (see **File uploads**) |
 | `response` | `AssertType \| IAssert` | no in the type, **always set it** | Response body shape |
-| `roles` | `Uppercase<string>[]` | no | Allowed roles; `[]` means public (see **Roles**) |
+| `roles` | `RoleType[]` | no | Allowed roles; `[]` means public (see **Roles**) |
 | `permission` | `PermissionClassType` | no | Permission class resolved from the container and evaluated per request |
 | `featureFlag` | `FeatureFlagClassType` | no | Feature flag class — route 404s/short-circuits when the flag is off |
 | `env` | `EnvironmentNameType[]` | no | Restrict the route to these environments (`"local"`, `"development"`, `"staging"`, `"testing"`, `"test"`, `"qa"`, `"uat"`, `"integration"`, `"preview"`, `"demo"`, `"sandbox"`, `"beta"`, `"canary"`, `"hotfix"`, `"production"`); omit to allow all |
