@@ -56,11 +56,11 @@ Type aliases **must** end with `Type`; interfaces **must** start with `I`. **Str
 
 ## Non-null Assertions
 
-Never use `!` on class properties — use a default value or optional type.
+Never use `!` on class properties — declare the type directly, or use an optional type. Don't paper over a missing default with an empty-string/zero placeholder either — a value that isn't known yet should stay undeclared, not fake-populated.
 
 ```typescript
 export class UserEntity {
-  public name: string = "";      // not `name!: string`
+  public name: string;      // not `name!: string`, not `name = ""`
   public email?: string | null;
 }
 ```
@@ -70,14 +70,29 @@ export class UserEntity {
 - Optional (`?`) types must include `null` in the union.
 - Never initialize with `= undefined`.
 - Always set `nullable` explicitly in every `@Column`.
+- Non-nullable fields with no real default (e.g. `title`, `email`) get a bare type, not an empty-string/zero placeholder. Only initialize when the value is a genuine default (`isBlocked = false`, `roles = []`, `id = random.id()`).
 
 ```typescript
 export class BookEntity {
   @Column({ name: "title", type: "varchar", length: 255, nullable: false })
-  public title: string = "";
+  public title: string; // not `title = ""`
 
   @Column({ name: "subtitle", type: "varchar", length: 255, nullable: true })
   public subtitle?: string | null; // not `subtitle?: string`, and not `nullable` omitted
+}
+```
+
+## Entity Primary Keys
+
+- Use `@PrimaryColumn({ name: "id", type: "varchar", length: 20, nullable: false })` with `id: string = random.id()` (from `@talosjs/utils/random`) — not `@PrimaryGeneratedColumn("uuid")` or a DB-generated default.
+- Match the migration's column to `varchar(20) NOT NULL` — no `DEFAULT gen_random_uuid()`.
+
+```typescript
+import { random } from "@talosjs/utils/random";
+
+export class UserEntity {
+  @PrimaryColumn({ name: "id", type: "varchar", length: 20, nullable: false })
+  public id: string = random.id(); // not `@PrimaryGeneratedColumn("uuid")`
 }
 ```
 
