@@ -77,11 +77,11 @@ Client-side code is untrusted by the server — harden it as you implement:
 - **Store slices / utils** — one focused `.spec.ts` per slice or helper covering its behavior and edge cases (empty / boundary inputs).
 - **Translations** — the `talos translation:create` generator writes the spec; after filling the dictionary, assert real keys resolve (including the `en` fallback and any interpolation/pluralization).
 
-Run the specs you add (`bun test modules/<module>/tests/...`) and keep them green before the DoD check.
+Run the specs you add (`talos test --modules=<module> --logs`) and keep them green before the DoD check.
 
 ## E2e tests
 
-For each `testing` step that exercises a browser flow, run `talos e2e:create --name=<Name> --module=<module>` (via `/e2e-create`), fill in `modules/<module>/e2e/<Name>.spec.ts` to drive the flow and assert the result, set `baseURL`/`webServer` in `playwright.config.ts`, and check off the box once the test passes (`talos monorepo:run --commands=e2e --modules=<module>`). A pure CLI check (e.g. `talos project:check --strict --logs`) is satisfied by running it, not a new spec.
+For each `testing` step that exercises a browser flow, run `talos e2e:create --name=<Name> --module=<module>` (via `/e2e-create`), fill in `modules/<module>/e2e/<Name>.spec.ts` to drive the flow and assert the result, set `baseURL`/`webServer` in `playwright.config.ts`, and check off the box once the test passes (`talos e2e:run --modules=<module>`). A pure CLI check (e.g. `talos project:check --strict --logs`) is satisfied by running it, not a new spec.
 
 ## Self-review
 

@@ -72,11 +72,11 @@ Client-side code is untrusted by the server — harden it as you implement:
 - **Story engine (`shared/`)** — when you touch it, test the behavior you changed: `registry.ts` keys stories by slugified `title` and yields one entry per story; `Canvas` renders `meta.component` with `args` and applies the clone rule when `args.children` is an element of the same type; `Sidebar` folds dotted titles into children and partitions by `group`; `CommandPalette` derives each hint from the first sentence of `usage`.
 - **Shared utils** — one focused `.spec.ts` per helper covering its behavior and edge cases (empty / boundary inputs).
 
-Render component specs with happy-dom + React Testing Library, query by role/text/label (not test IDs), and assert with jest-dom matchers. Run the specs you add (`bun test modules/<module>/tests/...`) and keep them green before the DoD check.
+Render component specs with happy-dom + React Testing Library, query by role/text/label (not test IDs), and assert with jest-dom matchers. Run the specs you add (`talos test --modules=<module> --logs`) and keep them green before the DoD check.
 
 ## E2e tests
 
-For each `testing` step that exercises a browser flow (open the gallery, pick a story from the sidebar or ⌘K palette, tweak a control and see the preview update, read the Usage tab), run `talos e2e:create --name=<Name> --module=<module>` (via `/e2e-create`), fill in `modules/<module>/e2e/<Name>.spec.ts` to drive the flow and assert the result, set `baseURL`/`webServer` in `playwright.config.ts`, and check off the box once the test passes (`talos monorepo:run --commands=e2e --modules=<module>`). A pure CLI check (e.g. `talos project:check --strict --logs`) is satisfied by running it, not a new spec.
+For each `testing` step that exercises a browser flow (open the gallery, pick a story from the sidebar or ⌘K palette, tweak a control and see the preview update, read the Usage tab), run `talos e2e:create --name=<Name> --module=<module>` (via `/e2e-create`), fill in `modules/<module>/e2e/<Name>.spec.ts` to drive the flow and assert the result, set `baseURL`/`webServer` in `playwright.config.ts`, and check off the box once the test passes (`talos e2e:run --modules=<module>`). A pure CLI check (e.g. `talos project:check --strict --logs`) is satisfied by running it, not a new spec.
 
 ## Self-review
 

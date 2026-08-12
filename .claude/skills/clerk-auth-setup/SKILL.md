@@ -259,7 +259,7 @@ Every key needs all locales the module declares in its `locales:` list in `<modu
 
 Run `talos workspace:check --logs`. Add specs under `modules/<module>/tests/` mirroring `src/` (`optimize-testing`): mock `@clerk/clerk-react` and assert each hook's success/failure paths (including `notReady` and non-`complete` statuses), the error-mapping util, and the card's step transitions, auto-submit, and error rendering.
 
-Manual smoke test with `bun --bun run dev`:
+Manual smoke test with `talos app:start --modules=<module>`:
 
 1. `/` while signed out → redirects to `/sign-in`.
 2. Email + code → lands on `/` and stays there on reload.

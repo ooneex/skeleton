@@ -51,7 +51,7 @@ Follow `optimize-testing`: keep tests meaningful, drop trivial getters/setters a
 Run the target's tests and iterate until green:
 
 ```bash
-bun test modules/<module>/tests/...             # scope to the target
+talos test --modules=<module> --logs            # scope to the target
 talos coverage:check --modules=<module> --logs  # confirm the gap actually closed
 talos project:check --strict --logs
 ```

@@ -27,7 +27,7 @@ You're given one module (e.g. `modules/billing/`), and possibly a sub-scope. If 
 
 ```bash
 git status --porcelain
-bun test modules/<module>/tests/...
+talos test --modules=<module> --logs
 ```
 
 If there are pre-existing uncommitted changes or already-failing tests, report that and proceed only on the files in your scope — never claim a fix you didn't make. Refactor only: never alter behavior or a public API without first checking its callers across the repo.

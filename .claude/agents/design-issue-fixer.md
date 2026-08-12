@@ -60,7 +60,7 @@ Build accessible, responsive components: semantic markup, labels/ARIA where need
 - **Utils** — one focused `.spec.ts` per helper (`cn`, `staleChunk`, …) covering behavior and edge cases (empty / boundary inputs).
 - **Icons / fonts / styles** — no unit test; verify an icon renders inside a component spec that uses it, rather than testing raw SVG/CSS.
 
-Run the specs you add (`bun test modules/<module>/tests/...`) and keep them green before the DoD check.
+Run the specs you add (`talos test --modules=<module> --logs`) and keep them green before the DoD check.
 
 ## Sync storybook
 
