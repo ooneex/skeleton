@@ -1,6 +1,6 @@
 ---
 name: issue-fix
-description: Resolve one or more issues from the user's input, dispatch each to the fixer sub-agent matching its module type, then commit, push, and open a PR per issue — issues that depend on each other become a GitHub stacked-PR chain, each layer targeting the branch below it. Infers modules and issue IDs from whatever the user says, reads modules/<module>/issues/<ID>.yml to sequence the work, and hands each issue to its fixer (backend module/api/microservice, spa, or design), which implements it, creates the e2e tests for its testing steps, lints, satisfies the DoD, and marks it In Review.
+description: Resolve one or more issues from the user's input, dispatch each to the fixer sub-agent matching its module type, then commit, push, and open a PR per issue — issues that depend on each other become a GitHub stacked-PR chain, each layer targeting the branch below it. Infers modules and issue IDs from whatever the user says, reads modules/<module>/issues/<ID>.yml to sequence the work, and hands each issue to its fixer (backend module/api/microservice, spa, or design), which implements it, satisfies its testing steps with the right kind of test for its module type (unit/integration for backend logic, e2e only for spa/design/storybook browser flows), lints, satisfies the DoD, and marks it In Review.
 when_to_use: Use when the user wants to implement one or more existing issues. Triggers on "fix issue <ID>", "implement the issues in <module>", or "work on this issue".
 model: sonnet
 effort: medium
@@ -15,7 +15,7 @@ argument-hint: '[issue-id|module|description]'
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation, e2e tests, `talos project:check --strict --logs`, DoD, and the `In Review` transition.
+**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation, tests, `talos project:check --strict --logs`, DoD, and the `In Review` transition.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -121,7 +121,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
-Each fixer implements the `goal` per the module's conventions and Clean Architecture, **creates the e2e tests for the issue's `testing` steps**, runs `talos project:check --strict --logs`, checks off every `dod` and `testing` box, and sets `state: "In Review"` only once **all** boxes pass.
+Each fixer implements the `goal` per the module's conventions and Clean Architecture, **satisfies the issue's `testing` steps with the right kind of test for its module type** — backend fixers (module/api/microservice) cover backend logic with unit/integration tests (`bun:test` under `tests/`), never Playwright e2e; spa/design/storybook fixers create e2e specs for `testing` steps that exercise a browser flow — runs `talos project:check --strict --logs`, checks off every `dod` and `testing` box, and sets `state: "In Review"` only once **all** boxes pass.
 
 **Dispatch sequentially, one issue at a time, in dependency order** — all fixers share one working tree and one checked-out branch, so concurrent runs clobber each other. Let each finish before switching to the next issue's branch. If a dispatched issue has a dependency **not** in the batch and not yet `In Review`/`Done`, the fixer stops and reports it — carry that into the summary.
 
