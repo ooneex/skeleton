@@ -5,7 +5,7 @@ when_to_use: Use when creating a new database adapter that extends TypeormDataba
 model: sonnet
 effort: low
 allowed-tools: Bash(talos database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
+argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis>]'
 ---
 
 # Make Database Class
@@ -25,11 +25,11 @@ Generate a database class and test file, then complete the implementation (datab
 ### 1. Infer the options from the request, then run the generator
 
 ```bash
-talos database:create --name=<name> --module=<module>
+talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis>
 ```
 
 - `--name` — database class name, from its purpose (e.g. "a database for analytics" → `Analytics`). Any casing; the CLI normalizes to PascalCase and appends the `Database` suffix, so omit it.
-- Database type (Postgres, MySQL, …) has no flag — the generator asks via an interactive prompt.
+- `--type` — one of `postgres`, `sqlite`, or `redis`; infer from the request (e.g. "a Redis-backed cache database" → `redis`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
 
 ### 2. Complete the database class
 
