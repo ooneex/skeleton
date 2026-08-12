@@ -32,6 +32,7 @@ modules/<name>/
     databases/    # Database adapter + vector-database classes
     entities/     # TypeORM entity classes
     events/       # Pub/sub event classes
+    exceptions/   # Exception classes
     flags/        # Feature flag classes
     loggers/      # Logger classes
     mailers/      # Mailer classes + JSX email templates
@@ -44,6 +45,7 @@ modules/<name>/
     services/     # Service classes
     storage/      # File storage classes
     translations/ # Translation classes + translations.yml dictionary
+    types/        # TypeScript type definitions
     utils/        # Utility/helper functions shared across the module
     workflows/    # Workflow classes — transitions/ subfolder for each step
   tests/          # Tests mirroring src/ structure

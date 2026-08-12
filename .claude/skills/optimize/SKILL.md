@@ -29,13 +29,15 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 
 | Invoke | Before | When |
 |---|---|---|
+| `talos-spa` | step 1 | module is `type: "spa"` — confirms the expected file structure |
+| `talos-module` | step 1 | module is a backend type (`module`, `api`, `microservice`, …) — confirms the expected file structure |
 | `optimize-conventions` | steps 3–5 | always |
 | `optimize-testing` | step 6 | the module has tests |
 | `optimize-ui` | step 7 | module is `design` or `spa` only |
 
 ## Steps
 
-1. **Target** — work in `modules/<module>/`; ask if unspecified. For **several modules**, dispatch the `code-optimizer` sub-agent once per module via the Agent tool (independent modules concurrently); each runs these steps for its module and reports back, then collate. For a **single** module, run inline.
+1. **Target** — work in `modules/<module>/`; ask if unspecified. Check the module's `<name>.yml` `type:` and invoke `talos-spa` (for `spa`) or `talos-module` (for backend types) to confirm the expected file structure before touching anything — a file in the wrong place is itself a violation to fix. For **several modules**, dispatch the `code-optimizer` sub-agent once per module via the Agent tool (independent modules concurrently); each runs these steps for its module and reports back, then collate. For a **single** module, run inline.
 
 2. **Map (sub-agent)** — reading every file inline floods context. Spawn one read-only `Explore` sub-agent scoped to `modules/<module>/` returning *only* a digest, not file contents:
    - **Inventory** — each type, interface, class, standalone function + path.
