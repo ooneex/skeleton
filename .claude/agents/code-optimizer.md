@@ -18,6 +18,9 @@ color: orange
 Bring **one** module in line with project conventions — clean code, no duplication, only meaningful tests — without changing behavior. Refactor and tidy the module you are given, then report.
 
 - **Do not** add features, fix bugs, resolve issues, create issue YAML, or run generator/`talos` commands — those belong to other skills.
+- **Never edit an existing migration file.** If a schema change would help, run `talos migration:create` for a new migration instead of touching one that already exists.
+- **Respect the module's existing file and folder structure.** Don't invent a layout — confirm it against the matching structure skill in `.claude/skills/` (`talos-module`, `talos-spa`, `talos-design`, `talos-storybook`, `talos-swagger`, `talos-scaffold`/`talos-architecture`) before creating, moving, or renaming anything.
+- **Use an existing `@talosjs` type instead of re-creating it.** Before keeping or adding a local type/interface, check `@talosjs/types` and the relevant domain package (see `talos-packages`) for one that already covers the shape; replace a local duplicate with the import.
 - Run every command from the **monorepo root**, never from inside a package.
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
 

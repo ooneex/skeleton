@@ -52,6 +52,8 @@ Type aliases **must** end with `Type`; interfaces **must** start with `I`. **Str
 | Type alias | ends `Type` | `ServiceDataType` |
 | Interface | starts `I` | `IService` |
 
+**Reuse a `@talosjs` type before declaring a new one.** Check `@talosjs/types` and the relevant domain package (see `talos-packages`) for a type that already covers the shape — import it instead of re-declaring it locally. Only add a new local type when no `@talosjs` package provides it.
+
 ## Non-null Assertions
 
 Never use `!` on class properties — use a default value or optional type.
@@ -110,3 +112,11 @@ export class BookSeed implements ISeed {
 - Prefer early returns to reduce nesting.
 - Drop unnecessary `async`/`await` where a direct return suffices.
 - Eliminate redundant null/undefined checks.
+
+## Migrations
+
+**Never edit an existing migration file.** If an optimization pass calls for a schema change, run `talos migration:create` for a new migration instead — an already-applied migration is a historical record, and rewriting it desyncs environments that already ran it.
+
+## File & Folder Structure
+
+**Respect the module's existing file and folder structure.** Don't invent a layout — look at the matching structure skill in `.claude/skills/` to know what's expected before creating, moving, or renaming anything: `talos-module` (backend `module`/`api`/`microservice`), `talos-spa` (`spa`/`admin`), `talos-design` (`design`), `talos-storybook` (`storybook`), `talos-swagger` (`swagger`), or `talos-scaffold`/`talos-architecture` for the project-level layout. A file in the wrong place is a violation to fix, but only move it to the location those references define.

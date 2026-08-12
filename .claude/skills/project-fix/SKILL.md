@@ -16,6 +16,8 @@ argument-hint: '[--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [-
 
 Run autonomously — no questions. Fix, don't silence: never disable a rule, delete a test, or weaken an assertion to make a check pass.
 
+**Never edit an existing migration's `up()`/`down()` logic** — the `migrations` fix below only regenerates the file itself (fresh timestamp, missing `down`); a schema change belongs in a new migration via `talos migration:create`. **Respect each module's existing file and folder structure** — the `structure` fix below restores a missing piece into the layout its type skill (`talos-module`/`talos-spa`/`talos-design`/`talos-storybook`) defines, never a layout of your own invention.
+
 ## 1. Run
 
 From the **root of the project**:
@@ -32,7 +34,7 @@ Failures first, then warnings — **warnings are in scope**, including `dependen
 
 - **workspace** — re-run the failing task alone (`talos lint|test --modules=<m> --logs`); hand exceptions to `/debug`.
 - **structure** — restore the missing piece: `<name>.yml` + `type:`, unique `package.json` name, root `workspaces` glob, `tsconfig.json` alias.
-- **conventions** — rename the class to match its decorator suffix; replace `process.env.X` with injected `AppEnv`; `Type` suffix on exported aliases, `I` prefix on exported interfaces; drop non-null assertions. `/optimize` does this module-wide.
+- **conventions** — rename the class to match its decorator suffix; replace `process.env.X` with injected `AppEnv`; `Type` suffix on exported aliases, `I` prefix on exported interfaces; drop non-null assertions; replace a local type that duplicates one already in `@talosjs/types` or a domain package (see `talos-packages`) with the import. `/optimize` does this module-wide.
 - **env** — `cp <m>/.env.example.yml <m>/.env.yml` and fill it (never commit it); "not documented" means add the key to the example.
 - **dependencies** — align the range and `bun install`, declare undeclared imports, remove genuinely unused packages.
 - **docker** — pin image tags, give every service `image` or `build`, resolve host-port clashes.

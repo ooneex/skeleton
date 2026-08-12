@@ -22,6 +22,9 @@ Bring a module in line with project conventions: clean code, no duplication, onl
 - Run every command from the **root of the project**, never from inside a package.
 - Start clean: no uncommitted changes (`git status`). Refactor only — never alter behavior or public APIs without checking callers first.
 - Tests must pass before and after. If they were failing before, say so; don't claim a fix you didn't make.
+- **Never edit an existing migration file.** If a schema change would help, run `talos migration:create` for a new migration instead of touching one that already exists.
+- **Respect the module's existing file and folder structure.** Don't invent a layout — confirm it against the matching structure skill (`talos-module`, `talos-spa`, `talos-design`, `talos-storybook`, `talos-swagger`, `talos-scaffold`/`talos-architecture`) before creating, moving, or renaming anything.
+- **Use an existing `@talosjs` type instead of re-creating it.** Before adding or keeping a local type/interface, check `@talosjs/types` and the relevant domain package (see `talos-packages`) for one that already covers the shape; replace a local duplicate with the import.
 
 ## Routing — load on demand
 
