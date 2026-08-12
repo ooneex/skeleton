@@ -1,6 +1,6 @@
 ---
 name: pr-merge
-description: Land the PR(s) for issues a reviewer approved (state To Merge). Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, then verifies the merged result with talos project:check --strict --logs plus the issue's dod and testing steps. A standalone PR is merged into the base locally and pushed; a stacked PR is rebased onto the trunk and landed bottom-up with gh stack merge, which lets GitHub re-target the layers above. Only when green does it delete the branch local+remote and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
+description: Land the PR(s) for issues a reviewer approved (state To Merge). Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, then verifies the merged result with talos project:check --strict --logs plus the issue's dod and, for frontend modules, its testing steps (backend module/api/microservice testing steps are verified manually and never gate the merge). A standalone PR is merged into the base locally and pushed; a stacked PR is rebased onto the trunk and landed bottom-up with gh stack merge, which lets GitHub re-target the layers above. Only when green does it delete the branch local+remote and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
 when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
 model: opus
 effort: high
@@ -40,7 +40,9 @@ If nothing matches, stop and report the exact paths checked.
 
 ## 2. Gate on merge-readiness
 
-Read each `modules/<module>/issues/<ID>.yml`. To be merged it must clear **every** gate:
+Read each `modules/<module>/issues/<ID>.yml`. Before evaluating the gates below, switch to the PR's remote branch — `gh pr checkout <pr>` (or `git fetch origin <branch> && git switch <branch>` using the issue's `branch:` field if `pr:` is empty) — so the checks run against the actual PR head, not whatever is currently checked out locally. Confirm with `git branch --show-current`.
+
+To be merged it must clear **every** gate:
 - **State** — `state` must be `To Merge`. Skip anything else (`In Review`, `Planned`, `Todo`, `Done`) and note it.
 - **Branch** — non-empty top-level `branch:`. Skip and report if missing.
 - **PR link** — non-empty top-level `pr:`. Skip and report if missing.
@@ -77,7 +79,7 @@ gh pr view <pr> --json number,baseRefName,headRefName,state
 
 - **Clean tree** — `git status --porcelain` must be empty; if unrelated changes exist, stop and surface them.
 - **Base branch** — usually `main` (`git remote show origin` to confirm the default).
-- **Standalone** — `gh pr checkout <pr>` fetches the remote PR head onto a local branch, then `git switch <base>`. Confirm you are on the base (`git branch --show-current`) before merging.
+- **Standalone** — already on the PR branch from step 2; `git switch <base>`. Confirm you are on the base (`git branch --show-current`) before merging.
 - **Stacked** — `gh stack checkout <bottom-layer-pr>` pulls the whole chain and tracks it locally, then `gh stack sync`: it fetches, fast-forwards the trunk, cascade-rebases every layer onto the updated trunk, and pushes. That rebase *is* the stack's integration step — do not merge the trunk into a layer by hand.
   - **Conflicts** — sync restores the branches and tells you to resolve interactively. Run `gh stack rebase`, resolve faithfully to each issue's `goal` (keep both sides' intent; never drop feature work or silently revert trunk changes), `git add`, then `gh stack rebase --continue`. `git rerere` is on, so a resolution replays on later rebases. If resolving requires guessing intent, `gh stack rebase --abort`, leave the issues `To Merge`, and report the conflicting paths.
   - **Diverged stack** — non-interactively, sync aborts without pushing. Reconcile with `gh stack checkout <bottom-layer-pr>` (remote as source of truth) and rerun; if it still diverges, stop and report.
@@ -102,9 +104,9 @@ Verify the tree that will actually land — the local merge commit for a standal
 From the root of the project — all must pass:
 - **`talos project:check --strict --logs`** — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix genuine merge fallout; never weaken the check.
 - **Definition of Done** — confirm the merged code actually satisfies each `dod` item (read changed files, not just checkboxes). For a landing set, walk **every** landing issue's `dod`.
-- **Testing steps** — for each browser-flow `testing` step of every landing issue, locate the covering spec (`modules/<module>/e2e/<Name>.spec.ts`) and run it via the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when it depends on live app state). Flag any step with no covering spec.
+- **Testing steps — frontend only.** Check each landing issue's `modules/<module>/<module>.yml` `type:` field. For `spa`/`admin`/`storybook`/`design` issues, for each browser-flow `testing` step locate the covering spec (`modules/<module>/e2e/<Name>.spec.ts`) and run it via the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when it depends on live app state). Flag any step with no covering spec. For backend issues (`module`/`api`/`microservice`, or untyped), skip this entirely — the `testing` section is verified manually and never blocks the merge.
 
-If any check fails, a `dod` item is unmet, or a `testing` step has no spec/fails: **abort**, leave the issue `To Merge`, report the blocker. Do not land anything. When one layer of a landing set fails, retry with the set truncated to the layers **below** it — the ones underneath are independently mergeable — and report the truncation.
+If any check fails, or a `dod` item is unmet: **abort**, leave the issue `To Merge`, report the blocker. Do not land anything. A frontend `testing` step with no spec, or a failing spec, is also a blocker. When one layer of a landing set fails, retry with the set truncated to the layers **below** it — the ones underneath are independently mergeable — and report the truncation.
 
 Abort from inside the project directory only, and never with a command that discards uncommitted work without asking:
 - Merge still in progress → `git merge --abort`.

@@ -191,7 +191,7 @@ talos project:check --only=boundaries   # nothing server-side leaked into the bu
 
 An `openapi` failure means a route moved and the generator was not re-run — re-run it (step 1) rather than hand-editing `public/openapi.json`.
 
-Finally, smoke-test with `talos app:start --modules=<module>` from the root:
+Finally, smoke-test with `talos app:start --modules=<module>`:
 
 1. The sidebar nests the routes by path — `/admin/stats` sits inside an `admin` folder.
 2. ⌘K finds a route by path, title and key.

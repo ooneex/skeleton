@@ -105,9 +105,9 @@ Scaffolds are a starting point — harden every artefact rather than shipping th
 
 1. **Project check** — from the project root: `talos project:check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
 2. **Satisfy the DoD** — verify every `dod` checkbox is met and check each satisfied box off in the YAML (`- [ ]` → `- [x]`). Leave any unmet box unchecked and report why.
-3. **Satisfy the testing steps** — run every `testing` step and check its box off (`1. [ ]` → `1. [x]`) **only once it actually passes**. Never check a box you did not run.
-4. **Set the state** — only when **every** `dod` and `testing` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"`. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. If any box is unmet, leave the state untouched and report the blocker.
-5. **Validate the issue** — run `talos issue:check --id=<ID>` from the project root. It enforces the schema and, at `In Review`, that `branch` is present and every `dod`/`testing` box is checked. Fix every error it reports by correcting the YAML — never by unchecking work you did, checking work you didn't, or deleting a `dod`/`testing` item.
+3. **Testing steps are manual for backend work** — do not run or check off `testing` boxes; leave them exactly as authored. A human verifies them separately.
+4. **Set the state** — once **every** `dod` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"` regardless of `testing` box state. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. If any `dod` box is unmet, leave the state untouched and report the blocker.
+5. **Validate the issue** — run `talos issue:check --id=<ID>` from the project root. It enforces the schema and, at `In Review`, that `branch` is present and every `dod` box is checked. Fix every error it reports by correcting the YAML — never by unchecking work you did, checking a `testing` box you didn't run, or deleting a `dod`/`testing` item.
 
 ## Report
 

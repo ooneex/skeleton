@@ -32,7 +32,6 @@ talos repository:create --name=<name> --module=<module>
 
 Read `modules/<module>/src/repositories/<Name>Repository.ts`, then:
 
-- Replace the generator's `@inject("database")` string-token placeholder with `@inject(MainDatabase)` from `@module/shared/databases/MainDatabase` — this project's one primary/shared database.
 - Verify the entity import path matches the actual entity location.
 - Adjust the `find` method's search fields (default searches `name` with `ILike`); customize relation loading in `findOne`/`findOneBy` if needed.
 - **Add** custom domain methods the entity's fields/business context call for (e.g. `revokeSession`, `markAsRead`, `archive`).
@@ -40,18 +39,18 @@ Read `modules/<module>/src/repositories/<Name>Repository.ts`, then:
 
 ```typescript
 import { inject } from "@talosjs/container";
+import type { ITypeormDatabase } from "@talosjs/database";
 import { decorator } from "@talosjs/repository";
 import type { FilterResultType } from "@talosjs/types";
 import type { FindManyOptions, FindOptionsWhere, Repository, SaveOptions, UpdateResult } from "typeorm";
 import { ILike } from "typeorm";
-import { MainDatabase } from "@module/shared/databases/MainDatabase";
 import { <Name>Entity } from "../entities/<Name>Entity";
 
 @decorator.repository()
 export class <Name>Repository {
   constructor(
-    @inject(MainDatabase)
-    private readonly database: MainDatabase,
+    @inject("database")
+    private readonly database: ITypeormDatabase,
   ) {}
 
   public async open(): Promise<Repository<<Name>Entity>> {

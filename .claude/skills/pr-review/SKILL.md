@@ -1,6 +1,6 @@
 ---
 name: pr-review
-description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch, then runs talos project:check --strict --logs, checks the Definition of Done and runs the e2e tests that satisfy the issue's testing section. Stack-aware — a stacked PR is reviewed bottom-up, one layer at a time, against the branch below it.
+description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch, then runs talos project:check --strict --logs, checks the Definition of Done, and — for frontend modules only — runs the e2e tests that satisfy the issue's testing section (backend module/api/microservice testing steps are verified manually and never gate review). Stack-aware — a stacked PR is reviewed bottom-up, one layer at a time, against the branch below it.
 when_to_use: Use to review a pull request for an issue awaiting review. Triggers on "review PR <ID>", "review the <module> issues in review", or "review this pull request". Not for reviewing the uncommitted working diff (use code-review) or scaffolding.
 model: opus
 effort: high
@@ -35,7 +35,9 @@ If nothing matches, stop and tell the user the exact paths checked.
 
 ## 2. Gate on review-readiness
 
-Read each resolved `modules/<module>/issues/<ID>.yml`. A file must clear **every** gate to be reviewed:
+Read each resolved `modules/<module>/issues/<ID>.yml`. Before evaluating the gates below, switch onto the issue's remote branch — `gh pr checkout <pr>` (do all remote work with the **`gh` cli only**, never `git fetch`/`git pull`/`git push`; `gh auth switch` if unauthenticated) — so the checks run against the actual PR head, not whatever is currently checked out locally. Ensure the working tree is clean first (`git status --porcelain`); if unrelated changes exist, stop and surface them rather than discarding work. Confirm with `git branch --show-current`.
+
+A file must clear **every** gate to be reviewed:
 
 - **State** — `state` must be `In Review`. **Skip any file that is not `In Review`** (e.g. `Planned`, `Todo`, `Done`) — don't review it; note it in the summary.
 - **Branch** — a non-empty top-level `branch:` field. Skip and report if missing.
@@ -76,17 +78,7 @@ gh pr view <pr> --json number,baseRefName,headRefName   # <pr> = the issue YAML'
 
 ## 4. Pull the remote branch and switch onto it
 
-For each gated issue, check out the PR's code. Do all remote work with the **`gh` cli only** — never `git fetch`/`git pull`/`git push` or ssh/http. Use `gh auth switch` to select the active account if a call is unauthenticated.
-
-- Ensure the working tree is clean first (`git status --porcelain`). If unrelated changes exist, stop and surface them rather than discarding work.
-- Check out the PR branch — this fetches the remote head and switches onto the local branch in one step:
-
-```bash
-gh pr checkout <pr>                 # standalone PR
-gh stack checkout <pr>              # PR in a stack — fetches the whole stack and tracks it locally
-```
-
-Use `gh stack checkout` whenever `<base>` is not main: it pulls every branch in the chain and sets up local tracking, so `gh stack view` and the navigation commands (`gh stack down`/`up`) work while you review. It needs the extension — `gh extension install github/gh-stack` if `gh extension list` doesn't show it; fall back to `gh pr checkout <pr>` if it's unavailable (the review still works, only the stack navigation is lost).
+Step 2 already checked out the PR branch with `gh pr checkout <pr>` for gating. If step 3 found `<base>` is not main (a stacked layer), re-checkout with `gh stack checkout <pr>` instead — it fetches the whole chain and tracks it locally, so `gh stack view` and the navigation commands (`gh stack down`/`up`) work while you review. It needs the extension — `gh extension install github/gh-stack` if `gh extension list` doesn't show it; fall back to the plain `gh pr checkout <pr>` already done in step 2 if it's unavailable (the review still works, only the stack navigation is lost).
 
 Either way the local branch is reconciled with the remote PR head. Confirm you are on the issue's `branch:` (`git branch --show-current`) before reviewing.
 
@@ -97,13 +89,13 @@ Once on the issue's branch:
 - **Run `talos project:check --strict --logs`** from the root of the project — the full workspace gate (install, build, fmt, lint, test) plus the project health checks, run against the branch's code. On a stack layer the checked-out tree is that layer **plus every layer below it**, which is exactly the state it will merge in — check the whole tree, don't try to isolate the layer. Report every failure as a blocker; never weaken a check to make it pass, and never fix it here (this skill is read-and-verify — send the issue back to the fixer).
 - **Measure the coverage of what changed.** Run `talos coverage:check --modules=<module> --logs` for every module the branch touches. A branch that adds behaviour without tests shows up here as a module under the threshold with the new files named — report it as a blocker and send it back to the fixer rather than approving on a green `project:check` alone.
 - **Check the Definition of Done.** Walk each `dod` item and confirm the branch's code actually satisfies it — read the changed files (`git diff <base>...<branch>`, with `<base>` from step 3), not just the checkbox state. On a stack layer this shows only that layer's work; code that belongs to a lower layer is that issue's to answer for, not this one's. Note any `dod` item checked off but not genuinely met, or unmet entirely.
-- **Run the e2e tests for the testing section.** For each `testing` step that exercises a browser flow, locate the covering spec — `modules/<module>/e2e/<Name>.spec.ts` — and run it with the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when the result depends on live app state). Triage any failure per `e2e-run` (test vs. app regression) and report it — don't weaken assertions. If a `testing` step has no covering spec, flag the gap.
+- **Testing section — frontend only.** Check `modules/<module>/<module>.yml`'s `type:` field. For `spa`/`admin`/`storybook`/`design` modules, run the e2e tests for the testing section: for each `testing` step that exercises a browser flow, locate the covering spec — `modules/<module>/e2e/<Name>.spec.ts` — and run it with the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when the result depends on live app state). Triage any failure per `e2e-run` (test vs. app regression) and report it — don't weaken assertions. If a `testing` step has no covering spec, flag the gap. For backend modules (`module`/`api`/`microservice`, or untyped), **do not check the `testing` section at all** — that verification is manual, done by a human separately, and never blocks review.
 
 ## 6. Promote the issue state
 
-If `talos project:check --strict --logs` is green, **every** `dod` item is genuinely met, **and** every `testing` step's e2e spec ran green (no missing coverage, no failures), the issue is approved — edit `modules/<module>/issues/<ID>.yml` and set `state: "To Merge"`. Leave `branch:` and `pr:` untouched.
+If `talos project:check --strict --logs` is green and **every** `dod` item is genuinely met, the issue is approved — edit `modules/<module>/issues/<ID>.yml` and set `state: "To Merge"`. Leave `branch:` and `pr:` untouched. For frontend modules this also requires every `testing` step's e2e spec to have run green (no missing coverage, no failures); backend modules are approved on `project:check` + `dod` alone, since their `testing` section is verified manually and never gates promotion.
 
-If `talos project:check --strict --logs` failed, any `dod` item is unmet or mis-checked, any e2e spec failed, or a `testing` step has no covering spec, leave the state as `In Review` — do not promote an issue with blockers.
+If `talos project:check --strict --logs` failed or any `dod` item is unmet or mis-checked, leave the state as `In Review` — do not promote an issue with blockers. For frontend modules, an e2e failure or a `testing` step with no covering spec is also a blocker.
 
 **Each layer is judged on its own.** A stack layer that meets its own bar is promoted to `To Merge` even if a layer below it is still `In Review` — that's the point of a stack. `pr-merge` enforces the bottom-up landing order, so an approved upper layer simply waits. Never promote a layer to cover for a blocked one below it, and never demote a layer because of a finding that belongs to another.
 
