@@ -110,6 +110,20 @@ export class BookSeed implements ISeed {
 }
 ```
 
+## Exceptions
+
+Every `Exception` subclass sets `this.name` explicitly in its constructor, right after `super(...)`:
+
+```typescript
+export class UserNotFoundException extends Exception {
+  public constructor(userId: string) {
+    super(`User "${userId}" was not found`, { key: "USER_NOT_FOUND", status: NOT_FOUND, data: { userId } });
+
+    this.name = "UserNotFoundException";
+  }
+}
+```
+
 ## Code Hygiene
 
 - Remove unused imports and dead code (unreachable branches, unused variables, empty files).

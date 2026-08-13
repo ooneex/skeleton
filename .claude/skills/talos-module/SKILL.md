@@ -85,7 +85,20 @@ Strict TS: decorators (`emitDecoratorMetadata`); strict mode with `noUncheckedIn
 
 ## Exception Handling
 
-Domain exceptions extend `Exception` from `@talosjs/exception` with HTTP status codes + structured data. Throw typed exceptions from services rather than returning `null` or error codes:
+Domain exceptions extend `Exception` from `@talosjs/exception` with HTTP status codes + structured data. Throw typed exceptions from services rather than returning `null` or error codes. Every exception class must set `this.name` explicitly in its constructor, right after `super(...)`, even though `Exception` already assigns `this.name = this.constructor.name`:
 ```typescript
-throw new UserNotFoundException({ userId });
+export class UserNotFoundException extends Exception {
+  public constructor(userId: string) {
+    super(`User "${userId}" was not found`, {
+      key: "USER_NOT_FOUND",
+      status: NOT_FOUND,
+      data: { userId },
+    });
+
+    this.name = "UserNotFoundException";
+  }
+}
+```
+```typescript
+throw new UserNotFoundException(userId);
 ```

@@ -33,7 +33,7 @@ Read every changed file (and the surrounding code it touches — callers, the mo
 - **Naming** — types must end `Type`; interfaces must start `I`; standalone functions must be arrow functions (class methods stay methods); DI classes must carry the required suffix (`Service`, `Repository`, `Middleware`, `Cron`, `Queue`, `Controller`) and their `@decorator.*()`.
 - **Dependency injection** — collaborators injected via the constructor with `@inject(...)`, never `new`-ed; DI-registered artifacts (controllers, entities, middlewares, crons, events) present in the module's `ModuleType`.
 - **Clean Architecture** — the dependency rule holds (controllers/commands → services → repositories → entities, never the reverse); entities carry no framework/persistence/HTTP imports; repositories return/accept domain types, not DTOs; controllers are thin (no business rules, no direct repository calls); no circular dependencies.
-- **Exceptions** — domain errors throw typed `Exception` subclasses with status + structured data, not `null`/error codes.
+- **Exceptions** — domain errors throw typed `Exception` subclasses with status + structured data, not `null`/error codes; each subclass sets `this.name = "XException";` explicitly in its constructor, right after `super(...)`.
 - **Environment** — config read via injected `AppEnv`, never `process.env`.
 - **Entity ↔ migration** — column nullability/length agree across the pair; no non-null assertions (`!`) standing in for real types.
 - **Tests** — new public methods have meaningful tests; no trivial or placeholder assertions left behind.
