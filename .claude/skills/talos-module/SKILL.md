@@ -22,6 +22,7 @@ All code lives under `modules/<name>/`. A module owns one business domain:
 modules/<name>/
   <name>.yml      # Module manifest — declares type: "module" (or api | microservice | design | spa | admin | sdk)
   package.json    # Module package + its dependencies
+  bin/            # Executable entry-point scripts for the module
   src/
     ai/           # AI integration classes — chats/, middlewares/, tools/ subfolders
     analytics/    # Analytics handler classes
