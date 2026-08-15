@@ -120,12 +120,10 @@ Issues are YAML files under `modules/<module>/issues/<ID>.yml`. They are the sou
                                        dod, testing, labels. Lands it in `Planned`.
 2. /issue-fix   <ID>                 → implements it on a `<type>/<ID>-<slug>` branch,
                                        runs fmt/lint/tests, satisfies the DoD.
-3. /commit                           → conventional commits, grouped per module.
-4. /pr                               → opens the PR, moves the issue to `In Review`.
-5. /pr-review   <ID>                 → checks out the branch, runs `talos project:check
+3. /pr-review   <ID>                 → checks out the branch, runs `talos project:check
                                        --strict --logs` + the DoD and testing steps.
                                        Approves it into `To Merge`.
-6. /pr-merge    <ID>                 → merges, re-verifies, deletes the branch, `Done`.
+4. /pr-merge    <ID>                 → merges, re-verifies, deletes the branch, `Done`.
 ```
 
 Around that loop:
@@ -161,7 +159,7 @@ Every generator runs from the repository root and takes `--name` and `--module`.
 
 Skills are task procedures for AI assistants, installed under `.claude/skills/` (and the equivalent folder for Codex, Cursor, Gemini, Zed, and others — see `AGENTS.md`). Invoke one with `/<name>`.
 
-**Ship a change:** `issue-plan` → `issue-fix` → `commit` → `pr` → `pr-review` → `pr-merge`.
+**Ship a change:** `issue-plan` → `issue-fix` → `pr-review` → `pr-merge`.
 
 **Fix and verify:** `debug` (something is broken), `project-fix` (run every check and repair what it reports), `optimize` (conventions, duplication, dead code), `deslop` (clean the diff before committing), `coverage-check`, `security-check`, `e2e-run`.
 
