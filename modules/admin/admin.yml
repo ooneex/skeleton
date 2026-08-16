@@ -1,3 +1,6 @@
 type: "admin" # "api" | "microservice" | "design" | "spa" | "sdk" | "module" | "storybook" | "swagger" | "admin"
 design: "design"
+locales:
+  - en
+  - fr
 target: "app"
