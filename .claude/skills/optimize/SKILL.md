@@ -82,7 +82,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 8. **Verify** — from the root:
 
    ```bash
-   talos project:check --strict --concurrency=4 --no-cache
+   talos project:check --strict --concurrency=4 --logs
    ```
 
    Fix every failure before completing.
