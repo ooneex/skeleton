@@ -1,0 +1,12 @@
+title: "Add Filter Popover With Icon Tile Choices"
+description: "Close crop of a transactions table: an Export button, Search, an active violet Filter and Sort controls, and an open Add Filter popover offering Date, Tag, Status and Amount as four icon tiles with the hovered Date tile tinted violet — over rows with coloured tag chips, full timestamps, amber Pending pills, amounts and info icons."
+tags:
+  - "filter"
+  - "table"
+  - "popover"
+  - "closeup"
+  - "finance"
+  - "interaction"
+  - "icons"
+  - "hover"
+usage: "use when a filter menu has only a handful of options — render them as a grid of icon tiles rather than a list, so the choice is made in one glance and one click."

@@ -1,0 +1,12 @@
+title: "Person Card Inset Photo Vs Full Bleed Blur"
+description: "The same person card in two treatments — a white card with a rounded inset portrait, and a full-bleed portrait card where the text sits on a frosted blur panel over the image — both carrying a verified tick, bio, two icon-led counts and a Follow pill."
+tags:
+  - "card"
+  - "profile"
+  - "variants"
+  - "blur"
+  - "full-bleed"
+  - "verified"
+  - "comparison"
+  - "user"
+usage: "use when choosing between a contained and an immersive card treatment — the same content, hierarchy and actions rendered once on a neutral surface and once on a blurred overlay above the photo."

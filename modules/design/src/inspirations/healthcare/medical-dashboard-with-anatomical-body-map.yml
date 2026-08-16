@@ -1,0 +1,12 @@
+title: "Medical Dashboard With Anatomical Body Map"
+description: "Clinical overview built around a large anatomical render with pinned label callouts, zoom and pan controls and a curved measurement scale, flanked by vitals cards badged Normal with ECG and trend sparklines, patient appointment cards with a yellow booking call to action, a heart-rate tick gauge with a four-level legend against a DNA render, and a marked cardiovascular bar chart."
+tags:
+  - "dashboard"
+  - "healthcare"
+  - "3d"
+  - "anatomy"
+  - "chart"
+  - "gauge"
+  - "booking"
+  - "callouts"
+usage: "use when a health product wants the body itself as the navigation surface — labelled callouts pinned to anatomy, a zoom control for detail, and conventional vitals cards carrying the same data in numbers."

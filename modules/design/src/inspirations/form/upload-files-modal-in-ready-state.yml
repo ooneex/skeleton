@@ -1,0 +1,12 @@
+title: "Upload Files Modal In Ready State"
+description: "Upload dialog once every file passes: the dashed drop zone with its size limit, three accepted rows for a pdf, an image and a video each with a type icon, file size and delete button, and Confirm enabled as a solid black button beside Cancel."
+tags:
+  - "modal"
+  - "upload"
+  - "states"
+  - "valid"
+  - "form"
+  - "file-types"
+  - "confirm"
+  - "comparison"
+usage: "use when showing the resolved counterpart to a blocked upload dialog — same layout, mixed file types each with their own icon, and the primary action enabled now that nothing is pending or rejected."

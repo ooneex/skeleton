@@ -1,0 +1,12 @@
+title: "Outlined Alert Banners With Retry Link"
+description: "Two alert banners on a pale wash: a green-outlined success confirming a payment and its delivery window, and a red-outlined error stating the payment failed with an underlined retry link — both with a large solid circular icon and a grey dismiss cross."
+tags:
+  - "notification"
+  - "alert"
+  - "banner"
+  - "error-state"
+  - "retry"
+  - "minimal"
+  - "outline"
+  - "payments"
+usage: "use when an alert must be quiet but actionable — an outline rather than a fill, and the recovery action set as an inline link inside the explanatory sentence."

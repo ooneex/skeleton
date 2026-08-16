@@ -1,0 +1,12 @@
+title: "Rental Filter Dialog With Segmented Room Selectors"
+description: "Booking filter dialog: a titled header with a close button, icon-led tabs for Price — marked with an unsaved dot — Rooms and beds, Type, Amenities and Book options, then Bedrooms, Beds and Bathrooms as segmented pill selectors, the Beds control widening its selected state to pair \"5+\" with a bed icon and count, over Reset and a black Find 64 results button."
+tags:
+  - "modal"
+  - "filter"
+  - "tabs"
+  - "segmented-control"
+  - "travel"
+  - "form"
+  - "result-count"
+  - "minimal"
+usage: "use when filters are grouped into tabs — a dot on any tab holding unapplied changes, segmented pills for small integer ranges, and the live result count printed inside the submit button."

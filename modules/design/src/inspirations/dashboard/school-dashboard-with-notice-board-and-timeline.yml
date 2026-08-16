@@ -1,0 +1,12 @@
+title: "School Dashboard With Notice Board And Timeline"
+description: "School admin home: a module sidebar, four count cards each with a corner arrow button and the active one filled blue, an Earnings grouped bar chart with an earnings-versus-expense legend and a year select, a Students concentric-arc card splitting male and female, a Notice Board of rows with thumbnail, title, a highlighted date pill, greyed social share icons, a view count and an overflow menu, and a right column with a tabbed Event Calendar and a connected-dot Today's Timeline."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "calendar"
+  - "timeline"
+  - "notice-board"
+  - "list"
+  - "sidebar"
+usage: "use when announcements and the day's schedule sit beside the metrics — a notice list carrying share targets and view counts per item, and a dotted timeline of the day's classes in the right column."

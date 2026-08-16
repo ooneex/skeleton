@@ -1,0 +1,12 @@
+title: "Dashboard Widget Card Library"
+description: "A fifteen-card grid covering one dashboard's widget vocabulary — sparkline time metrics with deltas, company cards pairing a brand logo with a mini radial, plain big-number stats, tinted meeting cards with time, avatar stacks and a go arrow, and integration rows toggling between Connect and Connected."
+tags:
+  - "card"
+  - "widgets"
+  - "library"
+  - "sparkline"
+  - "radial"
+  - "integrations"
+  - "stats"
+  - "design-system"
+usage: "use when defining a dashboard's widget set in one sweep — see how metric, entity, event and integration cards can share a padding, radius and type scale while each carries a different payload."

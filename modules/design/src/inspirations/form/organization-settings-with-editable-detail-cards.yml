@@ -1,0 +1,12 @@
+title: "Organization Settings With Editable Detail Cards"
+description: "Care-provider settings: a spare sidebar of Dashboard, Intake, Participant and Setting with a Help group, a header carrying the registration number, Upload file and a black Participants action, icon-led Organization, User & Permissions, Integration and Compliance tabs, and Organization Details rendered as cards — the org with logo and a three-column key-value grid, a business address in a bordered inner block, and billing frequency as tinted number tiles — each card with a circular pencil."
+tags:
+  - "settings"
+  - "card"
+  - "form"
+  - "tabs"
+  - "key-value"
+  - "minimal"
+  - "admin"
+  - "sidebar"
+usage: "use when settings are read far more often than edited — render each group as a read-only key-value card with a single pencil that flips it into edit mode, rather than a page of always-live inputs."

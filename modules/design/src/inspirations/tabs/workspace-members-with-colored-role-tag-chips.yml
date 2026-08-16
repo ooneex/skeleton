@@ -1,0 +1,12 @@
+title: "Workspace Members With Colored Role Tag Chips"
+description: "Members administration: a header with search and Add member, Regular, Guests and Disabled tabs with counts, a seat-usage summary with Add Seats and a Choose action bulk button, General/Tags/Permissions sub-tabs, and rows where each member's presence-marked avatar and last-online line sit beside removable colour-coded role chips ending in a grey Add Tag, with coloured left accent bars marking certain rows."
+tags:
+  - "user"
+  - "table"
+  - "chips"
+  - "tabs"
+  - "permissions"
+  - "seats"
+  - "admin"
+  - "presence"
+usage: "use when members carry several overlapping roles — colour-coded removable chips per row with an inline Add Tag, seat usage stated beside the invite action, and tabs separating regular, guest and disabled accounts."

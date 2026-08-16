@@ -1,0 +1,12 @@
+title: "Approval Queue With Expandable Request Rows"
+description: "Asset approvals in browser chrome: a sidebar with a nested actionable-items tree and counts, Draft/In progress/Completed tabs, and a queue of wide rows carrying an ID chip, department chip, completion pill, urgency flag, item name, amount, initiated and due dates and current owner — the selected row expanded with each value labelled — plus a rows-per-page footer and a right panel with a resolved-issues gauge and per-person pending counts."
+tags:
+  - "approval"
+  - "list"
+  - "table"
+  - "expandable"
+  - "pagination"
+  - "workflow"
+  - "gauge"
+  - "sidebar"
+usage: "use when a queue row must stay compact until it is the focus — collapsed rows showing only the identifying values, and the selected row expanding to label every field without leaving the list."

@@ -1,0 +1,12 @@
+title: "Add Comment Popover With Threaded Replies"
+description: "A compact comment popover: a titled header with a close button, threaded comments with pixel-art avatars, verified ticks and relative timestamps joined by a reply guide line, a composer row pairing the current user's avatar with a round send button, and a floating toolbar of emoji, attachment and AI actions beside a keyboard-dismiss control."
+tags:
+  - "comments"
+  - "popover"
+  - "modal"
+  - "thread"
+  - "composer"
+  - "toolbar"
+  - "avatar"
+  - "verified"
+usage: "use when comments are anchored to an object rather than a page — a small popover holding the thread and its composer, with the formatting tools detached into a floating pill beneath."

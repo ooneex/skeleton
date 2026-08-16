@@ -1,0 +1,12 @@
+title: "Coral Pagination With Round Arrow Buttons"
+description: "A single pagination control: round coral previous and next buttons flanking a grey pill of page numbers truncated by an ellipsis, with the current page ringed in coral, set above a large outlined Pagination wordmark."
+tags:
+  - "pagination"
+  - "navigation"
+  - "minimal"
+  - "design-system"
+  - "closeup"
+  - "coral"
+  - "truncation"
+  - "controls"
+usage: "use when the step controls should outweigh the page numbers — solid circular arrows outside the number pill, with the current page marked by a ring rather than a fill."

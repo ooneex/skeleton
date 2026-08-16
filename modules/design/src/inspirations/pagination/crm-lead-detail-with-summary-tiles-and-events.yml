@@ -1,0 +1,12 @@
+title: "CRM Lead Detail With Summary Tiles And Events"
+description: "A lead record: a dismissible amber \"days open\" banner, a breadcrumb, a header with an initials avatar, role, company, phone, assignee and a View more details link beside Add to Favourite, a left column of four tinted summary tiles for last campaign, last event, last touchpoint and security groups, and an Events table with a count, Create Link and Create Event, sortable name, pinned location, start and end dates, duration, budget and assignee, over pagination."
+tags:
+  - "crm"
+  - "detail-page"
+  - "table"
+  - "card"
+  - "banner"
+  - "pagination"
+  - "sales"
+  - "summary"
+usage: "use when a record's age is itself the warning — a persistent banner counting days open above the detail, with tinted tiles summarising the last interaction of each kind before the full event table."

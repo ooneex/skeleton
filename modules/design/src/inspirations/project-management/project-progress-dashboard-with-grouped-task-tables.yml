@@ -1,0 +1,12 @@
+title: "Project Progress Dashboard With Grouped Task Tables"
+description: "Project view headed by a completion bar, member avatars and Add Member, then a Table/Board/Timeline switcher with sort, label, category and filter controls above collapsible To-do, In Progress and Completed groups whose rows show progress bars and priority pills."
+tags:
+  - "task"
+  - "table"
+  - "grouped"
+  - "progress"
+  - "priority"
+  - "view-switcher"
+  - "filters"
+  - "project-management"
+usage: "use when tasks are grouped by status inside one table — collapsible status sections with counts and an inline add, per-row progress and priority, and a view switcher offering table, board and timeline over the same data."

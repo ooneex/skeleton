@@ -1,0 +1,12 @@
+title: "Social Profile Card With Gradient Cover And Stats"
+description: "Standalone social profile card: a soft gradient cover, a circular avatar overlapping its lower edge, an Edit Profile ghost button, a verified name with handle, an About paragraph, a solid Follow button with a message icon button, and a three-up post, following and follower row."
+tags:
+  - "card"
+  - "profile"
+  - "social"
+  - "gradient"
+  - "avatar"
+  - "verified"
+  - "stats"
+  - "follow"
+usage: "use when designing a self-contained profile card — an avatar straddling the cover edge, the owner's edit action separated from the visitor's follow and message actions, and a three-metric row anchoring the base."

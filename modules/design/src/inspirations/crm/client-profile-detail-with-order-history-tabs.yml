@@ -1,0 +1,12 @@
+title: "Client Profile Detail With Order History Tabs"
+description: "Client record: a profile card with a 3D avatar carrying a Repeated ribbon, contact details and Email and Text buttons, a Geographics card of icon-led contact, address and last-visit rows, stacked Orders and Order Cost cards with direction arrows, and the client's order history filtered by status tabs."
+tags:
+  - "profile"
+  - "crm"
+  - "card"
+  - "table"
+  - "tabs"
+  - "contact"
+  - "3d-avatar"
+  - "sidebar"
+usage: "use when a customer record must answer who, where and how much before listing history — identity and contact actions first, aggregate value beside them, and the itemised orders under status tabs below."

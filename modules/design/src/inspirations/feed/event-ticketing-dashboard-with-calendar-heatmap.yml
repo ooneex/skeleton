@@ -1,0 +1,12 @@
+title: "Event Ticketing Dashboard With Calendar Heatmap"
+description: "Event platform in browser chrome: pill top nav, three KPI cards, a revenue breakdown combining bars with an overlaid line and a two-panel summary, an activity feed introduced by an illustrated event-type diagram, a ticket sales summary with tabbed leaderboard rows and dotted progress meters, an event list beside a map pin card, a month calendar heat grid, and a stacked ticket-type chart."
+tags:
+  - "dashboard"
+  - "event"
+  - "chart"
+  - "calendar"
+  - "heatmap"
+  - "map"
+  - "feed"
+  - "leaderboard"
+usage: "use when engagement varies by date — a month grid whose cells deepen in colour with volume, read alongside a revenue breakdown and a tabbed leaderboard of the best-selling events."

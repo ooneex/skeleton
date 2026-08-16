@@ -1,0 +1,12 @@
+title: "Upload Toast Set With Inline Actions And Progress"
+description: "Four upload toasts in a two-by-two grid — File uploaded, Unstable connection, Upload started and Upload failed — each tinted to its severity with a solid status icon, a headline, a supporting line, an underlined inline action such as View file, Retry later, Cancel upload or Try again, a dismiss cross and a coloured progress bar pinned to the bottom edge."
+tags:
+  - "notification"
+  - "toast"
+  - "upload"
+  - "states"
+  - "progress"
+  - "inline-action"
+  - "severity"
+  - "grid"
+usage: "use when a toast tracks a background job — a progress bar along its lower edge doubling as the auto-dismiss timer, and an inline action matched to the state, from cancel while running to retry on failure."

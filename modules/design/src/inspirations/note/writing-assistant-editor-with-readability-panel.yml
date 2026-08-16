@@ -1,0 +1,12 @@
+title: "Writing Assistant Editor With Readability Panel"
+description: "Distraction-light writing app where the manuscript carries coloured inline highlights for readability problems, a left rail tracks a daily word goal and a story folder tree, and a right panel scores the draft with counted issue chips."
+tags:
+  - "editor"
+  - "writing"
+  - "annotations"
+  - "highlight"
+  - "sidebar"
+  - "progress"
+  - "analytics"
+  - "tooltip"
+usage: "use when designing an editor that critiques content as it is written — inline colour-coded highlights tied to a legend of counted issues, a hover explanation popover on a flagged phrase, and a goal-tracking sidebar."

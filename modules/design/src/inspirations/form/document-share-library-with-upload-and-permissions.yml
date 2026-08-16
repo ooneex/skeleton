@@ -1,0 +1,12 @@
+title: "Document Share Library With Upload And Permissions"
+description: "Shared library: an editable title with total size and creator, an Upload File action, folder tiles with counts, and a grid of typed document tiles with coloured format badges and relative dates — one selected with a blue outline and overflow dots — beside an Upload panel with a drop zone, a URL import field, an uploading row with percentage and completed rows, and a Share panel with an invite field, a permission select and per-person access rows."
+tags:
+  - "file-manager"
+  - "upload"
+  - "sharing"
+  - "permissions"
+  - "documents"
+  - "grid"
+  - "form"
+  - "storage"
+usage: "use when browsing, uploading and sharing happen on one screen — the library on the left with upload and per-person permissions stacked on the right, so a file can be added and shared without a dialog."

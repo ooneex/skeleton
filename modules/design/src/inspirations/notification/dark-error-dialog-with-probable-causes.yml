@@ -1,0 +1,12 @@
+title: "Dark Error Dialog With Probable Causes"
+description: "A dark failure dialog: a solid red header stating that the server could not write the required files, then four probable causes each with a red outline icon, a bold cause title and an explanatory sentence, over a divided footer offering Error details, a red Report issue action and Contact support."
+tags:
+  - "modal"
+  - "error-state"
+  - "dark-mode"
+  - "support"
+  - "diagnostics"
+  - "list"
+  - "feedback"
+  - "technical"
+usage: "use when a failure has several possible causes and the product cannot tell which — enumerate them with plain explanations rather than a stack trace, and offer details, reporting and support as separate exits."

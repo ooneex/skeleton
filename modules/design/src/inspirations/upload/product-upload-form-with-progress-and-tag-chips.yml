@@ -1,0 +1,12 @@
+title: "Product Upload Form With Progress And Tag Chips"
+description: "A product creation screen: a sidebar, search and seller chip, an Add Images card with a dashed drop zone and thumbnail rows carrying sizes and delete buttons plus an in-progress row showing percentage, transfer speed and a red Cancel, and a right form of name, category and sub-category selects, price, description and removable tag chips with one selected in blue, over Publish Product."
+tags:
+  - "form"
+  - "upload"
+  - "e-commerce"
+  - "chips"
+  - "progress"
+  - "product"
+  - "select"
+  - "sidebar"
+usage: "use when uploads run alongside form entry — per-file progress with transfer speed and a cancel, so a slow image never blocks the seller from finishing the product's text fields."

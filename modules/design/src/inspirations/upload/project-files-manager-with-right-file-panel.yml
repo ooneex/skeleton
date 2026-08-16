@@ -1,0 +1,12 @@
+title: "Project Files Manager With Right File Panel"
+description: "Document workspace over a photographic backdrop: a sidebar with an expanded folder tree and a storage-upgrade card, folder tiles with file counts and sizes, a recent files grid of typed icons, a filter tab row with search and grid/list toggles, a selectable file table with owner avatars and linked locations, and a right panel of folders and recent files with brand app icons."
+tags:
+  - "file-manager"
+  - "table"
+  - "folders"
+  - "storage"
+  - "filters"
+  - "details-panel"
+  - "sidebar"
+  - "documents"
+usage: "use when files are browsed three ways at once — pinned folder tiles, a recent grid and a full filterable table — with a right panel repeating the most recent items as brand-marked shortcuts."

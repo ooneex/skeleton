@@ -1,0 +1,12 @@
+title: "Multi Select Filter Chips With Active Counts"
+description: "Tilted close-up over a blurred order list: a Status filter chip outlined green with a count badge beside a Date chip, and an open \"Select status\" list where In Progress and Complete carry filled green checkboxes while Pending, Approved and Rejected remain empty."
+tags:
+  - "filter"
+  - "chips"
+  - "select"
+  - "multi-select"
+  - "counts"
+  - "closeup"
+  - "table"
+  - "active-state"
+usage: "use when filter chips must show how many values are active without opening them — a count badge on the chip, a coloured outline while filtering, and checkbox state inside the dropdown."

@@ -1,0 +1,12 @@
+title: "Crypto Admin Dashboard With Market Overview"
+description: "Trading admin with a user block above a deep nav tree, four coin balance cards with weekly deltas, a multi-arc statistic card with an amount legend, a two-series market chart with asset radios and a period select, four gradient payment-card tiles, and recent trading activity tabbed Monthly, Weekly and Today."
+tags:
+  - "dashboard"
+  - "crypto"
+  - "finance"
+  - "chart"
+  - "multi-arc"
+  - "card"
+  - "tabs"
+  - "sidebar"
+usage: "use when a portfolio view must let the reader re-scope constantly — asset radios and a period select on the chart, tabs on the activity list, and per-coin cards that keep their own timeframe delta."

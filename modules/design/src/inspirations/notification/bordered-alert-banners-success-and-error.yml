@@ -1,0 +1,12 @@
+title: "Bordered Alert Banners Success And Error"
+description: "Two wide alert banners over a night cityscape: a green success and a blue informational failure, each with a thick coloured left border, a large circular outline icon, a coloured headline over a neutral supporting sentence and a grey dismiss cross."
+tags:
+  - "notification"
+  - "alert"
+  - "banner"
+  - "states"
+  - "border"
+  - "feedback"
+  - "minimal"
+  - "pair"
+usage: "use when an alert should sit in the page flow rather than float — a coloured left border and outline icon carrying the severity, with the headline coloured and the explanation left neutral for readability."

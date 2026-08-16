@@ -1,0 +1,12 @@
+title: "Reports Page With Growth Chart And Country Map"
+description: "An analytics report: a search field with a command hint, a header with a descriptive subtitle and a black Export, a metrics rail of visits, bounce rate, visitors and page views each with a signed change, a Growth Overview two-series line chart with a line and bar view toggle, a legend and a hovered day band with a tooltip, and a Top country panel pairing a dotted world map with pin bubbles against a ranked list of flag rows with percentage bars."
+tags:
+  - "dashboard"
+  - "analytics"
+  - "chart"
+  - "map"
+  - "kpi"
+  - "tooltip"
+  - "export"
+  - "ranking"
+usage: "use when geography needs both a shape and an order — a dotted map with value bubbles beside a ranked flag list with progress bars, so the reader can see where and how much without switching views."

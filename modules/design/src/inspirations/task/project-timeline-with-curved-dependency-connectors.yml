@@ -1,0 +1,12 @@
+title: "Project Timeline With Curved Dependency Connectors"
+description: "Timeline view with a sidebar grouped Overview, Tools and Metrics, a breadcrumb with Manage, Share and Create task, a Day/Week/Month switch with a date-range stepper, a Show done toggle, sort and filter — and a scrolling timeline where task cards carry a coloured left bar, a parent-task subline with emoji, avatar stacks, drag handles and curved dependency connectors, one card lifted as a gradient under the cursor."
+tags:
+  - "timeline"
+  - "project-management"
+  - "dependencies"
+  - "drag-and-drop"
+  - "task"
+  - "toggle"
+  - "filters"
+  - "sidebar"
+usage: "use when dependencies must stay readable across a scrolling timeline — curved connectors between cards rather than straight lines, a Show done toggle to clear finished work, and drag handles on both card edges."

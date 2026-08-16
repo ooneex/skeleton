@@ -1,0 +1,12 @@
+title: "Conversion Rate Card Set With Labelled Bars"
+description: "Four conversion cards: an app-usage card of labelled duration bars, a three-segment donut with callout percentage pills and a legend, a monthly bar chart printing each value above its bar with the peak month filled violet, and a Total purchase card pairing a large value with a green change chip over a weekday bar chart with a black tooltip."
+tags:
+  - "card"
+  - "chart"
+  - "analytics"
+  - "donut"
+  - "bar-chart"
+  - "labels"
+  - "widgets"
+  - "design-system"
+usage: "use when a chart is small enough that axes waste space — print the value above each bar, tint all but the notable one, and let the highlighted bar carry the story without a legend."

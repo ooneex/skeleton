@@ -1,0 +1,12 @@
+title: "Choose Template Step With Illustrated Options"
+description: "Step one of three: a titled dialog with a step counter, three option rows each pairing a tinted wireframe thumbnail with a name and a one-line description — List, Compare and Spotlight — the chosen row outlined blue, over Cancel and a black Next."
+tags:
+  - "modal"
+  - "wizard"
+  - "onboarding"
+  - "template"
+  - "radio"
+  - "minimal"
+  - "form"
+  - "illustration"
+usage: "use when the first step of a flow is a layout choice — a miniature wireframe per option carrying more meaning than its name, and a step counter setting the expected length up front."

@@ -1,0 +1,12 @@
+title: "Job Listing Cards With Colored Shadow Timestamps"
+description: "Job cards scattered in perspective on lilac: each pairs a company logo with the role title, a salary range and outlined employment-type chips, and sits on a coloured offset panel whose exposed edge carries the posted-time line."
+tags:
+  - "card"
+  - "job-board"
+  - "chips"
+  - "layered"
+  - "showcase"
+  - "shadow"
+  - "salary"
+  - "perspective"
+usage: "use when a listing card needs a metadata line that reads as secondary without cluttering the card — push it onto a coloured layer behind, and keep logo, title, salary and type chips as the card's only content."

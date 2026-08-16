@@ -1,0 +1,12 @@
+title: "Data Grid Column Header Menu With Sort And Hide"
+description: "Company product selection: a back link, a header with the company ID, a Verified pill, a pin button and the owner, tabs from Overview through Payment Methods, a counted product switcher with search, Filter and Columns controls, and a data grid whose SKU header menu is open offering A→Z, Z→A and Hide column."
+tags:
+  - "table"
+  - "data-grid"
+  - "sorting"
+  - "menu"
+  - "tabs"
+  - "b2b"
+  - "closeup"
+  - "columns"
+usage: "use when column controls belong in the header rather than a toolbar — a caret per column opening sort direction and a hide action, with drag handles between columns for reordering."

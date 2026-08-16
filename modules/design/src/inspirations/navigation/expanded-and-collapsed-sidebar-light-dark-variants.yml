@@ -1,0 +1,12 @@
+title: "Expanded And Collapsed Sidebar Light Dark Variants"
+description: "One sidebar shown four ways — light expanded, light collapsed to an icon rail with a tooltip, and the same pair in dark — with a nested Product group, notification dots on rows and a user footer."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "collapsed"
+  - "icon-rail"
+  - "tooltip"
+  - "dark-mode"
+  - "variants"
+  - "notification-dot"
+usage: "use when specifying a collapsible sidebar's full matrix — what survives collapse, where tooltips appear on the icon rail, how nested groups and notification dots behave, and how all of it restates in dark mode."

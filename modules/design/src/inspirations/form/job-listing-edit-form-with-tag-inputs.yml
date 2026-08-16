@@ -1,0 +1,12 @@
+title: "Job Listing Edit Form With Tag Inputs"
+description: "Long settings-style edit form where every field sits in a two-column row of label plus helper text against the control, mixing checkbox groups, searchable token multi-selects, selects and a live status badge next to the title."
+tags:
+  - "form"
+  - "settings"
+  - "multi-select"
+  - "chips"
+  - "checkbox"
+  - "two-column"
+  - "helper-text"
+  - "sidebar"
+usage: "use when designing a long record-edit form that must stay scannable — pair each control with a label and explanatory helper text in a left column, use token inputs for capped multi-selects, and keep discard/draft/save actions in a sticky header."

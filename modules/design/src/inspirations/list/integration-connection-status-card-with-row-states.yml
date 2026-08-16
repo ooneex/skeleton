@@ -1,0 +1,12 @@
+title: "Integration Connection Status Card With Row States"
+description: "Connection card listing integrations by brand logo, each row trailing its own state — a green tick when connected, a spinner while connecting, and a dashed clock on dimmed pending rows — with segmented progress dots in the header and an encryption note in the footer."
+tags:
+  - "card"
+  - "integrations"
+  - "status"
+  - "loading"
+  - "list"
+  - "brand-logos"
+  - "progress-dots"
+  - "settings"
+usage: "use when several connections are established in sequence — per-row status icons for done, in-flight and queued, dimmed rows for work not yet started, header dots for overall progress, and a trust note at the base."

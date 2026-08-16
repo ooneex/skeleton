@@ -1,0 +1,12 @@
+title: "Personal Finance Dashboard With Money Flow And Card Actions"
+description: "Money workspace with a collapsible sidebar and workspace switcher, a gradient cashback promo with 3D art, a two-series money-flow chart tabbed per card with a hover tooltip, a credit-card widget over Send, Receive, Invoicing and More icon actions, a multi-ring expenses chart with a legend, and saving and statistics cards."
+tags:
+  - "dashboard"
+  - "finance"
+  - "chart"
+  - "card"
+  - "promo"
+  - "multi-ring"
+  - "icon-actions"
+  - "sidebar"
+usage: "use when a money dashboard must combine flow analysis with instrument-level actions — a per-card tabbed chart, a card widget whose actions sit directly beneath the art, and a concentric ring breakdown of spend."

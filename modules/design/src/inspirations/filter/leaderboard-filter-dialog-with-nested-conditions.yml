@@ -1,0 +1,12 @@
+title: "Leaderboard Filter Dialog With Nested Conditions"
+description: "Filter dialog over a leaderboard: rows of column, operator and value selects joined by Where, AND and OR, nested condition groups drawn with elbow connectors, a multi-value cell showing a removable chip and a +3 overflow, per-row delete icons, Add Condition and Add Condition Group, and a date value field with a month calendar open beneath it."
+tags:
+  - "filter"
+  - "query-builder"
+  - "modal"
+  - "nested"
+  - "date-picker"
+  - "chips"
+  - "form"
+  - "table"
+usage: "use when filters nest and mix types — elbow connectors showing group membership, multi-value cells that collapse behind a count, and a value control that changes to a calendar when the field is a date."

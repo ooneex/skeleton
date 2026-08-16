@@ -1,0 +1,12 @@
+title: "Mixed Metric Card Grid With Charts And Avatars"
+description: "A nine-card grid mixing a big-number card with a trend, a sprint card badged Restricted, a dual-arc radial with a tooltip, a task card with date and avatar stack, a bar-chart sales card, a team card with 3D avatars and Edit, per-site progress bars, a weekly report with change, and a storage donut with a legend."
+tags:
+  - "card"
+  - "dashboard"
+  - "chart"
+  - "radial"
+  - "progress"
+  - "avatar"
+  - "donut"
+  - "grid"
+usage: "use when a dashboard grid must hold many card shapes at once — numbers, arcs, bars, donuts and people — and you need them to read as one family despite carrying very different content."

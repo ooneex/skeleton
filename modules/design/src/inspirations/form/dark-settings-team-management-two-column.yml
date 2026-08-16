@@ -1,0 +1,12 @@
+title: "Dark Settings Team Management Two Column"
+description: "Dark-theme settings shell: an icon rail of product areas, a full-height menu of settings rows with chevrons and a Pro upsell badge, and a detail pane holding the team name field, an automatic-enrolment toggle and empty-state sections for invites and disabled users."
+tags:
+  - "settings"
+  - "dark-mode"
+  - "two-column"
+  - "menu"
+  - "toggle"
+  - "empty-state"
+  - "upsell"
+  - "admin"
+usage: "use when settings are numerous enough to need their own menu column — a scrollable list of settings rows beside a detail pane, plan-gated rows badged inline, and clearly worded empty states for sections with nothing in them yet."

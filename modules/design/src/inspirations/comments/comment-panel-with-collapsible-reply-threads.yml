@@ -1,0 +1,12 @@
+title: "Comment Panel With Collapsible Reply Threads"
+description: "A comment panel in two reply states: a header with a panel-collapse icon, a red-outlined focused composer with bold, italic, underline, attachment and emoji controls and a red Send, a count and a Most recent sort, then comments on a dotted rail with overlapping participant avatar stacks, emoji reaction pills with counts and an add-reaction button, Reply, and a \"View N replies\" disclosure that becomes \"Hide 1 reply\" with the reply revealed on a tinted inset card."
+tags:
+  - "comments"
+  - "thread"
+  - "reactions"
+  - "states"
+  - "panel"
+  - "composer"
+  - "disclosure"
+  - "avatar-stack"
+usage: "use when specifying how a thread expands — the disclosure toggling between View and Hide with its count, and the revealed reply sitting on a tinted inset card indented from its parent."

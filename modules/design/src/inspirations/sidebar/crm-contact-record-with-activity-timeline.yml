@@ -1,0 +1,12 @@
+title: "CRM Contact Record With Activity Timeline"
+description: "A contact record: a sidebar of counted sections and Collections with a sample-data progress card and an Invite footer, a breadcrumb with search, Actions, Import and Create Contact, a contact column with photo, role, round Note, Email, Task and Meeting actions and collapsible Contact Details and Communication Preferences, and an Activity tab where an Active Sequences banner sits over a typed rail of calls, meetings, tasks with priority and Overdue pills, emails and notes."
+tags:
+  - "crm"
+  - "detail-page"
+  - "timeline"
+  - "feed"
+  - "tabs"
+  - "contact"
+  - "activity"
+  - "sidebar"
+usage: "use when a contact's history is the main content — a typed activity rail where each event names its actor, channel and outcome, with quick-create actions for the next note, email, task or meeting pinned above it."

@@ -1,0 +1,12 @@
+title: "Upload Files Dialog With Options Tabs And Fallback"
+description: "A classic upload dialog on teal: a titled header with close, a large dashed drop zone with a cloud glyph and a browse link, and a right column of Options, Description and Advanced tabs holding a notify-by-email token field with an add button, Category and Privacy selects, a sentence restating who will be notified, a Send me a copy checkbox, Upload files beside Cancel, and a link to a basic uploader for anyone having problems."
+tags:
+  - "modal"
+  - "upload"
+  - "form"
+  - "tabs"
+  - "select"
+  - "settings"
+  - "fallback"
+  - "notification"
+usage: "use when upload settings are optional but numerous — tabs keeping the drop zone dominant, a restated sentence confirming who gets notified, and a simpler uploader offered as an escape hatch."

@@ -1,0 +1,12 @@
+title: "Upload Asset Files Page With Per File States"
+description: "An asset upload page in browser chrome: a sidebar with counts and a Go Pro card, a page title with help, settings and filter buttons, a violet-outlined drop zone with a click-to-upload link, supported formats and a PDF being dragged in under a grab cursor, then file rows — uploading with a violet bar and percentage, complete with a green bar and tick, failed with a red bar and a Try Again action, and more still in flight."
+tags:
+  - "upload"
+  - "file-manager"
+  - "states"
+  - "progress"
+  - "error-state"
+  - "drag-and-drop"
+  - "retry"
+  - "sidebar"
+usage: "use when uploads are a full page rather than a dialog — a persistent drop zone above a queue where every row's bar colour, icon and trailing action state exactly where that file stands."

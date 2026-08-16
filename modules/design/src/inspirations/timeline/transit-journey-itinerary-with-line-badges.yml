@@ -1,0 +1,12 @@
+title: "Transit Journey Itinerary With Line Badges"
+description: "A public-transport journey plan on desktop and phone: a vertical itinerary where each leg is a coloured line between station dots, line badges name the service and direction, sublines give duration and stop count behind an expander, walking and change legs carry pictograms, a red warning notes a closed exit and wait time is marked with a clock — with the phone showing the route traced on a map above a sheet repeating the itinerary with duration and fare."
+tags:
+  - "timeline"
+  - "travel"
+  - "transit"
+  - "mobile"
+  - "map"
+  - "list"
+  - "navigation"
+  - "warnings"
+usage: "use when a route is a sequence of typed legs — colour-coded lines with service badges, walking and waiting shown as first-class steps, and disruptions flagged on the specific leg they affect."

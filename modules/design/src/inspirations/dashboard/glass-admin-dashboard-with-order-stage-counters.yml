@@ -1,0 +1,12 @@
+title: "Glass Admin Dashboard With Order Stage Counters"
+description: "Store admin on a blurred colour backdrop: a shop switcher and date in the top bar, four KPI cards with icon tiles and sparklines, a crypto ticker, an Order Analytics strip counting each fulfilment stage, a server-status card, a revenue chart with period tabs and chart-type toggles, a messages list with unread badges, and a contacts avatar row."
+tags:
+  - "dashboard"
+  - "admin"
+  - "e-commerce"
+  - "glass"
+  - "chart"
+  - "pipeline"
+  - "messages"
+  - "sidebar"
+usage: "use when an order pipeline should read as a single strip — one row of stage counters from pending to delivered — with the revenue chart, messages and server health arranged around it on translucent surfaces."

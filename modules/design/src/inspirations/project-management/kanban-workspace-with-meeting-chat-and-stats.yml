@@ -1,0 +1,12 @@
+title: "Kanban Workspace With Meeting Chat And Stats"
+description: "Project home combining a board and its surroundings: a sidebar with search, counted workspace projects and a gradient Ask AI button, a breadcrumb with member avatars and Add Member, four kanban columns of cards carrying priority chips, descriptions, avatar stacks and view, comment and link counts — one lifted under a grab cursor over a dashed placeholder — and a bottom row with a Meet Schedule card, a Team Chat with a composer and a completion Stats card."
+tags:
+  - "kanban"
+  - "dashboard"
+  - "project-management"
+  - "chat"
+  - "drag-and-drop"
+  - "ai"
+  - "meetings"
+  - "sidebar"
+usage: "use when a board needs its team context on the same screen — the next meeting with a join action, a live chat strip and a completion stat sitting beneath the columns rather than in separate pages."

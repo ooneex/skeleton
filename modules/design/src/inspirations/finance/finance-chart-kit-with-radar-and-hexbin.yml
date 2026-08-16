@@ -1,0 +1,12 @@
+title: "Finance Chart Kit With Radar And Hexbin"
+description: "Chart library on grey: a country choropleth with a percentage pin, a single-bar highlight card, a radar comparing two shapes, a Transfer history card with period tabs and concentric arcs, a stacked category spending bar with a valued legend, a filled-circle savings gauge, a hexbin density map, a scatter plot with a trend line, and a multi-series smooth line chart with a category tooltip."
+tags:
+  - "chart"
+  - "analytics"
+  - "finance"
+  - "radar"
+  - "hexbin"
+  - "scatter"
+  - "map"
+  - "design-system"
+usage: "use when picking chart forms beyond bars and lines — radar for multi-axis comparison, hexbin for dense point data, a filled circle for a savings ratio, all sharing one palette and card style."

@@ -1,0 +1,12 @@
+title: "Contact Database With Filter Panel And Masked Data"
+description: "B2B prospecting tool: an icon rail, a filter panel with Clear All and Save Filters, a load-filters input and collapsible groups for lists, job titles with removable level and function chips plus a +20 overflow, location, industry, company and revenue; and on the right a credits banner with a buy action, a contact count, a bulk bar with Add to List and Download, and a table whose emails and phones are partly masked with verification icons and copy buttons."
+tags:
+  - "filter"
+  - "table"
+  - "b2b"
+  - "chips"
+  - "masked-data"
+  - "credits"
+  - "bulk-actions"
+  - "sidebar"
+usage: "use when data is metered and revealed per credit — masked emails and phones with verification state, a persistent credit balance with a top-up action, and a deep filter panel that summarises selections as removable chips."

@@ -1,0 +1,12 @@
+title: "Pagination Design Variants Poster"
+description: "Six pagination bars on pale violet under a \"What's your pagination design?\" title: chevrons with numbers, an ellipsis and a per-page select; the same plus a go-to-page field; a Previous/Next text variant with an outlined current page; a joined bar where the current page is a full-height tinted column; a Back/Next bar with rounded number tiles; and an oversized variant with a large filled current page."
+tags:
+  - "pagination"
+  - "navigation"
+  - "design-system"
+  - "variants"
+  - "comparison"
+  - "poster"
+  - "select"
+  - "controls"
+usage: "use when comparing pagination treatments side by side — six ways of marking the current page and offering page size and jump-to, so the right density can be chosen against real content."

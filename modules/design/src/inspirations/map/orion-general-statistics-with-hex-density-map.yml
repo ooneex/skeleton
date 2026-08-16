@@ -1,0 +1,12 @@
+title: "Orion General Statistics With Hex Density Map"
+description: "A statistics overview: Statistics, Overview and Dashboard tabs, a headline all-users figure with a Detail link, three icon-tiled metrics for earnings, sales and purchases, two thin arc gauges for active and new users, a hex-tile world map where density deepens the hexagons with per-city callout bubbles, and a Sales Figures strip of thin bars split into coloured segments."
+tags:
+  - "dashboard"
+  - "analytics"
+  - "map"
+  - "hexmap"
+  - "gauge"
+  - "chart"
+  - "data-viz"
+  - "callouts"
+usage: "use when a world map must show intensity rather than borders — equal-weight hex tiles darkening with density, with callout bubbles naming the value at the handful of cities that matter."

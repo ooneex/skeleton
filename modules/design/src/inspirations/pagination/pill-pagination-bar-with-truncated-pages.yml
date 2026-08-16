@@ -1,0 +1,12 @@
+title: "Pill Pagination Bar With Truncated Pages"
+description: "A single pagination control on teal: a white pill holding a previous chevron in a tinted circle, the first five pages, an ellipsis, the last four pages and a next chevron, with the current page marked by a solid teal circle."
+tags:
+  - "pagination"
+  - "navigation"
+  - "minimal"
+  - "design-system"
+  - "truncation"
+  - "pill"
+  - "closeup"
+  - "controls"
+usage: "use when specifying how a long page range truncates — leading pages, an ellipsis and trailing pages inside one pill, with the current page inverted rather than merely bolded."

@@ -1,0 +1,12 @@
+title: "Business Plan Wizard With Team Member Cards"
+description: "Multi-step plan builder: a purple header over a Progress Overview with a completion bar and a section checklist marking finished sections with green ticks and the current one with an amber clock, and a pane where each team member is a card with avatar, role, editable skill chips with an Add affordance, bulleted editable responsibility fields, a delete icon and a collapse chevron — footed by an auto-filled note and Previous, Save Progress and Next Step."
+tags:
+  - "wizard"
+  - "form"
+  - "onboarding"
+  - "card"
+  - "progress"
+  - "checklist"
+  - "editable"
+  - "sidebar"
+usage: "use when a long structured document is filled in over several steps — a persistent section checklist with per-section completion, repeating entity cards with inline-editable fields, and explicit save-and-continue actions."

@@ -1,0 +1,12 @@
+title: "Query Cache Performance Card With Bandwidth Bar"
+description: "Observability card for a single GraphQL query: name with a drill-in chevron over request count, share and P95, a small radial beside the cache hit rate with a down-from delta, a max-value comparison behind an info tooltip, and a segmented bandwidth bar with a cached, non-cacheable and total legend."
+tags:
+  - "card"
+  - "observability"
+  - "developer"
+  - "cache"
+  - "radial"
+  - "segmented-bar"
+  - "tooltip"
+  - "metrics"
+usage: "use when one entity's performance needs several framings in a small card — a headline rate with its trend, a percentile, and a segmented bar splitting a total into its causes, each with a definition behind an info tooltip."

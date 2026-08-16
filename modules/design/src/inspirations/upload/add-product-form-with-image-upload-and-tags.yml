@@ -1,0 +1,12 @@
+title: "Add Product Form With Image Upload And Tags"
+description: "Seller product creation: a sidebar of store sections, a search bar and account chip, a left Add Images card with a dashed drop zone and thumbnail rows carrying file size, a delete button and an in-progress row showing percentage, speed and Cancel; and a right form of product name, category and sub-category selects, price, a description textarea and a Tags field of removable chips with one selected in solid blue, over Publish Product."
+tags:
+  - "form"
+  - "upload"
+  - "e-commerce"
+  - "chips"
+  - "select"
+  - "progress"
+  - "product"
+  - "sidebar"
+usage: "use when creating a catalogue item — media on one side with its own upload queue and text attributes on the other, so images can keep uploading while the seller finishes typing."

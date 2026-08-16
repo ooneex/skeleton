@@ -1,0 +1,12 @@
+title: "Employee Data Table With Sortable Columns"
+description: "Employees screen reduced to its table: a narrow icon rail, a header with back chevron, Create, filter and column-settings buttons, and a wide grid with checkbox selection, avatars with presence dots, sort arrows on every column, Yes/No access pills, pencil, trash and overflow row actions, and a footer with rows-per-page and page navigation."
+tags:
+  - "table"
+  - "data-grid"
+  - "hr"
+  - "sorting"
+  - "pagination"
+  - "bulk-select"
+  - "row-actions"
+  - "admin"
+usage: "use when a data grid needs its full anatomy settled — sortable headers, checkbox selection, presence-marked avatars, an actions column separating edit, delete and overflow, and a rows-per-page footer."

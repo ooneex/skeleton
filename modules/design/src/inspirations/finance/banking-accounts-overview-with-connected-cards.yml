@@ -1,0 +1,12 @@
+title: "Banking Accounts Overview With Connected Cards"
+description: "Accounts page with pill top navigation, a gradient AI assistant button beside New Payment, a Connected Cards list rendering real card art with balances, four KPI cards with trend deltas, a scheduled payments table with type chips, and a two-series balance chart with range pills and a hover tooltip."
+tags:
+  - "dashboard"
+  - "finance"
+  - "card"
+  - "kpi"
+  - "area-chart"
+  - "table"
+  - "tooltip"
+  - "ai"
+usage: "use when an account overview must show instruments, balances and forecast together — card art as the list identity, KPI cards carrying deltas, and a multi-series balance chart with range pills and a comparison tooltip."

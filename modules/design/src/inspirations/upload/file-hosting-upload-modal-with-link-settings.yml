@@ -1,0 +1,12 @@
+title: "File Hosting Upload Modal With Link Settings"
+description: "Upload dialog over a dimmed table: a gradient AI prompt bar offering to suggest file types, a left card with an orange dashed drop zone and an in-flight progress row, and a right form grouping Basic Information, Link Settings with a custom alias and password protection, Advance Options for download expiry and maximum downloads, and a subscribe-gate toggle with an explanatory note."
+tags:
+  - "modal"
+  - "upload"
+  - "form"
+  - "settings"
+  - "toggles"
+  - "sharing"
+  - "ai"
+  - "link"
+usage: "use when an upload and its distribution rules are configured in one dialog — the drop zone on one side, and grouped link, access and expiry settings on the other so the file is publishable in a single pass."

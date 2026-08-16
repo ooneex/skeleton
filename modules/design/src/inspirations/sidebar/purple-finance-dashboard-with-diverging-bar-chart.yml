@@ -1,0 +1,12 @@
+title: "Purple Finance Dashboard With Diverging Bar Chart"
+description: "Finance home with a solid violet sidebar carrying a bug-report card, three pastel gradient balance, income and outcome cards with signed deltas, a diverging bar chart mirrored above and below the axis, a card widget with a QR tap-to-pay panel, upcoming payments with countdowns, latest transactions with category dots, and a Quick Payment card with a beneficiary avatar row."
+tags:
+  - "dashboard"
+  - "finance"
+  - "chart"
+  - "diverging-bars"
+  - "qr"
+  - "list"
+  - "gradient"
+  - "sidebar"
+usage: "use when incoming and outgoing values must be compared per period — mirror the two series above and below a shared axis instead of stacking them, and keep the payment shortcut as its own card."

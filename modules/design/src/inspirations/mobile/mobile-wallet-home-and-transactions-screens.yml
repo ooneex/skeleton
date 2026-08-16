@@ -1,0 +1,12 @@
+title: "Mobile Wallet Home And Transactions Screens"
+description: "Two phone screens from a payments app: a home with a greeting, balance card, promotional offer banner, circular service shortcuts and merchant tiles over a tab bar with a raised centre action, and a transactions screen with an Income/Expenses switch, a weekly line chart with a tooltip and brand-logo rows."
+tags:
+  - "mobile"
+  - "finance"
+  - "wallet"
+  - "tab-bar"
+  - "segmented-control"
+  - "line-chart"
+  - "list"
+  - "promo-banner"
+usage: "use when designing a mobile money app — a balance card above quick actions and offers, a raised centre action in the tab bar, and a transaction history led by a segmented income/expense chart with a scrubbing tooltip."

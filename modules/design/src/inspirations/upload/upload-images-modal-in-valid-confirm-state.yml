@@ -1,0 +1,12 @@
+title: "Upload Images Modal In Valid Confirm State"
+description: "The same image upload dialog once every file passes — two accepted rows with thumbnails and sizes, no error text, and Confirm now enabled as a solid black button beside Cancel."
+tags:
+  - "modal"
+  - "upload"
+  - "states"
+  - "valid"
+  - "form"
+  - "confirm"
+  - "comparison"
+  - "images"
+usage: "use when specifying the resolved half of an upload dialog pair — the identical layout with errors cleared and the primary action enabled, so exactly what changes between blocked and ready is pinned down."

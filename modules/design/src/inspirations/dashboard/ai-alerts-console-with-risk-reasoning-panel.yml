@@ -1,0 +1,12 @@
+title: "AI Alerts Console With Risk Reasoning Panel"
+description: "Alerts console: four summary cards phrasing each count as a sentence, severity tabs with counts over a searchable, sortable alert list where every entry states the risk, the evidence and a proposed action, and a detail pane with course progress, last activity and risk score, Overview/Student Activity/Interventions tabs, a highlighted AI agent summary and an expandable reasoning list."
+tags:
+  - "dashboard"
+  - "ai"
+  - "alerts"
+  - "list"
+  - "detail-pane"
+  - "tabs"
+  - "reasoning"
+  - "education"
+usage: "use when an AI proposes actions a human must approve — every alert states its evidence in prose, the detail pane shows the underlying metrics, and the model's reasoning is expandable rather than hidden."

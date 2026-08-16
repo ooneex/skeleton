@@ -1,0 +1,12 @@
+title: "Teacher Dashboard With Marking Period Progress"
+description: "Teaching home on lilac: a dark sidebar with a user block, a header stating today's date and the days left in the marking period, four icon-led quick-action cards, a Check-in Periods chain of classes joined by chevrons, an Overall Marking Period Progress row of four tinted percentage-with-count pills, a Recent Assignments table with segmented progress bars, and a Student's Progress table of avatar rows with behaviour type, date and staff member."
+tags:
+  - "dashboard"
+  - "education"
+  - "table"
+  - "progress"
+  - "quick-actions"
+  - "deadline"
+  - "sidebar"
+  - "kpi"
+usage: "use when a deadline governs the whole screen — state the days remaining in the header, express progress as tinted percentage-with-count pills, and lead with the four actions the role performs most."

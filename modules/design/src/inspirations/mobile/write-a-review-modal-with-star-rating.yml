@@ -1,0 +1,12 @@
+title: "Write A Review Modal With Star Rating"
+description: "Review dialog: a serif heading with a circled close, the app's icon, name and category, five outlined stars under a \"Tap to leave a rating\" hint, an underlined single-line Review Title field, a \"Describe your experience\" textarea with an active caret, and a full-width rounded Submit button."
+tags:
+  - "modal"
+  - "form"
+  - "rating"
+  - "stars"
+  - "feedback"
+  - "review"
+  - "mobile"
+  - "app-store"
+usage: "use when collecting a rating and a written review together — the subject restated at the top for context, an unset star row with an instruction beneath it, and title and body kept to two fields."

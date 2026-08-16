@@ -1,0 +1,12 @@
+title: "Student Learning Dashboard With Course Carousel"
+description: "Learner home: a sidebar with count badges, a horizontally scrolling carousel of pastel course cards carrying lesson, assignment and peer counts, a stacked study-versus-exam hours chart with a two-value tooltip, a score-progression speedometer with leaderboard position, task-progress bars, a class card with joined-friend avatars, an overall statistics radial, and a right column of profile ring, month calendar and nested to-do list."
+tags:
+  - "dashboard"
+  - "education"
+  - "carousel"
+  - "chart"
+  - "gauge"
+  - "calendar"
+  - "todo"
+  - "sidebar"
+usage: "use when a student home must motivate as well as inform — a course carousel across the top, a leaderboard-anchored score gauge, and a personal column pairing the calendar with a nested to-do list."

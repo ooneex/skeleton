@@ -1,0 +1,12 @@
+title: "Floating Task Cards With Priority And Meta Chips"
+description: "Task cards scattered in perspective to show one anatomy in many states — title over subtitle, a priority siren or flag chip, a date chip that turns red for Today, attachment and comment counts, an assignee avatar and a coloured top accent on the urgent card."
+tags:
+  - "card"
+  - "task"
+  - "priority"
+  - "chips"
+  - "due-date"
+  - "states"
+  - "anatomy"
+  - "showcase"
+usage: "use when specifying a task card's metadata row and its variants — how priority, overdue dates, attachment and comment counts and assignee sit together, and how an urgent card differentiates without changing shape."

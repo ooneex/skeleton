@@ -1,0 +1,12 @@
+title: "Nested Query Builder Over CRM Table"
+description: "CRM opportunities with an advanced query builder: saved-view tabs, a toolbar of Groups, Filters with a count, Group by, Fields, Row height and Layout, and a popover where conditions are draggable field-operator-value rows nested inside an \"Any of the following are true\" subgroup joined by And and Or pills, with Add condition, Add subgroup, Add group and Clear all — over a table of opportunities with amount, vendor, stage and Critical health pills."
+tags:
+  - "filter"
+  - "query-builder"
+  - "table"
+  - "crm"
+  - "popover"
+  - "nested"
+  - "boolean"
+  - "sidebar"
+usage: "use when users compose boolean logic visually — draggable condition rows, explicit And/Or pills on the group boundary, and nested subgroups indented inside their parent so precedence is readable."

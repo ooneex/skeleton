@@ -1,0 +1,12 @@
+title: "Test Result Dashboard With Attempt Analysis"
+description: "A test-result screen: a slim icon sidebar with a bookmark and account footer, a test title with marks and duration chips and a date select, a dark summary band of time taken, student count and reference rank beside a blue score card with a ring gauge and a congratulatory line, then three tinted analysis panels — an attempt donut with unattempted, incorrect and correct counts in floating bubbles, a performance bar chart comparing you against the topper and the average, and a difficulty-wise nested arc chart."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "donut"
+  - "gauge"
+  - "results"
+  - "comparison"
+  - "sidebar"
+usage: "use when a score needs context to be meaningful — the learner's result placed against the top performer and the cohort average, with the attempt breakdown and difficulty split explaining how it was reached."

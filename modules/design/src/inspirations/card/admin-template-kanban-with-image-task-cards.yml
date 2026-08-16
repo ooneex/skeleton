@@ -1,0 +1,12 @@
+title: "Admin Template Kanban With Image Task Cards"
+description: "Kanban page inside a full admin template: a deeply nested sidebar of application, UI element and page sections, a top bar with theme, language, mail and notification controls, and columns of task cards topped by cover images with tag chips, dates, inline edit and delete, and an open Edit/Duplicate/Delete menu."
+tags:
+  - "kanban"
+  - "admin"
+  - "template"
+  - "sidebar"
+  - "card"
+  - "menu"
+  - "tags"
+  - "cover-image"
+usage: "use when a board lives inside a large admin shell — a multi-level sidebar and utility-dense top bar surrounding cards that carry cover art, tags and their own row actions."

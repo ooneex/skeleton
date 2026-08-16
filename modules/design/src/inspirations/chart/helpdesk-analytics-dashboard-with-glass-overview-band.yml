@@ -1,0 +1,12 @@
+title: "Helpdesk Analytics Dashboard With Glass Overview Band"
+description: "Support analytics shown at an angle on a purple wash: a sidebar with an expanded ticket-configuration tree, a Quick Overview band of translucent count tiles laid over a gradient, a tickets-by-user donut with a two-column legend, stat cards with drill-in buttons, and a grouped lollipop bar chart."
+tags:
+  - "dashboard"
+  - "analytics"
+  - "support"
+  - "glass"
+  - "donut"
+  - "lollipop-chart"
+  - "tree"
+  - "purple"
+usage: "use when a dashboard opens with a summary band rather than separate cards — translucent count tiles sharing one gradient surface, with the detailed charts and drill-ins arranged underneath."

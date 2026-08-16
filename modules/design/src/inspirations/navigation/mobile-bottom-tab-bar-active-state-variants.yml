@@ -1,0 +1,12 @@
+title: "Mobile Bottom Tab Bar Active State Variants"
+description: "Three mobile tab bars on cobalt: an icon-only bar with an underline marking the active tab, a labelled bar where the active tab is coloured and its icon sits in a notch cut into the bar's top edge with a floating dot, and a labelled bar where the active tab rests on a tinted rounded plate."
+tags:
+  - "navigation"
+  - "mobile"
+  - "tab-bar"
+  - "variants"
+  - "states"
+  - "active-state"
+  - "design-system"
+  - "notch"
+usage: "use when deciding how a mobile tab bar marks its active item — underline, notch-and-lift, or tinted plate — with labels shown and hidden so the space cost of each is visible."

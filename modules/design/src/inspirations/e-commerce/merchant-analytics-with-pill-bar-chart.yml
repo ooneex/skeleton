@@ -1,0 +1,12 @@
+title: "Merchant Analytics With Pill Bar Chart"
+description: "Commerce analytics shown as tilted overlapping panels: a sidebar grouped Main Menu, Manage and Sales Channels with a user footer, KPI cards with prior-week deltas, a revenue chart of tall rounded pill bars carrying their day label inside, a segmented sales-by-channel bar, and a channel table with a customer-base panel."
+tags:
+  - "dashboard"
+  - "e-commerce"
+  - "analytics"
+  - "chart"
+  - "pill-bars"
+  - "segmented-bar"
+  - "table"
+  - "sidebar"
+usage: "use when a bar chart should double as a label surface — full-height rounded pill bars with the day name set inside them, and a single segmented bar summarising channel share above the detail table."

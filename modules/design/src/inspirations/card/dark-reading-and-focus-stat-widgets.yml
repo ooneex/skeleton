@@ -1,0 +1,12 @@
+title: "Dark Reading And Focus Stat Widgets"
+description: "Two dark widgets floating over dimmed siblings: a reading stats card with a gradient top edge, a headline total and a three-column split of percentages with emoji deltas and mini bars, and a learning focus card with a goal, current hours, a ticked radial gauge and an encouragement chip."
+tags:
+  - "card"
+  - "widget"
+  - "dark-mode"
+  - "stats"
+  - "radial-gauge"
+  - "progress"
+  - "emoji"
+  - "gradient-border"
+usage: "use when personal-tracking widgets should feel encouraging rather than clinical — a goal stated beside the current value, a needle gauge for pace, emoji-marked deltas and a short affirming status chip."

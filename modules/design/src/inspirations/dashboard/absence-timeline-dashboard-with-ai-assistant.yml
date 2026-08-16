@@ -1,0 +1,12 @@
+title: "Absence Timeline Dashboard With AI Assistant"
+description: "HR planning in frosted glass: a Planned Absences resource timeline where each employee row carries coloured leave bars with approval-state chips, weekends hatched and a dashed today line, plus future events, an onboarding grid tracking per-person task progress, and an AI panel with quick actions and a prompt box."
+tags:
+  - "dashboard"
+  - "hr"
+  - "timeline"
+  - "resource-planning"
+  - "glass"
+  - "ai"
+  - "onboarding"
+  - "leave"
+usage: "use when planning people across dates — a row-per-person timeline where each absence states its type and approval state, weekends are visually removed from the working grid, and today is marked across every row."

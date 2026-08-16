@@ -1,0 +1,12 @@
+title: "Weekly Activity Feed With Quoted Source Blocks"
+description: "A This Week feed on a vertical rail of typed nodes — blue bubbles for comments and mentions, grey circles for merge, add and remove events, a teal note icon — where each entry reads as a sentence naming actor, verb and object with the entity linked, a metadata line of timestamp and breadcrumb path, a collapse caret, and the source text quoted in an indented block with an expand button."
+tags:
+  - "feed"
+  - "activity"
+  - "timeline"
+  - "comments"
+  - "crm"
+  - "quotes"
+  - "mentions"
+  - "grouping"
+usage: "use when an activity feed mixes human and system events — typed node icons distinguishing the two, actor-verb-object sentences, and the quoted comment inline so the reader need not navigate away."

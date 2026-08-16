@@ -1,0 +1,12 @@
+title: "Upload Files Modal With Per File Progress And Errors"
+description: "Upload dialog: a dashed drop zone with a file glyph and a size limit, then a queue where an in-flight file shows a radial percentage and estimated time, complete files show typed icons for image and video, and a rejected file turns red with its reason — each row deletable, closed by Cancel and a disabled Confirm."
+tags:
+  - "modal"
+  - "upload"
+  - "progress"
+  - "error-state"
+  - "list"
+  - "form"
+  - "validation"
+  - "queue"
+usage: "use when several files upload at once — per-row progress with an estimate, type-specific icons once complete, an inline reason on rejected rows, and Confirm held disabled until the queue resolves."

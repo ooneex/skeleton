@@ -1,0 +1,12 @@
+title: "Laboratory Diagnostics Console With Sample Timeline"
+description: "Lab operations screen shown at an angle: four KPI cards with tinted icon tiles, a filter bar of status, priority, department and date selects over an order table whose priority, department and status columns are all coloured pills, a stacked daily-volume bar chart with a week-over-week delta, a Sample Timeline of dot-connected stages with times, and an AI Insights column of tinted recommendation cards."
+tags:
+  - "dashboard"
+  - "healthcare"
+  - "table"
+  - "timeline"
+  - "ai"
+  - "chart"
+  - "status-pill"
+  - "laboratory"
+usage: "use when a specimen or order moves through named stages — a vertical dot timeline stamping each stage with time and location, beside the queue table and the AI notes that flag where it is slowing down."

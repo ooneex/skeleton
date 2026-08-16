@@ -1,0 +1,12 @@
+title: "Student Profile Form With Inline Calendar Popover"
+description: "Admin record form: a brand-header sidebar with an expanded Dashboard group, a top bar with search and badged mail and bell, a breadcrumb with notification, events and attendance summary pills, a profile band with photo, description and icon-led contact links, an overflow popover offering exam results and attendance, and a three-column form of text fields, gender radios and selects with a Day/Week/Month calendar popover open on the date of birth."
+tags:
+  - "form"
+  - "education"
+  - "admin"
+  - "date-picker"
+  - "popover"
+  - "radio"
+  - "profile"
+  - "sidebar"
+usage: "use when a long record form needs to stay navigable — a three-column field grid under a profile band, contextual summary pills in the breadcrumb, and date fields opening a calendar in place."

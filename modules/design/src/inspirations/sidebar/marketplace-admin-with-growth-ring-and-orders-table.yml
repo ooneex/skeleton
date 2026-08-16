@@ -1,0 +1,12 @@
+title: "Marketplace Admin With Growth Ring And Orders Table"
+description: "Marketplace back office: three KPI cards with coloured icon tiles and weekly deltas, a sales statistics area chart with a dark tooltip, a multi-segment website-growth ring with a percentage legend by traffic source, a sortable orders table with checkbox rows, customer avatars and status pills, a light/dark switch in the header and a Help Center card in the sidebar."
+tags:
+  - "dashboard"
+  - "e-commerce"
+  - "chart"
+  - "ring"
+  - "table"
+  - "status-pill"
+  - "theme-switch"
+  - "sidebar"
+usage: "use when traffic attribution belongs on the overview — a segmented growth ring whose legend names each source with its share, sitting beside the sales trend and above the order table."

@@ -1,0 +1,12 @@
+title: "Course Lesson Video Player With Playlist"
+description: "Lesson page for an online course: back link to the course, lesson title with watch time and publish date, a video player with progress, a Go to Next Lesson call to action, and a right playlist marking completed, playing and unwatched chapters with durations."
+tags:
+  - "video"
+  - "media-player"
+  - "course"
+  - "playlist"
+  - "progress"
+  - "tabs"
+  - "education"
+  - "next-action"
+usage: "use when video sits inside a structured curriculum — a chapter playlist with per-item completion state and duration beside the player, an explicit next-lesson action, and tabs for overview, instructor and glossary below."

@@ -1,0 +1,12 @@
+title: "CRM Leads Table With Lifecycle Status Pills"
+description: "A leads list: an icon rail of circular buttons with the active one solid orange, a header with Filter, a disabled Export, Import and a black New Lead, and a sortable checkbox table of name, company as an icon chip, lead source, linked phone and email, coloured status pills spanning recycled, new, assigned, in progress, converted and dead, and a converted yes/no column with row menus, over a page-size select and numbered pagination."
+tags:
+  - "crm"
+  - "table"
+  - "status-pill"
+  - "lifecycle"
+  - "pagination"
+  - "sorting"
+  - "sales"
+  - "filter"
+usage: "use when rows move through a long lifecycle — a distinct pill colour per stage including the dead-end ones, with the outcome column stated separately so stage and result are never conflated."

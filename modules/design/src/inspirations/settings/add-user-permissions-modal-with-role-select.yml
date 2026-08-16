@@ -1,0 +1,12 @@
+title: "Add User Permissions Modal With Role Select"
+description: "Dialog over a dimmed settings page whose tabs read Organization, User & Permissions, Integration and Compliance: an Add New information button, a two-column grid of name, email, role, added date, phone and access, an open role select offering Admin, User and Add Other, an access toggle, extensible information fields and Draft beside Save."
+tags:
+  - "modal"
+  - "form"
+  - "permissions"
+  - "user"
+  - "select"
+  - "settings"
+  - "toggle"
+  - "admin"
+usage: "use when inviting a user and setting their access in one dialog — a role select that allows a custom value, an access toggle stated in words, and a Draft action beside Save for half-finished records."

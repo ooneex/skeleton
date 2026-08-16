@@ -1,0 +1,12 @@
+title: "Analytics Widgets With Concentric Arc Ranking"
+description: "Close crop of four analytics widgets: a card with a Week/Month/Year segmented control over three counts each drawn with a different bar treatment (solid, tinted, hatched), a task card pairing two percentages with coloured sparklines and month-over-month deltas, a framework progress chart of layered thin bars, and an overview drawn as concentric arcs with a per-tool percentage legend."
+tags:
+  - "card"
+  - "chart"
+  - "analytics"
+  - "concentric-arcs"
+  - "segmented-control"
+  - "sparkline"
+  - "closeup"
+  - "widgets"
+usage: "use when several categories must be ranked and compared in one small chart — nested arcs sized by share with a legend naming each, and bar treatments that distinguish series without adding colour."

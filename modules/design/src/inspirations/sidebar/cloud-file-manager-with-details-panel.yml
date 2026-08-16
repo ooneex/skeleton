@@ -1,0 +1,12 @@
+title: "Cloud File Manager With Details Panel"
+description: "Drive-style file browser: a folder tree with per-folder counts, a dashed drag-and-drop upload zone, frequently used folder shortcuts and a file table, with a right panel showing a preview, tags, file details, description and collaborators."
+tags:
+  - "file-manager"
+  - "upload"
+  - "drag-and-drop"
+  - "table"
+  - "details-panel"
+  - "tree"
+  - "tags"
+  - "storage"
+usage: "use when building a file or asset browser — a nested folder tree with counts, a drop target above the listing, a table of name/modified/size/access, and a details inspector that previews the selection with its metadata and sharing."

@@ -1,0 +1,12 @@
+title: "Soft Tinted Alert Banners In Four States"
+description: "Four stacked alert banners on white — success green, error red, warning amber and informational blue — each with a solid circular icon, a bold headline over a single supporting line, and a white circular dismiss button, with the copy drawn from a payments context."
+tags:
+  - "notification"
+  - "alert"
+  - "banner"
+  - "states"
+  - "minimal"
+  - "payments"
+  - "dismiss"
+  - "tinted"
+usage: "use when defining a compact alert family — a tinted surface with a solid icon per severity, exactly one supporting line, and copy that names the specific thing that happened rather than a generic message."

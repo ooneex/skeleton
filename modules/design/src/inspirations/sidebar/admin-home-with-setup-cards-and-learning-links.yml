@@ -1,0 +1,12 @@
+title: "Admin Home With Setup Cards And Learning Links"
+description: "An administration home shown as an overlay: a Close action, a Company/Personal segmented toggle and a long admin nav, then two setup cards for managing inboxes and creating rules each pairing an icon, an explanation, a primary action and Review all, a Recently invited teammates card headed by an amber inactivity warning with a Send message action over a name, status and last-activity list, and a \"Learn how to…\" section of three columns of icon-led help links."
+tags:
+  - "settings"
+  - "admin"
+  - "onboarding"
+  - "card"
+  - "list"
+  - "education"
+  - "warning"
+  - "sidebar"
+usage: "use when an admin area should teach as well as configure — setup cards naming the next action, a warning that turns idle teammates into a message, and grouped how-to links under plain-language goals."

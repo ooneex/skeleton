@@ -1,0 +1,12 @@
+title: "Violet Analytics Card Kit"
+description: "A violet card library: a revenue-versus-net-income paired bar chart with a year selector, conversion-rate cards using rounded two-tone day bars, a country list with flags and counts, a rating breakdown with labelled pills, a big-number card with a mini chart, a Monthly/Yearly projection-versus-actual bar chart, an order-status donut with callout percentages, a scheduled-payments card, a spend card with a dashed average line and app-usage duration bars."
+tags:
+  - "card"
+  - "chart"
+  - "analytics"
+  - "design-system"
+  - "donut"
+  - "bar-chart"
+  - "widgets"
+  - "violet"
+usage: "use when assembling an analytics card set in one accent colour — see how projection versus actual, share, ranking and duration each get a distinct chart form while sharing type scale and card chrome."

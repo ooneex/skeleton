@@ -1,0 +1,12 @@
+title: "File Uploader With Uploading Complete And Failed Rows"
+description: "Plain uploader: a dashed blue drop zone naming accepted formats and a 100MB cap, then the same file row rendered three ways — uploading with a partial bar and a delete action, completed with a full bar and a green tick, and failed in red with a retry control — over Cancel and Upload."
+tags:
+  - "upload"
+  - "states"
+  - "progress"
+  - "error-state"
+  - "retry"
+  - "list"
+  - "form"
+  - "comparison"
+usage: "use when specifying an upload row's full state machine — how the progress bar, status label and trailing action each change between in-flight, done and failed, with retry offered only on failure."

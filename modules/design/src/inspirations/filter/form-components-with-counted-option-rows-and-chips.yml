@@ -1,0 +1,12 @@
+title: "Form Components With Counted Option Rows And Chips"
+description: "Form controls on mint: a Schedule Checkboxes card pairing From and To time fields with AM/PM segmented toggles above a weekday checkbox list, a blue-outlined stops-duration card whose rows pair a green count badge with a label and a circular check — the selected row solid blue, the rest grey — a Select Chips card with a \"3 selected\" dropdown and tick-marked chips, and described toggle rows."
+tags:
+  - "form"
+  - "checkbox"
+  - "chips"
+  - "toggles"
+  - "segmented-control"
+  - "counts"
+  - "filter"
+  - "design-system"
+usage: "use when filter options should show how many results each will return — a count badge leading every row, a circular check trailing it, and a chips card summarising the number selected in its header."

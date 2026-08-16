@@ -1,0 +1,12 @@
+title: "Account Security Settings With Destructive Actions"
+description: "A security settings pane: a sidebar with a team switcher, a counted menu with a New pill and a Create Contract button, a top bar with search and a light/dark segmented toggle, a settings section list ending in a red Delete Account, and rows pairing a title and explanation with their control — an email carrying an Unverified flag beside Edit, Change Password, a two-step verification toggle, and Restricted Members, Deactivate and a red Delete."
+tags:
+  - "settings"
+  - "security"
+  - "form"
+  - "destructive"
+  - "toggle"
+  - "sidebar"
+  - "account"
+  - "two-factor"
+usage: "use when a settings page mixes routine and irreversible actions — every row explained in a sentence, and deactivate and delete pushed to the bottom in red so they are never adjacent to an everyday control."

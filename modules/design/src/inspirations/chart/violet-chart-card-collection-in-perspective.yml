@@ -1,0 +1,12 @@
+title: "Violet Chart Card Collection In Perspective"
+description: "Chart cards scattered in perspective in violet and lime: a revenue bar chart with one highlighted month and hatched future bars, income-versus-expense line charts with the comparison series dashed, a transfer-history card with period tabs and concentric arcs, an activity-by-time heatmap with a Less/More legend, a horizontal quarterly bar chart and a labelled donut."
+tags:
+  - "chart"
+  - "card"
+  - "analytics"
+  - "heatmap"
+  - "showcase"
+  - "finance"
+  - "perspective"
+  - "design-system"
+usage: "use when distinguishing actual from projected data — hatch the future bars, dash the comparison line, and reserve solid fills for values that have actually happened."

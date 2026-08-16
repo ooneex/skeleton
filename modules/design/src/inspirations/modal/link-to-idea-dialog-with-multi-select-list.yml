@@ -1,0 +1,12 @@
+title: "Link To Idea Dialog With Multi Select List"
+description: "A Link to Idea dialog: a titled header with close, a quoted submission card with the author's initials avatar, a Search ideas field, then a scrollable list where each idea carries a checkbox, title, a link-count chip, a coloured status label and an open-in-new icon — two ticked — over a footer stating \"2 selected\" beside Cancel and Link entry."
+tags:
+  - "modal"
+  - "form"
+  - "search"
+  - "bulk-select"
+  - "list"
+  - "status"
+  - "linking"
+  - "product-management"
+usage: "use when relating one record to several others — the source quoted at the top for context, a searchable checkbox list of candidates with their status, and a running selection count in the footer."

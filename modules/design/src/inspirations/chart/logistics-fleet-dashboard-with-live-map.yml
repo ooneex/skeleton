@@ -1,0 +1,12 @@
+title: "Logistics Fleet Dashboard With Live Map"
+description: "Delivery operations home: three KPI cards each carrying its own mini visual — bars, a sparkline, a donut — a two-series shipment chart with a value tooltip, a live fleet map with zoom, a vehicle spec card with a product render, a recent shipment table with coloured status pills, and a Light/Night switch in the sidebar."
+tags:
+  - "dashboard"
+  - "logistics"
+  - "map"
+  - "chart"
+  - "table"
+  - "status-pill"
+  - "theme-switch"
+  - "sidebar"
+usage: "use when tracked assets must be both located and listed — a live map beside a status table, and KPI cards that each pick the mini visual best suited to their own metric."

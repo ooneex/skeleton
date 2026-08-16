@@ -1,0 +1,12 @@
+title: "Solid Color Toast Banners With Overlapping Icons"
+description: "Four solid toast banners on charcoal — green success, blue tip, amber warning and red error — each with a large circular outline icon overlapping the left edge, a bold headline over a supporting line, a dismiss cross and abstract bubble shapes in the lower-right corner, with the error carrying an underlined Send report link."
+tags:
+  - "notification"
+  - "toast"
+  - "states"
+  - "dark-mode"
+  - "colorful"
+  - "banner"
+  - "illustration"
+  - "severity"
+usage: "use when toasts should be unmissable — a fully saturated surface per severity with the status icon breaking the left edge, and decorative shapes keeping the large colour field from reading as flat."

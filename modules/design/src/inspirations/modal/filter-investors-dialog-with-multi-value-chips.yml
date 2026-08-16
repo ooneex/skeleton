@@ -1,0 +1,12 @@
+title: "Filter Investors Dialog With Multi Value Chips"
+description: "A Filter Investors dialog on violet: condition rows led by a Where label then and/or selects, each pairing field and operator selects with one or more value chips carrying their own delete icons and a plus to add another value inline, with drag handles and row delete buttons, a Filter group link, and Cancel beside a violet Apply."
+tags:
+  - "filter"
+  - "query-builder"
+  - "modal"
+  - "chips"
+  - "multi-value"
+  - "b2b"
+  - "drag-and-drop"
+  - "form"
+usage: "use when one condition can hold several values — value chips inside the row joined by their own and/or, each removable, with a plus at the end to extend the clause without adding a new row."

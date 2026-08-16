@@ -1,0 +1,12 @@
+title: "Portfolio Article Editor With Thumbnail Panel"
+description: "Admin content editor for a portfolio entry: breadcrumb header with Save as Draft and Publish actions, a rich-text toolbar above a long-form body, and a right rail holding the thumbnail uploader plus collapsible Info and Client field groups."
+tags:
+  - "editor"
+  - "rich-text"
+  - "admin"
+  - "sidebar"
+  - "publishing"
+  - "form"
+  - "right-rail"
+  - "light"
+usage: "use when designing a content authoring screen where a long-form editor needs to sit beside document metadata — draft/publish actions in the header, a formatting toolbar pinned above the body, and collapsible property panels (thumbnail, dates, relations) on the right."

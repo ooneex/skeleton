@@ -1,0 +1,12 @@
+title: "Add On Upsell Modal With Selectable Rows"
+description: "Upsell dialog over a blurred checkout: a question headline with a supporting line, then four add-on rows each pairing an illustrated icon with a name, a benefit line and a per-unit price against a radio Select control — the first badged Recommended and the chosen row outlined green with its radio filled — over Cancel and a green Select and Close."
+tags:
+  - "modal"
+  - "upsell"
+  - "pricing"
+  - "radio"
+  - "checkout"
+  - "add-ons"
+  - "recommendation"
+  - "form"
+usage: "use when offering paid add-ons mid-checkout — one row per option with its price stated per unit, a Recommended badge to guide the default, and a selection state that outlines the whole row."

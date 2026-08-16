@@ -1,0 +1,12 @@
+title: "Payment Activity Table With Currency Picker"
+description: "Payments activity screen: a store switcher, a Pro Mode toggle and an AI Assistant link in the top bar, a filter row of relative-period select, date range, counted All/Received/Sent/Convert tabs and a Currency dropdown open as a searchable flag-marked list, a sortable table pairing direction icons with amounts in two currencies, masked payment methods, status pills, a description and a person, and a Load More control under a fading final row."
+tags:
+  - "table"
+  - "finance"
+  - "filter"
+  - "select"
+  - "tabs"
+  - "status-pill"
+  - "currency"
+  - "load-more"
+usage: "use when transactions span currencies — the original amount with its converted value beneath, a searchable currency filter with flags, and a fading final row that signals more behind Load More."

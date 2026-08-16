@@ -1,0 +1,12 @@
+title: "Create Document Modal With Live Preview"
+description: "Document builder dialog over a scattered blueprint background: an info callout explaining how the signature line behaves, a template select, a document-sections multi-select rendered as removable chips, a date field, a rich-text introduction editor with a full formatting toolbar, and a live preview pane with a zoom badge and zoom controls — footed by a download-format select, Cancel and Create document."
+tags:
+  - "modal"
+  - "form"
+  - "editor"
+  - "preview"
+  - "chips"
+  - "documents"
+  - "rich-text"
+  - "template"
+usage: "use when a form assembles a document — the fields on one side and a live rendered preview on the other, with an info callout warning about the rule the user cannot see from the form alone."

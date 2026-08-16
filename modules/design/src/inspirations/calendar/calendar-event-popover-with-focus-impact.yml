@@ -1,0 +1,12 @@
+title: "Calendar Event Popover With Focus Impact"
+description: "Calendar event popover in light and dark: title, date range and attendee avatars, a highlighted Focus impact row that drills in, a cognitive-cost pill, a context-switch count, suggested optimal time slots, and Skip, Reschedule and Join actions — with a tilted explainer card behind listing numbered reasons and hashtag tags."
+tags:
+  - "card"
+  - "popover"
+  - "calendar"
+  - "event"
+  - "dark-mode"
+  - "tags"
+  - "recommendation"
+  - "actions"
+usage: "use when an event popover should advise as well as inform — a drill-in row that explains the meeting's cost, numbered reasoning on the follow-on card, suggested alternative slots, and skip, reschedule and join side by side."

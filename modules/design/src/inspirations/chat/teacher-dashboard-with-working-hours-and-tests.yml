@@ -1,0 +1,12 @@
+title: "Teacher Dashboard With Working Hours And Tests"
+description: "Teaching home on a blueprint grid: a light sidebar, a gradient banner stating the class average and prompting a rank-up, a Working Hours card with a week stepper, a two-tone bar chart and online and offline splits, a Group chats list with cover thumbnails, previews and unread counts, a profile card with rank and class counts, a month calendar, a Student tests table with deadlines and coloured status pills, and Upcoming Classes with times and join links."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "calendar"
+  - "table"
+  - "chat"
+  - "gamification"
+  - "sidebar"
+usage: "use when a professional dashboard borrows game mechanics — a rank stated on the profile and a banner tying the class average to improving it, sitting above the ordinary schedule and tables."

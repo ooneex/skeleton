@@ -1,0 +1,12 @@
+title: "Cardiology Dashboard With 3D Heart And Metric Callouts"
+description: "Clinical view in browser chrome: pill top nav with the active section filled, a 3D heart render with frosted metric callouts pinned to anatomical points by leader dots, a vertical tick scale marking a percentage, and a right column of doctor-attributed test cards showing a range plot, an ECG trace, a glucose heat grid and a stepped calorie chart."
+tags:
+  - "dashboard"
+  - "healthcare"
+  - "3d"
+  - "glass"
+  - "chart"
+  - "callouts"
+  - "ecg"
+  - "medical"
+usage: "use when metrics belong to parts of a physical thing — pin frosted value callouts to points on a 3D render with leader dots, and repeat the same metrics as conventional charts in a column beside it."

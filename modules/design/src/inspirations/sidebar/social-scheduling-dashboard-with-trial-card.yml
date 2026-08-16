@@ -1,0 +1,12 @@
+title: "Social Scheduling Dashboard With Trial Card"
+description: "Publishing tool whose sidebar groups composer, channel and utility sections, with a dark gradient trial card stating its expiry beside View Plans, per-channel message counters, a two-series post-status line chart with a legend, a media donut, and a recent publications section."
+tags:
+  - "dashboard"
+  - "marketing"
+  - "scheduling"
+  - "chart"
+  - "upsell"
+  - "trial"
+  - "donut"
+  - "sidebar"
+usage: "use when a plan prompt must sit inside the dashboard rather than interrupt it — a dark gradient trial card placed as the first tile, stating the expiry date and its upgrade action in the flow of the metrics."

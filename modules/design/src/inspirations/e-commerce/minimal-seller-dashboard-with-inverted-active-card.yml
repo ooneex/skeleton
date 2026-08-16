@@ -1,0 +1,12 @@
+title: "Minimal Seller Dashboard With Inverted Active Card"
+description: "Restrained seller overview: an icon-only rail, a search field with an attached Search button, four stat cards where the selected one inverts to solid blue and each carries a hand-drawn trend line plus a contextual footer link, a product table with thumbnails and Active states, and a stacked views-versus-sales bar chart."
+tags:
+  - "dashboard"
+  - "minimal"
+  - "e-commerce"
+  - "chart"
+  - "table"
+  - "active-state"
+  - "sparkline"
+  - "icon-rail"
+usage: "use when a stat card doubles as a filter — invert the selected card to solid colour, give each card a footer link to its own next action, and keep the rest of the page almost entirely white."

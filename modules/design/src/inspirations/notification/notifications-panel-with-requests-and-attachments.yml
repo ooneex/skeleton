@@ -1,0 +1,12 @@
+title: "Notifications Panel With Requests And Attachments"
+description: "A notifications panel with a Mark all as read link, All with a count, Following and Archive tabs underlined on the active one, and rows where unread items are tinted and marked with a blue dot — an access request carrying Accept and Deny, a file-added row embedding the attachment with its icon and size, and plain completion and mention rows with initials avatars and timestamps."
+tags:
+  - "notification"
+  - "panel"
+  - "tabs"
+  - "actions"
+  - "attachments"
+  - "unread"
+  - "list"
+  - "approval"
+usage: "use when notification rows carry different payloads — an embedded file card on an upload, approve and deny buttons on a request, and nothing but the sentence on a plain completion."

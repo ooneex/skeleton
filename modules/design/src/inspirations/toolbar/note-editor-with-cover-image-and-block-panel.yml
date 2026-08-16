@@ -1,0 +1,12 @@
+title: "Note Editor With Cover Image And Block Panel"
+description: "Full-width note page: wide cover image with the author avatar overlapping its lower edge, title, description and tag chips, a floating selection toolbar over the prose, an inline video player, and a right panel of text, form, layout and tool blocks."
+tags:
+  - "editor"
+  - "notes"
+  - "cover-image"
+  - "blocks"
+  - "toolbar"
+  - "avatar"
+  - "tags"
+  - "video"
+usage: "use when a document page should read like a published article while staying editable — cover art with an overlapping author avatar, tag chips under the title, and a block palette that stays docked while a selection toolbar floats."

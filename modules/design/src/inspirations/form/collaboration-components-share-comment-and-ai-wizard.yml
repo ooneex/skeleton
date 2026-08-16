@@ -1,0 +1,12 @@
+title: "Collaboration Components Share Comment And AI Wizard"
+description: "Four collaboration components on textured grey: a share popover with an email token field, a public-link row with a permission select and per-member access rows over Copy link and Invite; a comments panel with threaded entries, per-comment reply and emoji actions, a reference number and a composer with Send; a two-step wizard header with a ticked first step over a Describe to AI textarea; and the same wizard on an upload step with two file rows, one complete and one at seventy percent."
+tags:
+  - "card"
+  - "sharing"
+  - "comments"
+  - "wizard"
+  - "upload"
+  - "ai"
+  - "permissions"
+  - "design-system"
+usage: "use when a product's collaboration surfaces should feel like one family — sharing, commenting and a two-step AI wizard sharing a radius, spacing and accent so they read as parts of the same system."

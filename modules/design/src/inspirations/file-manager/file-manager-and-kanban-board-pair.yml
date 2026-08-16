@@ -1,0 +1,12 @@
+title: "File Manager And Kanban Board Pair"
+description: "Two overlapping screens: a file manager with per-provider storage donuts for Dropbox, Drive, OneDrive and iCloud, a category rail, a breadcrumb with list and grid toggles and a file table; and a kanban headed by a project title, member avatars and Invite, with five columns of tagged cards and one card lifted mid-drag."
+tags:
+  - "file-manager"
+  - "kanban"
+  - "storage"
+  - "donut"
+  - "table"
+  - "drag-and-drop"
+  - "showcase"
+  - "sidebar"
+usage: "use when connected storage providers need summarising — a donut per provider showing used against total quota, above a browsable table, with the board screen showing the same shell in a different mode."

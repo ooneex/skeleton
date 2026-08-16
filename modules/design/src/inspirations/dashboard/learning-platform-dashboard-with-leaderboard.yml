@@ -1,0 +1,12 @@
+title: "Learning Platform Dashboard With Leaderboard"
+description: "Course platform home: three rate cards each pairing a headline percentage with the two counts behind it and a dense micro bar chart, a monthly active learners area chart with a pinned tooltip, a people leaderboard table with pagination, and a popular courses table ending in an average-progress bar."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "leaderboard"
+  - "table"
+  - "rates"
+  - "pagination"
+  - "sidebar"
+usage: "use when a rate needs its raw counts beside it — show started and completed under the completion percentage so the reader can judge whether the rate is meaningful, with a sparkline for its recent shape."

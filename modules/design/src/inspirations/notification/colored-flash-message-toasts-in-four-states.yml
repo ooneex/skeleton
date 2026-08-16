@@ -1,0 +1,12 @@
+title: "Colored Flash Message Toasts In Four States"
+description: "Toast study on near-black: four overlapping banners in success green, error red, warning amber and info blue, each pairing a circular status icon with a bold headline over a supporting line and a large circular dismiss button."
+tags:
+  - "notification"
+  - "toast"
+  - "states"
+  - "dark-mode"
+  - "status-color"
+  - "dismiss"
+  - "stack"
+  - "feedback"
+usage: "use when defining toast severities — one layout carrying four colour treatments, with the headline stating the outcome and the second line telling the reader what to do about it."

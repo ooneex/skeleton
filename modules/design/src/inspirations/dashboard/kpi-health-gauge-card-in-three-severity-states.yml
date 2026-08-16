@@ -1,0 +1,12 @@
+title: "KPI Health Gauge Card In Three Severity States"
+description: "The same compliance card drawn three times in green, amber and red: a semicircular gauge with a health score and its change on the month, over metric rows whose value pills shift colour with severity while the layout stays identical."
+tags:
+  - "card"
+  - "kpi"
+  - "gauge"
+  - "severity"
+  - "states"
+  - "variants"
+  - "dashboard"
+  - "status-color"
+usage: "use when specifying how a metric card degrades — hold the layout and only move gauge fill, arc colour and value-pill tint across healthy, warning and critical, so the state reads without reading the number."

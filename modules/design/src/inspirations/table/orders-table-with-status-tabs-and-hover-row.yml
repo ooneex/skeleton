@@ -1,0 +1,12 @@
+title: "Orders Table With Status Tabs And Hover Row"
+description: "Orders page with a Daily/Monthly toggle, three tinted order-state cards with impression deltas, status tabs across the top of the table for All, Pending, Delivered, Booked and Cancelled, icon-led column headers, and one row lifted onto a raised card to show its hover state."
+tags:
+  - "table"
+  - "e-commerce"
+  - "tabs"
+  - "hover-state"
+  - "status"
+  - "cards"
+  - "filter"
+  - "sidebar"
+usage: "use when a table is filtered by status tabs rather than a dropdown — counts implied by the summary cards above, icon-led headers for scanning, and a hover state that lifts the whole row off the surface."

@@ -1,0 +1,12 @@
+title: "Order Table With Composable Filter Chips"
+description: "Orders screen on violet: a sidebar of store sections, a search field, a Filters toggle, a row of applied filter chips each stating field, operator and value with a remove cross, and an open add-filter popover pairing a field list with an operator radio group and a value input over Cancel and Apply Filter — above a checkbox order table with status ticks and a result count."
+tags:
+  - "filter"
+  - "table"
+  - "e-commerce"
+  - "chips"
+  - "popover"
+  - "query"
+  - "search"
+  - "sidebar"
+usage: "use when filters are built one clause at a time — each applied clause reading as a sentence in its own removable chip, and a plus button opening a field, operator and value picker to add the next."

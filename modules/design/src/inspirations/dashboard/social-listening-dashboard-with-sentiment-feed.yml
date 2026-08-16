@@ -1,0 +1,12 @@
+title: "Social Listening Dashboard With Sentiment Feed"
+description: "Brand monitoring on a dark teal sidebar: an achievement banner, Mention & Reach and Sentiments tabs over a two-series area chart with a tooltip and a Days/Weeks/Months switch, a filterable post feed where each item carries a sentiment select and reply actions, a sources donut, and a stacked topic-trend chart."
+tags:
+  - "dashboard"
+  - "social"
+  - "analytics"
+  - "sentiment"
+  - "feed"
+  - "donut"
+  - "chart"
+  - "sidebar"
+usage: "use when analytics and the underlying items must live on one screen — a trend chart above a feed of the actual posts, each taggable with a sentiment and answerable inline."

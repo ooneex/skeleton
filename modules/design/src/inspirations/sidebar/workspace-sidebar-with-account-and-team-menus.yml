@@ -1,0 +1,12 @@
+title: "Workspace Sidebar With Account And Team Menus"
+description: "Issue-tracker sidebar with a workspace header, search and compose buttons, a counted Inbox, and Workspace, Favorites and Your teams sections nesting down to Active and Backlog — shown with its account and team dropdown menus and keyboard shortcut hints."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "menu"
+  - "dropdown"
+  - "keyboard-shortcuts"
+  - "nested"
+  - "workspace"
+  - "issue-tracker"
+usage: "use when documenting a sidebar together with the menus it opens — grouped and collapsible sections, favourites promoted above teams, and dropdowns that expose keyboard shortcuts next to each command."

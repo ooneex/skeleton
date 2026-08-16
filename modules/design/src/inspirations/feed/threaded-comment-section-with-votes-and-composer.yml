@@ -1,0 +1,12 @@
+title: "Threaded Comment Section With Votes And Composer"
+description: "Comment section on a soft iridescent panel: a composer with a \"Share your mind\" field, a row of link, image, GIF, emoji and mention buttons and a gradient Post pill, a Comments heading with a count badge and a Most Recent sort, and threaded comments joined by curved guide lines, each with avatar, name, relative time, an overflow menu, thumbs-up and thumbs-down counts and a Reply toggle carrying its own count."
+tags:
+  - "comments"
+  - "thread"
+  - "feed"
+  - "social"
+  - "voting"
+  - "composer"
+  - "sort"
+  - "reply"
+usage: "use when discussion nests one level deep — curved guide lines linking replies to their parent, a Reply toggle that states how many are hidden, and up and down votes counted separately per comment."

@@ -1,0 +1,12 @@
+title: "Finance Dashboard With Expense Bars And Balance Panel"
+description: "Finance page with three plain metric cards carrying signed impressions, a wide monthly expenses bar chart with a value callout on the scrubbed month and a balance and monthly-average summary docked to its right, a revenue line chart with a dark tooltip pill, and a grouped online-versus-offline shopping bar chart."
+tags:
+  - "dashboard"
+  - "finance"
+  - "chart"
+  - "bar-chart"
+  - "callout"
+  - "summary"
+  - "pastel"
+  - "sidebar"
+usage: "use when a chart needs a permanent summary beside it — dock balance and average figures into the chart card's right edge so the totals stay readable while the reader scrubs the bars."

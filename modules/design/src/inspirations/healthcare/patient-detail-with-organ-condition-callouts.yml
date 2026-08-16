@@ -1,0 +1,12 @@
+title: "Patient Detail With Organ Condition Callouts"
+description: "Patient record with an icon rail and breadcrumb: an anatomical render whose dashed leader lines run out to organ cards naming a condition percentage and date, a Patient Info card with photo, key-values and an Issues panel, blood-pressure and heart-rate area charts on dotted grids, and a health-composition arc gauge beside a colour-coded lab-value list."
+tags:
+  - "healthcare"
+  - "detail-page"
+  - "anatomy"
+  - "chart"
+  - "gauge"
+  - "callouts"
+  - "dashboard"
+  - "labs"
+usage: "use when clinical findings are attached to specific organs — leader-lined cards off the body render, with lab values colour-coded against their reference range in a plain list beside the gauge."

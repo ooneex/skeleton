@@ -1,0 +1,12 @@
+title: "Feedback Survey Cards With Emoji NPS And Stars"
+description: "Four survey treatments: a satisfaction card with an emoji scale from Awful to Excellent and the chosen face ringed, an optional comment box with a character counter, a consent checkbox and Close and Submit; an NPS card with a zero-to-ten segmented scale anchored at both ends; a compact emoji-only variant; and a five-star rating card."
+tags:
+  - "form"
+  - "feedback"
+  - "survey"
+  - "rating"
+  - "nps"
+  - "emoji"
+  - "variants"
+  - "modal"
+usage: "use when collecting satisfaction in-product — pick the scale that matches the question (emoji for sentiment, zero-to-ten for NPS, stars for quality) and keep the follow-up comment optional with a visible character limit."

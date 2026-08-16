@@ -1,0 +1,12 @@
+title: "Real Estate CRM Property Detail Panels"
+description: "Information-dense property record built from many titled panels — ownership key-values, a map with location facts, a notes feed, follow-up rows with channel action buttons, an image gallery and long property, financial and unit forms."
+tags:
+  - "crm"
+  - "detail-page"
+  - "panels"
+  - "dense"
+  - "map"
+  - "gallery"
+  - "form"
+  - "real-estate"
+usage: "use when a single record carries far more data than one layout can hold and must be split into labelled panels — key-value blocks, an activity/notes feed, per-row action buttons and grouped form sections on one scrolling page."

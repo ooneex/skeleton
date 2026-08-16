@@ -1,0 +1,12 @@
+title: "Support Helpdesk Shared Inbox With Customer Panel"
+description: "Customer support inbox with colour-dotted shared mailboxes, a ticket list showing assignee, typing indicators and internal notes, a thread mixing replies, system events and @-mention notes, an AI-suggested reply, and a customer profile with recent conversations."
+tags:
+  - "helpdesk"
+  - "inbox"
+  - "support"
+  - "email"
+  - "assignment"
+  - "internal-notes"
+  - "ai"
+  - "customer-profile"
+usage: "use when designing a support queue where several agents share mailboxes — per-mailbox colour and counts, assignment and typing indicators in the list, system events interleaved with replies, and a customer context panel beside the thread."

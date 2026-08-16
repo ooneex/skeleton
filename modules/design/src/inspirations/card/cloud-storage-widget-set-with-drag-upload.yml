@@ -1,0 +1,12 @@
+title: "Cloud Storage Widget Set With Drag Upload"
+description: "Storage widgets: a dismissible promo with a 3D knot, a Storage card with a Month select, a four-category legend and range columns stacking category segments, an Upload/Download tabbed card whose dashed drop zone shows a file chip dragged under the cursor with format and size notes and rows for uploading and completed files, a folder stack with counts and last-modified, a \"Ready to delete\" card with a red action, and a Shared File list with a copyable link."
+tags:
+  - "card"
+  - "upload"
+  - "storage"
+  - "file-manager"
+  - "chart"
+  - "drag-and-drop"
+  - "widgets"
+  - "sharing"
+usage: "use when assembling a storage product from parts — a stacked range chart for usage by type, a drop zone showing the dragged file mid-flight, and a clean-up card that quantifies what can be reclaimed."

@@ -1,0 +1,12 @@
+title: "Billing Settings With Card Details And History"
+description: "A billing settings tab: a sidebar with counted tasks and activities, recent projects and a light/dark toggle by the user footer, a settings tab strip, a Payment Method section with card name, expiry, brand-marked number and CVV fields plus Add another card, a Contact email radio choice between the existing address and a new one, and a Billing History checkbox table with sortable invoice, date, amount, coloured status pills and a tracking number over its address."
+tags:
+  - "settings"
+  - "billing"
+  - "form"
+  - "table"
+  - "status-pill"
+  - "radio"
+  - "tabs"
+  - "sidebar"
+usage: "use when payment details and their history belong on one tab — the card form above a sortable invoice table whose status pills distinguish pending, cancelled and refunded at a glance."

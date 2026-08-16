@@ -1,0 +1,12 @@
+title: "Icon Rail And Expanded Sidebar With Locked Teams"
+description: "Collapsed icon rail with a dark tooltip beside its expanded counterpart, where an open Settings group reveals Data source, Targets, Members and Upgrade, and a Teams section lists colour-lettered workspaces with lock icons on the gated ones."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "collapsed"
+  - "tooltip"
+  - "nested"
+  - "permissions"
+  - "lock"
+  - "macos"
+usage: "use when a sidebar must show entries the user cannot open yet — lock affordances on gated teams, an upgrade row inside settings, and a matching icon rail whose tooltips carry the labels lost to collapse."

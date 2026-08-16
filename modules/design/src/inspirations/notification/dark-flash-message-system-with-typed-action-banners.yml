@@ -1,0 +1,12 @@
+title: "Dark Flash Message System With Typed Action Banners"
+description: "Dark notification system: five stacked banners — success, error, warning, promo and loading — each with a coloured status icon, an uppercase type chip, a headline over a supporting line, a matching action button and a dismiss control, beside a title block listing all six states as chips."
+tags:
+  - "notification"
+  - "toast"
+  - "dark-mode"
+  - "design-system"
+  - "states"
+  - "actions"
+  - "chips"
+  - "banner"
+usage: "use when every notification carries a next step — a type chip naming the severity, a colour-matched action button in the banner itself, and a loading variant for messages that resolve on their own."

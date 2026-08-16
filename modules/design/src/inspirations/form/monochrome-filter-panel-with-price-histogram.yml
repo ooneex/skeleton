@@ -1,0 +1,12 @@
+title: "Monochrome Filter Panel With Price Histogram"
+description: "Black-and-white filter set: a panel with a property-type segmented control, Bedrooms and Bathrooms number segments, a price histogram whose in-range bars darken under a dual-handle slider with value bubbles, More options toggles and a result-count button; beside an Amenities card of icon chips with solid black selected states and a dark searchable dropdown."
+tags:
+  - "filter"
+  - "form"
+  - "histogram"
+  - "slider"
+  - "chips"
+  - "search"
+  - "minimal"
+  - "monochrome"
+usage: "use when a price filter should show the distribution it is cutting — a histogram behind the range slider with the selected span darkened, and a result count on the submit button before the user commits."

@@ -1,0 +1,12 @@
+title: "Comment Panel With Translate And Reply Disclosure"
+description: "Comment panel on a chrome-gradient backdrop: a Comments heading with a count, a Popular/Newest segmented sort, a composer pairing the user's avatar with a round send button, then comments with avatar, name, date, an overflow menu, truncated body text, a Translate link, thumbs-up and thumbs-down counts, Reply, and a \"See 52 Replies\" disclosure."
+tags:
+  - "comments"
+  - "thread"
+  - "sort"
+  - "translate"
+  - "voting"
+  - "composer"
+  - "disclosure"
+  - "social"
+usage: "use when a comment thread serves a mixed-language audience and can run long — a per-comment Translate link, truncated bodies with a read-more, and replies hidden behind a counted disclosure."

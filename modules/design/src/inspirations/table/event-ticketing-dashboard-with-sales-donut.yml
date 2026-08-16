@@ -1,0 +1,12 @@
+title: "Event Ticketing Dashboard With Sales Donut"
+description: "Ticketing overview: four KPI cards with month-over-month deltas, a revenue area chart with a dark tooltip and a period select, a sold-versus-left donut with leader-line labels and a centre total, a transaction history table with coloured status dots, a visitors panel with avatar stacks and change, and a Light/Dark switch in the sidebar."
+tags:
+  - "dashboard"
+  - "event"
+  - "ticketing"
+  - "chart"
+  - "donut"
+  - "table"
+  - "theme-switch"
+  - "sidebar"
+usage: "use when a donut needs precise reading — leader lines carrying value and percentage out to the edge, a total held in the centre, and a legend naming the two segments beneath."

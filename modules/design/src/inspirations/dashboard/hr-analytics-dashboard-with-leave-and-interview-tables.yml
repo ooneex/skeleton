@@ -1,0 +1,12 @@
+title: "HR Analytics Dashboard With Leave And Interview Tables"
+description: "People analytics with an Upcoming-badged sidebar, a revenue card carrying three totals over a three-series line chart, an employees donut with a role legend and Download Report, job applications with inline status selects, an attendance semicircle gauge, performance cards with coloured progress, and leave and interview schedule tables."
+tags:
+  - "dashboard"
+  - "hr"
+  - "analytics"
+  - "chart"
+  - "donut"
+  - "gauge"
+  - "table"
+  - "sidebar"
+usage: "use when an HR home has to cover headcount, hiring, attendance and upcoming commitments together — summary charts above, and schedule tables that name the next concrete actions below."

@@ -1,0 +1,12 @@
+title: "Notifications Panel With Typed Tabs And Invite Actions"
+description: "A notifications panel with a Mark all as read action, View all, Mentions, Followers and Invites tabs each with a count pill, and rows pairing an avatar with a sentence naming actor and action, a full timestamp beside a relative one, an unread dot, a quoted comment in a grey block, a heart badge overlapping the avatar on a like, a tinted hover row, and an invite row carrying Decline and Accept."
+tags:
+  - "notification"
+  - "panel"
+  - "tabs"
+  - "social"
+  - "actions"
+  - "unread"
+  - "quotes"
+  - "hover"
+usage: "use when notification types deserve their own tabs — counts per type, an avatar badge showing which action occurred, and invites resolved with accept and decline inside the row."

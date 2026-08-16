@@ -1,0 +1,12 @@
+title: "Responsive Notification Settings Narrow And Wide"
+description: "The same notification settings at two widths: a narrow window where the section is chosen from a select and the preference groups stack, and a wide window where they sit under a horizontal tab strip beside a nav sidebar carrying a credit-usage ring and an upgrade prompt — each group pairing a title and explanation with Push, Email and SMS toggles."
+tags:
+  - "settings"
+  - "responsive"
+  - "toggles"
+  - "tabs"
+  - "notification"
+  - "breakpoints"
+  - "sidebar"
+  - "comparison"
+usage: "use when specifying how a settings page reflows — tabs collapsing into a select, the sidebar dropping away, and the per-channel toggle rows keeping their labels and explanations at both widths."

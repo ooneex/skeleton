@@ -1,0 +1,12 @@
+title: "Minimal Settings Panel With Divided Preference Rows"
+description: "Settings on a soft gradient: an icon-led section list of General, Profile, Security, Notifications and Subscription beside a General pane of full-width divided rows — an editable username with a pencil, a greyed read-only email, three toggles and a language select."
+tags:
+  - "settings"
+  - "minimal"
+  - "toggles"
+  - "form"
+  - "rows"
+  - "read-only"
+  - "select"
+  - "gradient"
+usage: "use when settings should feel like a short list rather than a form — full-width divided rows with the label left and the control right, and editable fields distinguished from read-only ones by a pencil."

@@ -1,0 +1,12 @@
+title: "Sidebar With Spaces Group And Collapse Toggle"
+description: "Product sidebar with an explicit collapse toggle in its header, an active Home row marked by a left accent bar and tinted background, and a Spaces group of gradient app icons ending in a muted Add new placeholder — plus its collapsed rail with tooltip."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "collapse-toggle"
+  - "active-state"
+  - "spaces"
+  - "tooltip"
+  - "placeholder"
+  - "gradient-icons"
+usage: "use when defining a sidebar's active and empty affordances — an accent-bar active row, a user-extensible group of colourful space icons, and a dimmed Add new row that invites the first entry."

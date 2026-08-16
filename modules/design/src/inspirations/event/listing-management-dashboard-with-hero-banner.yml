@@ -1,0 +1,12 @@
+title: "Listing Management Dashboard With Hero Banner"
+description: "Organisation home for a jobs, events and articles publisher: four coloured create-shortcut tiles, a wide photographic hero, a List/Kanban view switch, and three parallel columns of content cards each with its own count and edit actions."
+tags:
+  - "dashboard"
+  - "card"
+  - "hero"
+  - "view-switcher"
+  - "icon-rail"
+  - "multi-column"
+  - "publishing"
+  - "colorful"
+usage: "use when one workspace publishes several content types at once and each needs an at-a-glance count, a create shortcut and its own column of recent items, with a view-mode toggle between list and board."

@@ -1,0 +1,12 @@
+title: "Hexagon Heatmap With Magnified Focus Tiles"
+description: "Three colour-coded lanes — design systems in green, product management in blue, design research in amber — of hexagonal tiles printed with percentages, running across a two-year month axis, with two tiles magnified onto white halos to mark the values in focus."
+tags:
+  - "chart"
+  - "heatmap"
+  - "hexagon"
+  - "data-viz"
+  - "analytics"
+  - "lanes"
+  - "focus"
+  - "colorful"
+usage: "use when a heatmap must carry its values as text and still read as a field — hexagonal tiles with the number inside, lanes separating categories, and a magnified tile as the hover or selection affordance."

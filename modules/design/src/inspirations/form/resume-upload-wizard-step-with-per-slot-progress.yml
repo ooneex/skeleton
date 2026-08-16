@@ -1,0 +1,12 @@
+title: "Resume Upload Wizard Step With Per Slot Progress"
+description: "Step four of an application flow: numbered step circles with the current one ringed, an illustrated left panel naming the accepted formats, and a right column where each document slot — Resume marked required, CV, Portfolio, Certifications — carries a typed file icon, filename, size, a coloured progress bar and a state action of tick, cancel or red retry, closed by an Others drop zone and a rounded Submit."
+tags:
+  - "wizard"
+  - "upload"
+  - "form"
+  - "states"
+  - "progress"
+  - "onboarding"
+  - "required"
+  - "file-types"
+usage: "use when a form asks for several named documents rather than a free-form pile — one labelled slot per document with its own progress and retry, and a catch-all drop zone for anything extra."

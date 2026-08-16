@@ -1,0 +1,12 @@
+title: "Blue Finance Widget Set With Capsule Gauge"
+description: "Blue money widgets: a Total Balance card with hatched bars, one highlighted month and a dotted average line with a value callout, a Subscriptions card of concentric arcs with a per-service legend, a Category card whose gauge is built from separated capsule segments with a \"Still safe\" chip over category progress rows, an Income Breakdown with a segmented spend bar, and an Income Statistics line chart with an average line and point tooltip."
+tags:
+  - "card"
+  - "chart"
+  - "finance"
+  - "gauge"
+  - "capsule"
+  - "widgets"
+  - "average-line"
+  - "design-system"
+usage: "use when a budget gauge should feel discrete rather than continuous — separated capsule segments filling toward a limit with a plain-language safety chip in the middle, over per-category progress rows."

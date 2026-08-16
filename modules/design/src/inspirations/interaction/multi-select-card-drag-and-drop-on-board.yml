@@ -1,0 +1,12 @@
+title: "Multi Select Card Drag And Drop On Board"
+description: "Drag interaction close-up on a CRM board: a stacked, blue-outlined card lifted under a grab cursor with a badge counting the four records moving together, over columns headed by coloured status dots and counts, with the destination column tinted and showing an insertion line."
+tags:
+  - "drag-and-drop"
+  - "kanban"
+  - "multi-select"
+  - "interaction"
+  - "card"
+  - "cursor"
+  - "drop-target"
+  - "closeup"
+usage: "use when specifying multi-select drag on a board — a stacked ghost with a moving-item count, a lifted shadow under the cursor, and a tinted destination column with an explicit insertion line."

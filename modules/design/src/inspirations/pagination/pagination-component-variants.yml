@@ -1,0 +1,12 @@
+title: "Pagination Component Variants"
+description: "Five pagination treatments stacked on one card: a full bar with a go-to-page input, rows-per-page select and first, previous, next and last chevrons around numbered pages with an ellipsis; a Previous/Next bar with centred numbers; a minimal Previous/Next with a per-page select; a joined segmented control; and a compact showing-page bar."
+tags:
+  - "pagination"
+  - "design-system"
+  - "variants"
+  - "table"
+  - "navigation"
+  - "select"
+  - "comparison"
+  - "controls"
+usage: "use when choosing a pagination density — the same control drawn from fullest (jump-to-page plus page size) down to a bare previous/next, so the right amount of machinery can be picked per context."

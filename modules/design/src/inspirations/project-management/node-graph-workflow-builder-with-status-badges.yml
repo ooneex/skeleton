@@ -1,0 +1,12 @@
+title: "Node Graph Workflow Builder With Status Badges"
+description: "A tilted node-graph workflow: a rounded source card carrying total users and projected income with two progress bars, branching by curved connectors into task nodes each labelled with a name and discipline, an overflow menu and a circular status badge on its top-left in green, blue, red or grey — the active nodes outlined and glowing in their status colour — converging on a release node and fanning out again."
+tags:
+  - "node-graph"
+  - "workflow"
+  - "project-management"
+  - "data-viz"
+  - "card"
+  - "status"
+  - "connectors"
+  - "builder"
+usage: "use when work is a dependency graph rather than a list — curved connectors between labelled node cards, a status badge on each node's corner, and a coloured glow marking the ones needing attention."

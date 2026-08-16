@@ -1,0 +1,12 @@
+title: "Navigation Patterns With Icons Counts And Flags"
+description: "Four navigation patterns on white: a country segmented control with flags and a raised white selected pill, a repository tab row where icons lead the labels and Issues carries a count pill, a payment-method chooser of icon-over-label tiles with the selected one on a grey plate, and a category tab row of outline icons over labels with an underline on the active item and one item greyed as disabled."
+tags:
+  - "navigation"
+  - "tabs"
+  - "segmented-control"
+  - "icons"
+  - "design-system"
+  - "states"
+  - "counts"
+  - "disabled"
+usage: "use when choosing between segmented, tabbed and tiled selection — the same act of picking one option rendered four ways, with counts, flags, disabled states and icon placement each shown explicitly."

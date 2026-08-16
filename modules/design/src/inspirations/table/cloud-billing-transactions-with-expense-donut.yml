@@ -1,0 +1,12 @@
+title: "Cloud Billing Transactions With Expense Donut"
+description: "Billing page inside browser chrome: Balance / Details / Active services / Invoices tabs, period and operation filters, Download CSV, month-grouped transaction rows with coloured service icons and signed amounts, and a donut of expenses with a percentage legend."
+tags:
+  - "billing"
+  - "invoice"
+  - "transactions"
+  - "donut-chart"
+  - "tabs"
+  - "filters"
+  - "export"
+  - "tooltip"
+usage: "use when showing account spend over time — tabbed billing sections, date-range and type filters above month-grouped transaction rows, a share-of-spend donut with a legend, and a hover tooltip that explains a pending line item."

@@ -1,0 +1,12 @@
+title: "Pill Top Nav Bar Light And Dark"
+description: "One floating pill navigation bar shown twice — light on a pastel gradient and dark on a deep violet one — with plain text nav items and a trailing User item wrapped in a tinted pill carrying a solid count badge, both under a hover cursor."
+tags:
+  - "navigation"
+  - "pill"
+  - "dark-mode"
+  - "variants"
+  - "badge"
+  - "hover"
+  - "closeup"
+  - "gradient"
+usage: "use when a nav bar floats over imagery or gradient — a rounded container with generous padding, the account item distinguished as a tinted pill with a count, restated for light and dark surfaces."

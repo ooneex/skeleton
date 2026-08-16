@@ -1,0 +1,12 @@
+title: "Violet Student Dashboard With Semester Ring"
+description: "Learner home: a violet sidebar with an Upgrade to Pro card, a welcome banner with a 3D character, weather and time, a course tab strip, three lesson cards with duration, description, progress bar and a Continue or Start button, an Academic Progress area chart comparing exams and assignments with a GPA tooltip, and a right column with a semester completion ring and a course list showing teacher, credits and progress."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "progress"
+  - "ring"
+  - "3d"
+  - "card"
+  - "sidebar"
+usage: "use when a course card's button should reflect progress — Continue on started lessons and Start on untouched ones — with a single semester completion ring anchoring the whole term above the course list."

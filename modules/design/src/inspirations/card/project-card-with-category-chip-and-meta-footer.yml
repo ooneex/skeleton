@@ -1,0 +1,12 @@
+title: "Project Card With Category Chip And Meta Footer"
+description: "Close crop of project cards on a pastel wash: a bold title over a description paragraph, a coloured category chip beside overlapping assignee avatars, and a divided footer of comment, link and reaction counts with a due date that reads \"Tomorrow\" — one card embedding a UI screenshot above the text."
+tags:
+  - "card"
+  - "project"
+  - "category-chip"
+  - "avatar-stack"
+  - "footer"
+  - "counts"
+  - "closeup"
+  - "relative-date"
+usage: "use when detailing a project card's footer — how comment, attachment and reaction counts sit against a relative due date, and how an optional preview image changes the card without changing its metadata row."

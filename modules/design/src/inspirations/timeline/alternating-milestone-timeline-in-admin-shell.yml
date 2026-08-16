@@ -1,0 +1,12 @@
+title: "Alternating Milestone Timeline In Admin Shell"
+description: "A company milestone timeline inside a UI-kit admin shell: a sidebar with Pages and Components groups, a breadcrumb, and a centre rail where milestone cards alternate left and right, each joined to a blue dot by a small notch and paired with a stacked month, day and year date block — some cards carrying thumbnail strips or a contributor portrait."
+tags:
+  - "timeline"
+  - "admin"
+  - "milestones"
+  - "card"
+  - "template"
+  - "alternating"
+  - "sidebar"
+  - "history"
+usage: "use when a timeline lives inside an application rather than a marketing page — a stacked date block as the anchor, cards notched into the rail, and optional media strips per milestone."

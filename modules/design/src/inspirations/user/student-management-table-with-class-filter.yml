@@ -1,0 +1,12 @@
+title: "Student Management Table With Class Filter"
+description: "Roster screen on a soft purple gradient: a class picker with an illustrated option, Add Student and Edit Class buttons, and a checkbox-selectable table of students with avatars, category, id, join date, goal and per-row delete and edit icons."
+tags:
+  - "table"
+  - "roster"
+  - "education"
+  - "bulk-select"
+  - "filter"
+  - "avatar"
+  - "row-actions"
+  - "gradient"
+usage: "use when a table is scoped by a picker above it — a context selector plus primary create action in a toolbar, checkbox selection for bulk operations, and quiet per-row edit and delete icons at the trailing edge."

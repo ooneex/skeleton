@@ -1,0 +1,12 @@
+title: "User List With Invite Status And Row Menu"
+description: "Account users list in browser chrome: a wide search field, a sortable User column pairing name with email, a Role column that collapses multiples into an expandable count, invitation status pills, and an open row menu offering Resend Invitation, Edit and Delete."
+tags:
+  - "user"
+  - "table"
+  - "invitation"
+  - "status-pill"
+  - "row-menu"
+  - "search"
+  - "roles"
+  - "admin"
+usage: "use when managing invited and confirmed members together — status pills that distinguish confirmed, pending and unconfirmed, a role cell that folds multiples behind a count, and a row menu whose actions depend on that state."

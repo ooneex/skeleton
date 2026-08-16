@@ -1,0 +1,12 @@
+title: "Blue Finance Cards With Arcs And Average Line"
+description: "Three blue money cards: a Subscriptions card of concentric arcs on dotted tracks with a per-service legend and a centre change figure, a Category card with a capsule-segment gauge, a \"Still safe\" chip and category progress rows, and a wide Income Statistics area chart with a dotted average line labelled in a black pill, a point tooltip and month pills."
+tags:
+  - "card"
+  - "chart"
+  - "finance"
+  - "gauge"
+  - "average-line"
+  - "concentric-arcs"
+  - "widgets"
+  - "tooltip"
+usage: "use when a value only means something against its own average — draw the mean as a labelled dotted line across the chart so every point is read as above or below it."

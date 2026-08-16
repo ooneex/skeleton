@@ -1,0 +1,12 @@
+title: "User Management Table With Status Pills"
+description: "Administration screen on a glassy blue backdrop: a grouped sidebar, a titled header with subtitle plus Export and Add User, a search field with a filter button, and a members table of name, email, role, department and coloured team-status pills with pagination."
+tags:
+  - "user"
+  - "table"
+  - "admin"
+  - "status-pill"
+  - "search"
+  - "filter"
+  - "pagination"
+  - "glass"
+usage: "use when building an organisation members screen — a descriptive page header with export and invite actions, search and filter over the table, role and department columns, and status pills that read at a glance."

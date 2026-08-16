@@ -1,0 +1,12 @@
+title: "Tab Component Variants Horizontal And Vertical"
+description: "Tab study: a horizontal bar with an overflow chevron, a larger variant with a green overflow control, an icon-over-label row, a row with count badges set above the labels, and two vertical lists — one plain showing a hover card, one with leading icons and a ticked Selected Section."
+tags:
+  - "tabs"
+  - "navigation"
+  - "variants"
+  - "design-system"
+  - "overflow"
+  - "states"
+  - "vertical"
+  - "badges"
+usage: "use when specifying a tab component fully — how labels truncate into an overflow control, where counts and icons sit relative to the label, and how the vertical form marks hover against selection."

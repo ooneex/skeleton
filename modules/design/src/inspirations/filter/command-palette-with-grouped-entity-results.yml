@@ -1,0 +1,12 @@
+title: "Command Palette With Grouped Entity Results"
+description: "A command palette over a dimmed logistics dashboard: a search field with a clear button, a hint bar showing arrow keys to navigate and esc to close, entity-type filter chips for Clients, Fleet, Warehouse and More, then grouped results — members with avatars and handles and a hovered row offering Select with a return-key badge, fleet rows with vehicle icons, service-state pills, warehouse and fuel-level rings, and warehouse tiles — each group with Show more."
+tags:
+  - "search"
+  - "command-palette"
+  - "modal"
+  - "keyboard-shortcuts"
+  - "filter"
+  - "list"
+  - "grouping"
+  - "logistics"
+usage: "use when one search spans several record types — results grouped by entity with counts, type chips to narrow, keyboard hints stated in the frame, and the focused row showing its enter-key action."

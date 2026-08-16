@@ -1,0 +1,12 @@
+title: "Collaborative Note Editor With Block Toolbar"
+description: "Three-pane note workspace: an icon rail, a searchable list of note cards with author avatars and tags, and a note body with cover art, tag chips, a floating selection toolbar and an embedded video, backed by a right panel of text, colour, form, layout and tool blocks."
+tags:
+  - "editor"
+  - "notes"
+  - "blocks"
+  - "collaboration"
+  - "toolbar"
+  - "three-pane"
+  - "tags"
+  - "video"
+usage: "use when designing a block-based document editor with collaborators — a selection toolbar that floats over the text, a right-hand palette of insertable blocks grouped by kind, and a note list that previews author, excerpt and tags."

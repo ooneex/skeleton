@@ -1,0 +1,12 @@
+title: "Alert Rule Builder With Severity And Channels"
+description: "Rules screen with a sidebar grouped Command, Commerce, Finance and Platform, a scrollable rule list showing each rule's severity badge, plain-language condition and an enable toggle, and an editor pane with a When/Is/Value condition builder, severity and notification-channel segmented choosers, a cooldown select and a recent-triggers log."
+tags:
+  - "settings"
+  - "form"
+  - "rules"
+  - "severity"
+  - "toggles"
+  - "segmented-control"
+  - "list"
+  - "admin"
+usage: "use when users compose conditional automations — a three-part condition builder in plain language, severity and delivery channels as segmented choices, a cooldown to prevent repeats, and a log proving the rule has fired."

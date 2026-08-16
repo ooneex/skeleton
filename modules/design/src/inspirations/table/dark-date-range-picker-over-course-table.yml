@@ -1,0 +1,12 @@
+title: "Dark Date Range Picker Over Course Table"
+description: "A dark date picker floating over a light course table: month and year selects, a weekday grid where a single day is circled in white and a contiguous range is shaded with rounded end caps, above a legend of Course time, Published and Paused colour chips."
+tags:
+  - "calendar"
+  - "date-picker"
+  - "date-range"
+  - "dark-mode"
+  - "legend"
+  - "overlay"
+  - "education"
+  - "table"
+usage: "use when a date picker overlays a light page — inverting it to dark separates it from the content beneath, while range end caps and a colour legend tie the selection back to the data it filters."

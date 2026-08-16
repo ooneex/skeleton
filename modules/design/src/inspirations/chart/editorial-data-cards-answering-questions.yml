@@ -1,0 +1,12 @@
+title: "Editorial Data Cards Answering Questions"
+description: "Four data cards each headed by a question: an age-distribution bar chart with percentages above the bars and the modal bracket badged black, a stacked-band chart tracking adoption by country across three years with totals called out, a scatter where each app is a rounded square positioned by rating and monthly visits and labelled with its value, and a donut of charging-station locations with a total and category legend."
+tags:
+  - "chart"
+  - "data-viz"
+  - "editorial"
+  - "card"
+  - "scatter"
+  - "donut"
+  - "analytics"
+  - "questions"
+usage: "use when charts are meant to be read rather than monitored — title each card with the question it answers, badge the answer in black, and label the marks directly instead of relying on axes."

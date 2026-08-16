@@ -1,0 +1,12 @@
+title: "Project Overview With Hourly Gantt Timeline"
+description: "Green-tinted project workspace: a workspace switcher and Space list in the sidebar, four task-state cards with week-over-week deltas, a Project Timeline laid out on an hourly scale with a live time marker and avatar-stamped blocks, and a project list table with source-file chips, due dates, team avatars, striped progress bars and priority pills."
+tags:
+  - "dashboard"
+  - "project-management"
+  - "timeline"
+  - "gantt"
+  - "table"
+  - "progress"
+  - "task"
+  - "sidebar"
+usage: "use when a day's work must be laid out by hour rather than by date — a gantt scaled to working hours with a live marker, over a project table carrying source files, progress and priority."

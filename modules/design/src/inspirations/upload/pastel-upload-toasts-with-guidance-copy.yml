@@ -1,0 +1,12 @@
+title: "Pastel Upload Toasts With Guidance Copy"
+description: "Two upload toasts on deep teal: a mint success stating the files uploaded and when the review results will arrive, and a rose error stating the files exceed five megabytes with advice to compress and retry — each with a large white circular icon disc, a bold headline over a two-line explanation, a grey dismiss cross and soft overlapping blobs textured into the left edge."
+tags:
+  - "notification"
+  - "toast"
+  - "upload"
+  - "states"
+  - "error-state"
+  - "feedback"
+  - "pastel"
+  - "guidance"
+usage: "use when a message should tell the user what happens next — the success naming the turnaround in days and the error naming both the limit and the fix, rather than reporting the outcome alone."

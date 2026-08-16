@@ -1,0 +1,12 @@
+title: "Data Grid Filter Popover With And Or Rows"
+description: "Close crop of a filter popover over a data grid: a header with contact details, section tabs, a Filter button badged with three beside Columns, Import/Export, Edit and Add new, and a popover of condition rows — the first without a conjunction, later ones led by and/or selects — each with field, operator and value selects, a drag handle and a remove cross, with a divider before the or-group and an Add filter button."
+tags:
+  - "filter"
+  - "query-builder"
+  - "table"
+  - "popover"
+  - "closeup"
+  - "b2b"
+  - "conditions"
+  - "drag-and-drop"
+usage: "use when composing several filter clauses inline — the first row omitting its conjunction, subsequent rows choosing and or or, and a divider marking where the logic changes group."

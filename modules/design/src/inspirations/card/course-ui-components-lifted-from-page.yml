@@ -1,0 +1,12 @@
+title: "Course UI Components Lifted From Page"
+description: "Component breakout on lilac: the course details panel with playlist and purchase counts, a nav list, team members and total watch time; a folder-tab course card with preview, meta and price; and a frosted date-range calendar with a status legend — all lifted off a dimmed screenshot of the full page they belong to."
+tags:
+  - "showcase"
+  - "card"
+  - "calendar"
+  - "education"
+  - "design-system"
+  - "components"
+  - "presentation"
+  - "breakout"
+usage: "use when presenting a design system's parts together with the page they came from — dim the full screen behind and float the individual components in front to show both the whole and the pieces."

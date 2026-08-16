@@ -1,0 +1,12 @@
+title: "Student Detail Page With Course Progress Table"
+description: "Learner record decorated with 3D props: a profile card with id and Active pills, call, mail and chat actions, contact rows and an awards list; a Learning Activity stacked bar chart with a weekly total and per-course hour chips; a Performance semicircular gauge with a category legend, trend chart and encouragement banner; and an enrolled-courses table with radial progress, status pills, scores and certificate chips."
+tags:
+  - "profile"
+  - "education"
+  - "chart"
+  - "table"
+  - "gauge"
+  - "progress"
+  - "awards"
+  - "dashboard"
+usage: "use when one person's performance needs a whole page — identity and achievements on the left, effort and outcome charts across the top, and a per-item table showing progress, grade and credential."

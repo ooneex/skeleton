@@ -1,0 +1,12 @@
+title: "Success And Failure Outcome Cards With Faces"
+description: "Two outcome cards on slate: a green success and a red failure, each split into a solid colour panel holding a large outline smiling or frowning face and a tinted lower panel with a coloured headline, one explanatory line and a pill action — Continue on success, Try Again on failure."
+tags:
+  - "card"
+  - "states"
+  - "feedback"
+  - "error-state"
+  - "modal"
+  - "minimal"
+  - "outcome"
+  - "pair"
+usage: "use when an operation ends and the user must be told plainly — a full-bleed colour panel carrying the emotional read, and exactly one action naming the next step per outcome."

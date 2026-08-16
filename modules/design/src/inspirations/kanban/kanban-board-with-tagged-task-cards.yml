@@ -1,0 +1,12 @@
+title: "Kanban Board With Tagged Task Cards"
+description: "Kanban columns for Planned, Upcoming and Completed, each headed by a status dot and open-task count with an Add Task affordance, holding cards that stack coloured tag chips over a title, due date, checklist progress, avatars and attachment and comment counts."
+tags:
+  - "kanban"
+  - "board"
+  - "card"
+  - "tags"
+  - "due-date"
+  - "checklist"
+  - "avatar-stack"
+  - "view-switcher"
+usage: "use when laying out a board of task cards — column headers carrying state and counts, tag chips above the card title, and a consistent metadata footer of date, checklist, assignees, attachments and comments."

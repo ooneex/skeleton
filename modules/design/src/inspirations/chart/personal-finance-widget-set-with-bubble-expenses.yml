@@ -1,0 +1,12 @@
+title: "Personal Finance Widget Set With Bubble Expenses"
+description: "Money widgets: a Revenue card with paired income and expense bars and a signed week delta, a Spending Limit card with a segmented bar filling toward a cap, subscription rows with brand logos and prices, a Weekly Expense card drawn as proportional bubbles with a four-category valued legend, a Daily Expense stacked bar chart, a Saving Goal semicircular gauge with a handle, and goal tiles with icon discs and progress bars."
+tags:
+  - "card"
+  - "chart"
+  - "finance"
+  - "bubbles"
+  - "gauge"
+  - "goals"
+  - "widgets"
+  - "design-system"
+usage: "use when spend categories are few but their proportions matter more than exact values — sized bubbles with a valued legend read faster than a pie, with a segmented bar for the cap and a gauge for the goal."

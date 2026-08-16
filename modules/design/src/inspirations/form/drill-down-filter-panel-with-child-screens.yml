@@ -1,0 +1,12 @@
+title: "Drill Down Filter Panel With Child Screens"
+description: "A drill-down filter panel in three states: an Add Filters root listing Status, Payment Type, Rate, Location and Owned By with each showing its current selection and a chevron, with Clear All in the header; a Payment Type child with a radio group; a Location child with a search field and options carrying result counts; and an Owned By child with search, brand avatars and a green tick on the chosen entry."
+tags:
+  - "filter"
+  - "form"
+  - "search"
+  - "radio"
+  - "drill-down"
+  - "minimal"
+  - "mobile"
+  - "counts"
+usage: "use when a filter set is too large for one panel — a root list summarising each filter's current value, drilling into a child screen per filter with a back chevron and its own search."

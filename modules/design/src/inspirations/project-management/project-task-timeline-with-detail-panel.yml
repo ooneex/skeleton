@@ -1,0 +1,12 @@
+title: "Project Task Timeline With Detail Panel"
+description: "Task timeline: an icon rail, search, a theme toggle and a badged bell, a breadcrumb with an onboard avatar stack and an add button, a month select, a day-column grid with hatched weekends, a coral now-line labelled with the time, and pill task bars in category colours each carrying an avatar stack; a right panel lists assignees, reporter, a High Priority pill, a status select, a subtask checklist and a Project Status card with a completion count and percentage-labelled bar."
+tags:
+  - "timeline"
+  - "project-management"
+  - "task"
+  - "gantt"
+  - "detail-panel"
+  - "priority"
+  - "checklist"
+  - "sidebar"
+usage: "use when a timeline needs an inspector — the selected bar's assignees, reporter, priority, status and subtasks in a fixed right panel, so editing never leaves the schedule."

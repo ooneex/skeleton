@@ -1,0 +1,12 @@
+title: "Editable Table Cell With Status Combobox"
+description: "Close crop of an editable data grid: column headers with sort carets and drag handles, a focused Status cell outlined blue with its combobox open showing a search field over Validated, New, Active, Inactive and Archive with one option hovered, and a floating \"3 tasks not completed\" warning pill at the base."
+tags:
+  - "table"
+  - "data-grid"
+  - "inline-edit"
+  - "combobox"
+  - "select"
+  - "interaction"
+  - "closeup"
+  - "validation"
+usage: "use when table cells are edited in place — a focus ring on the active cell, a searchable option list opening from within it, and a floating validation pill reporting the rows still unresolved."

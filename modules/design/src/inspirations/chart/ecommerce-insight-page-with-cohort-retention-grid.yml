@@ -1,0 +1,12 @@
+title: "Ecommerce Insight Page With Cohort Retention Grid"
+description: "A commerce insight page in browser chrome: a sidebar with Create New and a pro upsell, a This Week with Compare to Last Week control plus Customize Widget and Export Data, three metric cards each pairing a value and signed change with a two-line chart against a dashed prior period, a Conversion Rate funnel of stages with session counts and changes, a Sessions bar chart, and a Customer Cohort Analysis retention grid shaded by value."
+tags:
+  - "dashboard"
+  - "e-commerce"
+  - "analytics"
+  - "cohort"
+  - "retention"
+  - "chart"
+  - "funnel"
+  - "sidebar"
+usage: "use when retention matters as much as totals — a cohort grid whose cells deepen with the share still active each week, read beside a funnel that shows where sessions fall out."

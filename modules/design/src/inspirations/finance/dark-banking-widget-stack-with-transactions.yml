@@ -1,0 +1,12 @@
+title: "Dark Banking Widget Stack With Transactions"
+description: "Dark banking widget study: a card widget with a currency-switching balance, a flag marker and Add money, Transfer and Convert actions, above a transactions widget of brand avatars, date chips and signed amounts, closed by a stacked \"1 more\" affordance."
+tags:
+  - "card"
+  - "widget"
+  - "finance"
+  - "dark-mode"
+  - "list"
+  - "currency"
+  - "stack"
+  - "monospace"
+usage: "use when compact widgets must expose money actions and recent activity in a small area — a balance with currency switcher over three primary actions, and a transaction list that hints at more behind a stacked card."

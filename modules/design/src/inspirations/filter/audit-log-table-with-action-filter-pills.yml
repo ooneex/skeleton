@@ -1,0 +1,12 @@
+title: "Audit Log Table With Action Filter Pills"
+description: "Audit log screen: a sidebar split into Personal and Data Management with Audit logs active, User, Action and Browser filter dropdowns, and an open Action menu whose Select all row sits above per-action checkboxes labelled with coloured pills — the same pills used in the table beside user, timestamp and subject."
+tags:
+  - "table"
+  - "logs"
+  - "filter"
+  - "admin"
+  - "select"
+  - "pills"
+  - "audit"
+  - "sidebar"
+usage: "use when a filter menu should mirror the data it filters — render each option as the exact coloured pill it will match in the table, with a Select all row above them."

@@ -1,0 +1,12 @@
+title: "Invoice Dashboard With Money Flow And Status Table"
+description: "Invoicing home with three sparkline KPI cards and a receivables split, a Money Flow bar chart toggling money in against money out over a chosen window, a customers area chart, and an invoice table with multi-state status pills and live collaborator cursors."
+tags:
+  - "invoice"
+  - "dashboard"
+  - "kpi"
+  - "sparkline"
+  - "bar-chart"
+  - "table"
+  - "status-pill"
+  - "collaboration"
+usage: "use when a finance dashboard has to summarise and then itemise — sparkline stat cards over a toggled in/out bar chart, a status-pill table beneath, and multiplayer cursors when several people work the same ledger."

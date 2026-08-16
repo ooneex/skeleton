@@ -1,0 +1,12 @@
+title: "Publish And Invite Modal With QR And Seats"
+description: "A publish confirmation over a dimmed audience table: a left panel stating the dashboard is published with a copyable link, an Add custom domain action and a QR code with a scanning-beam animation; and a right panel with an invite email field and Send invite, a list of invitees marked Invite sent or Invited accepted, and a seat-usage card with a progress bar and Manage."
+tags:
+  - "modal"
+  - "sharing"
+  - "invitation"
+  - "qr"
+  - "permissions"
+  - "seats"
+  - "form"
+  - "confirmation"
+usage: "use when publishing and inviting are one moment — confirm the publish with its link and a QR for mobile, then collect invitations beside a seat counter that shows when the plan will run out."

@@ -1,0 +1,12 @@
+title: "Property Portfolio Table With Occupancy Rings"
+description: "Property manager portfolio: a sidebar with quick-action search and a user footer, Properties/Units/Keys & Locks/Equipment/Inspection tabs, a table header with a total count, search and type and status filters, and rows pairing a property thumbnail with name and address, type, an Occupied or Vacant pill, unit count, an occupancy ring with percentage, balance and a solid View button."
+tags:
+  - "table"
+  - "real-estate"
+  - "status-pill"
+  - "tabs"
+  - "filter"
+  - "ring"
+  - "thumbnail"
+  - "sidebar"
+usage: "use when each table row is a physical asset — a thumbnail carrying identity beside the address, a small progress ring for occupancy so rows compare at a glance, and one clear View action per row."

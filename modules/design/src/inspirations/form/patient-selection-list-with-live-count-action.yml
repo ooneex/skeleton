@@ -1,0 +1,12 @@
+title: "Patient Selection List With Live Count Action"
+description: "List-building screen: a page header, a card pairing a unit select with a search-by-name field, a checkbox table of name with avatar, age, MRN and diagnosis where six rows are ticked, and a full-width Save Patients List button whose label carries the live selection count."
+tags:
+  - "table"
+  - "healthcare"
+  - "bulk-select"
+  - "list-builder"
+  - "form"
+  - "search"
+  - "count"
+  - "checkbox"
+usage: "use when a user assembles a subset from a longer list — scope it with a select and a search, tick rows to build the set, and put the running count inside the submit button's label."

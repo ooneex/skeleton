@@ -1,0 +1,12 @@
+title: "PPC Advertising Dashboard With Draggable Widgets"
+description: "Ad analytics on cream: numbered Overview, PPC, Year-to-year and Customize tabs, a date-range picker, drag-handled widget cards including a colour-coded summary list, a radial of top products by spend with a hover label and an ACoS campaign table flagging the worst value in magenta, a horizontally scrolling metric strip with one card inverted to black, and cost charts."
+tags:
+  - "dashboard"
+  - "advertising"
+  - "analytics"
+  - "chart"
+  - "draggable"
+  - "tabs"
+  - "table"
+  - "customizable"
+usage: "use when a dashboard is user-arrangeable — every widget carries a drag handle and an overflow menu, a Customize tab sits with the report tabs, and the selected metric card inverts to mark the active comparison."

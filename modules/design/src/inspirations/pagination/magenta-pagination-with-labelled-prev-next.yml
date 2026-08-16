@@ -1,0 +1,12 @@
+title: "Magenta Pagination With Labelled Prev Next"
+description: "A single pagination bar: a white pill holding a PREV control with a circled chevron, circular page numbers with the current page filled magenta, an ellipsis truncating to the last three pages, and a NEXT control with its own circled chevron."
+tags:
+  - "pagination"
+  - "navigation"
+  - "minimal"
+  - "design-system"
+  - "closeup"
+  - "labels"
+  - "truncation"
+  - "controls"
+usage: "use when the step controls should be unmissable — spell out PREV and NEXT beside their chevrons rather than relying on arrows alone, with the current page inverted inside the number run."

@@ -1,0 +1,12 @@
+title: "Personal Health Dashboard With Appointment Booking"
+description: "Patient home: pill top nav with a light/dark switch, a greeting with a date-range picker and Export Report, four vital cards whose values carry a Normal or High verdict, a Health Overview with metric tabs over a capsule bar chart and a two-line tooltip, a month calendar with a highlighted range and calorie progress, a blood-pressure waveform, a today's-appointment card counting down, and a doctor list with availability pills."
+tags:
+  - "dashboard"
+  - "healthcare"
+  - "chart"
+  - "calendar"
+  - "booking"
+  - "vitals"
+  - "countdown"
+  - "tabs"
+usage: "use when raw measurements need interpreting for a layperson — print the verdict (Normal, High) beside every vital, count down to the next appointment, and let the reader book from the same screen."

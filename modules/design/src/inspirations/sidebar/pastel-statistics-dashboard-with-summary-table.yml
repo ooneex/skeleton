@@ -1,0 +1,12 @@
+title: "Pastel Statistics Dashboard With Summary Table"
+description: "Statistics page with a date header, Sales and Products tabs, three stat cards each carrying a tinted icon disc, a help affordance and a signed change, a revenue line chart with a floating badge tooltip, a grouped visitors bar chart, and a wide five-column table ending in availability states."
+tags:
+  - "dashboard"
+  - "analytics"
+  - "chart"
+  - "table"
+  - "pastel"
+  - "tabs"
+  - "tooltip"
+  - "sidebar"
+usage: "use when stat cards should be self-explaining — a help icon on each card that defines the metric, a tinted icon disc for recognition, and the change stated as a signed percentage beside the value."

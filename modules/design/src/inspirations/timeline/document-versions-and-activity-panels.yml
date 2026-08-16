@@ -1,0 +1,12 @@
+title: "Document Versions And Activity Panels"
+description: "Two document side panels: a Versions panel where the current version is highlighted with a left accent bar and a tick, prior versions carry author and date, minor revisions nest under their parent on a guide line and a Show More expands the rest; and an Activity panel where each event pairs a coloured icon node on a vertical rail with a sentence naming the actor, the change and both values, plus a relative time."
+tags:
+  - "panel"
+  - "versioning"
+  - "activity"
+  - "timeline"
+  - "documents"
+  - "history"
+  - "nested"
+  - "list"
+usage: "use when a document's history has both named versions and continuous edits — major versions as top-level rows with minor revisions nested beneath, and a separate activity rail for the events between them."

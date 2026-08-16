@@ -1,0 +1,12 @@
+title: "Team Directory With Person Stat Cards"
+description: "People directory showing a breadcrumb, team name with a member avatar stack and count, search and grade filters, and a grid of person cards carrying an avatar, role, a three-metric row and a productivity bar — beside a personal panel with a radial gauge and project cards."
+tags:
+  - "user"
+  - "directory"
+  - "card-grid"
+  - "stats"
+  - "progress"
+  - "radial-gauge"
+  - "filter"
+  - "profile"
+usage: "use when browsing people by performance rather than by name alone — person cards that pair identity with a few comparable metrics and a progress bar, filtered above, with the viewer's own stats pinned aside."

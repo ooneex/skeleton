@@ -1,0 +1,12 @@
+title: "Notification Settings With Per Channel Toggle Grid"
+description: "A notification settings pane at desktop width: a sidebar with search, collapsible nav groups, Support and Settings, a credit-usage ring card with Dismiss and Upgrade plan and a user footer, and a settings pane under a horizontal tab strip where each notification group pairs a title and explanation with Push, Email and SMS toggles."
+tags:
+  - "settings"
+  - "notification"
+  - "toggles"
+  - "tabs"
+  - "form"
+  - "channels"
+  - "upsell"
+  - "sidebar"
+usage: "use when one event can reach the user several ways — a toggle per channel on every notification type, so push can stay on while email is silenced without hiding the type entirely."

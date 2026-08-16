@@ -1,0 +1,12 @@
+title: "Healthcare Admin Console With Verification Queues"
+description: "Marketplace moderation console: pill top nav, three period-scoped KPI cards, a therapist verification table with checkbox rows, verification-state text and paired green Approve and red Reject buttons, a System Overview panel grouping flagged counts by area, and a user management table whose actions change with each row's status."
+tags:
+  - "dashboard"
+  - "admin"
+  - "moderation"
+  - "table"
+  - "approval"
+  - "status-pill"
+  - "healthcare"
+  - "queue"
+usage: "use when an admin must clear queues rather than read charts — destructive and confirming actions sitting together in every row, statuses that decide which actions appear, and a panel counting what still needs attention."

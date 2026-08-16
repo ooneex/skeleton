@@ -1,0 +1,12 @@
+title: "Notification Panel With Unread Filter And Quoted Mentions"
+description: "Notification drawer with an \"Only show unread\" toggle, expand and close controls, All/Comments/Tasks pill tabs, and rows that name the actor, the verb and the object, carry a relative time and workspace attribution, mark unread with a dot, and quote the triggering comment or @-mention in an indented block."
+tags:
+  - "notification"
+  - "panel"
+  - "tabs"
+  - "toggle"
+  - "unread"
+  - "mentions"
+  - "list"
+  - "activity"
+usage: "use when notifications must be scannable and self-explaining — actor-verb-object phrasing, an unread-only switch, type tabs, and the quoted source text so the reader need not open the item."

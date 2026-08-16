@@ -1,0 +1,12 @@
+title: "Glass Notification Panel With Inline Approvals"
+description: "Frosted panel floating over a mountain photograph: Activity, Messages and Unread tabs with count pills — unread in red — and rows where join and access requests carry paired Deny and Approve buttons, a system message stands alone, and a comment quotes an @-mention above an inline reply field."
+tags:
+  - "notification"
+  - "panel"
+  - "glass"
+  - "tabs"
+  - "approval"
+  - "inline-reply"
+  - "mentions"
+  - "actions"
+usage: "use when notifications should be actionable in place — approve and deny buttons inside the request row, a reply field under a quoted mention, so the panel resolves work rather than just linking to it."

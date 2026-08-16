@@ -1,0 +1,12 @@
+title: "Data Visualisation Kit With Sankey And Hex Maps"
+description: "Four screens on lavender: a Sankey diagram routing one finance source into coloured destination nodes with zoom controls and summary counters, a node graph of connected circular icons paired with a data table, a hex-tile world map with per-city value pins, and a hex globe with a country activity legend, forecast cards and micro charts."
+tags:
+  - "chart"
+  - "sankey"
+  - "map"
+  - "node-graph"
+  - "hexmap"
+  - "analytics"
+  - "showcase"
+  - "data-viz"
+usage: "use when relationships matter more than totals — a Sankey for how a quantity splits across destinations, a node graph for how entities connect, and hex tiling when geography needs equal-weight cells."

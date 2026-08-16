@@ -1,0 +1,12 @@
+title: "Users Management Table With Verification States"
+description: "A user administration screen in browser chrome: an icon rail, a header with Add New User and Export, tabs for All Users, Teams, Roles and Permissions, Invitations and Activity Logs, a search field with Filter, and a checkbox table pairing avatar and email with role, coloured status pills for active, inactive, to-be-verified and on-hold, relative last-modified and last-login times, pencil and red trash row actions, and numbered pagination."
+tags:
+  - "user"
+  - "table"
+  - "tabs"
+  - "status-pill"
+  - "pagination"
+  - "admin"
+  - "row-actions"
+  - "search"
+usage: "use when account state is more than a binary — distinct pills for active, inactive, awaiting verification and on hold, with relative timestamps making it obvious which accounts have gone quiet."

@@ -1,0 +1,12 @@
+title: "Comment Composer With Mention Autocomplete"
+description: "Comment component mid-mention: a Comments heading with a count and a Latest/Popular sort, a focused composer where the typed \"@Jo\" is highlighted as a chip and a suggestion menu lists matching people with presence dots, a formatting row, an @ button and a blue Send; below, comments with presence-marked avatars, an overflow menu, an emoji reaction row with counts and Reply with a relative time."
+tags:
+  - "comments"
+  - "mentions"
+  - "autocomplete"
+  - "form"
+  - "reactions"
+  - "presence"
+  - "composer"
+  - "sort"
+usage: "use when specifying @-mention behaviour — the partial token styled as a chip while typing, a suggestion list showing presence, and reactions that accumulate counts rather than replacing each other."

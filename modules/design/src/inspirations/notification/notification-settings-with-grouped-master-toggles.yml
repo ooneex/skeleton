@@ -1,0 +1,12 @@
+title: "Notification Settings With Grouped Master Toggles"
+description: "Notification preferences: a product sidebar, a settings section menu, and a pane grouping Email, Push and More Activity — each group headed by a description and a master toggle at the right edge, then checkbox or toggle rows that each carry their own explanatory sentence."
+tags:
+  - "settings"
+  - "notification"
+  - "toggles"
+  - "checkbox"
+  - "grouped"
+  - "form"
+  - "preferences"
+  - "sidebar"
+usage: "use when preferences nest — a master toggle governing each channel group, individual rows beneath it, and a plain sentence under every option saying what the user will actually receive."

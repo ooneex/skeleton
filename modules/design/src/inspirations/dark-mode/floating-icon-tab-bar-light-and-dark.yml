@@ -1,0 +1,12 @@
+title: "Floating Icon Tab Bar Light And Dark"
+description: "One floating icon tab bar shown on a lime gradient in light and dark: five glyphs with the active Home sitting on a recessed plate and marked by a short lime underline, a chunky hand cursor over it, and a soft outer glow lifting the bar off the background."
+tags:
+  - "navigation"
+  - "tab-bar"
+  - "dark-mode"
+  - "variants"
+  - "mobile"
+  - "closeup"
+  - "active-state"
+  - "gradient"
+usage: "use when a floating nav bar must work over unpredictable backgrounds — a solid rounded container with an outer glow for separation, restated in dark with the same accent underline."

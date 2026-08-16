@@ -1,0 +1,12 @@
+title: "Form Control Kit With Filters And Time Sliders"
+description: "Tilted control library: selectable skill chips, a flight search card with destination, date range, passenger fields and a Search button, a schedule card pairing From and To times with AM/PM segmented toggles above a weekday checkbox list, a stop-count filter with green count badges, a Sort By radio group with Clear All, reward toggle rows with descriptions, a dual-handle time slider and an amenities dropdown with a hovered option."
+tags:
+  - "form"
+  - "filter"
+  - "chips"
+  - "toggles"
+  - "slider"
+  - "radio"
+  - "checkbox"
+  - "design-system"
+usage: "use when specifying a booking product's whole control vocabulary at once — chips, segmented time toggles, counted filter rows, radio sorting, described toggles and range sliders in one consistent style."

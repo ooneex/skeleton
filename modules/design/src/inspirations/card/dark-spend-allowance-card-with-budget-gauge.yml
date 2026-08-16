@@ -1,0 +1,12 @@
+title: "Dark Spend Allowance Card With Budget Gauge"
+description: "Dark budget card showing remaining against spent and limit, a tick-mark gauge annotated with spent and auto-pause markers, three supporting stats, per-merchant spend bars, a policy block of toggles, and a reset note beside Adjust Limit and Top Up."
+tags:
+  - "card"
+  - "finance"
+  - "budget"
+  - "gauge"
+  - "toggles"
+  - "dark-mode"
+  - "policy"
+  - "limits"
+usage: "use when a spending limit needs to be both read and governed in one card — a linear gauge marking current spend against an automatic cut-off, a breakdown by merchant, and policy toggles that change that cut-off in place."

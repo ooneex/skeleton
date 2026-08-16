@@ -1,0 +1,12 @@
+title: "Helpdesk Knowledge Base Article Three Pane"
+description: "Knowledge base inside a support tool: a nav rail with live call and pinned ticket blocks, a searchable and filterable tree of article titles with nested children, and the article itself with a Published badge, author byline and Content/Insight/Comment/Activity tabs."
+tags:
+  - "knowledge-base"
+  - "documentation"
+  - "three-pane"
+  - "tree"
+  - "tabs"
+  - "publishing"
+  - "search"
+  - "support"
+usage: "use when designing documentation that lives inside another product — a hierarchical article tree with search and filter, publication state and last-edited byline in the header, and tabs that switch the article between content, analytics and discussion."

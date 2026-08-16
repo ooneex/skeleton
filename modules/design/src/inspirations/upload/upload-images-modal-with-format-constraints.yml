@@ -1,0 +1,12 @@
+title: "Upload Images Modal With Format Constraints"
+description: "Image upload dialog whose drop zone states every constraint up front — accepted formats, maximum size and both maximum and minimum pixel dimensions — above an accepted thumbnail row and a red error row for a file over the limit, with Cancel and a disabled Confirm."
+tags:
+  - "modal"
+  - "upload"
+  - "validation"
+  - "constraints"
+  - "error-state"
+  - "form"
+  - "thumbnail"
+  - "images"
+usage: "use when uploads have real restrictions — print formats, weight and pixel bounds inside the drop zone before the user picks, then repeat the specific reason on any row that fails."

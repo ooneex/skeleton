@@ -1,0 +1,12 @@
+title: "Blue Sidebar With Nested Settings And Portfolio Dashboard"
+description: "Saturated blue sidebar carrying a brand header, nav rows with count badges and collapsible Analytics, Projects and Settings groups whose children hang off a progress rail — beside a portfolio dashboard with a headline balance, timeframe pills and a coin table."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "nested"
+  - "badge"
+  - "dashboard"
+  - "finance"
+  - "timeframe"
+  - "blue"
+usage: "use when a coloured sidebar must carry deep nesting without losing hierarchy — count badges on top-level rows, an active child marked on a vertical rail, and a neutral content area that lets the sidebar stay the accent."

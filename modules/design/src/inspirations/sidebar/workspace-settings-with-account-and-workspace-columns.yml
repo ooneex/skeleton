@@ -1,0 +1,12 @@
+title: "Workspace Settings With Account And Workspace Columns"
+description: "A general settings screen in a multi-workspace app: a rail of workspace app icons with an add tile, a nav sidebar grouped Analytics, Context and Others, a settings column split into Account and Workspace sections, and a pane with a My Notifications checkbox list, described toggle rows for mobile push, desktop and email, and a My Settings block with appearance and language selects and a two-factor toggle — footed by an avatar stack and Invite."
+tags:
+  - "settings"
+  - "form"
+  - "toggles"
+  - "navigation"
+  - "workspace"
+  - "checkbox"
+  - "select"
+  - "sidebar"
+usage: "use when settings belong to either the person or the workspace — split the section list under those two headings so it is always clear whether a change affects only the current user or everyone."

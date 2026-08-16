@@ -1,0 +1,12 @@
+title: "AI Platform Admin With Moderation Queue"
+description: "Generative-tool admin: KPI cards pairing a headline count with a live secondary metric and a See in details link, a top-tool panel counting failures, flagged content and subscribers, a 24-hour generation trend area chart, a content moderation queue with per-item Approve dropdowns and relative timestamps, and a system health panel."
+tags:
+  - "dashboard"
+  - "admin"
+  - "ai"
+  - "moderation"
+  - "queue"
+  - "chart"
+  - "kpi"
+  - "sidebar"
+usage: "use when an operations dashboard must surface both platform health and a human review queue — stat cards that drill in, and moderation rows whose verdict dropdown sits inline with the flagged item."

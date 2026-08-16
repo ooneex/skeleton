@@ -1,0 +1,12 @@
+title: "Admin Dashboard And Banking Screen Pair"
+description: "Two overlapping screens from one admin system: a dashboard with sparkline stat cards, a two-series server request chart with a callout and a server-status column chart; and a banking screen with income and expense bar cards, a transaction list tabbed History, Upcoming and Request, a gradient balance card, a recent-transfer avatar row and spending-category progress bars."
+tags:
+  - "dashboard"
+  - "finance"
+  - "chart"
+  - "list"
+  - "tabs"
+  - "showcase"
+  - "banking"
+  - "sidebar"
+usage: "use when showing how one shell serves two very different pages — infrastructure metrics and personal banking sharing a sidebar, card radius and chart language."

@@ -1,0 +1,12 @@
+title: "Teacher Profile Dashboard With Groups And Exam Table"
+description: "Staff profile home: a sidebar of school sections, a top bar with search, language select and account, a Bio card with a ringed photo, contact lines and social icons, Events and Target achieved stat cards with corner arrows, a Groups row of class cards each with a Join button plus a Create New Group action and member avatars, an Exam Held checkbox table with status and pagination, and a right column with a tabbed Event Calendar and a dotted Today's Timeline."
+tags:
+  - "dashboard"
+  - "education"
+  - "profile"
+  - "table"
+  - "calendar"
+  - "timeline"
+  - "groups"
+  - "sidebar"
+usage: "use when a profile page doubles as a workspace — identity and contact in a card, joinable groups as a horizontal row, and the day's schedule and calendar pinned in a right column beside the records table."

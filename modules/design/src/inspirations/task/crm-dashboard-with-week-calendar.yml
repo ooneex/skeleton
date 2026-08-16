@@ -1,0 +1,12 @@
+title: "CRM Dashboard With Week Calendar"
+description: "Sales workspace home combining a prioritised task list, recent-visit and quick-link carousels, a full week calendar with coloured event blocks and a now-line, and an activity feed — shown alongside its pipeline funnel and task-board sibling screens."
+tags:
+  - "dashboard"
+  - "calendar"
+  - "week-view"
+  - "activity-feed"
+  - "task-list"
+  - "funnel"
+  - "chart"
+  - "crm"
+usage: "use when a workspace home has to answer \"what is due, what is next and what just happened\" at once — a week calendar with typed event blocks beside a priority task list and a reverse-chronological activity feed."

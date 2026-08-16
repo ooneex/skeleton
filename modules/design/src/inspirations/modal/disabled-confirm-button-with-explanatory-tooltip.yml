@@ -1,0 +1,12 @@
+title: "Disabled Confirm Button With Explanatory Tooltip"
+description: "Close crop of a blocked dialog footer: the Confirm button greyed out with the cursor resting on it and a dark tooltip below reading \"Resolve errors and complete pending uploads to continue\", with the failing rows still visible above."
+tags:
+  - "tooltip"
+  - "disabled"
+  - "states"
+  - "form"
+  - "modal"
+  - "validation"
+  - "closeup"
+  - "affordance"
+usage: "use when a primary action must stay disabled — keep the button hoverable and attach a tooltip naming the exact condition blocking it, so the user is never left guessing why they cannot continue."

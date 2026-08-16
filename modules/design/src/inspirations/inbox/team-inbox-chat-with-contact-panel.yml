@@ -1,0 +1,12 @@
+title: "Team Inbox Chat With Contact Panel"
+description: "Four-column messaging workspace: icon rail, inbox navigation with nested conversation folders and counts, a searchable conversation list with presence dots, a message thread with attachments and links, and a contact panel with status, notifications and settings toggles."
+tags:
+  - "inbox"
+  - "chat"
+  - "messaging"
+  - "four-column"
+  - "presence"
+  - "contact-panel"
+  - "counts"
+  - "toggles"
+usage: "use when designing a shared team inbox where conversations are triaged into folders — nested counts in the nav, presence and unread badges in the list, and a contact sidebar carrying status, history and per-conversation settings."

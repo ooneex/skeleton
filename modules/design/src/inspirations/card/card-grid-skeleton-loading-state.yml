@@ -1,0 +1,12 @@
+title: "Card Grid Skeleton Loading State"
+description: "A loading state close-up: a floating toolbar of green icon buttons, Week, Active projects and zoom selects and yellow and blue tool buttons, over a card grid where every card is a placeholder — grey image blocks, mauve title and tag bars, grey text lines and a circular avatar with a name bar — one card tilted mid-drag."
+tags:
+  - "loading"
+  - "skeleton"
+  - "card"
+  - "states"
+  - "placeholder"
+  - "toolbar"
+  - "closeup"
+  - "grid"
+usage: "use when specifying skeletons — placeholder blocks matching the real card's geometry exactly, with the accent-coloured bars marking which lines carry emphasis once the content arrives."

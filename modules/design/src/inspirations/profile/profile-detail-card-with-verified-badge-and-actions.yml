@@ -1,0 +1,12 @@
+title: "Profile Detail Card With Verified Badge And Actions"
+description: "Close crop of a person card: a ringed avatar with a verification tick, name, role and a Verified chip, a row of call, chat and video icon buttons, a bio, icon-led key-value rows with a New badge on repositories, department rows with member counts, a reports-to row and a solid contact button."
+tags:
+  - "card"
+  - "profile"
+  - "user"
+  - "verified"
+  - "key-value"
+  - "actions"
+  - "closeup"
+  - "directory"
+usage: "use when a person card must carry identity, contact channels and structured attributes at once — verification beside the name, icon buttons for each channel, and icon-led key-value rows that drill through to departments and managers."

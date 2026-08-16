@@ -1,0 +1,12 @@
+title: "Table Column Filter Menu With Active Count"
+description: "Close crop of a projects table header: a breadcrumb title, an indeterminate select-all checkbox, sortable Project, Stage and Status headers, a funnel button badged with the number of active filters, and an open PROJECT TYPE menu with Assigned to me, Created by me and New ticked while Archived stays clear — over rows with coloured status dots."
+tags:
+  - "filter"
+  - "table"
+  - "checkbox"
+  - "select"
+  - "closeup"
+  - "interaction"
+  - "counts"
+  - "sorting"
+usage: "use when filters live in the column headers — a funnel button per filterable column badged with its active count, and an indeterminate select-all that reflects a partial row selection."

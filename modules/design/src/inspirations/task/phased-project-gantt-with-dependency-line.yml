@@ -1,0 +1,12 @@
+title: "Phased Project Gantt With Dependency Line"
+description: "Product-design plan: a sidebar with a user block and favourite projects, a breadcrumb with a project switcher, a Table/Timeline/Calendar/Board/Gantt switcher, and phase blocks — Discovery & Structure, Core Features, Polish & Delivery — each with a date range and member avatars over ID-prefixed rows with checkboxes, nesting arrows, completion ticks, colour-coded bars and a dependency line joining two items."
+tags:
+  - "gantt"
+  - "timeline"
+  - "project-management"
+  - "phases"
+  - "dependencies"
+  - "view-switcher"
+  - "task"
+  - "sidebar"
+usage: "use when a plan is grouped into phases rather than one flat gantt — collapsible phase blocks carrying their own dates and team, nested sub-items, and explicit dependency lines between bars."

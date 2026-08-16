@@ -1,0 +1,12 @@
+title: "AI Model Catalog Card Vertical And Horizontal"
+description: "One catalogue card in vertical and horizontal layouts: cover art, model name, download count and updated time, a short description, capability tag chips, a tab strip of client tools and a copyable install command field."
+tags:
+  - "card"
+  - "catalog"
+  - "tabs"
+  - "tags"
+  - "copy-to-clipboard"
+  - "code"
+  - "variants"
+  - "developer"
+usage: "use when the same catalogue entry must render in a grid and in a list — keep cover, title, meta, tags and the copyable command identical while only the axis changes, with a tab strip switching the command per client."

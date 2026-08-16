@@ -1,0 +1,12 @@
+title: "Patient Medical History With Discharge Checklist"
+description: "Clinical history screen: a patient switcher strip of avatars each labelled with a condition, plus an add button and a see-all count, a key-value band of name, age, sex, code, department, city, diagnosis and treatment, a left column of admission date, a dated event timeline, a discharge-barrier checklist with completed items struck through, past history, medications and abnormal labs, and a records table pairing body areas with symptom lines marked by red and green icons."
+tags:
+  - "healthcare"
+  - "detail-page"
+  - "checklist"
+  - "timeline"
+  - "table"
+  - "key-value"
+  - "clinical"
+  - "records"
+usage: "use when a record is read under time pressure — identifying values in one scannable band, a checklist whose completed items are struck through with time and date, and findings grouped by area with status icons."

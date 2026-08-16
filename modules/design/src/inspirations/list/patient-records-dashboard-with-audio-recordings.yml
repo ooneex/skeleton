@@ -1,0 +1,12 @@
+title: "Patient Records Dashboard With Audio Recordings"
+description: "A clinical scheduling home: an icon rail with a recording button, a Patients List card with a count badge, a unit select, a search field and a New Patients List action over a table of avatar, age and MRN, and a right column of Recent Reminder and Recent Recording cards where each row pairs a person with an audio waveform player, a duration and a View or Details link."
+tags:
+  - "dashboard"
+  - "healthcare"
+  - "table"
+  - "audio"
+  - "waveform"
+  - "list"
+  - "search"
+  - "sidebar"
+usage: "use when voice notes are a first-class record — an inline waveform player with duration per row and a processing indicator, sitting beside the patient table rather than in a separate area."

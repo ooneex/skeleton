@@ -1,0 +1,12 @@
+title: "Todo List With Filter Panel And Avatar Stacks"
+description: "Todo screen where each row carries a drag handle, checkbox, star, title, a coloured category pill, an overlapping assignee avatar stack and an overflow menu — with a right filter panel counting All, My Task, Favorites, Done and Deleted."
+tags:
+  - "task"
+  - "list"
+  - "drag-handle"
+  - "checkbox"
+  - "avatar-stack"
+  - "filter"
+  - "category-pill"
+  - "sidebar"
+usage: "use when a task list needs reordering, quick triage and shared ownership in one row — drag handle and checkbox leading, category and assignees trailing, and a counted filter panel that scopes the list."
