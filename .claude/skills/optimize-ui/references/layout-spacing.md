@@ -27,6 +27,7 @@ Further rules:
 - Concentric radii: a nested element's radius should equal `outerRadius - padding` (not match the parent's radius) so nested rounds look intentional, not competing.
 - Flexbox for one-dimensional layout (rows, nav, button groups, component internals); Grid for two-dimensional (page structure, dashboards, coordinated rows+columns). Don't reach for Grid where `flex-wrap` suffices.
 - Prefer container queries for a component that must adapt to its placement (e.g. a card compact in a sidebar, expanded in main content); reserve viewport/media queries for page-level layout.
+- Scroll any region that can overflow (listing, long text, sidebar, panel/dialog body, code block) with the design module's `ScrollArea` — never a raw `overflow-auto` div. Cap the height on its viewport (`viewportClassName="max-h-*"`) and give the root `min-h-0 flex-1` inside a flex column; keep the page's own document scroll native.
 - Give flex/grid children `min-width: 0` (and `min-height: 0` in a grid) so they can shrink below their content size — without it they silently overflow.
 - Pick breakpoints where content actually breaks, not at device-specific widths, and write mobile-first (`min-width`) queries so small screens don't load unneeded desktop styles first.
 - Build hierarchy from at least two combined dimensions (size + weight, or size + spacing) rather than size alone — a heading that's bigger *and* bolder *and* has more space above reads as primary effortlessly.

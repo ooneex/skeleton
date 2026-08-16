@@ -29,6 +29,25 @@ bun add zustand @tanstack/react-query @tanstack/react-table @tanstack/charts @ta
 
 **Every chart, graph, plot, sparkline, or dashboard visualization is built with TanStack Charts (`@tanstack/charts`, latest version) — no exceptions.** Never add another charting library (Recharts, Chart.js, ECharts, Nivo, Victory, Highcharts, …) and never hand-roll SVG/canvas plotting or raw D3 selections. It is a typed grammar of marks — you declare data, marks, channels, and scales via `defineChart` and render through `@tanstack/charts/react` — so colors, fonts, and spacing still resolve to the design module's tokens (`--ts-chart-*` variables and inherited `currentColor`). When optimizing existing UI, port charts off whatever library they use. It is pre-alpha, so pin the installed version. See `references/data-and-performance.md` for the setup, mark selection, and the rules; docs at https://tanstack.com/charts/v0/docs/overview and worked examples at https://tanstack.com/charts/catalog.
 
+## Scroll areas
+
+**Every bounded region whose content can outgrow its box scrolls through the design module's `ScrollArea` — never a raw `overflow-auto` / `overflow-y-scroll` / `overflow-x-auto` div.** That covers listings and tables, menus/dropdowns/comboboxes, sidebars and nav trees, dialog/drawer/sheet/panel bodies, long prose or docs, code blocks, chat threads, and log output. It renders the styled scrollbar, the top/bottom overflow fades, and keyboard-focusable viewport for free, so scrolling looks and behaves the same everywhere.
+
+```tsx
+import { ScrollArea } from "@module/<design>/components/scroll-area";
+
+<ScrollArea className="min-h-0 flex-1" viewportClassName="max-h-96 overscroll-contain">
+  {items.map(...)}
+</ScrollArea>
+```
+
+- Cap the scroll height on the **viewport** via `viewportClassName` (`max-h-*` / `h-full`); `className` styles the root box.
+- Inside a flex column, give the root `min-h-0 flex-1` so it shrinks instead of pushing the page taller.
+- `hideScrollbar` only where the bar is pure noise; `<ScrollArea.Bar orientation="horizontal" />` for horizontal scrolling.
+- Leave the **page's** document scroll native — `ScrollArea` is for bounded regions, not the window.
+- Virtualizing a long list (TanStack Virtual) still happens *inside* the ScrollArea: point `getScrollElement` at the viewport element (`[data-slot="scroll-area-viewport"]`).
+- When optimizing existing UI, port ad-hoc `overflow-*` scroll containers onto it.
+
 ## Design system
 
 **Always build UI with the project's main design system — never restyle from scratch or hand-roll primitives that already exist there.** Use its component/token if one fits; else add the primitive to the design module per its conventions. Never ask which visual treatment, color, spacing, or variant — infer from the system's tokens/components and these rules.

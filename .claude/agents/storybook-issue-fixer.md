@@ -63,6 +63,8 @@ Fill in the `meta` (title, group, tags, component, `usage` markdown, `props[]` w
 
 The gallery engine lives in `shared/`; stories live in `features/`; routes stay thin (chrome + composition only). Adding a component to the gallery means adding a story file, not editing `Canvas`/`Sidebar`/`CommandPalette`/`registry`. Sidebar nesting and sectioning are data-driven: a title `<Name>.<Sub>` nests under `<Name>`; a shared `meta.group` files siblings into the same section — give a compound component and its sub-component stories the same `group`. Stories never reach into a design module's internals beyond its public alias entry points.
 
+Any gallery chrome whose content can outgrow its box — the sidebar tree, the ⌘K palette results, the controls panel, a long `usage` block or code snippet, the canvas of a tall story — scrolls through the design module's **`ScrollArea`** (`@module/<design>/components/scroll-area`), never a raw `overflow-auto`/`overflow-y-scroll` div: cap the height on the viewport (`viewportClassName="max-h-*"` / `h-full`) and give the root `min-h-0 flex-1` inside a flex column. See `optimize-ui`'s **Scroll areas** section.
+
 ## Secure defaults
 
 Client-side code is untrusted by the server — harden it as you implement:
