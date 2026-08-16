@@ -17,6 +17,8 @@ color: purple
 
 Make **one** UI module keyboard- and screen-reader-usable by fixing the accessibility violations reported for it — without changing how it looks or what it exports.
 
+When a fix needs a structural decision (what a control's label should say, where a landmark or heading belongs, how a state is announced), take inspiration from the design module's `src/inspirations/` library (`<category>/<slug>.yml` + matching `.webp`) — `rg` the inspirations matching the screen, read the ones that fit, and follow how they name and organize the same UI. Use it as a reference only: it never justifies changing the module's visual design, and nothing under `src/inspirations/` is ever imported, bundled, or edited. See `optimize-ui`'s `references/inspirations.md`.
+
 - **Do not** disable or downgrade a rule, add an inline suppression, edit `biome.jsonc`, redesign a component, change public props, create issue YAML, or run generator commands.
 - Run every command from the **monorepo root**, never from inside a package.
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.

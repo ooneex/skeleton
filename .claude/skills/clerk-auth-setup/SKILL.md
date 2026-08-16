@@ -29,7 +29,7 @@ Wire [Clerk](https://clerk.com) into a SPA module (`type: "spa"` in `<module>.ym
 
 - **Run autonomously** — no questions; when a choice arises, take the recommended one. The only value you may not invent is the publishable key: if missing, leave the `.env` placeholder and report it at the end.
 - `<module>` lives in `modules/<module>/` **or** `packages/<module>/` — check both before assuming a path is missing.
-- **Reference implementation: `modules/ruby/`** — every pattern below comes from it; read the matching file when a snippet isn't enough. Also follow `talos-spa` (folders), `spa-feature-create` (features), `optimize-ui` (visual craft), `optimize-testing` (specs).
+- **Reference implementation: `modules/ruby/`** — every pattern below comes from it; read the matching file when a snippet isn't enough. Also follow `talos-spa` (folders), `spa-feature-create` (features), `optimize-ui` (visual craft, including its `references/inspirations.md` — always take inspiration from the design module's `src/inspirations/` library, e.g. the `form`, `onboarding`, `modal`, and `user` categories, before building the sign-in/sign-up screens), `optimize-testing` (specs).
 
 ## Architecture
 

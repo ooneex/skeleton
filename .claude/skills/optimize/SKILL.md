@@ -71,7 +71,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 
 6. **Tests** — invoke `optimize-testing`, then prune trivial tests, keep/improve meaningful ones, consolidate redundancy. Measure the result with `talos coverage:check --modules=<module> --logs`: pruning should drop hollow tests without losing covered behaviour, so report the before/after rates and add the tests the report names as missing (hand a large gap to the `test-author` agent).
 
-7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns, then prove the accessibility of the result:
+7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns. Re-ground the UI in the design module's `src/inspirations/` library (`optimize-ui`'s `references/inspirations.md`): pull the 2–4 inspirations matching each screen you touch and close the gap where the existing UI is thinner than them in structure, density, or state coverage. Then prove the accessibility of the result:
 
    ```bash
    talos project:check --strict --only=accessibility --modules=<module> --logs

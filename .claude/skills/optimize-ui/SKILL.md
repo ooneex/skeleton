@@ -48,6 +48,16 @@ import { ScrollArea } from "@module/<design>/components/scroll-area";
 - Virtualizing a long list (TanStack Virtual) still happens *inside* the ScrollArea: point `getScrollElement` at the viewport element (`[data-slot="scroll-area-viewport"]`).
 - When optimizing existing UI, port ad-hoc `overflow-*` scroll containers onto it.
 
+## Inspirations
+
+**Always take inspiration from the inspirations library before designing or implementing any UI — screen, layout, component, or redesign.** It lives in the design module at `modules/<design>/src/inspirations/<category>/<slug>.yml` + a matching `.webp` screenshot: ~820 real product screens across 49 categories (`table`, `form`, `dashboard`, `sidebar`, `settings`, `modal`, `chart`, `list`, `filter`, `onboarding`, …). Never start from a blank page or a generic mental template while it sits there unread.
+
+Workflow: pick the categories the work touches → `rg` the `.yml` files (tags / `usage`) → shortlist 2–4 whose `usage` matches the task → read those YAMLs and open their screenshots with the Read tool → design against them → note which ones you drew from.
+
+Take structure, hierarchy, density, control placement, labels, and anticipated states (empty, loading, warning, permission). Never take palettes, fonts, radii, shadows, or spacing as literal values — every visual value still resolves to this project's design tokens and components — and never copy a screen pixel-for-pixel or ship its dummy copy. Inspirations are reference assets: never imported, never bundled, never edited.
+
+Full procedure: `references/inspirations.md`.
+
 ## Design system
 
 **Always build UI with the project's main design system — never restyle from scratch or hand-roll primitives that already exist there.** Use its component/token if one fits; else add the primitive to the design module per its conventions. Never ask which visual treatment, color, spacing, or variant — infer from the system's tokens/components and these rules.
@@ -71,6 +81,7 @@ Read the relevant reference(s) below **before** implementing — each is short, 
 
 | Reference | Read when touching... |
 |---|---|
+| `references/inspirations.md` | any new screen, layout, or component — always read this one, **before** writing markup |
 | `references/ai-slop.md` | any new screen, layout, or component — always read this one |
 | `references/interaction-states.md` | any interactive element — hover/focus/active/disabled/loading/error states, empty states, error copy, destructive actions, hit areas |
 | `references/motion.md` | any transition, animation, or entrance/exit effect |
@@ -90,6 +101,7 @@ Read the relevant reference(s) below **before** implementing — each is short, 
 
 Check every component/layout/feature against realistic conditions, not just the happy path — do this yourself:
 
+- **Inspiration check** — did the design start from the inspirations library (`references/inspirations.md`)? Re-open the ones you picked and compare: same structural clarity, same density, same state coverage. If the result is thinner than its references, close the gap.
 - **Squint test** — defocus; primary/secondary elements and groupings stay identifiable. A monotone uniform grid can pass every rule and still read as flat.
 - **Edge-case inputs** — very long/short text, empty lists, huge lists, missing images, offline/slow network, permission-denied. A layout that only works with perfect demo data isn't done.
 - **Accessibility** — tab the whole flow with no mouse; every interactive control reachable with a visible focus state; semantic elements/roles, form labels, and `alt` text present; hit areas ≥44×44px (≥40×40px in dense desktop UI); state never signalled by color alone; `prefers-reduced-motion` respected. Prove it, don't assume it: `talos project:check --strict --only=accessibility --modules=<module> --logs` runs Biome's `a11y` rules over the module and lists every violation with its file and line. Fix what it reports; never disable a rule to make it pass.

@@ -35,6 +35,8 @@ modules/<name>/        # type: "design"
     utils/        # Front-end helpers — cn (class-name merge), staleChunk. Add small pure presentation helpers; no backend/business logic.
 ```
 
+`src/inspirations/` also lives here: ~820 curated screenshots of real product UI (`<category>/<slug>.yml` describing the screen + a matching `.webp`) across 49 categories — `card`, `chart`, `dashboard`, `form`, `list`, `modal`, `navigation`, `settings`, `sidebar`, `table`, `tabs`, … **Always take inspiration from it before designing or implementing any component or screen**: search the `.yml` files by tag/`usage`, read the 2–4 that fit, open their screenshots, and build against their structure and state coverage — never their colors, radii, shadows, spacing, or copy, which always come from this module's tokens and components. It is a reference shelf only: never imported by code, never bundled, never edited. See `optimize-ui`'s `references/inspirations.md`.
+
 For the interaction, motion, typography, color, and surface rules every component here must follow — including how to avoid AI-slop visual patterns (stock gradients, glassmorphism-as-decoration, template layouts) — see `optimize-ui`. For the SPA consuming this design system, see `talos-spa`; for backend module layout, see `talos-module`.
 
 ## Keep the storybook in sync

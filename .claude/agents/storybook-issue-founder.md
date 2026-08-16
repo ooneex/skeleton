@@ -22,7 +22,11 @@ Focused component-gallery auditor. Given a storybook module and its front-end so
 
 ## Input
 
-Read the named `type: "storybook"` module's front-end source under `modules/<module>/src/` — the story files under `features/`, the gallery engine under `shared/` (`story/types.ts`, `story/registry.ts`, `components/Canvas.tsx`, `Controls.tsx`, `Sidebar.tsx`, `CommandPalette.tsx`), the routes, and `vite.config.ts` for the design alias(es) — plus its tests under `modules/<module>/tests/` when they clarify intent. **Also read the design module(s) it aliases** (`modules/<design>/src/components/` and `icons/`) to judge story coverage. Build a complete picture before reporting. If the directory doesn't exist, report the exact path checked and return no findings.
+Read the named `type: "storybook"` module's front-end source under `modules/<module>/src/` — the story files under `features/`, the gallery engine under `shared/` (`story/types.ts`, `story/registry.ts`, `components/Canvas.tsx`, `Controls.tsx`, `Sidebar.tsx`, `CommandPalette.tsx`), the routes, and `vite.config.ts` for the design alias(es) — plus its tests under `modules/<module>/tests/` when they clarify intent. **Also read the design module(s) it aliases** (`modules/<design>/src/components/` and `icons/`) to judge story coverage. Build a complete picture before reporting.
+
+**Also consult the design module's inspirations library** (`modules/<design>/src/inspirations/<category>/<slug>.yml` + matching `.webp`) when judging the gallery chrome (sidebar tree, canvas, controls panel, ⌘K palette) and the realism of composed story previews: `rg` the inspirations matching the relevant categories (`sidebar`, `navigation`, `menu`, `filter`, `card`, `form`, `table`, …), read the ones that fit, and report chrome that is structurally thinner than those references or story examples whose composition and sample content are unrealistically bare. Also report any gallery UI that copied an inspiration's palette, radii, shadows, or spacing instead of resolving to design tokens, and any code importing/bundling files from `src/inspirations/` (reference assets only). See `optimize-ui`'s `references/inspirations.md`.
+
+If the directory doesn't exist, report the exact path checked and return no findings.
 
 ## What to look for
 

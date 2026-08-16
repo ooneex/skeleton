@@ -22,7 +22,11 @@ Focused single-page-application auditor. Given a module and its front-end source
 
 ## Input
 
-Read the named `type: "design"`, `type: "spa"`, or `type: "admin"` module's front-end source under `modules/<module>/src/` — components, pages/routes, layouts, state stores/hooks, data-fetching and API clients, routing config — plus its tests under `modules/<module>/tests/` when they clarify intent. Build a complete picture before reporting. If the directory doesn't exist, report the exact path checked and return no findings.
+Read the named `type: "design"`, `type: "spa"`, or `type: "admin"` module's front-end source under `modules/<module>/src/` — components, pages/routes, layouts, state stores/hooks, data-fetching and API clients, routing config — plus its tests under `modules/<module>/tests/` when they clarify intent. Build a complete picture before reporting.
+
+**Also read the linked design module's inspirations library** (`modules/<design>/src/inspirations/<category>/<slug>.yml` + matching `.webp`) — the project's reference shelf of ~820 real product screens that every screen here is expected to have been designed from. For each route/feature you audit, `rg` the inspirations matching its categories/tags, read the 2–4 whose `usage` fits, and judge the implementation against them: report screens that are structurally thinner than their references (flat hierarchy, missing regions, missing anticipated states such as empty/loading/error/permission-denied), and report any UI that copied an inspiration's palette, radii, shadows, spacing, or dummy copy instead of resolving to design tokens, or any code importing/bundling files from `src/inspirations/` (reference assets only). Cite the inspiration path in the finding. See `optimize-ui`'s `references/inspirations.md`.
+
+If the directory doesn't exist, report the exact path checked and return no findings.
 
 ## What to look for
 
