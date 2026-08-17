@@ -50,6 +50,10 @@ Read `modules/<module>/src/seeds/<Name>Seed.ts`, then:
 - **Hash any credential/secret field** (passwords, API keys, tokens) with the framework's hashing utility before persisting — never store plaintext credentials, even in demo/dev seeds, since seed data can leak into other environments
 - Persist the entities via the repository
 
+**Declare cross-seed dependencies.** A seed that needs the rows another seed writes must import that seed and return it from `getDependencies()`, otherwise it may run first and reference rows that do not exist yet.
+
+`getDependencies()` declares *ordering*, not extra work. A declared dependency is itself a registered seed that the runner runs exactly once, on its own turn — never call a dependency's `run()` yourself, and never write a seed that assumes being invoked twice. The `data` argument of `run()` holds each declared dependency's result in declaration order (`undefined` for one skipped as cached or inactive).
+
 ### 4. Complete the test file
 
 Read and replace `modules/<module>/tests/seeds/<Name>Seed.spec.ts`.
