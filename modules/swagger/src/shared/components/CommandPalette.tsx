@@ -32,7 +32,7 @@ export const CommandPalette = ({ routes, open, onOpenChange, onSelect }: Command
     label="Jump to a route"
     overlayClassName="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
     contentClassName="fixed left-1/2 top-[12vh] z-50 w-[94vw] max-w-3xl -translate-x-1/2"
-    className="flex max-h-[70vh] flex-col overflow-hidden rounded-lg bg-popover text-popover-foreground shadow-xl"
+    className="flex max-h-[70vh] flex-col overflow-hidden rounded-lg bg-popover text-popover-foreground"
   >
     <div className="flex items-center gap-2 border-b border-border px-3">
       <MagnifierIcon className="size-4 shrink-0 text-muted-foreground" />
@@ -49,7 +49,7 @@ export const CommandPalette = ({ routes, open, onOpenChange, onSelect }: Command
           <Command.Group
             key={section.group}
             heading={section.group}
-            className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-muted-foreground"
+            className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:uppercase **:[[cmdk-group-heading]]:tracking-wide **:[[cmdk-group-heading]]:text-muted-foreground"
           >
             {section.routes.map(({ id, meta }) => (
               <Command.Item
