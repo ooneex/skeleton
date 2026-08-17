@@ -1,0 +1,12 @@
+title: "Video Library Grid With Plan Quota And Upgrade Notice"
+description: "A screen-recording library in browser chrome: a sidebar with the wordmark over Home, an active 'Video Library' in an amber tile, History and Settings, then a '50/50 videos' quota line with a fully drawn amber progress bar, an amber notice card explaining that the starter plan's limit has been reached with a bolt-led 'Upgrade Plan' button, and 'Log Out' beneath a rule; a header pairing the page title with a 'Search for videos,folders' field, a bell carrying a red count and an avatar with a caret; a Videos / Archives / Screenshots tab row with the active tab underlined amber, opposite an amber '+ Create Video'; an 'All Videos' heading with a count chip; and a three-column card grid where each card shows a screen-capture thumbnail, a two-line title, a 'duration | Recorded date' line, an amber circular play button set on the title row, and the owner shown as an avatar or an initials tile."
+tags:
+  - "video"
+  - "card"
+  - "list"
+  - "sidebar"
+  - "tabs"
+  - "upsell"
+  - "grid"
+  - "media-player"
+usage: "use when a plan limit has already been hit — the quota drawn as a filled bar in the rail with the notice directly beneath it, the create action left enabled, and the library itself unchanged so the paywall informs rather than blocks."

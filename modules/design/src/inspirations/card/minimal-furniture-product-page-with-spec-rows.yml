@@ -1,0 +1,12 @@
+title: "Minimal Furniture Product Page With Spec Rows"
+description: "An editorial furniture product page in black, white and warm grey: a slim header with a graphic wordmark, four text links and a black Cart (12) button; a left half given entirely to the product photograph with a row of three square thumbnails overlaid top-left, the active one ringed in white, and a heart toggle floating top-right; a right column opening with a Catalog / Furniture / Chairs breadcrumb in grey, a large serif product name, a four-line prose description, then a spec list of hairline-separated rows pairing a label with its value — Color as three selectable swatches with the chosen one ringed, Material, Dimensions, Weight, and Brand shown as a logo chip beside its name — and a footer row placing a minus/1/plus quantity stepper beside a full-width black 'Add to cart for $399' button that carries the price in the label."
+tags:
+  - "e-commerce"
+  - "detail-page"
+  - "gallery"
+  - "breadcrumb"
+  - "form"
+  - "typography"
+  - "minimal"
+  - "product"
+usage: "use when a product page should read like a catalogue spread — one large image with thumbnails laid over it, specifications as label/value rows rather than a table, and a buy row where the price lives inside the button instead of floating above it."

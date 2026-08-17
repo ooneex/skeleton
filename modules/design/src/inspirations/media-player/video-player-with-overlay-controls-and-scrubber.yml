@@ -1,0 +1,12 @@
+title: "Video Player With Overlay Controls And Scrubber"
+description: "A rounded video surface filled by a landscape still, captioned '#57. Video Player' above it: a large translucent circular pause button centred over the frame, and a floating dark translucent control bar inset from the bottom edge carrying the series title with its 'Season 3 episode 6' subtitle, an elapsed/total time readout of 28:56 / 1:02:32 aligned right, a thin progress track with a filled portion and a round handle at the play head, then a left cluster of pause, skip-back-10 and skip-forward-10 buttons and a right cluster of volume, captions, fullscreen and an overflow menu."
+tags:
+  - "media-player"
+  - "video"
+  - "interaction"
+  - "controls"
+  - "overlay"
+  - "progress"
+  - "playback"
+  - "dark"
+usage: "use when playback controls must sit over the picture without hiding it — a translucent bar that groups transport on the left and output options on the right, a centre tap target for play/pause, and the title kept in view so the viewer knows what is playing."

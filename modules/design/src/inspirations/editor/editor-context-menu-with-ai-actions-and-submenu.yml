@@ -1,0 +1,12 @@
+title: "Editor Context Menu With AI Actions And Submenu"
+description: "A code-editor context menu isolated on a plain field: a rounded white sheet split by hairlines into three groups — AI actions (Edit with AI, Explain Code, Fix with AI, a hovered Refactor row carrying a chevron, Generate Unit Test), navigation and formatting actions (Go to Definition, Rename Symbol, Format Document), then Copy and Paste, and a lone Stage Selected Lines at the foot — each row pairing a light outline icon with its label and right-aligned keyboard shortcuts (⌘+K, ⌘+., F12, F2, ⌘+C, ⌘+V) in muted grey; the hovered Refactor row opens a second, icon-free sheet to the right listing Clean Up Logic, Improve Readability and Optimize Performance above a divider, with Convert to TypeScript highlighted under the cursor."
+tags:
+  - "menu"
+  - "interaction"
+  - "editor"
+  - "context-menu"
+  - "submenu"
+  - "keyboard-shortcuts"
+  - "hover"
+  - "ai"
+usage: "use when a context menu carries more actions than one list can hold — grouping by dividers instead of headings, showing shortcuts inline so the menu teaches the keyboard, and pushing a family of variants into a submenu whose parent row stays highlighted while it is open."

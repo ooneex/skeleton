@@ -1,0 +1,12 @@
+title: "Messenger With Pinned Conversations And Read Receipts"
+description: "A three-column messenger in a browser window: a left sidebar with the wordmark, six plain nav rows with the active Messages drawn as a filled blue pill, and a user card with avatar, name and a Logout line at the foot; a conversation column headed 'Messages' with round compose and search buttons, split by a 'Pinned Message' caption over three conversations and an 'All Message' caption over the rest, each row pairing a round avatar or brand tile — with a green presence dot on people — with the correspondent's name, a preview line that reads 'Typing…' in green when live, a timestamp, and either a red unread count or a blue double-tick read receipt; and a thread pane headed by the group's logo and name with a live typing line beneath, a member avatar stack with a '14' overflow and video, voice and overflow buttons, holding a dated divider then messages grouped under the sender's avatar, name and time as stacked grey bubbles, own replies right-aligned in blue with 'You' and an avatar, one message opening with blue @-mentions above a link preview, over a composer with a mic, a 'Type a message' field and image, emoji, send and location buttons."
+tags:
+  - "chat"
+  - "inbox"
+  - "sidebar"
+  - "list"
+  - "messaging"
+  - "presence"
+  - "badge"
+  - "component"
+usage: "use when a conversation list must carry state as well as content — pinned split from the rest by a caption, live typing shown in the preview line, and each row ending in either an unread count or a read receipt so nothing needs opening to check."

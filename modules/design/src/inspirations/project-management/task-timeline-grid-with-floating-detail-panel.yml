@@ -1,0 +1,12 @@
+title: "Task Timeline Grid With Floating Detail Panel"
+description: "A task planner drawn as a project-by-day grid: an icon rail with the brand mark and six glyphs, a Search field across the top, then the page title beside a 'Design team' select and an avatar stack ending in a '+4' tile, opposite a 'Week' select, a blue '+ Create' button and Sort, 'All tasks' and Settings controls; the grid lists projects down the left — an investing app, a journaling app, a marketplace, brand landing pages, an IoT concept and internal tasks — and days across the top from Mon 12, with the current day tinted, its heading in blue and a now-line labelled '5:45 PM' running down it, while tasks sit as pastel rounded pills spanning the days they occupy, each pairing one or more assignee avatars with a short label and the selected pill outlined blue; and a floating detail card overlaps the right edge, headed by a close button, the task name and attach, link and overflow glyphs, holding a Description clipped to three lines with a 'more' link, then Assignee, Reporter, Status — a dot beside 'Started' and a 25% chip — Priority and Time rows, a Files strip of three image thumbnails and a '+23' tile, and a Subtasks list whose rows carry a filled check or an empty circle."
+tags:
+  - "timeline"
+  - "task"
+  - "project-management"
+  - "calendar"
+  - "detail-panel"
+  - "modal"
+  - "avatar-stack"
+  - "week-view"
+usage: "use when scheduling is read per project rather than per person — one lane per project across a week, the current time drawn as a line rather than a column tint, and the selected bar opening a detail card that floats over the grid instead of pushing it aside."

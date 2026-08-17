@@ -1,0 +1,12 @@
+title: "Survey Builder With Drag And Drop Element Palette"
+description: "Two panels of a survey builder on a lilac gradient: on the left a questionnaire outline whose sections carry drag handles, a disclosure caret and an overflow, the open section holding a page group and a question block with logic, settings, a 'Multi select' type select, a comment button and an overflow, the question itself in a full-width field, then a Responses caption with info and search glyphs over numbered answer rows that each pair a drag handle with a select, settings, overflow and a remove ✕, a placeholder 'Response text' row with a 'Batch' button and a 'Create group' link, and beneath it a pink dashed drop zone with a floating 'Logic' element held over it under the cursor, with two collapsed sections below; and on the right a tools panel with an 'Interactive reporting / Export files / Bulk update / Inspect & edit records' tab row, an icon toolbar closing on a violet '+', a 'Drag elements into your survey' heading over dashed draggable blocks — Question, 'Instructional text', Logic, Quota, 'Custom Javascript' and Section — each tinted to its own kind, beside a 'Sync data' card stating when the dataset last synced, an external-link card, and a quick list of add actions."
+tags:
+  - "form"
+  - "editor"
+  - "drag-and-drop"
+  - "list"
+  - "tabs"
+  - "panel"
+  - "builder"
+  - "closeup"
+usage: "use when structure is assembled by dragging — the palette drawn with dashed borders so blocks read as draggable, the target zone opening as a dashed well tinted to the element being carried, and every row in the outline given its own handle."

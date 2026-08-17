@@ -1,0 +1,12 @@
+title: "Marketplace Admin Dashboard With Map And Device Split"
+description: "A digital-marketplace admin console on a violet gradient: a left sidebar with the wordmark and a collapse button, an active Dashboard row drawn as a gradient pill, then fifteen destinations where expandable ones end in chevrons, Blogs carries a '9+' badge and 'AI Magic' a New badge; a header with the page title, four utility buttons and an avatar; a grid of twelve stat tiles, each pairing a soft-tinted glyph tile with a label and a value; a 'User Statistics' card showing the total under its title, a Today / 15 Days / 6 Months / This Year range switch and a smoothed area line whose hovered point drops a vertical guide to a 'Users: 395k' tooltip; a 'Recently Registered' list of avatar rows with relative times and an eye button each; a 'Top Selling Items' list pairing product thumbnails with a two-line title and a 'N Sales • N Reviews' line; a 'Sales Statistics' bar chart with the same range switch and a tooltip on the tallest bar; a 'Top Purchasing Countries' card pairing a world map with countries filled in different colours with a region select and a list of flagged countries, each with a value, a progress bar and a percentage; and a 'Device Visited' card showing a total with a green delta over Mobile and Desktop blocks that split their share between two platforms with paired bars."
+tags:
+  - "dashboard"
+  - "chart"
+  - "sidebar"
+  - "card"
+  - "list"
+  - "map"
+  - "e-commerce"
+  - "admin"
+usage: "use when an admin home must carry a dozen headline numbers at once — a dense tile grid where the glyph tint is the only decoration, one range switch repeated across every chart, and geography and device split shown as a map and paired bars rather than more tiles."

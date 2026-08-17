@@ -1,0 +1,12 @@
+title: "Assign Learners Wizard Step With Selection Chips"
+description: "Step three of a course-creation wizard, shown as a full-screen sheet: a header with a close ×, the wizard title, a centred 'Step 3 : Assign Learners' label with two progress dots, a 'Next: Completion' preview, a collapse control and a violet Continue button, over a three-segment progress rule whose first two segments are filled; a main pane titled 'Select learners' with a one-line instruction, a 'Learners 120' count beside a 'Search learners…' field, an 'Add Filter' and Sort pair on the left and an 'Enroll All' action with an 'Auto Assign' toggle switched on at the right, then a three-column grid of learner cards each pairing a photo or coloured initials avatar with the person's name above a hairline and two skill tags, the selected cards outlined dark with a filled check badge in the corner; and a right 'Assigned Learner' panel with a count chip and an 'Unselect All' link, listing each chosen person as a chip pairing their avatar and name with a × to remove them, plus a floating round help button in the corner."
+tags:
+  - "form"
+  - "modal"
+  - "education"
+  - "user"
+  - "list"
+  - "wizard"
+  - "selection"
+  - "stepper"
+usage: "use when a wizard step is a bulk selection — the step, its position and the next step named in the header, selection shown both as a badge on the card and as removable chips in a running panel, and a bulk 'select all' offered next to an automatic alternative."

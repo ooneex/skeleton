@@ -1,0 +1,12 @@
+title: "AI Agent Marketplace Search With Suggestion Chips"
+description: "A sourcing marketplace shown inside a browser chrome: a header with logo, Home / Products / Supplier / Business links, parcel, orders and search icons and a Login/Sign Up button; a left AI Agent panel with an overflow menu, the user's query shown as a right-aligned bubble beside their avatar, the agent's reply bubble under its named avatar, then an AI Suggestions card whose paragraph is followed by five tappable follow-up rows — find suppliers, market trends, source, compare suppliers, business analysis — each led by a search-sparkle icon and separated by hairlines, with a 'Describe your needs' composer carrying attach and send buttons at the foot; and a results area over a soft gradient headed 'Showing search results for \"adidas adizero\"' with a 'Results from 71000+ products and 4900+ supplier' line and an AI Suggestions label, a wrapped row of attribute filter chips ending in a 'more filters' chip, and a three-column product grid whose cards show the item on a pale tile above a five-star rating, a heart toggle, a two-line truncated title and a price."
+tags:
+  - "e-commerce"
+  - "chat"
+  - "card"
+  - "filter"
+  - "ai"
+  - "search"
+  - "suggestions"
+  - "marketplace"
+usage: "use when search is driven by conversation — an agent panel that keeps the transcript beside the results, follow-up questions offered as one-tap rows, and the model's attribute guesses exposed as removable chips above the grid."

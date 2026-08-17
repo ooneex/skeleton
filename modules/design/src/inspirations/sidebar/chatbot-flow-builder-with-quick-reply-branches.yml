@@ -1,0 +1,12 @@
+title: "Chatbot Flow Builder With Quick Reply Branches"
+description: "A conversational-bot builder in a browser window: a header with the wordmark, a Dashboard / Builder / Integrations / Settings nav whose active item is a tinted pill, a bell with an unread dot and a named account with email; a sub-header with a back arrow, a 'Flows / Store Assistant' breadcrumb and 'Preview Demo' and 'Publish Now' buttons; a floating Nodes palette with Step / Logic / Trigger / API tabs over draggable rows — Flow, Boolean, Set, Random, Exit — each pairing a glyph with its name and a drag handle; and a dotted canvas holding a blue 'Start Flow' pill wired into a Greeting node built from stacked blocks — an emoji block, a message block whose copy interpolates a {name} token, and three quick-reply option rows each ending in an output port — with wires from those ports fanning out to Catalogue, Package Tracking and Contact Us nodes, each itself a stack of text, link, input-capture and channel blocks, small '+' buttons sitting on every connector and the Contact Us branch drawn in green, plus recentre and zoom controls and a help button in the corners."
+tags:
+  - "editor"
+  - "chat"
+  - "interaction"
+  - "sidebar"
+  - "tabs"
+  - "canvas"
+  - "workflow"
+  - "drag-and-drop"
+usage: "use when a conversation is authored as a graph — message content composed from typed blocks inside the node, each quick reply owning the output port its branch leaves from, and '+' affordances on the wires so a step can be inserted where it belongs."

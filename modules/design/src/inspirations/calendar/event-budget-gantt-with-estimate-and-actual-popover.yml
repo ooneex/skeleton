@@ -1,0 +1,12 @@
+title: "Event Budget Gantt With Estimate And Actual Popover"
+description: "An event-budget planner: a dark navy sidebar with the brand mark, a team switcher, nine destination rows with the active Calendar tinted, and a user card at the foot; a header pairing the page title with a fiscal-year pager, a Quarter / Half / Year segmented control with Year selected, a 'Search Events' field, and download and settings buttons; a left table with EVENTS, ESTIMATED, INVOICE and OWNER columns, grouped under client captions, whose event rows are raised white cards pairing a disclosure chevron and the event name with two money columns and an owner portrait, and whose expanded events reveal indented line items — each a dot, a name and its two figures — hung off a tree line; and a right Gantt panel whose header stacks quarters over months over day numbers, with each event drawn as a coloured bar labelled with its date range and its line items as paler bars beneath, plus a hover popover pairing a thumbnail with the event name, its dated range, and Estimated, Actual and 'Remains to be spent' amounts above a 'View more' link, and a violet '+ Create Event' button floating in the corner."
+tags:
+  - "timeline"
+  - "calendar"
+  - "table"
+  - "finance"
+  - "sidebar"
+  - "list"
+  - "event"
+  - "gantt"
+usage: "use when a schedule must carry money as well as dates — a table of estimated against invoiced beside the bars, line items nested under their event in both panels, and a hover card that resolves a bar into estimated, actual and remaining."

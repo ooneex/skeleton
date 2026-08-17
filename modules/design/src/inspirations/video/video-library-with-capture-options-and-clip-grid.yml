@@ -1,0 +1,12 @@
+title: "Video Library With Capture Options And Clip Grid"
+description: "A dark screen-recording workspace: a left sidebar with a workspace switcher pairing a coloured initial tile with the account name and a chevron, a Search field, a nav list whose active Library row is a raised dark card, then Recently Deleted, Drafts and Published, with Feedback and Help pinned at the foot; a 'New Video' section of four wide action cards — Record Webcam, Share Screen, Upload, Start from scratch — each pairing a rounded glyph tile with a title and a helper line; and a 'Library' grid of video cards, each showing a thumbnail with a rounded duration badge in its lower-right corner and a footer row pairing a small circular avatar with the video title, the author's name and a relative timestamp, closed by an overflow menu, the last row clipped by the fold."
+tags:
+  - "video"
+  - "dark-mode"
+  - "card"
+  - "sidebar"
+  - "list"
+  - "gallery"
+  - "empty-state"
+  - "recording"
+usage: "use when creating is as important as browsing — the ways to start a new item spelled out as titled cards above the library, each with a helper line, and a thumbnail grid whose only metadata is duration, author and recency."

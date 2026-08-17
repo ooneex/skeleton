@@ -1,0 +1,12 @@
+title: "Team Inbox With Mentions And AI Assist Panel"
+description: "A four-column team messenger: a narrow icon rail with the brand tile, six destination glyphs and settings and an avatar at the foot; a Channel column with a panel-collapse button listing Your Inbox, an active Mention row, 'Created by you' and All, each with a right-aligned count, then a collapsible Forums group of #channels with counts, one expanded to show plain-text sub-topics and others carrying disclosure chevrons; a Mention column with search and add buttons, an 'All Message' filter and a 'Newest' sort, and conversation rows pairing an avatar or coloured initial with the sender, a clipped preview and a relative time, the open one raised as a white card; a thread pane headed by the correspondent's name with a star, mute, pin, an 'Inbox' state chip and an overflow, holding incoming messages under avatars and outgoing bubbles right-aligned with 'You' and a time, an image attachment with its caption inside the bubble, a typing indicator, and a text selection in the message body with a floating 'Use ChatGPT' action above it, over a composer with a 'Reply' mode select, the drafted text, camera, note, emoji, gift and overflow buttons and a split Send button; and a right panel with Detail / AI Assistance tabs, showing the question asked of the assistant, its answer with the key phrases emphasised, an 'Add to composer' button with an overflow, and a 'Smart AI Assistance for you' list of three suggested topics each pairing a tinted glyph with a title and a one-line summary, closed by a 'See all topic' link and an 'Ask anything' composer with mic and voice buttons."
+tags:
+  - "inbox"
+  - "chat"
+  - "sidebar"
+  - "list"
+  - "navigation"
+  - "interaction"
+  - "ai"
+  - "messaging"
+usage: "use when a messenger needs four levels of context at once — channels, a filtered mention list, the thread and an assistant — with selection in the message body offering an AI action in place and the assistant's answer insertable straight into the composer."

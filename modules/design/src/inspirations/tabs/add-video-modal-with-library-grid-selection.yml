@@ -1,0 +1,12 @@
+title: "Add Video Modal With Library Grid Selection"
+description: "An 'Add Video' modal floating over an illustrated cloud backdrop: a header pairing the title with a close ×, then an 'Upload Video' / 'Video Library' tab pair with the active library tab underlined in blue; a full-width 'Search Videos' field; a four-column grid of video cards, each showing a thumbnail with a radio selector in its top-left corner and a duration badge in its lower-right, captioned with the clip name and its date, where a few captions carry a trailing state glyph — an hourglass for processing or a red exclamation for a failure — and the last row is clipped by the scroll edge; and a footer bar with an outlined Cancel button beside a filled blue Add."
+tags:
+  - "modal"
+  - "video"
+  - "upload"
+  - "list"
+  - "tabs"
+  - "form"
+  - "selection"
+  - "grid"
+usage: "use when picking an asset offers both uploading and reusing — two tabs inside one modal, a searchable thumbnail grid whose radios sit on the image, per-item state glyphs beside the caption, and the commit action pinned in a footer bar."

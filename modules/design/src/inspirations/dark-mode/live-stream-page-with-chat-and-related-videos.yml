@@ -1,0 +1,12 @@
+title: "Live Stream Page With Chat And Related Videos"
+description: "A dark live-streaming page: a narrow icon rail with a brand tile and three grouped clusters of destination buttons, the active one filled blue; a top bar with a wide search field and a named avatar with a bell carrying an unread dot; a player filling the left column with a floating control bar that pairs a violet LIVE pill with pause, a progress track, an elapsed/total readout, volume, quality and layout buttons; beneath it a channel row pairing a verified avatar with the streamer's name, an online dot and a subscriber count, opposite dark Share and filled 'Liked' buttons; a three-line video title over two paragraphs of description; a stats column listing views, likes, concurrent streaming and start time, each led by its own glyph; and a right column with a Live Chat panel headed by a viewer count, scrollable messages pairing verified avatars with a name, a presence dot and the message text, and a 'Write your message' composer with an emoji button and a filled send, over a Related Videos list whose rows pair a thumbnail with a two-line title, the author and a views-and-age line, closed by a full-width 'See All related videos (32)' button."
+tags:
+  - "video"
+  - "chat"
+  - "dark-mode"
+  - "media-player"
+  - "list"
+  - "sidebar"
+  - "live"
+  - "social"
+usage: "use when a broadcast, its audience and its catalogue share one screen — a LIVE marker inside the control bar, chat and related videos stacked in a single right column, and engagement stats listed as their own glyph-led column rather than crowded under the title."

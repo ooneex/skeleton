@@ -1,0 +1,12 @@
+title: "Clinical Staff Directory With Duty Status Cards"
+description: "A clinical operating system's staff directory: a sidebar with a brand tile over the product name and a 'CLINICAL OS' subline, then a CLINICAL group covering dashboard, patients, medical records, appointments with a blue count, clinical notes, prescriptions and laboratory with a red count, an OPERATIONS group whose active 'Doctors & Staff' row sits in a tinted pill above billing, pharmacy and reports, a SYSTEM group with a counted Notifications and Settings, and a user card pairing an initials tile with the name and a 'Cardiology · Attending' line; a header with a breadcrumb over the page title, a Search field carrying a '⌘K' hint, a blue sparkle-led AI button, a bell with a red count and an initials avatar with a caret; four stat tiles pairing tinted glyph tiles with total staff, on duty, physicians and in surgery; a toolbar with a wide 'Search staff by name, role, or department…' field, 'All Departments' and 'All Status' selects, grid and list view toggles and a blue 'Add Staff' split button; then a three-column card grid where each card pairs a portrait carrying a green presence dot with the doctor's name, a 'Department · Speciality' line and an overflow, over three bordered figures for patients, today's load and rating, and a footer pairing a tinted duty pill with message and calendar buttons."
+tags:
+  - "card"
+  - "healthcare"
+  - "dashboard"
+  - "sidebar"
+  - "filter"
+  - "list"
+  - "status-pill"
+  - "directory"
+usage: "use when a roster is browsed rather than read as a table — each person carrying their load, today's count and rating on the card, duty state as a pill, and message and schedule actions on the card so contacting them never needs the record."

@@ -1,0 +1,12 @@
+title: "Nested Condition Filter Builder With Date Picker"
+description: "A leaderboard table behind an open Filters dialog: the table shows a header checkbox and User, Language, 'Game of Choice', 'Total Revenue', a sorted Added column and Trend, each header carrying its own overflow, with three rows ticked and tinted blue and the trend column rendered as green or red percentage pills; the dialog is headed 'Filters' with a close ×, and lays its rules out under Column, Operator and Values captions — the first row led by a static 'Where', the rest by AND/OR selects — where each rule pairs a typed column select (its glyph naming the data type), an operator select and a value control that may be a text field, a select, or a multi-value cell holding a removable tag and a '+3' overflow, with a delete button at the row's end; two rules are nested one and two levels deep, joined by drawn elbow connectors so the grouping is visible; the focused Date Added rule's value field has opened a month calendar with pager arrows and the chosen day filled blue; and the foot offers '+ Add Condition' and '+ Add Condition Group' links above Cancel and an apply button."
+tags:
+  - "filter"
+  - "modal"
+  - "table"
+  - "form"
+  - "calendar"
+  - "list"
+  - "query-builder"
+  - "nesting"
+usage: "use when filters need boolean structure — AND/OR chosen per row, nesting drawn with elbow connectors instead of indentation alone, the value control changing with the column's type, and adding a rule and adding a group offered as separate actions."

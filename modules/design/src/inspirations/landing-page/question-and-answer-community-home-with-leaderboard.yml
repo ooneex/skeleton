@@ -1,0 +1,12 @@
+title: "Question And Answer Community Home With Leaderboard"
+description: "A Russian-language question-and-answer community home drawn in a rounded device frame on a lilac ground: a header pairing the wordmark with a round theme toggle, a wide search field inviting a question, answer, topic or user, and a plain 'register' link beside a filled 'sign in' button; a left rail of three glyph-led cards for categories, asking and leaders, each closing on a chevron; a centre column titled 'members' questions' with a row of pill tabs — open, best, in voting — the first filled violet, beside a glyph-led difficulty select, over question cards that each pair an initials tile with a topic label and a difficulty chip keyed by colour, the question set over one or two lines and rendered green where it has been answered, then the asker's name, a relative time and view, like and answer counts with a chevron at the edge; a right column with a green 'ask a question' button, a 'leaders' list whose cards pair an initials tile with the member's name, their answer count and the field they answer in, and a 'see all' button; and a footer of three links opposite social glyphs."
+tags:
+  - "list"
+  - "landing-page"
+  - "feed"
+  - "filter"
+  - "card"
+  - "navigation"
+  - "leaderboard"
+  - "localization"
+usage: "use when a community's front page has to sort as well as list — state offered as pill tabs beside a difficulty select, answered questions coloured in the list itself, and the leaderboard naming each member's subject so credibility reads without opening a profile."

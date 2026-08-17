@@ -1,0 +1,12 @@
+title: "Marketing Intelligence Dashboard With Expandable Lead Row"
+description: "A marketing analytics console in soft grey: a left nav with Realtime Overview active, collapsible SEO, Paid Ads, Social Media and an open Data Sources group listing Google Analytics, Google Ads, Meta Ads and Social Platforms, then Reports and Settings, with a sun/moon theme toggle at the foot; a top search bar with bell and avatar; a six-cell KPI strip — Traffic, ROI, Conversions, Expenses, CTR, CPA — each pairing a value with a signed delta coloured green or red; a Trends card with a legend of three toggleable series, a 3M range select, three overlaid line series and a hovered vertical guide whose tooltip lists each series' change with the date marked in a pill on the axis; a tabbed Lead Quality table (Day on Day, Week on Week, SQR, Keyword Performance) with a column-settings icon, rows of date, company, email, a link cell, a NEEDS REVIEW / GOOD / NEUTRAL quality pill and country, unread rows marked by a leading dot, and one row expanded into an outlined detail panel listing Services Required as tags, Referrer Source with its campaign, an estimated Potential Revenue and an AI-flagged Lead Score, a Note with its timestamp and a New Note action, a circular 85 AI Score gauge, and a footer of View Campaign, Assign to Team and Archive Lead actions; and a right column of channel panels — Instagram with follower and interaction counts, a donut, a likes/comments/saves/shares list and a Top Posts thumbnail row, and X.com with followers, a dated bar chart and impression, engagement-rate and engagement rows, each headed by a 7D range select."
+tags:
+  - "dashboard"
+  - "chart"
+  - "table"
+  - "tabs"
+  - "sidebar"
+  - "crm"
+  - "expandable-row"
+  - "analytics"
+usage: "use when one screen must move from headline metrics to a single record — KPI deltas on top, a trend chart whose tooltip compares every series at one date, and a table row that opens into the full lead with its score, notes and next actions without leaving the list."

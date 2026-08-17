@@ -1,0 +1,12 @@
+title: "Video Call With Invite Counts And Group Chat"
+description: "A meeting screen in a rounded window: a narrow icon rail with the brand mark, five destination glyphs with the active camera in a mint tile with an edge marker, and an avatar at the foot; a header pairing a back button with the meeting title and a 'Team' chip; a status row reading 'Invited to the call: 6' and 'Absent people: 2', each count in its own pill, opposite a green '+ Add user to the call' action; a large speaker tile carrying a 'Publisher' label with the speaker's name and portrait top-left, a red-dotted 03:15 recording timer top-right, a column of four rounded participant thumbnails down the right edge — two badged with a red muted-mic and a green active-audio marker — a vertical volume slider on the left, and a control cluster of expand, mute, a red hang-up, camera and settings across the foot; a live transcript line beneath the video pairing a green waveform with a 'Now' label and the sentence being spoken; and a right panel headed 'Group Chat' with a Messages / Participants segmented pair, a scrollable thread of named grey bubbles with own messages tinted lilac, a system 'Started the call' entry with a phone glyph, a 'Martin is typing' indicator and a 'Write your message…' composer with a green send button."
+tags:
+  - "video"
+  - "chat"
+  - "tabs"
+  - "sidebar"
+  - "conference"
+  - "transcript"
+  - "controls"
+  - "presence"
+usage: "use when who is missing matters as much as who is present — invited and absent stated as counts above the video with an add action beside them, per-thumbnail mic and audio badges, and a live transcript line between the call and the chat."

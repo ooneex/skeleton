@@ -1,0 +1,12 @@
+title: "School Documents Table With Row Menu And Go To Page"
+description: "An education portal's documents page: a black top bar with the wordmark, six nav links — 'Student Groups' carrying a count badge and the active Documents drawn as a violet pill — then search, chat, a bell with a count and an avatar; a page title over a left folder list (Homework outlined as active, 'Student Books', Documents, Trash); and a documents card headed by the folder name with a 'Group' filter select, a 'Search by name' field, a settings button and a violet split 'Add' button, over a table with a header checkbox showing a dash for a partial selection and sortable NAME, 'CHANGE DATE' and SIZE columns, whose rows pair a leading overflow button and a checkbox with a violet folder glyph and a linked name, a date and a size, with three rows ticked and tinted and one row's overflow opened into a menu listing View, Share, Edit and Delete, the cursor resting on Delete; a footer pairs numbered pagination with an ellipsis and a Next button on the left with a 'To page' number field and a Go button on the right; and a full site footer carries four link columns, social icons, a Support button, a copyright line, a licence statement and a language select."
+tags:
+  - "file-manager"
+  - "table"
+  - "list"
+  - "menu"
+  - "pagination"
+  - "education"
+  - "navigation"
+  - "selection"
+usage: "use when a document table serves a long archive — a per-row overflow menu placed before the checkbox, an indeterminate header checkbox for partial selections, and pagination that offers a jump-to-page field alongside the numbers."

@@ -1,0 +1,12 @@
+title: "Week Schedule With Overlapping Event Cards"
+description: "A real-estate team's schedule: a floating header with the wordmark, a row of round icon buttons with the active Schedule shown as a filled violet pill with a label, a search and bell button and a named account with email; a left column holding an outlined 'Add Schedule +' button, a month calendar with pager arrows where the selected day and the range end are filled violet and the days between are tinted, a 'My Schedule' card listing Daily Tasks, Appointments, Meetings and Deadlines as checked rows with a collapse chevron, collapsed Favorites and Categories cards, and a card pairing an overlapping avatar row with a sync button; and a schedule pane headed by the month with a date-picker button, a Today pager, a search field and a filter button, over day columns headed 'Mon 14' through 'Mon 19' as separate rounded tiles with a GMT+3 label in the gutter, hour rows from 08:00 to 14:00, and events drawn as pastel rounded cards in lilac, peach and green that overlap and offset each other, each carrying a participant avatar, a two-line title and a time range, with a violet 'now' line crossing the grid at 11:00."
+tags:
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "navigation"
+  - "list"
+  - "scheduling"
+  - "avatar"
+  - "week-view"
+usage: "use when a week is genuinely overbooked — overlapping appointments offset as stacked pastel cards rather than squeezed into columns, each carrying the person it is with, and a mini calendar whose selected range is tinted between its ends."

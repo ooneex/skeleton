@@ -1,0 +1,12 @@
+title: "Grocery Storefront Home With Category Tiles"
+description: "A grocery shop's homepage: a header pairing the logo and its 'GROCERY' descriptor with a search bar whose leading select scopes it to a category, a support phone number with a '24/7' caption, and account, wishlist with a count badge and cart buttons where the cart shows both an item count and a running total; a second nav row led by a yellow 'SHOP BY CATEGORY' button, then icon-led dropdown links (Deals Today, Special Prices, Fresh, Frozen, Demos, Shop, Blog, Pages) with a 'Recently Viewed' link pinned right; a hero band over a faint botanical pattern holding a wide carousel slide with a two-line headline, a supporting paragraph, a Shop Now button and previous/next arrows, beside a yellow promo card carrying a '20% SALE OFF' headline, product details and its own Shop Now; a 'Browse by Category' shelf with an 'All Categories' link and carousel arrows showing eight tiles, each centring a two-tone line illustration above a two-line category name with the hovered tile lifted white; and the start of a 'Featured Brands' shelf with an 'All Offers' link and its own arrows over photographic product cards."
+tags:
+  - "e-commerce"
+  - "landing-page"
+  - "navigation"
+  - "card"
+  - "menu"
+  - "carousel"
+  - "grid"
+  - "search"
+usage: "use when a large catalogue must be entered by category — a search that scopes itself with a leading select, a cart that shows count and total together, and category tiles carrying illustrations so the shelf reads at a glance rather than as a list of words."

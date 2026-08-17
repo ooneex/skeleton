@@ -1,0 +1,12 @@
+title: "Sports Highlights Dashboard With Clip Table"
+description: "An AI video-highlights dashboard: a narrow icon rail on the left with the product mark, a collapse toggle beside the Dashboard title, five stacked destination icons with the active one in a tinted rounded square, and settings, help and avatar pinned at the foot; a full-width violet promo banner headed 'Generate automated highlights' with a supporting line, a white Generate New Highlights button, a cluster of overlapping circular match photos and carousel dots; a Completed / In Progress underlined tab pair; a toolbar with a file search, a list/grid view toggle, a Filter button and a primary Upload button; then a table whose rows pair a video thumbnail with a play badge and the fixture name against a timestamp column, a tinted 'N Highlights' count pill and a View Highlights text link; and a footer pairing a 'Showing 12 out of 180' page-size select with numbered pagination using an ellipsis and Previous/Next controls."
+tags:
+  - "dashboard"
+  - "table"
+  - "video"
+  - "tabs"
+  - "pagination"
+  - "sidebar"
+  - "banner"
+  - "toolbar"
+usage: "use when a processing queue is the product — a banner that states the one job to start, tabs splitting finished from running work, thumbnails proving each row is a real clip, and a footer where page size sits opposite the page numbers."

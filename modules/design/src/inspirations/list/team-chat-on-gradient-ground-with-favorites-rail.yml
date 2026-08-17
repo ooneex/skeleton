@@ -1,0 +1,12 @@
+title: "Team Chat On Gradient Ground With Favorites Rail"
+description: "A team messenger shown close up over a magenta and coral gradient that bleeds through its translucent sidebar: a brand tile beside a panel-collapse button, a Favorites group of document-led shortcuts for technical docs, campaign guidelines, rules and onboarding, a 'Main Menu' group of glyph-led rows for Dashboard, Campaigns, an active Messages in a tinted pill, 'Support Center', Leads and Archive, and a lime gradient card promoting a browser extension with an underlined 'Install Now'; a message column headed by a 'Messages / Team Chat' breadcrumb over a black '✎ New Message' button, then Channels, Drafts, Mentions and 'Files & Media' rows and a 'Direct Messages' list of portraits and names with the open correspondent tinted; a thread titled 'Chat with' the correspondent beside a filter button, holding a centred date pill, incoming lilac bubbles with the sender's name and time beneath and own cream bubbles right-aligned with their time, a three-dot typing indicator beside the correspondent's avatar, and a composer whose placeholder names the recipient, with a round plus and a Send button; and a Search field carrying a '⌘ /' hint."
+tags:
+  - "chat"
+  - "sidebar"
+  - "list"
+  - "messaging"
+  - "gradient"
+  - "navigation"
+  - "composer"
+  - "closeup"
+usage: "use when a chrome-heavy app still wants colour — a saturated gradient left visible only through a translucent rail, the working columns kept white, and pinned documents given their own Favorites group above the main menu."

@@ -1,0 +1,12 @@
+title: "Project Activity Inbox With Record Detail Pane"
+description: "A project tool's activity inbox in a browser window: a left sidebar with a workspace switcher and collapse button, Today and an active Inbox row, a Projects group whose entries are keyed by coloured app tiles, then Calendar, Templates, Reports, Trash, Settings and Help center, with 'Invite people' and 'API reference' pinned at the foot; a middle Inbox column headed by a view select with filter, mark-read and overflow buttons, a Search field and an Activity / Unread / Archive / Sent tab row, then notifications grouped under Pinned, Today, Yesterday and 'Last 7 days' captions, each entry pairing a project tile and name with a relative time above a one-line event written in plain language — a status change in quotes, a person tagging you, a new comment, subtasks assigned, an asset uploaded — with a pin glyph on pinned rows, an unread dot, and the selected row marked by a left accent bar; and a right detail pane headed by the record's icon and title with close, previous/next, pin, archive, overflow and a red delete button, an Overview / Messages / Attachments tab row plus a '+ New' action, then the record title with a one-line description, a nested project card headed by the space name with add-member, overflow and expand buttons, holding the brief's title, its author and age, and property rows for Date Created, Assign, Status as a chip, Priority as a red pill and Due Date, followed by a two-paragraph Description and a Subtasks list grouped under date headers whose rows pair a checkbox with the subtask, its time range and an avatar stack."
+tags:
+  - "inbox"
+  - "list"
+  - "detail-page"
+  - "sidebar"
+  - "tabs"
+  - "task"
+  - "notification"
+  - "activity"
+usage: "use when notifications are the way into records — each event written as one plain sentence naming the actor and the object, pinned and unread carried on the row, and the selected item opening a full read-write detail pane beside the list rather than replacing it."

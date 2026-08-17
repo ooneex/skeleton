@@ -1,0 +1,12 @@
+title: "Month Calendar With Event Cards And Attendee Stacks"
+description: "A project calendar: a left sidebar with the wordmark and a collapse button, a Search field, a MAIN group (Dashboard, Project Task, My Inbox, Meeting, an active Calender row in a grey pill) and an EXPLORE group (AI Assisten, Reports, Team, Setting), a Light Mode row with a toggle, and a user card showing name and role with a switcher chevron; a header with an Event / Calender / Planning breadcrumb, a collaborator avatar stack with an 8+ overflow and an Invite button; a page title with a one-line subtitle; a tab row of All Event, Public, Private and Task Area each led by an icon with the active one underlined, opposite a Today pager, a Filter button and a blue Add Event button; and a month grid of Mon–Fri columns with numbered day cells, past weeks drawn with a faint diagonal hatch, and events rendered as white cards that span into the next column, each pairing a status glyph — a clock, a green check or a red cross — with the event name, a time range or a clipped description line, and an avatar stack with an overflow count, plus one card showing an RSVP line reading '1 Going, 1 Awaiting'."
+tags:
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "tabs"
+  - "project-management"
+  - "navigation"
+  - "avatar-stack"
+  - "status"
+usage: "use when a month view has to carry state as well as timing — a status glyph on every event card, attendees shown as a stack with an overflow count, RSVP counts spelled out in words, and past weeks hatched so the current range reads first."

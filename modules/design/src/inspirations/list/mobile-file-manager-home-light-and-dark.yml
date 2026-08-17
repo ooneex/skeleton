@@ -1,0 +1,12 @@
+title: "Mobile File Manager Home Light And Dark"
+description: "Two phone frames of the same file-manager home, one light and one dark: a status bar over a bell and a hamburger, a large centred 'Homepage' title, a rounded 'Find files' search field, and a hairline-separated '6384 files · 7 folders' summary; then a three-column grid of flat folder marks in distinct colours — Music, Movies, Books, Pictures, Art, Docs and a grey Other — each captioned with its name and file count, except Movies, which is captioned 'Loading file…' and carries a blue three-dot progress badge on its corner; a round violet add button floats over a four-item bottom bar whose active home item is tinted. The dark frame repeats the layout on a slate ground and adds a white upload sheet sliding up from the bottom, headed 'Uploading file' with the destination folder named on its right, a violet progress bar and the filename beside its size."
+tags:
+  - "mobile"
+  - "file-manager"
+  - "dark-mode"
+  - "navigation"
+  - "upload"
+  - "list"
+  - "progress"
+  - "folders"
+usage: "use when a phone file browser must show background work — a per-folder loading caption and badge in place of the count, an upload sheet naming the file, its size and its destination, and the same layout proven in light and dark."

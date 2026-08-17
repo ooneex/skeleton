@@ -1,0 +1,12 @@
+title: "Course Library With Featured Cards And Filter Rail"
+description: "A learning platform's course library: a left sidebar with the product mark, a user card carrying avatar, name, email and an overflow menu, a collapsible Dashboard group listing Home, Course, AI Assistant with a New pill, Assignments, Community with a count and Transactions, a Latest course group whose three entries each carry a coloured app tile, Settings at the foot and an 'Need an AI overview?' promo card with a Start Session button; a header with the page title, a search field showing its ⌘+K hint, chat and bell buttons and a sun/moon theme toggle; a My course / Library / Ended course tab row with the active one underlined; a tinted Find Your Next Course banner; a collapsible Featured Course section of three wide cards pairing a 3D thumbnail with a title, a two-line summary and a 'N module • N Lessons' footer beside an avatar stack; and a Featured learning grid of six cards with 3D illustrations, one flagged New, each showing duration and lesson count, with a grid/list toggle above and a right column holding a Filters card with a 'Clear filter (2)' link, a Categories checkbox group with two ticked, collapsed Format and Duration groups, and a 'Save 30% on Pro Courses' offer card."
+tags:
+  - "education"
+  - "dashboard"
+  - "sidebar"
+  - "card"
+  - "filter"
+  - "tabs"
+  - "dark-mode"
+  - "promotion"
+usage: "use when a catalogue of learning content needs browsing and filtering at once — featured rows above a grid, duration and lesson counts on every card so effort is legible before the click, and a filter rail that shows how many filters are active and how to clear them."

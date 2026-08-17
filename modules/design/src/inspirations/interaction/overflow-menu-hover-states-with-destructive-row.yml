@@ -1,0 +1,12 @@
+title: "Overflow Menu Hover States With Destructive Row"
+description: "A four-up state study of one overflow menu on a pale ground, with the three-dot trigger button shown separately: each panel is a white rounded card listing Edit and 'Invite co-worker' above a hairline, then Delete, every row pairing a grey outline icon with its label. The first panel is the resting state with no row highlighted; the second shows Edit hovered as a grey filled lozenge with the cursor on it; the third shows 'Invite co-worker' hovered the same way; and the fourth shows Delete hovered, where both the icon and label turn red and the lozenge is tinted pink, so the destructive action announces itself only on hover."
+tags:
+  - "menu"
+  - "interaction"
+  - "component"
+  - "hover"
+  - "states"
+  - "context-menu"
+  - "destructive"
+  - "minimal"
+usage: "use when documenting a menu's interaction states — one panel per state, a neutral grey hover for safe rows, and the destructive row shifting to red text, red icon and a tinted background rather than being coloured at rest."

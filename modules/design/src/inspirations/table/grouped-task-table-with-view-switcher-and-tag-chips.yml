@@ -1,0 +1,12 @@
+title: "Grouped Task Table With View Switcher And Tag Chips"
+description: "A task workspace shown close up: a sidebar with the product logo and a panel-collapse button, a Search field, a Platform group holding Home, Dashboard with a bracketed count, an active Task row tinted with a trailing chevron, Calendar and Analytics, a Documents group holding File, Folder and Settings, a dismissible 'Starter Plan' card offering an 'Upgrade now' button, and a user card with an avatar, presence dot, name, email and overflow; a header pairing the page title with search, mail and bell glyphs — the bell carrying a dot — and an orange '+ New' button; a Board / List / Table / Timeline view switcher whose active Table is glyph-led and underlined orange, opposite Filter, Sort and a date button; then the work grouped by state, each group headed by its own glyph, name and count for Todo, 'In Progress' and 'In Review', and each group rendering its own table with a header checkbox and sortable 'Task Name', Detail, Tags, 'Timeline date' and People columns, whose rows truncate the detail text, carry one or two tinted tag chips, a date and an overlapping avatar stack."
+tags:
+  - "table"
+  - "task"
+  - "list"
+  - "sidebar"
+  - "tabs"
+  - "grouping"
+  - "chips"
+  - "view-switcher"
+usage: "use when status is the grouping rather than a column — a separate table per state with its own header and count, the same columns repeated in each, and a view switcher that keeps board, list, table and timeline as peers over one data set."

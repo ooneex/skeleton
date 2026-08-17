@@ -1,0 +1,12 @@
+title: "App Picker Dropdown With Most Used And Popular Columns"
+description: "An integration picker floating as a rounded white panel: a narrow icon rail down its left edge holding five category buttons with the home button raised and selected; a borderless Search field across the top with ⌘ and K chips on the right; and a body split into two labelled columns — 'Most Used Apps' listing Slack, Google Drive, Gmail, Google Sheets, Outlook and Excel with their brand logos in rounded tiles, the hovered Slack row filled grey under the cursor, and 'Popular' listing AI Agent, Knowledge Base, Python, If/Else, Delay and Text-to-SQL with neutral monochrome glyph tiles, so third-party apps and built-in logic steps read as different kinds of thing."
+tags:
+  - "menu"
+  - "navigation"
+  - "modal"
+  - "interaction"
+  - "list"
+  - "search"
+  - "integrations"
+  - "hover"
+usage: "use when a picker offers both connected apps and built-in steps — two labelled columns instead of one long list, brand logos for third-party items against neutral glyphs for native ones, and a category rail that filters without collapsing the panel."

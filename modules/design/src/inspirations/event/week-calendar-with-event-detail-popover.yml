@@ -1,0 +1,12 @@
+title: "Week Calendar With Event Detail Popover"
+description: "A team calendar: a left sidebar with the wordmark, a Search field with a ⌘ chip, a MAIN MENU list whose active Calendar row is a tinted pill, a LATEST PROJECTS group pairing each project's icon and name with a coloured state pill — Progress, Planing, Completed — a LATEST MESSAGE list of contacts with relative times, and a user card with name and role at the foot; a header with the page title, chat and bell buttons, a violet Add Project button and a sun/moon theme toggle; a toolbar with month back/forward arrows, the current month, a Today button, a Day/Week/Month segmented control, a Filter button and an All Assignees picker; a week grid with a GMT+7 gutter, seven day columns with the current day's header highlighted, hour rows from 08:00 to 14:00, and events drawn as pastel blocks tinted per project, each showing its time range, title and an overlapping avatar stack with a +8 overflow; and, floating over the grid, an event popover pairing a red date tile with the event name and its project path, a Close ×, an Attendees row of two named avatar chips, a location line, a second Attendees row rendered as coloured dots with one ringed as selected, a Notes field holding the agenda, and Edit and Delete buttons split across the foot."
+tags:
+  - "calendar"
+  - "event"
+  - "modal"
+  - "sidebar"
+  - "project-management"
+  - "popover"
+  - "avatar-stack"
+  - "scheduling"
+usage: "use when a week grid must support reading and editing without a route change — events tinted by project, attendees shown on the block itself, and a popover that opens in place with the notes editable and destructive and safe actions separated at the foot."

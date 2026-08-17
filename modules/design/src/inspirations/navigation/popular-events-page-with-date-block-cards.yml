@@ -1,0 +1,12 @@
+title: "Popular Events Page With Date Block Cards"
+description: "A spare events browser on a soft grey ground: a header with the wordmark, four text nav links with the active Events underlined in amber, and a named account with a chevron and a round portrait overlapping the header's edge; a 'Popular Events' heading beside a 'This month' select; a row of four category cards, each little more than a thin coloured ring above a category name and an event count; and a row of event cards, each led by a coloured left rule and a date block pairing a large day number with the weekday and month-year beneath, then the event title and a 'Starts at …' time line, and a footer row of overlapping attendee avatars closed by a coloured '+N' count tile matching the card's rule; a thin scrollbar sits at the right edge."
+tags:
+  - "event"
+  - "card"
+  - "dashboard"
+  - "navigation"
+  - "list"
+  - "minimal"
+  - "avatar-stack"
+  - "typography"
+usage: "use when events should read as a calendar rather than a feed — a date block leading each card, a colour rule tying the card to its category, and attendance shown as an avatar stack ending in a matching overflow count."

@@ -1,0 +1,12 @@
+title: "Survey Designer With Page Sections And Tools Panel"
+description: "A survey design workspace in a rounded window on a lilac ground: a top bar with an app-grid glyph, a centred wordmark and help, then a second bar pairing a back arrow, a survey-version select and a mint 'Live' pill with an overflow, an avatar stack, a 'Share' button, a violet 'Publish', a comment count and an outlined 'Preview ↗'; a left nav listing Overview, an active 'Design survey' in a bordered pill, 'Quality assurance', Fieldwork and Data, then 'Project settings' and 'Activity log' beneath a rule with a '|← Collapse' button at the foot; a centre canvas headed 'Section 1: Demographics' with a star and overflow, holding a Page 1 group whose selected question block is outlined blue and carries logic, settings, a 'Single select' type select, a comment count and an overflow, the question set with one word bolded, a Responses caption with a 'Search responses' field and a 'Create group' link, numbered answer rows with drag handles, selects, overflow, settings and remove, and a 'Response text' row with a 'Batch' button, followed by a pink logic strip naming the rule and further pages holding collapsed questions; and a right 'Other tools' panel of glyph-led cards for concept groups, custom variables, system content, quotas, termination codes, lookups, localization and sample sources, each with a description line."
+tags:
+  - "form"
+  - "editor"
+  - "sidebar"
+  - "list"
+  - "navigation"
+  - "builder"
+  - "panel"
+  - "questionnaire"
+usage: "use when a long document is edited section by section — pages as nested groups that collapse, the selected block outlined rather than lifted, logic shown as its own coloured strip in the flow, and everything optional pushed to a tools panel."

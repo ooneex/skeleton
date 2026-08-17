@@ -1,0 +1,12 @@
+title: "List And Menu Component Set On Blue Ground"
+description: "A set of small list and menu components floated as white cards on a flat blue ground: a people list pairing initials tiles or avatars with names and one row tinted as selected; a status list whose rows are keyed by a coloured dot for Done, 'In progress' and Delayed; a folder list of pale glyphs with a selected row; a tall card stacking three sections — a 'SELECT AIRLINES' group of checkbox rows with an airline name and a right-aligned count plus a blue '+ Add new', a PASSENGERS group of initials tiles and names, and an EDIT context menu with Copy showing a '⌘ C' shortcut, a greyed-out Paste and a 'More' row with a submenu arrow; a folder list whose rows carry a name, a 'N files' subline and a disclosure arrow with the open row filled solid blue; a file list pairing photo thumbnails with file names, one row tinted and named with its extension; and a settings card of plain rows ending in 'Mute this author' with an ON label beside a blue toggle."
+tags:
+  - "list"
+  - "menu"
+  - "file-manager"
+  - "component"
+  - "checkbox"
+  - "context-menu"
+  - "toggles"
+  - "selection"
+usage: "use when specifying how a list row behaves rather than a whole screen — selected, hovered and disabled states shown side by side, counts and shortcuts right-aligned, and submenus and toggles drawn on the same row grid as plain items."

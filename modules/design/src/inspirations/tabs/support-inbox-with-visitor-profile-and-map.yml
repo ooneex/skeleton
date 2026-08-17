@@ -1,0 +1,12 @@
+title: "Support Inbox With Visitor Profile And Map"
+description: "A customer-support console: a left sidebar with the product mark, a Dashboard row, an expanded Inbox group whose active 'Live Conversations' child is a blue pill above Agents, Tickets and Views, then a 'Zuno AI Agent' row and collapsible Flow, Customers and Analytics groups, with Integrations and Setting at the foot; a header with a wide Search field, help and bell buttons and a green outlined Upgrade button; a tab row of 'My Open', Unassigned and 'My Solved', each led by a glyph with the active one underlined; a 'Your Inbox' column with a view label, a channel select showing the messenger's brand logo, a Search field and conversation rows pairing an avatar with a presence dot with the visitor's name, a clipped preview and a timestamp, the open one tinted; a transcript pane with a dated divider, incoming grey bubbles under the visitor's avatar and outgoing blue bubbles right-aligned, each timestamped beneath, an unread dot beside one reply, and a composer with attach and image buttons and a blue send arrow; and a right Overview panel with a collapse chevron, a 'User Information' block listing the visitor's name and glyph-led Phone, 'Visitor Type', Gender and Location rows, a static map thumbnail with a 'See All' link, an Email link, a 'User Ticket' block with a '+ Create Ticket' action and a collapsed Tag section."
+tags:
+  - "inbox"
+  - "chat"
+  - "crm"
+  - "sidebar"
+  - "tabs"
+  - "list"
+  - "detail-page"
+  - "map"
+usage: "use when an agent must answer and qualify at the same time — queue tabs for open, unassigned and solved, the channel named by its own logo on the list, and a visitor panel that turns identity, location and ticket creation into one column beside the transcript."

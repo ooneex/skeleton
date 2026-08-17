@@ -1,0 +1,12 @@
+title: "AI Chat Start Screen With Dated History"
+description: "An assistant's start screen: a left sidebar with the wordmark and a collapse button, a filled orange 'New Chat' button carrying its ⌘N shortcut, three destinations (Explore, Knowledge Base, Templates), then a conversation history grouped under TODAY, YESTERDAY and AUGUST captions with each thread shown as a single truncated line and the oldest entries faded out to imply the list continues, a Settings row and a user card showing name and plan with a switcher chevron; a header with a model select reading 'Cognivo Core v1', an overflow menu, a copy-link button and a Share button; and a centred canvas holding an 'Upgrade free plan to full access' pill, the product mark, a large headline, a composer whose 'Ask me anything…' field sits above a toolbar splitting a selected 'Deeper Research' toggle and two mode buttons on the left from model, web, attach, voice and a filled send button on the right, a tinted strip beneath it offering to connect tools with a stack of service logos and a chevron, three capability cards each pairing an icon with a title and a two-line explanation, and a fine-print disclaimer with a Cookie Preferences link, plus floating translate and help buttons in the corner."
+tags:
+  - "chat"
+  - "sidebar"
+  - "card"
+  - "onboarding"
+  - "navigation"
+  - "ai"
+  - "empty-state"
+  - "history"
+usage: "use when the assistant's value has to be shown before the first prompt — history grouped by day so returning is one click, research and tool modes exposed on the composer itself, and capability cards that describe outcomes rather than features."

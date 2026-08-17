@@ -1,0 +1,12 @@
+title: "Kanban With Checklist Counts And Project Banner"
+description: "A project board in a rounded app window: a left sidebar pairing the product mark with a 'Free Trial' line and a collapse button, a 'MAIN MENU' group (Search, Calendar, Timer, a Notification row with a '99+' badge, Settings), a 'MY PROJECTS' group whose entries each carry a drag handle and a coloured app tile with one showing a count badge, an ACCOUNTS group with an add button and the signed-in user, and a gradient 'Upgrade to Pro!' card with a rocket illustration and an 'Upgrade Now' button; a header with a back/forward pair, a 'My Projects / Formhaus Project' breadcrumb, a collaborator avatar stack, an Invite button, a star toggle and an overflow; a wide iridescent project banner carrying the project name and a one-line description; a view tab row — Kanban, Table, List, Timeline, each led by a glyph with the active one underlined — beside a Search field, a Filter button and a violet '+ New Task' button; and four columns headed by a ring glyph, a name and an add button — Backlog, 'On Progress', 'Need Review', Completed — holding cards that open with a dot-keyed priority pill in green, amber or red, then the task title, a clipped description, and a footer pairing a checklist count like '4/8' with a small avatar stack."
+tags:
+  - "kanban"
+  - "task"
+  - "project-management"
+  - "sidebar"
+  - "tabs"
+  - "card"
+  - "banner"
+  - "progress"
+usage: "use when board cards should show how far along they are — a checklist count as the card's only progress signal, priority carried by a dot-keyed pill above the title, and a project banner and description sitting above the view switcher."

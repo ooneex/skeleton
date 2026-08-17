@@ -1,0 +1,12 @@
+title: "School Admin Dashboard With Institute Banner"
+description: "A school-management dashboard shown on a laptop: a left sidebar with the wordmark, an active Dashboard row marked by a tinted fill and a left accent bar, and collapsible Institute, Attendance, Examination, Billing, Accounts and Settings groups each with a chevron; a top bar reading 'Welcome to Smart Pathshala' opposite a bell and an institution chip whose click has opened a small Sign Out menu; a gradient hero banner carrying the academy's name with its founding year, icon-led address, email and phone lines and the school crest; a row of four pastel stat tiles, each pairing a coloured circular icon with a label, a large count and a 'See Details ›' link; a Bills & Payment card holding a table of Date, Opening, Collection, Expenses and Closing with zebra-striped rows; an Exam Results card naming the examination term with a donut whose centre reads the total and whose two segments are annotated with 13% Fail and 87% Pass callouts over a passed/failed legend; and the tops of Resident and Book Information cards with a month pager appearing at the fold."
+tags:
+  - "education"
+  - "dashboard"
+  - "sidebar"
+  - "table"
+  - "chart"
+  - "card"
+  - "menu"
+  - "admin"
+usage: "use when an institution's back office opens on a summary — an identity banner carrying the contact details, pastel count tiles that each link onward, and a results donut annotated with its percentages instead of relying on the legend alone."

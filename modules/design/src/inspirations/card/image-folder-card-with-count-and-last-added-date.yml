@@ -1,0 +1,12 @@
+title: "Image Folder Card With Count And Last Added Date"
+description: "A single folder object isolated on a faint cross-hatched ground: a rounded violet folder drawn as a back tab with a white sheet peeking above a translucent front panel, the panel carrying the folder name in bold white, a '318 images' count beneath it, a circular overflow-menu button in its top-right corner, and a small 'Last added time Oct 13, 2025' line pinned to its bottom edge — the whole shape lit by a soft gradient so the front panel reads as frosted glass over the folder body."
+tags:
+  - "file-manager"
+  - "card"
+  - "folder"
+  - "component"
+  - "overflow-menu"
+  - "metadata"
+  - "gallery"
+  - "surface"
+usage: "use when a folder tile must carry its own metadata — the item count directly under the name, the last-changed date pinned to the foot as the recency signal, and a single overflow menu instead of a row of hover actions."

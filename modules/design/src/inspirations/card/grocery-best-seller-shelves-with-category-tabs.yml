@@ -1,0 +1,12 @@
+title: "Grocery Best Seller Shelves With Category Tabs"
+description: "Two product shelves from a grocery storefront: each section pairs a bold heading — 'Best Seller' then 'Just Landing' — with a row of category tabs (All, 'Fruits & Vegetables', 'Frozen Seafoods', 'Raw Meats', 'Coffes & Teas', 'Pet Foods', 'Milks & Dairies') and carousel arrows on the right; the Best Seller shelf leads with a tall featured card carrying the brand name, the product as a blue link, a star rating with its review count, a pack size, a price, a minus/quantity/plus stepper with a running 'Total' beside it and a yellow 'Add To Cart' button, followed by a row of plain product cards showing the packshot on white with a red 'Save N%' ribbon where discounted, then the brand, the linked product name, a star rating with its review count in brackets, the pack size and a green price with the original struck through beside it; the 'Just Landing' shelf repeats the plain card anatomy without ribbons, and three promotional colour tiles begin at the fold."
+tags:
+  - "e-commerce"
+  - "card"
+  - "list"
+  - "tabs"
+  - "carousel"
+  - "product"
+  - "rating"
+  - "grid"
+usage: "use when a shelf must be filtered without leaving the page — category tabs and arrows in the section header, one featured card carrying the quantity stepper and running total, and plain cards where rating, pack size and the struck-through original price do all the persuading."

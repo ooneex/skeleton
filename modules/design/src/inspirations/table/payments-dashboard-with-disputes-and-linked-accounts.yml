@@ -1,0 +1,12 @@
+title: "Payments Dashboard With Disputes And Linked Accounts"
+description: "A merchant payment-protection dashboard: a white sidebar card with the wordmark, a 'Hi, Mark' greeting with a verified 'Self Service' line, bell and settings buttons, a nav list where Orders and Disputes carry expand chevrons, and a signed quote block with a 'Chat with us' link at the foot; a trial banner pairing a '2 days left' pill with its message and an Upgrade Plan button; a deep-blue hero card reading 'Total Revenue Protected' with a large amount, an info icon, a 'You saved 45% more than last month' badge, an area chart with right-aligned axis values and a 'Payday in 14 days' footnote; three dispute cards — Open, Active, Recovered — each pairing a count with a signed 'vs last month' delta and a green or red sparkline plus an eye toggle; a Recent Orders table with sortable columns for order id, date, total, store shown as a logo with its contact email, a tinted fulfilment pill (Fullfilled, In Transit, Overdue), carrier, and paid and sync columns rendered as check, cross or trend glyphs, headed by a 'You have 30 new transaction for this month' note; and a right column with a Linked Accounts accordion grouping connected stores under Ecommerce with per-row delete buttons and a refresh control, collapsed Paypal Account and Other Integration sections and an Add Account button, over a 'Coming Up' month calendar marking several dates in filled circles."
+tags:
+  - "finance"
+  - "dashboard"
+  - "chart"
+  - "table"
+  - "sidebar"
+  - "calendar"
+  - "card"
+  - "notification"
+usage: "use when money and exceptions share a screen — a hero that states the protected amount and when it pays out, dispute counts each carrying their own trend, and connected sources managed in an accordion so adding an account never leaves the dashboard."

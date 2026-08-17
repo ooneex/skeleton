@@ -1,0 +1,12 @@
+title: "Omnichannel Inbox With Contact Profile Panel"
+description: "A four-column omnichannel inbox: an icon rail with the brand mark, seven destination glyphs and an avatar with a presence dot; an Inbox column headed by the connected mailbox address with an overflow, counted rows for Email, Chats, Scheduled, Assigned, Closed, Starred and Archived, then a collapsible Channels group whose rows pair the real Gmail, Telegram, WhatsApp and Messenger logos with unread counts; a Messages column with a compose button, a 'Search message' field, a 'Newest' sort select, and conversation rows pairing a portrait badged with the channel it arrived on with the sender's name, a two-line preview, attachment and star glyphs and a relative time, the open row tinted; a thread headed by the correspondent's avatar, name and 'last seen recently' with sparkle, call, link, search and overflow buttons, holding a 'Today, Jun 20' date pill, incoming white and own blue bubbles each labelled with sender and time, a thumbs-up reaction pinned under one bubble, and a composer with a plus, a 'Write your message…' field and format, AI, video, mic, snippet and send controls; and a dismissible contact panel centring the portrait with a presence dot, the name and a copyable email over call, video and overflow buttons, then collapsible About, Address and 'Upload attachments' sections whose rows are labelled key-value pairs and PDF cards with download buttons."
+tags:
+  - "inbox"
+  - "chat"
+  - "list"
+  - "sidebar"
+  - "detail-page"
+  - "profile"
+  - "messaging"
+  - "integrations"
+usage: "use when replies arrive from several networks at once — each conversation row badged with the channel it came from, the channels themselves counted in the rail, and the correspondent's record kept open beside the thread so details never need a second screen."

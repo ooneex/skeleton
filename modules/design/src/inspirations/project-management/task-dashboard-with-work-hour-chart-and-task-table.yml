@@ -1,0 +1,12 @@
+title: "Task Dashboard With Work Hour Chart And Task Table"
+description: "A project workspace home: a left sidebar with the wordmark and collapse button, a workspace switcher, a nav list with the active Dashboard row outlined, a Projects group with an add button whose entries are keyed by coloured squares, and Help Center, Settings and Invite Users at the foot; a header greeting with the date, chat and bell buttons and a named avatar with role and an online dot; three cards across the top — Current Total Task showing 558 with a '+12% vs yesterday' delta, a segmented proportion bar and a legend table of state, conversion delta and task count with a View all tasks button; Work Hour Analysis showing today's total, a 1D/1W/1M/6M/1Y range switch and a two-line area chart with a hovered guide whose tooltip compares Today against Average; and a mini calendar with a month pager, a scrollable weekday strip with the selected day filled, and two meeting cards each carrying a date line, an avatar stack with a '+4 People' count and pills for the to-do count and duration; then a view switcher of Table, Gantt view, Calendar view and Kanban view beside a month picker, Filters, a 'Nearest Due Date' sort and a New button, over a task table with a header checkbox and columns for task name, project, assignee avatars, due date, a tinted status pill (In Progress, Completed, On Review, To Do) and a percentage with a progress bar, each row ending in an overflow menu."
+tags:
+  - "project-management"
+  - "dashboard"
+  - "task"
+  - "chart"
+  - "table"
+  - "calendar"
+  - "sidebar"
+  - "tabs"
+usage: "use when a work dashboard must summarise, schedule and list in one screen — a proportion bar backed by a legend that quantifies every state, a chart comparing today against the average, and a task table sitting under a switcher that offers the same data as Gantt, calendar or kanban."

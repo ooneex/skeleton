@@ -1,0 +1,12 @@
+title: "Product Recommendation Carousels With Scroll Rails"
+description: "Two stacked recommendation shelves from a product page, isolated on a yellow board: a 'Similar Items You Might Like' heading over four product cards, each showing the item on a pale grey tile with an outlined heart toggle in its top-right corner, then the product name beside a price whose cents are set as a superscript, a one-line spec, a green five-star rating with its review count in brackets, and an outlined pill 'Add to Cart' button — the shelf closed by a thin horizontal scroll rail whose dark thumb covers about a third of the track; and beneath it a 'Rencently Viewed' shelf built identically, its second card's Add to Cart shown in the filled dark hover state and one card's rating drawn with a half star, closed by its own scroll rail."
+tags:
+  - "e-commerce"
+  - "card"
+  - "list"
+  - "carousel"
+  - "recommendations"
+  - "component"
+  - "rating"
+  - "hover"
+usage: "use when a product page ends in several horizontal shelves — a visible scroll rail instead of arrows so the overflow is obvious, identical card anatomy across shelves, and one hover state shown so the primary action reads as a button rather than a label."

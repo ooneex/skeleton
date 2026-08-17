@@ -1,0 +1,12 @@
+title: "Activity Area Chart With Chart Type Select And Compare Tooltip"
+description: "An analytics chart panel shown close up: a title reading 'Activity growth - Integration breakdown' with an info glyph over a one-line explanation that the figures are period over period; a tab row of Overview with a caret, 'Github Super users', Slack and Customers, opposite a 'Views (6)' select; a toolbar pairing a group of stacked integration logos with a caret, a 'Filters' button, an open chart-type select whose menu lists Line, 'Stacked column', Area — highlighted as current — and 'Stacked area', and a '1 Jan 2022 to 31 Dec 2022' date-range button; a legend of three series each naming its source and repeating that source's own logo; then a monthly area chart with soft gradient fills in violet, blue and red, an axis labelled 'activity count', a crosshair dropped on the hovered month with its point ringed, and a hover card naming the source, the metric 'reaction added', the month in caps, the activity total, a red signed delta and a 'COMPARED TO' block giving the previous month's figure against a dotted marker; a M / Q / Y granularity switch sits at the top right of the plot, and a 'Chart data' section header with an Export button closes the panel."
+tags:
+  - "chart"
+  - "filter"
+  - "tabs"
+  - "tooltip"
+  - "area-chart"
+  - "comparison"
+  - "analytics"
+  - "closeup"
+usage: "use when the reader chooses how to draw the data — chart type offered as a select rather than fixed, series identified by the integration's own logo in both legend and tooltip, and every hover stating the previous period beneath the current one."

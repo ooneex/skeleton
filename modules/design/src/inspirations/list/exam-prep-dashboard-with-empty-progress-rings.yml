@@ -1,0 +1,12 @@
+title: "Exam Prep Dashboard With Empty Progress Rings"
+description: "A paramedic certification study dashboard in a desktop window: a top card split by hairlines into four cells — the learner's portrait beside a qualification chip, their name and age, a daily-experience progress bar reading '0 of 60'; a '53 Days Until Exam' figure; a '17 Questions Answered' figure; and a tinted 'Study Sugestions' cell pairing an illustration with its label; a 'Progress View' / 'Focus Units' tab pair with the active one underlined, opposite a dark 'Create Custom Quiz' button; a 'National Registry Exam Summary' panel holding three white tiles — an Average Time shown as an em-dash placeholder because no data exists yet, an Exams count of 0 and a days-until-exam figure — under a centred line stating that no simulator exams have been taken with a 'Start one now →' link; and a two-row grid of six subject cells, each pairing a progress ring reading 0 with a subject name, a two-line description and an outlined Complete button."
+tags:
+  - "education"
+  - "dashboard"
+  - "card"
+  - "chart"
+  - "tabs"
+  - "profile"
+  - "list"
+  - "empty-state"
+usage: "use when a dashboard has to work before any data exists — placeholders drawn as em-dashes and zeros rather than blank tiles, an explanatory line naming why the panel is empty with the action that fills it, and progress rings kept in place at zero."

@@ -1,0 +1,12 @@
+title: "Cloud Folders With Context Menu And Info Panel"
+description: "A cloud storage app: a narrow icon rail with the brand tile and eight destination glyphs, the active one in a violet tile; a header pairing a hamburger and the page title with a wide Search field carrying a '/' chip, a bell with an unread dot and an avatar; a folder tree sidebar captioned FOLDERS whose rows each pair a folder glyph with a name and a chevron, one expanded to show four indented children joined by a dashed tree line, then a Trash row and a Storage meter at the foot showing a percentage over a violet bar; a main pane with its own search field and a violet Upload button, a 'Folders' grid of large folder tiles labelled with their name and size — one tile lifted under the cursor with an open context menu grouping Share and 'Sharing Link', then Download, Rename, Copy and Move, and a red Delete below a divider — beside a dashed 'New Folder' tile, and a 'Files' grid of document tiles carrying real application icons with their filename and size; and a right details panel showing a large folder illustration and the folder name over an INFO list pairing Type, Size, Owner, Location as a link, Modified and Created with their values, and a SETTINGS list toggling File Sharing on with Backup and Sync off."
+tags:
+  - "file-manager"
+  - "sidebar"
+  - "menu"
+  - "list"
+  - "settings"
+  - "upload"
+  - "context-menu"
+  - "storage"
+usage: "use when a drive must show hierarchy, contents and properties at once — a tree with a storage meter on the left, tiles whose right-click menu groups sharing, file operations and deletion by hairline, and an inspector that mixes read-only facts with per-folder toggles."

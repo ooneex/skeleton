@@ -1,0 +1,12 @@
+title: "Product Item Library With Variant Editor Panel"
+description: "A bakery's menu editor on a purple ground: a sidebar with a script wordmark over Dashboard, Profile, an active 'Item Library' in an amber pill, Finance and Supply, then an avatar carrying a count badge with the owner's name, and Setting and Log Out beneath a rule; a header pairing the page title with an 'Item: 4' readout, an outlined Import and a filled 'New Item'; a left column headed by a 'Category : All Categories' select, a small Search field and list and grid view toggles, over item cards that pair a product photograph with the item name, a two-line description and a price, each carrying edit and delete buttons and the selected card outlined violet; and a right 'Item Details' panel headed by a 'Display on Store' label beside a green toggle switched on, holding a thumbnail with a 'Choose image' overlay beside floating-label fields for the item name and a description with a character counter, a Price field and a Category field whose open dropdown shows the chosen category as a removable chip over an 'Add new category' input with a violet + button, then a dashed '+ Add Variant' button and a 'Variant : 01' block with a red Delete link, a 'Variant Name' field, a Mandatory / Optional radio pair with a 'Max. Pick' number, option rows pairing an option name with its additional price and a delete button, an '+ Add Option' link, and a Cancel beside a filled 'Save Item'."
+tags:
+  - "form"
+  - "e-commerce"
+  - "list"
+  - "sidebar"
+  - "editor"
+  - "card"
+  - "variants"
+  - "toggle"
+usage: "use when catalogue items are edited beside the list they belong to — the selected card outlined rather than replaced, variants added as repeatable blocks each with their own options and surcharges, and publishing controlled by a single toggle at the head of the form."

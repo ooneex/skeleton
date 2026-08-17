@@ -1,0 +1,12 @@
+title: "Creator Studio Dashboard With Channel Stats"
+description: "A dark creator dashboard: a left sidebar with the brand mark, a channel switcher pairing an illustrated avatar with the handle and a chevron, then grouped destinations — Home, Explore; NFT, Live with a blue 'Hot' badge; Notifications and Messages carrying count badges; Bookmarks, Subscriptions — with 'Help & Support' and an academy link at the foot; a wide channel banner image with a collapse button and three round social buttons overlapping its lower-right corner; an 'Upload or create video' card whose two-line encouragement sits above three glyph-led actions — Add Photo, Add Video, Start Live; three stat tiles pairing a coloured glyph with a label and a large value, the subscriber tile carrying a green trend arrow; a 'New subscribers' card pairing an avatar stack with a count and a 'Last 90 days' caption; a 'New comments' card showing one comment under a verified name; an 'Account Verification' card whose two-line message that all conditions are met sits beside a 3D rosette and a blue 'Let's go' button; and a 'Most popular video' panel whose row pairs a thumbnail with a duration badge and the video title with like and comment counts, a bookmark toggle, an emoji reaction cluster with a count and an overflow menu."
+tags:
+  - "dashboard"
+  - "dark-mode"
+  - "video"
+  - "sidebar"
+  - "card"
+  - "list"
+  - "profile"
+  - "social"
+usage: "use when a creator's home must prompt the next upload before reporting the last one — the create card given more width than the metrics, verification framed as a finished checklist with one button, and engagement shown per video as counts and reactions on a single row."

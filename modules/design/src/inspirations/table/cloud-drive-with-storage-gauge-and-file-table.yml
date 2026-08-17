@@ -1,0 +1,12 @@
+title: "Cloud Drive With Storage Gauge And File Table"
+description: "A cloud storage workspace: a narrow icon rail with the brand tile, six destination glyphs and settings and sign-out at the foot; a header pairing the page title with a Search field, a blue '+ New Folder' button and an avatar; an 'All Folders' section of six folder cards laid two rows deep, each pairing a blue folder glyph with the folder name and a 'N files | size' line; a tab strip of 'All files' plus one tab per folder with the active one underlined; a toolbar with a 'Search For Other Files' field opposite Filters, Details and Save buttons; a file table with File Name, File Size, Contents, Sharing and Date columns whose rows pair the filename and size with a tinted category tag coloured per folder, an avatar with the sharer's name, and a date written as 'Today', 'Yesterday', 'Last Week' or a full date; and a right column holding a 'Remaining Use' semicircular gauge reading the used amount over the plan total, a breakdown list pairing a file-type glyph with its name and a 'N Files | size' line for Documents, Images, Videos, Voices, Other Files and PDFs, and a blue promo card warning that storage is running low with an 'Upgrade now' button."
+tags:
+  - "file-manager"
+  - "table"
+  - "dashboard"
+  - "sidebar"
+  - "tabs"
+  - "list"
+  - "chart"
+  - "storage"
+usage: "use when quota is part of the file browser — a gauge stating used against total, a per-type breakdown that explains where the space went, relative dates for recent items, and the upgrade prompt placed at the end of that explanation rather than at the top of the page."

@@ -1,0 +1,12 @@
+title: "Video Conference With Room Chat And AI Summary"
+description: "A meeting room screen: a header pairing a hamburger with the room name, an info icon, a running 00:23:12 timer and a signal-strength meter, plus search, bell and overflow buttons; a large active-speaker tile with the speaker's name in a translucent chip top-left, an overflow menu top-right and a live caption block labelled CC/Subtitles across its foot; below it a filmstrip mixing two wide participant tiles with four smaller ones, each name-chipped, and one camera-off participant shown as an avatar on a plain tile; a bottom bar holding a truncated meeting link with a copy button, split mic and camera buttons with device chevrons, a reactions picker, a raise-hand button, a red Leave Meet button and an overflow; and a right column of three cards — Participants with a count, an overlapping avatar row with a +2 overflow and a blue Invite People button; Room Chat with named messages carrying a Host badge and timestamps, own messages right-aligned in blue, a typing indicator and a composer with attach and send; and an AI Summary card with two paragraphs of meeting notes fading out at the fold."
+tags:
+  - "video"
+  - "chat"
+  - "toolbar"
+  - "user"
+  - "conference"
+  - "captions"
+  - "ai"
+  - "interaction"
+usage: "use when a call must carry its side conversation and its record at once — an active speaker with captions, a filmstrip that still shows camera-off people, split device buttons whose chevron picks the source, and a chat and running AI summary docked beside the video rather than hidden behind it."

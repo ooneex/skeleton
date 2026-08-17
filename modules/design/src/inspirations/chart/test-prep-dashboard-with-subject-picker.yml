@@ -1,0 +1,12 @@
+title: "Test Prep Dashboard With Subject Picker"
+description: "A presentation board headed 'Smart MCQ based test preparation platform' with a portfolio badge, beneath which sits the product's dashboard: a navy top bar with the wordmark, an encouragement line, a red UPGRADE button with a crown, a bell with a count badge and a named account; a left sidebar of five plain rows with the active Dashboard in a tinted pill; a pink department banner naming the active department with a 'Switch Department?' link and an 'Invite Your Friend' action; a left card holding a 'Select Date Range' field, an 'Overall Performance' donut with an Accuracy / 'Avg. Time' toggle and a tick/cross/square legend with percentages, then a 'Your Progress' stack of Overall, Lessons and 'Question Bank' panels, each stating 'N done on M' with a progress bar and percentage; and a right 'Let's start a quick test' card with a checkbox to include previously attempted questions and a navy 'Start Test →' button, a 'Choose the Subject' row of outlined subject chips with the selected one ringed, and a Topics list — captioned by a red trial warning — whose rows pair the topic name with a 'N done on M' count, a progress bar and its percentage, the selected topic outlined."
+tags:
+  - "education"
+  - "dashboard"
+  - "sidebar"
+  - "chart"
+  - "list"
+  - "form"
+  - "progress"
+  - "quiz"
+usage: "use when a study dashboard has to end in an action — performance and progress on one side, a start-a-test panel on the other whose subject and topic are picked in place, and every topic row carrying its own done-out-of-total count and bar."

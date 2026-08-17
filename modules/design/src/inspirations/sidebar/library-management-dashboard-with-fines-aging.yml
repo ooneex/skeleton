@@ -1,0 +1,12 @@
+title: "Library Management Dashboard With Fines Aging"
+description: "A public-library back office in warm orange: a left sidebar with a branded workspace card, a nav list whose active Dashboard row is a filled orange pill, Settings, Help and a Dark Mode row, an 'Upgrade to Pro' card with a 'Try 1 month free' button and a user card with initials avatar, name and role; a top bar with a wide 'Search books, members, ISBN…' field, a dated status chip, chat and bell buttons, a live 'Your library is buzzing — 728 active visitors right now' line and Export report and '+ New Checkout' actions; four stat cards each pairing an icon, a signed delta pill, a label, a value, a qualifying caption and a tinted sparkline, the first inverted to solid orange as the primary metric; a 'Peak Traffic Hours' card with a 'Peak 5:00 PM' badge, a footfall subtitle, a Day/Week/Month segmented control and a bar chart with the peak bar in full colour and the rest faded; a 'Most Popular Books' list with a View all link whose ranked rows pair a numbered coloured spine tile with title and author, a genre chip, a progress bar, a checkout count and a trend arrow; a 'Revenue by Source' card with a period line, a donut reading total revenue in its centre and a legend of sources with their share and amount; and an 'Outstanding Fines' card with a warning icon, an aging subtitle, an orange panel showing the unpaid balance over a four-band aging bar labelled 1–7, 8–30, 31–90 and 90+ days with an amount under each, and a 'Recent reminders' list with a 'Send all' action whose rows name the member, how overdue they are and how much they owe."
+tags:
+  - "dashboard"
+  - "chart"
+  - "card"
+  - "sidebar"
+  - "list"
+  - "finance"
+  - "kpi"
+  - "warning"
+usage: "use when a dashboard must move from headline counts to a collections queue — one stat card inverted so the primary metric reads first, a ranked list carrying its own bars and trend arrows, and an aging breakdown that turns a single balance into four actionable buckets."

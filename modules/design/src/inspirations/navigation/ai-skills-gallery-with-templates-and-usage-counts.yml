@@ -1,0 +1,12 @@
+title: "AI Skills Gallery With Templates And Usage Counts"
+description: "A marketing-AI workspace shown on a tablet: a left sidebar with the wordmark, a Search field, a nav list of collapsible sections — Dashboard, Research, Practice, an expanded Execute revealing indented children with the active 'Upload calls & emails' row in a grey pill, and Measure — then Notification and Settings, and a user card with avatar, name, email and a sign-out button; a page title over an 'Explore Replicate lab templates' panel with a 'Show more' disclosure, holding three template cards that each pair a square illustration with a bold name and a two-line explanation; and a 'Skills (19)' section with 'Owned by anyone' and 'Popular' selects, over a five-column card grid whose first tile is a dashed 'Create Skill' card with a '+' button and whose others centre a circular illustration with a small author avatar overlapping its edge, a wrapped skill name and a 'Used N times' count, each carrying an overflow menu, with the last row clipped by the fold."
+tags:
+  - "card"
+  - "sidebar"
+  - "dashboard"
+  - "list"
+  - "navigation"
+  - "filter"
+  - "gallery"
+  - "ai"
+usage: "use when a library of user-created things must invite creating another — the create tile placed first in the grid as a dashed card, popularity shown as a usage count on every item, and ownership and sorting offered as two plain selects above the grid."

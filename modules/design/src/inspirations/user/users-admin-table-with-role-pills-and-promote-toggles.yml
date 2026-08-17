@@ -1,0 +1,12 @@
+title: "Users Admin Table With Role Pills And Promote Toggles"
+description: "A user-administration table on a plain card: a header line reading 'All Users: 1,356,546' and 'Projects: 884' with an info glyph, opposite a 'Table settings' button; a toolbar pairing a blue '+ Add new user' button with a segmented group of 'Suspend all', 'Archive all' and 'Delete all'; then a table with a header checkbox and USER, 'USER ROLE', STATUS, 'SOCIAL PROFILE', PROMOTE, RATING and 'LAST LOGIN' columns, whose rows carry a checkbox, a portrait with the person's name, a tinted role pill led by its own glyph — blue Administrator, grey Viewer, violet Moderator — a dot-keyed Active or Inactive status, a row of monochrome social-network glyphs with a '+2' overflow where more exist, a promote toggle shown on or off, a rating preceded by a green up or red down arrow, a last-login date and a row overflow, one row hovered and tinted; and a footer pairing a 'Rows per page' select and a '1-10 of 100' readout with numbered pagination including an ellipsis and a last-page button."
+tags:
+  - "table"
+  - "user"
+  - "list"
+  - "pagination"
+  - "settings"
+  - "permissions"
+  - "bulk-actions"
+  - "status"
+usage: "use when administering accounts in bulk — role as a glyph-led pill rather than plain text, a boolean privilege edited inline as a toggle, connected accounts collapsed into glyphs with an overflow, and the bulk actions grouped opposite the create button."

@@ -1,0 +1,12 @@
+title: "Glass Context Menu With Shortcuts And Submenus"
+description: "A single frosted-glass context menu centred on a deep blue-to-teal gradient: a translucent rounded panel with a fine light border, divided by hairlines into three groups — 'New Frame' with its ⌘N shortcut; Copy and 'Past', where the hovered Copy row is drawn as a lighter filled lozenge and both show ⌘ shortcuts; and 'Select layer', 'Hide layer' with a two-key shortcut, 'Move to page' and 'Plugins' — every row pairing a thin white outline icon with its label, and the rows that open submenus ending in a chevron instead of a shortcut."
+tags:
+  - "menu"
+  - "interaction"
+  - "editor"
+  - "context-menu"
+  - "keyboard-shortcuts"
+  - "glass"
+  - "component"
+  - "dark"
+usage: "use when a menu floats over unpredictable artwork — a translucent panel with a light hairline border to hold its edge, hairline groups instead of headings, and each row ending in either a shortcut or a chevron so its behaviour is legible before the click."

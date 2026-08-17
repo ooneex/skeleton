@@ -1,0 +1,12 @@
+title: "Video Control Bar With Replay And Picture In Picture"
+description: "A translucent dark control bar floating over a full-bleed photograph: on the left a yellow 'Replay' action led by a play triangle, a hairline divider and an elapsed / total time readout; in the centre a skip-back button, a filled violet circular pause button and a skip-forward button; on the right volume, settings, picture-in-picture and fullscreen buttons; and along the bar's bottom edge a three-tone progress track where the violet played portion runs into a lighter buffered segment and then the untouched remainder, with no handle drawn."
+tags:
+  - "media-player"
+  - "video"
+  - "interaction"
+  - "toolbar"
+  - "controls"
+  - "overlay"
+  - "progress"
+  - "playback"
+usage: "use when a player bar must show buffering as well as position — a three-tone track distinguishing played, buffered and remaining, transport centred and output options grouped right, and one accent colour reserved for the primary play control."

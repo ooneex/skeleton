@@ -1,0 +1,12 @@
+title: "Car Marketplace Listing With Price Histogram Filter"
+description: "A car marketplace: a black header carrying a location select with a pin, the centred wordmark, chat and bell buttons with count badges, an avatar with a chevron and a blue '+ Sell Car' button; a toolbar with a Buy Car / Rent Car segmented pair, a wide 'Find car here …' search, a Filter button and a 'Sort by: Recommended' select; a left Filter panel with a red Reset link, a 'Free Test Drive' row pairing an icon with a toggle switched on, a 'Type of Car' pair of outlined New Car / User Car buttons with the first selected, a Brand group with an 'All Brand' checkbox ticked over logo-led brand rows and a 'More Brand' disclosure, and a Price Range group whose dual-handle slider sits under a distribution histogram above two currency fields; and a results area headed by a '64 Car Finded' count with three removable applied-filter chips, over a three-column card grid whose cards pair the model name and body type with a bookmark toggle, a cut-out photograph of the car, and a footer placing a tinted attribute pill — 'Free Test Drive', 'Full Electric', a red 'Best Seller', a green 'New Realese' — opposite a large price."
+tags:
+  - "filter"
+  - "e-commerce"
+  - "card"
+  - "list"
+  - "navigation"
+  - "form"
+  - "marketplace"
+  - "slider"
+usage: "use when a listing page is driven by a heavy filter panel — a price slider explained by its distribution, boolean facets as a labelled toggle rather than a checkbox, applied filters echoed as removable chips beside the result count, and one attribute pill per card carrying the selling point."

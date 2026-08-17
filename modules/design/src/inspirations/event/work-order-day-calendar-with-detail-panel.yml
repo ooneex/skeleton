@@ -1,0 +1,12 @@
+title: "Work Order Day Calendar With Detail Panel"
+description: "A property-maintenance scheduling screen: a dark icon rail with the brand mark, eight destination buttons with the active calendar in a white circle, and settings and expand controls at the foot; a header pairing the page title with a 'Search properties, tasks, etc' field, a quick-action button, a bell with a count badge and a named avatar with role; a toolbar with a list/calendar view toggle, day back/forward arrows, the date with a 'Today' label, a Today button, a Day/Week/Month segmented control and a teal '+ Work Order' button; a day grid with an All Day gutter and one column per technician headed by an avatar, name, booked hours and an add button, hour rows down the left, and jobs drawn as tinted blocks — teal for internal tasks, blue for personal tasks, amber for maintenance requests — each pairing a type glyph with the job name, its ticket number, a time range and its type, with some blocks hatched, an overflow menu per block and a teal 'now' line labelled with the current time crossing the grid; and a floating detail panel for the selected job showing its title, an amber MAINTENANCE REQUEST tag, an overflow menu, a 'UNIT INFORMATION' block pairing a unit photo with the unit number and address behind a chevron, an 'Assignee Information' block with avatar and name, and a 'DATE & TIME' block giving the date and the time range with its duration in brackets."
+tags:
+  - "calendar"
+  - "event"
+  - "task"
+  - "detail-page"
+  - "sidebar"
+  - "scheduling"
+  - "field-service"
+  - "status"
+usage: "use when a day is scheduled across people — one column per technician headed by their booked hours, job type carried by both colour and glyph, a live time line to place 'now', and a detail panel that answers where, who and how long without leaving the grid."

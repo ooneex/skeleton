@@ -1,0 +1,12 @@
+title: "Mentoring Dashboard With Donuts And Time Tracking"
+description: "A learning dashboard drawn in soft off-white relief: a user card pairing a round portrait with the learner's name; a sidebar of six plain nav rows with the active Home row raised as a tinted pill, and an illustrated 'Free access to all courses' promo card with a 'Get now' button; two donut cards, 'Invited Lessons' reading 70% and 'Completed Task' reading '8/12', each drawn as a thick arc over a hatched remainder with the figure centred; a 'My productivity' card with a month select and a smoothed line whose highlighted point sits above a numbered day axis; a 'Skills Success' card pairing a colour-keyed legend of three skills with three overlapping translucent circles labelled by their percentages; an Appointments panel with a week pager, a scrollable date strip whose selected day is a filled tile, and rows pairing a portrait with the mentor's name, a video-call type with its time and round message and call buttons; and a 'Time Tracking' card with a month select, a '43h' total and a row of vertical capsule bars per weekday with the selected day filled below."
+tags:
+  - "dashboard"
+  - "education"
+  - "chart"
+  - "sidebar"
+  - "list"
+  - "calendar"
+  - "neumorphism"
+  - "progress"
+usage: "use when a personal dashboard is built from small, single-figure cards — donuts that state their own ratio, a Venn of overlapping skills instead of a stacked bar, and appointment rows whose two actions are the only buttons on the row."

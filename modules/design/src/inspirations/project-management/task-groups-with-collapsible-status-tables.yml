@@ -1,0 +1,12 @@
+title: "Task Groups With Collapsible Status Tables"
+description: "A team task screen: a left sidebar with the wordmark and a collapse button, a 'MAIN MENU' group where Calendar and an active Tasks row expand — Tasks revealing To Do, 'In Progress', 'In Review' and Completed as indented children on a tree line — then Performance, Payrolls and 'Help & Center', a 'TEAM MANAGEMENT' group (Employees, Invoices, 'Recruitment & Hiring', Integration), and a mint Announcement card reading 'Meeting starts in 5 minutes' with a members avatar stack, a '+42' overflow and a 'Join Now' button; a header pairing the page title and a one-line description with a ⌘K search, four utility buttons and a named avatar; a toolbar with a 'Search Task…' field, a Filter button, a List / Kanban / Calendar view switcher and a teal '+ Add Task' button; and the body split into one collapsible card per status — To Do, 'In Progress', 'In Review' and a collapsed Completed — each headed by a colour-keyed status pill, a count chip, a collapse chevron and a 'View All ↗' link, and holding its own table with a header checkbox and sortable 'Task ID', 'Task Name', Assignee, 'Project Name', Progress, Deadline, Priority and Action columns, whose rows pair a monospaced id with a truncated task name, an avatar with a name, a project, a percentage, a date, a tinted Low/Medium/High priority pill and a row overflow."
+tags:
+  - "task"
+  - "table"
+  - "list"
+  - "sidebar"
+  - "project-management"
+  - "filter"
+  - "tabs"
+  - "grouping"
+usage: "use when each workflow state deserves its own table — collapsible cards headed by a status pill, a count and a 'view all' link, the same sortable columns repeated inside every group, and a view switcher offering the same data as a board or calendar."

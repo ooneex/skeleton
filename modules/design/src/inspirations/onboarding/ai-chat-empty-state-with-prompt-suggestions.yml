@@ -1,0 +1,12 @@
+title: "AI Chat Empty State With Prompt Suggestions"
+description: "The blank state of an ad-copilot chat: a left sidebar with the product mark, a New chat button, a Search chats field, a Chat History list of four truncated past threads, and an Application group at the foot listing Scheduled Tasks, Integrations and Settings; a top bar with a sidebar-collapse button, a workspace switcher showing the account name with up/down chevrons, an Upgrade button and an avatar; and a centred canvas holding a small 'Free plan / Upgrade' segmented pill, a large serif headline 'Ask and create ads for your brand', a rounded composer with attach and model buttons, a 'What would you like to know?' placeholder, a mic and a filled send button, a 'Connect your apps' strip beneath it showing the connectable platform logos with a dismiss ×, a row of four suggestion chips each led by its own coloured icon, and a 'Start with a template' section of three cards naming a task with a one-line explanation and a source logo, clipped at the fold."
+tags:
+  - "chat"
+  - "sidebar"
+  - "onboarding"
+  - "card"
+  - "empty-state"
+  - "ai"
+  - "suggestions"
+  - "composer"
+usage: "use when an AI surface opens with nothing to show — a single headline stating what it does, a composer that also offers to connect the data it needs, starter prompts as chips, and templates for people who would rather pick than type."

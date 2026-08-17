@@ -1,0 +1,12 @@
+title: "Quality Test Table With Ratio Bars And Threshold"
+description: "A quality-control screen for one purchase-order line: a floating 'Synced 15s ago' chip pairing an accounting app's logo with a refresh button; a 'Purchase orders / PO #982374 / X Long T-Shirt' breadcrumb over the product name with a back arrow and a superscript count, opposite an outlined 'Product Details' and a filled 'New Test' button; a 'Search by name' field; and a table with Test name, a sorted 'Last update', Tested, Passed, Failed and 'Defects %' columns, whose rows pair the test name and a relative time with four ratio cells, each written as a bold value over a grey denominator above its own thin progress bar — violet for tested, green for passed, red for failed — while the defects cell states the measured percentage against the allowed threshold and turns red with a full red bar when it exceeds it; every row ends in an outlined 'Submissions' button, a comment button badged with a red dot where unread and a document button; and a floating bottom dock groups four round tool buttons with the active one tinted beside a pair of avatar tiles."
+tags:
+  - "table"
+  - "dashboard"
+  - "list"
+  - "detail-page"
+  - "toolbar"
+  - "progress"
+  - "quality"
+  - "threshold"
+usage: "use when counts only mean something against a total — every metric written as value-over-total with its own bar, a measured percentage shown beside the threshold it must beat, and the row turning red only when that threshold is breached."

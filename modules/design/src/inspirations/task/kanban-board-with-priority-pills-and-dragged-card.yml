@@ -1,0 +1,12 @@
+title: "Kanban Board With Priority Pills And Dragged Card"
+description: "A freelance workspace's task board: a left sidebar with the wordmark, an account card pairing avatar, name and plan with a chevron, and three labelled groups — Workspace (Dashboard, Projects, an active Tasks row in a tinted pill, Clients, Messages), Leads (Social Medias, Email, Affilites, Job Board) and Payments (Invoices, Expenses, Income, Services) — with an 'Upgrade Account' promo card at the foot; a page title over a Board / List / Roadmap / Project view switcher whose active Board tab is a white pill; and a kanban of columns — Backlog, To-do, Review, Completed — each headed by a coloured dot, its name, a count and overflow and add buttons, holding task cards that pair an app-logo tile with a priority pill reading Low, Medium or High keyed by a bar glyph, a two-to-three-line task title and a row of tool tags with their brand logos; one card is mid-drag, tilted and outlined in violet above the gap it left, with the drop target showing as a blank checkbox row in the To-do column."
+tags:
+  - "kanban"
+  - "task"
+  - "project-management"
+  - "sidebar"
+  - "card"
+  - "interaction"
+  - "drag-and-drop"
+  - "tabs"
+usage: "use when work is moved between states by hand — column headers that carry their own count and add action, priority shown as a bar-glyph pill rather than colour alone, and a dragged card tilted and outlined so the cursor's payload and its landing place are both obvious."

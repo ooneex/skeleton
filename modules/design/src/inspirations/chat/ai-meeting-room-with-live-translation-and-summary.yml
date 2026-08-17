@@ -1,0 +1,12 @@
+title: "AI Meeting Room With Live Translation And Summary"
+description: "A meeting workspace: a narrow icon rail with the active camera item marked by a violet tile and accent bar; a header pairing the product name with the meeting title, a search and bell button and a named account switcher with avatar; a large speaker tile with a name chip top-left, a live audio-level button top-right and a floating round control cluster along its foot — expand, mic, a red hang-up, camera-off and share-screen; beneath it an AI Assistant card whose left side pairs a waveform mark with a 'Learning…' status, a live audio waveform across the middle and record and settings buttons at the right, over a language row pairing a flagged source language select with a swap button and a flagged target language select; then a transcript list where each entry pairs a coloured initials avatar with the speaker's name, a timestamp and the utterance, joined by a vertical thread line; and a right column with a Participant panel showing a 'Show all (24)' link over a 2×2 grid of participant tiles carrying name chips, mic-muted and raised-hand badges and blurred camera-off tiles with a centred avatar, then a Summary / Transcript segmented pair over collapsible Overview and Key Points cards, the latter holding a numbered list of challenges with a copy button."
+tags:
+  - "video"
+  - "chat"
+  - "tabs"
+  - "list"
+  - "ai"
+  - "transcript"
+  - "translation"
+  - "conference"
+usage: "use when a call has to be understood as well as attended — live translation shown as an explicit source-to-target pair, a running transcript keyed by speaker and time, and an AI summary docked beside the participants so notes and faces share the same column."

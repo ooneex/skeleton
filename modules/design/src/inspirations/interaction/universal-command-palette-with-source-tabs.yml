@@ -1,0 +1,12 @@
+title: "Universal Command Palette With Source Tabs"
+description: "A search-and-command overlay floating above a blurred photo backdrop: a large 'Search, ask or run a command' field with a ⌘K chip on its right; a row of source tabs — All, Intercom, Notion, Linear, Slack, Stripe — each pairing the tool's logo with its name and the active All underlined; a 'SUGGESTED FOR YOU' caption over a list of result rows, each led by a source logo or an avatar with a source badge, pairing a bold action line with a grey secondary line naming the source, the object type, its state and its recency, and ending in a chevron, with the first row highlighted and carrying a '3 threads' count pill and another carrying an ENG-248 identifier pill; two rows near the foot are commands rather than records — an AI command and a 'Run command…' row showing its ⌘ and / keys; and a footer legend spelling out Open search, Commands, Global search and Close with their key chips."
+tags:
+  - "modal"
+  - "navigation"
+  - "interaction"
+  - "list"
+  - "menu"
+  - "search"
+  - "keyboard-shortcuts"
+  - "overlay"
+usage: "use when one field must search across connected tools and run actions — source tabs to narrow without retyping, each result naming its origin and freshness in the secondary line, and a footer legend that teaches the keys while the palette is open."

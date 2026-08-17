@@ -1,0 +1,12 @@
+title: "Recordings Workspace With Favourites And Recent Table"
+description: "A meeting-recording workspace: a left sidebar with the wordmark, a Search field carrying a '/' chip, a collapsible Features group (Home, an active 'My Projects' row in a lilac pill, Templates, a 'Moo AI Chat' row with a New badge, Integrations, Feature request, 'Settings & members'), and a Workspaces group with an add button whose entries are each led by an emoji; a breadcrumb over the page title with a Templates button clipped at the right edge; a Favorites shelf of project cards, each a large pale tile carrying a gradient app-icon tile above the project name and a footer pairing the owner's avatar and name with a relative timestamp, the row running off the edge to imply scrolling; a tab row of Recent, 'Owned by me', 'Shared with me' and Archived with the active one underlined; and a table with Title, Created by and Category columns whose rows pair a gradient file-type tile with the filename and a 'duration • size' line, an avatar with the creator's name, and a grey category tag."
+tags:
+  - "file-manager"
+  - "list"
+  - "sidebar"
+  - "tabs"
+  - "card"
+  - "project-management"
+  - "table"
+  - "recordings"
+usage: "use when recent work matters more than folders — favourites as a horizontal shelf of large tiles, ownership tabs instead of a filter menu, and a table whose secondary line carries the duration and weight of each recording."

@@ -1,0 +1,12 @@
+title: "Seller Chat With Contact Profile And File Tabs"
+description: "A wholesale seller's messaging console shown at a slight angle: a header with the wordmark, a language select, a fullscreen button, chat and bell buttons carrying blue dots and an avatar; a narrow icon rail of nine destination glyphs with a moon toggle and a filled sun button at the foot; a 'Chat Boxes' column with a round blue add button, a 'Search or Start new chat' field, an All / Archive / Unread tab row with the active one underlined, and conversation rows pairing an avatar with the contact's name, a two-line preview and a time, the open one inverted to a black card; a transcript with a dated divider, incoming white bubbles and outgoing blue bubbles each timestamped beneath, one incoming bubble carrying two product images above its text, and a composer with an image button, a 'Type your message…' field, an emoji button and a round blue send; and a right profile panel centring a large portrait above the contact's name and email, then read-only 'Phone Number', Username and Bio fields, and a 'Media Files' block with Files / Media / Links tabs over rows pairing a product thumbnail with a filename, a timestamp, a file size and a download button."
+tags:
+  - "chat"
+  - "inbox"
+  - "sidebar"
+  - "tabs"
+  - "list"
+  - "profile"
+  - "file-manager"
+  - "messaging"
+usage: "use when a conversation must be read alongside who it is with and what has been sent — inbox tabs for all, archived and unread, a profile panel of read-only fields, and shared attachments split into files, media and links with sizes and downloads."

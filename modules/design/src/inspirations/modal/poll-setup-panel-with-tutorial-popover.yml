@@ -1,0 +1,12 @@
+title: "Poll Setup Panel With Tutorial Popover"
+description: "A poll-creation flow shown close up in two panels: the left panel is headed by a glyph and 'Insert a Simple Poll' with a round info button held under a hand cursor, over a paragraph explaining what a simple poll is, then a glyph-led step list — Question, choosing a template, poll placement, Schedule, 'Advanced settings' and Integration — with the current step tinted; the right panel is titled 'Question & answers' and holds a labelled question field with a 'your question…' placeholder, a type row offering a glyph-led 'Select list' and 'Emojis', and an Options group whose placeholder rows carry drag handles above an '+ Add option' link; and over both sits a black tutorial popover whose arrow points back at the info button, titled 'Simple Poll tutorial' and holding an abstract violet illustration of a poll being answered, two lines describing what the video teaches, and a 'Watch tutorial' button with its running time set beside the label."
+tags:
+  - "popover"
+  - "form"
+  - "editor"
+  - "list"
+  - "modal"
+  - "onboarding"
+  - "tooltip"
+  - "closeup"
+usage: "use when help is offered in place rather than in a help centre — an info glyph on the panel heading opening a dark popover that points back at itself, illustrates the outcome and states the video's length before it is played."

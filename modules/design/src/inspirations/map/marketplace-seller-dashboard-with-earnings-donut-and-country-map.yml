@@ -1,0 +1,12 @@
+title: "Marketplace Seller Dashboard With Earnings Donut And Country Map"
+description: "A marketplace seller's dashboard: a pale sidebar opening on a 'Hello,' greeting with the store name, an avatar and a sign-out glyph, an Earning caption with the balance set large, then nav rows where Messages and Orders carry red counts and the active Dashboard is marked by an amber bar on the panel edge, with the wordmark and a copyright line at the foot; a header pairing the page title and a 'Everything here' subline with a wide 'Search anything…' field and a 'VIEW YOUR STORE' link; a 'Sales Reports' card with a date-range select, a 7D / 1M / 6M / 1Y range switch, a yellow line-and-fill chart with a crosshair on the hovered day and a callout reading the amount over its sale count, a legend and an 'Export Report' action; an Earnings donut whose ring is split green, amber and orange with the balance centred and a legend of Income, Taxes and Fees; a 'Recent Orders' table with ID, a sortable Date, Products, a Paid or Unpaid payment pill, a dot-keyed fulfilment state, a total and a row overflow, with one order id highlighted and a 'View Full Orders' link beneath; and a right Statics column with a 'Last 30 days' select, three tinted tiles pairing a glyph with Orders, Revenue and Earnings and a signed delta, then 'Top Countries' as four named percentages over a dotted world map with proportional bubbles and a footnote about when collection began."
+tags:
+  - "dashboard"
+  - "e-commerce"
+  - "chart"
+  - "table"
+  - "sidebar"
+  - "map"
+  - "donut"
+  - "kpi"
+usage: "use when a seller needs takings and orders on one screen — the balance repeated as a donut split by what was deducted, revenue by country plotted as bubbles rather than listed, and the newest orders shown in full with their payment and fulfilment states separated."

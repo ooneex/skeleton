@@ -1,0 +1,12 @@
+title: "Content Library Cards With Status Filters And Word Counts"
+description: "An AI writing tool's content library: a left sidebar with the wordmark and a collapse button, a nav list whose active Content Library row is a tinted pill, an 'Upgrade to Pro' promo card with its own icon tile and a gradient Upgrade Plan button, and a Logout row at the foot; a top bar with a search field, theme, bell and mail buttons and a named avatar with email; a page header pairing the title and subtitle with an outlined Filter button and a gradient AI Assistant button; a 'Filter by Status' panel listing All Documents, Drafts, Published, Scheduled and Favorites, each with a right-aligned count and the active row filled; and a two-column card grid where every card pairs a coloured rounded type icon with the content type as its title, the document's own name beneath, a tinted status pill (Published, Draft, Scheduled) next to a word count, a star toggle shown filled on favourites and an overflow menu top-right, and a footer row placing the date opposite edit, duplicate and delete icon buttons, the card lit by a faint gradient wash matching its type colour."
+tags:
+  - "card"
+  - "list"
+  - "filter"
+  - "sidebar"
+  - "dashboard"
+  - "badge"
+  - "status"
+  - "content"
+usage: "use when documents of different kinds share one library — the type carried as a coloured icon and title, status and length shown as one line, a status filter that counts each bucket, and the row actions kept on the card rather than behind a menu."

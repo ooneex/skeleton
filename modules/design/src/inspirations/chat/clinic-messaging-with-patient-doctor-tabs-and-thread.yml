@@ -1,0 +1,12 @@
+title: "Clinic Messaging With Patient Doctor Tabs And Thread"
+description: "A telehealth messaging screen: a left sidebar with the clinic wordmark, a nav list whose active Messages row is a tinted pill, and an 'Update to Premium' card warning that the free trial ends soon with a View Plans button; a top bar with a wide search and a named avatar showing the clinician's speciality; a Messages column with its own search icon, a Patients / Doctors segmented pair, and conversation rows pairing an avatar with a presence dot, the correspondent's name, a clipped preview and a relative timestamp, with a star toggle per row shown filled on the favourite and the open conversation raised as a white card; and a thread pane headed by the correspondent's avatar, name and presence beside video-call, voice-call, search, overflow and panel-toggle buttons, holding alternating message bubbles — incoming grey with a leading avatar, outgoing tinted blue with a trailing avatar and the timestamp outside each bubble — including a video attachment rendered as a thumbnail with a play badge and a typing indicator, over a composer with emoji and attach buttons, a 'Type your message' field, a mic and a Send button."
+tags:
+  - "chat"
+  - "inbox"
+  - "healthcare"
+  - "list"
+  - "sidebar"
+  - "tabs"
+  - "messaging"
+  - "presence"
+usage: "use when one inbox serves two audiences — a segmented pair splitting them without a second screen, presence and favourites carried on the conversation row, and a thread whose header offers escalation to voice or video before the first reply."

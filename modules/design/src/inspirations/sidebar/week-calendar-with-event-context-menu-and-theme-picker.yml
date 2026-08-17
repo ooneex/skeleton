@@ -1,0 +1,12 @@
+title: "Week Calendar With Event Context Menu And Theme Picker"
+description: "A calendar app in a browser window: a left sidebar with the wordmark, a Search field, three nav rows with the active Calendar drawn as a black filled pill, then a settings block — a Theme row offering five colour swatches with the first ringed as chosen, a 'Dark mode' row with a toggle, and a 'Collapsed' row — over Settings and 'Help center'; a page title above a month pager; and a week grid with a timezone select in the gutter, day columns headed by the weekday and date with the current day tinted and underlined and the past day hatched, an 'All Day' row holding pastel event cards that carry a title, an 'All day' line, an avatar pair with a '12+' count and an overflow button, and hour rows below where timed events are tinted cards with a rounded type-glyph tile, a title, a time range, attendee avatars and an overflow, plus short bare-title cards where the slot is tight; a blue now-line labelled '10.20 AM' crosses the grid with end caps on the current column, and an event's overflow has opened a context menu listing 'Set reminder', Minimize, a hovered Edit row with a submenu chevron and a red Delete."
+tags:
+  - "calendar"
+  - "event"
+  - "menu"
+  - "sidebar"
+  - "settings"
+  - "interaction"
+  - "theming"
+  - "week-view"
+usage: "use when events are managed from the grid — a per-event overflow menu carrying reminders, size and deletion, colour used to type the event, past days hatched, and theme and density controls kept in the sidebar next to navigation."

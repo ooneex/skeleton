@@ -1,0 +1,12 @@
+title: "Student Dashboard With Lesson Progress And GPA Chart"
+description: "A student's course dashboard framed in violet: a coloured sidebar with the wordmark, a nav list whose active Dashboard row is an orange filled pill, a Chat row with a red count badge, an illustrated 'Upgrade to Pro' card with a blue button, and a Sign Out row; a white content sheet opening with a 3D character beside a 'Welcome back!' headline and a two-line encouragement quantifying the week's goal, opposite the date, time and a weather glyph; a 'Your Courses' heading beside a search field, then a course tab row with the active one underlined in orange; three lesson cards, each pairing a 3D object with the lesson name, its duration, a two-line description, a labelled progress bar with its percentage and a Continue or Start button, the unstarted one using the filled variant; an 'Academic Progress' card on a cream ground with an Exams / Assignments legend, a 'Monthly Progress' select and two smoothed area series over a monthly axis with a violet 'GPA 80' tooltip pinned to a point; and a right column with the student's name and role, a bell, the degree name with its end date, a circular '65% Semester I' progress ring, and course cards pairing a 3D icon with the course name, its teacher, a credit count and a progress bar, the current course inverted to violet."
+tags:
+  - "education"
+  - "dashboard"
+  - "sidebar"
+  - "chart"
+  - "card"
+  - "tabs"
+  - "list"
+  - "progress"
+usage: "use when a learner needs to see effort and outcome together — lesson cards whose button changes with the state, a semester ring beside a per-course credit list, and a two-series chart that puts exams and assignments on the same axis."

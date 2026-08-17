@@ -1,0 +1,12 @@
+title: "Company Intelligence With Score Cards And Concentration Table"
+description: "A B2B research console: a left icon rail with the brand tile and eight destination glyphs; a header with the section title, a 'Companies / Notification Center / Notification Preferences' breadcrumb and a teal 'Import Companies' button; a left list column with a Listed / Sectors segmented pair carrying counts, a Listing select and a Filters button, then company cards pairing a small sector line and the company name with a tinted sector tag and a SCORE value beside a coloured ring, the selected card outlined and a negative score drawn in red; and a detail pane headed by the company logo, its sector line and name with Watchlist and Share buttons, a row of metric cards each pairing a small donut with a label and a value plus a dashed '+ Add Segment' slot, then tabs — Overview, Analyze, Topics, Impressions, Customers, Competitors — over a 'Customer Concentration (% revenue)' table with a year per column, whose rows pair a disclosure triangle and the customer's name with a percentage and a signed change coloured green or red for each year, and whose expanded row opens a panel of four rule-marked amounts (total, open, VAT, invoicing costs), a 'Total Revenue' stacked composition bar, and a 'Company Details' block laying out business name, type, company type, country and the person who added it, over a business description and a postal address."
+tags:
+  - "crm"
+  - "table"
+  - "detail-page"
+  - "list"
+  - "sidebar"
+  - "dashboard"
+  - "chart"
+  - "tabs"
+usage: "use when a list of scored records feeds a deep profile — scores as a ring and a number on each list card, a year-per-column table where every cell carries a value and its change, and an expandable row that opens the full record in place instead of navigating away."

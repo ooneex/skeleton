@@ -1,0 +1,12 @@
+title: "Survey Platform Component Sheet With Fielding Stats"
+description: "A sheet of survey-platform components on a lilac ground: a column of glyph-led tool cards each pairing a title with a description line; a 'Fielding stats' card with a 'View Fieldwork' button, whose labelled rows for Starts, Completes, Terminates, Abandons and 'In-process' each draw a coloured bar with the count and a bracketed share beside it, set against a thick violet ring reading an incidence rate as a large percentage; a comment thread card headed by a question chip and the thread subject with an overflow, holding avatar-led comments with their age, a dotted 'View all replies' divider carrying the reply count, and a 'Reply or add others with @' field with an info glyph; a 'Create a new project' dialog with a close ✕, a 'Project Name' field and a 'How do you want to start?' pair of selectable tiles — 'Start from scratch' outlined blue as chosen and 'Start from definition file' — over Cancel and Create; and a question-type picker with Standard / Advanced tabs over a grid of glyph-led tiles for single selection, multi-selection, dropdown, short answer, paragraph, numeric entry, grid and scale, beside an explanatory panel that names the selected type, previews it as a miniature question and defines it in a paragraph."
+tags:
+  - "component"
+  - "chart"
+  - "modal"
+  - "comments"
+  - "card"
+  - "form"
+  - "design-system"
+  - "tabs"
+usage: "use when choosing a type deserves an explanation — the picker as a grid of glyph tiles with a panel that previews and defines the current choice, and progress through fieldwork stated both as labelled bars and as one headline ring."

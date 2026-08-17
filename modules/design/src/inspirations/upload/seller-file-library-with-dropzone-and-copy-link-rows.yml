@@ -1,0 +1,12 @@
+title: "Seller File Library With Dropzone And Copy Link Rows"
+description: "A seller back-office upload screen: a left sidebar with the store logo, a collapse control, a store identity card showing avatar, name and email, a nav list whose items carry chevrons for expandable sections and count badges on Orders, Support Ticket and Communication with the active Upload Files item marked by a tinted row and a left accent bar, and Setting and Help pinned at the foot; a top bar with a keyword search, a bell and a named avatar with role; then a page header with title, Home > Upload File breadcrumb and a primary Add New button; a full-width dashed dropzone whose cloud icon sits above 'Click to upload or drag and drop' and a line naming the accepted types and 12mb ceiling; and below it a toolbar with an image-name search, a date-range picker, a Filters button and a grid/list view toggle over a two-column list of uploaded assets, each row pairing a thumbnail with filename, original name, upload timestamp and size beside Copy Link and Edit buttons."
+tags:
+  - "upload"
+  - "file-manager"
+  - "list"
+  - "sidebar"
+  - "dashboard"
+  - "e-commerce"
+  - "toolbar"
+  - "breadcrumb"
+usage: "use when uploading and managing assets share one screen — a dropzone that states its limits before the error, and a filterable library beneath it where every row ends in the two actions people actually want, copy the link or edit the asset."

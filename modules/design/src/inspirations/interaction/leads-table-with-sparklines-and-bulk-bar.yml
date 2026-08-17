@@ -1,0 +1,12 @@
+title: "Leads Table With Sparklines And Bulk Bar"
+description: "A sales CRM's leads screen: a left sidebar with the wordmark and a collapse button, a nav list where 'My work' carries an amber count and the active Leads row is a grey pill, a second group (Campaigns, Deals, Leads, Address book, Data room), Help and Settings at the foot, and a usage card reading '86% of free records are used.' above a progress bar and an 'Upgrade subscription' link, then a user card with avatar, name and email; a header pairing the page title with a '+ New lead' button and an overflow; a 'Last 7 days' range select over a four-cell KPI strip split by hairlines — New, Closed, Lost and Total closed — each pairing a value with a signed delta pill coloured green or red; a toolbar with a List / Board / Pipeline segmented control, a 'Group' toggle switch, a search field and a filter button; and a table of Lead, Source, Status, Size, Interest, Probability and Last Action columns whose rows carry a checkbox, the lead's name over their email, a monospaced source tag with an external-link arrow, an uppercase status pill (PRE-SALE, CLOSED, LOST, CLOSING, NEW), a deal size, an interest sparkline drawn green when rising and red when falling, a bar-glyph probability pill (LOW, MID, HIGH) and a date — with the hovered row underlining the name and replacing the date with an 'Engage' button and an overflow — and a floating dark bulk bar reading '16 selected leads' beside Engage, 'Create group', 'Download as .CSV' and 'Delete leads'."
+tags:
+  - "crm"
+  - "table"
+  - "list"
+  - "sidebar"
+  - "dashboard"
+  - "interaction"
+  - "bulk-actions"
+  - "sparkline"
+usage: "use when a pipeline list must be scanned and acted on — trend shown per row as a coloured sparkline, probability as a bar-glyph pill rather than a number, row actions revealed on hover in place of the least useful column, and a floating bar naming the selection count."

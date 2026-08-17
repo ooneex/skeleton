@@ -1,0 +1,12 @@
+title: "File Grid With Image Inspector And Metadata"
+description: "A cloud drive in a browser window: a toolbar pairing the brand mark with an 'All Projects › Fintory Projects' breadcrumb, a 'Sort by: type' select, a grid/list view toggle and a named account with an initials avatar; a content grid of large tiles — rows of blue folder marks captioned with a customer name and a created timestamp, then pale outlined 'pdf' sheets captioned 'design proposals', and one image tile showing a real screenshot thumbnail, selected and ringed blue with its filename and date; and a right inspector opening with an action toolbar of bookmark, rename, a delete button highlighted under the cursor, mail, upload and new-folder buttons, then the selected file's name with a 'PNG-image – 2.3 MB' line, a large preview, and an Information list pairing Created, 'Last updated', 'Last opened', 'Image size', Resolution, 'Color space' and 'Color profile' with their values across hairline-separated rows."
+tags:
+  - "file-manager"
+  - "list"
+  - "detail-page"
+  - "toolbar"
+  - "metadata"
+  - "selection"
+  - "grid"
+  - "preview"
+usage: "use when a file browser must answer 'what exactly is this file' — a selection ringed in the grid, an inspector whose action toolbar sits above the preview, and technical metadata laid out as label/value rows rather than prose."

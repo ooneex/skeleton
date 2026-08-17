@@ -1,0 +1,12 @@
+title: "Projects Database Table With Inline Status Selects"
+description: "A project database in a browser window: a left sidebar with a workspace switcher, an Overview, Agents and Companies group with right-aligned counts, a 'Monetize' group whose active Projects row shows a count of 21, a 'My View' group with an add button listing emoji-led saved views — Daily reminders, Tasks with a 16/24 count, Report, a date range, Blueprints, Sales pitch — and an 'Invite Client' row with a count chip at the foot; a header pairing the page title with a collaborator avatar stack and an add button, a cyan 'Add new' button, bell and settings buttons and an avatar; a toolbar with a Table view select, a Filter button carrying a count of 8, Sort, a 'Search Project' field, a donut showing '14 / 22' progress, a month picker and an overflow; and a spreadsheet-style table whose column headers each pair an icon with the field name, and whose rows carry a checkbox, the project name, a client cell pairing an avatar with a name, a Status cell rendered as an inline select with a glyph (Completed, In progress, Planning, On hold, SOW), a Deadline cell as a dot-keyed pill coloured by urgency ('Yesterday', 'Today', '2 Days', '8 months'), one or two category tags, and a budget, with an '+ Add' affordance under every column, two cells outlined in collaborator colours with name flags, and a terms-of-service acceptance bar with a checkbox and an 'I Accept.' action pinned beneath the grid."
+tags:
+  - "table"
+  - "project-management"
+  - "sidebar"
+  - "filter"
+  - "list"
+  - "interaction"
+  - "database"
+  - "collaboration"
+usage: "use when a table is the primary editor rather than a report — status and category edited inline as typed cells, deadlines coloured by how soon they are rather than by their date, an add affordance per column, and live collaborator outlines on the cells being changed."

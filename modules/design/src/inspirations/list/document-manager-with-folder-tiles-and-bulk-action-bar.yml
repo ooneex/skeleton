@@ -1,0 +1,12 @@
+title: "Document Manager With Folder Tiles And Bulk Action Bar"
+description: "A workspace document library: a left sidebar with the wordmark and collapse button, a Folders group whose rows each carry a right-aligned count, a workspace group with expandable Operations, Folders — opened to show Documents, Sprint 28 and Design System Update with the active child in a white pill — Tasks, Activity and Channels, a Tags group listing Important, Normal and Minor keyed by coloured dots with counts, then Invite members, Appearance and Settings, and a user card with a gradient avatar; a header with a Docs • Meeting Notes breadcrumb, a ⌘F search, an Automate button and a filled Add Meeting button; a toolbar pairing the section title with a List View / Grid switch and Summarize, Settings and Share buttons; a 'Recent 4' shelf with an Add button showing folder tiles — each a glossy coloured folder with a selection checkbox in its corner, a name and a 'N Files • size' line — closed by a dashed 'Create new folder' tile; a file table with sortable File name, Date added, Added by, Size, Last update and Actions columns, whose rows carry checkboxes with three ticked, an initials avatar beside the contributor, and link, download and overflow actions; and a floating black bulk bar reading '3 Files Selected' with Move, Duplicate, Archive and a red Delete."
+tags:
+  - "file-manager"
+  - "list"
+  - "table"
+  - "sidebar"
+  - "toolbar"
+  - "interaction"
+  - "bulk-actions"
+  - "folders"
+usage: "use when files are managed in bulk — recent folders kept as selectable tiles above the table, sortable columns for the long tail, and a floating action bar that appears with the selection count and puts the destructive action last and in red."

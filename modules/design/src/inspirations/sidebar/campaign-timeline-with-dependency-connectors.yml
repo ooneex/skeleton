@@ -1,0 +1,12 @@
+title: "Campaign Timeline With Dependency Connectors"
+description: "A campaign planning timeline in a browser window: a left sidebar with the wordmark, a workspace switcher pairing a brand tile with the workspace name, six nav rows where News carries a red count, Inbox shows '99+' and the active Analytics is a tinted pill with a chevron, and a 'Hide menu' collapse control at the foot; a header with a 'Type to search…' field, search, chat and bell buttons and a named avatar with an 'Admin' role line; a campaign header pairing a rounded glyph tile with the campaign name and a one-line description, opposite two member avatars and a round add button; and a horizontal date scale running across a month boundary with the current day in a filled blue tile and its line dropping down the canvas, over task bars drawn as white cards positioned along the scale, each pairing a tinted glyph tile with the task name, a 'N people involved' line, a month-range pill, two member avatars and an overflow, with two cards outlined in orange and joined by an orange elbow connector ending in a small ring to show one depends on the other."
+tags:
+  - "timeline"
+  - "project-management"
+  - "calendar"
+  - "sidebar"
+  - "card"
+  - "task"
+  - "gantt"
+  - "dependencies"
+usage: "use when a plan is read as cards on a time axis rather than a Gantt of bare bars — each task carrying its people and month range on the card, and dependencies drawn as a coloured elbow that highlights both ends of the link."

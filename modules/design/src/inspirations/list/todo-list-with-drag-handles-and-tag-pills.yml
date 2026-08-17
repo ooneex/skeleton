@@ -1,0 +1,12 @@
+title: "Todo List With Drag Handles And Tag Pills"
+description: "An admin template's todo app: a left sidebar with the wordmark, a user card pairing avatar, name and role, a Dashboard group (Dashboard, Orders, Products, Buyer, Customers, Invoices) whose expandable rows end in arrows, an Apps group where Chats carries a green count badge and an expanded 'Todo App' shows List — the active child in a lilac pill — and Details, and a Pages group beginning at the fold; a header pairing the page title with a wide Search field, a bell and cart with count badges and a violet '+ Add Task' button; a toolbar with a select-all checkbox and its dropdown, an 'Order by' button and a 'Search todo list' field; a task list where each row is its own outlined card carrying a dotted drag handle, a checkbox shown ticked and violet on completed rows, a star toggle filled amber on favourites, the task title, a coloured category pill (Social, Theme Support, Friends, Freelance, Coding), an overlapping avatar stack and an overflow menu, with completed rows outlined violet, active ones green and the rest plain; and a right filter panel listing All with a count of 20 as the active row, My Task, Favorites, Done with a count and Deleted."
+tags:
+  - "task"
+  - "list"
+  - "sidebar"
+  - "filter"
+  - "todo"
+  - "drag-and-drop"
+  - "badge"
+  - "admin"
+usage: "use when a todo list is reordered by hand and filtered by state — each row a card with its own drag handle, done and starred carried by the controls rather than by strikethrough, category as a coloured pill, and a filter rail whose buckets show their counts."

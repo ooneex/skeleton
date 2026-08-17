@@ -1,0 +1,12 @@
+title: "Employee Learning Profile With Competency Radar"
+description: "A corporate learning platform's person page, shown at an angle: a dark icon rail with an expand chevron, six destination glyphs, an add button, connected-tool logos and an avatar at the foot; a Team / UX+UI Designers / person breadcrumb; a blue profile card with the person's name and job title, an overflow menu, a circular portrait ringed by a progress arc, and three footer stats — Technical Skills, Soft Skills and Experience — each pairing a label with its value; a 'Learning Time' card raised above the others holding a radar chart over seven competency axes with three overlaid series, a Legend column listing six proficiency levels each with a check or part-filled marker joined by a dashed line, and a three-key series legend for Achieved, Progressing and Want Learn; a 'Learning History' table of Course, Certification and Duration with dashes where no certificate exists; an 'Achievements' card whose rows pair a medal illustration with the badge name, an 'earned/total' count and a coloured progress bar; and a 'Learning Statistic' table pairing icon-led metric names with their values, each card carrying an info icon and an expand arrow."
+tags:
+  - "profile"
+  - "education"
+  - "chart"
+  - "dashboard"
+  - "table"
+  - "user"
+  - "card"
+  - "progress"
+usage: "use when a person's skills must be compared rather than just listed — a radar overlaying achieved, in-progress and desired competencies, a proficiency legend that defines each level in words, and achievement bars stated as earned-over-total."

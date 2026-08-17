@@ -1,0 +1,12 @@
+title: "Todo List With Due Date And Project Chips"
+description: "A to-do screen shown close up in browser chrome: a sidebar whose search field is drawn as an empty pill beside a collapse chevron, over glyph-led rows for Welcome, Dashboard, Tasks, People, Reports, Billing and Integrations; and a main column headed 'To-Do' under a rule, with a blue '+ New Task' button beside an outlined Filters button, then task cards each holding a square checkbox and the task written as a sentence, under a meta row that pairs a calendar glyph with a relative due date — 'Tomorrow' set in amber, absolute dates in grey — a comment count, an attachment count where one exists, and a dot-keyed project chip tinted to the project's own colour; completed tasks keep the same card but grey it, fill the checkbox and strike the title through."
+tags:
+  - "task"
+  - "list"
+  - "sidebar"
+  - "checkbox"
+  - "chips"
+  - "due-date"
+  - "todo"
+  - "closeup"
+usage: "use when a task list has to stay scannable with metadata attached — the title on its own line, everything else demoted to a single small meta row, the imminent due date the only thing coloured, and finished work kept in place struck through rather than hidden."

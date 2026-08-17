@@ -1,0 +1,12 @@
+title: "File Transfer Dialog States Progress Paused Error"
+description: "Three states of the same desktop file-transfer dialog, overlapping on a blue system wallpaper, each a translucent rounded window with a transfer glyph and a state title in its title bar beside minimise, maximise and close buttons. The running state reads '38% Completed' with a 'Copying 6 items from Metro to Fluent Design' line whose source and destination are links, a green progress bar with a pause button beside it, the bytes transferred out of the total, and a footer pairing the remaining time with the current speed. The paused state repeats the layout at 52% with an amber bar and a play button in place of pause. The error state shows 24% with a red bar and a retry button, and replaces the time-and-speed footer with a red line pairing an error glyph with the message 'Error: Can't find the path'."
+tags:
+  - "modal"
+  - "interaction"
+  - "notification"
+  - "file-manager"
+  - "progress"
+  - "states"
+  - "component"
+  - "error"
+usage: "use when one progress dialog must carry running, paused and failed — colour and the trailing button changing with the state, the same byte counts kept in place so nothing shifts, and the error message replacing the estimate rather than being added beneath it."

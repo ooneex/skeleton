@@ -1,0 +1,12 @@
+title: "Voucher Admin Dashboard With Store Cards"
+description: "A voucher platform's admin dashboard on a lilac ground: a sidebar with the wordmark over Dashboard, Orders, Customers, Store, Voucher and 'Issued Voucher', with Setting and Help at the foot and the active row tinted; a header pairing a hamburger and the page title with a violet '⊕ New Issue' button, an outlined 'Redeem' button, a bell carrying a count and an avatar; a 'Business Overview' section whose three cards each pair a tinted glyph tile with a large value, a signed delta arrow — green up, red down, and a grey equals for flat — and a caption naming the measure; a 'New Orders' table with a 'View all →' link, columns for 'Order Number', Customer, a violet Total, Paid rendered as a green check, an Open or Closed Status and a row overflow, set beside a 'Top Customer' table pairing each customer with their company; and a 'Store Overview' pair of cards, each showing the merchant's real logo on a tinted tile, its trademarked name, glyph-led 'Total sales' and 'Voucher offered' figures, and a greyed-out 'Manage shop' button next to a green 'Visit shop'."
+tags:
+  - "dashboard"
+  - "table"
+  - "card"
+  - "sidebar"
+  - "e-commerce"
+  - "kpi"
+  - "brand-logos"
+  - "admin"
+usage: "use when an operator watches several merchants at once — headline figures whose deltas include a flat state, the newest orders and best customers set side by side as plain tables, and each merchant reduced to a card carrying its logo, two figures and its own actions."

@@ -1,0 +1,12 @@
+title: "Referral Dashboard With Setup Progress And Job Cards"
+description: "A recruiting-referral home on a teal ground: a left sidebar with the product mark, a MAIN MENU group whose active Overview row is a filled gradient pill, a SETTINGS group and a user card showing avatar, name and 'Free Plan'; a header with the page title, a wide 'Search for roles, companies, or candidates…' field with a ⌘K chip, a bell with an unread dot and a primary New Referral button; a welcome banner pairing an avatar and a two-line greeting with a 'Setup Account — 2/3 Complete' progress bar; a row of three metric cards, each with a label, a large value, a 'vs Last Month' caption and a green signed delta, the third also carrying an area sparkline; a Recommended Opportunities section with a See More select and four job cards showing a company logo, role and company, a points pill and a bookmark toggle, three icon-led attribute rows (location, work mode, contract) and a footer pairing the salary range with a relative posting time; and a right column of three panels — an Earnings Overview donut with a centred value and Potential Earning / Paid Out legend under a This Week select, a Jobs Overview semicircular gauge reading 240 Total Jobs with an Active / In Review / Finished legend, and a Top Scouts leaderboard whose ranked rows pair a numbered avatar, name and role with a score, with the signed-in user placed fifth."
+tags:
+  - "dashboard"
+  - "card"
+  - "sidebar"
+  - "chart"
+  - "list"
+  - "onboarding"
+  - "progress"
+  - "leaderboard"
+usage: "use when a marketplace dashboard must both report and recruit — an unfinished setup bar carried at the top of the page, opportunity cards whose attributes are icon rows rather than prose, and a leaderboard that includes the viewer so the ranking means something."

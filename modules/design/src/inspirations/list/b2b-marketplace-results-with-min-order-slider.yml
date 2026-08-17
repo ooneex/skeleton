@@ -1,0 +1,12 @@
+title: "B2B Marketplace Results With Min Order Slider"
+description: "A wholesale marketplace's search results in a browser window: a header with the logo, a search bar whose leading select carries a delivery location and whose trailing button is a filled Search, then a flagged language select, cart, bell with an unread dot, mail and an avatar; a second nav row led by a 'Categories' menu button with links for Ready to ship, Personal Protective, Buyer Central, 'Sell on' and Help; a left Filter panel with a 'Suppliers Types' checkbox group whose options carry trust badges, a 'Product Types' group with two ticked, a Condition group, a 'Min Order' single-handle slider with its value in a dark tooltip above the handle and its floor and ceiling labelled at the ends, and a Price group pairing two currency-prefixed fields with a stack of preset range buttons; and a results area headed by a '1 - 16 over 7,000 result for \"Asus\"' count with a 'Sort by: Best Match' select and a grid-density toggle, a row of removable applied-filter chips closed by a 'Clear All Filters' link, and a four-column product grid whose cards show the item on a pale tile then a discounted price beside a struck-through original, a two-line title, a yellow star-rating chip, a 'Sold N' count and a round orange add-to-cart button."
+tags:
+  - "e-commerce"
+  - "filter"
+  - "card"
+  - "list"
+  - "navigation"
+  - "marketplace"
+  - "slider"
+  - "search"
+usage: "use when buyers filter on trade terms rather than taste — supplier trust badges inside the facet list, a minimum-order slider labelled with its own bounds, price offered as both fields and presets, and each card proving demand with a rating and a units-sold count."

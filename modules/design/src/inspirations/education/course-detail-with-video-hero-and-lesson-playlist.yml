@@ -1,0 +1,12 @@
+title: "Course Detail With Video Hero And Lesson Playlist"
+description: "A learning platform's course page: a left sidebar with the wordmark, a MAIN group (Overview, an active Courses row in a tinted pill, Cohorts, Schedule) and a LIBRARY group (Saved courses, Certificates); a header pairing 'Course details' and its subtitle with a My courses / Browse catalog / Learning paths nav whose active item is a filled pill, a course search, a bell and a named avatar; a main card opening with a Courses > Product Design breadcrumb opposite three meta chips — Advanced, 12 modules, 5h 10m — then a wide video thumbnail with a centred play button, a row of attribute chips (Design Systems, Capstone Ready, 4.8 rating) beside a green-dotted 'Next live critique in 2 hours' status, a two-line course title, a clipped description and a stacked pair of actions, a filled Start course with a play icon and an outlined Save for later with a bookmark; and a right Lesson playlist panel with a progress subtitle, a Search lessons field with a filter icon, and numbered lesson rows each pairing a play or check or document icon with a truncated title, a coloured status line reading In progress, Completed or Not started, and a right-aligned duration, with the in-progress lesson highlighted."
+tags:
+  - "education"
+  - "detail-page"
+  - "sidebar"
+  - "video"
+  - "list"
+  - "media-player"
+  - "progress"
+  - "breadcrumb"
+usage: "use when a course page has to answer 'where was I' before 'what is this' — a playlist beside the hero whose rows carry per-lesson state and duration, meta chips that quantify the commitment up front, and a live-session status sitting next to the attribute chips."

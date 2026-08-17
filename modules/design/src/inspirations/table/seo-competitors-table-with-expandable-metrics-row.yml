@@ -1,0 +1,12 @@
+title: "SEO Competitors Table With Expandable Metrics Row"
+description: "An SEO competitor-research table: a browser-style tab strip where Competitors 853, Phrase Match 38, Exact Match 8 and Related 239 each carry a count and a plus button adds another, with the active tab drawn as a raised folder; a filter bar of four dropdowns — CPC (USD), Include Keywords, Exclude Keywords, Average Filters — opposite a green Download Full List button; then a table with Domain, Backlinks, Flag, ND Score, Location, Pages and Pages total traffic columns whose rows pair a disclosure triangle, a favicon and the domain with small circular badges, a green Purchased or amber Sponsored status pill, a numeric score beside an A/B/C letter grade chip, a country flag with its code, and two share columns rendered as a value, a percentage and a segmented micro bar; the expanded HashiCorp row reveals a panel of four metric tiles — Referring domains, Internal Linking, Organic, Paid — each with a big number, a signed delta in green or red and an area sparkline with its own min/max labels, above four labelled F-to-A grade meters for Performance, Accessibility, Best Practices and SEO with the achieved grade marked in place."
+tags:
+  - "table"
+  - "tabs"
+  - "chart"
+  - "filter"
+  - "dashboard"
+  - "expandable-row"
+  - "badge"
+  - "analytics"
+usage: "use when a comparison table must also explain each row — counts on the tabs, status and grade as chips inside the cells, share columns doubling as bars, and a disclosure that opens sparklines and grade meters in place instead of navigating away."

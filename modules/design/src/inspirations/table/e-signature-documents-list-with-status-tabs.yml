@@ -1,0 +1,12 @@
+title: "E-Signature Documents List With Status Tabs"
+description: "A document-signing app in a browser window: a left sidebar with the wordmark and a collapse control, a 'Create New' split button, Search, an Updates row with a count badge and Settings, then a MAIN MENU group whose active 'My Documents' row is a grey pill over Dashboard, Forms, Workflows, Templates and My Contacts, Help and Support Center near the foot, and a workspace card with avatar, name and email; a header pairing the page title with an Export select and a violet 'New Document' button; a row of lifecycle tabs — All Documents, Draft, For Approval, Sent, Viewed, Suggest Edits, Sign Completed, Expired/Declined — each led by its own glyph with the active one underlined; a filter bar holding a removable 'Sort By: Last Updated Des' chip, Name and Date selects, a 'More Filters' link, a search field, a 'Mange Folders' button and a grid/list view toggle; a table with a header checkbox and Name, Last Activity, Recipients and Status columns, whose rows pair a document glyph with the title and a 'Created' timestamp beneath it, an activity timestamp, an overlapping recipient avatar stack with a '3+' overflow, a tinted status pill (Draft, Completed, Sent, Expired) and a View button with an overflow menu; and a footer pairing a '10 Documents' page-size select with numbered pagination and Previous/Next controls."
+tags:
+  - "list"
+  - "table"
+  - "file-manager"
+  - "sidebar"
+  - "tabs"
+  - "pagination"
+  - "filter"
+  - "status"
+usage: "use when documents move through a signing lifecycle — one tab per state so filtering never needs a menu, recipients shown as an avatar stack on the row, the active sort carried as a removable chip, and every row ending in the same single primary action."

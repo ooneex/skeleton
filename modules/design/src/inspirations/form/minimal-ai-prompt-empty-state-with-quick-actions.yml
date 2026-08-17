@@ -1,0 +1,12 @@
+title: "Minimal AI Prompt Empty State With Quick Actions"
+description: "A near-empty assistant panel on a pale card: a single centred question headline addressing the user by name, a wide white composer with a leading '+' attach button, a 'What is in your mind?' placeholder, a mic button and a filled blue voice-mode button, and beneath it a centred row of three outlined pill actions — Give me idea about, Summarize an article, Make a plan — each led by a small line icon, with nothing else on the surface."
+tags:
+  - "chat"
+  - "interaction"
+  - "form"
+  - "empty-state"
+  - "ai"
+  - "composer"
+  - "suggestions"
+  - "minimal"
+usage: "use when an assistant's blank state should stay almost empty — one personalised question instead of a feature tour, a composer wide enough to invite typing, and three starter pills that name verbs rather than describe the product."

@@ -1,0 +1,12 @@
+title: "Video Template Detail Modal With Token Script"
+description: "A wide two-pane modal on a grey ground: a left 'Template Details' column with a Configuration section holding a 'Template Name' text field, then a Details list pairing labels with their values across hairline rows — 'Template Type' as a grey Custom chip, Status as an amber 'Uploading' pill with an upload glyph, 'Template GIF' as a 'Copy Link' button, Avatar as a portrait with a name, and 'Created On' as a calendar-marked date — with a red 'Delete Template' action and an outlined 'Create Campaign' button split across its foot; and a right pane headed by the template name with a close ×, holding a video player whose overlaid bar pairs elapsed and total times with a scrub track carrying several marker dots, a centred play button flanked by five-second skip-back and skip-forward controls and an expand button, then a 'Script & Replacments' section listing three monospaced variable chips above a bordered script panel whose paragraph carries those variables inline as coloured tokens where the personalised words will go."
+tags:
+  - "modal"
+  - "detail-page"
+  - "video"
+  - "form"
+  - "editor"
+  - "personalization"
+  - "status"
+  - "component"
+usage: "use when a record's settings and its preview belong side by side — properties as label/value rows with status carried as a pill, and a templated script whose replacement variables are shown as coloured inline tokens rather than raw placeholders."

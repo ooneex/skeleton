@@ -1,0 +1,12 @@
+title: "Automation Canvas With Node Library And AI Panel"
+description: "A workflow builder in a browser window: a narrow icon rail on the left; a header with an Automation / Workflow breadcrumb, a collaborator avatar stack, settings and share buttons, a Test Run button and a filled Publish button; a dotted canvas carrying a node graph that starts at a Schedule Trigger and flows through stacked 'Send a message' nodes — each a white card pairing the destination's brand logo with its title, a secondary action row and an overflow menu — with square '+' buttons sitting on every connector, a fan-out into two parallel branches and a merge back into an AI Transform node; a floating AI Assistant panel with expand and close buttons, a transcript of user bubbles beside their avatar and assistant replies containing bulleted guidance, a follow-up question, a rejection message and its recovery reply, and an 'Ask Anything' composer with attach and voice buttons; a right Data Information panel with a 'Search Nodes…' field showing its ⌘K hint and collapsible groups — Populer, Add or remove item, Combine Items — whose rows pair a coloured glyph tile with a node name and a one-line explanation, the hovered AI Transform row outlined with a trailing arrow, and the disabled rows greyed; and a floating bottom toolbar of Move, Shape, Tools, Form, Comment and Ask AI with Move active, plus fit-to-screen and zoom buttons at the canvas's top-right."
+tags:
+  - "editor"
+  - "chat"
+  - "toolbar"
+  - "sidebar"
+  - "interaction"
+  - "canvas"
+  - "workflow"
+  - "ai"
+usage: "use when a node canvas has to stay readable while two panels are open — inline '+' affordances on the connectors themselves, a searchable node library that explains each node in one line, and an assistant docked to the canvas so guidance and graph stay side by side."

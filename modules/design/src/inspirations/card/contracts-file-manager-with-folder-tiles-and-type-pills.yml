@@ -1,0 +1,12 @@
+title: "Contracts File Manager With Folder Tiles And Type Pills"
+description: "A contract library shown close up: an icon rail carrying the brand mark, home, an active documents glyph in a tinted tile, a bell, a round add button and three coloured app tiles; a top bar with a panel-collapse button and a Search field; the page titled Contracts; then a row of folder tiles drawn as illustrated stacks of paper in orange, blue and cyan, each naming the folder and its file count, the hovered orange tile darkened and revealing settings and pin buttons under the cursor, followed by a dashed 'New Folder' tile with a plus in a ring; a second Search field with an info glyph beside it; and a table with a header checkbox and Contract Name, Type, 'Added Date' and 'End date' columns — the last carrying an info glyph — whose rows pair a truncated contract name with a glyph-led tinted type pill for 'Real estate', Vehicle, Employee or Other, a calendar-led start date and an expiry-led end date."
+tags:
+  - "file-manager"
+  - "table"
+  - "list"
+  - "folders"
+  - "card"
+  - "status-pill"
+  - "documents"
+  - "closeup"
+usage: "use when folders and their contents share one page — folders as illustrated tiles whose actions only appear on hover, a create tile drawn dashed to read as an affordance rather than an item, and the file table below classifying each row by a glyph-led type pill."

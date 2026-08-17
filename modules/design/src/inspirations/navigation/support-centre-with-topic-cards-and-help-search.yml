@@ -1,0 +1,12 @@
+title: "Support Centre With Topic Cards And Help Search"
+description: "A product's in-app help centre in a browser window: a left sidebar with the wordmark, a workspace switcher card pairing a brand tile with the workspace name and a swap chevron, a nav list carrying count badges — a red 3 on News and a 99+ on Inbox — an Analytics row with an expand chevron, an active Support row drawn as a tinted pill, and a 'Hide menu' collapse control at the foot; a top bar with a 'Type to search…' field and search, chat and bell buttons beside a named avatar with role; a page header pairing a rounded icon tile with the section title and a one-line description, opposite a 'How may we help you?' search field and an overflow button; and a three-column grid of topic cards, each centring a soft-tinted rounded icon tile above a bold topic title and three lines of explanatory text, with a 'Looking for something else?' panel appearing at the fold."
+tags:
+  - "knowledge-base"
+  - "card"
+  - "sidebar"
+  - "navigation"
+  - "list"
+  - "support"
+  - "search"
+  - "grid"
+usage: "use when help is browsed as well as searched — a dedicated help search beside the page title rather than reusing the global one, topics as equal-weight cards with a tinted icon, and a catch-all panel under the grid for anything the topics miss."

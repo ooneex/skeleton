@@ -1,0 +1,12 @@
+title: "Product Detail Page With Colour Swatches And Delivery Notes"
+description: "A storefront product page laid on a deep green ground: a header pairing the cart wordmark with Categories carrying a caret, Deals, \"What's New\" and Delivery links, a 'Search Product' field and glyph-led Account and Cart actions; a breadcrumb running from the department down to the product handle in bold; a left gallery showing the item large on a grey tile with four colour-variant thumbnails beneath it; and a right column stacking the product name, a two-line summary, a green five-star rating with a bracketed review count, a rule, the price written as a lump sum or a monthly instalment with a financing note beneath, a 'Choose a Color' row of round swatches with the active one ringed, a quantity stepper beside an amber 'Only 12 Items Left!' line with a 'Don't miss it' nudge, a dark filled 'Buy Now' beside an outlined 'Add to Cart', and two bordered notes — 'Free Delivery' with an underlined postal-code link and 'Return Delivery' with a thirty-day returns link — each led by its own glyph."
+tags:
+  - "e-commerce"
+  - "detail-page"
+  - "product"
+  - "card"
+  - "gallery"
+  - "rating"
+  - "navigation"
+  - "checkout"
+usage: "use when the buying decision needs more than a price — instalments offered beside the total, colour chosen from swatches that match the gallery thumbnails, scarcity stated next to the quantity stepper, and delivery and returns promised in bordered notes under the buttons."

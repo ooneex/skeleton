@@ -1,0 +1,12 @@
+title: "Calendar With Agenda Timeline And Voice Notes"
+description: "A calendar app shown at a steep angle over a blue and yellow poster ground: a dark blue icon rail carrying two coloured brand tiles and a round add button above a column of muted destination glyphs, with an expand chevron at the top; a white calendar card headed by a small date tile, the month and year in heavy blue type and previous/next arrows, then a Today / 'This week' / 'Next week' segmented control with Today filled, a month grid whose weekday labels sit above numbers with the current day in a blue disc, a selected day in an amber disc, out-of-month days greyed and small dots under the days that carry events, and a 'Meeting notes' block at its foot showing an audio waveform with its duration and a round play button; and a right agenda column headed 'Your agenda' with a search and a round add button, listing days under date captions with an overflow, each entry pairing a bold start time over its end time with a coloured vertical bar and a two-line label giving the category in grey above the item in black."
+tags:
+  - "calendar"
+  - "list"
+  - "media-player"
+  - "sidebar"
+  - "note"
+  - "agenda"
+  - "typography"
+  - "timeline"
+usage: "use when a month grid feeds a reading agenda beside it — event days marked only by a dot, the agenda grouped under date captions with start and end times stacked, category colour carried as a bar, and recorded notes played from inside the calendar card."

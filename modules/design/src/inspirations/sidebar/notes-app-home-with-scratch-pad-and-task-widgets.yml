@@ -1,0 +1,12 @@
+title: "Notes App Home With Scratch Pad And Task Widgets"
+description: "A note-taking app's home: a left sidebar with the wordmark, a search field with a ⌘K chip, a green New Note button flanked by Task and Event buttons, a nav list whose active Home row is tinted and whose Notes and Tasks rows carry counts, collapsible SPACES and MORE groups, and a user card showing name, plan and a bell; a green greeting banner carrying two status pills — tasks due today and notes captured this week — beside a New Note button and a compose button; a 'Your Home' header with the date, an 'at a glance' subtitle and a 'Customize widgets' button; then a widget grid — a Scratch pad card with a coloured top rule, a 'Saved 2 min ago' status, a pink editable area holding a dash list and a free line, a formatting toolbar of bold, list, checklist and attach, and a 'Save to Notes' button; a Notes panel of four note cards each headed by its notebook name with a lock icon, a title, a clipped excerpt and a relative time; a 'Recently captured' list with a type filter select whose rows pair a coloured type tile with an uppercase kind label, a title, a source line and a date, closed by a 'Capture from the web' promo with an Install Web Clipper link; a 'My tasks' card with a 'Due soon' select, checkbox rows carrying flag and bell markers, red overdue dates, a completed task struck through, and a 'Plan your day' empty-state block with a New task action; and a Tags panel of coloured count chips with an explanatory block and a Create tag link, plus a floating New Note button."
+tags:
+  - "note"
+  - "dashboard"
+  - "task"
+  - "card"
+  - "sidebar"
+  - "editor"
+  - "list"
+  - "widgets"
+usage: "use when a home page is assembled from widgets — a scratch pad that saves into the real store, overdue dates coloured in the task list, empty states that teach the next action inside the widget, and a Customize control that admits the layout is the user's."

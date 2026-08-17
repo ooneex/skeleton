@@ -1,0 +1,12 @@
+title: "Study Dashboard With Locked Premium Topic"
+description: "An exam-practice dashboard shown at an angle on a decorated board: a navy top bar with the wordmark, an encouragement line, a red UPGRADE button with a crown, a bell with a count badge and a named account; a sidebar of five plain rows with the active Dashboard tinted; a pink department banner naming the active department with a 'Switch Department?' link and an 'Invite Your Friend' action; a left column with a 'Select Date Range' field, an 'Overall Performance' donut with an Accuracy / 'Avg. Time' toggle and a tick/cross/square legend with percentages, then 'Your Progress' panels for Overall, Lessons and 'Question Bank' each stating 'N done on M' with a bar and percentage, and a 'Test Attempted' panel with a total and two colour-keyed test types with their own sentences and bars; and a right 'Let's start a quick test' card with an include-attempted checkbox and a 'Start Test →' button, a row of outlined subject chips with English ringed, and a Topics list captioned by a red trial warning, where the selected topic is outlined and the rows beneath are dimmed under a white overlay reading 'This is a premium topic, upgrade to unlock' beside a red UPGRADE button."
+tags:
+  - "education"
+  - "dashboard"
+  - "sidebar"
+  - "chart"
+  - "list"
+  - "paywall"
+  - "progress"
+  - "quiz"
+usage: "use when part of a list is gated — the locked rows left visible but dimmed under an overlay that states why and offers the upgrade in place, rather than removing them or blocking the whole page."

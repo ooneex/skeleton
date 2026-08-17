@@ -1,0 +1,12 @@
+title: "Crypto Market Table In Column Edit Mode"
+description: "A crypto market table caught mid-customisation: a header reading 'In the past 24 hours' over 'Market is up 2.49%' with the figure in green; a tab row of All assets, Tradable, Gainers, Losers and a Portfolio tab carrying a Premium badge, each led by a glyph, with an '+ Add custom tab' action on the right; an 'Edit mode…' bar with Cancel and a filled 'Save table' button; and a table whose header cells now carry drag handles, with the 24h column highlighted and outlined as the one being moved, columns for rank, name (a coin logo with its name and ticker), price, 1h, 24h and 7d changes coloured green or red with directional arrows, 24h volume, market cap and a 'Last 7 days' sparkline drawn in the trend's colour, each row led by a star watchlist toggle; and, hanging from a '+' button at the end of the header row, an add-metric menu with a 'Search metrics…' field over rows for Price in BTC, Price in ETH, ATH, ATL, 24h high, 24h low, 30d % and 60d %, each with its own '+' to append it as a column."
+tags:
+  - "table"
+  - "finance"
+  - "chart"
+  - "tabs"
+  - "menu"
+  - "interaction"
+  - "customization"
+  - "drag-and-drop"
+usage: "use when users compose their own columns — an explicit edit mode with save and cancel rather than silent changes, drag handles appearing only in that mode, and a searchable metric menu that appends columns from the header where they will land."

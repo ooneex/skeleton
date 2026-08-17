@@ -1,0 +1,12 @@
+title: "Orders Table With Sentence Filter Builder"
+description: "A commerce back office's orders screen: a left sidebar with the brand mark, Home and People, an expanded Store group whose children Products, an active Orders, Discounts, Licenses and Affiliates are indented, then collapsible Comms, Reports and Design groups, and a store card with an overflow at the foot; a header pairing a hamburger and the page title with search, help and avatar buttons and a round violet add button; a wide 'Search by order #, name or email…' field opposite a Filters disclosure and an overflow; a wrapping row of applied filters, each a chip written as a sentence — field, operator in grey, value in bold — with a × to remove it, closed by a '+' button; and, hanging from that button, a two-part builder where a field list (Order #, Date, Status, Email, Customer, Purchased, Revenue) sits beside a panel of operator radios — is, is not, contains, has any value — with a focused text field under the selected operator and Cancel and 'Apply Filter' buttons; behind it the orders table shows a header checkbox, order number, timestamp, a green-ticked Paid status, a customer avatar with a name or bare email, the product with a '+ 1 more' overflow, the revenue and a row overflow, closed by an '11 results' count."
+tags:
+  - "filter"
+  - "table"
+  - "list"
+  - "sidebar"
+  - "menu"
+  - "form"
+  - "e-commerce"
+  - "query-builder"
+usage: "use when filters are compound conditions rather than checkboxes — each applied filter written as a readable sentence chip, the builder choosing field then operator then value in one popover, and the result count restated under the table."

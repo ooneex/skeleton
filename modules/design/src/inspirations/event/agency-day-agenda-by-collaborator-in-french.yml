@@ -1,0 +1,12 @@
+title: "Agency Day Agenda By Collaborator In French"
+description: "A French estate-agency scheduling app in a browser window: a narrow rail with the brand mark and three labelled destinations — Agenda active, Biens, Contacts; a header pairing a month pager and 'Avril 2022' with a 'Semaine 18' chip, a violet '+ Créer' button, a Jour / Semaine / Mois segmented control with Jour selected, and invite, settings and account buttons; a left panel titled 'Collaborateurs (16)' whose rows each pair a coloured checkbox with a name — most ticked, one unticked and outlined under the cursor as it is toggled off — over an empty 'Autre agendas (0)' section with an 'Ajouter un calendrier' button and a month calendar whose selected day is filled violet and today is tinted; and a schedule grid with a half-hourly time header running from 8h, one row per collaborator led by a drag handle, an avatar and their name, and appointments drawn as white cards with a coloured left rule and a type glyph, each naming the activity and its time range — Appel, 'Réunion equipe', Visite, 'Prise de photo', 'Signature notaire', Prospection, Dej — some carrying a count pill such as '5/5' or '1/4', and one 'Permanence' block extending as a hatched band across the rest of the day."
+tags:
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "list"
+  - "filter"
+  - "localization"
+  - "scheduling"
+  - "day-view"
+usage: "use when a day is planned across a large team — one row per person rather than one column, colleagues toggled on and off by colour-keyed checkboxes, appointment type carried by a glyph and rule colour, and open-ended duties drawn as a hatched band."

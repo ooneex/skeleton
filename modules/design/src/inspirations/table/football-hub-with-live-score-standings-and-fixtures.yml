@@ -1,0 +1,12 @@
+title: "Football Hub With Live Score Standings And Fixtures"
+description: "A football companion app: a narrow labelled rail with Matches, News and Favourite and an avatar at the foot, plus a hamburger at the top; a tab row of Matches, Standings, Transfers, States and Teams with the active one underlined; a live match card naming the competition and stage with a red Live pill, the two club crests either side of a '2 : 0' score with the minute and referee beneath, and a 'Matches details' footer link; a violet hero banner with a two-line headline, a 'More Details' button and a cut-out player photograph; a standings card with Table / Home / Away tabs and rows of position, club, played, goal difference and a points chip; a fixtures card with a scrollable matchday tab strip whose rows place two crests either side of a kick-off time; a Transfers card timestamped '2 minutes ago' showing the player's portrait, name and position with the origin and destination clubs either side of an arrow, carousel dots and a 'See All' link; a results card headed by the matchday and date whose rows pair crests with a score and a green 'Full-Time' state; and a right column of photographic news cards, two carrying a play button, each captioned with its headline over the image."
+tags:
+  - "dashboard"
+  - "table"
+  - "list"
+  - "card"
+  - "tabs"
+  - "sidebar"
+  - "sports"
+  - "live"
+usage: "use when one screen must carry live, upcoming and finished states of the same competition — a live card that leads with the minute, standings and fixtures reduced to crests and numbers, and results marked full-time so the three states never read alike."

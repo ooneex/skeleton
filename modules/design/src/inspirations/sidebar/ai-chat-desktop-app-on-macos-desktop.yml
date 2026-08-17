@@ -1,0 +1,12 @@
+title: "AI Chat Desktop App On macOS Desktop"
+description: "An AI assistant shown in place on a macOS desktop, with the system menu bar and dock visible around it: the app window carries its own tab strip — a '+' button and three site tabs with the active one closable plus an overflow — above minimise, maximise and close controls; a left sidebar holds the wordmark, a Search field with a ⌘ chip, four destinations (Home, Explore, Library, History), a conversation history grouped under 'Tommorow' and '7 Days Ago' captions as single truncated lines, and a user card with avatar, name and email; and the canvas centres an iridescent orb above a two-line greeting whose second line ends in a violet question, over a tall composer whose placeholder sits above a toolbar of attach, Search, Reasoning, 'Create Image' and 'Deep Research' chips with a filled mic button at the right, with a model select pill top-left and a black 'New Chat' button and avatar top-right."
+tags:
+  - "chat"
+  - "sidebar"
+  - "navigation"
+  - "onboarding"
+  - "ai"
+  - "empty-state"
+  - "desktop"
+  - "tabs"
+usage: "use when presenting an app in its real operating-system context — the window's own tab strip distinguished from the system chrome, and a blank state that fills the frame with one greeting and one composer rather than a feature grid."

@@ -1,0 +1,12 @@
+title: "AI Image Library With Style Carousel And Prompt Ideas"
+description: "An image-generation workspace: a left sidebar with the wordmark and a collapse button, a blue New Chat button, a MAIN MENU group (Search Chats, an active Images Library row in a grey pill, Explore, Spaces, Projects), a 'Your Chats' history of eight truncated thread titles, an 'Upgrade to premium' card with a crown tile, a benefits paragraph and an Upgrade button, and a user card showing name and plan with a switcher; a header pairing the section title with Share and overflow buttons; a centred page title over a large prompt card whose 'Describe a new image' field sits above an attach button, a 'Create image' mode chip and mic and send buttons; a 'Try a style on an image' carousel with previous/next arrows showing five style cards, each a sample image captioned with the style name; and a 'Discover something new' section, also arrowed, listing prompt ideas in two columns as wide rows that pair a small example thumbnail with the suggestion written as a plain-language request."
+tags:
+  - "chat"
+  - "sidebar"
+  - "card"
+  - "list"
+  - "onboarding"
+  - "ai"
+  - "gallery"
+  - "carousel"
+usage: "use when generation needs seeding rather than instruction — styles offered as sample images you can apply, prompt ideas written as sentences a person would actually say, and both arranged as arrowed shelves under one composer."

@@ -1,0 +1,12 @@
+title: "Week Calendar With Create Activity Popover"
+description: "A personal calendar app: a header with the wordmark, three icon-led nav links with the active Calendar in violet, and a search field; a page title giving the month and year beside a Week / Month / Year segmented control and a Today pager; a week grid with a settings tile in the gutter corner, day columns headed by the weekday over its date with the current day in violet, hour rows down the left, a red 'now' pill at 09:30 with its line crossing the grid, and events drawn as pastel blocks carrying a start time, a two-to-three-line title and a dot-keyed category chip, plus a pink '30 min to go' countdown chip above an imminent event and an empty violet block showing a pending selection; a floating 'Meet with Tom Comp' popover with the date and a repeat button, start and end time selects, a location field with a pin, three selectable category chips, an attendee avatar row with a dashed add button and a violet '+ Create Activity' button; and a right rail with a notification button carrying a count, the user's name and role, a month calendar with dotted event days and the selected day filled, a violet reminder card pairing a 3D aeroplane with a '30 min' chip, the time range, the event title and Later and Details buttons, and a Categories list with an add button whose rows pair a coloured checkbox and label with a coloured intensity bar."
+tags:
+  - "calendar"
+  - "event"
+  - "form"
+  - "modal"
+  - "sidebar"
+  - "list"
+  - "scheduling"
+  - "week-view"
+usage: "use when events are created in the grid where they belong — a popover carrying date, times, place, category and attendees in one column, a countdown chip on the next event, and categories managed as colour-keyed toggles in the rail."

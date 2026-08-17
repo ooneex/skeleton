@@ -1,0 +1,12 @@
+title: "Quality Inspection Table With Pass Fail Progress Bars"
+description: "A quality-control result table shown close up: a breadcrumb running from 'Purchase orders' through the order number to the item, a floating pill reading 'Synced 15s ago' beside an accounting-app logo and a refresh button, then a back chevron with the item name carrying a superscript count, a full-width 'Search by name' field, and a table whose columns are Test name, 'Last update' with an active descending sort arrow, Tested, Passed and Failed; each row names the check — logo, fabric defects, print position, paint, thread quality, width — gives a relative age, and renders every count as a large figure over a greyed '/ total' with a thin progress bar beneath it, violet for tested, green for passed and red for failed, so a row where all units were inspected reads as a full bar and a row with twelve failures shows a visibly filled red one."
+tags:
+  - "table"
+  - "list"
+  - "progress"
+  - "e-commerce"
+  - "status"
+  - "sorting"
+  - "quality"
+  - "closeup"
+usage: "use when each row reports progress against its own denominator — the count and the total set in different weights, a bar under every figure so partial coverage is legible at a glance, and colour reserved for what the column means rather than the row's state."

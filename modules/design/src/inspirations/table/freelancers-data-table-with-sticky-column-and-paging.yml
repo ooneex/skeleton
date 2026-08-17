@@ -1,0 +1,12 @@
+title: "Freelancers Data Table With Sticky Column And Paging"
+description: "A responsive data table demo, captioned '01. Responsive data table': a top bar with the product mark, five nav links with the active one underlined, a search field and a named avatar beside a sign-out button; a header pairing 'Freelancers (50)' with Filters, Manage Columns, a filled 'Add Contact' button and an overflow; then a table with a header checkbox and sortable columns — Designers, Specialties, Hourly Rate, Status, Full-time?, Last Activity, Earned amount, Hours billed, Hours worked, Actions — whose rows carry a per-row checkbox, a photo or coloured initial avatar beside the name as a link, a dot-keyed specialty, a rate, a tinted status pill (Top Rated, Rising Talent, Interview, Blocked, Contract offered), a green tick or a written contract type for full-time, dashes where a value is missing, numeric columns, and a Hire link with a bookmark toggle that greys out on blocked rows, with the leftmost columns frozen while the rest scroll under a horizontal scrollbar; and a footer pairing first/previous, numbered pages and next/last with a 'Showing 1 - 10 of 50' readout and a 'Listings per Page' select."
+tags:
+  - "table"
+  - "list"
+  - "user"
+  - "pagination"
+  - "filter"
+  - "crm"
+  - "sticky-column"
+  - "status"
+usage: "use when a table has more columns than the viewport — identity columns frozen while the metrics scroll, an explicit dash for missing values, row actions disabled rather than hidden when the state forbids them, and column management offered next to filtering."

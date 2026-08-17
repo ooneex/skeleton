@@ -1,0 +1,12 @@
+title: "Conversion Line Chart With Period Comparison Tooltip"
+description: "A conversion chart shown close up over a violet gradient, its card cropped at the left edge: a '…conversion progress' title beside a spreadsheet glyph marking the source, a legend whose entries pair a solid swatch and a hatched swatch with the series name so the current and prior periods are told apart by fill as well as colour, a plot where each series is drawn twice — solid for the period in view and dotted for the one before it — a dashed vertical crosshair dropped on the hovered month with a ringed point on every line it crosses, and a floating tooltip card that groups the readings by series: each names its month beside the matching solid or hatched swatch with the value right-aligned in a tabular face, and under the current month a tinted signed delta states the change with the earlier month named in words."
+tags:
+  - "chart"
+  - "tooltip"
+  - "comparison"
+  - "line-chart"
+  - "analytics"
+  - "closeup"
+  - "legend"
+  - "gradient"
+usage: "use when two periods share one plot — the prior period dotted and its legend swatch hatched so the pair survives without colour, and the tooltip grouping both readings per series with the delta named against the month it is measured from."

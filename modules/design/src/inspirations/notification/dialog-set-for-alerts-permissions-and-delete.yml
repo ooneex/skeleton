@@ -1,0 +1,12 @@
+title: "Dialog Set For Alerts Permissions And Delete"
+description: "Four small dialog patterns on a pale gradient. A 'Battery low!' alert pairs a battery glyph with its title, two lines of consequence and a single full-width tinted Ok button. An 'Accept cookies?' banner pairs a cookie glyph with its question and a dismiss ×, a two-line explanation and three trailing actions — a neutral Customize, a red-tinted Reject with a × glyph and a green-tinted Accept with a check. A 'Show notifications?' permission dialog centres a bell glyph above its question and a one-line reason, with an outlined 'Don't allow' beside a filled blue Allow. A 'Delete this item?' confirmation centres a bin glyph above its title, two lines explaining that the item can be restored from the recycle bin, and a grey Cancel beside a red Delete."
+tags:
+  - "modal"
+  - "interaction"
+  - "notification"
+  - "dialog"
+  - "confirmation"
+  - "permissions"
+  - "component"
+  - "buttons"
+usage: "use when writing system dialogs — the consequence stated before the buttons, the safe action placed left of the committing one, destructive actions coloured red and reversible ones saying so, and single-outcome alerts collapsing to one full-width button."

@@ -1,0 +1,12 @@
+title: "My Files Folder Illustration With Peeking Photos"
+description: "A single folder object centred on white: a soft peach folder drawn as a back panel with a rounded tab and a front panel edged in white, with three photographs — a sunset, an interior and a seascape — fanned out behind the front panel so only their tops show, as if the folder were stuffed; the front panel carries the name 'My Files' in a soft grey rounded typeface at its lower left and a three-dot overflow at its lower right, the whole shape lit by a warm glow rather than a hard shadow."
+tags:
+  - "file-manager"
+  - "card"
+  - "folder"
+  - "illustration"
+  - "component"
+  - "photography"
+  - "minimal"
+  - "surface"
+usage: "use when a folder tile should preview what is inside it — real thumbnails fanned behind the front panel instead of a count, the name and a single overflow left as the only chrome."

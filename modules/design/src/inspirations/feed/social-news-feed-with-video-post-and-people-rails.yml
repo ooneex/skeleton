@@ -1,0 +1,12 @@
+title: "Social News Feed With Video Post And People Rails"
+description: "A social network feed in three columns under a blue app bar carrying the network mark, Home and 'Find Friends' links, a centred Search field and friend-request, message, bell and help glyphs beside an avatar; a left rail with a blue profile card holding a portrait, name, city, an overflow, a rule and 'Posts' and 'Friends' counters, then a FEED menu of 'News Feed' — active in white — Pages, Events, 'Pages Feed', Saved, Recommendations and Memories with a matching glyph rail alongside, a News card of two announcement lines each ending in a link, and a 'Gallery' card with a picture count over a nine-thumbnail grid; a centre post whose video fills the card with two name tags pinned over faces and a 'Tag contact' affordance under the cursor, a playback bar reading elapsed over total time with play, volume, fullscreen and frame buttons, then the headline beside a view count and post date, the author with a 'Colleagues' relationship label, an emoji reaction cluster with a '+26k' count, a comment count with a caret and a share count, and a paragraph of body copy; a Comments card whose rows pair an avatar with the commenter, their text and Like / Reply / Translate actions with a relative age; a 'My Media Library' list of glyph-led titles; and a right rail with a Search over FRIENDS, COLLEAGUES and CLUBS groups, each captioned with an ADD action and listing avatars — some with presence dots — beside names."
+tags:
+  - "feed"
+  - "social"
+  - "video"
+  - "comments"
+  - "sidebar"
+  - "profile"
+  - "media-player"
+  - "card"
+usage: "use when a post is the page — the player filling the card with tagging done directly on the frame, reactions, comments and shares counted on one line, and both rails given to navigation and people so the centre column carries only content."

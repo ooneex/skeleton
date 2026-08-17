@@ -1,0 +1,12 @@
+title: "Course Search Overlay With Recent And Trending"
+description: "A learning platform's search overlay dropped over its dimmed course library: a wide 'What are you looking for?' field with a search button, outlined in the brand colour to show focus; a 'Recent search' section of four chips, the first carrying a × to remove it and the rest led by a small search glyph; a 'Trending in Cortex' section rendered as a 2×2 grid of result cards, each pairing a 3D course thumbnail with a truncated title and a 'duration • N Lessons' meta line; and a footer legend showing up/down chips for Navigate, an × chip for Close and an Enter chip for Select — with the underlying page still legible around it: the sidebar, the Library tab, the Find Your Next Course banner, the featured cards and the filter rail with its active category checkboxes."
+tags:
+  - "modal"
+  - "education"
+  - "filter"
+  - "sidebar"
+  - "card"
+  - "navigation"
+  - "search"
+  - "keyboard-shortcuts"
+usage: "use when search opens over a page rather than replacing it — recent queries as removable chips, trending results shown as full cards with their duration, and a keyboard legend at the foot so the overlay can be driven without the mouse."

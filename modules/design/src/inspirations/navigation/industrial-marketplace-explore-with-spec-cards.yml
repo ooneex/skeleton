@@ -1,0 +1,12 @@
+title: "Industrial Marketplace Explore With Spec Cards"
+description: "A commodity and vessel marketplace in a browser window: a header with the wordmark, five text nav links with the active one in blue, a market-ticker chip showing a date, an index name, its price and a green signed change, then settings, search and bell buttons, an avatar and a filled primary request button; a Beranda / Explore breadcrumb over the page title, with a row of category tabs each carrying a count pill and the active tab filled dark; a left Filter panel with a 'Reset filter' link, a listing-type radio group whose selected option is outlined in green, a Spesifikasi group with a size select, a Min/Max quantity pair and a currency-prefixed minimum and maximum price pair; and a results area with a wide search field over a three-column card grid, each card showing a photograph with a dot-keyed listing-type chip top-left and a heart toggle top-right that is filled red when saved, then the vessel name, its identifier, a two-column spec block pairing 'Quantity Muatan' and 'Harga' labels with their values, an overflow menu, and a tinted footer panel labelled 'LISTING OLEH' carrying the lister's avatar, name and company."
+tags:
+  - "e-commerce"
+  - "filter"
+  - "card"
+  - "list"
+  - "navigation"
+  - "form"
+  - "marketplace"
+  - "tabs"
+usage: "use when listings are judged on specifications and on who posted them — counts on the category tabs, a filter panel mixing radios with min/max pairs, specs as label/value columns on the card, and the seller given their own footer panel."

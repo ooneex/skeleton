@@ -1,0 +1,12 @@
+title: "Flight Itinerary Card With Layover Block"
+description: "A two-leg flight itinerary drawn as one tall card on a grey ground: each leg opens with the airline's round logo beside its name, the flight time set beneath in grey, opposite a pale 'Details ✦' pill; below runs a vertical rail whose dashed circle marks the departure, a small plane glyph marks the leg itself and a solid ring marks the arrival, with each endpoint set as a tinted row pairing the clock time over its weekday date with the city name over the airport and its three-letter code in grey; and between the two legs a pale blue block led by a clock glyph reads 'Layover in Istanbul' over a line stating how long the wait lasts."
+tags:
+  - "card"
+  - "timeline"
+  - "travel"
+  - "list"
+  - "closeup"
+  - "booking"
+  - "transit"
+  - "detail-page"
+usage: "use when a journey has connections — each leg drawn on its own rail with dashed and solid nodes for departure and arrival, and the gap between them given a tinted block that names the city and states the waiting time rather than leaving it to be worked out."

@@ -1,0 +1,12 @@
+title: "Timed Quiz Screen With Question Pager And Ring"
+description: "A quiz app shown as a desktop and a phone frame on a green gradient board captioned with the brand and 'App Design': the desktop frame carries the wordmark and a named account with an id beneath, then a white card whose header pairs a clock glyph with a 'Time remaining' label over a 14:44:00 countdown, opposite a dark Submit button; a 'Question 1 of 10' caption above the question sentence; four answer options laid two by two as outlined buttons each prefixed by its letter; a thick progress ring at the right reading '9/10' for answered questions; and a footer pager of Prev, numbered buttons one to ten with the current one filled dark, and Next. The phone frame restacks the same parts vertically — timer and Submit on one row, the ring centred, the question, the four options as full-width rows, and Prev and Next split across the foot."
+tags:
+  - "education"
+  - "mobile"
+  - "pagination"
+  - "form"
+  - "card"
+  - "quiz"
+  - "responsive"
+  - "progress"
+usage: "use when a timed test must show position and progress at once — a countdown and submit kept in the header, answered-count as a ring, a numbered pager so any question can be revisited, and the same parts restacked for a phone."

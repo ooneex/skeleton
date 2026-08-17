@@ -1,0 +1,12 @@
+title: "Task App Home Card With Priority Task And Bottom Nav"
+description: "A compact mobile task app home rendered in soft monochrome relief: a header pairing an avatar with a two-line 'Hi Jennifer / Welcome back' greeting, a pill Get Pro action with a bolt icon and a bell carrying an unread dot, then a single raised task card led by a red High priority pill with a trend arrow, a two-line task title, a thumbnail of the attached document, an overlapping assignee avatar stack, a calendar date-and-time line and a comment count, and finally a floating pill bottom bar whose active Home item is a filled lozenge with a label while the other three stay icon-only, with a round red plus button detached to its right."
+tags:
+  - "mobile"
+  - "task"
+  - "card"
+  - "navigation"
+  - "dashboard"
+  - "priority"
+  - "avatar-stack"
+  - "floating-action-button"
+usage: "use when a phone home screen must surface one task at a time — a priority pill that reads before the title, participants and due time compressed into a single metadata row, and a bottom bar that labels only the active destination so the add action can own its own button."

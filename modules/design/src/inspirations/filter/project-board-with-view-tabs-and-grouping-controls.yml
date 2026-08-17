@@ -1,0 +1,12 @@
+title: "Project Board With View Tabs And Grouping Controls"
+description: "A work-management board on a violet gradient: a left sidebar with a workspace switcher and panel-collapse button, a nav list where Inbox carries a red count badge, then Docs, Dashboards, Timesheets and a 'More' row, a Spaces group with a collapse chevron listing Everything and an expanded Design Team whose children List and 'Product V.20' are indented with the active one boxed, plus 'Product Requirements' and a '+ Create Space' row, and Settings, Support and a user card with a presence dot at the foot; a header with a 'Design Team › Product V.20' breadcrumb and overflow, a collaborator avatar stack, Share and a split Automations button; a view tab row — List, an active Board, Team with a count of 8, Calendar, Timeline, a '6 more…' overflow and a '+ View' action — beside search, Hide, Customize and a split 'Add Task' button; a second toolbar of active 'Group: Status' and 'Substasks: Collapse all' chips followed by Filters, Sort, 'Me Mode', Assignees, 'Show closed', Hide and a task search; and kanban columns — In Research, Open, In Review — each headed by a colour-keyed square, its name, a count, an overflow and an add button, holding cards whose top row carries three chips (a coloured platform tag, a flagged priority and a 'Task n/m' subtask count), then the task title, an indented parent-project link, and a footer pairing an avatar pair with a due date, an attachment count and a comment count."
+tags:
+  - "kanban"
+  - "task"
+  - "project-management"
+  - "sidebar"
+  - "tabs"
+  - "filter"
+  - "card"
+  - "grouping"
+usage: "use when one dataset is offered as many views — view tabs with an overflow and an add action, the active grouping and subtask state shown as highlighted chips rather than hidden in a menu, and cards whose chip row states platform, priority and subtask progress before the title."

@@ -1,0 +1,12 @@
+title: "Month Calendar With Event Chips And More Links"
+description: "A calendar page in a floating window over a mountain photograph: a left sidebar with the wordmark, a GENERAL group (Dashboard, Projects, Documents, an active Calendar row in a tinted pill), a product group with Reporting, a Tasks row carrying a count badge and Users, and a 'YOUR TEAMS' group whose entries pair a brand tile with the team name, a ⌘-number shortcut chip and a chevron, plus a user card with avatar, name, email and a presence dot at the foot; a home-icon breadcrumb over the page title with a Search field showing its ⌘K hint; an 'All events / Shared / Public / Archived' segmented tab row; and a calendar card whose header pairs a small date tile with the month and its full date range, opposite a search button, a Today pager, a 'Month view' select and a black '+ Add event' button, over a Monday-to-Sunday month grid where out-of-month days are tinted, the current day's number sits in a black disc, and events are pale tinted chips pairing a truncated title with a right-aligned time — some led by a coloured dot — with a grey 'N more…' link where a day overflows."
+tags:
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "tabs"
+  - "navigation"
+  - "month-view"
+  - "minimal"
+  - "overflow"
+usage: "use when a month grid must stay readable when days fill up — events as tinted chips with the time right-aligned, a plain 'N more' link rather than shrinking rows, and out-of-month days tinted so the current month reads as a block."

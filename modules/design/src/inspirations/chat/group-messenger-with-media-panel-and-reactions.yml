@@ -1,0 +1,12 @@
+title: "Group Messenger With Media Panel And Reactions"
+description: "A desktop messenger on a patterned lilac ground: a dark folder rail with the brand mark and stacked destinations — 'All chats' and Work carrying red count badges, Friends, News, 'Archive chats', then Profile, Edit and 'Log out' — with the active folder in a raised tile; a chat list with a Search field whose rows pair a square avatar or initials tile with the correspondent's name, a preview line prefixed 'You:' on outgoing messages, a relative time, and either a pin glyph, a red unread count or a blue double-tick receipt, the open chat raised; a thread headed by the group name with a '23 members, 10 online' line and search, call and overflow buttons, holding lilac bubbles labelled with the sender's name beside their avatar, each footed by emoji reaction chips with counts, a view count and a timestamp, own messages right-aligned in violet, an @mention inline, a photo attachment with its own view count and time, and a voice message drawn as a waveform with a play button and duration, over a composer with attach, mic and send; and a right column with a 'Group Info' card listing '265 photos' expanded into a thumbnail row above collapsed videos, files, audio, shared links and voice-message counts, and a '23 members' card whose rows pair an avatar with a name and an 'admin' label."
+tags:
+  - "chat"
+  - "inbox"
+  - "sidebar"
+  - "list"
+  - "user"
+  - "messaging"
+  - "reactions"
+  - "media"
+usage: "use when a group thread carries mixed media and reactions — folders as a first-level rail with counts, per-message reaction chips and view counts, and a group panel that summarises the shared media as expandable counts rather than a gallery."

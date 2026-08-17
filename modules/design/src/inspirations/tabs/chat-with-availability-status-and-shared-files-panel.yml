@@ -1,0 +1,12 @@
+title: "Chat With Availability Status And Shared Files Panel"
+description: "A four-column messenger: a narrow icon rail with the brand mark, five destination glyphs with the active one in a mint tile and an avatar at the foot; a Chat column headed by a back button and the title, then the user's own portrait with a presence dot, their name and an 'available' status select, a Search field, a 'Last chats' caption with add and overflow buttons, and conversation rows pairing an avatar or initials tile with the name, a clipped preview — 'typing…' in the open one — and a timestamp; a thread pane headed 'Group Chat' with a Messages / Participants segmented pair, holding messages labelled with the sender's name and time, incoming as white bubbles beside their avatar, own messages right-aligned and tinted lilac with an emoji reaction bubble beneath, an @mention rendered in green, a 'Robert is typing' indicator and a 'Write your message…' composer with emoji, attach and a green send button; and a right 'Shared files' panel centring the group's cover image, its name and a '10 members' line, then two count tiles — 'All files 231' and 'All links 45' — over a 'File type' list whose rows pair a coloured type glyph with Documents, Photos, Movies or Other, a 'N files, size' line and a chevron."
+tags:
+  - "chat"
+  - "inbox"
+  - "sidebar"
+  - "file-manager"
+  - "list"
+  - "tabs"
+  - "profile"
+  - "messaging"
+usage: "use when a conversation's attachments deserve their own column — headline counts for files and links, a per-type breakdown with sizes, and the user's own availability set from a select at the top of the chat list."

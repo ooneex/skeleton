@@ -1,0 +1,12 @@
+title: "Device Attribute Comparison Table With Time Columns"
+description: "A telemetry comparison tool on a plain white card: a grey 'Compare attributes' header bar with a 'Clear all' link and a settings gear; a Devices row of removable chips each carrying an × plus a '+ Add device' action, and an Attributes row built the same way for Temperature, Utilization and Notifications; a controls row with a 'By attribute' sort select beside Start and End groups, each pairing a dated calendar link with a time field; a Time header strip running one column per minute with one column highlighted grey as the selected instant; and three stacked sections — Notifications, Temperature and Utilization — each labelled with a three-dot colour legend and holding one row per device, where notification cells are filled severity pills (blue Info, orange Warning, red Critical) or a dash where nothing happened, temperature cells are plain readings with the selected column tinted, and utilization cells are percentages coloured by the same severity scale so the outliers read without a chart."
+tags:
+  - "table"
+  - "filter"
+  - "dashboard"
+  - "list"
+  - "form"
+  - "telemetry"
+  - "comparison"
+  - "severity"
+usage: "use when two things must be compared attribute by attribute over time — devices and attributes chosen as removable chips, time as columns instead of rows, an explicit dash for no event, and one severity palette shared by pills and numbers."

@@ -1,0 +1,12 @@
+title: "Project Kanban With Banner And Status Columns"
+description: "A project task board in a browser window: a left sidebar with the wordmark and a PRO badge, a Tools group (Dashboard, an active Tasks row as a dark filled pill with a left accent bar, Notes, Messages with a count badge), a Company group (Team, Projects, Customers, Services), Support and Settings at the foot, and a user card with avatar, name, email and an overflow; a wide gradient project banner carrying the project's logotype with an edit button in its corner; a project header pairing a gradient app tile with the project name and a lock-marked 'Private' chip, opposite a collaborator avatar stack with a '+7' overflow and an Invite button; a view switcher of Kanban, Table, List and Timeline with the active one raised, beside Search, Filter and a dark 'Create Task' button; and kanban columns — To Do, In Progress, Testing, Complete — each headed by a state glyph, its name, a count and an add button, holding cards that lead with a small bar-glyph priority mark and a monospaced ticket id with an overflow menu, then a two-line task title, a 'Due …' date written as a weekday, a full date or 'Yesterday', and a footer pairing an avatar or initials stack with link and comment counts, the board running off the right edge above a horizontal scrollbar."
+tags:
+  - "kanban"
+  - "task"
+  - "project-management"
+  - "sidebar"
+  - "tabs"
+  - "card"
+  - "status"
+  - "banner"
+usage: "use when a board belongs to one project — a banner and identity header above the columns, privacy stated as a chip beside the name, columns keyed by a state glyph and count, and cards that lead with priority and ticket id before the sentence."

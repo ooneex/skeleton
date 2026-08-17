@@ -1,0 +1,12 @@
+title: "Clinic Reservation Day Calendar With Dentist Columns"
+description: "A dental clinic's appointment book: a sidebar with the wordmark and a collapse button, a card naming the clinic and its street address, a Dashboard row, then CLINIC, FINANCE and 'PHYSICAL ASSET' groups covering reservations, patients, treatments and staff, accounts, sales, purchases and payment method, stocks and peripherals, with Report and 'Customer Support' beneath a rule and the active row tinted; a header pairing the page title with a 'Search for anything here…' field, a round blue add button, help, activity and settings glyphs and a flag with a '1/4' readout; a Calendar / 'Log History' tab row with the active tab underlined blue; a toolbar pairing a glyph-led 'N total appointments' count with a Today button, previous and next arrows and the full date, a Day / Week segmented pair and an 'All' practitioner filter; then a resource day grid whose columns are dentists — each headed by a portrait, name, a \"Today's appointment: N patient(s)\" line and an overflow — and whose rows are hours from 9am, holding appointment blocks tinted by state that pair a glyph tile with the patient's name, a time range, a treatment chip and a dot-keyed status pill for Finished, Encounter or Registered, over a hatched 'NOT AVAILABLE' column, a hatched 'BREAK TIME' band spanning the clinic, a red now-line carrying a '12:00 PM' marker and a hatched amber strip reading that a named patient's payment is still awaited."
+tags:
+  - "calendar"
+  - "healthcare"
+  - "scheduling"
+  - "sidebar"
+  - "day-view"
+  - "status-pill"
+  - "tabs"
+  - "booking"
+usage: "use when a day is booked against people rather than rooms — one column per practitioner headed by their load, unavailability and breaks hatched rather than left blank, and blocking states like an unpaid appointment written across the slot in words."

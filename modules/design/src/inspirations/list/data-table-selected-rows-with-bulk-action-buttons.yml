@@ -1,0 +1,12 @@
+title: "Data Table Selected Rows With Bulk Action Buttons"
+description: "The selection state of a freelancer data table, captioned '02. Selected rows + actions buttons': a top bar with the product mark, five nav links with the active one blue, a search field, a named avatar and a sign-out button; a header row where 'Freelancers (50)' now sits opposite four bulk actions — 'Send a Message', Edit, Delete and Archive — each pairing a blue glyph with its label, replacing the filter and add controls of the unselected state; and the table beneath, whose header checkbox shows a dash to mean a partial selection, with three of the ten rows ticked and tinted pale blue, each row carrying a photo or initials avatar and a linked name, a dot-keyed specialty, an hourly rate, a tinted status pill (Top Rated, Rising Talent, Interview, Blocked, Contract offered), a green tick or a written contract type, a last-activity date, three numeric columns and a Hire link with a bookmark toggle, greyed out where the row is blocked; and a footer pairing numbered pagination with a 'Showing 1 - 10 of 50' readout and a per-page select."
+tags:
+  - "table"
+  - "list"
+  - "user"
+  - "interaction"
+  - "pagination"
+  - "crm"
+  - "bulk-actions"
+  - "selection"
+usage: "use when selecting rows changes what the header offers — bulk actions taking the place of the page controls, an indeterminate header checkbox for a partial selection, and selected rows tinted so the affected set is obvious before the action is pressed."

@@ -1,0 +1,12 @@
+title: "Access Permissions Page With Role Allocation Bar"
+description: "A team permissions screen shown at an angle: a narrow icon rail with labelled destinations — Analytics, an active Access marked by a pink edge bar, Divisions, Calendar, Payments — and settings at the foot; a page title with a one-line explanation of what the setting controls; a seat-allocation bar built from discrete rounded ticks, violet for Admins, pink for Managers and grey for unused View-only seats, with a legend beneath it naming each role and its user count, split by hairline rules; and an Employees table with Employee Name, Position, Permission Level, Email and Last login columns, whose rows pair a round portrait with the person's name and role and render the permission as a tinted select — violet Admin, pink Manager, grey View-only — each with its own chevron, so a role can be changed inline; three large presentation tiles overlay the right side of the frame."
+tags:
+  - "settings"
+  - "table"
+  - "user"
+  - "sidebar"
+  - "permissions"
+  - "admin"
+  - "form"
+  - "list"
+usage: "use when roles are allocated from a fixed pool — a tick bar showing used against remaining seats before the table, colour carried consistently from the bar into each row's select, and permission changed inline rather than in a modal."

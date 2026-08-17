@@ -1,0 +1,12 @@
+title: "Desktop AI Chat Blank State With App Tab Bar"
+description: "An AI assistant running as a desktop app: a title bar with a '+' button and three app tabs each pairing a favicon with its name, the active one showing a close ×, an overflow button, and minimise, maximise and close controls at the right; a left sidebar with the wordmark, a Search field with a ⌘ chip, four destinations (Home, Explore, Library, History), then a conversation history grouped under 'Tommorow' and '7 Days Ago' captions where each thread is a single truncated line, and a user card with avatar, name and email and a switcher chevron at the foot; and a canvas holding a model select pill in the top-left, a black '+ New Chat' button and an avatar top-right, and, centred, an iridescent orb above a two-line greeting whose second line ends in a coloured question, over a tall composer whose 'Initiate a query or send a command to the AI…' placeholder sits above a toolbar of an attach button and Reasoning, Create Image and Deep Research mode chips, with a filled mic button at the right."
+tags:
+  - "chat"
+  - "sidebar"
+  - "tabs"
+  - "onboarding"
+  - "navigation"
+  - "ai"
+  - "empty-state"
+  - "desktop"
+usage: "use when an assistant lives in a desktop shell — app tabs above the product chrome, history grouped by recency in the sidebar, and a blank state that is little more than a greeting and a tall composer carrying its modes as chips."

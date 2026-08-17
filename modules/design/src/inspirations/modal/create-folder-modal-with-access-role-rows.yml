@@ -1,0 +1,12 @@
+title: "Create Folder Modal With Access Role Rows"
+description: "A folder-creation dialog on a pale ground, with folder cards floating in front of and behind it — each pairing a small coloured folder glyph with its name, a shared-people glyph and an 'Opened 3 days ago' line; the dialog is titled 'Create new folder' with a close button and splits in two: a left form stacking a labelled 'Folder name' text field with placeholder, a 'Folder location' select showing the parent, a 'Color code for folder' select whose value pairs a yellow dot with the colour's name, and a description textarea with a resize handle; and a right 'Shared with' panel headed by a Search field over a Users and Access column header, whose rows pair an avatar or an initials tile with the person's name, an access select reading Owner, Collaborator or 'Guest user' and a remove ✕; a footer rule closes the dialog with an outlined Cancel beside a blue Create."
+tags:
+  - "modal"
+  - "form"
+  - "file-manager"
+  - "sharing"
+  - "permissions"
+  - "select"
+  - "card"
+  - "folders"
+usage: "use when creating a thing and sharing it are one step — the properties on the left and the access list on the right of a single dialog, each collaborator's role editable inline as a select, and removal kept as a quiet ✕ rather than a button."

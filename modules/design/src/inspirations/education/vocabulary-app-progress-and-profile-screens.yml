@@ -1,0 +1,12 @@
+title: "Vocabulary App Progress And Profile Screens"
+description: "A second set of vocabulary-app screens on a sand ground: a 'Review later' grid of coloured folder cards, each naming a day or a collection with a 'seen / total' count and the date it was last opened; a 'Data Analysis' card headed Today with an 'as of' date, holding three figures for words learnt, minutes studied and words per hour, each carrying D, W and M signed deltas beneath it in green and orange, over a 'Trend of this week' plot that overlays a gold line on paired bars; a round-complete screen with a close ✕, a segmented progress bar and a countdown, a trophy illustration banded with a 'COMPLETED' ribbon, two round glyph counters for unmastered words and length of study, and a gold 'One More Round' button over the same four round review actions; a card fragment showing a difficulty rating and an 'Easy to confuse' chip above those actions; and a profile panel pairing the avatar with the member's masked phone number, a storage bar reading used against total, a lilac strip splitting coin and experience counts, two textured course cards naming their word lists and their source, and settings rows for review mode and word-list length with the current value beside a chevron, with a dismissible blue news strip beneath."
+tags:
+  - "mobile"
+  - "education"
+  - "card"
+  - "chart"
+  - "profile"
+  - "gamification"
+  - "settings"
+  - "list"
+usage: "use when finishing a session is worth celebrating — a trophy screen that states what remains unmastered and how long the round took before offering another, with daily, weekly and monthly deltas kept together under each headline figure."

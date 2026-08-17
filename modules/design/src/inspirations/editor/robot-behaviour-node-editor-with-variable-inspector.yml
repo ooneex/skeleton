@@ -1,0 +1,12 @@
+title: "Robot Behaviour Node Editor With Variable Inspector"
+description: "A robotics behaviour editor shown on a hand-held tablet: a header with a back arrow, an editable project name and a nav of Overview, Builder, an active Behaviour, Simulation and Logs History, plus refresh, share and save buttons and a red 'Live Vision' run button; a left palette with Nodes / Templates tabs, a search field with a filter button and collapsible groups — Inputs [3], Events [2], Logic/Conditions [8], Actions [8] — whose entries are icon-led rows; a dotted canvas of monospaced node cards, each headed by its category and name with a coloured status dot and listing typed rows — Out ports with their value names, configuration fields with values in green, and a footer chip naming the transport ('EVT MIPI stream', 'AI NPU • 4 TOPS') — with the selected Camera Input node ringed in red and a red wire running from it to the object-detection node while the others are grey; a right inspector headed by the selected node's name and path with Config / Ports / Logs / Vars tabs, an 'Add Variable' form of Key, Value and Type fields with a dashed Add Variable button, and a Flow Variables list pairing each name with its current value, a type chip and an overflow menu; a floating bottom toolbar with a red add button, pan, run, branch, export and comment tools; a zoom control and a category legend along the canvas edges."
+tags:
+  - "editor"
+  - "form"
+  - "sidebar"
+  - "toolbar"
+  - "interaction"
+  - "tabs"
+  - "canvas"
+  - "monospace"
+usage: "use when a node graph carries live values as well as structure — typed ports listed on the face of each node, the selected node and its wire highlighted in one accent colour, and an inspector whose tabs separate configuration, ports, logs and variables instead of stacking them."

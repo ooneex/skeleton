@@ -1,0 +1,12 @@
+title: "Webinar Timeline Calendar With Speaker Popover"
+description: "A webinar scheduling screen on a pale blue field: a narrow icon rail with a hamburger, seven destination glyphs and a round blue add button at the foot; a page title in mixed weights with a one-line explanation, beside a month pager, a 'Last week' range select and a grid/timeline view toggle; a horizontal month strip whose neighbouring months fade at the edges, over a day strip of circular date tiles — the selected day white and raised, days with events tinted blue, the rest plain grey — each captioned with its weekday; a horizontal time axis with a filled '12:47' now marker whose line runs down the canvas, and webinar cards placed along it, each pairing the speaker's portrait with the session title, its time range and the speaker's name, the selected one inverted to deep blue; a dashed connector labelled 'Related event' links two sessions to a loading pill; and an open speaker popover listing the presenter's name and role with call, message and video buttons above a scrollable session list whose rows pair a title and a date-and-time line with a duration; a right column carries the user's portrait, name and role, a 'Monthly Schedule' list of dated rows with their hosts, an 'Active Users' card with a signed delta, a segmented share bar and a device legend with percentages, and a 'Mobile Interval' gauge."
+tags:
+  - "timeline"
+  - "calendar"
+  - "event"
+  - "dashboard"
+  - "sidebar"
+  - "chart"
+  - "list"
+  - "popover"
+usage: "use when sessions are read along a time axis rather than in a grid — a day strip that marks which dates have events, cards positioned against a live time marker, related sessions joined by a labelled connector, and the speaker's other sessions offered in a popover."

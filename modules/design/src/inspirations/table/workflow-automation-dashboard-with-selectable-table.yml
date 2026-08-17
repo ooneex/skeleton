@@ -1,0 +1,12 @@
+title: "Workflow Automation Dashboard With Selectable Table"
+description: "An automation console: a left sidebar with the wordmark and a collapse button, a Search field showing its ⌘F hint, an OVERVIEW group (Home, an active Workflow row in a filled pill with a left accent bar, Credentials, Data Table, Analytics), a PROJECTS group with an add button whose four entries each carry a drag handle, an emoji tile and a chevron, a TOOLS group at the foot and a workspace card showing an app and its context; a breadcrumb header with chat and bell buttons, a 'Get AI Insight' pill and an avatar; a stats card pairing a four-bar categorised chart and a colour legend with an 'Active Workflows 57/102' readout, a Create Workflow button and three state tiles — Drafts 23/102, Paused 18/102, Issues 4/102 — each keyed by a coloured dot; an alerts card carrying a bell badge, a screenshot preview and a plain-language failure message with Fix Now and 'Debug with AI' actions plus a '4 of 4' pager; then an All Workflows / Templates tab pair over a toolbar of search, Export, a Latest sort, a filter icon and a '3 selected ×' chip, and a table with a header checkbox and columns Project, Workflow, Status, Trigger, Created By, Created At and Action, whose rows carry per-row checkboxes with three selected and tinted, a project emoji tile, a dot-keyed Active / Draft / Paused status pill, a creator avatar with name, a relative timestamp and an enable toggle beside an overflow menu."
+tags:
+  - "dashboard"
+  - "table"
+  - "sidebar"
+  - "chart"
+  - "notification"
+  - "tabs"
+  - "filter"
+  - "project-management"
+usage: "use when a list of automations must be monitored and acted on in bulk — counts framed as N-of-total, an alert card that names the failure and offers the fix, a selection count that stays visible in the toolbar, and a per-row toggle so enabling never needs a detail page."

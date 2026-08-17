@@ -1,0 +1,12 @@
+title: "Learning Path Page With Progress And Course Timeline"
+description: "An online-school learning path in Spanish: a dark header with the wordmark, five text links, a points chip with the user's avatar, a bell and a search field with a green button; a left column holding a 'Todas las rutas › Arquitectura Frontend' breadcrumb, a path header pairing a round green subject icon with a 'Ruta de aprendizaje' label, the path name and three icon-led facts (course count, difficulty, discussion count), a three-line description, a reaction row of 'Me encanta', 'No me interesa' and 'Compartir' buttons, then a progress panel reading the completion percentage in green inside a sentence, a progress bar, an 'approved N of M courses' line and a 'Sigue avanzando con' card naming the next course, closed by a bold question and a blue 'Presentar exámen de la ruta' button; and a right column titled 'Cursos de esta ruta' with a stage header band, then course entries strung along a vertical timeline whose circular course badges are joined by a rule that is green for completed steps and grey ahead, each entry pairing the course title — the hovered one in blue — with an author avatar and handle, a three-line summary, a play arrow and either an 'Agregado a una personalizada' state chip or a '+ Agregar a ruta personalizada' button."
+tags:
+  - "education"
+  - "detail-page"
+  - "timeline"
+  - "list"
+  - "card"
+  - "progress"
+  - "curriculum"
+  - "localization"
+usage: "use when a curriculum is a sequence rather than a catalogue — a timeline whose connector colour shows how far the learner has come, progress stated as a sentence as well as a bar, and each step offering to be added to a personal path from the list itself."

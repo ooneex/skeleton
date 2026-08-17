@@ -1,0 +1,12 @@
+title: "AI Chat Blank State Component Breakdown"
+description: "A three-panel breakdown of an assistant's blank state on a near-white board: the top-left panel shows the greeting region inside a browser frame — traffic lights, back and forward arrows, a domain in the address bar and share, add and tabs buttons — over a pale iridescent card holding a gradient orb above a two-line welcome whose second line ends in a violet question; the lower-left panel isolates the composer, a large rounded field with a sparkle glyph and its placeholder, empty space for the typed message, and a footer row of an attach button and Search, Reasoning, 'Create Image' and 'Deep Research' mode chips with a filled mic button at the right; and the right panel isolates the shell, showing the app tab strip with a '+' and three tabs, the sidebar with the wordmark, a Search field with a ⌘ chip, Home, Explore, Library and History rows, a history list grouped under 'Tommorow' and '7 Days Ago' captions, and a user card with avatar, name and email, beside the floating model select pill."
+tags:
+  - "chat"
+  - "sidebar"
+  - "form"
+  - "component"
+  - "ai"
+  - "empty-state"
+  - "composer"
+  - "breakdown"
+usage: "use when presenting a screen as its parts — greeting, composer and shell each isolated on its own panel at full size, so the anatomy of the blank state can be judged without the rest of the page competing."

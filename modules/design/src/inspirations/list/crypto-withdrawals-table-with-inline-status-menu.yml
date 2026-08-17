@@ -1,0 +1,12 @@
+title: "Crypto Withdrawals Table With Inline Status Menu"
+description: "A payments back office: a header with the wordmark, an outlined '+ Add new site' button and a named account with a chevron; a nav row of pill links with the active Withdraws filled violet; a page title opposite Print and 'Download report' buttons; a filter row of three dropdown buttons — Date range, Status, Wallet — beside a rounded 'Search by site' field; and a table with CREATION DATE, STATUS, SITE, WALLET TYPE, WALLET ADDRESS and AMOUNT columns whose rows pair a timestamp with a status rendered as an inline select — a tinted pill with a glyph and a chevron in green Complete, amber Pending, red Blocked or blue 'In process' — a site URL, the token's brand logo with its name, a truncated wallet address with a copy button, an amount with its currency in grey, a 'View details' link and a row overflow; one status select is open, showing an outlined trigger above a menu whose rows pair a coloured state glyph with In progress, Blocked, Complete, Pending and Review; and a footer pairing a '10 results of 200' readout with Previous and Next buttons."
+tags:
+  - "table"
+  - "finance"
+  - "filter"
+  - "list"
+  - "menu"
+  - "pagination"
+  - "status"
+  - "crypto"
+usage: "use when an operator changes record state from the list — status as an inline select whose menu repeats the same glyph and colour as the pill, addresses truncated with a copy affordance, and each row keeping one link into the full detail."

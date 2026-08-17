@@ -1,0 +1,12 @@
+title: "Folder Card With Leader Line Metadata Rows"
+description: "A single folder tile isolated on white: a pale grey folder shape whose tab rises behind a rounded front face, the face carrying a small folder glyph beside the name 'Projects' at the top and, pinned to its lower half, three metadata rows — Files, Storage and Last updated — each pairing a line icon and a grey label on the left with a bold value on the right, joined across the gap by a thin leader rule so label and value read as one line, and the whole tile lifted by a very soft shadow."
+tags:
+  - "file-manager"
+  - "card"
+  - "folder"
+  - "component"
+  - "metadata"
+  - "minimal"
+  - "typography"
+  - "surface"
+usage: "use when a tile must carry several facts without a table — label and value tied by a leader rule, values right-aligned so they scan as a column, and everything else on the surface left empty."

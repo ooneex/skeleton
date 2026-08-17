@@ -1,0 +1,12 @@
+title: "Health Metric Capsules With Coloured Sparklines"
+description: "Four health readings stacked as soft frosted capsules over an orange-to-cream gradient: each capsule pairs a white rounded tile carrying a coloured glyph — a red heart, a violet blood drop, an orange weight mark, a blue mood face — with the metric name set small over a large value and its unit in grey, and closes on a stepped sparkline drawn in the metric's own colour with a soft gradient fill beneath it and a filled dot marking the latest reading; the third capsule is lifted, lightened and widened under a hand cursor to show the hover state."
+tags:
+  - "card"
+  - "list"
+  - "healthcare"
+  - "sparkline"
+  - "glass"
+  - "closeup"
+  - "hover"
+  - "vitals"
+usage: "use when several readings are scanned in one column — one capsule per metric with its own colour carried by both the glyph and the sparkline, the latest point marked with a dot, and hover lifting the whole row rather than tinting it."

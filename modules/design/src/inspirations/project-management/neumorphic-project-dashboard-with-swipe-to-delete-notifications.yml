@@ -1,0 +1,12 @@
+title: "Neumorphic Project Dashboard With Swipe To Delete Notifications"
+description: "A soft-UI project dashboard: a rounded icon rail whose active glyph sits in an inset tile; a greeting pairing a 3D avatar with 'Hi, Bruce' and a welcome line, opposite a violet '+ Add Task' pill, a 'Search tasks ….' field with a round search button and a filter button; four extruded stat tiles reading Total, Ongoing, 'In progress' — marked by a violet bar — and Complete project counts; a 'Project Overview' strip with previous and next arrows over two project cards, each pairing the project name and its discipline with a Team caption, an avatar stack ending in a '+' tile and a violet progress ring stating a percentage over its task count; a 'Task Progress' card with a Weekly select, three figures for time spent, lessons learnt and exams passed and a weekday bar chart; a 'Daily Task' agenda whose hour labels run down the left with tinted task blocks naming the task and its time range and a dashed 'Add new subtask' row with a round add button; and a Notification column with All / Unread / 'I was mentioned' tabs, Today and Yesterday captions and rows pairing a brand glyph or 3D avatar with an 'Automation · 1 hr ago' line and a two-line event, one row dragged aside to expose a grey delete button behind it."
+tags:
+  - "dashboard"
+  - "project-management"
+  - "notification"
+  - "chart"
+  - "task"
+  - "neumorphism"
+  - "card"
+  - "tabs"
+usage: "use when the surface itself carries the hierarchy — extruded tiles and inset fields instead of borders, progress read from a ring on each project card, and a notification dismissed by dragging the row aside to reveal the destructive action."

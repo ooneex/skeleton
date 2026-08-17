@@ -1,0 +1,12 @@
+title: "Desktop Context Menu With New File Submenu"
+description: "A desktop right-click menu over a photograph of painted rainbow steps: a translucent light panel divided by hairlines into groups — View and 'Sort by' ending in submenu chevrons, then Refresh; Paste with 'Paste shortcut' and 'Undo Delete' greyed out as unavailable; 'Display Settings' and Personalize; a hovered New row drawn as a filled band with the cursor on it; and two vendor control-panel entries carrying their own brand marks — with the New row's submenu opened to the right listing Folder and Shortcut above a divider, then Contact and a series of application document types each led by its real product icon, ending in two archive formats."
+tags:
+  - "menu"
+  - "interaction"
+  - "file-manager"
+  - "context-menu"
+  - "submenu"
+  - "disabled-state"
+  - "component"
+  - "desktop"
+usage: "use when a context menu must include actions that are not currently possible — unavailable rows kept in place and greyed rather than hidden, groups split by hairlines, and a submenu that lists creatable types by their own application icons."

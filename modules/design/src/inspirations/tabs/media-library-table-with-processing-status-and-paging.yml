@@ -1,0 +1,12 @@
+title: "Media Library Table With Processing Status And Paging"
+description: "A media platform's asset library: a left sidebar with the workspace logo, a MAIN group whose active Media Library row is tinted with a left accent bar and a trailing chevron, ten further destinations, then Settings, a Dark toggle and Academy, and a user card with a verified name and email; a header pairing the page title and a one-line description with Refresh and a filled Upload button; a Videos / Audio / Images segmented pair opposite a search field, a Filter button and an outlined 'Media Owners' select; and a table with a header checkbox and sortable Name, Tags, Type, Created on, Created by, Duration and Status columns plus an Action column, whose rows pair a video thumbnail carrying a play badge with a two-line id-and-filename cell, a comma-separated tag list that truncates, a timestamp split over two lines, the uploader's name, a duration and a status pill keyed by its own glyph — grey Initialized, amber Pending, red Failed, green Completed — ending in a delete button; and a footer pairing a 'Page 2 of 9' readout with first/previous, numbered pages with an ellipsis, next/last controls and a per-page select."
+tags:
+  - "table"
+  - "list"
+  - "video"
+  - "sidebar"
+  - "pagination"
+  - "filter"
+  - "tabs"
+  - "file-manager"
+usage: "use when uploaded assets are still being processed — a status pill per row with its own glyph so failure is not colour-only, thumbnails proving the asset decoded, and a footer that states the page position as well as offering the numbers."

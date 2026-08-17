@@ -1,0 +1,12 @@
+title: "Team Tasks Board With Status Pills And Card Counts"
+description: "A team workspace task board: a dark app rail holding the product mark, four workspace tiles and an add button; a second sidebar with a user card showing avatar, name, email and an overflow menu, a Menu group (Dashboard, Inbox, Calendar), a 'Team spaces' group with an add button whose active Tasks row is outlined with a left accent bar, then Docs and Meeting, and an Other group with Settings and Support; a header with a back arrow and a 'Team spcaes / Tasks' breadcrumb, a search field and a collaborator avatar stack with a +2 overflow; a page title with a one-line description; a tab row of Overview, an active Board, List, Table and Timeline, each led by its own icon; and kanban columns — To do, In Progress, Done — each headed by a coloured dot, its name, a count chip and add and overflow buttons, holding task cards that carry a dot-keyed status pill (Not Started, In Research, On Track, Complete), an overflow menu, a task title, a clipped description, an 'Asignees' row with an avatar pair, a flagged due date beside a priority pill in Low, Medium or High, and a divided footer of comment, link and subtask counts."
+tags:
+  - "kanban"
+  - "task"
+  - "project-management"
+  - "sidebar"
+  - "tabs"
+  - "card"
+  - "status"
+  - "badge"
+usage: "use when a board card must answer several questions at once — a workflow status pill distinct from the column it sits in, priority and due date on one line, and a divided footer counting the conversation, links and subtasks attached to the task."

@@ -1,0 +1,12 @@
+title: "Transfer Review Dialog With Editable Summary Blocks"
+description: "A money-transfer confirmation step drawn as a white dialog floating over two ghosted cards on a faint grid: the dialog is headed 'Review detail of your transfer' with a close ✕ and a two-line instruction, then a tinted 'Transfer details' block with its own 'Edit' button and a rule, listing the amount sent, the total fees as a negative figure, the amount that will be converted, the guaranteed rate with the hours it holds for, and the expected arrival date, each as a grey label opposite a right-aligned value with the money figures bolded; a second tinted 'Recipient' block with its own Edit lists the name beside a small avatar, the email and the account number; and a full-width lime 'Continue' button closes the dialog."
+tags:
+  - "modal"
+  - "finance"
+  - "form"
+  - "confirmation"
+  - "key-value"
+  - "closeup"
+  - "checkout"
+  - "card"
+usage: "use when a payment is confirmed before it is sent — the figures grouped into blocks that each carry their own Edit so a correction never restarts the flow, fees shown as a signed deduction, and the rate's validity stated beside it."

@@ -1,0 +1,12 @@
+title: "Invoicing Dashboard With Cash Flow And Overdue List"
+description: "An invoicing app's home: a left sidebar with the wordmark, an organisation switcher card, a nav list whose active Dashboard row is blue with a right edge marker, and an illustrated 'Try Premium for free' card with a '30 Days Trail' button at the foot; a top bar with a search field, a Help link and an avatar; a page header pairing the title with a '+ Creat Invoice' button; a dismissible yellow promo banner carrying a two-line headline, a supporting paragraph, a 'Take a Tour' button and a character illustration; a Cash Flow card with a one-line explanation, a Last 6 Months / 12 Months toggle, an Inflow/Outflow legend and a bar chart drawn around a zero baseline so outflow bars hang below it; an Overdue Invoices card with a View All link, a count line and rows pairing a patterned client avatar with the company, the contact's name, the amount and the due date; an Expenses Breakdown card listing sources with their percentages beside a donut labelled in its centre; and Income and Expenses cards, each with a year toggle, a large amount and a full-width smoothed sparkline."
+tags:
+  - "invoice"
+  - "finance"
+  - "dashboard"
+  - "chart"
+  - "sidebar"
+  - "card"
+  - "list"
+  - "banner"
+usage: "use when cash position and collections belong on the same page — money in and out drawn around a shared zero baseline, overdue invoices listed with the person to chase as well as the amount, and totals paired with a sparkline instead of a second chart."

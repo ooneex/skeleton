@@ -1,0 +1,12 @@
+title: "Minimal Marketplace Home With Category Chips"
+description: "A marketplace homepage shown as overlapping frames on a sand board: the main frame carries a header with four text links, a centred wordmark and search, wishlist, cart and account icons; a hero split into a wide photographic slide whose translucent overlay pairs a two-line headline with a glyph tile, and a lower bar pairing a product thumbnail, its name and vendor with a '1/5' pager and arrows, beside a product highlight card showing colour swatch dots, the item on a plain ground, its name and store and a dark 'Add to cart' pill carrying the price; then a 'Popular products' heading beside a row of category chips with the active one filled black, over a four-column grid whose cards show the product on a grey tile with a heart toggle, filled red where saved, and a price — struck through where discounted — above the product name and its brand; flanking frames show a 'Popular products' column with a '1604 trending products in 19 categories' line, a 'Popular categories' list pairing category names with item counts, and cropped product cards."
+tags:
+  - "e-commerce"
+  - "landing-page"
+  - "card"
+  - "navigation"
+  - "filter"
+  - "carousel"
+  - "minimal"
+  - "grid"
+usage: "use when a storefront is meant to look editorial rather than busy — a hero whose caption bar names the product in the photograph, category chips instead of a filter panel, and cards reduced to image, price, name and brand."

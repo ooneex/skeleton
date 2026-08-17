@@ -1,0 +1,12 @@
+title: "Ai Assistant Workspace With Model Chips And Prompt Suggestions"
+description: "An AI assistant workspace in a browser window: a narrow icon rail with the brand tile and four destination glyphs; a conversations column headed by the product name with search and new-chat buttons, an active 'Chat Genie' row, then a Favorites group and an Assistant group whose rows each pair an emoji with the conversation name, a timestamp or date, and a second line naming the model it runs on — gpt-4o-mini, Llama 3.1 8B, Gemma2 9B, Gemini 1.5 flash, DeepSeek V2 16B, Phi-3 3.8B — with the user's avatar pinned at the foot; a centre pane opening on a toolbar of panel-toggle, a sparkle-led 'Chat Genie' label, a model select and a pin, then a two-line greeting that names the user over 'How can I help you today?', a focused composer holding a typed prompt with its caret, an 'Add content' row with mic and attach on the left and emoji and a filled violet send button on the right, and a 'Get started with recommended assistant' caption with a reshuffle glyph over four suggestion cards each written as two short lines with a trailing emoji; and a right panel with layout, share and overflow buttons beside a violet 'Upgrade Plan', a 'Saved topic' list marked by filled stars, and a Recent list whose active 'New chat' row is tinted, whose remaining rows carry outline stars and truncate, ending in 'Show More'."
+tags:
+  - "ai"
+  - "chat"
+  - "sidebar"
+  - "list"
+  - "navigation"
+  - "composer"
+  - "suggestions"
+  - "empty-state"
+usage: "use when a chat has no messages yet — the blank thread carrying the greeting, a composer already focused, and four one-tap prompts as the only content, while the rail records which model each past conversation ran on."

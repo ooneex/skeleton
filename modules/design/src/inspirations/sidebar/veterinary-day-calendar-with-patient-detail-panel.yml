@@ -1,0 +1,12 @@
+title: "Veterinary Day Calendar With Patient Detail Panel"
+description: "A veterinary clinic schedule in mint and white: a narrow icon rail with a hamburger, a raised add button and five destination glyphs with an avatar at the foot; a header pairing a day pager and '28 December Today' with a Day/Week segmented control, a Manage button, a bell with an unread dot and an overflow; a day grid with half-hour labels down the left and one column per vet headed by a portrait, their name and a lock button, holding appointment cards tinted by treatment type — mint, lilac and pink — each pairing a species glyph with the procedure name, its time range and the client's name plus a row overflow, with some cards drawn in a diagonal hatch to mark a different state and a teal now-line labelled 10:10 crossing the columns, and a round floating add button in the lower right; and a right detail panel with edit, delete and close buttons over the appointment type, glyph-led date and time rows, the attending vet with her portrait, a teal 'Go to visit' button beside an outlined Reschedule, then a collapsible owner block giving the client's name, address and phone, and a collapsible patient block naming the animal with its breed, sex, age and date of birth."
+tags:
+  - "healthcare"
+  - "calendar"
+  - "event"
+  - "detail-page"
+  - "sidebar"
+  - "scheduling"
+  - "day-view"
+  - "veterinary"
+usage: "use when an appointment involves two subjects — a day grid keyed by treatment colour, and a detail panel that separates the owner from the patient into their own collapsible blocks with the two next actions placed above them."

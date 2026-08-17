@@ -1,0 +1,12 @@
+title: "Quiz Game Profile With XP Bar And Achievement Medals"
+description: "A quiz game's player home on a soft lilac gradient: a left sidebar with the game wordmark and a collapse arrow, four icon-led destinations with the active Notification row in orange, and a user card with avatar and name at the foot; a header pairing an outlined 'Join Lobby' with a filled 'Start Quiz' button and an avatar stack of other players with a '+3' overflow; a profile block pairing a large illustrated avatar tile with a flame streak badge, the player's name and a 'Bonus Booster, 24 lv' subtitle, an XP progress bar labelled '3000 / 8000 XP' at its right end, and three stat tiles — Game Wins, Highest Score, Correct Answers — each pairing a small glyph card with a value and a label; and two panels below, Achievements with a count chip, an '8/200' progress bar and three hexagonal medal tiles named Comeback, Lucky and Leader, and Inventory with a count chip, a '4/10' bar and three power-up tiles named Extra time, 50/50 and Most popular answer, each panel closed by a centred 'View all' link."
+tags:
+  - "profile"
+  - "dashboard"
+  - "education"
+  - "card"
+  - "sidebar"
+  - "user"
+  - "progress"
+  - "gamification"
+usage: "use when progress is the reward — an XP bar labelled with its own numerator and denominator, streaks badged onto the avatar, and collections shown as a few representative tiles with a count and a 'view all' rather than the whole set."

@@ -1,0 +1,12 @@
+title: "Streaming Player With Scrub Thumbnail Preview"
+description: "A streaming player filling a rounded frame over a violet backdrop: a back arrow beside the series title with its 'Episode 4' subtitle in the top-left, drawn straight on the picture without a scrim; a thin white progress track near the foot with a round handle at the play head, the elapsed time at the left end and the total runtime at the right; a preview thumbnail floating above the track at the scrub position with its own timecode centred beneath it; and a control row underneath pairing a volume button with a short level slider on the left, a centred cluster of skip-back, pause and skip-forward, and exit-fullscreen and overflow buttons on the right."
+tags:
+  - "media-player"
+  - "video"
+  - "interaction"
+  - "dark-mode"
+  - "controls"
+  - "playback"
+  - "preview"
+  - "overlay"
+usage: "use when scrubbing needs to show where you are going — a frame preview pinned above the track with its own timecode, controls drawn directly on the picture, and the episode title kept in the corner so the context survives fullscreen."

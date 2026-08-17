@@ -1,0 +1,12 @@
+title: "CRM Companies Table With Live Cursors And Tag Cells"
+description: "A collaborative CRM record table in a browser window: a left sidebar with a workspace switcher and a panel-collapse button, a 'Quick actions' row with a ⌘K chip beside a search button and a '/' chip, a nav list (Dashboard, Notifications, Task, Notes, Emails, Reports, Workflows), a 'Pinned Views' group reading 'No pinned', a Records group whose entries are keyed by coloured dots with an active Companies row, a Lists group with an add button, 'Invite teammates' and a 'Help and first steps' row showing 1/6 progress, and a dismissible Trial card with a progress bar reading 'Day 5 of 14'; a header pairing the record type with Share, a collaborator avatar stack with an invite button and an overflow; a toolbar of 'Ask AI', a Table View select, Filter, Sort, View settings, Export and a black 'Add New' button; and a table whose column headers each pair an icon with the field name and a sort control, rows pairing a brand logo with the company name, a Categories cell holding several tinted tag chips, a relative 'Last interaction' with a grey 'No contact' where none exists, a linked domain with an external-link glyph and a phone number — with three cells outlined in different collaborator colours, each carrying a small name flag showing who is editing; and a footer pagination with Previous, numbered pages, an ellipsis and Next opposite a 'Showing 1-20 of 240 enteries' readout."
+tags:
+  - "crm"
+  - "table"
+  - "sidebar"
+  - "filter"
+  - "list"
+  - "pagination"
+  - "interaction"
+  - "collaboration"
+usage: "use when several people edit one table at once — per-cell outlines carrying the editor's name and colour, categories as multi-tag cells, an explicit 'No contact' instead of an empty cell, and view controls (filter, sort, settings, export) grouped in one toolbar."

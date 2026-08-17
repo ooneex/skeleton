@@ -1,0 +1,12 @@
+title: "Task List Grouped By Status With Ticket Ids"
+description: "A work-management list view in a browser window: a narrow icon rail with a brand tile and seven glyphs plus theme, account and settings at the foot; a second sidebar with a workspace switcher and collapse button, a 'Command' field with a '/' chip, Home, Updates and Inbox rows carrying counts and a 'My tasks' row with an add button, a WORKSPACE group (Projects, an active Tasks row boxed, Views, Teams with a count, Reports), a PROJECTS group whose entries expand into month children with counts, and a video thumbnail with a play button above a black 'Upgrade Plan' button; a header with a 'Tasks / Product Sprints' breadcrumb, a collaborator blob stack, a list/board toggle, Search and a black Add button; a view tab row — List, Kanban, Gantt, Calendar, Dashboard and '+ View' — beside 'Group by Status', Sort, View, Filter and search controls; and the list itself, split into tinted group headers — Backlog, 'In progress', 'In review' — each keyed by a coloured dot with a count and its own overflow and add buttons, repeating the column captions (Name, Priority, List, Due date, Assignee) inside every group, and rows pairing a monospaced ticket id with the task name, a tinted priority pill or a grey 'Not set', a list tag, a due date or a faint '+ Add date' affordance, and an overlapping stack of gradient assignee blobs."
+tags:
+  - "task"
+  - "project-management"
+  - "list"
+  - "table"
+  - "sidebar"
+  - "tabs"
+  - "filter"
+  - "grouping"
+usage: "use when a task list is grouped rather than paged — tinted group bands carrying their own count and add action, column captions repeated per group, and unset values shown as a quiet 'Not set' or an inline add affordance instead of an empty cell."

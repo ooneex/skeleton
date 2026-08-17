@@ -1,0 +1,12 @@
+title: "AI Chat Welcome With Action Cards And Project List"
+description: "An AI writing workspace in a browser window: a left sidebar with the wordmark and collapse button, a Search field with a ⌘K chip, a nav list whose active AI Chat row is a raised white card with a blue icon tile, a Documents row carrying an inline add button and a Community row carrying a NEW badge, a 'Settings & Help' group, a Light/Dark segmented theme switch and a user card with name and email; a header with the page title, a black Upgrade button, help and gift buttons and an avatar with an online dot; a centred welcome with a large headline and a one-line prompt, four action cards laid out two by two — Write copy, Image generation, Create avatar, Write code — each pairing a pastel icon tile with its label and a trailing '+'; a focused composer showing typed text with a send button, a footer strip of Attach, Voice Message and Browse Prompts actions and a '20 / 3,000' character count, with a model disclaimer beneath it; and a right Projects panel with a count and overflow menu, listing project cards that pair a title and a clipped first line with a radio selector, the top one an empty 'New Project' placeholder."
+tags:
+  - "chat"
+  - "sidebar"
+  - "card"
+  - "list"
+  - "onboarding"
+  - "dark-mode"
+  - "form"
+  - "ai"
+usage: "use when a chat has to be filed as it is written — action cards that pick a task type, a composer that shows its own limits and attachment options, and a project rail whose radio selection decides where the next answer is stored."

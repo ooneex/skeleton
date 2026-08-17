@@ -1,0 +1,12 @@
+title: "Carbon Measurement Table With Category Multiselect"
+description: "A carbon-accounting measurement page: a dark top bar with the wordmark, a wide search and a named account with initials avatar; a left icon rail whose hovered item shows a 'Measure' tooltip; a breadcrumb over a page title with a back button, opposite a dark '+ Add another measurement' button and an overflow; a scrollable month tab strip from April to March with the selected month raised in white; a summary card splitting three regions — a 'transaction value matched' progress bar with its percentage, a 'Total composition of carbon footprint' stacked proportion bar whose segments are colour-keyed to the categories, and a right-aligned total emissions figure with its unit; a filter row pairing an 'overview' label and a count chip with removable category chips, each keyed by its colour, opposite a 'Category: Multiple' select whose open menu lists every category as a checkbox row with its colour dot, four ticked; and a table of Category, Subcategory, Supplier, Amount, Footprint and date columns whose rows lead with a colour-dotted category, show money in sterling, and mark one row's footprint with a red 'Excluded' pill instead of a number, each row ending in an edit button; with a footer pairing an 'Entries per page' stepper with page arrows and a page number field."
+tags:
+  - "filter"
+  - "table"
+  - "dashboard"
+  - "chart"
+  - "list"
+  - "pagination"
+  - "menu"
+  - "sustainability"
+usage: "use when a table is read through a colour-keyed taxonomy — one palette shared by the composition bar, the filter chips, the multiselect menu and the rows, with excluded records marked by a pill in place of the value rather than hidden."

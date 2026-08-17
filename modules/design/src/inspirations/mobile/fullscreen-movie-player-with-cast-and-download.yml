@@ -1,0 +1,12 @@
+title: "Fullscreen Movie Player With Cast And Download"
+description: "A fullscreen film player over a dark cinematic frame: a top bar pairing a back arrow and the film's title on the left with an HD quality chip, a download button, a cast button and an overflow menu on the right, all drawn in plain white without a scrim; a thin scrubber near the foot flanked by the elapsed time on the left and the total runtime on the right, its filled portion ending in a round handle; and a centred transport cluster of skip-previous, a large play triangle and skip-next, with no other chrome so the picture carries the frame."
+tags:
+  - "media-player"
+  - "video"
+  - "dark-mode"
+  - "controls"
+  - "playback"
+  - "overlay"
+  - "minimal"
+  - "mobile"
+usage: "use when playback should feel like a cinema rather than an app — controls reduced to transport, scrubber and output options, times placed at the ends of the track, and everything drawn directly on the picture with no panel behind it."

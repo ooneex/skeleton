@@ -1,0 +1,12 @@
+title: "Flashcards Grid With Visibility Badges And Social Counts"
+description: "A study-notes app: a left sidebar with the product mark, a GENERAL group (Dashboard, Collections, an active Flashcards row drawn as an outlined box, Teams), an OTHERS group (Notifications, Settings, Logout) and a user card with avatar, name and email pinned at the foot; a top bar with a wide 'Search or type a command' field, a violet Create button, a bell with an unread dot and an avatar; then a 'Your Flashcards' heading over My Notes / Favourites / Bookmarked tabs with the active one underlined, and a three-column card grid where each card carries a date top-left and a coloured visibility badge top-right — green Public, violet Private, red Team — an avatar beside the subject title, three to four lines of the note's body clipped at a fixed height, and a footer row pairing a small avatar stack with like, comment and bookmark counts and an outlined View Flashcards button, with the third row clipped mid-card to imply scrolling."
+tags:
+  - "card"
+  - "education"
+  - "note"
+  - "dashboard"
+  - "sidebar"
+  - "tabs"
+  - "badge"
+  - "social"
+usage: "use when user-authored notes are browsed as a gallery — a visibility badge that reads before the title, body text clamped so every card is the same height, and a footer where collaborators and engagement counts sit opposite the one action that opens the card."

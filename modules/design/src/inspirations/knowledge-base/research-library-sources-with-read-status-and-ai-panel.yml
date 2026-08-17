@@ -1,0 +1,12 @@
+title: "Research Library Sources With Read Status And AI Panel"
+description: "A close crop of a research-reading app: a left sidebar, mostly cut off, showing a collapse control, an add button and a list of topic rows with one highlighted; a toolbar with back and forward arrows and a wide Search field; a 'Home > Library' breadcrumb with an overflow, a large page title, then a tab row of Sources, Notes, Annotations and Chats — each led by a glyph, the active one underlined — opposite search, filter, sort and add buttons; a source list whose rows pair a dashed-outline file tile carrying a coloured type glyph (PDF, video, link) with the document title and an 'author | date' line, ending in a reading-state pill — red Unread, blue Reading, green Read — with one row shown mid-drag as a dashed outline with its title underlined, its icon replaced by an empty checkbox and a grab cursor over it; and a right panel headed 'New chat' with a Summary paragraph about the selected document, a 'Quick Actions' pair of outlined buttons and a 'Suggested Questions' stack of full-width question cards."
+tags:
+  - "knowledge-base"
+  - "list"
+  - "tabs"
+  - "sidebar"
+  - "chat"
+  - "ai"
+  - "drag-and-drop"
+  - "status"
+usage: "use when a reading library is worked through rather than just stored — a per-source reading state as a coloured pill, tabs separating sources from the notes and chats made about them, and an assistant panel that summarises the selection and proposes the next question."

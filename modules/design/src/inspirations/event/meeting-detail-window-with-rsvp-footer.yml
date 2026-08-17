@@ -1,0 +1,12 @@
+title: "Meeting Detail Window With RSVP Footer"
+description: "A desktop meeting window floating over a colourful wallpaper: traffic-light window controls above a header pairing the meeting name with an amber 'Meeting' type pill and an overflow menu, then a line giving the date, the time range with its timezone and the duration in brackets; a body of glyph-led rows — a repeat rule written in words, the room, a 'Join Zoom Meeting' link with an external-link mark, an attendance summary reading '4 yes, 1 maybe, 1 decline' above attendee chips that each pair a portrait with a name and a response badge in green, amber or red, a clipped description paragraph with a 'Show all' link, and an attachment row of two file chips with type glyphs; and a tinted footer bar asking 'Are you attending?' opposite a green Yes and outlined Maybe and No buttons."
+tags:
+  - "event"
+  - "calendar"
+  - "modal"
+  - "detail-page"
+  - "rsvp"
+  - "meeting"
+  - "component"
+  - "desktop"
+usage: "use when an invitation must be read and answered in one window — attendance summarised in words before the faces, each attendee's response badged on their chip, and the reply buttons kept in a footer bar that stays put while the body scrolls."

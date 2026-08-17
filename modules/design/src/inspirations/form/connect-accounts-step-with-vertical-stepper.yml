@@ -1,0 +1,12 @@
+title: "Connect Accounts Step With Vertical Stepper"
+description: "One step of a store-setup wizard: a plain header with the wordmark and a flagged language select; a centred column headed 'Connect your Google accounts' with a one-line subtitle, then a stacked list of service rows — an expanded Google Account row pairing the brand logo with its name, a green '1 account connected' pill, an explanatory line and a collapse chevron, revealing a bordered panel with the connected identity, a green Connected pill and a 'Revoke access' link over a '+ Connect another account' row, followed by a two-line reassurance that any number of accounts can be connected and revoked at any time — and four collapsed rows for Google Ads, Analytics, Tag Manager and Search Console, each pairing its logo with a name, a one-line purpose and a chevron; and a right rail carrying a vertical stepper whose completed steps are green checks joined by a green rule, the current step a numbered blue ring with an expanded description, and the next step greyed, with a 'Having trouble?' block and a Contact us button at its foot."
+tags:
+  - "onboarding"
+  - "settings"
+  - "form"
+  - "list"
+  - "integrations"
+  - "stepper"
+  - "progress"
+  - "empty-state"
+usage: "use when setup means connecting third-party accounts — a vertical stepper that keeps the whole sequence visible, each service explaining what it is used for before it is authorised, and revoke offered in the same place as connect."

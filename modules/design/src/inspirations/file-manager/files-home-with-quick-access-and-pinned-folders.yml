@@ -1,0 +1,12 @@
+title: "Files Home With Quick Access And Pinned Folders"
+description: "A contract-management app's files home on a periwinkle ground: a header with the wordmark, a nav of Calendar, an active Files tab underlined in blue, Archived, Users and Templates, then search and help buttons, a bell with a red count badge and an avatar; a 'Quick Access' row of four cards, each pairing a coloured folder or PDF glyph with the item's name, a small shared-with icon and an 'Opened 3 days ago' line, with the hovered card lifted under the cursor; a 'Pinned Folders' row of three cards built the same way but carrying a pin toggle in the corner and a 'You opened 4 days ago' line; and a 'Recently edited' table with Files, Activity, Username, 'Last modified' and 'Shared with' columns, whose rows pair a type glyph with the filename, an Edited or Shared activity word, an initials avatar with the editor's name, a relative timestamp, and an overlapping stack of initials and photo avatars led by a generic person glyph."
+tags:
+  - "file-manager"
+  - "card"
+  - "table"
+  - "list"
+  - "navigation"
+  - "tabs"
+  - "recent"
+  - "avatar-stack"
+usage: "use when recency and pinning are the main way in — quick access and pinned folders as two card shelves above the table, each card stating when it was last opened, and a recent table whose activity column says what happened rather than just when."

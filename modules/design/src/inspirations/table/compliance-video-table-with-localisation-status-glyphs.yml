@@ -1,0 +1,12 @@
+title: "Compliance Video Table With Localisation Status Glyphs"
+description: "A training video library set on an illustrated cloud backdrop: a narrow icon rail with the brand tile, seven destination glyphs and back, settings and sign-out at the foot; the page titled 'Video Library'; a card headed with a 'Videos (10)' count, a 'Search Video' field, an outlined Filters button and a blue '+ Upload Video'; then a table whose columns are Video, Company and Course — each carrying a filter glyph — 'Used in', Captions, Translation with its own filter, 'Audio desc.' and Uploaded with an active ascending sort; each row pairs a video thumbnail stamped with its running time with a two-line file title and its source language code, an abbreviated company, a course name, a blue 'N Nudges' link, a comma-separated list of caption languages that truncates with an ellipsis, and per-column state glyphs — an hourglass for in progress, a ringed check for done and an em dash for not applicable — with the hovered row tinted and revealing a vertical overflow."
+tags:
+  - "table"
+  - "video"
+  - "list"
+  - "filter"
+  - "localization"
+  - "status"
+  - "sorting"
+  - "thumbnail"
+usage: "use when the same asset exists in many languages — caption locales listed inline until they truncate, translation and audio description each given their own column with a glyph for pending, done or not applicable, and per-column filters placed in the headers."

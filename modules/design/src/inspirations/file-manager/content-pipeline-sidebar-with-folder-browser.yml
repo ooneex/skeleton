@@ -1,0 +1,12 @@
+title: "Content Pipeline Sidebar With Folder Browser"
+description: "A close crop of a content-production tool: a left sidebar headed by the logo and wordmark with a collapse button, a Dashboard item, then an expanded Pipeline group whose six stages — Ideation, Scriptwriting, Filming, Video Editing, Packaging, Seo & Upload — hang off a vertical tree line, each pairing a stage icon with its name and a right-aligned step number, with the active Packaging stage drawn as a filled rounded row, a Chat item carrying a blue count badge, and an 'ANALYTICS & OPTIMIZATION' caption introducing the next group; on the right a stage workspace headed by the stage icon and name, a Back to Packaging button beside the project title 'How to Grow on YouTube', and a file browser panel with back/forward buttons and a New Folder action over a row of large glossy coloured folder tiles, each badged with the stage icon it came from and labelled with its name and file count, and a 'N files • 0.46 MB' summary line at the foot."
+tags:
+  - "sidebar"
+  - "navigation"
+  - "file-manager"
+  - "list"
+  - "workflow"
+  - "tree"
+  - "folders"
+  - "badge"
+usage: "use when navigation is a numbered process rather than a flat menu — stages tied together by a tree line and step numbers, the active stage filled, and a file browser whose folders inherit the icon and colour of the stage that produced them."

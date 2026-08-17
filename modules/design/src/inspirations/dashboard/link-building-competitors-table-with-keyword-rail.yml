@@ -1,0 +1,12 @@
+title: "Link Building Competitors Table With Keyword Rail"
+description: "An SEO link-building workspace: a dark icon rail with the brand mark, nine destination glyphs with the active one marked by a green edge bar, and a help button and avatar at the foot; a header pairing the page title with a 'Back to My Dashboard' link, a centred Search field showing its ⌘K hint, a 'Copilot' button with a Beta chip, a bell and settings; a left Keywords panel with a 'By traffic' sort disclosure whose rows each pair the keyword with its traffic figure and are backed by a pale green bar whose width encodes that traffic, so the list doubles as a chart; and a Competitors card headed by a count, a row of four filter selects and a green 'Download Full List' button, over a table with Domain, Backlinks, Flag, 'ND Score', Location, Pages and 'Pages total traffic' columns, whose rows carry a disclosure triangle, a favicon and domain with small state badges, a backlink count, a green 'Purchased' or amber 'Sponsored' flag pill, a score beside an A/B/C grade chip, a country flag with its code, and two traffic cells each pairing a value and percentage with a segmented bar, one row tinted as hovered; a footer pairs a 'Show per page' select with a '1-50 of 13,303' readout and page arrows."
+tags:
+  - "table"
+  - "filter"
+  - "list"
+  - "dashboard"
+  - "sidebar"
+  - "pagination"
+  - "seo"
+  - "analytics"
+usage: "use when a list should double as a chart — keyword rows backed by proportional bars instead of a separate graph, table cells combining a value, a percentage and a bar, and status carried by a pill while quality is carried by a letter grade."

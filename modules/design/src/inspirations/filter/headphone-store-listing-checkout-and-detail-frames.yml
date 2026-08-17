@@ -1,0 +1,12 @@
+title: "Headphone Store Listing Checkout And Detail Frames"
+description: "A set of storefront frames on a tan board. The main frame is a category listing: a dark utility strip with a phone number, a promo line with a 'Shop Now' link and language and location selects; a header with the logo, a Categories dropdown and three links, a 'Search Product' field, and Account and Cart actions; a cream hero banner pairing a two-line offer headline and a dark 'Buy Now' button with a photograph; a row of facet dropdown chips — Headphone Type, Price, Review, Color, Material, Offer, All Filters — opposite a 'Sort by' select; and a four-column product grid whose cards show the item on a grey tile with a heart toggle, then the name beside a price with a superscript decimal, a one-line spec, a star rating with its review count and an 'Add to Cart' button that fills dark on hover. Around it sit satellite frames: a checkout pairing 'Review Item And Shipping' and a delivery-information form with an 'Order Summery' column holding a coupon field, radio payment methods with card logos and cardholder fields; a 'Popular Categories' panel of six tiles each pairing a product photo with a category name and an availability count; a product detail page with a breadcrumb, a gallery and thumbnail strip, a rating, a price with a monthly financing alternative, colour swatches, a quantity stepper with a low-stock warning, Buy Now and Add to Cart buttons and delivery and returns notes; and a compact product list whose rows pair a thumbnail with a name, a rating and a price."
+tags:
+  - "e-commerce"
+  - "filter"
+  - "card"
+  - "detail-page"
+  - "form"
+  - "list"
+  - "checkout"
+  - "grid"
+usage: "use when the whole purchase path has to be designed at once — filters as dropdown chips above the grid, a product page that answers price, colour, stock and delivery in one column, and a checkout that keeps the order summary and payment choice beside the shipping form."

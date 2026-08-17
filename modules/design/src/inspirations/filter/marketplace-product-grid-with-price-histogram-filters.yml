@@ -1,0 +1,12 @@
+title: "Marketplace Product Grid With Price Histogram Filters"
+description: "A marketplace catalogue with a top bar holding the wordmark, a wide search field, Orders and Favourites links, a Cart icon with a count badge and an avatar; below it a scrolling row of category chips with the active one filled; a left filter rail stacking a Price Range card whose dual-handle slider sits under a distribution histogram with the two bounds shown in dark tooltips and a Reset link plus an 'average price is $300' hint, a Star Rating card reading '4 Stars & up', a Brand card listing logo-and-name rows with checkboxes and a More Brand link, and a Delivery Options segmented pair; and a three-column product grid whose cards each carry a heart toggle in filled or outline state, an image, a truncated title and an outlined price button with a basket icon, with a Top item ribbon on two cards, a struck-through original price beside a discounted one, and one full-bleed lifestyle card overlaying floating avatar rating pills on the photo."
+tags:
+  - "e-commerce"
+  - "filter"
+  - "card"
+  - "sidebar"
+  - "navigation"
+  - "search"
+  - "slider"
+  - "rating"
+usage: "use when a catalogue must make filtering legible at a glance — a price slider explained by the distribution behind it, per-group Reset links, brands identified by logo as well as name, and a product grid that still has room for a promoted full-bleed card among the plain ones."

@@ -1,0 +1,12 @@
+title: "Vocabulary Learning App Screens With Word Collections"
+description: "A set of vocabulary-app screens laid out on a sand ground: a word card giving the headword large with its phonetic spelling beneath and three tinted part-of-speech chips, then an Example sentence with the word picked out in colour, a Mnemonic section whose empty state offers a gold coin for adding one, a 'Degree of difficulty' five-star rating and a round add-to-collection button, with floating collection labels — a starred difficulty tag, 'Difficult words', 'Key words', 'Easy to confuse' — over four round actions for settings, reject, accept and pronounce; a greeting card pairing an avatar with 'Hi, Dora', a QR button and a paragraph explaining how the word list was built; a study screen headed by the list name with a word-list select and a 'Study time today' readout, a thick gold progress ring reading the round number over a completed-of-total count, two round glyph counters for new and familiar words, a 'Review later' row of coloured folder cards and a tab bar with a raised round action; a 'Font size' sheet offering Small, Regular and Large over eight round settings for pronunciation, dark mode, multi-word, timer, decompose, new favourite, correct and back; and a 'Review later' grid whose folder cards each name a collection with a 'seen / total' count and the date it was last opened, closing on a dashed 'New favorite' tile."
+tags:
+  - "mobile"
+  - "education"
+  - "card"
+  - "list"
+  - "settings"
+  - "gamification"
+  - "progress"
+  - "ring"
+usage: "use when study is organised into collections the learner keeps — words filed as coloured folders with their own progress and last-opened date, one ring carrying the round's completion, and the review verdict given as four round actions under the thumb."

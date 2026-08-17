@@ -1,0 +1,12 @@
+title: "Minimal AI Home With Prompt Cards And Scope Select"
+description: "A very spare assistant home: a narrow icon rail carrying a black brand tile, a raised '+' button, then search, home, folder and history glyphs separated by dotted rules, with settings and an avatar at the foot; and a canvas left almost entirely empty except for a left-aligned two-line greeting whose second line runs into a violet gradient, a two-line instruction offering the common prompts below or the user's own, a row of four outlined prompt cards each pairing a sentence-length suggestion with a small line icon in its lower-left corner, a 'Refresh Prompts' link with a rotate glyph, and a white composer whose 'Ask whatever you want….' placeholder sits opposite an 'All Web' scope select, above a footer row of 'Add Attachment' and 'Use Image' actions with a '0/1000' character count beside a filled violet send button."
+tags:
+  - "chat"
+  - "onboarding"
+  - "card"
+  - "form"
+  - "sidebar"
+  - "ai"
+  - "empty-state"
+  - "minimal"
+usage: "use when a blank assistant screen should stay quiet — one greeting, four prompt cards that can be refreshed for different ones, and a composer that states its scope and character limit without adding any other chrome."

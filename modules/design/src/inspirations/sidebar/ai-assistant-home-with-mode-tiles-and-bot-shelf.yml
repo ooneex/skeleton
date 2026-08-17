@@ -1,0 +1,12 @@
+title: "AI Assistant Home With Mode Tiles And Bot Shelf"
+description: "The landing screen of a multi-model AI assistant, tinted with a soft iridescent gradient: a left sidebar whose dark header pairs the wordmark with a hamburger, an Explore card beside a dashed 'Create +' card, then eight destination rows each drawn as its own white card with an outline icon — Bots and apps, Projects, Leaderboard, Creators, Profile, Settings, Send feedback, Support — and three pastel download buttons for Android, iOS and macOS at the foot; a top bar with a wide search field carrying a black '+ Space' button inside it, mail and activity buttons and a named avatar with handle; and a centred canvas holding an iridescent 3D orb, a two-line welcome headline, a row of six mode tiles — Chat selected and tinted, then Tasks, Design, Code, Research, Writing — each pairing an illustrated glyph with its label, a composer card headed by 'Unlock more with Pro Plan' and a 'Powered by Assistant v2.6' credit, whose input shows an example prompt beside mic and send buttons and sits above four tool chips with Deep Research selected, and an 'Official Bots' shelf of nine logo tiles each captioned with its model name."
+tags:
+  - "chat"
+  - "sidebar"
+  - "dashboard"
+  - "card"
+  - "onboarding"
+  - "navigation"
+  - "ai"
+  - "empty-state"
+usage: "use when an assistant must present many capabilities before the first message — mode tiles that pre-set intent, tool chips attached to the composer rather than buried in a menu, and a shelf naming every model the product can reach."

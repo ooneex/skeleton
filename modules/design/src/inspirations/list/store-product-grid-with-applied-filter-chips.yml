@@ -1,0 +1,12 @@
+title: "Store Product Grid With Applied Filter Chips"
+description: "A storefront catalogue: a narrow icon rail with a green add button at the top, eight destination glyphs and an avatar at the foot; a header with a 'Corelystics Store › Products' breadcrumb, a 'Search Products…' field showing its ⌘+F hint, a language select with a flag, and bell, mail and bag buttons; a left Filters panel with a 'Clear All' link, a row of applied-filter chips each naming its facet and value with a × to remove it, then collapsible groups — Category as checkboxes with Electronics ticked, Price as banded checkboxes plus a min/max pair, Color as labelled swatch pills with Black selected, Rating as a row of star-threshold pills, and Shipping Options as checkboxes with Regular ticked; and a results area headed by the section title, a 'Showing 7,456 Products for \"Electronics\"' count and a 'Sort by: Ratings' select, over a four-column product grid whose cards each show the item on a pale tile, a name with a heart toggle filled red when saved, a star rating with its review count, a location line, a price with a units-sold caption, and a full-width green Add to Cart button."
+tags:
+  - "filter"
+  - "e-commerce"
+  - "card"
+  - "sidebar"
+  - "list"
+  - "navigation"
+  - "chips"
+  - "search"
+usage: "use when a catalogue's active filters must stay visible — every applied facet echoed as a removable chip above the groups, a result count that repeats the query, and facet controls picked per type (checkboxes, swatches, star thresholds, a min/max pair) rather than one uniform list."

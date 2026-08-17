@@ -1,0 +1,12 @@
+title: "Store Analytics Dashboard With Add Widget Drawer"
+description: "Two frames of an e-commerce analytics dashboard. The upper frame shows the customisation state: the page dimmed behind an 'Add Widget' drawer whose entries each pair a preview thumbnail of the chart with a title, a two-line explanation, a #category tag and a blue Select button, one slot left as a dashed drop target, and a widget card caught mid-drag under a grab cursor. The lower frame shows the finished dashboard: a sidebar with the wordmark, a nav list with a count badge on Orders, an expanded Finances group, and an 'Upgrade to Premium!' card at the foot; a top bar with a '⌘K' search, theme and bell buttons and an avatar; a header with a date-range picker, a 'Last 30 days' select, an Add widget button and a filled Export button; a row of four metric cards each pairing a label and icon with a value, a signed percentage pill and a 'vs. last period' comparison; a Total Profit card with a two-series line chart and a hovered tooltip comparing this month against last; a Customers card splitting three segment counts across coloured underlines; a Best Selling Products table with ID, name with thumbnail, units sold, revenue coloured by direction and a star rating; a 'Most Day Active' bar chart with the peak day highlighted and labelled; a 'Repeat Customer Rate' radial gauge reading 68% with an 'On track for 80% target' caption and a Show details button; and an AI Assistant card with an orb and an 'Ask me anything…' composer."
+tags:
+  - "dashboard"
+  - "chart"
+  - "table"
+  - "sidebar"
+  - "modal"
+  - "card"
+  - "e-commerce"
+  - "drag-and-drop"
+usage: "use when a dashboard is user-assembled — a widget catalogue where each entry is previewed and tagged before it is added, a dashed slot showing where the dragged card will land, and a finished grid mixing metric cards, charts, a gauge and a table at one visual weight."

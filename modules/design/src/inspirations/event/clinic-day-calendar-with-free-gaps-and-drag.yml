@@ -1,0 +1,12 @@
+title: "Clinic Day Calendar With Free Gaps And Drag"
+description: "A clinic scheduling screen in a browser window: a left sidebar with the practice wordmark, eight plain nav rows with the active Patients row in a tinted pill and a count badge on Chat, and a round '+ New appointment' action pinned at the foot; a header with a wide 'Search patients, assessment recording, treatments…' field and a named practitioner with an 'Available' presence line; a page title beside an export button and a blue '+ New appointment' button; a toolbar pairing a Today pager and the full date with a 'Practitioners' select carrying a count of 4 and a Day/Week/Month segmented control; and a day grid with half-hour labels down the left and one column per practitioner, where appointments are pastel cards with a coloured left rule, a patient avatar and name, a time range, one or more treatment tags with a '+2' overflow and attending-staff avatars; unused stretches are labelled with the free time they leave ('1 hour', '4 hours', '1 hour 30 min'), a green hatched block reads 'Not available' with its hours, a red now-line marks 10:25 across the grid, one card is caught mid-drag under a grab cursor with its origin shown as an empty outlined slot, and a footer strip lists each practitioner with their avatar, booked and free time and a colour dot keying their column."
+tags:
+  - "healthcare"
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "interaction"
+  - "scheduling"
+  - "drag-and-drop"
+  - "day-view"
+usage: "use when the gaps matter as much as the bookings — free stretches labelled with their length, unavailability hatched rather than left blank, a dragged appointment leaving an outlined origin, and a footer summarising each practitioner's load."

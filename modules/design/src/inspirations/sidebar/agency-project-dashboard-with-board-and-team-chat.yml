@@ -1,0 +1,12 @@
+title: "Agency Project Dashboard With Board And Team Chat"
+description: "An agency work dashboard in three columns: an icon rail with an avatar at the top, six destination glyphs — one carrying a count badge and drawn as a raised tile — and settings, sign-out and a brand mark at the foot; a project tree with an 'Active' select whose entries pair a coloured dot with a client name, the open DentalPro carrying a count badge and expanding into indented workstreams, plus collapsible 'Dribble' and 'Behance' groups; a main pane with a collapse and expand pair, a collaborator avatar stack with a '+11' overflow, chat, timer, star and overflow buttons, an iridescent project banner carrying the project's logo, name and three meta blocks — CREATED, 'DUE DATE' and 'TRACKED TIME' — then an Overview / List / Dashboard / Timeline / Calendar segmented switcher with Dashboard filled, a row of Deadline, 'Department' and Priority filter selects with the applied ones tinted, and kanban columns — 'Ice box', 'In Progress', Discussion — each headed by a name, a count and an add button over cards pairing a title and a clipped description with an assignee row, coloured tags and comment and attachment counts; and a right rail with 'Your recent project work' cards showing an app logo, a task name, assignee avatars and a coloured progress percentage, a 'Time Management' block reading '36h 10m' over a weekday area chart with a black 'Now' marker on the last point, and a 'Team Chat' thread of alternating bubbles with relative times over a 'Type a message' composer."
+tags:
+  - "project-management"
+  - "kanban"
+  - "dashboard"
+  - "sidebar"
+  - "chart"
+  - "chat"
+  - "tabs"
+  - "filter"
+usage: "use when one screen must hold the client tree, the board and the conversation — projects nested under clients in the rail, applied filters tinted while unused ones stay grey, and progress, time tracking and team chat stacked in a single right column."

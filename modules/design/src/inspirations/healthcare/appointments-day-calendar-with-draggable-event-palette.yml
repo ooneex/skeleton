@@ -1,0 +1,12 @@
+title: "Appointments Day Calendar With Draggable Event Palette"
+description: "A practice scheduling screen in mint and off-white: a top bar with the wordmark, a row of pill nav items each pairing an icon with a label and the active Calendar pill filled, then chat and bell buttons and a named avatar with email; a left panel titled Calendar with an overflow menu, a 'Drag and drop your event or click in the calendar' hint and a stack of six full-width pastel event-type pills each with its own icon — New Theme Release, My Event, Meet manager, Create New theme, Project Launch, Meeting — with a 'Remove After Drop' checkbox and a black Create New button pinned to its foot; and a right Appointments pane whose header carries a subtitle, a black Add button, the date '22 August 2025' and a Day/Week/Month segmented control with Day selected, over a grid of hour rows from 9 am down and one column per practitioner headed by an avatar, name and speciality, where each booking is a white card naming the client, the consultation type, the time range and a coloured dot matching its event type, and cards that overflow the last column are clipped to imply horizontal scroll."
+tags:
+  - "calendar"
+  - "event"
+  - "sidebar"
+  - "navigation"
+  - "healthcare"
+  - "drag-and-drop"
+  - "segmented-control"
+  - "scheduling"
+usage: "use when bookings are created by dragging rather than by form — a palette of pre-typed events on the left, colour carried from the palette chip onto the placed card, and a day grid split into one column per person so double-booking is visible."

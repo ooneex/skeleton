@@ -1,0 +1,12 @@
+title: "Work Order Day Calendar By Technician"
+description: "A property-maintenance day schedule: a dark icon rail with the brand mark, eight destination buttons with the active calendar in a white circle, and settings and expand controls at the foot; a header pairing the page title with a 'Search properties, tasks, etc' field, a quick-action button, a bell with a count badge and a named avatar with role; a toolbar holding a list/calendar view toggle, day back/forward arrows, the date with a 'Today' label, a Today button, a Day/Week/Month segmented control and a teal '+ Work Order' button; and a full-width day grid with an All Day gutter and three technician columns, each headed by an avatar, name, the hours they are booked and an add button, half-hour rows labelled down the left edge, and jobs drawn as tinted blocks — teal internal tasks, blue personal tasks, amber maintenance requests — each pairing a type glyph with the job name, its ticket number, a time range and its type with an overflow menu, some blocks filled with a diagonal hatch to mark a different state and one drawn taller to span its full duration, with a teal 'now' line labelled 11:35 crossing every column."
+tags:
+  - "calendar"
+  - "event"
+  - "task"
+  - "sidebar"
+  - "scheduling"
+  - "field-service"
+  - "status"
+  - "day-view"
+usage: "use when a dispatcher assigns a day across a crew — one column per technician headed by their booked hours, job type carried by colour and glyph together, hatching to separate a second state from a solid block, and a labelled now-line to place the moment."

@@ -1,0 +1,12 @@
+title: "Instructor Dashboard With Profile Completion And Feed"
+description: "An online academy's instructor home: a header with a two-line wordmark, five text nav links with the active one blue, a search field, a tinted 'Go to dashboard' button, a bell and an avatar; a left panel with a tinted '+ Add course' button, a nav list whose active Dashboard row is a dark filled pill over Courses, Message and Settings, and a Log out row at the foot; a full-width stat strip splitting six figures across hairline dividers — enrolled, active and completed courses, students, total earning in USD and courses sold — each a large number over a grey label; a profile completion card pairing the instructor's avatar, name and email with a '1/4 Steps' label, a progress bar, a '25% Completed' readout, a blue 'Edit Biography' button and a disclosure chevron; and a two-panel row holding a Notification feed with a 'This week' select whose entries pair a coloured circular type glyph with a sentence naming the actor, the action and the course in quotes and a right-aligned relative time, the newest marked by a blue left rule, beside a 'Profile View' card with a 'Today' select and a bar chart drawn as filled green bars inside pale full-height tracks."
+tags:
+  - "dashboard"
+  - "education"
+  - "sidebar"
+  - "chart"
+  - "notification"
+  - "profile"
+  - "list"
+  - "progress"
+usage: "use when a creator dashboard must report and prompt at once — a divider-split stat strip instead of separate cards, a completion bar that names the remaining steps, and an activity feed whose sentences carry the actor, the object and the time without needing a table."

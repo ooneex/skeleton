@@ -1,0 +1,12 @@
+title: "Test Prep Components With Answer Review And Invite"
+description: "A collage of components from an exam-practice platform, floating on a pale ground with two 3D cubes: a performance card pairing a 'Select Date Range' field with a donut split into correct, wrong and unanswered, an Accuracy / 'Avg. Time' segmented toggle and a legend whose rows pair a green tick, a red cross or a grey square with a label and a percentage; a 'Your Progress' card listing test types keyed by colour, each with a sentence stating how many were attempted out of how many and a progress bar with its percentage; an answer-review list headed by a 'Time Taken' chip beside an 'Ideal Time' reading, whose options are plain radio rows except the correct one, tinted green with a tick and labelled 'Right answer', and the chosen wrong one, tinted red with a cross and labelled 'You answered'; a 'Switch Your Department' modal splitting Enrolled and 'Not Enrolled' groups of selectable cards, each carrying a state pill — amber 'On Trial', green Subscribed, red 'Trial Ended' — a dated expiry line and an UPGRADE action, with Cancel and Change buttons at the foot; and an 'Invite Your Friend' modal pairing an email field with an Invite button over a read-only invite link with a Copy button and three share icons."
+tags:
+  - "education"
+  - "modal"
+  - "chart"
+  - "card"
+  - "form"
+  - "dashboard"
+  - "component"
+  - "progress"
+usage: "use when results must be explained rather than scored — a donut backed by a legend that names each outcome, progress written as a sentence beside its bar, and an answer review that labels both the right answer and the one the learner picked."
