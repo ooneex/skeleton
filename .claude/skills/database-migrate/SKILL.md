@@ -28,13 +28,17 @@ Drive the database lifecycle with the `talos` commands. This is the *runtime* wo
 ```bash
 talos migration:up            # run all pending migrations
 talos migration:up --drop     # DROP the database first, then run every migration (destructive — dev only)
+talos migration:up --logs     # print the output of every module that failed
 ```
+
+`migration:up`, `migration:down` and `seed:run` all capture each module's output rather than streaming it: the run prints a progress bar and a per-module report, and a failing module only shows its log under `--logs`.
 
 ## Roll back migrations
 
 ```bash
 talos migration:down                      # roll back only the most recently applied migration
 talos migration:down --version <version>  # roll back the single migration with that version
+talos migration:down --logs               # print the output of every module that failed
 ```
 
 Each rollback runs the migration's `down()` in a transaction and removes its row from the `migrations` table, so a later `talos migration:up` re-applies it. `<version>` is the timestamp in the migration's `getVersion()` (the number in the `Migration<version>.ts` filename). Rollback relies on a correct `down()` — if `down()` doesn't exactly reverse `up()`, prefer a new corrective migration over a rollback on shared data. Use `--version` instead of `--drop` when you only need to undo one migration.
@@ -44,6 +48,7 @@ Each rollback runs the migration's `down()` in a transaction and removes its row
 ```bash
 talos seed:run                # run all seeds (idempotent)
 talos seed:run --drop         # clear seeded data first, then reseed
+talos seed:run --logs         # print the output of every module that failed
 ```
 
 ## Sync an entity change into the schema
@@ -58,6 +63,6 @@ When you change an entity's columns/relations:
 ## Verify and troubleshoot
 
 - **Verify** — after applying, run `talos workspace:run --commands=test` (repository/entity tests fail fast on a schema mismatch). Confirm every entity column has a matching migrated column with the same nullability/length.
-- **Migration failed mid-way** — read the error, fix the offending `up()`, and in development re-run with `talos migration:up --drop` to rebuild from a clean state.
+- **Migration failed mid-way** — re-run with `--logs` to read the error, fix the offending `up()`, and in development re-run with `talos migration:up --drop` to rebuild from a clean state.
 - **A migration silently never runs** — it isn't registered. Check that the file is named `Migration<version>.ts`, that `migrations.ts` exports it, and that `bin/migration/up.ts` imports the barrel. A missing table/column with no error in the log is almost always this.
 - **Error stems from application code** (entity decorators, DI) — hand off to the `debug` skill.

@@ -130,10 +130,10 @@ A workflow orchestrates an ordered list of conditional, reversible transitions w
 ## Database
 ```bash
 talos migration:create --module <name>   # Generate a timestamped migration
-talos migration:up [--drop]              # Run pending migrations (--drop: drop DB first)
-talos migration:down [--version <v>]     # Roll back the latest migration (or the one matching --version)
+talos migration:up [--drop] [--logs]     # Run pending migrations (--drop: drop DB first, --logs: show failing output)
+talos migration:down [--version <v>] [--logs]  # Roll back the latest migration (or the one matching --version)
 talos seed:create --module <name>        # Generate a seed YAML file
-talos seed:run [--drop]                  # Run all seeds (--drop: drop data first)
+talos seed:run [--drop] [--logs]         # Run all seeds (--drop: drop data first, --logs: show failing output)
 ```
 
 ## Workspace tasks
