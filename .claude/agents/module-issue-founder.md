@@ -76,7 +76,8 @@ Inspect the module across these categories:
   `AppEnv`, DI classes missing their decorator/required suffix.
 - **Database** — entities/migrations out of sync, missing or wrong column
   nullability/length, missing indexes on foreign keys or queried columns,
-  unsafe or irreversible migrations, migrations that never run (bare
+  unsafe, irreversible, or non-idempotent migrations (a `CREATE` in `up()`
+  without `IF NOT EXISTS`), migrations that never run (bare
   `<version>.ts` filename instead of `Migration<version>.ts`, missing from the
   `migrations.ts` barrel, or barrel not imported by `bin/migration/{up,down}.ts`).
 

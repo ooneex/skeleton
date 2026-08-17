@@ -46,9 +46,14 @@ Read `modules/<module>/src/migrations/Migration<version>.ts`, then implement:
 
 Drop each index explicitly in `down()` before dropping the table or column it covers.
 
+**Guard every `CREATE` with `IF NOT EXISTS`** — `CREATE TABLE IF NOT EXISTS`, `CREATE INDEX IF NOT EXISTS`, `CREATE UNIQUE INDEX IF NOT EXISTS`. This mirrors the `IF EXISTS` guards `down()` already uses and makes `up()` re-runnable, so a run that failed partway through can be re-applied instead of hand-unwound. Two limits it does not remove:
+
+- The guard skips the statement when the object exists *in any shape*, so a table or index that drifted from the entity now passes silently instead of failing loudly. Drift is caught by the entity ↔ migration checks (repository/entity tests, `convention-reviewer`) — never by `up()`.
+- `ALTER TABLE` has no general equivalent. `ADD COLUMN IF NOT EXISTS` and `DROP ... IF EXISTS` exist, but `ADD CONSTRAINT`, `ALTER COLUMN ... SET NOT NULL`, and `SET DEFAULT` do not, so a migration built on `ALTER` is not re-runnable and must not be blindly retried.
+
 **Keep every identifier under 64 bytes.** Postgres silently truncates table, column, index, and constraint names at 63 bytes, so two long names sharing a prefix collide as `relation already exists` at migration time. When a generated name such as `IDX_<table>_<col_a>_<col_b>` overflows, shorten the parts rather than the meaning — `IDX_university_coordinator_audit_logs_coordinator_created_at`, not `IDX_university_coordinator_audit_logs_university_coordinator_id_created_at` — and use the same shortened name in `down()`.
 
-**One migration owns each object.** Never re-create a table, index, or constraint another migration already creates: a second `CREATE TABLE` for the same relation fails the whole run. If a migration only refines an earlier one, keep the earlier one as the owner and reduce the newer one to its delta.
+**One migration owns each object.** Never re-create a table, index, or constraint another migration already creates. The `IF NOT EXISTS` guards make a duplicate `CREATE` *worse*, not safer: instead of failing the run with `relation already exists`, the second migration now silently no-ops, so its intended columns never appear and the mismatch only surfaces later as a runtime error. If a migration only refines an earlier one, keep the earlier one as the owner and reduce the newer one to its delta.
 
 **Declare cross-module dependencies.** A migration that touches a table owned by another module must import that module's migration and return it from `getDependencies()`, otherwise it runs before the table exists (`relation does not exist`) whenever its module is migrated first.
 

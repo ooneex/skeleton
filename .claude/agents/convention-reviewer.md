@@ -37,6 +37,7 @@ Read every changed file (and the surrounding code it touches — callers, the mo
 - **Environment** — config read via injected `AppEnv`, never `process.env`.
 - **Entity ↔ migration** — column nullability/length agree across the pair; no non-null assertions (`!`) standing in for real types.
 - **Migration registration** — every new migration is named `Migration<version>.ts` with a matching class name, exported from the folder's `migrations.ts` barrel, and reachable from `bin/migration/{up,down}.ts` (which import the barrel, not individual files); an unregistered or bare `<version>.ts` migration never runs.
+- **Migration DDL** — every `CREATE TABLE`/`CREATE INDEX`/`CREATE UNIQUE INDEX` in `up()` carries `IF NOT EXISTS`, matching the `IF EXISTS` guards in `down()`. Because those guards turn a duplicate `CREATE` into a silent no-op, also check the object isn't already created by an earlier migration — that conflict no longer announces itself at runtime.
 - **Tests** — new public methods have meaningful tests; no trivial or placeholder assertions left behind.
 - **Correctness** — obvious bugs, unhandled async/error paths, leaks, dead code introduced by the change.
 
