@@ -87,7 +87,7 @@ export const CommandPalette = createDialog<CommandPalettePropsType, string | nul
   {
     dismissValue: null,
     showCloseButton: false,
-    className: "rounded-xl! top-12 translate-y-0 overflow-hidden p-0 shadow-2xl border-none ring-0",
+    className: "rounded-xl! top-12 translate-y-0 overflow-hidden p-0 border-none ring-0",
   },
 );
 CommandPalette.displayName = "CommandPalette";

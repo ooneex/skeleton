@@ -5,12 +5,16 @@ import { Command as CommandPrimitive } from "cmdk";
 import type { ComponentProps } from "react";
 
 /** Search field for the command palette with an inline magnifier addon. */
-export const CommandInput = ({ className, ...props }: ComponentProps<typeof CommandPrimitive.Input>) => {
+export const CommandInput = ({ className, autoFocus, ...props }: ComponentProps<typeof CommandPrimitive.Input>) => {
   return (
     <div data-slot="command-input-wrapper" className="px-4 py-3.5">
       <InputGroup className="border-none">
         <CommandPrimitive.Input
           data-slot="command-input"
+          // React strips `autoFocus` from the DOM, so a dialog focus trap looking
+          // for it would hand focus back to the popup instead of the field.
+          data-autofocus={autoFocus ? "" : undefined}
+          autoFocus={autoFocus}
           className={cn(
             "p-0 w-full text-base outline-hidden disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground/60",
             className,
