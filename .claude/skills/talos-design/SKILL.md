@@ -1,6 +1,6 @@
 ---
 name: talos-design
-description: Directory structure and conventions for a design module — the front-end design system layout (components, hooks, icons, fonts, styles, translations, utils) with per-folder usage guidance.
+description: Directory structure and conventions for a design module — the front-end design system layout (components, hooks, icons, inspirations, fonts, styles, translations, utils) with per-folder usage guidance.
 when_to_use: Use when creating or navigating a design system.
 user-invocable: false
 ---
@@ -26,6 +26,8 @@ modules/<name>/        # type: "design"
                   #   useControlledState, useAutoHeight. Keep generic; domain/data-fetching logic belongs in services.
     icons/        # SVG icons in fill/ + outline/ variants, grouped by category + size (sm, md, lg).
                   #   Add new icons to the matching category folder — never inline SVG.
+    inspirations/ # Reference UI screenshots, ~50 category folders, each holding <slug>.webp + <slug>.yml pairs.
+                  #   A reference shelf, never imported or bundled — always consult before designing (see below).
     fonts/        # Bundled web fonts (Space Grotesk) with @font-face CSS; no external CDNs. Add new font files here with their CSS.
     styles/       # Global stylesheets — app.css, brand.css, shape.css, status.css, typography.css. Prefer shared styles +
                   #   component-scoped classes over one-off CSS. Every color/spacing/radius/shadow used elsewhere in the
@@ -35,7 +37,7 @@ modules/<name>/        # type: "design"
     utils/        # Front-end helpers — cn (class-name merge), staleChunk. Add small pure presentation helpers; no backend/business logic.
 ```
 
-`src/inspirations/` also lives here: ~820 curated screenshots of real product UI (`<category>/<slug>.yml` describing the screen + a matching `.webp`) across 49 categories — `card`, `chart`, `dashboard`, `form`, `list`, `modal`, `navigation`, `settings`, `sidebar`, `table`, `tabs`, … **Always take inspiration from it before designing or implementing any component or screen**: search the `.yml` files by tag/`usage`, read the 2–4 that fit, open their screenshots, and build against their structure and state coverage — never their colors, radii, shadows, spacing, or copy, which always come from this module's tokens and components. It is a reference shelf only: never imported by code, never bundled, never edited. See `optimize-ui`'s `references/inspirations.md`.
+`src/inspirations/` holds ~820 curated screenshots of real product UI (`<category>/<slug>.yml` describing the screen + a matching `.webp`) across 49 categories — `card`, `chart`, `dashboard`, `form`, `list`, `modal`, `navigation`, `settings`, `sidebar`, `table`, `tabs`, … **Always take inspiration from it before designing or implementing any component or screen**: search the `.yml` files by tag/`usage`, read the 2–4 that fit, open their screenshots, and build against their structure and state coverage — never their colors, radii, shadows, spacing, or copy, which always come from this module's tokens and components. It is a reference shelf only: never imported by code, never bundled, never edited. See `optimize-ui`'s `references/inspirations.md`.
 
 For the interaction, motion, typography, color, and surface rules every component here must follow — including how to avoid AI-slop visual patterns (stock gradients, glassmorphism-as-decoration, template layouts) — see `optimize-ui`. For the SPA consuming this design system, see `talos-spa`; for backend module layout, see `talos-module`.
 

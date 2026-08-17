@@ -276,6 +276,7 @@ Design system (reusable UI primitives), **not** registered into `AppModule`/`Sha
 - `src/components/<component>/` — one folder per component grouping its variants (e.g. `button/` → `Button.tsx`, `ButtonSave.tsx`). Compose existing primitives.
 - `src/hooks/` — generic presentation hooks (state, DOM, events); no data-fetching.
 - `src/icons/` — SVGs in `fill/` + `outline/`, grouped by category and size (`sm`/`md`/`lg`); never inline SVG.
+- `src/inspirations/` — reference UI screenshots (`<category>/<slug>.webp` + `<slug>.yml`); consult before designing, never imported or edited.
 - `src/fonts/` — bundled web fonts with `@font-face` CSS; no CDNs.
 - `src/styles/` — global stylesheets (`app.css`, `brand.css`, `typography.css`); prefer shared styles + scoped classes.
 - `src/utils/` — small pure presentation helpers (`cn`, `staleChunk`); no business logic.
