@@ -46,6 +46,12 @@ Read `modules/<module>/src/migrations/Migration<version>.ts`, then implement:
 
 Drop each index explicitly in `down()` before dropping the table or column it covers.
 
+**Keep every identifier under 64 bytes.** Postgres silently truncates table, column, index, and constraint names at 63 bytes, so two long names sharing a prefix collide as `relation already exists` at migration time. When a generated name such as `IDX_<table>_<col_a>_<col_b>` overflows, shorten the parts rather than the meaning — `IDX_university_coordinator_audit_logs_coordinator_created_at`, not `IDX_university_coordinator_audit_logs_university_coordinator_id_created_at` — and use the same shortened name in `down()`.
+
+**One migration owns each object.** Never re-create a table, index, or constraint another migration already creates: a second `CREATE TABLE` for the same relation fails the whole run. If a migration only refines an earlier one, keep the earlier one as the owner and reduce the newer one to its delta.
+
+**Declare cross-module dependencies.** A migration that touches a table owned by another module must import that module's migration and return it from `getDependencies()`, otherwise it runs before the table exists (`relation does not exist`) whenever its module is migrated first.
+
 `down()` is executed by `talos migration:down` (roll back the latest) and `talos migration:down --version <version>` (roll back this specific migration), so it must reverse `up()` exactly — a rollback that leaves the schema dirty is a bug.
 
 ### 3. Register the migration
