@@ -21,6 +21,7 @@ Drive the database lifecycle with the `talos` commands. This is the *runtime* wo
 - **Docker services (Postgres, Redis, …) must be up.** A connection refused means Docker isn't running — start it with `talos app:start`.
 - **`--drop` is destructive (dev only).** It wipes all data; never run it against a shared or production database, and confirm before any `--drop`.
 - **Never edit an already-applied migration in place on a shared database** — add a new corrective migration instead.
+- **A migration only runs when it is registered.** It must be named `Migration<version>.ts`, exported from the folder's `migrations.ts` barrel, and that barrel imported by the module's `bin/migration/up.ts` and `down.ts` — see `migration-create` for the full rules.
 
 ## Apply migrations
 
@@ -58,4 +59,5 @@ When you change an entity's columns/relations:
 
 - **Verify** — after applying, run `talos workspace:run --commands=test` (repository/entity tests fail fast on a schema mismatch). Confirm every entity column has a matching migrated column with the same nullability/length.
 - **Migration failed mid-way** — read the error, fix the offending `up()`, and in development re-run with `talos migration:up --drop` to rebuild from a clean state.
+- **A migration silently never runs** — it isn't registered. Check that the file is named `Migration<version>.ts`, that `migrations.ts` exports it, and that `bin/migration/up.ts` imports the barrel. A missing table/column with no error in the log is almost always this.
 - **Error stems from application code** (entity decorators, DI) — hand off to the `debug` skill.

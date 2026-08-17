@@ -36,6 +36,7 @@ Read every changed file (and the surrounding code it touches — callers, the mo
 - **Exceptions** — domain errors throw typed `Exception` subclasses with status + structured data, not `null`/error codes; each subclass sets `this.name = "XException";` explicitly in its constructor, right after `super(...)`.
 - **Environment** — config read via injected `AppEnv`, never `process.env`.
 - **Entity ↔ migration** — column nullability/length agree across the pair; no non-null assertions (`!`) standing in for real types.
+- **Migration registration** — every new migration is named `Migration<version>.ts` with a matching class name, exported from the folder's `migrations.ts` barrel, and reachable from `bin/migration/{up,down}.ts` (which import the barrel, not individual files); an unregistered or bare `<version>.ts` migration never runs.
 - **Tests** — new public methods have meaningful tests; no trivial or placeholder assertions left behind.
 - **Correctness** — obvious bugs, unhandled async/error paths, leaks, dead code introduced by the change.
 

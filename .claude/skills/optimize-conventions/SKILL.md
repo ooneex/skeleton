@@ -146,6 +146,14 @@ export class UserNotFoundException extends Exception {
 
 **Never edit an existing migration file.** If an optimization pass calls for a schema change, run `talos migration:create` for a new migration instead — an already-applied migration is a historical record, and rewriting it desyncs environments that already ran it.
 
+**Naming and registration** (violations to fix, since they silently skip a migration at runtime):
+
+- The file is `modules/<module>/src/migrations/Migration<version>.ts` — the `Migration` prefix is mandatory, a bare `<version>.ts` is invalid.
+- The exported class name matches the filename exactly (`Migration20260812081730499.ts` → `export class Migration20260812081730499`).
+- `migrations.ts` in the same folder is a barrel exporting *every* migration file, one line each, in ascending version order.
+- `modules/<module>/bin/migration/up.ts` and `down.ts` import that barrel (`import "@module/<module>/migrations/migrations";`), not individual files — the exception is a cross-module import pinning ordering against another module's migration, which is imported by full filename and carries a comment explaining why.
+- Renaming an invalidly named file uses `git mv`, keeps the version/timestamp untouched (it is the migration's identity in the `migrations` table), and updates every reference: the barrel, the `bin/migration` entrypoints, sibling migrations, and other modules importing it.
+
 ## File & Folder Structure
 
 **Respect the module's existing file and folder structure.** Don't invent a layout — look at the matching structure skill in `.claude/skills/` to know what's expected before creating, moving, or renaming anything: `talos-module` (backend `module`/`api`/`microservice`), `talos-spa` (`spa`/`admin`), `talos-design` (`design`), `talos-storybook` (`storybook`), `talos-swagger` (`swagger`), or `talos-scaffold`/`talos-architecture` for the project-level layout. A file in the wrong place is a violation to fix, but only move it to the location those references define.

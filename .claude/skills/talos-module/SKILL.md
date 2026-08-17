@@ -38,7 +38,7 @@ modules/<name>/
     loggers/      # Logger classes
     mailers/      # Mailer classes + JSX email templates
     middlewares/  # Middleware classes
-    migrations/   # Versioned SQL migration files
+    migrations/   # Versioned SQL migration files — Migration<version>.ts + a migrations.ts barrel exporting them all
     permissions/  # Permission classes
     queues/       # Queue classes
     repositories/ # Repository classes

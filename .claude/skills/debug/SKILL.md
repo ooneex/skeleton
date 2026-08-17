@@ -33,7 +33,7 @@ Start at the deepest @talosjs frame and work outward. Common signatures:
 
 - **`ContainerException` at startup** — a DI class is missing its `@decorator.*()`, missing its required suffix, or not registered in the module's `ModuleType` (controllers/entities/middlewares/crons/events must be listed; services/repositories auto-register via their decorator). See `talos-module`, `talos-scaffold`.
 - **A typed `Exception` subclass** — read its structured `data`; the throw site is the real source. Trace which service threw and why, not just where it surfaced.
-- **Migration / schema error** — entity and database disagree (nullability, length, missing column/table). Hand the schema lifecycle to `database-migrate`.
+- **Migration / schema error** — entity and database disagree (nullability, length, missing column/table). Hand the schema lifecycle to `database-migrate`. If a migration seems to have been skipped entirely, check it is registered: `Migration<version>.ts` filename, exported from the `migrations.ts` barrel, barrel imported by `bin/migration/{up,down}.ts`.
 - **`undefined` / null access** — a dependency wasn't injected, or `noUncheckedIndexedAccess` exposed an unguarded index/optional.
 - **Test failure** — distinguish a real regression from a stale test; read the assertion and the code it covers before changing either.
 
