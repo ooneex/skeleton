@@ -4,7 +4,7 @@ Router for AI coding assistants. Every capability below ships as a **skill** (a 
 
 ## Project
 
-{{NAME}} is a modular TypeScript/Bun backend on the **@talosjs** ecosystem. Code lives in independent modules under `modules/`, each owning its controllers, services, repositories, entities, migrations, and seeds.
+This project is a modular TypeScript/Bun backend on the **@talosjs** ecosystem. Code lives in independent modules under `modules/`, each owning its controllers, services, repositories, entities, migrations, and seeds.
 
 ## CLI first
 
