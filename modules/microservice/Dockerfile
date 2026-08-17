@@ -24,8 +24,8 @@
 # environment variables injected at deploy time — never bake them into the
 # image. APP_ENV defaults to "production" when unset. CACHE_REDIS_URL and
 # RATE_LIMIT_REDIS_URL are read while the cache and rate limiter are
-# constructed, before any .env.yml is layered in, so they must be real
-# environment variables — the container exits at startup without them.
+# constructed; the image ships an empty .env.yml (see below), so they must be
+# real environment variables — the container exits at startup without them.
 # ==============================================================================
 
 # Pin the Bun version; override at build time with --build-arg BUN_VERSION=...
