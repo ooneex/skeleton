@@ -1,9 +1,10 @@
 #!/usr/bin/env bun
 
 import { up } from "@talosjs/migrations";
-import { AppEnv } from "@talosjs/app-env";
+import { AppEnv, loadEnv } from "@talosjs/app-env";
 import "@module/{{name}}/migrations/migrations";
 
+await loadEnv();
 const env = new AppEnv();
 
 await up({
