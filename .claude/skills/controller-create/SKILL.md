@@ -159,6 +159,10 @@ Options per field: `minSize` (bytes, default `1`), `maxSize`, `types` (exact MIM
 
 Every constraint class lives at its own subpath — `@talosjs/validation/constraints/AssertId`, `.../AssertEmail`, `.../AssertUrl`, etc. Only `Assert` and the types come from `@talosjs/validation` itself.
 
+#### Module constraints
+
+When the package has no constraint for a rule, the module's own one goes in `modules/<module>/src/constraints/` — never inline in the controller and never in `utils/`. One `Assert<Name>` class per `Assert<Name>.ts` extending `Validation` from `@talosjs/validation`, imported as `@/constraints/Assert<Name>`; the shared `Assert(...)` schemas several routes reuse (id patterns, payload/response records) sit beside them as `constraints/<subject>.ts`. There is no generator — write the file and its `tests/constraints/` mirror by hand. See `talos-module` → **Constraints**.
+
 #### Roles
 
 `roles` is an array of plain role strings (e.g. `["ROLE_USER"]`). There is **no `ERole` enum** — don't import from `@talosjs/role` in a controller. Access is hierarchical/graph-based: granting a role also grants every role it inherits (ancestors, directly or transitively). Sibling roles on different branches do **not** satisfy each other.

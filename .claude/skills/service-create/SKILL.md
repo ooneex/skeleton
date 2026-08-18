@@ -37,6 +37,7 @@ Read `modules/<module>/src/services/<Name>Service.ts`, then:
 - Define a proper `ServiceDataType` instead of `Record<string, unknown>`
 - Implement `execute()` with actual business logic
 - Inject required dependencies via the constructor
+- Call the module's `assert<Subject><Rule>` guards from `@/constraints/<subject>` for business rules the route schema can't express (cross-field, stateful, lookup-dependent) — write the guard there rather than inlining the check (see `talos-module` → **Constraints**)
 
 ```typescript
 import { type IService, decorator } from "@talosjs/service";

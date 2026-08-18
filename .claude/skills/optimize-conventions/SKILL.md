@@ -156,6 +156,13 @@ export class UserNotFoundException extends Exception {
 
 **Idempotent DDL.** Every `CREATE` in `up()` carries `IF NOT EXISTS` — `CREATE TABLE IF NOT EXISTS`, `CREATE INDEX IF NOT EXISTS`, `CREATE UNIQUE INDEX IF NOT EXISTS` — mirroring the `IF EXISTS` guards in `down()`. Adding a missing guard is the one edit allowed to an existing migration file, since it changes no applied schema. It is not a licence to duplicate an object another migration already owns: with the guard, a duplicate `CREATE` silently no-ops instead of erroring, which hides the conflict rather than fixing it. `ALTER TABLE` is exempt — only its `ADD COLUMN`/`DROP` forms take a guard.
 
+## Constraints
+
+- Every assertion the module makes about its own data lives in `src/constraints/` — `Assert<Name>` classes (one per file, extending `Validation` from `@talosjs/validation`) for route `params`/`payload`/`queries`, the shared `Assert(...)` schemas routes reuse, and the camelCase `assert<Subject><Rule>` guards services call. See `talos-module` → **Constraints**.
+- Move stray assertions there: validation helpers sitting in `src/utils/` (`*Validation.ts`, `*RouteAsserts.ts`), and rules inlined in a controller or service. Update every import; don't change what the rule accepts.
+- Prefer an existing `@talosjs/validation/constraints/Assert*` (`AssertId`, `AssertEmail`, `AssertName`, `AssertCountryCode`, `AssertLocale`, `AssertHexaColor`, `AssertUrl`, …) over a module-local re-implementation of the same rule.
+- Guards throw the module's typed exceptions — never return `false` or a message string for a domain rule.
+
 ## File & Folder Structure
 
 **Respect the module's existing file and folder structure.** Don't invent a layout — look at the matching structure skill in `.claude/skills/` to know what's expected before creating, moving, or renaming anything: `talos-module` (backend `module`/`api`/`microservice`), `talos-spa` (`spa`/`admin`), `talos-design` (`design`), `talos-storybook` (`storybook`), `talos-swagger` (`swagger`), or `talos-scaffold`/`talos-architecture` for the project-level layout. A file in the wrong place is a violation to fix, but only move it to the location those references define.

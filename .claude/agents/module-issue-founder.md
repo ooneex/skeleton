@@ -73,7 +73,11 @@ Inspect the module across these categories:
 - **Code Quality** — functions not using arrow syntax where the `optimize`
   skill requires it, type/interface naming violations, missing exception
   classes, magic values, `process.env` read directly instead of injecting
-  `AppEnv`, DI classes missing their decorator/required suffix.
+  `AppEnv`, DI classes missing their decorator/required suffix, assertions
+  inlined in a controller/service or parked in `src/utils/` instead of
+  `src/constraints/` (and module-local rules duplicating an existing
+  `@talosjs/validation/constraints/Assert*`, or domain guards returning a
+  boolean/message instead of throwing a typed exception).
 - **Database** — entities/migrations out of sync, missing or wrong column
   nullability/length, missing indexes on foreign keys or queried columns,
   unsafe, irreversible, or non-idempotent migrations (a `CREATE` in `up()`

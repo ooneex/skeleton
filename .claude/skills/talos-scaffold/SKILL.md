@@ -32,6 +32,8 @@ talos <artifact>:create --name=<name> --module=<module>
 
 The artifact skill lists extra flags (`--is-socket`, `--channel`, `--table-name`, `--route-*`, …) and notes when the generator prompts interactively instead.
 
+Not every artifact has a generator. `src/constraints/` — the module's `Assert<Name>` route constraints, shared `Assert(...)` schemas, and `assert<Subject><Rule>` domain guards — is written by hand, together with its `tests/constraints/` mirror, following `talos-module` → **Constraints**. Constraints register nowhere; they are plain imports.
+
 ## Module registration
 
 DI-registered artifacts must be added to the module's `ModuleType` in `src/<PascalModuleName>Module.ts` — put each in its own array:

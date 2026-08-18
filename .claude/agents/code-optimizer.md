@@ -48,6 +48,7 @@ Read the module's source and build a picture before editing — inventory each t
 Work through the module and apply every fix yourself:
 
 - **Conventions** — rename types/interfaces and update *all* references; convert standalone functions to arrow functions; add explicit visibility; make optional entity columns `nullable`; replace `!` with real types/guards. Keep DI class suffixes (`Service`, `Repository`, `Middleware`, `Cron`, `Queue`, `Controller`) and their `@decorator.*()` intact.
+- **Constraints** — every assertion belongs in `src/constraints/`: move validation helpers out of `src/utils/` (`*Validation.ts`, `*RouteAsserts.ts`) and rules inlined in controllers/services, keeping the accepted values identical and updating every import; replace a module-local rule with the equivalent `@talosjs/validation/constraints/Assert*` where one exists (see `talos-module` → **Constraints**, `optimize-conventions`).
 - **Duplication & dead code** — extract shared logic into helper arrows or base classes; consolidate near-duplicate types and utilities; delete dead code.
 - **Performance** — apply the project's performance rules (`optimize-conventions`): avoid needless allocations and repeated work, prefer the right data structure, keep hot paths lean — without changing observable behavior.
 - **Tests** — follow the testing conventions (`optimize-testing`): prune trivial getters/setters and placeholder/"not implemented" assertions, keep and improve meaningful tests, consolidate redundant ones. Don't weaken assertions to make a suite pass.

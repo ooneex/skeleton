@@ -43,6 +43,10 @@ Build on the scaffold baseline, then add real behavior:
   expected typed `Exception` (assert the exception type, not just that it
   throws) where it should.
 - **Instance isolation** — `new X() !== new X()` for DI classes.
+- **Constraints** — for anything under `src/constraints/`, test the rule itself:
+  `validate()` accepting a representative valid value and rejecting each invalid
+  shape (with the class's `getErrorMessage()`), and each `assert<Subject><Rule>`
+  guard throwing its typed exception exactly on the states that violate it.
 
 Follow `optimize-testing`: keep tests meaningful, drop trivial getters/setters and placeholder/"not implemented" assertions, and don't pad coverage with tests that assert nothing real. Use `bun:test` (`describe`/`test`/`expect`) and import via the `@/` alias, matching existing spec files in the module.
 

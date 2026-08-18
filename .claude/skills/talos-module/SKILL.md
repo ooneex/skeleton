@@ -28,6 +28,7 @@ modules/<name>/
     analytics/    # Analytics handler classes
     cache/        # Cache handler classes
     commands/     # CLI command classes (ICommand)
+    constraints/  # Every assertion the module owns — Assert<Name> route constraints + assert<Rule> domain guards
     controllers/  # HTTP + WebSocket controllers
     crons/        # Cron job classes
     databases/    # Database adapter + vector-database classes
@@ -47,7 +48,7 @@ modules/<name>/
     storage/      # File storage classes
     translations/ # Translation classes + translations.yml dictionary
     types/        # TypeScript type definitions
-    utils/        # Utility/helper functions shared across the module
+    utils/        # Utility/helper functions shared across the module — assertions belong in constraints/
     workflows/    # Workflow classes — transitions/ subfolder for each step
   tests/          # Tests mirroring src/ structure
   issues/         # Issue YAML files — <ID>.yml (see the /issue-* skills)
@@ -79,6 +80,50 @@ export class UserService implements IService {
 ```
 Every artifact follows one rule — `@decorator.<kind>()` on a class whose name ends with the matching PascalCase suffix:
 `service()`/`Service`, `repository()`/`Repository`, `middleware()`/`Middleware`, `cron()`/`Cron`, `queue()`/`Queue`, `event()`/`Event`, `cache()`/`Cache`, `analytics()`/`Analytics`, `logger()`/`Logger`, `mailer()`/`Mailer`, `permission()`/`Permission`, `storage()`/`Storage`, `database()`/`Database`, `vectorDatabase()`/`VectorDatabase`, `featureFlag()`/`FeatureFlag`, `translation()`/`Translation`, `command()`/`Command`, `workflow()`/`Workflow`, `transition()`/`Transition`, plus the AI `chat()`/`Chat` and `tool()`/`Tool`. Controllers use controller-specific (route) decorators; TypeORM entities use entity decorators. Breaking the decorator/suffix contract throws `ContainerException` at startup.
+
+## Constraints
+
+`src/constraints/` owns **every assertion the module makes about its own data**. Nothing assertion-shaped belongs in `utils/`, and a controller or service never inlines a rule it could name here. The folder mirrors `@talosjs/validation/constraints/` (`AssertId`, `AssertEmail`, `AssertName`, `AssertCountryCode`, `AssertHexaColor`, `AssertLocale`, …) — **reach for a package constraint first**; add a module-local one only when the rule is specific to this domain. There is no generator: write the file by hand, plus its mirror under `tests/constraints/`.
+
+Two shapes live there.
+
+**Route constraints** — one `Assert<Name>` class per `Assert<Name>.ts`, extending `Validation` from `@talosjs/validation`. These plug straight into a route's `params`/`payload`/`queries`:
+```typescript
+import { Assert, type AssertType, Validation } from "@talosjs/validation";
+
+export class AssertCountryName extends Validation {
+  public getConstraint(): AssertType {
+    return Assert("2 <= string <= 120");
+  }
+
+  public getErrorMessage(): string | null {
+    return "Must be a country name between 2 and 120 characters";
+  }
+}
+```
+```typescript
+import { AssertCountryCode } from "@talosjs/validation/constraints/AssertCountryCode";
+import { AssertCountryName } from "@/constraints/AssertCountryName";
+
+@Route.post("/countries", {
+  name: "country.create",
+  version: 1,
+  description: "Create a country",
+  payload: { name: new AssertCountryName(), code: new AssertCountryCode() },
+  response: Assert({ id: "string" }),
+  roles: ["ROLE_ADMIN"],
+})
+```
+The shared `Assert(...)` schemas a module's routes reuse (payload/response records, id patterns) live here too, one file per subject — `constraints/country.ts` exporting `countryIdAssert`, `COUNTRY_CREATE_PAYLOAD`, `COUNTRY_RESPONSE`.
+
+**Domain guards** — camelCase `assert<Subject><Rule>` arrow functions that throw the module's typed exceptions for business rules a route schema can't express (cross-field, stateful, or lookup-dependent). Group them by subject in the same `constraints/<subject>.ts`, and call them from the service, never from the controller:
+```typescript
+export const assertCountryCodeUnique = (code: string, existing: CountryEntity | null): void => {
+  if (existing) {
+    throw new CountryCodeAlreadyUsedException(code);
+  }
+};
+```
 
 ## TypeScript Configuration
 

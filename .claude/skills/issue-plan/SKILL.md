@@ -250,7 +250,7 @@ testing: |
 
 ### Backend (`type: "module"`, `"api"`, `"microservice"`, or none) — `### Data Model`
 
-Module owns controllers, services, repositories, entities, migrations, seeds under `src/`. List TypeORM relations with the exact owning field, decorator, and inverse/FK/join owner (see step 5 block). Reference services/repositories/controllers/DI by `@talosjs` conventions; entities register in `SharedModule`.
+Module owns controllers, services, repositories, entities, migrations, seeds, and constraints under `src/`. Name the validation rules the work needs as `src/constraints/` artefacts — `Assert<Name>` classes for route `params`/`payload`/`queries` and `assert<Subject><Rule>` guards for the business rules services enforce — reusing `@talosjs/validation/constraints/*` where one already covers the rule. List TypeORM relations with the exact owning field, decorator, and inverse/FK/join owner (see step 5 block). Reference services/repositories/controllers/DI by `@talosjs` conventions; entities register in `SharedModule`.
 
 When a new entity or column lands, check whether it needs an index — foreign keys, fields used in `WHERE`/`ORDER BY`/lookups, and fields with a uniqueness constraint. List each with its `@Index()`/`@Column({ unique: true })` decorator in `### Data Model`, and add a matching `dod` checkbox (`- [ ] \`fieldName\` — indexed for <lookup/uniqueness reason>`).
 

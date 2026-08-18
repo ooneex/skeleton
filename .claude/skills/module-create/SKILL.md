@@ -44,6 +44,8 @@ List the artifacts the domain needs for its first working slice. A typical CRUD 
 
 Add only what the domain calls for — `permission`, `middleware`, `cron`, `queue`, `event`, `mailer`, `cache`, `seed`, `command`, etc. Don't scaffold artifacts the request doesn't need.
 
+The domain's validation rules go in `src/constraints/` — `Assert<Name>` classes for the controller's `params`/`payload`/`queries` and `assert<Subject><Rule>` guards for the service's business rules (see `talos-module` → **Constraints**). There is no generator: write those files and their `tests/constraints/` mirrors by hand, reusing `@talosjs/validation/constraints/*` wherever one already covers the rule.
+
 ### 3. Generate and complete each artifact
 
 For each planned artifact, invoke its `<artifact>-create` skill with `--module=<name>` (e.g. `/entity-create`, `/repository-create`, `/service-create`, `/controller-create`). Each runs its generator, completes the class + test, and registers it. Respect the **dependency rule** — controllers → services → repositories → entities, never the reverse (see `talos-module`).
