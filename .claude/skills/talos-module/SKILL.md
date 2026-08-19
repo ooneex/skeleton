@@ -125,6 +125,19 @@ export const assertCountryCodeUnique = (code: string, existing: CountryEntity | 
 };
 ```
 
+## Identifiers & Codes
+
+Generate every identifier and short code with `random` from `@talosjs/utils/random` — never `crypto.randomUUID()`, `Math.random()`, `Date.now()`, or a hand-rolled generator.
+
+```typescript
+import { random } from "@talosjs/utils/random";
+
+const id = random.id();     // identifiers: entity primary keys, raw-SQL inserts, seeds, job/correlation ids — 20 hex chars, `varchar(20)`
+const code = random.code(); // human-facing short codes: verification/OTP, invite, referral, share — 8 chars, `varchar(8)`
+```
+
+`random.nanoid(size)` (hex) and `random.stringInt(size)` (digits) exist only for lengths an external contract dictates. A `code()` column needs a unique index, a conflict retry, and an expiry — it is never a primary key.
+
 ## TypeScript Configuration
 
 Strict TS: decorators (`emitDecoratorMetadata`); strict mode with `noUncheckedIndexedAccess` + `exactOptionalPropertyTypes`; ESNext modules with bundler resolution; target ES2022.

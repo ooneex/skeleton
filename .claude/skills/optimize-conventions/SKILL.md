@@ -96,6 +96,24 @@ export class UserEntity {
 }
 ```
 
+## Identifiers & Codes
+
+Every generated identifier or short code comes from `random` (`@talosjs/utils/random`) — never `crypto.randomUUID()`, `Math.random()`, `Date.now()`, a hand-rolled string builder, or a third-party id library.
+
+- **`random.id()`** — the default for *any* identifier: entity primary keys, foreign-key values written by raw SQL, seed `id` fields, job/correlation/request ids, file and storage keys. 20 hex chars, so the column is `varchar(20)`.
+- **`random.code()`** — the default for *any* human-facing short code: verification / confirmation / OTP codes, invite and referral codes, one-time coupons or share codes. 8 shuffled chars (2 letters `a-f` + 6 digits), so the column is `varchar(8)`.
+
+```typescript
+import { random } from "@talosjs/utils/random";
+
+const id = random.id(); // "3f9c1a7b2e8d4056af13"  — identifiers
+const code = random.code(); // "4e19d372"            — human-facing codes
+```
+
+Reach for the other helpers only when the length is dictated by an external contract — `random.nanoid(size)` for a non-default hex length, `random.stringInt(size)` for digits-only. Don't use them where `id()` or `code()` fits.
+
+Codes are collision-prone by design: persist them behind a unique index, generate inside a retry on conflict, and give them an expiry — never treat a `code()` as a primary key.
+
 ## Dependency Injection
 
 ```typescript

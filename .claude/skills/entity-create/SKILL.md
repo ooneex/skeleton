@@ -38,6 +38,7 @@ Read `modules/<module>/src/entities/<Name>Entity.ts`, then:
 - Add entity-specific columns (`@Column`) and relations (`@ManyToOne`, `@OneToMany`, `@ManyToMany`, etc.).
 - Remove irrelevant scaffolded columns; adjust column types, lengths, and constraints.
 - Declare the primary key with explicit `nullable: false`, auto-generated via `random.id()` (see below).
+- Any other generated value uses `random` too (`@talosjs/utils/random`) — `random.id()` for identifiers (`varchar(20)`), `random.code()` for human-facing short codes such as verification, invite, or referral codes (`varchar(8)`, unique index + expiry). Never `crypto.randomUUID()`, `Math.random()`, or a hand-rolled generator.
 
 ```typescript
 import type { LocaleType } from "@talosjs/translation";

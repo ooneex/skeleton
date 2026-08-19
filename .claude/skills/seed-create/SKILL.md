@@ -36,7 +36,7 @@ Also generates a `seeds.ts` root export file in the seeds directory.
 
 Edit `modules/<module>/src/seeds/<name-seed>.yml`:
 
-- Add entries with hardcoded nanoid values for `id` fields — generate via `bun -e "import { random } from '@talosjs/utils'; console.log(random.nanoid())"`
+- Add entries with hardcoded `random.id()` values for `id` fields — generate via `bun -e "import { random } from '@talosjs/utils/random'; console.log(random.id())"`. For a human-facing short code column, use `random.code()` the same way.
 - Do NOT use sequential IDs like `"item-1"`, `"item-2"`
 - The same entity must use the same ID everywhere it appears
 

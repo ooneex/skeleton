@@ -28,7 +28,7 @@ Prefer `@talosjs` packages over third-party alternatives, and inject their servi
 | `@talosjs/cli` | The `talos` dev CLI — a standalone binary installed via script (not an npm package); scaffolds projects, modules, and artifacts (not injected; run from the terminal) |
 | `@talosjs/exception` | Structured exceptions — HTTP status mapping, typed data, JSON stack traces |
 | `@talosjs/types` | Shared TypeScript types + utility types |
-| `@talosjs/utils` | Utilities — nanoid ID generation, type guards, helpers |
+| `@talosjs/utils` | Utilities — `random.id()` for identifiers, `random.code()` for human-facing short codes, type guards, helpers |
 
 ## HTTP & Routing
 | Package | Purpose |
