@@ -84,6 +84,13 @@ Inspect the client-side code for these SPA signals:
   rendering alongside the system; a primitive duplicated locally instead of
   being added to the design module. Check the design module's `src/components/`
   and `src/icons/` before judging that nothing exists.
+- **Intent-named action buttons** — a cancel/dismiss/abort, back, next,
+  save/create/submit, edit, delete/remove, or overflow-menu action rendered as a
+  plain `Button` carrying that label, a `variant`-tweaked button, a raw
+  `<button>`, or a text link instead of the design module's `ButtonCancel`,
+  `ButtonBack`, `ButtonNext`, `ButtonSave`, `ButtonEdit`, `ButtonDelete`, or
+  `ButtonMore` (`@module/<design>/components/button`); a call site restating the
+  variant or re-adding the icon those already render.
 - **Restated design-system defaults** — a call site passing a prop whose value
   equals the component's own default (`size="md"` where `md` is its `cva`
   `defaultVariants` value, a `variant`/`color`/`tone` prop equal to the default,

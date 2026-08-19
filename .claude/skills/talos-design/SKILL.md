@@ -43,6 +43,8 @@ modules/<name>/        # type: "design"
 
 **Prefer the design system's defaults — declare them once, never restate them.** Every component with variants declares its own `cva` `defaultVariants`, so the common case needs no prop; internal composition and story/demo call sites then pass a prop only when the value differs from that default (`<Button size="md">` is wrong when `md` is the default — write `<Button>`). Choose the default that fits most usages, and drop any `className` that re-applies what the default already gives you.
 
+**Common actions are intent-named buttons, never a re-styled `Button`.** The system wraps `Button` once per action with the right variant, icon, and default label — `ButtonCancel` (cancel/dismiss/abort), `ButtonBack` (previous step), `ButtonNext` (continue), `ButtonSave` (save/create/submit), `ButtonEdit` (edit/rename/modify), `ButtonDelete` (delete/remove), `ButtonMore` (overflow menu trigger). Compose these inside components, stories, and demos rather than hand-tuning a `Button variant="ghost"`/`"outline"`/`"destructive"`, and keep every one exported from `src/components/button/index.ts` so consumers can pick it up. A new recurring action gets its own `Button<Action>` here instead of a repeated variant+icon pairing at call sites.
+
 For the interaction, motion, typography, color, and surface rules every component here must follow — including how to avoid AI-slop visual patterns (stock gradients, glassmorphism-as-decoration, template layouts) — see `optimize-ui`. For the SPA consuming this design system, see `talos-spa`; for backend module layout, see `talos-module`.
 
 ## Keep the storybook in sync
