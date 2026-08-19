@@ -1,19 +1,14 @@
 #!/usr/bin/env bun
 
-import { SharedDatabase } from "@module/shared/databases/SharedDatabase";
-import { AppEnv, loadEnv } from "@talosjs/app-env";
-import { container } from "@talosjs/container";
+import { join } from "node:path";
+import { loadEnv } from "@talosjs/app-env";
 import { run } from "@talosjs/seeds";
+// Every module, so the whole entity graph is registered on the main data
+// source — a seed reads relations that cross module boundaries, and TypeORM
+// only maps one once both sides are registered.
+import "@module/app/AppModule";
 import "@module/{{name}}/seeds/seeds";
 
-await loadEnv();
-
-if (!container.has(AppEnv)) {
-  container.add(AppEnv);
-}
-if (!container.has(SharedDatabase)) {
-  container.add(SharedDatabase);
-}
-container.addConstant("database", container.get(SharedDatabase));
+await loadEnv([join(import.meta.dir, "../../../app/.env.yml")]);
 
 await run();

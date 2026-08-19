@@ -1,10 +1,12 @@
 #!/usr/bin/env bun
 
-import { down } from "@talosjs/migrations";
+import { join } from "node:path";
 import { AppEnv, loadEnv } from "@talosjs/app-env";
+import { down } from "@talosjs/migrations";
 import "@module/{{name}}/migrations/migrations";
 
-await loadEnv();
+await loadEnv([join(import.meta.dir, "../../../app/.env.yml")]);
+
 const env = new AppEnv();
 
 await down({
