@@ -47,7 +47,7 @@ Each rollback runs the migration's `down()` in a transaction and removes its row
 
 ```bash
 talos seed:run                # run all seeds (idempotent)
-talos seed:run --drop         # clear seeded data first, then reseed
+talos seed:run --drop         # re-run every seed from scratch, ignoring the cache
 talos seed:run --logs         # print the output of every module that failed
 ```
 

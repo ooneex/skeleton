@@ -101,7 +101,7 @@ Reference data and development fixtures in `modules/<name>/src/seeds/`, run in o
 ```bash
 talos seed:create --name initial-roles --module user
 talos seed:run
-talos seed:run --drop                  # wipe data before seeding
+talos seed:run --drop                  # re-run every seed, ignoring the cache
 talos seed:run --env=local
 ```
 
