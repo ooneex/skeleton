@@ -22,7 +22,11 @@ Generate a SPA feature — a route, its page layout, the route's pending/error/n
 
 ## Important
 
-A SPA feature only makes sense inside a **SPA module** (`type: spa` in its `<name>.yml`); create it first with `spa:create` if missing. The SPA is a standalone Vite front-end: keep features on presentation and client state, reach the backend through HTTP APIs (never import server modules), and reuse UI primitives from the linked `design` module instead of duplicating them.
+A SPA feature only makes sense inside a **SPA module** (`type: spa` in its `<name>.yml`); create it first with `spa:create` if missing. The SPA is a standalone Vite front-end: keep features on presentation and client state, reach the backend through HTTP APIs (never import server modules), and build every screen from the linked `design` module's primitives.
+
+**Design system first — always pick UI elements from the design system module.** Every button, input, select, checkbox, dialog, drawer, card, badge, tooltip, table shell, icon, and layout primitive comes from the design module (`@module/<design>/...`) — never a raw styled `<button>`/`<input>`/`<div>`, a third-party UI kit, or a hand-rolled copy of something the system already exposes. Before writing markup, list what exists (`ls modules/<design>/src/components`, `ls modules/<design>/src/icons`, `cat modules/<design>/src/index.ts`) and pick from it; only when nothing fits do you add the missing primitive to the design module and consume it from there — never style a one-off locally. Every color, spacing, radius, shadow, and type size resolves to the design module's tokens.
+
+**Prefer the design system's defaults — never restate them at the call site.** Pass a prop only when its value differs from the component's own default: `<ButtonCancel type="button" size="md" onClick={onCancel}>` is wrong when `md` is the default size — write `<ButtonCancel type="button" onClick={onCancel}>`. Read the component's `cva` `defaultVariants` (and its default parameter values) before passing `size`, `variant`, `color`, `tone`, `radius`, `align`, and friends, and drop any `className` that re-applies what the default already gives you. Redundant props hide the one prop that actually matters and pin the call site to a value the design system may re-tune later.
 
 **Place code in the canonical SPA folders — never invent new ones.** The `### SPA Structure` section of `AGENTS.md` is the source of truth. A feature folder (`features/<feature>/`) and `shared/` share the same fixed sub-layout; every artefact has exactly one home:
 

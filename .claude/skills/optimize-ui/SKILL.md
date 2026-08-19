@@ -60,7 +60,11 @@ Full procedure: `references/inspirations.md`.
 
 ## Design system
 
-**Always build UI with the project's main design system — never restyle from scratch or hand-roll primitives that already exist there.** Use its component/token if one fits; else add the primitive to the design module per its conventions. Never ask which visual treatment, color, spacing, or variant — infer from the system's tokens/components and these rules.
+**Design system first — always pick UI elements from the design system module.** Every button, input, select, checkbox, dialog, drawer, card, badge, tooltip, table shell, icon, and layout primitive comes from the design module (`@module/<design>/...`) — never a raw styled `<button>`/`<input>`/`<div>`, a third-party UI kit, or a hand-rolled copy of something the system already exposes. Before writing markup, list what exists (`ls modules/<design>/src/components`, `ls modules/<design>/src/icons`, `cat modules/<design>/src/index.ts`) and pick from it; only when nothing fits do you add the missing primitive to the design module and consume it from there — never style a one-off locally. Every color, spacing, radius, shadow, and type size resolves to the design module's tokens.
+
+**Prefer the design system's defaults — never restate them at the call site.** Pass a prop only when its value differs from the component's own default: `<ButtonCancel type="button" size="md" onClick={onCancel}>` is wrong when `md` is the default size — write `<ButtonCancel type="button" onClick={onCancel}>`. Read the component's `cva` `defaultVariants` (and its default parameter values) before passing `size`, `variant`, `color`, `tone`, `radius`, `align`, and friends, and drop any `className` that re-applies what the default already gives you. Redundant props hide the one prop that actually matters and pin the call site to a value the design system may re-tune later.
+
+Never ask which visual treatment, color, spacing, or variant to use — infer it from the system's tokens/components and these rules.
 
 - Before styling, do a discovery pass: does a token/component already cover this? If a deviation is unavoidable, classify it (missing token vs. one-off implementation vs. conceptual mismatch with neighboring screens) so the fix addresses the real cause.
 - In a `spa` module, read the `design:` field in `modules/<module>/<module>.yml` for the linked design module, then list its exports (`ls modules/<design>/src/components`, `cat modules/<design>/src/index.ts`).
