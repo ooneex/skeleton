@@ -92,6 +92,7 @@ const SidebarRoot = ({
           aria-labelledby={mobileTitleId}
           aria-describedby={mobileDescriptionId}
           tabIndex={-1}
+          inert={!openMobile}
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
@@ -99,7 +100,7 @@ const SidebarRoot = ({
           {...(openMobile ? { "data-open": "" } : { "data-closed": "" })}
           className={cn(
             "bg-background text-primary fixed inset-y-0 z-50 flex h-full w-(--sidebar-width) flex-col p-0 outline-none",
-            "data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 transition duration-200 ease-in-out",
+            "data-closed:pointer-events-none data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards data-closed:fade-out-0 data-open:fade-in-0 transition duration-200 ease-in-out",
             side === "left"
               ? "left-0 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=left]:data-open:slide-in-from-left-10"
               : "right-0 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=right]:data-open:slide-in-from-right-10",

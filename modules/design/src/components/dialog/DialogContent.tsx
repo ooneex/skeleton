@@ -60,10 +60,11 @@ export const DialogContent = ({
           aria-labelledby={hasTitle ? titleId : undefined}
           aria-describedby={hasDescription ? descriptionId : undefined}
           tabIndex={-1}
+          inert={!open}
           data-slot="dialog-content"
           {...(open ? { "data-open": "" } : { "data-closed": "" })}
           className={cn(
-            "bg-white border data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 grid w-full gap-6 rounded p-4 text-sm duration-100 max-w-2xl fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 outline-none border-none shadow-none",
+            "bg-white border data-closed:pointer-events-none data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 grid w-full gap-6 rounded p-4 text-sm duration-100 max-w-2xl fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 outline-none border-none shadow-none",
             className,
           )}
           {...props}

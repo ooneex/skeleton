@@ -21,16 +21,18 @@ export const DialogOverlay = ({
     <div
       role="presentation"
       data-slot="dialog-overlay"
+      inert={!open}
       {...(open ? { "data-open": "" } : { "data-closed": "" })}
       onPointerDown={(event) => {
         pointerDownOnOverlay.current = event.target === event.currentTarget;
       }}
       onClick={(event) => {
-        if (pointerDownOnOverlay.current && event.target === event.currentTarget) onDismiss?.();
+        if (open && pointerDownOnOverlay.current && event.target === event.currentTarget) onDismiss?.();
         pointerDownOnOverlay.current = false;
       }}
       className={cn(
-        "data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 isolate z-50",
+        "data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards data-closed:fade-out-0 data-open:fade-in-0 bg-black/10 duration-100 fixed inset-0 isolate z-50",
+        open ? "supports-backdrop-filter:backdrop-blur-xs" : "pointer-events-none",
         !blocking && "pointer-events-none",
         className,
       )}

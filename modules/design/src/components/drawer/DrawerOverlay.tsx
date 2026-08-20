@@ -21,16 +21,18 @@ export const DrawerOverlay = ({
     <div
       role="presentation"
       data-slot="drawer-overlay"
+      inert={!open}
       {...(open ? { "data-open": "" } : { "data-closed": "" })}
       onPointerDown={(event) => {
         pointerDownOnOverlay.current = event.target === event.currentTarget;
       }}
       onClick={(event) => {
-        if (pointerDownOnOverlay.current && event.target === event.currentTarget) onDismiss?.();
+        if (open && pointerDownOnOverlay.current && event.target === event.currentTarget) onDismiss?.();
         pointerDownOnOverlay.current = false;
       }}
       className={cn(
         "data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards data-closed:fade-out-0 data-open:fade-in-0 bg-black/30 duration-200 supports-backdrop-filter:backdrop-blur-none fixed inset-0 z-50",
+        !open && "pointer-events-none",
         !blocking && "pointer-events-none",
         className,
       )}

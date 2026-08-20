@@ -6,7 +6,7 @@ import { CircleXmarkIcon } from "@module/design/icons/outline/ui-layout/sm/Circl
 import { TriangleWarningIcon } from "@module/design/icons/outline/ui-layout/sm/TriangleWarningIcon";
 import { XmarkIcon } from "@module/design/icons/outline/ui-layout/sm/XmarkIcon";
 import { cn } from "@module/design/utils/cn";
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { createCallable } from "react-call";
 
 const TOAST_DURATION = 4000;
@@ -65,20 +65,37 @@ type ToastPropsType = {
  */
 const Toast = createCallable<ToastPropsType, void>(({ call, state, title, description, duration = TOAST_DURATION }) => {
   const styles = stateStyles[state];
-  const [depleted, setDepleted] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+  /** Time left before auto-dismiss, carried across pauses. */
+  const remainingRef = useRef(duration);
 
   useEffect(() => {
-    if (state === "loading") return;
-    const timer = setTimeout(() => call.end(), duration);
-    return () => clearTimeout(timer);
-  }, [state, duration, call.end]);
+    if (state === "loading" || paused) return;
+    const remaining = remainingRef.current;
+    const startedAt = performance.now();
+    const timer = setTimeout(() => call.end(), remaining);
+    const bar = barRef.current;
+    if (bar) {
+      // Jump to the remaining share without animating, then shrink to 0 over what is left.
+      bar.style.transitionDuration = "0ms";
+      bar.style.width = `${(remaining / duration) * 100}%`;
+      void bar.offsetWidth;
+      bar.style.transitionDuration = `${remaining}ms`;
+      bar.style.width = "0%";
+    }
 
-  useEffect(() => {
-    if (state === "loading") return;
-    // Start the shrink transition on the next frame so it animates from 100% to 0%.
-    const frame = requestAnimationFrame(() => setDepleted(true));
-    return () => cancelAnimationFrame(frame);
-  }, [state]);
+    return () => {
+      clearTimeout(timer);
+      remainingRef.current = Math.max(0, remaining - (performance.now() - startedAt));
+      if (!bar) return;
+      // Freeze the bar where the transition currently is.
+      const track = bar.parentElement?.getBoundingClientRect().width ?? 0;
+      const filled = bar.getBoundingClientRect().width;
+      bar.style.transitionDuration = "0ms";
+      bar.style.width = track ? `${(filled / track) * 100}%` : "0%";
+    };
+  }, [state, duration, paused, call.end]);
 
   return (
     <div
@@ -89,7 +106,13 @@ const Toast = createCallable<ToastPropsType, void>(({ call, state, title, descri
       )}
       style={{ top: `${1 + call.index * 5}rem` }}
     >
-      <div className="relative flex w-91 items-start gap-3 overflow-hidden rounded-lg bg-linear-to-br from-primary-950 via-primary-800 to-primary-950 p-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.25),0_2px_8px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.06)]">
+      <div
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        className="relative flex w-91 items-start gap-3 overflow-hidden rounded-lg bg-linear-to-br from-primary-950 via-primary-800 to-primary-950 p-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.25),0_2px_8px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.06)]"
+      >
         <div
           className={cn(
             "mt-0.5 flex size-7 shrink-0 items-center justify-center rounded text-light",
@@ -113,10 +136,7 @@ const Toast = createCallable<ToastPropsType, void>(({ call, state, title, descri
         </Button>
         {state !== "loading" && (
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-light/4">
-            <div
-              className={cn("h-full transition-[width] ease-linear", depleted ? "w-0" : "w-full", styles.badge)}
-              style={{ transitionDuration: `${duration}ms` }}
-            />
+            <div ref={barRef} className={cn("h-full w-full transition-[width] ease-linear", styles.badge)} />
           </div>
         )}
       </div>

@@ -62,12 +62,13 @@ export const DrawerContent = ({
           aria-labelledby={hasTitle ? titleId : undefined}
           aria-describedby={hasDescription ? descriptionId : undefined}
           tabIndex={-1}
+          inert={!open}
           data-slot="drawer-content"
           data-side={side}
           {...(open ? { "data-open": "" } : { "data-closed": "" })}
           className={cn(
             "bg-background flex h-auto flex-col text-sm data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:mt-24 data-[side=bottom]:max-h-[80vh] data-[side=bottom]:rounded-t-none data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:w-3/4 data-[side=left]:rounded-r-none data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:w-3/4 data-[side=right]:rounded-l-none data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:mb-24 data-[side=top]:max-h-[80vh] data-[side=top]:rounded-b-none data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm group/drawer-content fixed z-50 outline-none",
-            "sm:min-w-2xl data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards duration-200 data-[side=bottom]:slide-in-from-bottom data-[side=bottom]:slide-out-to-bottom data-[side=left]:slide-in-from-left data-[side=left]:slide-out-to-left data-[side=right]:slide-in-from-right data-[side=right]:slide-out-to-right data-[side=top]:slide-in-from-top data-[side=top]:slide-out-to-top",
+            "sm:min-w-2xl data-closed:pointer-events-none data-open:animate-in data-closed:animate-out data-closed:fill-mode-forwards duration-200 data-[side=bottom]:slide-in-from-bottom data-[side=bottom]:slide-out-to-bottom data-[side=left]:slide-in-from-left data-[side=left]:slide-out-to-left data-[side=right]:slide-in-from-right data-[side=right]:slide-out-to-right data-[side=top]:slide-in-from-top data-[side=top]:slide-out-to-top",
             className,
           )}
           {...props}
