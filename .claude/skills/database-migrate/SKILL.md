@@ -29,6 +29,7 @@ Drive the database lifecycle with the `talos` commands. This is the *runtime* wo
 talos migration:up            # run all pending migrations
 talos migration:up --drop     # DROP the database first, then run every migration (destructive — dev only)
 talos migration:up --logs     # print the output of every module that failed
+talos migration:up --modules=user,billing  # only the named modules (also --packages=a,b); cannot be combined with --drop
 ```
 
 `migration:up`, `migration:down` and `seed:run` all capture each module's output rather than streaming it: the run prints a progress bar and a per-module report, and a failing module only shows its log under `--logs`.
@@ -39,6 +40,7 @@ talos migration:up --logs     # print the output of every module that failed
 talos migration:down                      # roll back only the most recently applied migration
 talos migration:down --version <version>  # roll back the single migration with that version
 talos migration:down --logs               # print the output of every module that failed
+talos migration:down --modules=user,billing  # only the named modules (also --packages=a,b)
 ```
 
 Each rollback runs the migration's `down()` in a transaction and removes its row from the `migrations` table, so a later `talos migration:up` re-applies it. `<version>` is the timestamp in the migration's `getVersion()` (the number in the `Migration<version>.ts` filename). Rollback relies on a correct `down()` — if `down()` doesn't exactly reverse `up()`, prefer a new corrective migration over a rollback on shared data. Use `--version` instead of `--drop` when you only need to undo one migration.
@@ -49,6 +51,7 @@ Each rollback runs the migration's `down()` in a transaction and removes its row
 talos seed:run                # run all seeds (idempotent)
 talos seed:run --drop         # re-run every seed from scratch, ignoring the cache
 talos seed:run --logs         # print the output of every module that failed
+talos seed:run --modules=user,billing   # only the named modules (also --packages=a,b)
 ```
 
 ## Sync an entity change into the schema

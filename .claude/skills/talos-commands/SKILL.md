@@ -132,8 +132,11 @@ A workflow orchestrates an ordered list of conditional, reversible transitions w
 talos migration:create --module <name>   # Generate a timestamped migration
 talos migration:up [--drop] [--logs]     # Run pending migrations (--drop: drop DB first, --logs: show failing output)
 talos migration:down [--version <v>] [--logs]  # Roll back the latest migration (or the one matching --version)
+talos migration:up --modules=user,billing      # Only the named modules (also --packages=a,b); --drop takes no selection
+talos migration:down --modules=user,billing    # Only the named modules (also --packages=a,b)
 talos seed:create --module <name>        # Generate a seed YAML file
 talos seed:run [--drop] [--logs]         # Run all seeds (--drop: re-run every seed, ignoring the cache; --logs: show failing output)
+talos seed:run --modules=user,billing    # Only the named modules (also --packages=a,b)
 ```
 
 ## Workspace tasks
