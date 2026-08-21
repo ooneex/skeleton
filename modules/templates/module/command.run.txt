@@ -1,6 +1,10 @@
 #!/usr/bin/env bun
 
+import { join } from "node:path";
+import { loadEnv } from "@talosjs/app-env";
 import { run } from "@talosjs/command";
 import "@module/{{name}}/commands/commands";
+
+await loadEnv([join(import.meta.dir, "../../../app/.env.yml")]);
 
 await run();
