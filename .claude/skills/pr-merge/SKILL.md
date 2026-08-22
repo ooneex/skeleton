@@ -1,6 +1,6 @@
 ---
 name: pr-merge
-description: Land the PR(s) for issues a reviewer approved (state To Merge). Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, then verifies the merged result with talos project:check --strict --logs plus the issue's dod and, for frontend modules, its testing steps (backend module/api/microservice testing steps are verified manually and never gate the merge). A standalone PR is merged into the base locally and pushed; a stacked PR is rebased onto the trunk and landed bottom-up with gh stack merge, which lets GitHub re-target the layers above. Only when green does it delete the branch local+remote and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
+description: Land the PR(s) for issues a reviewer approved (state To Merge). Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, then verifies the merged result with talos check --strict --logs plus the issue's dod and, for frontend modules, its testing steps (backend module/api/microservice testing steps are verified manually and never gate the merge). A standalone PR is merged into the base locally and pushed; a stacked PR is rebased onto the trunk and landed bottom-up with gh stack merge, which lets GitHub re-target the layers above. Only when green does it delete the branch local+remote and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
 when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
 model: opus
 effort: high
@@ -15,7 +15,7 @@ argument-hint: '[issue-id|module|title]'
 
 Run autonomously — never ask questions; pick the recommended option and proceed.
 
-Approve and **land** the PR for an issue promoted to `To Merge` (see `pr-review` for how issues reach that state and the YAML format). Resolve the issue(s) from user input, gate on merge-readiness, integrate with the base, re-verify the result (`talos project:check --strict --logs`, `dod`, `testing`), then land it, **delete the head branch locally and on the remote**, and promote to `Done`.
+Approve and **land** the PR for an issue promoted to `To Merge` (see `pr-review` for how issues reach that state and the YAML format). Resolve the issue(s) from user input, gate on merge-readiness, integrate with the base, re-verify the result (`talos check --strict --logs`, `dod`, `testing`), then land it, **delete the head branch locally and on the remote**, and promote to `Done`.
 
 A PR opened by `issue-fix` is either **standalone** (base main) or a layer of a [stacked PR](https://docs.github.com/en/pull-requests/get-started/about-stacked-prs) chain (base = the branch of the layer below). The two land differently — steps 3, 4 and 6 fork on it, and step 2 tells them apart.
 
@@ -103,7 +103,7 @@ Keep the merge commit local until step 6 confirms green.
 Verify the tree that will actually land — the local merge commit for a standalone PR, or, for a stacked landing set, the **top layer of that set** (`gh stack checkout <top-of-set-branch>`): after step 3 its tree is the trunk plus every layer being landed, which is exactly what the merge produces. Verify the set once from there rather than layer by layer.
 
 From the root of the project — all must pass:
-- **`talos project:check --strict --logs`** — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix genuine merge fallout; never weaken the check.
+- **`talos check --strict --logs`** — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix genuine merge fallout; never weaken the check.
 - **Definition of Done** — confirm the merged code actually satisfies each `dod` item (read changed files, not just checkboxes). For a landing set, walk **every** landing issue's `dod`.
 - **Testing steps — frontend only.** Check each landing issue's `modules/<module>/<module>.yml` `type:` field. For `spa`/`admin`/`storybook`/`design` issues, for each browser-flow `testing` step locate the covering spec (`modules/<module>/e2e/<Name>.spec.ts`) and run it via the **`e2e-run`** skill (`talos e2e:run --modules=<module> --logs`; add `--no-cache` when it depends on live app state). Flag any step with no covering spec. For backend issues (`module`/`api`/`microservice`, or untyped), skip this entirely — the `testing` section is verified manually and never blocks the merge.
 
@@ -116,7 +116,7 @@ Abort from inside the project directory only, and never with a command that disc
 
 ## 6. Land the change
 
-Only when `talos project:check --strict --logs` is green, every `dod` met, and every `testing` spec green.
+Only when `talos check --strict --logs` is green, every `dod` met, and every `testing` spec green.
 
 **Approve first, either way** — `gh pr review <pr> --approve --body "Approved: issue <ID> passed review and merged clean (To Merge)."` for each PR being landed. If `gh` rejects it because you authored the PR, note it and continue — the `To Merge` state already carries the sign-off.
 
@@ -148,4 +148,4 @@ Then run `talos issue:check --id=<ID>` from the root of the project to confirm t
 
 ## 8. Report
 
-Per issue: `id`/`title`/module, branch + PR URL, standalone or stack position, merge outcome (clean / conflicts resolved / aborted), verification (`talos project:check --strict --logs`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed or merged, or blocked with reason), **branch cleanup — local deleted yes/no and remote deleted yes/no**, resulting state (`Done` / `To Merge`), and the `talos issue:check` result. Per stack, give the landing set that merged and the layers left open with the layer that blocks each. Then list every issue skipped in step 2 with its reason, and call out any branch that survived on either side so it can be cleaned up.
+Per issue: `id`/`title`/module, branch + PR URL, standalone or stack position, merge outcome (clean / conflicts resolved / aborted), verification (`talos check --strict --logs`, each `dod` met/unmet, e2e specs pass/fail/missing), land outcome (pushed or merged, or blocked with reason), **branch cleanup — local deleted yes/no and remote deleted yes/no**, resulting state (`Done` / `To Merge`), and the `talos issue:check` result. Per stack, give the landing set that merged and the layers left open with the layer that blocks each. Then list every issue skipped in step 2 with its reason, and call out any branch that survived on either side so it can be cleaned up.

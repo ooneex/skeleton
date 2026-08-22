@@ -86,8 +86,8 @@ Re-run scoped to the module after the tests land:
 talos coverage:check --modules=<module> --logs
 ```
 
-Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos project:check --strict --logs` so the new specs also pass fmt, lint and the rest of the gate.
+Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos check --strict --logs` so the new specs also pass fmt, lint and the rest of the gate.
 
 ## Related
 
-`talos check --strict --logs` and `talos project:check --strict --logs` run the suites too, but only for pass/fail — neither measures coverage. Use `/project-fix` for the whole-project verdict, `/optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.
+`talos check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `/project-fix` for the whole-project verdict, `/optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.

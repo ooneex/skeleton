@@ -82,7 +82,7 @@ Run the specs you add (`bun test modules/<module>/tests/...`) and keep them gree
 - **Locate the storybook(s)** that alias this design module: search `modules/*/ packages/*/` for a `type: "storybook"` module whose `vite.config.ts` aliases `modules/<module>/src` (or `packages/<module>/src`). A design module may be previewed by several storybooks; update each.
 - **Delegate the authoring** to the `storybook-story-create` skill (via the Skill tool) for every element this issue touched — it creates a new story or updates the existing one in place against the `meta` model, wiring plain vs. compound components and icons correctly. If no storybook aliases this design module, note that and skip.
 - **New/changed variants or sizes** — ensure the story's `select`/`radio` options mirror the design component's real `cva` option names, each with `usage`; **removed** elements get their stale story removed.
-- Keep the storybook green: the `talos project:check --strict --logs` in Finish must cover the storybook module too.
+- Keep the storybook green: the `talos check --strict --logs` in Finish must cover the storybook module too.
 
 ## Self-review
 
@@ -90,7 +90,7 @@ Before Finish, check against `optimize-ui`'s self-review checklist: squint test 
 
 ## Finish
 
-1. **Project check** — from the project root: `talos project:check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
+1. **Project check** — from the project root: `talos check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
 2. **Satisfy the DoD** — verify every `dod` checkbox is met and check each satisfied box off in the YAML (`- [ ]` → `- [x]`). Leave any unmet box unchecked and report why.
 3. **Satisfy the testing steps** — run every `testing` step and check its box off (`1. [ ]` → `1. [x]`) **only once it actually passes**. Never check a box you did not run.
 4. **Set the state** — only when **every** `dod` and `testing` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"`. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. Leave the issue branch in place here — it is still under review; `/pr-merge` is what deletes it, **both locally (`git branch -d <branch>`) and on the remote (`git push origin --delete <branch>`)**, once the issue is done and lands as `Done`, so no merged issue leaves a branch behind. If any box is unmet, leave the state untouched and report the blocker.

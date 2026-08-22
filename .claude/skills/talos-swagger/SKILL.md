@@ -35,7 +35,7 @@ modules/<name>/                   # type: "swagger"
   public/                       # Static files served at the web root — favicon, logos, fonts.
     openapi.json                #   The published specification, written by `talos swagger:create` from the controllers.
                                 #     The mount prefix is the `servers` entry and each path is `/v<version><route>`, which
-                                #     is both correct OpenAPI and the shape `project:check --only=openapi` compares against.
+                                #     is both correct OpenAPI and the shape `check --only=openapi` compares against.
   src/
     bootstrap/                  # Entry point and build wiring. Rarely edited by hand once scaffolded.
       index.html                #   HTML shell — mount node + script tag.
@@ -105,9 +105,9 @@ modules/<name>/                   # type: "swagger"
 - **Every value passes through `{{variable}}` resolution** before it is sent — URL, headers, parameters and body. An unresolved name is left standing and the Send button is blocked, so a missing variable is visible rather than silently blank.
 - **The engine is `shared/`.** Documenting an endpoint means adding a route file, not editing `SwaggerApp`/`Sidebar`/`TryIt`/`registry` — only touch those when the discovery, layout or execution logic itself must change.
 - **Compose only from the design module** (`@module/design/...`). A missing primitive is added to the design module, never styled inline here. This is what makes the explorer look like the product rather than like a third-party tool.
-- **Never import the documented module.** A swagger is a browser bundle; pulling a controller in ships server code to the client and `talos project:check --only=boundaries` reports it as an error.
+- **Never import the documented module.** A swagger is a browser bundle; pulling a controller in ships server code to the client and `talos check --only=boundaries` reports it as an error.
 - **A response `example` documents the `data` payload, not the wire body.** An `http` route answers inside the `ResponseDataType` envelope (`success`, `status`, `message`, …); the meta documents what is *inside* `data`, matching what the SDK returns. The try-it panel shows the real unwrapped response. `stream` and `sse` bypass the envelope, so there the example is the wire body.
 - **Auth is a property of the environment.** The template ships no identity provider: a protected route (`roles` requiring more than the default `ROLE_GUEST`) runs when the active environment carries a bearer token, and is withheld with an explanation when it does not. Clerk is installed on top with `clerk-auth-setup`, which adds a sign-in button that mints a fresh token per request rather than replacing this field.
-- **`public/openapi.json` is the published contract.** `talos project:check --only=openapi` compares it against the controllers, so re-run `talos swagger:create` whenever a route is added, renamed or removed — never hand-edit it. The in-app **OpenAPI** button exports the richer document the route metas produce (full URLs, your prose, your examples); that one is a download, not a checked artifact.
+- **`public/openapi.json` is the published contract.** `talos check --only=openapi` compares it against the controllers, so re-run `talos swagger:create` whenever a route is added, renamed or removed — never hand-edit it. The in-app **OpenAPI** button exports the richer document the route metas produce (full URLs, your prose, your examples); that one is a download, not a checked artifact.
 
 Clerk is not part of the template; `clerk-auth-setup` installs a sign-in button on top of the environment token. For authoring or updating route files, see `swagger-create`. For the typed client that calls the same routes, see `sdk-create`; for the design system this explorer is built from, see `talos-design`; for the general single-page-app layout it shares, see `talos-spa`; for backend module layout and the controllers it documents, see `talos-module`.

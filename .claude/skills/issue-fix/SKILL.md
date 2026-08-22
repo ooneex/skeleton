@@ -15,7 +15,7 @@ argument-hint: '[issue-id|module|description]'
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; e2e only for spa/storybook), `talos project:check --strict --logs`, DoD, and the `In Review` transition.
+**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; e2e only for spa/storybook), `talos check --strict --logs`, DoD, and the `In Review` transition.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -103,7 +103,7 @@ Build the dependency graph over the batch (`dependencies` edges, both directions
    **Area labels** (`Database`, `Infrastructure`, `API`, `UI`, `SPA`, `Design`) describe *where*, not *what* — use only to break ties (e.g. toward `feat` for a new capability). `Breaking Change` is a modifier: keep the underlying type, note the break in the commit/PR.
 
 3. **Open the worktree for this unit of work.** Before touching any files, from the root call `EnterWorktree({name: <name>})` — `<name>` is the branch name just derived (for a stack, the **bottom** layer's name; upper layers reuse the same worktree, see below). This creates `.claude/worktrees/<name>/` on a fresh branch off the default branch and switches the session into it; everything from here through the end of step 4 for this unit happens inside it. If the working tree isn't clean before entering (`git status --porcelain` — unrelated changes), stop and surface them rather than discarding work.
-4. **Install dependencies in the new worktree** — `bun install` — and symlink/copy any untracked local env files (`.env.yml`, etc.) the module's generators or `talos project:check` need. A freshly created worktree has neither.
+4. **Install dependencies in the new worktree** — `bun install` — and symlink/copy any untracked local env files (`.env.yml`, etc.) the module's generators or `talos check` need. A freshly created worktree has neither.
 5. Then, inside the worktree:
    - **Standalone issue** — the branch `<name>` already exists and is checked out (step 3 created it). Don't push here.
    - **Bottom layer of a stack** — run `gh stack init --base main <name>`. It adopts the already-checked-out branch and enables `git rerere`, so conflict resolutions survive later rebases.
@@ -125,7 +125,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
-Each fixer grounds itself in the module's authoritative structure (its own `talos-module`/`talos-spa`/`talos-design`/`talos-storybook` skill, loaded via the Skill tool) before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos project:check --strict --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers still satisfy the `testing` steps with e2e tests for browser-flow steps and check those boxes off before promoting.
+Each fixer grounds itself in the module's authoritative structure (its own `talos-module`/`talos-spa`/`talos-design`/`talos-storybook` skill, loaded via the Skill tool) before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos check --strict --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers still satisfy the `testing` steps with e2e tests for browser-flow steps and check those boxes off before promoting.
 
 **Dispatch independent units concurrently, each through its own subagent.** A standalone issue and each stack (as a whole) are independent of one another — nothing about worktrees or branches ties them together, so there's no reason to make one wait on another. Within a stack, layers stay strictly sequential: they share one worktree and one checked-out branch, so a layer must finish (commit + push) before the next layer branches off it inside that worktree — a stack's layers count as **one** unit for concurrency purposes, never split across subagents.
 

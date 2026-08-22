@@ -31,7 +31,7 @@ Get the violations yourself, scoped to that module:
 
 ```bash
 git status --porcelain
-talos project:check --strict --only=accessibility --modules=<module> --logs
+talos check --strict --only=accessibility --modules=<module> --logs
 ```
 
 Each line reads `<file>:<line>  a11y/<rule>  <message>`. The trailing `not enforced — disabled in biome config: …` line lists rules the project switched **off** — those are **out of scope**: never re-enable them and never "fix" them here; report them instead so the caller can decide.
@@ -59,8 +59,8 @@ Never weaken a component to satisfy a rule: if the accessible fix would change t
 Re-run the scoped check and the module's gate, and don't stop until both are clean:
 
 ```bash
-talos project:check --strict --only=accessibility --modules=<module> --logs
-talos project:check --strict --modules=<module> --logs
+talos check --strict --only=accessibility --modules=<module> --logs
+talos check --strict --modules=<module> --logs
 ```
 
 ## Report

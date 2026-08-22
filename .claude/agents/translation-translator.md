@@ -59,7 +59,7 @@ After editing, verify the file still parses:
 # JSON
 bun -e 'await Bun.file("<path>").json()'
 # YAML — confirm it loads (the build imports it as a module)
-talos project:check --strict --logs
+talos check --strict --logs
 ```
 
 Fix any parse/format error you introduced before finishing.

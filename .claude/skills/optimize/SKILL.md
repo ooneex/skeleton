@@ -45,7 +45,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 2. **Map (sub-agent)** — reading every file inline floods context. Spawn one read-only `Explore` sub-agent scoped to `modules/<module>/` returning *only* a digest, not file contents:
    - **Inventory** — each type, interface, class, standalone function + path.
    - **Naming violations** — type not ending `Type`; interface not starting `I`; non-arrow standalone function; method/property missing visibility; non-null assertion (`!`); optional entity property missing `null`/`nullable`.
-   - **Duplication** — near-duplicates only: the same logic with renamed variables, two types describing one shape, utilities that differ by a line. Verbatim copies come from `project:check` in step 4 — don't spend the agent's budget hunting them.
+   - **Duplication** — near-duplicates only: the same logic with renamed variables, two types describing one shape, utilities that differ by a line. Verbatim copies come from `check` in step 4 — don't spend the agent's budget hunting them.
    - **Dead code** — unused imports, unreachable branches, unused vars, empty files.
 
    Apply every fix yourself in the steps below.
@@ -55,7 +55,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 4. **Duplication & dead code** — find the verbatim copies with the check rather than by eye:
 
    ```bash
-   talos project:check --only=duplication --modules=<module> --logs
+   talos check --only=duplication --modules=<module> --logs
    ```
 
    Each warning reads `<file>:<line>  duplication.block  <n> lines repeated at <file>:<line>, …`. Read every location it names before touching anything — the block that moves is the one whose module owns the logic.
@@ -74,7 +74,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns. Re-ground the UI in the design module's `src/inspirations/` library (`optimize-ui`'s `references/inspirations.md`): pull the 2–4 inspirations matching each screen you touch and close the gap where the existing UI is thinner than them in structure, density, or state coverage. Then prove the accessibility of the result:
 
    ```bash
-   talos project:check --strict --only=accessibility --modules=<module> --logs
+   talos check --strict --only=accessibility --modules=<module> --logs
    ```
 
    Fix every reported violation (never by disabling a rule); hand a large backlog to the `accessibility-fixer` agent.
@@ -82,7 +82,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 8. **Verify** — from the root:
 
    ```bash
-   talos project:check --strict --concurrency=4 --logs
+   talos check --strict --concurrency=4 --logs
    ```
 
    Fix every failure before completing.

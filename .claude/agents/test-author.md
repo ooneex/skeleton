@@ -57,7 +57,7 @@ Run the target's tests and iterate until green:
 ```bash
 talos workspace:run --commands=test --modules=<module> --logs  # scope to the target
 talos coverage:check --modules=<module> --logs                 # confirm the gap actually closed
-talos project:check --strict --logs
+talos check --strict --logs
 ```
 
 Coverage is the check, not the goal: never add a test that asserts nothing to move a rate. If a file cannot be meaningfully tested in isolation, say so in the report instead of covering it with a hollow spec.

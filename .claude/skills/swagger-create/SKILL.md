@@ -185,8 +185,8 @@ talos check
 Fix every failure. Then confirm the two checks that are specific to a swagger:
 
 ```bash
-talos project:check --only=openapi      # public/openapi.json matches the controllers
-talos project:check --only=boundaries   # nothing server-side leaked into the bundle
+talos check --only=openapi      # public/openapi.json matches the controllers
+talos check --only=boundaries   # nothing server-side leaked into the bundle
 ```
 
 An `openapi` failure means a route moved and the generator was not re-run — re-run it (step 1) rather than hand-editing `public/openapi.json`.
