@@ -4,3 +4,13 @@ locales:
   - fr
 design: "design"
 target: "app"
+
+# Every front-end module is its own Vite app, so each one owns the router
+# bootstrap and the root route the framework generates for it. The four copies
+# are the template, not copy-paste: merging them would couple four apps that
+# are meant to boot, build and deploy on their own.
+checks:
+  duplication:
+    exclude:
+      - "src/bootstrap/**"
+      - "src/routes/__root.tsx"
