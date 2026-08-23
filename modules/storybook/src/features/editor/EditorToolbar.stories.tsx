@@ -1,27 +1,6 @@
 import { Editor } from "@module/design/components/editor";
 import { EditorContent } from "@module/design/components/editor/EditorContent";
-import {
-  EditorAlign,
-  EditorBlockquote,
-  EditorBold,
-  EditorBulletList,
-  EditorColor,
-  EditorHeading,
-  EditorHighlight,
-  EditorItalic,
-  EditorLink,
-  EditorOrderedList,
-  EditorParagraph,
-  EditorRedo,
-  EditorStrike,
-  EditorSubscript,
-  EditorSuperscript,
-  EditorTaskList,
-  EditorToolbar,
-  EditorUnderline,
-  EditorUndo,
-  EditorYouTube,
-} from "@module/design/components/editor/Toolbar";
+import { EditorToolbar } from "@module/design/components/editor/Toolbar";
 import type { MetaType } from "../../shared/story";
 
 const toolbarSample = [
@@ -44,40 +23,11 @@ const EditorToolbarDemo = ({
   return (
     <Editor.Root content={toolbarSample} showHeadings={showHeadings} showHistory={showHistory} showMedia={showMedia}>
       <div className="flex w-full max-w-3xl flex-col gap-3 rounded border border-border p-4">
-        <EditorToolbar>
-          {showHeadings ? (
-            <>
-              <EditorHeading level={1} />
-              <EditorHeading level={2} />
-              <EditorHeading level={3} />
-            </>
-          ) : null}
-          <EditorParagraph />
-          <EditorBold />
-          <EditorItalic />
-          <EditorUnderline />
-          <EditorStrike />
-          <EditorSubscript />
-          <EditorSuperscript />
-          <EditorColor />
-          <EditorHighlight />
-          <EditorLink />
-          <EditorBlockquote />
-          <EditorBulletList />
-          <EditorOrderedList />
-          <EditorTaskList />
-          <EditorAlign align="left" />
-          <EditorAlign align="center" />
-          <EditorAlign align="right" />
-          <EditorAlign align="justify" />
-          {showMedia ? <EditorYouTube /> : null}
-          {showHistory ? (
-            <>
-              <EditorUndo />
-              <EditorRedo />
-            </>
-          ) : null}
-        </EditorToolbar>
+        {/* No children: the toolbar renders its default set, and the three
+            controls above drive it through `Editor.Root`. Re-listing the
+            buttons here would be the same list a second time, drifting from
+            the component the moment one is added. */}
+        <EditorToolbar />
         <EditorContent className="min-h-48 rounded border border-border p-4 text-left" />
       </div>
     </Editor.Root>

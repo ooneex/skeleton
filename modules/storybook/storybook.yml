@@ -3,3 +3,13 @@ locales:
   - en
   - fr
 design: "design"
+
+# The storybook renders the design system, so its own shell cannot import from
+# it: editing a design component would break the tool you are editing it in.
+# The shell therefore vendors the handful of primitives it needs, and says so
+# here rather than being reported as copy-paste on every check.
+checks:
+  duplication:
+    exclude:
+      - "src/shared/**"
+      - "src/bootstrap/**"
