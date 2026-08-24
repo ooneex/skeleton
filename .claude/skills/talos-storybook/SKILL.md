@@ -58,6 +58,17 @@ modules/<name>/                   # type: "storybook"
 ## Conventions
 
 - **Stories only under `src/features/`.** Every preview is a `*.stories.tsx` exporting a `meta`; there is **no `talos` generator** for stories — author them by hand against the `meta` model in `shared/story/types.ts`. To add or update stories, use the `storybook-story-create` skill.
+- **`src/shared/` is vendored on purpose.** The gallery engine cannot import its own chrome from the design module it renders: editing a design component would break the tool you are editing it in. So `shared/components/` carries its own copies of the few primitives the engine needs (button, input, tabs, …), and `<name>.yml` declares them so `talos check --only=duplication` does not report the framework's own template as copy-paste:
+
+  ```yaml
+  checks:
+    duplication:
+      exclude:
+        - "src/shared/**"
+        - "src/bootstrap/**"
+  ```
+
+  Do not delete this block, and do not "fix" the duplication by importing the design module into `shared/`. **Stories are the opposite case** — they import everything they preview through the design alias, so a story that re-implements a component instead of importing it is a real finding.
 - **Import previewed code through the design alias**, never relative paths across modules — read `vite.config.ts` for the alias (`@module/design/components/<name>`, `@module/design/icons/<variant>/<category>/<size>/<Name>Icon`).
 - **The engine is `shared/`.** Adding a component to the gallery means adding a story file, not editing `Canvas`/`Sidebar`/`CommandPalette`/`registry` — only touch those when the discovery, preview, nesting, or sectioning logic itself must change.
 - **Sidebar nesting and sectioning are data-driven.** A title `<Name>.<Sub>` nests under `<Name>`; a shared `meta.group` files siblings into the same section. Give a compound component and its sub-component stories the same `group`.

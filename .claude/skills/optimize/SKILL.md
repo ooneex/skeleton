@@ -63,6 +63,16 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
    - **Widen the scope when the copy lives elsewhere.** The check only compares the modules it is given, so a block shared with another module stays invisible under a single `--modules`. Pass both (`--modules=<module>,<other>`) when you suspect one, and put the extraction in the module that owns the concept — or in a shared package when neither does.
    - **Fix it, then re-run.** Extract into a helper arrow, a base class, or a shared type; delete the copies; re-run the command until the block is gone.
    - **Leaving a block alone is a valid answer.** Two blocks that read alike today but answer to different owners will diverge tomorrow, and merging them couples the two. Say which blocks you left and why in the report — the check warns, it never fails.
+   - **Say it in the manifest when it is permanent.** A copy the module keeps on purpose — a front-end shell that owns its own bootstrap, a storybook vendoring the design primitives it renders — belongs in `modules/<module>/<module>.yml` rather than being re-triaged on every run:
+
+     ```yaml
+     checks:
+       duplication:
+         exclude:
+           - "src/shared/**"
+     ```
+
+     Patterns are globs relative to the module directory (`**` crosses path segments), and the check reports how many files they took out. Reach for this only when the copies genuinely cannot be merged — never to quiet a block you have not read.
    - **It only sees literal copies of 12+ lines.** A copy with its identifiers renamed, or a shorter one, will not appear — those come from the step 2 digest, and are fixed the same way.
 
    Then delete the dead code the digest listed: unused imports, unreachable branches, unused vars, empty files.
