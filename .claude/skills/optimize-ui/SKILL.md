@@ -50,7 +50,7 @@ import { ScrollArea } from "@module/<design>/components/scroll-area";
 
 ## Inspirations
 
-**Always take inspiration from the inspirations library before designing or implementing any UI — screen, layout, component, or redesign.** It lives in the design module at `modules/<design>/src/inspirations/<category>/<slug>.yml` + a matching `.webp` screenshot: ~820 real product screens across 49 categories (`table`, `form`, `dashboard`, `sidebar`, `settings`, `modal`, `chart`, `list`, `filter`, `onboarding`, …). Never start from a blank page or a generic mental template while it sits there unread.
+**Always take inspiration from the inspirations library before designing or implementing any UI — screen, layout, component, or redesign.** It lives in the design module at `modules/<design>/src/inspirations/<category>/<slug>.yml` + a matching `.webp` screenshot: ~1,820 real product screens across 49 categories (`table`, `form`, `dashboard`, `sidebar`, `settings`, `modal`, `chart`, `list`, `filter`, `onboarding`, …). Never start from a blank page or a generic mental template while it sits there unread.
 
 Workflow: pick the categories the work touches → `rg` the `.yml` files (tags / `usage`) → shortlist 2–4 whose `usage` matches the task → read those YAMLs and open their screenshots with the Read tool → design against them → note which ones you drew from.
 

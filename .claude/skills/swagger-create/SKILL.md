@@ -21,6 +21,7 @@ Generate an API explorer from a target module's controllers, then complete each 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/`. Check both roots.
 - A swagger is **not** a regular artifact: it scaffolds a whole browser module, registers nothing in `AppModule`/`SharedModule`, and its `<name>.yml` names both a `design:` and a `target:`.
 - It is a **custom** explorer, not Swagger UI: the UI is built from the design module and the routes are typed TypeScript. `public/openapi.json` is published *alongside* it for consumers that want a spec, not consumed by it.
+- **Take inspiration from the design module's inspirations library before designing or reworking any explorer chrome.** `modules/<design>/src/inspirations/<category>/<slug>.yml` + a matching `.webp` screenshot holds ~1,820 real product screens across 49 categories; `sidebar`, `navigation`, `menu`, `filter`, `toolbar`, `table`, `form`, `editor`, `modal`, and `dark-mode` cover this UI directly. `rg` the `.yml` files for the pattern, shortlist the 2–4 whose `usage` fits the request, then **Read the shortlisted `.webp` screenshots** — that is where density, rhythm, and hierarchy actually are — and rebuild the structure you take from the design module's own tokens and components, never the screenshot's literal values. This governs the engine's UI, not route `meta` content. Full procedure: `optimize-ui`'s `references/inspirations.md`.
 
 ## Steps
 

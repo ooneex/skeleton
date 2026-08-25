@@ -9,7 +9,7 @@ modules/<design>/src/inspirations/<category>/<slug>.yml    # the description
 modules/<design>/src/inspirations/<category>/<slug>.webp   # the screenshot (a few are .gif)
 ```
 
-`<design>` is the design module — `modules/design/` in this project, or the module named by the `design:` field of a `spa`/`admin`/`storybook` module's `<module>.yml`. It resolves under `modules/` **or** `packages/`. ~820 inspirations across 49 category folders:
+`<design>` is the design module — `modules/design/` in this project, or the module named by the `design:` field of a `spa`/`admin`/`storybook` module's `<module>.yml`. It resolves under `modules/` **or** `packages/`. ~1,820 inspirations across 49 category folders:
 
 `article`, `calendar`, `card`, `chart`, `chat`, `comments`, `crm`, `dark-mode`, `dashboard`, `detail-page`, `e-commerce`, `editor`, `education`, `event`, `feed`, `file-manager`, `filter`, `finance`, `form`, `healthcare`, `inbox`, `interaction`, `invoice`, `kanban`, `knowledge-base`, `landing-page`, `list`, `map`, `media-player`, `menu`, `mobile`, `modal`, `navigation`, `note`, `notification`, `onboarding`, `pagination`, `profile`, `project-management`, `settings`, `sidebar`, `table`, `tabs`, `task`, `timeline`, `toolbar`, `upload`, `user`, `video`.
 
