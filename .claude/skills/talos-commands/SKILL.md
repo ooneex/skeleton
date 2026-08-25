@@ -94,6 +94,8 @@ talos docker:create --name <service>     # Add a Docker service to docker-compos
 talos issue:create --title <title> [--module <name>] [--priority <p>] [--label <l1,l2>] [--description <text>]  # YAML skeleton; <ID> is auto-generated, state is always Todo
 talos issue:pull --id <id1>,<id2>,... [--module <name>] [--provider linear|github]   # Pull one or more issues as YAML (defaults to Linear; GitHub uses the gh CLI)
 talos issue:push --id <id1>,<id2>,... [--provider linear|github]                     # Push one or more local issue YAMLs (create or update; defaults to Linear; GitHub uses the gh CLI)
+#   Where it lands in Linear comes from the YAML, not a flag: `team: "ENG"` (key or name), `project: "v3"`, `milestone: "Homepage"` (needs project).
+#   Without `team:` the issue is created under "General"; a name Linear does not hold is an error, never a silent fallback.
 talos issue:convert --destination <mod1>,<mod2>,...             # Bundle a module/package's issues/*.yml into a single issues.json (src/shared/ for spa|storybook|swagger|admin, otherwise src/)
 talos issue:check [--module <mod1>,<mod2>,...] [--id <id1>,<id2>,...] [--strict] [--json]  # Validate every issue YAML against the issue conventions
 
@@ -252,7 +254,7 @@ talos npm:credentials:create [--token <token>]                                  
 talos docker:credentials:create [--registry <host>] [--username <user>] [--token <token>]  # Save a Docker registry access token to ~/.talos/credentials/docker.yml
 ```
 
-`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`, plus the three object stores `storage:push` uses — `cloudflare` (alias `r2`), `bunny`, `s3`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password`, `--access-key`, `--secret-key`, `--endpoint`, `--region`, `--bucket`, `--storage-zone` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts.
+`--provider` accepts `jira`, `linear`, `x`, `instagram`, `facebook`, `linkedin`, `tiktok`, `threads`, `whatsapp`, `telegram`, `messenger`, `discord`, `reddit`, `medium`, `openrouter`, plus the three object stores `storage:push` uses — `cloudflare` (alias `r2`), `bunny`, `s3`. Pass whichever of `--base-url`, `--email`, `--token`, `--client-id`, `--client-secret`, `--client-key`, `--access-token`, `--app-id`, `--app-secret`, `--page-id`, `--phone-number-id`, `--application-id`, `--bot-token`, `--username`, `--password`, `--access-key`, `--secret-key`, `--endpoint`, `--region`, `--bucket`, `--storage-zone`, `--api-key` that provider needs — run `talos credentials:create --help` for the full list, and `--silent` to skip the prompts. A few fields answer to a second flag, so the name the provider itself uses works: `--api-key` fills the `token` of `linear`, `jira` and `medium`, and `--token` fills the `botToken` of `telegram`/`discord` and the `apiKey` of `openrouter`. A flag belonging to another provider is reported and ignored.
 
 Credentials are stored per-user under `~/.talos/credentials/*.yml` in a `profiles.default` block. Each command prompts (masked) for anything not passed as a flag and prints the URL where the token can be created.
 

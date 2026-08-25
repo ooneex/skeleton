@@ -44,6 +44,7 @@ talos issue:pull --id=<ID1>,<ID2>,... [--module=<module>] [--provider=linear|git
 - **`--provider`** selects the issue tracker. It defaults to `linear`. Pass `--provider=github` to pull GitHub issues (by number, e.g. `--id=123` or `#123`) from the current repository via the `gh` CLI — GitHub `OPEN` issues land as `state: "Todo"`, `CLOSED` ones as `state: "Done"`.
 
 - Each issue is written to `modules/<module>/issues/<identifier>.yml`. If an issue **already exists locally** in any module, `issue:pull` updates it in place (keeping its current module) rather than creating a duplicate.
+- From Linear, the written file records the `team`, `project` and `milestone` the issue belongs to. **Keep them** — they are what sends the issue back to the same place on the next `talos issue:push`; stripping them files it in the fallback team instead.
 - The command reports `modules/<module>/issues/<identifier>.yml created|updated successfully` per issue, and exits non-zero if any id fails. Record each written path; note any id that failed to pull (missing/unknown in Linear) for the summary and continue.
 
 ## 3. Plan the Backlog/Todo issues
