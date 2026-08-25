@@ -17,7 +17,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "test": "bun test tests",
+    "test": "bun test --parallel=4 --isolate tests",
     "lint": "tsc --noEmit && bunx biome lint",
     "fmt": "bunx biome check --write",
     "build": "bunup"
