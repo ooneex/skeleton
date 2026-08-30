@@ -149,9 +149,15 @@ talos workspace:run --commands=build --no-cache               # Ignore the task 
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run the Playwright e2e suite
 talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
 talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
+talos build [--modules=a,b] [--logs] [--no-cache]            # Build every target in dependency order, several at once
+talos fmt   [--modules=a,b] [--logs] [--no-cache]            # Format every target, all at once
+talos lint  [--modules=a,b] [--logs] [--no-cache]            # Lint every module, several at once
+talos build|fmt|lint --output=md                             # Also write var/outputs/talos_<command>.md for an agent to fix (also --output=json)
 ```
 
 `workspace:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/workspace/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
+
+`build`, `fmt` and `lint` each run their targets in parallel — `build` starts a target the moment everything it imports has been built, `fmt` and `lint` are order-independent and so run flat out. Like `check`, all three take `--output=md|json`, which writes the same report to `var/outputs/talos_<command>.{md,json}` in the shape an AI agent is handed to fix what it lists; the console report and the exit status are unchanged by it.
 
 `workspace:check` is shorthand for `workspace:run --commands=install,build,fmt,lint,test` — the full verification gate in that order, with the same caching, filtering (`--packages`/`--modules`), `--logs`, and `--no-cache` flags.
 
@@ -172,6 +178,7 @@ talos coverage:check --logs --modules=billing,user      # Only the named modules
 talos coverage:check --logs --threshold=80              # Judge against 80% instead of the default 90%
 talos coverage:check --logs --concurrency=1             # Run the suites one at a time (default: cores, capped at 8)
 talos coverage:check --logs --issues                    # Create one YAML issue per failing/under-covered module instead of printing
+talos coverage:check --logs --output=md                 # Also write var/outputs/talos_coverage.md for an agent to fix (also --output=json)
 ```
 
 `coverage:check` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table bun prints (falling back to the module's `lcov.info`). Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
