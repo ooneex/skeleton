@@ -45,6 +45,7 @@ talos coverage:check --logs                         # run every suite, print the
 talos coverage:check --logs --modules=billing,user  # only the named modules (also --packages=a,b)
 talos coverage:check --logs --threshold=80          # judge against 80% instead of the default 90%
 talos coverage:check --logs --concurrency=1         # run the suites one at a time
+talos coverage:check --logs --output=md            # also write var/outputs/talos_coverage.md, ready to hand to an agent (also --output=json)
 ```
 
 The report has four parts, and each answers a different question:
