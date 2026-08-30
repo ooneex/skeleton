@@ -30,23 +30,9 @@ brew install --cask docker
 brew install gh
 ```
 
-On Linux, install Docker Engine with its Compose plugin and install `gh` from the distribution's official GitHub CLI package. Bun's cross-platform installer is:
+On Linux, install Docker Engine with its Compose plugin and install `gh` from the distribution's official GitHub CLI package. Install Bun through a configured system package manager when one provides it. If no trusted package source is configured, stop and direct the user to Bun's official installation documentation; never download a remote script and pipe it into a shell.
 
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
-If `command -v talos` fails, install the CLI with the official [Talos installation guide](https://docs.talosjs.com/getting-started/create-app#step-1-install-the-cli). On macOS or Linux:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.sh | bash
-```
-
-On Windows:
-
-```powershell
-powershell -c "irm https://raw.githubusercontent.com/ooneex/talos/main/packages/cli/scripts/install.ps1 | iex"
-```
+If `command -v talos` fails, stop and direct the user to the official [Talos installation guide](https://docs.talosjs.com/getting-started/create-app#step-1-install-the-cli). Do not fetch and execute an installer script at runtime. Continue only after the user installs Talos and `command -v talos` succeeds.
 
 Restart or refresh the current shell so its updated `PATH` is active, then verify the installation with both `talos help` and `talos version`. The installer also creates the `oo` alias and shell completions. Do not run `talos upgrade` when the CLI is already installed; application startup must not upgrade working host tools. If an installation needs unavailable administrator access or interactive OS approval, report that exact requirement instead of pretending the prerequisite is ready.
 
