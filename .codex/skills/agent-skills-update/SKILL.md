@@ -1,0 +1,64 @@
+---
+name: agent-skills-update
+description: Sync AGENTS.md and assistant-specific skills and agents from installed Talos templates while preserving local changes.
+---
+
+# Update Agent Skills
+
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
+> **Run autonomously — don't ask questions; pick the recommended option. Run every command from the root of the project.**
+
+Refresh the assistant config with the **canonical** templates `talos agent:skills:create` emits for the installed Talos version, keeping local customizations. Canonical wins on *structure and new content*; local wins on *project-specific edits*. Regenerate into a throwaway folder, then merge file-by-file into the working tree.
+
+## 1. Resolve assistants
+
+Pick the config dirs to sync (multiple allowed, comma-separated or repeated: `--agents=.claude,.codex` = `--agents=.claude --agents=.codex`):
+
+- `--agents` given → use those.
+- Else → every dir present at the root among `.claude`, `.codex`, `.cursor`, `.gemini`, `.windsurf`, `.cline`, `.junie`, `.roo`, `.continue`, `.zed`, plus `.github` only when it already holds `copilot-instructions.md`, `agents/` or `prompts/` — a bare `.github/workflows` is not a Copilot install.
+- None present → `.claude`, `.codex`.
+
+Root `AGENTS.md` is always in scope.
+
+## 2. Scaffold into tmp
+
+Regenerate into a throwaway folder, never straight into the working tree. Pass every assistant from step 1 to `--agents`:
+
+```bash
+mkdir -p tmp/agent-skills-sync
+find tmp/agent-skills-sync -mindepth 1 -depth -delete
+rmdir tmp/agent-skills-sync
+talos agent:skills:create --cwd=tmp/agent-skills-sync --agents=.claude,.codex
+```
+
+`--cwd` retargets writes under the tmp folder; `--agents` skips the interactive prompt — both required non-interactively.
+
+## 3. Map generated files to local paths
+
+`find tmp/agent-skills-sync -type f`. The local counterpart is the same path minus the `tmp/agent-skills-sync/` prefix (e.g. `tmp/agent-skills-sync/.codex/skills/pr-review/SKILL.md` → `.codex/skills/pr-review/SKILL.md`).
+
+## 4. Smart-sync each file
+
+`diff` each generated file against its local counterpart:
+
+- **Missing locally** → create it verbatim (make parent dirs).
+- **Identical** → skip.
+- **Diverged** → merge into one clean file with **no conflict markers**: take canonical structural/new content, keep deliberate local edits (project instructions, tuned frontmatter, extra sections), reconcile clashing sections yourself. Prefer canonical for plain template refreshes, local for clear customizations.
+
+Only touch files the generator produced; never delete local-only files.
+
+## 5. Refactor for token efficiency
+
+Tighten every file you changed — cut duplication and dead merge leftovers, shorten prose. **Preserve all instructions, commands, frontmatter, and semantics** — shorten wording, never scope.
+
+## 6. Clean up and report
+
+```bash
+find tmp/agent-skills-sync -mindepth 1 -depth -delete
+rmdir tmp/agent-skills-sync
+```
+
+Report assistants synced and files **created** / **merged** (one line per non-trivial merge) / **unchanged**. Flag any merge you were unsure about.
