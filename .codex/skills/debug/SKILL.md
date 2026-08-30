@@ -1,0 +1,50 @@
+---
+name: debug
+description: Diagnose and fix a failing test, runtime exception, or startup error in an @talosjs app. Reads the stack trace, traces it to the root cause through the DI / exception / migration patterns, fixes it, and re-verifies.
+when_to_use: Use when something is broken — a test fails, the app won't boot, a request throws — not for new features or convention cleanups.
+model: opus
+effort: high
+---
+
+# Debug
+
+> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
+
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+
+> **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
+
+> **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (e.g. once extracted into a shared package). Check both roots before assuming a path is missing.
+
+Find the root cause of a failure and fix it — don't patch the symptom. For convention cleanups use `optimize`; for review use `pr-review`. **Run every command from the root of the project.**
+
+## 1. Reproduce
+
+Reproduce the failure with the exact command and capture the full error and stack trace. Don't theorize before you've seen it.
+
+```bash
+talos workspace:run --commands=test   # or one file: bun test modules/<module>/tests/...
+talos app:start                       # for boot / runtime failures
+```
+
+## 2. Read the trace to the root cause
+
+Start at the deepest @talosjs frame and work outward. Common signatures:
+
+- **`ContainerException` at startup** — a DI class is missing its `@decorator.*()`, missing its required suffix, or not registered in the module's `ModuleType` (controllers/entities/middlewares/crons/events must be listed; services/repositories auto-register via their decorator). See `talos-module`, `talos-scaffold`.
+- **A typed `Exception` subclass** — read its structured `data`; the throw site is the real source. Trace which service threw and why, not just where it surfaced.
+- **Migration / schema error** — entity and database disagree (nullability, length, missing column/table). Hand the schema lifecycle to `database-migrate`. If a migration seems to have been skipped entirely, check it is registered: `Migration<version>.ts` filename, exported from the `migrations.ts` barrel, barrel imported by `bin/migration/{up,down}.ts`.
+- **`undefined` / null access** — a dependency wasn't injected, or `noUncheckedIndexedAccess` exposed an unguarded index/optional.
+- **Test failure** — distinguish a real regression from a stale test; read the assertion and the code it covers before changing either.
+
+## 3. Fix the cause
+
+Make the smallest change that addresses the root cause, following project conventions (apply the `optimize` skill's rules). Don't widen types to `any`, swallow exceptions, or delete an assertion to make a test pass — fix the underlying defect. If the test itself was wrong, fix it and say so.
+
+## 4. Verify
+
+```bash
+talos check --strict --logs
+```
+
+Confirm the original failure is gone and nothing else broke. Report the root cause, the fix, and how you verified it.
