@@ -1,8 +1,6 @@
 ---
 name: talos-swagger
-description: Directory structure and conventions for a swagger module — the custom API-explorer app (bootstrap, routes, features/route metas, shared route model + registry + request runner + OpenAPI export, named environments) that documents and runs a backend module's controllers, with per-folder usage guidance.
-when_to_use: Use when creating or navigating a swagger module — the app that documents an API's routes and lets a reader execute them against a live backend.
-user-invocable: false
+description: Talos Swagger/API-explorer structure and conventions for route metadata, registry, requests, OpenAPI export, and environments.
 ---
 
 # Swagger Architecture

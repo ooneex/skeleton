@@ -1,11 +1,6 @@
 ---
 name: middleware-create
 description: Generate a new middleware class with its test file, then complete the generated code.
-when_to_use: Use when creating a new HTTP or WebSocket middleware that implements IMiddleware from @talosjs/middleware.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos middleware:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>]'
 ---
 
 # Make Middleware Class

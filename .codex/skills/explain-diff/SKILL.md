@@ -1,10 +1,6 @@
 ---
 name: explain-diff
-description: Explain a pull request's diff for a human reader and write it up as `prs/PR-<id>.md` — why the change exists, what it changes for the business and its actors, the rules and data model it touches, a concise per-module walkthrough of the code, contract and config changes, risks, testing, and a review guide. Reads the PR via `gh`, its commits, its diff, and the linked issue YAML; writes exactly one PR file.
-when_to_use: Use when someone needs to understand what a pull request actually does before reviewing, merging, or explaining it to others — a large or unfamiliar diff, a handover, or a written record of the change. Triggers on "explain PR 123", "summarise this pull request", "what does this diff do". Not for verifying or approving a PR (use `pr-review`), opening one (use `pr`), or documenting a domain concept (use `explain-topic`).
-model: opus
-effort: high
-argument-hint: '[pr-number|pr-url] — defaults to the current branch'
+description: Explain a pull request for human readers and write one PR explanation file covering intent, behavior, contracts, risks, tests, and review guidance.
 ---
 
 # Explain Diff

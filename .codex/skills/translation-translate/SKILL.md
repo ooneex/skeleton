@@ -1,10 +1,6 @@
 ---
 name: translation-translate
-description: Translate and complete the `translations.json` / `translations.yml` dictionaries of one or more modules — optionally first extracting hardcoded user-facing text into keys — filling every target locale meaning-for-meaning from the `en` source.
-when_to_use: Use when the user asks to translate a module's translations, complete missing locales, add a language to a dictionary, or localize hardcoded strings. Distinct from `translation-create`, which scaffolds a new translation class/hook.
-model: sonnet
-effort: medium
-argument-hint: '[module...] [locale...]'
+description: Complete module translation dictionaries from the English source, optionally extracting hardcoded user-facing text first.
 ---
 
 # Translate Module Translations
@@ -31,7 +27,7 @@ For each module the user names, read `modules/<module>/<module>.yml` for its fla
 | `spa` | `modules/<module>/src/features/*/translations/translations.json` (one per feature) |
 | backend (`module`/untyped) | `modules/<module>/src/translations/translations.yml` |
 
-Glob for the actual files (a spa module has one dictionary per feature slice). If a module has no dictionary yet, create it with `/translation-create` first, then translate the result.
+Glob for the actual files (a spa module has one dictionary per feature slice). If a module has no dictionary yet, create it with `$translation-create` first, then translate the result.
 
 `api`, `microservice`, and `spa` module types also declare a `locales:` list in `<module>.yml` (e.g. `locales: [en, fr]`) — the module's authoritative target-locale set, used in step 2.
 

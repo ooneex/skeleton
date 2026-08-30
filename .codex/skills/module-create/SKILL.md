@@ -1,11 +1,6 @@
 ---
 name: module-create
-description: Scaffold a complete backend business-domain module and complete its initial artifacts. Runs talos module:create, then drives the per-artifact create skills to fill in the entity, repository, service, controller, and any other artifacts the domain needs.
-when_to_use: Use when creating a whole new module (a new domain like `billing`, `catalog`, `order`) — not a single artifact.
-model: sonnet
-effort: high
-allowed-tools: Bash(talos module:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<name>] [--destination=<app|module>]'
+description: Scaffold a backend business-domain module and complete its first entity, repository, service, controller, and supporting artifacts.
 ---
 
 # Make Module
@@ -48,7 +43,7 @@ The domain's validation rules go in `src/constraints/` — `Assert<Name>` classe
 
 ### 3. Generate and complete each artifact
 
-For each planned artifact, invoke its `<artifact>-create` skill with `--module=<name>` (e.g. `/entity-create`, `/repository-create`, `/service-create`, `/controller-create`). Each runs its generator, completes the class + test, and registers it. Respect the **dependency rule** — controllers → services → repositories → entities, never the reverse (see `talos-module`).
+For each planned artifact, invoke its `<artifact>-create` skill with `--module=<name>` (e.g. `$entity-create`, `$repository-create`, `$service-create`, `$controller-create`). Each runs its generator, completes the class + test, and registers it. Respect the **dependency rule** — controllers → services → repositories → entities, never the reverse (see `talos-module`).
 
 ### 4. Lint, format, and test
 

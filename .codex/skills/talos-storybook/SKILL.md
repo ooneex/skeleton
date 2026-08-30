@@ -1,8 +1,6 @@
 ---
 name: talos-storybook
-description: Directory structure and conventions for a storybook module — the front-end component-gallery app (bootstrap, routes, features/stories, shared story model + registry, preview/controls/sidebar/palette) that previews a design module's components and icons, with per-folder usage guidance.
-when_to_use: Use when creating or navigating a storybook module — the app that documents and previews a design system's components and icons.
-user-invocable: false
+description: Talos storybook module structure and conventions for stories, registry, preview, controls, sidebar, palette, and design aliases.
 ---
 
 # Storybook Architecture

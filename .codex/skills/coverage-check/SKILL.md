@@ -1,11 +1,6 @@
 ---
 name: coverage-check
-description: Run every module's test suite with coverage collection using `talos coverage:check`, then report line and function coverage per module with the least-covered files named — or file one YAML issue per under-covered or failing module with `--issues`.
-when_to_use: Use when the user wants to know how well the workspace is tested — a coverage report, a per-module coverage audit, a pre-release/pre-merge test gate, or coverage findings turned into trackable issues. This runs the suites and measures them — to write the missing tests, use the `test-author` agent or `/optimize` afterwards.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos coverage:check *), Bash(bun test *), Bash(talos issue:push *), Read, Edit, Grep, Glob
-argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--threshold=<percent>] [--logs]'
+description: Run Talos coverage across modules, report gaps, and optionally file issue YAML for failing or under-covered modules.
 ---
 
 # Coverage Check
@@ -69,7 +64,7 @@ With `--issues`, nothing is printed as a report; instead one issue per problem m
 - A failing or unrunnable suite → `Bug`, priority `Urgent`.
 - A module under the threshold → `Testing`, priority `High` when it is more than 25 points short, otherwise `Medium`.
 
-Each issue is `state: Todo` and its description carries the module's rates, the threshold, and the least-covered files with their uncovered lines — enough for a fixer to start from. After creation, list the files written and their ids, then hand them to `/issue-plan` to be planned (and `talos issue:push` if the user wants them tracked in Linear).
+Each issue is `state: Todo` and its description carries the module's rates, the threshold, and the least-covered files with their uncovered lines — enough for a fixer to start from. After creation, list the files written and their ids, then hand them to `$issue-plan` to be planned (and `talos issue:push` if the user wants them tracked in Linear).
 
 ## Fixing what it finds
 
@@ -91,4 +86,4 @@ Then re-run the full audit to confirm the workspace clears the threshold (`✔ E
 
 ## Related
 
-`talos check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `/project-fix` for the whole-project verdict, `/optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.
+`talos check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `$project-fix` for the whole-project verdict, `$optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.

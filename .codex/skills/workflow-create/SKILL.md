@@ -1,11 +1,6 @@
 ---
 name: workflow-create
 description: Generate a new workflow class with its test file, then complete the generated code.
-when_to_use: Use when orchestrating a multi-step business process from @talosjs/workflow — a sequence of conditional, reversible transitions with automatic rollback on failure.
-model: sonnet
-effort: high
-allowed-tools: Bash(talos workflow:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Workflow Class

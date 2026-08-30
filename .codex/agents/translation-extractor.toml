@@ -1,19 +1,9 @@
----
-name: translation-extractor
-description: Finds hardcoded user-facing text in one module's source, moves each string into the module's translation dictionary under a meaningful key, and rewires the usage to read it through `trans()` — the `use<Name>Translate` hook for spa modules or the injected Translation class for backend modules. It edits source files and the dictionary's `en` source values only — it never fills other locales (the translator agent does that) and never runs generators.
-when_to_use: Use proactively whenever a module has untranslated literal strings that belong in its `translations.json`/`translations.yml`, and especially when the /translation-translate skill dispatches a module.
-tools: Read, Edit, Write, Bash, Grep, Glob
-model: sonnet
-effort: medium
-memory: project
-color: purple
----
-
+name = "translation-extractor"
+description = "Extract hardcoded user-facing text from one module into meaningful English translation keys and rewire source usage."
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+developer_instructions = '''
 # Translation Extractor
-
-> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
-
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Find **hardcoded user-facing text** in **one** module and route it through the translation system: for each literal, add a dictionary key with its `en` value and replace the literal with a `trans(...)` call.
 
@@ -30,7 +20,7 @@ You are given a module name (and possibly a sub-scope like a feature or file lis
 | `spa` | `modules/<module>/src/features/<feature>/translations/translations.json` | `const { trans } = use<Name>Translate()` hook, in React components |
 | backend | `modules/<module>/src/translations/translations.yml` | injected `Translation` subclass: `this.<name>.trans("key", ...)` |
 
-If the expected dictionary doesn't exist for the scope, report it and stop — don't create one (the `/translation-create` generator owns that).
+If the expected dictionary doesn't exist for the scope, report it and stop — don't create one (the `$translation-create` generator owns that).
 
 ## Find the hardcoded text
 
@@ -51,7 +41,7 @@ Pick a **meaningful dot-notation key** from context (feature/component/domain + 
 Then edit the source:
 
 - **spa** — ensure the component imports and calls the feature's `use<Name>Translate` hook (under `modules/<module>/src/features/<feature>/translations/`); replace the literal with `{trans("key")}` (or `trans("key")` for string props). If the component isn't inside that feature slice, use the hook that owns the matching `translations.json`.
-- **backend** — the message must come from an injected `Translation` subclass bound to that `translations.yml`. If one is injected, call `this.<name>.trans("key", ...)`. If not, **do not** fabricate DI wiring — leave the literal and report it as needing a Translation class (suggest `/translation-create`).
+- **backend** — the message must come from an injected `Translation` subclass bound to that `translations.yml`. If one is injected, call `this.<name>.trans("key", ...)`. If not, **do not** fabricate DI wiring — leave the literal and report it as needing a Translation class (suggest `$translation-create`).
 
 ## Add the `en` source value
 
@@ -68,3 +58,4 @@ Confirm the dictionary still parses and the rewired files typecheck/lint. Fix an
 ## Report
 
 Concise summary: module and flavor, dictionary path, each literal extracted (old text → new key, with file:line), any string left literal and why, the lint/format result, and the list of keys added (so the caller can hand them to the translator). Don't fill non-`en` locales or touch unrelated files.
+'''

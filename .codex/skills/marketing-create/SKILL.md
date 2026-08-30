@@ -1,11 +1,6 @@
 ---
 name: marketing-create
-description: Create one or more marketing post resources inside a module — infer the media the request calls for, render it with Remotion, then scaffold the post with talos marketing:create and write the copy, hashtags, and platform list into modules/<module>/marketing/<ID>/<ID>.yml with its images/videos filed under the a-f0-9 naming rule.
-when_to_use: Use when the user wants a social/marketing post for a module — drafting a launch announcement, a feature post, a campaign across several platforms, or producing/attaching the images and videos that go with one. Triggers on "create a marketing post", "announce this feature on LinkedIn and X", "make a reel for <module>", or "add a marketing resource for <module>".
-model: opus
-effort: medium
-allowed-tools: Bash(talos marketing:create *), Bash(talos check *), Bash(bunx remotion *), Bash(bun add *), Bash(bun -e *), Read, Edit, Write, Grep, Glob
-argument-hint: '[description] [--module=<module>] [--platform=<platform>]'
+description: Create module marketing posts, render requested Remotion media, and fill the scaffolded copy, hashtags, platforms, and asset paths.
 ---
 
 # Marketing Create

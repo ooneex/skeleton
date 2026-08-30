@@ -1,11 +1,6 @@
 ---
 name: vector-database-create
 description: Generate a new vector database class with its test file, then complete the generated code.
-when_to_use: Use when creating a new vector database that extends AbstractVectorDatabase from @talosjs/rag.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos vector-database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Vector Database Class

@@ -1,11 +1,6 @@
 ---
 name: project-fix
-description: Run `talos check --strict --logs` — the project's full health check (workspace gate, structure, conventions, env, dependencies, docker, migrations, accessibility, translations, tests, docs, security, secrets, git, issues, commits, hygiene) — then fix every error and warning it reports and re-run until clean.
-when_to_use: Use when the user wants the project checked and repaired ("fix the project", "run all checks and fix everything", "pre-release audit"), or as the gate before a release or a merge. Scope to one dimension with `--only=<check>`.
-model: sonnet
-effort: high
-allowed-tools: Bash(talos *), Bash(bun *), Bash(git *), Bash(cp *), Read, Edit, Write, Grep, Glob, Skill, Agent
-argument-hint: '[--only=<checks>] [--skip=<checks>] [--modules=<a,b>] [--e2e] [--strict]'
+description: Run the full strict Talos health check, fix every reported error and warning, and repeat until clean.
 ---
 
 # Project Fix
@@ -32,21 +27,21 @@ talos check --strict --logs
 
 Failures first, then warnings — **warnings are in scope**, including `dependencies`, `tests` and `commits`, which only ever warn. Re-run one check at a time while fixing: `talos check --only=<check> --strict --logs`.
 
-- **workspace** — re-run the failing task alone (`talos lint|test --modules=<m> --logs`); hand exceptions to `/debug`.
+- **workspace** — re-run the failing task alone (`talos lint|test --modules=<m> --logs`); hand exceptions to `$debug`.
 - **structure** — restore the missing piece: `<name>.yml` + `type:`, unique `package.json` name, root `workspaces` glob, `tsconfig.json` alias.
-- **conventions** — rename the class to match its decorator suffix; replace `process.env.X` with injected `AppEnv`; `Type` suffix on exported aliases, `I` prefix on exported interfaces; drop non-null assertions; replace a local type that duplicates one already in `@talosjs/types` or a domain package (see `talos-packages`) with the import. `/optimize` does this module-wide.
+- **conventions** — rename the class to match its decorator suffix; replace `process.env.X` with injected `AppEnv`; `Type` suffix on exported aliases, `I` prefix on exported interfaces; drop non-null assertions; replace a local type that duplicates one already in `@talosjs/types` or a domain package (see `talos-packages`) with the import. `$optimize` does this module-wide.
 - **env** — `cp <m>/.env.example.yml <m>/.env.yml` and fill it (never commit it); "not documented" means add the key to the example.
 - **dependencies** — align the range and `bun install`, declare undeclared imports, remove genuinely unused packages.
 - **docker** — pin image tags, give every service `image` or `build`, resolve host-port clashes.
 - **migrations** — regenerate a colliding migration (`talos migration:create`) for a fresh timestamp; add missing `down`; fix invalid seed YAML.
 - **accessibility** — fix the markup (semantic elements, labels, `alt`, keyboard parity, focus). Never suppress inline. Several UI modules → dispatch `accessibility-fixer` per module in parallel. The trailing "not enforced — disabled in biome config" line is informational; don't edit `biome.jsonc`.
-- **translations** — add missing locales, keep `{{ placeholder }}` sets identical, never delete a key. Bulk: `/translation-translate`.
+- **translations** — add missing locales, keep `{{ placeholder }}` sets identical, never delete a key. Bulk: `$translation-translate`.
 - **tests** — write the missing spec (happy path + edge case), don't exempt the file.
 - **docs** — repoint or delete the broken relative link.
-- **security** — bump to the patched version; if breaking or unpatched, `talos security:check --issues` then `/issue-plan`.
+- **security** — bump to the patched version; if breaking or unpatched, `talos security:check --issues` then `$issue-plan`.
 - **secrets** — remove the literal, move it to `.env.yml`, read via `AppEnv`, **rotate the credential**; `git rm --cached` any tracked `.env`/`.pem` and gitignore it.
 - **git** — `git rm -r --cached <path>` build output and gitignore it in the same commit.
-- **issues** — mechanical fixes to `/issue-check`, judgement calls to `/issue-plan`.
+- **issues** — mechanical fixes to `$issue-check`, judgement calls to `$issue-plan`.
 - **commits** — reword **unpushed** commits only (`git rebase -i`); never rewrite published history.
 - **hygiene** — resolve conflict markers, drop `.only`/`.skip`, turn bare `TODO`/`FIXME` into an issue or delete it.
 - **e2e** — fix the application, not the assertion.

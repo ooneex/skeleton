@@ -1,11 +1,6 @@
 ---
 name: swagger-create
-description: Generate a custom API-explorer module from a target app or microservice's controllers, then complete each generated route meta — prose, field docs, examples and error statuses — so every endpoint is documented and runnable against a live backend.
-when_to_use: Use when creating or refreshing the swagger module that documents an API — scaffolding the explorer, adding the routes of new controllers, or completing the descriptions, examples and responses of existing ones. Also use to set up its environments (base URL, bearer token, {{variables}}).
-model: sonnet
-effort: high
-allowed-tools: Bash(talos swagger:create *), Bash(talos check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefix=<prefix>] [--force]'
+description: Generate a Talos API explorer from controllers and complete every route's prose, fields, examples, and error statuses.
 ---
 
 # Make Swagger Module

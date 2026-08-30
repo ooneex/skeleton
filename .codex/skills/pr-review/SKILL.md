@@ -1,10 +1,6 @@
 ---
 name: pr-review
-description: Review a pull request tied to an issue that is In Review. Resolves the issue YAML from the user input (by id, module, or title), verifies it is In Review with a branch and pr link, pulls and switches onto the remote branch inside its own git worktree, then runs talos check --strict --logs, checks the Definition of Done, and — for frontend modules only — runs the e2e tests that satisfy the issue's testing section (backend module/api/microservice testing steps are verified manually and never gate review). Fixes what it finds — check failures, convention-reviewer findings, unmet DoD items, coverage/testing gaps — then runs the optimize skill on every touched module before promoting; escalates only what needs a real design decision. Stack-aware — a stacked PR is reviewed bottom-up, one layer at a time, against the branch below it.
-when_to_use: Use to review a pull request for an issue awaiting review. Triggers on "review PR <ID>", "review the <module> issues in review", or "review this pull request". Not for reviewing the uncommitted working diff (use code-review) or scaffolding.
-model: opus
-effort: high
-argument-hint: '[issue-id|module|title]'
+description: Review and repair an issue-linked PR at `In Review`, validate checks and DoD, and handle stacked layers bottom-up.
 ---
 
 # Review Pull Request
@@ -38,7 +34,7 @@ Group the resolved issues into **independent units** the same way `issue-fix` do
 
 ## 2. Gate on review-readiness
 
-Read each resolved `modules/<module>/issues/<ID>.yml`. Before evaluating the gates below, review it in its own **git worktree**, isolated from the root checkout and from every other issue in the batch: from the root, call `EnterWorktree({name: "review-<ID>"})`. This creates `.claude/worktrees/review-<ID>/` on a throwaway branch and switches the session into it — everything through the end of this issue's review happens there, and the root checkout is never touched.
+Read each resolved `modules/<module>/issues/<ID>.yml`. Before evaluating the gates, create an isolated detached worktree outside the root checkout: `mkdir -p ../<repo>-worktrees` followed by `git worktree add --detach "../<repo>-worktrees/review-<ID>" HEAD`. Set every command through step 7 to that exact working directory so the root checkout remains untouched.
 
 Inside the worktree, switch onto the issue's remote branch — `gh pr checkout <pr>` (do all remote work with the **`gh` cli only**, never `git fetch`/`git pull`/`git push`; `gh auth switch` if unauthenticated) — so the checks run against the actual PR head, not whatever is currently checked out locally. This replaces the worktree's throwaway branch with the real PR branch, so a clean-tree check beforehand isn't needed. Confirm with `git branch --show-current`. Once inside the worktree, `bun install` and symlink/copy any untracked local env files (`.env.yml`, etc.) `talos check` needs — a freshly created worktree has neither.
 
@@ -67,7 +63,7 @@ testing: |
 
 Carry every skipped file (with the reason) into the final summary.
 
-**Review independent units concurrently, each through its own subagent.** Within a stack, review stays strictly bottom-up and sequential (step 3) — a stack is one unit for concurrency purposes, never split across subagents. For each independent unit (a standalone issue, or an entire stack), launch one `general-purpose` subagent via the Agent tool that owns that unit end-to-end: give it the unit's `(module, ID)` pair(s) — bottom-up, for a stack — plus this skill's steps 2–7 (open its own worktree with `EnterWorktree`, `gh pr checkout`/`gh stack checkout`, run the full review including fixes and `optimize`, promote or leave the state, then `ExitWorktree`). When the batch has **more than one** independent unit, launch all of their subagents together in a single message so they run concurrently, each isolated in its own worktree; wait for all of them to finish before compiling the report (step 8). With exactly one independent unit, just run steps 2–7 directly — a subagent buys nothing there.
+**Review independent units concurrently, each through its own subagent.** Within a stack, review stays bottom-up and sequential, so a stack is one unit and is never split across agents. Spawn one built-in `worker` subagent per independent unit, passing its `(module, ID)` pairs, this skill's steps 2–7, and a unique worktree path. Spawn multiple workers concurrently and wait for all of them before compiling step 8. With one unit, run steps 2–7 directly.
 
 ## 3. Establish the review base
 
@@ -115,7 +111,7 @@ After editing the state, run `talos issue:check --id=<ID>` from the root of the 
 
 Commit whatever this issue's review changed on the PR branch, in logical groups, before pushing: the step 5 fixes (e.g. `fix(<scope>): ...`), the step 6 `optimize` pass (e.g. `refactor(<scope>): Optimize <module> conventions`), and — if the state changed — `chore(<scope>): Promote issue <ID> to To Merge` (or note the block in the commit if reverting). Push everything with the `gh` cli (`gh stack push` on a stack layer), so the changes reach the remote branch the same way `issue-fix` finalises its commits.
 
-**Exit the worktree** once this issue's review is fully wrapped up — verdict recorded, fixes/optimize/state promotion (if any) committed and pushed. Call `ExitWorktree({action: "remove"})`; nothing of value is left behind, since any real change was already pushed to the remote branch. If the review is left mid-way (e.g. a conflict during `gh stack checkout`), use `ExitWorktree({action: "keep"})` instead and report it. Do this before moving to the batch's next gated issue, which opens its own worktree in step 2.
+**Remove the worktree** once the review is wrapped up and every change is committed and pushed. From the original checkout, confirm the exact path with `git worktree list`, then run `git worktree remove "../<repo>-worktrees/review-<ID>"`. If review stops mid-way, keep the worktree and report its exact path; never force-remove uncommitted work.
 
 ## 8. Report
 

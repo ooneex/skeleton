@@ -1,8 +1,6 @@
 ---
 name: optimize-ui
-description: Recommended UI/UX craft rules and React implementation patterns for design and spa modules — design-system-first styling plus reference docs for interaction states, motion, typography, color/contrast, surfaces, layout, hooks, and TanStack/Zustand state.
-when_to_use: Use only when building or optimizing a React module (design or spa).
-user-invocable: false
+description: Apply design-system-first UI craft and React patterns to Talos design, SPA, admin, and storybook modules.
 ---
 
 # UI & React Patterns (design & spa modules)

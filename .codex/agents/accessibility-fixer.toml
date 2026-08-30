@@ -1,19 +1,9 @@
----
-name: accessibility-fixer
-description: Fixes the accessibility violations Biome's a11y rules report for one UI module (design, spa, admin or storybook) — semantic elements, labels, alt text, keyboard parity, focus visibility, roles and hit areas — editing components in place without changing their visual design or public props, then re-running the a11y check and the module's lint/test. It edits source files for the one module it is given — it never disables an a11y rule, never edits biome config, never creates issues, and never runs generators.
-when_to_use: Use proactively when the accessibility check of /project-fix reports violations, and especially when several UI modules must be fixed at once.
-tools: Read, Edit, Write, Bash, Grep, Glob
-model: sonnet
-effort: high
-memory: project
-color: purple
----
-
+name = "accessibility-fixer"
+description = "Fix accessibility violations in one design, SPA, admin, or storybook module without changing its visual design or public API."
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+developer_instructions = '''
 # Accessibility Fixer
-
-> **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
-
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Make **one** UI module keyboard- and screen-reader-usable by fixing the accessibility violations reported for it — without changing how it looks or what it exports.
 
@@ -66,3 +56,4 @@ talos check --strict --modules=<module> --logs
 ## Report
 
 Return: the rules you fixed with a one-line description per file, anything you deliberately left (with the reason), the disabled-rule exposure you were told about, and the final status of both commands.
+'''

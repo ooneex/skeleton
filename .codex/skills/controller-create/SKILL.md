@@ -1,11 +1,6 @@
 ---
 name: controller-create
 description: Generate a new controller class with route type and test file, then complete the generated code.
-when_to_use: Use when creating a new HTTP or WebSocket controller with routing, validation, and role-based access.
-model: sonnet
-effort: high
-allowed-tools: Bash(talos controller:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--is-socket=<true|false>] [--route.name=<name>] [--route.path=<path>] [--route.method=<method>]'
 ---
 
 # Make Controller Class
@@ -253,7 +248,7 @@ Fix every failure before completing.
 ### 8. Create the service
 
 ```
-/service-create --name=<Name>
+$service-create --name=<Name>
 ```
 
 ### 9. Create the pubsub event (mutation routes only)
@@ -261,7 +256,7 @@ Fix every failure before completing.
 **Only for `post`, `put`, `patch`, `delete` — skip for `get`.**
 
 ```
-/event-create --name=<Name> --channel=<resource>.<action>
+$event-create --name=<Name> --channel=<resource>.<action>
 ```
 
 Once created:
@@ -275,7 +270,7 @@ A controller's route is part of the SDK surface, so whenever you **create or upd
 For each SDK module whose `target` covers the controller's module — an `app` target covers every backend `module`/`api` module; a microservice target covers only itself — regenerate it with that SDK's own name and target:
 
 ```
-/sdk-create --name=<sdk module name> --module=<target>
+$sdk-create --name=<sdk module name> --module=<target>
 ```
 
 Then complete the new or updated `api` method per the `sdk-create` skill. Skip when no SDK module targets the controller's module.

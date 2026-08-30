@@ -1,11 +1,6 @@
 ---
 name: translation-create
 description: Generate a new translation class with its test file and a sibling translations.yml dictionary, then fill in the translations.
-when_to_use: Use when creating a translation that extends the Translation base class from @talosjs/translation (localized, interpolated, pluralized messages).
-model: sonnet
-effort: low
-allowed-tools: Bash(talos translation:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Translation Class
@@ -35,7 +30,7 @@ Creates `modules/<module>/src/translations/<Name>Translation.ts`, a sibling `tra
 Check `modules/<module>/<module>.yml` for a `locales:` list (declared on `api`, `microservice`, and `spa` module types, e.g. `locales: [en, fr]`) — that's the locale set every key must cover, beyond the `en` source. Edit `modules/<module>/src/translations/translations.yml` and add the keys the domain needs:
 
 - Nested keys use dot notation: `trans("user.profile.name", ...)`.
-- Each leaf is an object keyed by `LocaleType` (`en`, `fr`, ...); `en` is the fallback. Fill every locale from the module's `locales:` list (write `en` yourself, then dispatch `/translation-translate` or the `translation-translator` agent to fill the rest — don't leave declared locales empty).
+- Each leaf is an object keyed by `LocaleType` (`en`, `fr`, ...); `en` is the fallback. Fill every locale from the module's `locales:` list (write `en` yourself, then dispatch `$translation-translate` or the `translation-translator` agent to fill the rest — don't leave declared locales empty).
 - Interpolation uses `{{ param }}` placeholders, filled via `params`.
 - Pluralization uses sibling keys selected by `count`: `<key>` (singular), `<key>_plural` (count > 1 or < 0), `<key>_zero` (optional).
 

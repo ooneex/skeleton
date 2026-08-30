@@ -1,11 +1,6 @@
 ---
 name: agent-skills-update
-description: Sync the project's on-disk assistant config (AGENTS.md, skills, agents) with the canonical templates bundled in the installed Talos CLI. Scaffolds a fresh copy into a tmp folder via talos agent:skills:create, then smart-merges each file into its local counterpart — creating missing files, reconciling diverged ones, and refactoring the result to be token efficient.
-when_to_use: Use to refresh the local config for any Talos-supported assistant (.claude, .codex, .cursor, .gemini, .github, .windsurf, .cline, .junie, .roo, .continue, .zed) — its skills, agents, and AGENTS.md — after upgrading Talos, or to pull upstream template changes without losing local edits. Triggers on "update agent skills", "sync skills", "refresh AGENTS.md".
-model: sonnet
-effort: high
-argument-hint: '[--agents=.claude,.codex]'
-allowed-tools: Bash(talos agent:skills:create *), Bash(mkdir *), Bash(rm *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
+description: Sync AGENTS.md and assistant-specific skills and agents from installed Talos templates while preserving local changes.
 ---
 
 # Update Agent Skills
@@ -33,7 +28,9 @@ Root `AGENTS.md` is always in scope.
 Regenerate into a throwaway folder, never straight into the working tree. Pass every assistant from step 1 to `--agents`:
 
 ```bash
-rm -rf tmp/agent-skills-sync
+mkdir -p tmp/agent-skills-sync
+find tmp/agent-skills-sync -mindepth 1 -depth -delete
+rmdir tmp/agent-skills-sync
 talos agent:skills:create --cwd=tmp/agent-skills-sync --agents=.claude,.codex
 ```
 
@@ -41,7 +38,7 @@ talos agent:skills:create --cwd=tmp/agent-skills-sync --agents=.claude,.codex
 
 ## 3. Map generated files to local paths
 
-`find tmp/agent-skills-sync -type f`. The local counterpart is the same path minus the `tmp/agent-skills-sync/` prefix (e.g. `tmp/agent-skills-sync/.claude/skills/pr-review/SKILL.md` → `.claude/skills/pr-review/SKILL.md`).
+`find tmp/agent-skills-sync -type f`. The local counterpart is the same path minus the `tmp/agent-skills-sync/` prefix (e.g. `tmp/agent-skills-sync/.codex/skills/pr-review/SKILL.md` → `.codex/skills/pr-review/SKILL.md`).
 
 ## 4. Smart-sync each file
 
@@ -60,7 +57,8 @@ Tighten every file you changed — cut duplication and dead merge leftovers, sho
 ## 6. Clean up and report
 
 ```bash
-rm -rf tmp/agent-skills-sync
+find tmp/agent-skills-sync -mindepth 1 -depth -delete
+rmdir tmp/agent-skills-sync
 ```
 
 Report assistants synced and files **created** / **merged** (one line per non-trivial merge) / **unchanged**. Flag any merge you were unsure about.

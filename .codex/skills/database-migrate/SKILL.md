@@ -1,9 +1,6 @@
 ---
 name: database-migrate
 description: Run the database migration and seed lifecycle — apply pending migrations, roll back, reseed, and verify the schema matches the entities.
-when_to_use: Use when applying or reverting migrations, troubleshooting a failed migration, syncing an entity change into the database, or running seeds. To author a new migration file, use migration-create first.
-model: sonnet
-effort: high
 ---
 
 # Database Migrate
@@ -58,7 +55,7 @@ talos seed:run --modules=user,billing   # only the named modules (also --package
 
 When you change an entity's columns/relations:
 
-1. `/migration-create --module=<module>` — scaffold a timestamped migration.
+1. `$migration-create --module=<module>` — scaffold a timestamped migration.
 2. Implement `up()` with the DDL for the change and `down()` to reverse it exactly (drop what `up` adds). Match the entity's column types, nullability, and lengths — an entity column without `nullable` must be `NOT NULL` in the migration, and vice-versa. An asymmetric/irreversible `down()` is a bug.
 3. `talos migration:up` to apply it.
 4. Re-run the tests to confirm the entity and schema agree.

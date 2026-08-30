@@ -1,11 +1,6 @@
 ---
 name: storybook-story-create
-description: Author storybook stories for design-system components or icons — infer the targets from the request, then write a single story for a plain component or a main story plus one per sub-component (nested in the sidebar) for a compound component, wiring everything so the storybook builds and renders.
-when_to_use: Use when (re-)creating storybook stories for one or more design-system components or icons (e.g. "create stories for the avatar component", "add stories for the weather icons", "story the badge and card from design into storybook"). Handles plain and compound components, icons, multiple source design modules, and multiple target storybook modules.
-model: sonnet
-effort: medium
-allowed-tools: Read, Edit, Write, Bash, Grep, Glob
-argument-hint: '<component / icon names or design paths> [→ target storybook module]'
+description: Create or update Talos storybook stories for plain components, compound components, and icons.
 ---
 
 # Create Storybook Stories

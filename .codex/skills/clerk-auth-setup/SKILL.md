@@ -1,11 +1,6 @@
 ---
 name: clerk-auth-setup
-description: Set up Clerk authentication in a SPA module — ClerkProvider bootstrap, an auth gate on the root route, the sign-in / sign-up / sign-out / sso-callback routes, and the passwordless email-code + OAuth features. Also installs the sign-in button of a swagger module, which needs a session token but no gate.
-when_to_use: Use when adding or repairing Clerk auth (sign-in, sign-up, sign-out, OAuth/SSO, route protection) in a SPA module built on @tanstack/react-router and @clerk/clerk-react, or when adding Clerk sign-in to a swagger module so its protected routes become runnable.
-model: sonnet
-effort: high
-allowed-tools: Bash(talos spa:feature:create *), Bash(talos translation:create *), Bash(talos workspace:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--module=<module>]'
+description: Set up or repair Clerk authentication in a Talos SPA or Swagger module, including providers, guards, routes, and translations.
 ---
 
 # Set Up Clerk Auth
@@ -253,7 +248,7 @@ Each feature owns `translations/translations.json` + `use<Name>Translate.ts` (`t
 - `formError.*` — **one key per `authFlowError` code** plus `generic`
 - `error.*`, `notFound.*`, `loading`
 
-Every key needs all locales the module declares in its `locales:` list in `<module>.yml` (`en` is the fallback); complete them with `/translation-translate`.
+Every key needs all locales the module declares in its `locales:` list in `<module>.yml` (`en` is the fallback); complete them with `$translation-translate`.
 
 ## 8. Verify
 

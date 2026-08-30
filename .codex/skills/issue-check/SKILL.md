@@ -1,11 +1,6 @@
 ---
 name: issue-check
-description: Validate every local issue YAML file with `talos issue:check`, inferring the scope from the user's request. Checks each `modules/<module>/issues/<ID>.yml` (and the `packages/` equivalent) against the issue conventions — file integrity, schema, state machine, dod/testing grammar, labels, branch/pr, and the cross-file dependency graph — then repairs what it safely can and hands anything needing judgement to /issue-plan.
-when_to_use: Use when the user wants to verify, lint, or repair issue YAML files, or before a step that consumes them (push, convert, fix). Triggers on requests like "check the issues", "are my issues valid", "lint issue OON-123456", or "why does issue:push keep failing".
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos issue:check *), Read, Edit, Grep, Glob, Skill
-argument-hint: '[module|issue-id ...] [--strict]'
+description: Validate and mechanically repair local issue YAML with `talos issue:check`; hand planning decisions to `$issue-plan`.
 ---
 
 # Issue Check
@@ -16,7 +11,7 @@ argument-hint: '[module|issue-id ...] [--strict]'
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** the scope from the user's request, **run** `talos issue:check`, then **repair** every mechanical violation in place and hand anything requiring judgement to `/issue-plan`. The command only reads — it never edits, plans, or publishes an issue.
+**Resolve** the scope from the user's request, **run** `talos issue:check`, then **repair** every mechanical violation in place and hand anything requiring judgement to `$issue-plan`. The command only reads — it never edits, plans, or publishes an issue.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. The command scans both roots.
@@ -97,18 +92,18 @@ Rules are grouped by prefix. **Errors** break the toolchain and must be fixed; *
 Fix diagnostics directly with Edit, **smallest change first**, then re-run the check on the same scope until it is clean:
 
 - **Mechanical** — casing (`in review` → `In Review`), an `id`/filename or `module`/directory mismatch, checkbox and numbering grammar, trailing whitespace, a missing `dependencies: []`, a stray key that duplicates a schema field. Fix these in place.
-- **Structural** — a `Planned` issue with no `context`/`goal`/`dod`/`testing`, a legacy `description` that must be restructured, or an issue that needs splitting. Do **not** author that content here: set `state: "Todo"` if needed and hand the issue to **`/issue-plan`**, which owns planning.
+- **Structural** — a `Planned` issue with no `context`/`goal`/`dod`/`testing`, a legacy `description` that must be restructured, or an issue that needs splitting. Do **not** author that content here: set `state: "Todo"` if needed and hand the issue to **`$issue-plan`**, which owns planning.
 - **Cross-file** — for `issue.id.duplicate`, rename the newer file *and* its `id` to a fresh `XXX-000000` identifier, then repoint every `dependencies` entry that referenced it. For `issue.dependencies.cycle`, drop the one edge that is not a genuine prerequisite. For `issue.dependencies.unknown`, remove the entry or fix the typo — never invent the missing issue.
 - **Never** delete a `dod`/`testing` item, check a box that was not actually verified, or downgrade a `state` to dodge a rule.
 
 ## 5. Confirm
 
-Report a summary: issues checked and modules covered, the error/warning counts before and after, each file repaired with the rules it violated, each issue handed to `/issue-plan`, and anything left unresolved with the reason. Finish with the clean re-run (`✔ N issues checked — no problems found`) or the remaining diagnostics.
+Report a summary: issues checked and modules covered, the error/warning counts before and after, each file repaired with the rules it violated, each issue handed to `$issue-plan`, and anything left unresolved with the reason. Finish with the clean re-run (`✔ N issues checked — no problems found`) or the remaining diagnostics.
 
 ## Suggest next steps
 
-- `/issue-plan` — restructure or split an issue the check flagged as unplanned.
-- `/issue-push` — publish once the issues are valid.
-- `/issue-convert` — regenerate `issues.json` from validated YAML.
-- `/issue-fix` — implement a planned, valid issue.
-- `/project-fix` — run this validation alongside every other health check in one report, and fix what they surface.
+- `$issue-plan` — restructure or split an issue the check flagged as unplanned.
+- `$issue-push` — publish once the issues are valid.
+- `$issue-convert` — regenerate `issues.json` from validated YAML.
+- `$issue-fix` — implement a planned, valid issue.
+- `$project-fix` — run this validation alongside every other health check in one report, and fix what they surface.

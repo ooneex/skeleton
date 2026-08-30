@@ -1,10 +1,6 @@
 ---
 name: optimize
-description: Optimize a module's codebase for quality, performance, and clean conventions. Enforces arrow functions (except class methods), Type/I naming (DI-enforced), explicit visibility, nullable columns; removes duplication and dead code; prunes trivial tests.
-when_to_use: Use to optimize/clean up/refactor a module — not for new features, bug fixes, or issues.
-model: sonnet
-effort: high
-argument-hint: '[module]'
+description: Optimize one or more modules for conventions, maintainability, performance, meaningful tests, and UI quality where applicable.
 ---
 
 # Optimize Codebase
@@ -40,9 +36,9 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 
 ## Steps
 
-1. **Target** — work in `modules/<module>/`; ask if unspecified. Check the module's `<name>.yml` `type:` and invoke `talos-spa` (for `spa`) or `talos-module` (for backend types) to confirm the expected file structure before touching anything — a file in the wrong place is itself a violation to fix. For **several modules**, dispatch the `code-optimizer` sub-agent once per module via the Agent tool (independent modules concurrently); each runs these steps for its module and reports back, then collate. For a **single** module, run inline.
+1. **Target** — work in `modules/<module>/`; ask if unspecified. Check the module's `<name>.yml` `type:` and load `$talos-spa` (for `spa`) or `$talos-module` (for backend types) to confirm the expected file structure before touching anything — a file in the wrong place is itself a violation to fix. For **several modules**, spawn the named `code-optimizer` custom agent once per independent module and wait for all results before collating. For a **single** module, run inline.
 
-2. **Map (sub-agent)** — reading every file inline floods context. Spawn one read-only `Explore` sub-agent scoped to `modules/<module>/` returning *only* a digest, not file contents:
+2. **Map (subagent)** — spawn the built-in read-only `explorer` agent scoped to `modules/<module>/`, returning only a digest rather than file contents:
    - **Inventory** — each type, interface, class, standalone function + path.
    - **Naming violations** — type not ending `Type`; interface not starting `I`; non-arrow standalone function; method/property missing visibility; non-null assertion (`!`); optional entity property missing `null`/`nullable`.
    - **Duplication** — near-duplicates only: the same logic with renamed variables, two types describing one shape, utilities that differ by a line. Verbatim copies come from `check` in step 4 — don't spend the agent's budget hunting them.

@@ -1,11 +1,6 @@
 ---
 name: flag-create
 description: Generate a new feature flag class with its test file, then complete the generated code.
-when_to_use: Use when creating a new feature flag that implements the IFeatureFlag interface from @talosjs/feature-flag.
-model: sonnet
-effort: low
-allowed-tools: Bash(talos flag:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Feature Flag Class

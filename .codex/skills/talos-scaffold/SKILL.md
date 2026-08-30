@@ -1,8 +1,6 @@
 ---
 name: talos-scaffold
-description: Shared workflow for the `*-create` generator skills — run-from-root rule, --name/--module option inference, module registration, lint/format, and the test-scaffold baseline. Read alongside any `<artifact>-create` skill (service, controller, entity, cron, …); each artifact skill adds only its specifics.
-when_to_use: Use alongside any `<artifact>-create` skill — the shared run-from-root rule, --name/--module inference, module registration, and lint/format workflow. Read whenever running a generator skill.
-user-invocable: false
+description: Shared generator workflow for run-from-root behavior, option inference, module registration, formatting, and test scaffolds.
 ---
 
 # Scaffold Workflow

@@ -1,11 +1,6 @@
 ---
 name: database-create
 description: Generate a new database class with its test file, then complete the generated code.
-when_to_use: Use when creating a new database adapter that extends TypeormDatabase from @talosjs/database.
-model: sonnet
-effort: low
-allowed-tools: Bash(talos database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis>]'
 ---
 
 # Make Database Class

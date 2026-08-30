@@ -1,8 +1,6 @@
 ---
 name: talos-spa
 description: Directory structure and conventions for a spa module — the front-end single-page application layout (public, bootstrap, routes, features, shared) with per-folder usage guidance.
-when_to_use: Use when creating or navigating a single-page app.
-user-invocable: false
 ---
 
 # SPA Architecture

@@ -1,11 +1,6 @@
 ---
 name: entity-create
 description: Generate a new TypeORM entity class with its test file, then complete the generated code.
-when_to_use: Use when creating a new database entity with columns, relations, and table mapping.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos entity:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--table-name=<table_name>]'
 ---
 
 # Make Entity Class

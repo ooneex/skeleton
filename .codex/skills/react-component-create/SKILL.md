@@ -1,11 +1,6 @@
 ---
 name: react-component-create
 description: Generate a new React component with a happy-dom + React Testing Library test, then complete the generated code.
-when_to_use: Use when adding a presentational or container React component to a SPA module — at the module level or scoped to a feature.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 ---
 
 # Make React Component

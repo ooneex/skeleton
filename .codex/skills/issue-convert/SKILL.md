@@ -1,10 +1,6 @@
 ---
 name: issue-convert
-description: Bundle a module or package's local issue YAML files into a single issues.json with talos issue:convert, inferring the destination modules/packages from the user's request. Reads modules/<module>/issues/*.yml (or the packages/ equivalent) and writes src/shared/issues.json for spa|storybook|swagger|admin modules, otherwise src/issues.json.
-when_to_use: Use when the user wants to compile or export a module's YAML issues into a single issues.json for the app to consume. Triggers on requests like "convert the user module issues", "bundle issues.json for spa and admin", or "regenerate issues.json".
-model: haiku
-effort: low
-argument-hint: '[module ...]'
+description: Bundle a module or package's validated issue YAML files into the correct `issues.json` with `talos issue:convert`.
 ---
 
 # Issue Convert

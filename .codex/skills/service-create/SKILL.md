@@ -1,11 +1,6 @@
 ---
 name: service-create
 description: Generate a new service class with its test file, then complete the generated code.
-when_to_use: Use when creating a new business logic service that implements IService from @talosjs/service.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos service:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Service Class

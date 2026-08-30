@@ -1,11 +1,6 @@
 ---
 name: workflow-transition-create
 description: Generate a new workflow transition class with its test file, then complete the generated code.
-when_to_use: Use when adding a single conditional, reversible step that implements ITransition from @talosjs/workflow for use inside a workflow.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos workflow:transition:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Workflow Transition Class

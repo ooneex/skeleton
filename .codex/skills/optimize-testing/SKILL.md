@@ -1,8 +1,6 @@
 ---
 name: optimize-testing
-description: Project testing conventions and test-pruning rules — tests mirror src/ under tests/ as .spec.ts, every public method needs happy-path + edge-case coverage, drop trivial existence checks, keep deterministic behavior tests, consolidate redundancy.
-when_to_use: Use when writing, pruning, or improving a module's tests.
-user-invocable: false
+description: Apply this project's test layout, behavioral coverage, edge-case, determinism, and test-pruning conventions.
 ---
 
 # Testing Conventions
@@ -19,7 +17,7 @@ Apply when pruning or improving a module's tests (`optimize` skill, step 6).
 
 - Test files mirror `src/` under `tests/` with the `.spec.ts` suffix.
 - **Never run `bun test tests`.** Always run `talos coverage:check --strict --modules=<module> --logs` — it runs the module's suite and measures it in one pass.
-- `talos coverage:check --strict --modules=<module> --logs` names the least-covered files and their uncovered lines, which is the work list for this skill (see `/coverage-check`). Keep working until **every line, statement and function is covered** — 100%, not just the 90% floor each module's `bunfig.toml` pins via `coverageThreshold`.
+- `talos coverage:check --strict --modules=<module> --logs` names the least-covered files and their uncovered lines, which is the work list for this skill (see `$coverage-check`). Keep working until **every line, statement and function is covered** — 100%, not just the 90% floor each module's `bunfig.toml` pins via `coverageThreshold`.
 - Every public method with logic needs ≥1 happy-path + ≥1 edge-case test.
 - Avoid trivial existence checks — test actual behavior.
 - Keep tests deterministic: no random values, no time-dependent data.

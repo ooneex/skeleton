@@ -1,11 +1,6 @@
 ---
 name: storage-pull
 description: Download a Cloudflare R2, Bunny or S3 bucket path into a local folder with `talos storage:pull` — resolving the provider credentials, listing the prefix, and optionally unpacking the zip archives that come down.
-when_to_use: Use when the user wants to bring remote object storage down to disk — fetching uploaded assets or media to work on, restoring a release archive or backup, inspecting what is actually deployed in a bucket, or mirroring a prefix locally. This is the mirror of `storage-push`; use `storage-create` when the need is an in-app storage adapter rather than a one-off download.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos storage:pull *), Bash(talos credentials:create *), Bash(ls *), Read, Grep, Glob
-argument-hint: '[--provider=<cloudflare|bunny|s3>] [--from=<bucket/path>] [--destination=<folder>] [--unzip]'
 ---
 
 # Storage Pull

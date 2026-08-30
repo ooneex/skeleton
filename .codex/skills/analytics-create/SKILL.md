@@ -1,11 +1,6 @@
 ---
 name: analytics-create
 description: Generate a new analytics class with its test file, then complete the generated code.
-when_to_use: Use when creating a new analytics tracking class that uses the @talosjs/analytics package.
-model: sonnet
-effort: low
-allowed-tools: Bash(talos analytics:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Analytics Class

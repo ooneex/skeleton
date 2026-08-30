@@ -1,11 +1,6 @@
 ---
 name: mailer-create
 description: Generate a new mailer class with its template and test files, then complete the generated code.
-when_to_use: Use when creating a new email sender with JSX template using @talosjs/mailer.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos mailer:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Mailer Class

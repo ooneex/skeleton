@@ -1,11 +1,6 @@
 ---
 name: storage-push
 description: Upload a local file or folder to a Cloudflare R2, Bunny or S3 bucket with `talos storage:push` — resolving the provider credentials, the destination path, and whether the content ships as individual objects or one zip archive.
-when_to_use: Use when the user wants to ship local content to object storage — publishing a built SPA/design bundle to a CDN bucket, uploading assets, media or a release archive, or re-syncing a folder after a rebuild. This pushes what is already on disk — build it first (`talos build`), and use `storage-create` when the need is an in-app storage adapter rather than a one-off upload.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos storage:push *), Bash(talos credentials:create *), Bash(talos build *), Bash(ls *), Read, Grep, Glob
-argument-hint: '[--provider=<cloudflare|bunny|s3>] [--from=<path>] [--destination=<bucket/path>] [--zip]'
 ---
 
 # Storage Push

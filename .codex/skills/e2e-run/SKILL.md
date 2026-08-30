@@ -1,11 +1,6 @@
 ---
 name: e2e-run
 description: Run the Playwright end-to-end suite across packages and modules with granular caching, then triage failures against the app under test.
-when_to_use: Use when running existing Playwright e2e tests — a whole suite, a single module, or as a pre-merge gate. To author a new spec first, use e2e-create.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos e2e:run *), Bash(talos workspace:run *), Bash(talos app:start *), Read, Edit, Grep, Glob
-argument-hint: '[--modules=<a,b>] [--packages=<a,b>] [--logs] [--no-cache]'
 ---
 
 # Run E2E Tests

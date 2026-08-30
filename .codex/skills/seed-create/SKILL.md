@@ -1,11 +1,6 @@
 ---
 name: seed-create
 description: Generate a new database seed file with its test file, then complete the generated code.
-when_to_use: Use when creating seed data for populating the database using @talosjs/seeds.
-model: sonnet
-effort: low
-allowed-tools: Bash(talos seed:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make Seed

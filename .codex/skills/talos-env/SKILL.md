@@ -1,8 +1,6 @@
 ---
 name: talos-env
 description: Convention for reading environment variables in this codebase — inject the typed AppEnv from @talosjs/app-env instead of reading process.env, with a code example.
-when_to_use: Use when wiring config or reading environment variables.
-user-invocable: false
 ---
 
 # Environment Variables

@@ -1,8 +1,6 @@
 ---
 name: talos-packages
 description: Catalog of every @talosjs ecosystem package and its purpose, grouped by domain.
-when_to_use: Use when deciding which @talosjs package to use for a feature, or to understand what a package provides before injecting its services.
-user-invocable: false
 ---
 
 # @talosjs Packages

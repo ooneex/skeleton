@@ -17,7 +17,7 @@ This file is shared by every assistant; the same skills and agents are installed
 | Assistant | Skills | Agents |
 |---|---|---|
 | Claude | `.claude/skills/<name>/SKILL.md` — auto-activate, or `/<name>` | `.claude/agents/<name>.md` — real sub-agents, dispatch with the Task tool |
-| Codex | `.codex/skills/<name>/SKILL.md` | `.codex/agents/<name>.toml` |
+| Codex | `.codex/skills/<name>/SKILL.md` (exposed at `.agents/skills/`) — invoke with `$<name>` | `.codex/agents/<name>.toml` — executable project custom agents |
 | Zed | `.agents/skills/<name>/SKILL.md` | same folder, agents installed as skills |
 | Cursor | `/<name>` (`.cursor/commands`) | `/<name>` — same command list |
 | Gemini | `/<name>` (`.gemini/commands`) | `/agents/<name>` |
@@ -28,7 +28,7 @@ This file is shared by every assistant; the same skills and agents are installed
 | Junie | `.junie/skills/<name>.md` — read on demand | `.junie/agents/<name>.md` — read on demand |
 | GitHub Copilot | `.github/skills/<name>/SKILL.md` — auto-activate | agent profiles in `.github/agents/<name>.agent.md` |
 
-Only Claude and Roo run agents as separate actors. Everywhere else an agent is a document: read it and follow it yourself, in the current session.
+Claude, Codex, and Roo run agents as separate actors. For the other assistants, an agent is a document to follow in the current session.
 
 ## Routing
 

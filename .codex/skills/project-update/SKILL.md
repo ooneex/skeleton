@@ -1,11 +1,6 @@
 ---
 name: project-update
-description: Sync a local Talos project with the current CLI scaffold — regenerate a fresh app into a tmp folder via `talos app:create`, then smart-merge each generated config, scaffold, and CI file into the working tree, preserving every local change.
-when_to_use: Use to pull the latest project scaffold (root config, .env.yml, app/shared module baseline, Docker, CI/CD) into an existing project after upgrading Talos, without losing local edits. Triggers on "sync project", "update project scaffold", "refresh config from templates".
-model: sonnet
-effort: high
-argument-hint: '[--name=<name>]'
-allowed-tools: Bash(talos app:create *), Bash(talos check *), Bash(git *), Bash(rm *), Bash(mkdir *), Bash(find *), Bash(diff *), Read, Write, Edit, Glob, Grep
+description: Sync a Talos project with the current CLI scaffold while preserving local configuration and code changes.
 ---
 
 # Sync Project Scaffold
@@ -34,8 +29,10 @@ Reuse the existing name so paths and Docker/compose identifiers match. Read it f
 ## 2. Regenerate into tmp
 
 ```bash
-rm -rf "$TMPDIR/talos-project-update"
-talos app:create --name=<name> --destination="$TMPDIR/talos-project-update"
+mkdir -p tmp/talos-project-update
+find tmp/talos-project-update -mindepth 1 -depth -delete
+rmdir tmp/talos-project-update
+talos app:create --name=<name> --destination=tmp/talos-project-update
 ```
 
 `--name`/`--destination` skip the name and path prompts. The command still prompts for the commit-msg hook, assistants, and CI/CD — accept defaults (Enter) for the hook and assistants, choose **Create CI/CD = yes**, and pick the provider **matching the local project** (`github` if `.github/` exists, `gitlab` if `.gitlab/` or `.gitlab-ci.yml` exists, else `bitbucket`). The tmp folder's git init, hooks, and `node_modules` are throwaway — only its generated **files** matter.
@@ -43,10 +40,10 @@ talos app:create --name=<name> --destination="$TMPDIR/talos-project-update"
 ## 3. Enumerate generated files
 
 ```bash
-find "$TMPDIR/talos-project-update" -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | sort
+find tmp/talos-project-update -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | sort
 ```
 
-The local counterpart of each is the same path with the `$TMPDIR/talos-project-update/` prefix stripped (e.g. `.../modules/app/src/index.ts` → `modules/app/src/index.ts`). `diff` each generated file against its counterpart and apply the per-category strategy below.
+The local counterpart of each is the same path with the `tmp/talos-project-update/` prefix stripped (e.g. `.../modules/app/src/index.ts` → `modules/app/src/index.ts`). `diff` each generated file against its counterpart and apply the per-category strategy below.
 
 ## 4. Merge strategy by file category
 
@@ -57,7 +54,7 @@ For every file: **missing locally → create verbatim** (make parent dirs); **id
 - **Module baseline — `modules/app/` & `modules/shared/`** (`app.yml`, `package.json`, `Dockerfile`, `docker-compose.yml`, `src/databases/SharedDatabase.ts`, `modules/app/roles.yml`, `modules/app/.env.yml`). Merge template updates while preserving local edits. `app.yml`: keep `type` and any local config; `roles.yml`: keep local roles, add new template roles; `.env.yml`: add new keys with template defaults, **keep every existing local value** — never reset a URL, secret, or tuned setting. Docker/compose: apply template changes, keep local service tweaks (ports, env, extra services).
 - **Hand-written entry code — `modules/app/src/index.ts`, `OnAppStart.ts`.** Almost always customized. Create only if missing. If present, merge *only genuine template changes* (a new default option, import, or wiring) onto the local structure — never revert the user's config, middleware wiring, or logic.
 - **CI/CD — `.github/**`, `.gitlab/**`, `.gitlab-ci.yml`, `bitbucket-pipelines.yml`.** Refresh template steps (bun/runner versions, new stages) while preserving local pipeline edits (deploy targets, secrets, extra jobs). **Only reconcile the provider already present locally** — never add a second provider's files.
-- **README.md** and assistant config (`AGENTS.md`, `.claude/**`, `.codex/**`, …). Skip here. README is project-owned; for assistant config run the **`agent-skills-update`** skill, which merges it properly.
+- **README.md** and assistant config (`AGENTS.md`, `.agents/**`, `.claude/**`, `.codex/**`, …). Skip here. README is project-owned; for assistant config run **`$agent-skills-update`**, which merges it properly.
 
 ## 5. Scope guard
 
@@ -66,11 +63,12 @@ Only touch files the generator produced. Skip anything under `node_modules/`, `.
 ## 6. Clean up and verify
 
 ```bash
-rm -rf "$TMPDIR/talos-project-update"
+find tmp/talos-project-update -mindepth 1 -depth -delete
+rmdir tmp/talos-project-update
 talos check --strict --logs
 ```
 
-`talos check --strict --logs` is the only validation step — always run it with both flags, never bare — fix every error and warning it reports (usually an unresolved import or type/format error from a merge), then re-run until it is clean. Hand app-code failures to the `debug` skill.
+`talos check --strict --logs` is the only validation step — always run it with both flags, never bare — fix every error and warning it reports (usually an unresolved import or type/format error from a merge), then re-run until it is clean. Hand app-code failures to `$debug`.
 
 ## 7. Report
 

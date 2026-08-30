@@ -1,10 +1,6 @@
 ---
 name: issue-pull
-description: Pull one or more issues from Linear into local YAML files with talos issue:pull, inferring which issue IDs to pull from the user's request. After pulling, any issue whose state is Backlog or Todo is handed to the /issue-plan skill so it lands as a fully planned, ready-to-implement issue. Reads/writes modules/<module>/issues/<ID>.yml.
-when_to_use: Use when the user wants to pull existing Linear issues into the repo. Triggers on requests like "pull issue OON-123456", "pull these Linear issues", or "sync issue <ID> from Linear".
-model: sonnet
-effort: medium
-argument-hint: '[issue-id ...|linear-url]'
+description: Pull Linear issues into local YAML with `talos issue:pull`, then plan any Backlog or Todo issue through `$issue-plan`.
 ---
 
 # Issue Pull
@@ -15,7 +11,7 @@ argument-hint: '[issue-id ...|linear-url]'
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** the Linear issue IDs from the user's request, **pull** them into local YAML with `talos issue:pull`, then **plan** every pulled issue that is still in `Backlog` or `Todo` by handing it to the `/issue-plan` skill. Never restructure or plan inline — `/issue-plan` owns all planning.
+**Resolve** the Linear issue IDs from the user's request, **pull** them into local YAML with `talos issue:pull`, then **plan** every pulled issue that is still in `Backlog` or `Todo` by handing it to the `$issue-plan` skill. Never restructure or plan inline — `$issue-plan` owns all planning.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -50,10 +46,10 @@ talos issue:pull --id=<ID1>,<ID2>,... [--module=<module>] [--provider=linear|git
 
 For every successfully pulled issue, read its written `modules/<module>/issues/<identifier>.yml` and inspect the top-level `state` (set from the Linear workflow state):
 
-- **`Backlog` or `Todo`** → the issue needs planning. `/issue-plan` only plans issues whose `state` is exactly `Todo`, so if the state is `Backlog`, first set `state: "Todo"` in the YAML (Edit that one field). Then invoke the **`/issue-plan`** skill with the issue's identifier so it is restructured into `context` / `goal` / `dod` / `testing` / `dependencies`, labelled, and moved to `Planned`.
+- **`Backlog` or `Todo`** → the issue needs planning. `$issue-plan` only plans issues whose `state` is exactly `Todo`, so if the state is `Backlog`, first set `state: "Todo"` in the YAML (Edit that one field). Then invoke the **`$issue-plan`** skill with the issue's identifier so it is restructured into `context` / `goal` / `dod` / `testing` / `dependencies`, labelled, and moved to `Planned`.
 - **Any other state** (`In Progress`, `In Review`, `Done`, `Planned`, …) → leave as pulled; do **not** plan. Note it in the summary with its state.
 
-Collect all Backlog/Todo identifiers first, then hand them to `/issue-plan` together (it plans one or more issues across modules in a single run). Let `/issue-plan` finish before reporting.
+Collect all Backlog/Todo identifiers first, then hand them to `$issue-plan` together (it plans one or more issues across modules in a single run). Let `$issue-plan` finish before reporting.
 
 ## 4. Validate the written files
 
@@ -63,8 +59,8 @@ Tracker payloads are external input and routinely violate the local conventions 
 talos issue:check --id=<ID1>,<ID2>,...
 ```
 
-Repair every diagnostic — casing, the change-type label that must come first, `dod`/`testing` checkbox grammar, an `id` that no longer matches its filename after a GitHub rename — and re-run until it exits `0`. If a finding needs real planning content rather than a mechanical fix, that is `/issue-plan`'s job (step 3), not this skill's. Never hand-write `context`/`goal`/`dod`/`testing` here.
+Repair every diagnostic — casing, the change-type label that must come first, `dod`/`testing` checkbox grammar, an `id` that no longer matches its filename after a GitHub rename — and re-run until it exits `0`. If a finding needs real planning content rather than a mechanical fix, that is `$issue-plan`'s job (step 3), not this skill's. Never hand-write `context`/`goal`/`dod`/`testing` here.
 
 ## 5. Confirm
 
-Report a batch summary. Per issue: `id`, `title`, module, its written path, whether it was `created` or `updated`, its pulled `state`, and whether it was handed to `/issue-plan` (and the plan outcome, e.g. planned / split into sub-issues). Then list any ids that could not be pulled (unknown in Linear, or a failed request), any that still fail `talos issue:check` with the rules they violate, and, if pulling stopped early, why.
+Report a batch summary. Per issue: `id`, `title`, module, its written path, whether it was `created` or `updated`, its pulled `state`, and whether it was handed to `$issue-plan` (and the plan outcome, e.g. planned / split into sub-issues). Then list any ids that could not be pulled (unknown in Linear, or a failed request), any that still fail `talos issue:check` with the rules they violate, and, if pulling stopped early, why.

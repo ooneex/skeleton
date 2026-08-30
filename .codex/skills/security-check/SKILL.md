@@ -1,11 +1,6 @@
 ---
 name: security-check
-description: Audit every dependency in the workspace against the OSV.dev online vulnerability database with `talos security:check`, then report grouped by module/package name and sorted by severity — or file one YAML issue per vulnerability with `--issues`.
-when_to_use: Use when the user wants to scan dependencies for known CVEs/advisories (a supply-chain / dependency audit), gate a release on vulnerabilities, or turn security findings into trackable issues. This audits installed dependencies via lockfiles against OSV.dev — to audit hand-written source code for vulnerabilities, use issue-found instead.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos security:check *), Bash(talos issue:push *), Read, Edit, Grep, Glob
-argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--audit-level=<low|moderate|high|critical>]'
+description: Audit workspace dependencies with OSV.dev through `talos security:check`, report vulnerabilities, or file issue YAML.
 ---
 
 # Security Check
@@ -73,4 +68,4 @@ Re-run the full audit once every remediation is applied to confirm the workspace
 
 ## Related
 
-`talos check --strict --logs` (always run it with both flags, never bare) runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-fix` when you want the whole-project verdict and its fixes, and this skill when you are working the vulnerabilities themselves.
+`talos check --strict --logs` (always run it with both flags, never bare) runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `$project-fix` when you want the whole-project verdict and its fixes, and this skill when you are working the vulnerabilities themselves.

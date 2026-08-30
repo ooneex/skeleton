@@ -1,10 +1,6 @@
 ---
 name: issue-push
-description: Push one or more local YAML issues to Linear with talos issue:push, inferring which issue IDs to push from the user's request. Creates the issue in Linear when it does not exist yet and updates it in place when it does, syncing title, state, priority, labels, and a structured description (module, context, goal, dod, testing, dependencies). Reads modules/<module>/issues/<ID>.yml.
-when_to_use: Use when the user wants to publish or sync local issues up to Linear. Triggers on requests like "push issue OON-123456 to Linear", "push these issues", or "sync my local issue <ID> up to Linear".
-model: sonnet
-effort: low
-argument-hint: '[issue-id ...]'
+description: Create or update Linear issues from local issue YAML with `talos issue:push`, preserving structured fields and state.
 ---
 
 # Issue Push
@@ -40,7 +36,7 @@ A push is a write to a shared tracker — publishing a malformed issue is expens
 talos issue:check --id=<ID1>,<ID2>,...
 ```
 
-**Do not push while the check reports errors.** It catches exactly what corrupts a push: a file that no longer parses, an `id` that stopped matching its filename (which makes push look up the wrong issue), a `state` or `priority` outside the vocabulary Linear is matched against, and an unknown label that would be created in the tracker by mistake. Fix mechanical violations in place and re-run; if an issue needs structural work, hand it to `/issue-plan` and exclude it from this push. Warnings do not block a push — note them in the summary.
+**Do not push while the check reports errors.** It catches exactly what corrupts a push: a file that no longer parses, an `id` that stopped matching its filename (which makes push look up the wrong issue), a `state` or `priority` outside the vocabulary Linear is matched against, and an unknown label that would be created in the tracker by mistake. Fix mechanical violations in place and re-run; if an issue needs structural work, hand it to `$issue-plan` and exclude it from this push. Warnings do not block a push — note them in the summary.
 
 ## 3. Push the issues
 

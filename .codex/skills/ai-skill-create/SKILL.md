@@ -1,11 +1,6 @@
 ---
 name: ai-skill-create
 description: Generate a new AI skill class with its test file, then complete the generated code.
-when_to_use: Use when creating a skill that implements ISkill from @talosjs/ai — a named procedure a chat can draw on, bundling instructions with the tools they need.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos ai:skill:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make AI Skill Class

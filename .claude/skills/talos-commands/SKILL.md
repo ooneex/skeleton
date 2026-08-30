@@ -267,6 +267,6 @@ There is no `talos *:secret:push`. Push a CI secret with the provider's own CLI/
 
 ## Assistant & Shell setup
 ```bash
-talos agent:skills:create  # Write AGENTS.md + skills/agents for the selected assistants (.claude, .codex, ...)
+talos agent:skills:create [--agents <dir>] [--cwd <path>] [--name <name>] [--source-dir <path>] [--silent] [--no-cache]  # Write native/fallback assistant config
 talos completion:zsh       # Install Zsh tab-completion for the talos commands (~/.zsh)
 ```

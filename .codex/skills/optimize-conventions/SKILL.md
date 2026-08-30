@@ -1,8 +1,6 @@
 ---
 name: optimize-conventions
-description: Project coding conventions — explicit visibility, arrow functions vs class methods, Type/I naming (DI-enforced), no non-null assertions, nullable entity columns, DI wiring, code hygiene, duplication/dead-code removal, and performance rules.
-when_to_use: Use when enforcing conventions, refactoring, or reviewing a module's code style.
-user-invocable: false
+description: Apply this project's TypeScript, DI, entity, naming, hygiene, duplication, and performance conventions.
 ---
 
 # Coding Conventions
@@ -183,4 +181,4 @@ export class UserNotFoundException extends Exception {
 
 ## File & Folder Structure
 
-**Respect the module's existing file and folder structure.** Don't invent a layout — look at the matching structure skill in `.claude/skills/` to know what's expected before creating, moving, or renaming anything: `talos-module` (backend `module`/`api`/`microservice`), `talos-spa` (`spa`/`admin`), `talos-design` (`design`), `talos-storybook` (`storybook`), `talos-swagger` (`swagger`), or `talos-scaffold`/`talos-architecture` for the project-level layout. A file in the wrong place is a violation to fix, but only move it to the location those references define.
+**Respect the module's existing file and folder structure.** Load the matching structure skill before creating, moving, or renaming anything: `$talos-module` for backend modules, `$talos-spa` for SPA/admin, `$talos-design` for design, `$talos-storybook` for storybook, `$talos-swagger` for Swagger, and `$talos-scaffold` or `$talos-architecture` for project-level layout decisions. A file in the wrong place is a violation, but only move it to the location those references define.

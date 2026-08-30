@@ -1,10 +1,6 @@
 ---
 name: issue-plan
-description: Create and plan one or more YAML issues from the user's input. Infers target issues and modules from whatever the user says — existing issue files/IDs and/or free-form descriptions, across one or more modules. For each description it scaffolds the issue with talos issue:create (inferring the module, and scaffolding the module itself when the user names one that doesn't exist yet), then plans it — restructuring into context, goal, definition of done, and dependencies, extracting labels, and optionally splitting into ordered sub-issues with the same structure. Reads/writes modules/<module>/issues/<ID>.yml.
-when_to_use: Use when the user wants to create and plan one or more YAML issues from descriptions or existing issue files. Triggers on requests like "create an issue", "plan this issue", or "turn this into issues".
-model: opus
-effort: high
-argument-hint: '[issue-id|description]'
+description: Create or restructure local issue YAML into planned, labelled, dependency-aware work, optionally split into ordered sub-issues.
 ---
 
 # Issue Plan
@@ -26,7 +22,7 @@ Plan one or more issues across one or more modules. Each input is **either** an 
 
 ### Plan Mode First
 
-Investigate in Claude Code's read-only plan mode: resolve targets, read issue files and module configs, work out restructuring/labelling/splitting. Present the plan — including any module that has to be scaffolded first (step 0b) — then **exit to execute**: all repo writes (module scaffolding, `talos issue:create`, YAML rewrites, parent deletion) happen only after leaving plan mode.
+Start with a read-only planning phase: resolve targets, inspect issue files and module configs, and decide restructuring, labels, and splitting. Record that plan before making changes, including any module that step 0b must scaffold. Then execute the approved workflow; do not mix exploratory reads with speculative writes.
 
 ### 0. Resolve Targets and Mode
 
@@ -120,7 +116,7 @@ Rules:
 - **Change-type** — `Feature`, `Enhancement`, `Bug`, `Security`, `Hotfix`, `Performance`, `Refactor`, `Cleanup`, `Architecture`, `Testing`, `Documentation`, `Build`, `Dependencies`, `CI`, `Style`, `Improvement`, `Chore`, `Maintenance`, `Revert`. `Breaking Change` is a modifier.
 - **Area** — `Database`, `API`, `UI`, `SPA`, `Design`, `Infrastructure`.
 
-**Always ≥1 change-type label, listed first** — `/issue-fix` maps it to the branch type (`Feature`→`feat/…`, `Bug`→`fix/…`, `Refactor`→`refactor/…`); area-only falls back to `chore/…`. Add area labels when helpful. Leave `branch` unset.
+**Always ≥1 change-type label, listed first** — `$issue-fix` maps it to the branch type (`Feature`→`feat/…`, `Bug`→`fix/…`, `Refactor`→`refactor/…`); area-only falls back to `chore/…`. Add area labels when helpful. Leave `branch` unset.
 
 **State** — always `Planned` (every sub-issue when split, else the parent). Valid: `Todo`, `Planned`, `In Progress`, `Done`.
 
@@ -261,12 +257,12 @@ Front-end SPA (TanStack Router + Query), **not** registered into `AppModule`/`Sh
 - `src/features/<feature>/` — self-contained slice owning `assets/`, `components/`, `hooks/` (data/API/UI state), `layouts/`, `services/` (only layer talking to backend), `store/`, `styles/`, `types/`, `utils/`. Must not import another feature's internals — promote shared code to `src/shared/`.
 - `src/shared/<sub-layer>/` — the only place ≥2 features import in common.
 
-For a new feature, `talos spa:feature:create --name <Name> --module <module>` (`/spa-feature-create`) scaffolds route, layouts (`features/<feature>/layouts/`), and example hooks (`useGet<Name>`, `useUpdate<Name>`). Describe the feature, route path, layouts, and hooks — hooks as `useGet<Name>`/`useUpdate<Name>`, components/layouts in PascalCase.
+For a new feature, `talos spa:feature:create --name <Name> --module <module>` (`$spa-feature-create`) scaffolds route, layouts (`features/<feature>/layouts/`), and example hooks (`useGet<Name>`, `useUpdate<Name>`). Describe the feature, route path, layouts, and hooks — hooks as `useGet<Name>`/`useUpdate<Name>`, components/layouts in PascalCase.
 
 ### Storybook (`type: "storybook"`) — `### Front-End Structure`
 
 Component gallery (spa-flavour, TanStack Router) previewing a **design module's** components/icons, **not** registered into `AppModule`/`SharedModule`. Every preview is a story `meta` importing through the design alias. Name concrete files/folders:
-- `src/features/<component>/<Name>.stories.tsx` — the only thing under `features/`; each exports `meta satisfies Meta<typeof Component>`. Compound sub-components are sibling `<Name><Sub>.stories.tsx` (title `"<Name>.<Sub>"`, same `meta.group`); icons share `features/icons/` as `<Name>Icon.stories.tsx`. Author with `/storybook-story-create` — no `talos` generator.
+- `src/features/<component>/<Name>.stories.tsx` — the only thing under `features/`; each exports `meta satisfies Meta<typeof Component>`. Compound sub-components are sibling `<Name><Sub>.stories.tsx` (title `"<Name>.<Sub>"`, same `meta.group`); icons share `features/icons/` as `<Name>Icon.stories.tsx`. Author with `$storybook-story-create` — no `talos` generator.
 - `src/shared/` — gallery engine (`story/types.ts`, `story/registry.ts`, `components/Canvas.tsx`, `Controls.tsx`, `Sidebar.tsx`, `CommandPalette.tsx`); touch only when discovery/preview logic changes.
 - `vite.config.ts` — the design alias(es) (`@module/design` → `../design/src`); import through the alias, never relative cross-module paths.
 

@@ -1,9 +1,6 @@
 ---
 name: pr
-description: Create a pull request for the current branch. Pushes the branch, analyzes the commits and diff against the base branch, then opens a PR with the GitHub CLI using a conventional title and a structured Summary / Changes / Testing body. A branch built on another unmerged branch is opened as a layer of a stacked PR chain, targeting the branch below it.
-when_to_use: Use when the user wants to open a pull request for the current branch. Triggers on requests like "create a PR", "open a pull request", or "raise a PR".
-model: sonnet
-effort: medium
+description: Push the current branch and open or update a conventional GitHub pull request, including stacked-PR base handling.
 ---
 
 # Create Pull Request

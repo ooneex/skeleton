@@ -1,11 +1,6 @@
 ---
 name: spa-feature-create
 description: Generate a new SPA feature (route, layout, error/not-found/skeleton boundaries, and TanStack Query hooks), then complete the generated code.
-when_to_use: Use when adding a feature to a SPA module built on @tanstack/react-router and @tanstack/react-query.
-model: sonnet
-effort: medium
-allowed-tools: Bash(talos spa:feature:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
 # Make SPA Feature

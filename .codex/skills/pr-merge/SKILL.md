@@ -1,10 +1,6 @@
 ---
 name: pr-merge
-description: Land the PR(s) for issues a reviewer approved (state To Merge). Resolves the issue YAML from user input (id, module, or title), gates on merge-readiness (To Merge + branch + pr), approves the PR, then verifies the merged result with talos check --strict --logs plus the issue's dod and, for frontend modules, its testing steps (backend module/api/microservice testing steps are verified manually and never gate the merge). A standalone PR is merged into the base locally and pushed; a stacked PR is rebased onto the trunk and landed bottom-up with gh stack merge, which lets GitHub re-target the layers above. Only when green does it delete the branch local+remote and promote the issue to Done. The In Review -> To Merge gate is owned by pr-review; this skill consumes its approved output.
-when_to_use: Use to approve, locally merge, and land PRs for issues that passed review. Triggers on "merge PR <ID>", "merge the <module> issues in review", or "approve and merge this pull request". Not for reviewing (use pr-review) or opening (use pr) a PR.
-model: opus
-effort: high
-argument-hint: '[issue-id|module|title]'
+description: Land approved issue PRs from `To Merge`, verifying checks and landing stacked PRs bottom-up before marking issues Done.
 ---
 
 # Merge Pull Request
