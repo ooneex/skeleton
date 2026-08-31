@@ -44,7 +44,7 @@ Failures first, then warnings — **warnings are in scope**, including `dependen
 - **issues** — mechanical fixes to `$issue-check`, judgement calls to `$issue-plan`.
 - **commits** — reword **unpushed** commits only (`git rebase -i`); never rewrite published history.
 - **hygiene** — resolve conflict markers, drop `.only`/`.skip`, turn bare `TODO`/`FIXME` into an issue or delete it.
-- **e2e** — fix the application, not the assertion.
+- **e2e** — run browser flows as `bun:test` specs powered by `Bun.WebView`; fix the application, not the assertion.
 
 ## 3. Verify
 

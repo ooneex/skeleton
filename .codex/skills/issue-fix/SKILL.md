@@ -11,7 +11,7 @@ description: Implement planned issue YAML with the matching custom fixer, verify
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; e2e only for spa/storybook), `talos check --strict --logs`, DoD, and the `In Review` transition.
+**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; `bun:test` + `Bun.WebView` e2e for spa/storybook), `talos check --strict --logs`, DoD, and the `In Review` transition.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -121,7 +121,7 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
-Each fixer loads the relevant `$talos-module`, `$talos-spa`, `$talos-design`, or `$talos-storybook` skill before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos check --strict --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers still satisfy the `testing` steps with e2e tests for browser-flow steps and check those boxes off before promoting.
+Each fixer loads the relevant `$talos-module`, `$talos-spa`, `$talos-design`, or `$talos-storybook` skill before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos check --strict --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers satisfy each browser-flow step with a `bun:test` spec powered by `Bun.WebView`, run it through `talos e2e:run`, and check the box only after it passes.
 
 **Dispatch independent units concurrently, each through its own subagent.** A standalone issue and each stack (as a whole) are independent of one another — nothing about worktrees or branches ties them together, so there's no reason to make one wait on another. Within a stack, layers stay strictly sequential: they share one worktree and one checked-out branch, so a layer must finish (commit + push) before the next layer branches off it inside that worktree — a stack's layers count as **one** unit for concurrency purposes, never split across subagents.
 

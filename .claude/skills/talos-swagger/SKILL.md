@@ -31,7 +31,7 @@ Like an SDK, a swagger **copies** its target's contract rather than importing it
 modules/<name>/                   # type: "swagger"
   vite.config.ts                # Build + dev config. Declares the design alias (`@module/design` → `../design/src`).
                                 #   Route files import through it — never with relative paths across modules.
-  playwright.config.ts          # e2e config, pinned to the module's dev port.
+  e2e/                          # bun:test specs using Bun.WebView against the module's dev URL from E2E_BASE_URL.
   public/                       # Static files served at the web root — favicon, logos, fonts.
     openapi.json                #   The published specification, written by `talos swagger:create` from the controllers.
                                 #     The mount prefix is the `servers` entry and each path is `/v<version><route>`, which
@@ -92,7 +92,6 @@ modules/<name>/                   # type: "swagger"
       utils/                    #   `cn`, `json`, `interpolate` (`{{variable}}` resolution), `Markdown`.
   tests/                        # Mirrors `src/` as `*.spec.ts`. Never import `shared/route/registry` — `import.meta.glob`
                                 #   does not exist outside Vite.
-  e2e/                          # Playwright specs driving the explorer.
 ```
 
 ## Conventions

@@ -95,7 +95,7 @@ Run the specs you add (`bun test modules/<module>/tests/...`) and keep them gree
 
 ## E2e tests
 
-For each `testing` step that exercises a browser flow, run `talos e2e:create --name=<Name> --module=<module>` (via `/e2e-create`), fill in `modules/<module>/e2e/<Name>.spec.ts` to drive the flow and assert the result, set `baseURL`/`webServer` in `playwright.config.ts`, and check off the box once the test passes (`talos workspace:run --commands=e2e --modules=<module>`). A pure CLI check (e.g. `talos check --strict --logs`) is satisfied by running it, not a new spec.
+For each `testing` step that exercises a browser flow, use `/e2e-create` to create or complete `modules/<module>/e2e/<Name>.spec.ts` as a `bun:test` spec powered by the built-in `Bun.WebView`. Drive real trusted input with `view.click`/`type`/`press`, assert DOM state through `view.evaluate`, read the target origin from `E2E_BASE_URL`, and keep the module script at `"e2e": "bun test e2e"`. Start the app separately, then check off the box only after `talos workspace:run --commands=e2e --modules=<module> --no-cache --logs` passes. A pure CLI check (e.g. `talos check --strict --logs`) is satisfied by running it, not a new spec.
 
 ## Self-review
 

@@ -146,7 +146,7 @@ talos workspace:run --commands=build,lint,test                # Run scripts acro
 talos workspace:run --commands=build --modules=billing,user   # Only the named modules (also --packages=a,b)
 talos workspace:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos workspace:run --commands=build --no-cache               # Ignore the task cache and re-run everything
-talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run the Playwright e2e suite
+talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run Bun.WebView specs through each target's bun test e2e script
 talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
 talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 talos build [--modules=a,b] [--logs] [--no-cache]            # Build every target in dependency order, several at once

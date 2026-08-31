@@ -234,7 +234,7 @@ comments:
 `testing` is an **ordered checkbox list** (`1. [ ]`, …) of concrete steps proving the change works end-to-end. Where `dod` states *what must be true*, `testing` states *how to prove it*.
 - Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check --strict --logs`, `talos app:start`, a specific `curl`/route, `talos e2e:run` only for front-end module types).
 - Cover every `dod` item, including meaningful edge/error cases.
-- Match the module type: **backend** (`module`/`api`/`microservice`, or none) tests endpoints/services/migrations directly — unit/integration tests (`bun:test`) and `curl`/route calls, **never Playwright/`talos e2e:run`**; SPA/design/storybook tests rendered routes and interactions (`talos app:start` + browser flow, `talos e2e:run` when a spec exists).
+- Match the module type: **backend** (`module`/`api`/`microservice`, or none) tests endpoints/services/migrations directly — unit/integration tests (`bun:test`) and `curl`/route calls, never `Bun.WebView`/`talos e2e:run`; SPA/design/storybook tests rendered routes and trusted interactions with `Bun.WebView` (`talos app:start` + browser flow, `talos e2e:run` when a spec exists).
 - Keep self-contained; omit only when nothing is observable (pure chore).
 
 ```yaml
