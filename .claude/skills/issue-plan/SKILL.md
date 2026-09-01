@@ -11,7 +11,7 @@ argument-hint: '[issue-id|description]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
@@ -232,14 +232,14 @@ comments:
 ## How to Test
 
 `testing` is an **ordered checkbox list** (`1. [ ]`, …) of concrete steps proving the change works end-to-end. Where `dod` states *what must be true*, `testing` states *how to prove it*.
-- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check --strict --logs`, `talos app:start`, a specific `curl`/route, `talos e2e:run` only for front-end module types).
+- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos project:check --strict --logs`, `talos app:start`, a specific `curl`/route, `talos e2e:run` only for front-end module types).
 - Cover every `dod` item, including meaningful edge/error cases.
 - Match the module type: **backend** (`module`/`api`/`microservice`, or none) tests endpoints/services/migrations directly — unit/integration tests (`bun:test`) and `curl`/route calls, never `Bun.WebView`/`talos e2e:run`; SPA/design/storybook tests rendered routes and trusted interactions with `Bun.WebView` (`talos app:start` + browser flow, `talos e2e:run` when a spec exists).
 - Keep self-contained; omit only when nothing is observable (pure chore).
 
 ```yaml
 testing: |
-  1. [ ] Run `talos check --strict --logs` from the root — lint, types, tests pass.
+  1. [ ] Run `talos project:check --strict --logs` from the root — lint, types, tests pass.
   2. [ ] Start with `talos app:start` and open `/users/new`.
   3. [ ] Submit a duplicate email — rejected with 409 and inline error shows.
 ```

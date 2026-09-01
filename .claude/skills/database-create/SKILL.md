@@ -4,7 +4,7 @@ description: Generate a new database class with its test file, then complete the
 when_to_use: Use when creating a new database adapter that extends TypeormDatabase from @talosjs/database.
 model: sonnet
 effort: low
-allowed-tools: Bash(talos database:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos database:create *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob
 argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis>]'
 ---
 
@@ -12,7 +12,7 @@ argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|red
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** Pick the recommended option and proceed.
 
@@ -104,7 +104,7 @@ describe("<Name>Database", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos check --strict --logs
+talos project:check --strict --logs
 ```
 
 Fix every failure before completing.

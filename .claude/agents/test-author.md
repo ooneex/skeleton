@@ -13,7 +13,7 @@ color: yellow
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Write tests that prove behavior for a given target file or module. Create/repair `.spec.ts` files and run the suite. Do **not** change production code — if a test reveals a defect, report it and let the caller fix it.
 
@@ -25,7 +25,7 @@ Write tests that prove behavior for a given target file or module. Create/repair
 You are given a target — a class/file (e.g. `modules/billing/src/services/InvoiceService.ts`) or a module. When the target is a whole module, start by measuring it so you write the tests that are actually missing rather than the ones that are easy:
 
 ```bash
-talos coverage:check --modules=<module> --logs
+talos coverage --modules=<module> --logs
 ```
 
 The report names the least-covered files and the exact uncovered line ranges — work that list top-down. Tests mirror `src/` under `modules/<module>/tests/`, so `src/services/InvoiceService.ts` is tested at `tests/services/InvoiceService.spec.ts`. Read the target and its collaborators first: understand what each public method does, returns, and how it fails before writing a single assertion.
@@ -56,8 +56,8 @@ Run the target's tests and iterate until green:
 
 ```bash
 talos workspace:run --commands=test --modules=<module> --logs  # scope to the target
-talos coverage:check --modules=<module> --logs                 # confirm the gap actually closed
-talos check --strict --logs
+talos coverage --modules=<module> --logs                 # confirm the gap actually closed
+talos project:check --strict --logs
 ```
 
 Coverage is the check, not the goal: never add a test that asserts nothing to move a rate. If a file cannot be meaningfully tested in isolation, say so in the report instead of covering it with a hollow spec.

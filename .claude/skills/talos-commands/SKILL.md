@@ -9,7 +9,7 @@ user-invocable: false
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -147,8 +147,9 @@ talos workspace:run --commands=build --modules=billing,user   # Only the named m
 talos workspace:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos workspace:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run Bun.WebView specs through each target's bun test e2e script
-talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
-talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
+talos workspace:check --logs                                  # Install dependencies, then lint every target
+talos check --logs                                            # Install dependencies, lint, then run every test suite
+talos check --modules=billing,user --logs                     # Scope lint and tests to named modules (also --packages=a,b)
 talos build [--modules=a,b] [--logs] [--no-cache]            # Build every target in dependency order, several at once
 talos fmt   [--modules=a,b] [--logs] [--no-cache]            # Format every target, all at once
 talos lint  [--modules=a,b] [--logs] [--no-cache]            # Lint every module, several at once
@@ -159,7 +160,7 @@ talos build|fmt|lint --output=md                             # Also write var/ou
 
 `build`, `fmt` and `lint` each run their targets in parallel — `build` starts a target the moment everything it imports has been built, `fmt` and `lint` are order-independent and so run flat out. Like `check`, all three take `--output=md|json`, which writes the same report to `var/outputs/talos_<command>.{md,json}` in the shape an AI agent is handed to fix what it lists; the console report and the exit status are unchanged by it.
 
-`workspace:check` is shorthand for `workspace:run --commands=install,build,fmt,lint,test` — the full verification gate in that order, with the same caching, filtering (`--packages`/`--modules`), `--logs`, and `--no-cache` flags.
+`workspace:check` installs dependencies and then runs the cached lint command. `check` runs that same gate and follows it with the cached test command. Both accept filtering (`--packages`/`--modules`), `--logs`, `--no-cache`, `--output=md|json`, and `--cwd`; build and formatting remain explicit commands.
 
 ## Security
 ```bash
@@ -173,31 +174,31 @@ talos security:check --issues                           # Create one YAML Securi
 
 ## Test coverage
 ```bash
-talos coverage:check --logs                             # Run every module's suite with coverage, report per module (worst first)
-talos coverage:check --logs --modules=billing,user      # Only the named modules (also --packages=a,b)
-talos coverage:check --logs --threshold=80              # Judge against 80% instead of the default 90%
-talos coverage:check --logs --concurrency=1             # Run the suites one at a time (default: cores, capped at 8)
-talos coverage:check --logs --issues                    # Create one YAML issue per failing/under-covered module instead of printing
-talos coverage:check --logs --output=md                 # Also write var/outputs/talos_coverage.md for an agent to fix (also --output=json)
+talos coverage --logs                             # Run every module's suite with coverage, report per module (worst first)
+talos coverage --logs --modules=billing,user      # Only the named modules (also --packages=a,b)
+talos coverage --logs --threshold=80              # Judge against 80% instead of the default 90%
+talos coverage --logs --concurrency=1             # Run the suites one at a time (default: cores, capped at 8)
+talos coverage --logs --issues                    # Create one YAML issue per failing/under-covered module instead of printing
+talos coverage --logs --output=md                 # Also write var/outputs/talos_coverage.md for an agent to fix (also --output=json)
 ```
 
-`coverage:check` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table bun prints (falling back to the module's `lcov.info`). Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
+`coverage` discovers every member of `modules/` and `packages/` and runs `bun test tests --coverage` in each, reading the coverage table Bun prints (falling back to the module's `lcov.info`). When a package disables coverage for ordinary tests in `bunfig.toml`, the command uses a temporary adjacent config that enables coverage while preserving its other test settings. Rust crates, Python distributions and modules without a `tests/` directory are skipped; a suite that passes without covering any code (a types-only package) is reported as *no code measured* and never averaged in. The report gives a module table (line/function rates, test tally), the least-covered files with their uncovered line ranges, the failing suites, and the workspace means. `--issues` files a `Bug`/`Urgent` issue per failing suite and a `Testing` issue (`High` when more than 25 points short, else `Medium`) per under-covered module, each carrying the rates and the thin files. The `/coverage-check` skill wraps this command.
 
 ## Project health
 ```bash
-talos check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
-talos check --logs --skip=workspace           # The fast checks only (no install/build/test)
-talos check --logs --only=conventions,tests,docs  # Only the named checks
-talos check --logs --e2e                      # Add the opt-in end-to-end suite
-talos check --logs --modules=billing,user     # Scope every module-aware check to these targets (also --packages=a,b)
-talos check --logs --audit-level=high         # Only surface high/critical vulnerabilities
-talos check --logs --strict                   # Exit 1 when a check only reports warnings
-talos check --logs --json                     # Machine-readable report for CI
+talos project:check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
+talos project:check --logs --skip=workspace           # The fast checks only (no install/build/test)
+talos project:check --logs --only=conventions,tests,docs  # Only the named checks
+talos project:check --logs --e2e                      # Add the opt-in end-to-end suite
+talos project:check --logs --modules=billing,user     # Scope every module-aware check to these targets (also --packages=a,b)
+talos project:check --logs --audit-level=high         # Only surface high/critical vulnerabilities
+talos project:check --logs --strict                   # Exit 1 when a check only reports warnings
+talos project:check --logs --json                     # Machine-readable report for CI
 ```
 
-**Always invoke it as `talos check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
+**Always invoke it as `talos project:check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
 
-`check` is the whole-project gate: it runs seventeen checks (plus the opt-in eighteenth) and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
+`project:check` is the whole-project gate: it runs seventeen checks (plus the opt-in eighteenth) and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
 
 | Check | Runs | Fails when |
 |---|---|---|
@@ -220,7 +221,7 @@ talos check --logs --json                     # Machine-readable report for CI
 | `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
 | `e2e` | opt-in (`--e2e`) — `workspace:run --commands=e2e` | a suite exits non-zero |
 
-Each check reuses the code of its dedicated command, so `check` can never disagree with `workspace:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `workspace`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
+Each project check reuses the code of its dedicated command, so `project:check` can never disagree with `workspace:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `workspace`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
 
 ## Release
 ```bash

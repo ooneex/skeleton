@@ -4,7 +4,7 @@ description: Create one or more marketing post resources inside a module — inf
 when_to_use: Use when the user wants a social/marketing post for a module — drafting a launch announcement, a feature post, a campaign across several platforms, or producing/attaching the images and videos that go with one. Triggers on "create a marketing post", "announce this feature on LinkedIn and X", "make a reel for <module>", or "add a marketing resource for <module>".
 model: opus
 effort: medium
-allowed-tools: Bash(talos marketing:create *), Bash(talos check *), Bash(bunx remotion *), Bash(bun add *), Bash(bun -e *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos marketing:create *), Bash(talos project:check *), Bash(bunx remotion *), Bash(bun add *), Bash(bun -e *), Read, Edit, Write, Grep, Glob
 argument-hint: '[description] [--module=<module>] [--platform=<platform>]'
 ---
 
@@ -12,7 +12,7 @@ argument-hint: '[description] [--module=<module>] [--platform=<platform>]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
@@ -167,7 +167,7 @@ The command creates the post folder, its `images/` and `videos/` folders, writes
 ### 7. Verify
 
 ```bash
-talos check --strict --logs
+talos project:check --strict --logs
 ```
 
 Confirm the folder name, the file name and the `id` all match, that the YAML parses, and that every listed media file is on disk with a valid `a-f0-9` name.

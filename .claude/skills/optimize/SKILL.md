@@ -11,7 +11,7 @@ argument-hint: '[module]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** On any choice, pick the recommended option and proceed.
 
@@ -55,7 +55,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 4. **Duplication & dead code** — find the verbatim copies with the check rather than by eye:
 
    ```bash
-   talos check --only=duplication --modules=<module> --logs
+   talos project:check --only=duplication --modules=<module> --logs
    ```
 
    Each warning reads `<file>:<line>  duplication.block  <n> lines repeated at <file>:<line>, …`. Read every location it names before touching anything — the block that moves is the one whose module owns the logic.
@@ -69,12 +69,12 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 
 5. **Performance** — apply the performance rules from `optimize-conventions`.
 
-6. **Tests** — invoke `optimize-testing`, then prune trivial tests, keep/improve meaningful ones, consolidate redundancy. Measure the result with `talos coverage:check --modules=<module> --logs`: pruning should drop hollow tests without losing covered behaviour, so report the before/after rates and add the tests the report names as missing (hand a large gap to the `test-author` agent).
+6. **Tests** — invoke `optimize-testing`, then prune trivial tests, keep/improve meaningful ones, consolidate redundancy. Measure the result with `talos coverage --modules=<module> --logs`: pruning should drop hollow tests without losing covered behaviour, so report the before/after rates and add the tests the report names as missing (hand a large gap to the `test-author` agent).
 
 7. **UI** — if `design`/`spa`, invoke `optimize-ui` and adopt its patterns. Re-ground the UI in the design module's `src/inspirations/` library (`optimize-ui`'s `references/inspirations.md`): pull the 2–4 inspirations matching each screen you touch and close the gap where the existing UI is thinner than them in structure, density, or state coverage. Then prove the accessibility of the result:
 
    ```bash
-   talos check --strict --only=accessibility --modules=<module> --logs
+   talos project:check --strict --only=accessibility --modules=<module> --logs
    ```
 
    Fix every reported violation (never by disabling a rule); hand a large backlog to the `accessibility-fixer` agent.
@@ -82,7 +82,7 @@ Invoke each sub-skill only at the step that needs it; skip ones that don't apply
 8. **Verify** — from the root:
 
    ```bash
-   talos check --strict --concurrency=4 --logs
+   talos project:check --strict --concurrency=4 --logs
    ```
 
    Fix every failure before completing.

@@ -4,7 +4,7 @@ description: Generate a new React component with a happy-dom + React Testing Lib
 when_to_use: Use when adding a presentational or container React component to a SPA module — at the module level or scoped to a feature.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
+allowed-tools: Bash(talos react:component:create *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 ---
 
@@ -12,7 +12,7 @@ argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
@@ -127,7 +127,7 @@ describe("ButtonBack", () => {
 ### 5. Lint, format, and test
 
 ```bash
-talos check --strict --logs
+talos project:check --strict --logs
 ```
 
 Fix every failure before completing.

@@ -8,7 +8,7 @@ This project is a modular TypeScript/Bun backend on the **@talosjs** ecosystem. 
 
 ## CLI first
 
-Reach for the `talos` or `bun` CLI before doing the same work by hand — it is faster, deterministic, and costs a fraction of the tokens. `talos <artifact>:create` scaffolds files; `talos check --strict` (plus `fmt`, `lint`, `test`, `project:check`, `issue:check`, `coverage:check`, `security:check`, `e2e:run`) verifies them; a single `rg` / `git` / `ls` beats reading files one by one. `talos help` and `talos <command> --help` list what exists — check there first, and write a manual procedure only when no command covers it. Package manager is `bun`/`bunx` only, never `npm`, `npx`, `yarn`, or `pnpm`.
+Reach for the `talos` or `bun` CLI before doing the same work by hand — it is faster, deterministic, and costs a fraction of the tokens. `talos <artifact>:create` scaffolds files; `talos check --logs` (plus `fmt`, `lint`, `test`, `project:check`, `issue:check`, `coverage`, `security:check`, `e2e:run`) verifies them; a single `rg` / `git` / `ls` beats reading files one by one. `talos help` and `talos <command> --help` list what exists — check there first, and write a manual procedure only when no command covers it. Package manager is `bun`/`bunx` only, never `npm`, `npx`, `yarn`, or `pnpm`.
 
 ## How to reach a skill or an agent
 

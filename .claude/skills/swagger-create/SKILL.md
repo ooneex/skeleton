@@ -4,7 +4,7 @@ description: Generate a custom API-explorer module from a target app or microser
 when_to_use: Use when creating or refreshing the swagger module that documents an API — scaffolding the explorer, adding the routes of new controllers, or completing the descriptions, examples and responses of existing ones. Also use to set up its environments (base URL, bearer token, {{variables}}).
 model: sonnet
 effort: high
-allowed-tools: Bash(talos swagger:create *), Bash(talos check *), Bash(bun add *), Read, Edit, Write, Grep, Glob, Skill
+allowed-tools: Bash(talos swagger:create *), Bash(talos project:check *), Bash(bun add *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefix=<prefix>] [--force]'
 ---
 
@@ -12,7 +12,7 @@ argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefi
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -186,8 +186,8 @@ talos check
 Fix every failure. Then confirm the two checks that are specific to a swagger:
 
 ```bash
-talos check --only=openapi      # public/openapi.json matches the controllers
-talos check --only=boundaries   # nothing server-side leaked into the bundle
+talos project:check --only=openapi      # public/openapi.json matches the controllers
+talos project:check --only=boundaries   # nothing server-side leaked into the bundle
 ```
 
 An `openapi` failure means a route moved and the generator was not re-run — re-run it (step 1) rather than hand-editing `public/openapi.json`.

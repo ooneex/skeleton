@@ -4,7 +4,7 @@ description: Verify a changed UI in a running app with Bun.WebView, including re
 when_to_use: Use after changing a rendered SPA, admin, Storybook, Swagger, or design-preview surface and before calling the UI complete.
 model: sonnet
 effort: medium
-allowed-tools: Bash(bun *), Bash(talos app:start *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
+allowed-tools: Bash(bun *), Bash(talos app:start *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--module=<module>] [--url=<url>] [--route=<path>]'
 ---
 

@@ -13,7 +13,7 @@ color: purple
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Make **one** UI module keyboard- and screen-reader-usable by fixing the accessibility violations reported for it — without changing how it looks or what it exports.
 
@@ -31,7 +31,7 @@ Get the violations yourself, scoped to that module:
 
 ```bash
 git status --porcelain
-talos check --strict --only=accessibility --modules=<module> --logs
+talos project:check --strict --only=accessibility --modules=<module> --logs
 ```
 
 Each line reads `<file>:<line>  a11y/<rule>  <message>`. The trailing `not enforced — disabled in biome config: …` line lists rules the project switched **off** — those are **out of scope**: never re-enable them and never "fix" them here; report them instead so the caller can decide.
@@ -59,8 +59,8 @@ Never weaken a component to satisfy a rule: if the accessible fix would change t
 Re-run the scoped check and the module's gate, and don't stop until both are clean:
 
 ```bash
-talos check --strict --only=accessibility --modules=<module> --logs
-talos check --strict --modules=<module> --logs
+talos project:check --strict --only=accessibility --modules=<module> --logs
+talos project:check --strict --modules=<module> --logs
 ```
 
 Then run `/ui-verify` against the changed surface. Use Bun.WebView's trusted keyboard input to tab through the affected flow, confirm focus order and activation, inspect desktop and mobile screenshots, and verify that the accessibility fix did not introduce a visual or behavioral regression. Do not report completion from static rules alone.

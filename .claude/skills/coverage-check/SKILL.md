@@ -1,10 +1,10 @@
 ---
 name: coverage-check
-description: Run every module's test suite with coverage collection using `talos coverage:check`, then report line and function coverage per module with the least-covered files named — or file one YAML issue per under-covered or failing module with `--issues`.
+description: Run every module's test suite with coverage collection using `talos coverage`, then report line and function coverage per module with the least-covered files named — or file one YAML issue per under-covered or failing module with `--issues`.
 when_to_use: Use when the user wants to know how well the workspace is tested — a coverage report, a per-module coverage audit, a pre-release/pre-merge test gate, or coverage findings turned into trackable issues. This runs the suites and measures them — to write the missing tests, use the `test-author` agent or `/optimize` afterwards.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos coverage:check *), Bash(bun test *), Bash(talos issue:push *), Read, Edit, Grep, Glob
+allowed-tools: Bash(talos coverage *), Bash(bun test *), Bash(talos issue:push *), Read, Edit, Grep, Glob
 argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--threshold=<percent>] [--logs]'
 ---
 
@@ -12,15 +12,15 @@ argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--threshold=<pe
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
 > **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
 
-Drive the test-coverage audit with `talos coverage:check`. It discovers every workspace member under `modules/` and `packages/`, runs each one's suite with `bun test tests --coverage`, and merges the results into a single report — modules ranked worst first, with the files that pull each one down and their uncovered lines.
+Drive the test-coverage audit with `talos coverage`. It discovers every workspace member under `modules/` and `packages/`, runs each one's suite with `bun test tests --coverage`, and merges the results into a single report — modules ranked worst first, with the files that pull each one down and their uncovered lines.
 
-Bun already enforces `[test] coverageThreshold` from a module's own `bunfig.toml`, but only for the suite it is run in. This command is what puts every module's numbers side by side.
+Bun already enforces `[test] coverageThreshold` from a module's own `bunfig.toml`, but only for the suite it is run in. This command is what puts every module's numbers side by side. If that config sets `coverage = false` for ordinary tests, Talos runs coverage with a temporary adjacent config that changes only that setting to `true`, preserving preloads, ignores, thresholds, reporters, and output paths.
 
 ## What is run, and what is skipped
 
@@ -41,11 +41,11 @@ A suite that passes but covers nothing (a package exporting only types, whose sp
 ## Report mode (default)
 
 ```bash
-talos coverage:check --logs                         # run every suite, print the report and the output of every failing suite
-talos coverage:check --logs --modules=billing,user  # only the named modules (also --packages=a,b)
-talos coverage:check --logs --threshold=80          # judge against 80% instead of the default 90%
-talos coverage:check --logs --concurrency=1         # run the suites one at a time
-talos coverage:check --logs --output=md            # also write var/outputs/talos_coverage.md, ready to hand to an agent (also --output=json)
+talos coverage --logs                         # run every suite, print the report and the output of every failing suite
+talos coverage --logs --modules=billing,user  # only the named modules (also --packages=a,b)
+talos coverage --logs --threshold=80          # judge against 80% instead of the default 90%
+talos coverage --logs --concurrency=1         # run the suites one at a time
+talos coverage --logs --output=md            # also write var/outputs/talos_coverage.md, ready to hand to an agent (also --output=json)
 ```
 
 The report has four parts, and each answers a different question:
@@ -60,8 +60,8 @@ Read it and summarize: the overall rates, the modules under the threshold ranked
 ## Issues mode
 
 ```bash
-talos coverage:check --logs --issues                # one YAML issue per failing/under-covered module
-talos coverage:check --logs --issues --threshold=80 # only file issues for modules under 80%
+talos coverage --logs --issues                # one YAML issue per failing/under-covered module
+talos coverage --logs --issues --threshold=80 # only file issues for modules under 80%
 ```
 
 With `--issues`, nothing is printed as a report; instead one issue per problem module is written into `modules/<module>/issues/`:
@@ -84,11 +84,11 @@ This skill measures; it does not write tests. Once the report names the thin fil
 Re-run scoped to the module after the tests land:
 
 ```bash
-talos coverage:check --modules=<module> --logs
+talos coverage --modules=<module> --logs
 ```
 
-Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos check --strict --logs` so the new specs also pass fmt, lint and the rest of the gate.
+Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos project:check --strict --logs` so the new specs also pass fmt, lint and the rest of the gate.
 
 ## Related
 
-`talos check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `/project-fix` for the whole-project verdict, `/optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.
+`talos project:check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `/project-fix` for the whole-project verdict, `/optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.

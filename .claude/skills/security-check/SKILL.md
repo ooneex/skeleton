@@ -12,7 +12,7 @@ argument-hint: '[--issues] [--modules=<a,b>] [--packages=<a,b>] [--audit-level=<
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -73,4 +73,4 @@ Re-run the full audit once every remediation is applied to confirm the workspace
 
 ## Related
 
-`talos check --strict --logs` (always run it with both flags, never bare) runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-fix` when you want the whole-project verdict and its fixes, and this skill when you are working the vulnerabilities themselves.
+`talos project:check --strict --logs` (always run it with both flags, never bare) runs this audit alongside every other health check (workspace, accessibility, issues, commits, hygiene) in a single report — use `/project-fix` when you want the whole-project verdict and its fixes, and this skill when you are working the vulnerabilities themselves.

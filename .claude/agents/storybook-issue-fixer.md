@@ -13,7 +13,7 @@ color: green
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Implement **one** planned issue in a front-end storybook module and take it to `In Review`. Given a `(module, ID)` pair: read `modules/<module>/issues/<ID>.yml`, implement it following the module's conventions, lint, satisfy the Definition of Done, set `state: "In Review"`, and report. If the file doesn't exist, report the exact path checked and stop.
 
@@ -90,7 +90,7 @@ Render component specs with happy-dom + React Testing Library, query by role/tex
 
 ## E2e tests
 
-For each `testing` step that exercises a browser flow (open the gallery, pick a story from the sidebar or ⌘K palette, tweak a control and see the preview update, read the Usage tab), use `/e2e-create` to create or complete `modules/<module>/e2e/<Name>.spec.ts` as a `bun:test` spec powered by the built-in `Bun.WebView`. Drive real trusted input with `view.click`/`type`/`press`, assert DOM state through `view.evaluate`, read the target origin from `E2E_BASE_URL`, and keep the module script at `"e2e": "bun test e2e"`. Start the app separately, then check off the box only after `talos workspace:run --commands=e2e --modules=<module> --no-cache --logs` passes. A pure CLI check (e.g. `talos check --strict --logs`) is satisfied by running it, not a new spec.
+For each `testing` step that exercises a browser flow (open the gallery, pick a story from the sidebar or ⌘K palette, tweak a control and see the preview update, read the Usage tab), use `/e2e-create` to create or complete `modules/<module>/e2e/<Name>.spec.ts` as a `bun:test` spec powered by the built-in `Bun.WebView`. Drive real trusted input with `view.click`/`type`/`press`, assert DOM state through `view.evaluate`, read the target origin from `E2E_BASE_URL`, and keep the module script at `"e2e": "bun test e2e"`. Start the app separately, then check off the box only after `talos workspace:run --commands=e2e --modules=<module> --no-cache --logs` passes. A pure CLI check (e.g. `talos project:check --strict --logs`) is satisfied by running it, not a new spec.
 
 ## Self-review
 
@@ -100,7 +100,7 @@ Before Finish, check the gallery against `optimize-ui`'s self-review checklist: 
 
 ## Finish
 
-1. **Project check** — from the project root: `talos check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
+1. **Project check** — from the project root: `talos project:check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
 2. **Satisfy the DoD** — verify every `dod` checkbox is met and check each satisfied box off in the YAML (`- [ ]` → `- [x]`). Leave any unmet box unchecked and report why.
 3. **Satisfy the testing steps** — run every `testing` step and check its box off (`1. [ ]` → `1. [x]`) **only once it actually passes**. Never check a box you did not run.
 4. **Set the state** — only when **every** `dod` and `testing` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"`. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. Leave the issue branch in place here — it is still under review; `/pr-merge` is what deletes it, **both locally (`git branch -d <branch>`) and on the remote (`git push origin --delete <branch>`)**, once the issue is done and lands as `Done`, so no merged issue leaves a branch behind. If any box is unmet, leave the state untouched and report the blocker.

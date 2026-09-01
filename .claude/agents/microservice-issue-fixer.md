@@ -13,7 +13,7 @@ color: green
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Implement **one** planned issue in a microservice module and take it to `In Review`, with extra care for service boundaries and inter-service concerns. Given a `(module, ID)` pair: read `modules/<module>/issues/<ID>.yml`, implement it per the module's conventions, lint, satisfy the Definition of Done, set `state: "In Review"`, and report. If the file doesn't exist, report the exact path checked and stop.
 
@@ -106,7 +106,7 @@ Generator scaffolds are a starting point — harden every artefact rather than s
 
 ## Finish
 
-1. **Project check** — from the project root: `talos check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
+1. **Project check** — from the project root: `talos project:check --strict --logs` — the full workspace gate (install, build, fmt, lint, test) plus the project health checks. Fix everything it reports; never weaken a check to make it pass.
 2. **Satisfy the DoD** — verify every `dod` checkbox is met and check each satisfied box off in the YAML (`- [ ]` → `- [x]`). Leave any unmet box unchecked and report why.
 3. **Testing steps are manual for backend work** — do not run or check off `testing` boxes; leave them exactly as authored. A human verifies them separately.
 4. **Set the state** — once **every** `dod` box is checked, edit `modules/<module>/issues/<ID>.yml` to set `state: "In Review"` regardless of `testing` box state. The issue is promoted to `To Merge` by `/pr-review` and to `Done` by `/pr-merge` — never set those states here. Leave the issue branch in place here — it is still under review; `/pr-merge` is what deletes it, **both locally (`git branch -d <branch>`) and on the remote (`git push origin --delete <branch>`)**, once the issue is done and lands as `Done`, so no merged issue leaves a branch behind. If any `dod` box is unmet, leave the state untouched and report the blocker.
