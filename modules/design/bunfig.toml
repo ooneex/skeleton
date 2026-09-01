@@ -13,4 +13,4 @@ coveragePathIgnorePatterns = [
   "src/fonts/**",
   "src/styles/**",
 ]
-coverageThreshold = { lines = 0.99, functions = 0.99, statements = 0.99 }
+coverageThreshold = { line = 0.99, function = 0.99, statement = 0.99 }

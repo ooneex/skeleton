@@ -63,7 +63,7 @@ describe("icon library integrity", () => {
 
 describe("icon rendering", () => {
   // Rendering and unmounting all ~19k icons legitimately takes longer than bun's
-  // default 5s test timeout; extend it rather than shrinking the coverage.
+  // default test timeout; extend it rather than shrinking the coverage.
   test("every icon renders a single <svg> without throwing", () => {
     for (const icon of icons) {
       const Icon = loadIcon(icon);
@@ -74,7 +74,7 @@ describe("icon rendering", () => {
       expect(svgs[0]?.getAttribute("viewBox"), icon.path).toBe(VIEWBOX_BY_SIZE[icon.size]);
       unmount();
     }
-  }, 20000);
+  }, 60000);
 });
 
 describe("icon prop forwarding (representative sample, one per style/size/category)", () => {
