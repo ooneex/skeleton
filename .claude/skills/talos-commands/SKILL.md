@@ -150,17 +150,18 @@ talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspa
 talos workspace:check --logs                                  # Install dependencies, then lint every target
 talos check --logs                                            # Install dependencies, lint, then run every test suite
 talos check --modules=billing,user --logs                     # Scope lint and tests to named modules (also --packages=a,b)
+talos check --output=md                                       # Also write var/outputs/talos_check.md for an agent to fix (also --output=json)
 talos build [--modules=a,b] [--logs] [--no-cache]            # Build every target in dependency order, several at once
 talos fmt   [--modules=a,b] [--logs] [--no-cache]            # Format every target, all at once
 talos lint  [--modules=a,b] [--logs] [--no-cache]            # Lint every module, several at once
 talos build|fmt|lint --output=md                             # Also write var/outputs/talos_<command>.md for an agent to fix (also --output=json)
 ```
 
-`workspace:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order. Targets whose package.json lacks the script are skipped silently; the first failure stops the run and prints its output. Results are cached in `var/cache/workspace/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays logs and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
+`workspace:run` runs each command as a group (all `build`, then all `lint`, …) in workspace dependency order, with independent modules running in parallel. Targets whose package.json lacks the script are skipped silently; a failure is recorded without stopping the remaining selected targets, and the final exit is non-zero when any failed. Completed successes and failures are cached in `var/cache/workspace/`, keyed by target file content, transitive workspace deps, script text, and root configs — a cache hit replays the original verdict, exit code and failing logs, and restores output artifacts (`dist/` by default). Always pass `--logs` as an agent.
 
-`build`, `fmt` and `lint` each run their targets in parallel — `build` starts a target the moment everything it imports has been built, `fmt` and `lint` are order-independent and so run flat out. Like `check`, all three take `--output=md|json`, which writes the same report to `var/outputs/talos_<command>.{md,json}` in the shape an AI agent is handed to fix what it lists; the console report and the exit status are unchanged by it.
+`build`, `fmt` and `lint` each run their targets in parallel — `build` starts a target the moment everything it imports has finished, while `fmt` and `lint` are order-independent and run flat out. A failed target does not stop later targets, and completed failures are cached until their inputs change. Like `check`, all three take `--output=md|json`, which writes the same report to `var/outputs/talos_<command>.{md,json}` in the shape an AI agent is handed to fix what it lists; the console report and the exit status are unchanged by it.
 
-`workspace:check` installs dependencies and then runs the cached lint command. `check` runs that same gate and follows it with the cached test command. Both accept filtering (`--packages`/`--modules`), `--logs`, `--no-cache`, `--output=md|json`, and `--cwd`; build and formatting remain explicit commands.
+`workspace:check` installs dependencies and runs the cached lint command even when install fails. `check` runs that same gate and then every cached test suite even when an earlier phase fails. Both decide their exit status only after all phases finish and accept filtering (`--packages`/`--modules`), `--logs`, `--no-cache`, `--output=md|json`, and `--cwd`; build and formatting remain explicit commands. A `check --output` report carries the install, lint and test verdicts from that complete run.
 
 ## Security
 ```bash
@@ -194,6 +195,7 @@ talos project:check --logs --modules=billing,user     # Scope every module-aware
 talos project:check --logs --audit-level=high         # Only surface high/critical vulnerabilities
 talos project:check --logs --strict                   # Exit 1 when a check only reports warnings
 talos project:check --logs --json                     # Machine-readable report for CI
+talos project:check --output=md                       # Also write var/outputs/talos_project_check.md for an agent to fix (also --output=json)
 ```
 
 **Always invoke it as `talos project:check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
@@ -202,7 +204,7 @@ talos project:check --logs --json                     # Machine-readable report 
 
 | Check | Runs | Fails when |
 |---|---|---|
-| `workspace` | `workspace:run --commands=install,build,fmt,lint,test` | a task exits non-zero |
+| `workspace` | cached `install`, `build`, `lint` and `test` commands; every phase and selected module is attempted | a task exits non-zero |
 | `structure` | module manifests and types, `package.json` names, root `workspaces` globs, `tsconfig.json` aliases | a manifest, name or alias target is missing or duplicated |
 | `conventions` | DI decorator vs class-name suffix, direct `process.env` reads, exported `Type`/`I` naming, non-null assertions | a decorated class is misnamed or a source file reads `process.env` |
 | `env` | each `.env.example.yml` against its `.env.yml` | the local file is missing or lacks a documented key |
@@ -221,7 +223,7 @@ talos project:check --logs --json                     # Machine-readable report 
 | `hygiene` | conflict markers, focused/skipped tests, bare `TODO`/`FIXME` | a conflict marker or focused test is found |
 | `e2e` | opt-in (`--e2e`) — `workspace:run --commands=e2e` | a suite exits non-zero |
 
-Each project check reuses the code of its dedicated command, so `project:check` can never disagree with `workspace:check`, `security:check` or `issue:check`. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `workspace`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
+Each project check reuses the code of its dedicated command, so `project:check` can never disagree with `workspace:check`, `security:check` or `issue:check`. The workspace phases continue after failures, the file-only checks run concurrently, and cacheable passing or failing findings are replayed until their inputs change; the final exit is decided after the aggregate report and optional output file are complete. Check names accept aliases (`a11y`, `audit`, `deps`, `i18n`, `layout`, `naming`, `compose`, `seeds`, `specs`, `markdown`, `gitignore`, `commit`, `workspace`). Generated sources (`*.gen.ts`, `@generated` banners) are exempt from the convention rules, and only exported types and interfaces are held to the naming convention. A check with nothing to inspect (no UI module, no lockfile, no issue file, no dictionary, no `.env.example.yml`, no compose file, no migration, no git repo) reports as **skipped**, never as passed. The accessibility check reports violations of a11y rules the project disabled in `biome.jsonc` separately, as a non-failing "not enforced" note, so the real exposure stays visible without overriding the project's own config. Exit code is `1` on any failure (or any warning with `--strict`). The `/project-fix` skill wraps this command and fixes what it reports.
 
 ## Release
 ```bash
