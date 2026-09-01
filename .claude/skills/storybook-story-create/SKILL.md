@@ -4,7 +4,7 @@ description: Author storybook stories for design-system components or icons — 
 when_to_use: Use when (re-)creating storybook stories for one or more design-system components or icons (e.g. "create stories for the avatar component", "add stories for the weather icons", "story the badge and card from design into storybook"). Handles plain and compound components, icons, multiple source design modules, and multiple target storybook modules.
 model: sonnet
 effort: medium
-allowed-tools: Read, Edit, Write, Bash, Grep, Glob
+allowed-tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 argument-hint: '<component / icon names or design paths> [→ target storybook module]'
 ---
 
@@ -60,4 +60,5 @@ Compound = the root attaches sub-components as properties, e.g. `Avatar = Object
 2. **Read each target's source.** Component: list `modules/<design>/src/components/<name>/`, read every file + `index.ts`, determine plain vs. compound (`Object.assign(Root, { … })`), sub-components, their props, and `cva` size/variant options. Icon: read the icon file for its props.
 3. **Mirror a sibling story** in the target storybook — the compound example `features/avatar/` and a plain one if present — for structure, `group` usage, and prose depth. When a story needs a realistic composed preview (a populated card, a filled form, a table with rows), **take inspiration from the design module's `src/inspirations/` library** (`<category>/<slug>.yml` + matching `.webp`): search the `.yml` files by tag/`usage`, read the ones that fit, open their screenshots, and model the example's composition and content shape on them — never their palette, radii, shadows, or spacing. See `optimize-ui`'s `references/inspirations.md`.
 4. **Write or update** the stories in `src/features/`, reusing real variant/size names as options, each with `usage`.
-5. **Check** — `talos check --strict --logs` (lint, format, test). Fix every failure. Verify mentally against the model: each `meta.title` yields a sidebar entry under its `group`; dotted titles nest; the `size` control resizes the composed preview; every option shows its `usage`.
+5. **Check** — `talos check --strict --logs` (lint, format, test). Fix every failure.
+6. **Verify the rendered story** — run `/ui-verify` against each changed story in the running gallery. Confirm sidebar grouping and dotted nesting, exercise controls with trusted Bun.WebView input, verify the preview changes, inspect desktop and mobile screenshots, and read the Usage tab. Mental inspection of `meta` is not enough.

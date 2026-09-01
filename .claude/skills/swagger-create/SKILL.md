@@ -4,7 +4,7 @@ description: Generate a custom API-explorer module from a target app or microser
 when_to_use: Use when creating or refreshing the swagger module that documents an API — scaffolding the explorer, adding the routes of new controllers, or completing the descriptions, examples and responses of existing ones. Also use to set up its environments (base URL, bearer token, {{variables}}).
 model: sonnet
 effort: high
-allowed-tools: Bash(talos swagger:create *), Bash(talos check *), Bash(bun add *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos swagger:create *), Bash(talos check *), Bash(bun add *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--name=<name>] [--module=<target>] [--design=<design>] [--prefix=<prefix>] [--force]'
 ---
 
@@ -192,7 +192,7 @@ talos check --only=boundaries   # nothing server-side leaked into the bundle
 
 An `openapi` failure means a route moved and the generator was not re-run — re-run it (step 1) rather than hand-editing `public/openapi.json`.
 
-Finally, smoke-test with `talos app:start --modules=<module>`:
+Finally, start the explorer with `talos app:start --modules=<module>` and run `/ui-verify`. Exercise the following in Bun.WebView at desktop and mobile viewports, inspect screenshots, and fix failures rather than reporting the UI complete:
 
 1. The sidebar nests the routes by path — `/admin/stats` sits inside an `admin` folder.
 2. ⌘K finds a route by path, title and key.

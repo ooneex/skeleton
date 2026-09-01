@@ -53,6 +53,8 @@ talos check --strict --only=accessibility --modules=<module> --logs
 talos check --strict --modules=<module> --logs
 ```
 
+Then run `$ui-verify` against the changed surface. Use Bun.WebView's trusted keyboard input to tab through the affected flow, confirm focus order and activation, inspect desktop and mobile screenshots, and verify that the accessibility fix did not introduce a visual or behavioral regression. Do not report completion from static rules alone.
+
 ## Report
 
 Return: the rules you fixed with a one-line description per file, anything you deliberately left (with the reason), the disabled-rule exposure you were told about, and the final status of both commands.

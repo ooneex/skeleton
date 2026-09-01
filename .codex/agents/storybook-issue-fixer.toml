@@ -84,6 +84,8 @@ For each `testing` step that exercises a browser flow (open the gallery, pick a 
 
 ## Self-review
 
+Before self-review, run `$ui-verify` against every changed story and any gallery chrome touched by the issue, even when no browser-flow testing step is listed. Navigate through the sidebar or command palette, exercise controls with trusted Bun.WebView input, inspect desktop and mobile screenshots, and fix rendered regressions. `$e2e-create` preserves important flows; `$ui-verify` is still mandatory live proof for each visual change.
+
 Before Finish, check the gallery against `optimize-ui`'s self-review checklist: squint test for hierarchy; realistic edge-case content (long/short/empty `usage`, many props, missing options, large story lists); and **accessibility** — full keyboard navigation with a visible focus state on every control (sidebar, ⌘K palette, Controls), semantic markup with form labels/ARIA and `alt` text, hit areas ≥44×44px (≥40×40px in dense desktop UI), state never signalled by color alone, and a `prefers-reduced-motion` fallback for any added animation. Also check against `optimize-ui`'s `references/ai-slop.md` — no generic gradient-as-brand-color, glassmorphism-as-decoration, stock hero+3-card-grid, emoji standing in for the design system's icons, or marketing-cliché copy. Fix what fails rather than shipping it as a caveat.
 
 ## Finish

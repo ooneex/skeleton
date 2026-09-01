@@ -126,3 +126,7 @@ talos check --strict --logs
 ```
 
 Fix every failure before completing.
+
+### 6. Verify the rendered component
+
+Run `$ui-verify` against the owning feature route or its Storybook story. Exercise every changed interaction with trusted Bun.WebView input at desktop and mobile viewports, inspect screenshots, and fix any rendered defect. The component is not complete on happy-dom coverage alone; if it has no reachable preview, add or update the related story first.

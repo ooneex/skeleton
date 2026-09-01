@@ -4,7 +4,7 @@ description: Generate a new React component with a happy-dom + React Testing Lib
 when_to_use: Use when adding a presentational or container React component to a SPA module — at the module level or scoped to a feature.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos react:component:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--name=<Name>] [--module=<module>] [--feature=<feature>]'
 ---
 
@@ -131,3 +131,7 @@ talos check --strict --logs
 ```
 
 Fix every failure before completing.
+
+### 6. Verify the rendered component
+
+Run `/ui-verify` against the owning feature route or its Storybook story. Exercise every changed interaction with trusted Bun.WebView input at desktop and mobile viewports, inspect screenshots, and fix any rendered defect. The component is not complete on happy-dom coverage alone; if it has no reachable preview, add or update the related story first.

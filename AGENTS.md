@@ -64,7 +64,8 @@ Every generator runs from the repo root and follows `talos-scaffold`.
 | Clean the working diff before committing | `deslop` |
 | Make prose read as human-written | `humanize` |
 | Migrations / seeds / schema | `database-migrate` |
-| Run the Playwright suite | `e2e-run` |
+| Verify a changed UI in a real browser | `ui-verify` (Bun.WebView, desktop/mobile screenshots + trusted interaction) |
+| Run the Bun.WebView E2E suite | `e2e-run` |
 | Translate dictionaries | `translation-translate` |
 | Full health check, then fix everything | `project-fix` (always `talos project:check --strict --logs`) |
 | Coverage report | `coverage-check` |

@@ -4,7 +4,7 @@ description: Generate a new SPA feature (route, layout, error/not-found/skeleton
 when_to_use: Use when adding a feature to a SPA module built on @tanstack/react-router and @tanstack/react-query.
 model: sonnet
 effort: medium
-allowed-tools: Bash(talos spa:feature:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob
+allowed-tools: Bash(talos spa:feature:create *), Bash(talos check *), Read, Edit, Write, Grep, Glob, Skill
 argument-hint: '[--name=<Name>] [--module=<module>]'
 ---
 
@@ -161,3 +161,7 @@ talos check --strict --logs
 ```
 
 Fix every failure before completing.
+
+### 8. Verify the rendered feature
+
+Run `/ui-verify` on the feature's real route. Cover navigation, loading/success/error/empty states that can be reached, and every changed interaction with trusted Bun.WebView input at desktop and mobile viewports. Inspect screenshots and fix failures before completing; unit tests alone do not prove the feature is usable in the browser.

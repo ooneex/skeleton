@@ -103,6 +103,8 @@ Read the relevant reference(s) below **before** implementing — each is short, 
 
 ## Self-review before calling UI work done
 
+Run `$ui-verify` against the changed surface after its unit tests pass. This rendered Bun.WebView check is mandatory for UI work: exercise the changed path with trusted browser input at desktop and mobile viewports, inspect screenshots, and fix layout or behavior defects before continuing. A happy-dom result alone is not completion evidence.
+
 Check every component/layout/feature against realistic conditions, not just the happy path — do this yourself:
 
 - **Inspiration check** — did the design start from the inspirations library (`references/inspirations.md`)? Re-open the ones you picked and compare: same structural clarity, same density, same state coverage. If the result is thinner than its references, close the gap.

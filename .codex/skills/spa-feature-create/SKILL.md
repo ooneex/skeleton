@@ -156,3 +156,7 @@ talos check --strict --logs
 ```
 
 Fix every failure before completing.
+
+### 8. Verify the rendered feature
+
+Run `$ui-verify` on the feature's real route. Cover navigation, loading/success/error/empty states that can be reached, and every changed interaction with trusted Bun.WebView input at desktop and mobile viewports. Inspect screenshots and fix failures before completing; unit tests alone do not prove the feature is usable in the browser.

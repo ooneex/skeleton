@@ -2,7 +2,7 @@
 name: accessibility-fixer
 description: Fixes the accessibility violations Biome's a11y rules report for one UI module (design, spa, admin or storybook) — semantic elements, labels, alt text, keyboard parity, focus visibility, roles and hit areas — editing components in place without changing their visual design or public props, then re-running the a11y check and the module's lint/test. It edits source files for the one module it is given — it never disables an a11y rule, never edits biome config, never creates issues, and never runs generators.
 when_to_use: Use proactively when the accessibility check of /project-fix reports violations, and especially when several UI modules must be fixed at once.
-tools: Read, Edit, Write, Bash, Grep, Glob
+tools: Read, Edit, Write, Bash, Grep, Glob, Skill
 model: sonnet
 effort: high
 memory: project
@@ -62,6 +62,8 @@ Re-run the scoped check and the module's gate, and don't stop until both are cle
 talos check --strict --only=accessibility --modules=<module> --logs
 talos check --strict --modules=<module> --logs
 ```
+
+Then run `/ui-verify` against the changed surface. Use Bun.WebView's trusted keyboard input to tab through the affected flow, confirm focus order and activation, inspect desktop and mobile screenshots, and verify that the accessibility fix did not introduce a visual or behavioral regression. Do not report completion from static rules alone.
 
 ## Report
 

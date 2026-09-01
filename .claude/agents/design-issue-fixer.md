@@ -86,6 +86,8 @@ Run the specs you add (`bun test modules/<module>/tests/...`) and keep them gree
 
 ## Self-review
 
+Before self-review, run `/ui-verify` against every changed component through its related Storybook story or another real consumer. Exercise variants and interactions with trusted Bun.WebView input at desktop and mobile viewports, inspect screenshots, and fix rendered regressions. A design issue cannot reach `In Review` from happy-dom and metadata tests alone; if no preview is reachable, add or repair the related story first.
+
 Before Finish, check against `optimize-ui`'s self-review checklist: squint test for hierarchy; realistic edge-case content (long/short/empty text, large lists, missing images); and **accessibility** — full keyboard navigation with visible focus on every control, semantic markup with form labels/ARIA and `alt` text, hit areas ≥44×44px (≥40×40px in dense desktop UI), state never signalled by color alone, and a `prefers-reduced-motion` fallback for any added animation. Also check against `optimize-ui`'s `references/ai-slop.md` — no generic gradient-as-brand-color, glassmorphism-as-decoration, stock hero+3-card-grid skeleton, emoji standing in for the design system's icons, or marketing-cliché copy. A component that would look at home in any other product, unchanged, hasn't used this project's design system. Fix what fails rather than shipping it as a caveat.
 
 ## Finish
