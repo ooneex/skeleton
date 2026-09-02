@@ -1,17 +1,21 @@
 ---
 name: issue-fix
-description: Implement planned issue YAML with the matching custom fixer, verify it, and open standalone or stacked PRs from isolated worktrees.
+description: Resolve one or more issues from the user's input, dispatch each to the fixer sub-agent matching its module type, then commit, push, and open a PR per issue — issues that depend on each other become a GitHub stacked-PR chain, each layer targeting the branch below it. Infers modules and issue IDs from whatever the user says, reads modules/<module>/issues/<ID>.yml to sequence the work, and hands each issue to its fixer (backend module/api/microservice, spa, storybook, or design), which implements it, lints, satisfies the DoD, and marks it In Review — spa/storybook fixers also satisfy browser testing steps with Bun.WebView e2e specs, while backend fixers leave the testing section for manual verification. Each standalone issue or stack is implemented in its own git worktree, isolated from the root checkout and from the rest of the batch.
+when_to_use: Use when the user wants to implement one or more existing issues. Triggers on "fix issue <ID>", "implement the issues in <module>", or "work on this issue".
+model: sonnet
+effort: medium
+argument-hint: '[issue-id|module|description]'
 ---
 
 # Issue Fix
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos project:check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — never ask the user questions.** On any choice, pick the recommended option and proceed.
 
-**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; `bun:test` + `Bun.WebView` e2e for spa/storybook), `talos check --logs`, DoD, and the `In Review` transition.
+**Resolve** issues from user input, **dispatch** each to the fixer sub-agent for its module type, and **finalise** each on its own branch (commit, push, PR). Never implement code inline — fixers own all implementation and tests (unit/integration for backend; `bun:test` + `Bun.WebView` e2e for spa/storybook), `talos project:check --strict --logs`, DoD, and the `In Review` transition.
 
 **Rules throughout:**
 - **Module location:** `<module>` = `modules/<module>/` or `packages/<module>/`. Check both roots before assuming a path is missing.
@@ -37,9 +41,9 @@ If nothing matches, stop and tell the user.
 Build the list, then read each `modules/<module>/issues/<ID>.yml` and pre-screen:
 - **Missing file** — record the exact path checked, skip, continue; report in summary.
 - **Already `In Review`/`Done`** — skip; don't re-implement or open a second PR.
-- **No `goal`** (only a free-form `description`) — let the fixer treat `description` as `goal`, or run `$issue-plan` first. If `goal` is missing/empty, skip and note there's nothing to implement.
+- **No `goal`** (only a free-form `description`) — let the fixer treat `description` as `goal`, or run `/issue-plan` first. If `goal` is missing/empty, skip and note there's nothing to implement.
 
-A planned issue YAML (from `$issue-plan`):
+A planned issue YAML (from `/issue-plan`):
 
 ```yaml
 id: "ENG-45"
@@ -98,7 +102,7 @@ Build the dependency graph over the batch (`dependencies` edges, both directions
 
    **Area labels** (`Database`, `Infrastructure`, `API`, `UI`, `SPA`, `Design`) describe *where*, not *what* — use only to break ties (e.g. toward `feat` for a new capability). `Breaking Change` is a modifier: keep the underlying type, note the break in the commit/PR.
 
-3. **Open the worktree for this unit of work.** If the root checkout is not clean (`git status --porcelain`), stop and surface the unrelated changes. Otherwise create an isolated worktree outside the checkout with `mkdir -p ../<repo>-worktrees` followed by `git worktree add -b "<name>" "../<repo>-worktrees/<name>" main`. For a stack, `<name>` is its bottom layer; upper layers reuse the same worktree. Set every subsequent command's working directory to that exact worktree path through the end of step 4.
+3. **Open the worktree for this unit of work.** Before touching any files, from the root call `EnterWorktree({name: <name>})` — `<name>` is the branch name just derived (for a stack, the **bottom** layer's name; upper layers reuse the same worktree, see below). This creates `.claude/worktrees/<name>/` on a fresh branch off the default branch and switches the session into it; everything from here through the end of step 4 for this unit happens inside it. If the working tree isn't clean before entering (`git status --porcelain` — unrelated changes), stop and surface them rather than discarding work.
 4. **Install dependencies in the new worktree** — `bun install` — and symlink/copy any untracked local env files (`.env.yml`, etc.) the module's generators or `talos check` need. A freshly created worktree has neither.
 5. Then, inside the worktree:
    - **Standalone issue** — the branch `<name>` already exists and is checked out (step 3 created it). Don't push here.
@@ -109,7 +113,7 @@ Never hand-rebase or force-push a stack — `gh stack rebase` (cascading, confli
 
 ## 4. Dispatch to the fixer, then finalise
 
-Determine the module type from `modules/<module>/<module>.yml` (`type:` field; **absent ⇒ `module`**) and spawn the matching named Codex custom agent, passing the **module name, issue ID, and exact worktree path**:
+Determine the module type from `modules/<module>/<module>.yml` (`type:` field; **absent ⇒ `module`**) and invoke the matching fixer via the Agent tool, passing the **module name and issue ID**:
 
 | Module `type` | Fixer |
 |---------------|-------|
@@ -121,11 +125,11 @@ Determine the module type from `modules/<module>/<module>.yml` (`type:` field; *
 | `storybook` | `storybook-issue-fixer` |
 | `design` | `design-issue-fixer` |
 
-Each fixer loads the relevant `$talos-module`, `$talos-spa`, `$talos-design`, or `$talos-storybook` skill before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos check --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers satisfy each browser-flow step with a `bun:test` spec powered by `Bun.WebView`, run it through `talos e2e:run`, and check the box only after it passes.
+Each fixer grounds itself in the module's authoritative structure (its own `talos-module`/`talos-spa`/`talos-design`/`talos-storybook` skill, loaded via the Skill tool) before creating anything, implements the `goal` per the module's conventions and Clean Architecture, runs `talos project:check --strict --logs`, checks off every `dod` box, and sets `state: "In Review"` once all `dod` boxes pass. **Testing-step handling differs by fixer type:** backend fixers (`module`/`api`/`microservice`) never run or check the issue's `testing` boxes — that verification is manual, done by a human separately, and does not gate `In Review`; `spa`/`storybook` fixers satisfy each browser-flow step with a `bun:test` spec powered by `Bun.WebView`, run it through `talos e2e:run`, and check the box only after it passes.
 
 **Dispatch independent units concurrently, each through its own subagent.** A standalone issue and each stack (as a whole) are independent of one another — nothing about worktrees or branches ties them together, so there's no reason to make one wait on another. Within a stack, layers stay strictly sequential: they share one worktree and one checked-out branch, so a layer must finish (commit + push) before the next layer branches off it inside that worktree — a stack's layers count as **one** unit for concurrency purposes, never split across subagents.
 
-For each independent unit in the batch, spawn one built-in `worker` subagent to own that unit end-to-end. Give it the unit's `(module, ID)` pair(s) in dependency order, this skill's steps 3–4, and its unique worktree path. When the batch has more than one independent unit, spawn the workers concurrently and wait for all of them before step 5. Keep stack layers sequential inside their shared worktree. With exactly one unit, run steps 3–4 directly. If an issue depends on work outside the batch that is not yet `In Review` or `Done`, stop that unit and include the blocker in the summary.
+For each independent unit in the batch, launch one `general-purpose` subagent via the Agent tool that owns that unit end-to-end: give it the unit's `(module, ID)` pair(s) — in dependency order, for a stack — plus this skill's steps 3–4 (open its own worktree with `EnterWorktree`, dispatch to the matching fixer(s), finalise: commit/push/PR/link-back/validate, then `ExitWorktree`). When the batch has **more than one** independent unit, launch all of their subagents together in a single message so they run concurrently, each isolated in its own worktree; wait for all of them to finish before moving to step 5. With exactly one independent unit, just run steps 3–4 directly — a subagent buys nothing there. If a dispatched issue has a dependency **not** in the batch and not yet `In Review`/`Done`, the fixer (or its owning subagent) stops and reports it — carry that into the summary.
 
 Once a fixer returns with its issue at `In Review`, finalise that branch **before switching to the next issue**. Throughout, `<parent>` is the branch the PR targets: **main** for a standalone issue or a stack's bottom layer, the **branch of the layer below** for any layer above.
 
@@ -136,7 +140,7 @@ Once a fixer returns with its issue at `In Review`, finalise that branch **befor
 - **Link the stack on GitHub** — once the **top** layer of a stack has its PR, run `gh stack sync` from any branch in that stack. It fetches, fast-forwards the trunk, cascade-rebases the layers onto it, pushes, and links the open PRs into a GitHub stack; it never opens PRs, and it is safe non-interactively. If local tracking was lost, `gh stack link <bottom-branch> … <top-branch>` links the same chain without any local state. Run this **once per stack**, not per layer. If sync reports a conflict, resolve it with `gh stack rebase` (stage, then `--continue`) — or `gh stack rebase --abort` and report the conflicting paths rather than guessing.
 - **Validate the YAML** — run `talos issue:check --id=<ID>` from the root of the project (the worktree's root). At `In Review` the validator enforces exactly what this step must produce: a `branch` matching `<type>/<ID>-<slug>` with the type derived from the change-type label, a `pr` URL, and **every** `dod` and `testing` box checked. If it errors, the finalisation is incomplete — fix it (or send the issue back to the fixer) before moving to the next issue. Never check a box to satisfy the validator.
 
-**Remove the worktree once the unit is fully finalised** — the top layer of a stack (after `gh stack sync`) or a standalone issue, both with a clean `talos issue:check`. From the original checkout, verify the exact worktree path with `git worktree list`, then run `git worktree remove "../<repo>-worktrees/<name>"`. If finalisation is blocked by validation, a conflict, or an unmet dependency, keep the worktree and report its exact path. Never use `--force` to remove work that was not committed and pushed.
+**Exit the worktree once the unit is fully finalised** — the top layer of a stack (after `gh stack sync`), or a standalone issue, both with a clean `talos issue:check`. Call `ExitWorktree({action: "remove"})`: everything of value is already committed and pushed to the remote branch, so the local worktree is disposable. If finalisation is blocked (an `issue:check` failure, an unresolved conflict, an unmet dependency), use `ExitWorktree({action: "keep"})` instead and report it — the branch and partial commits stay on disk for the fix. Only after exiting does the skill move to the batch's next unit and its own `EnterWorktree` call.
 
 ## 5. Confirm
 
