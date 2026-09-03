@@ -63,10 +63,10 @@ talos add --deps=lodash --force        # Add anyway even if vulnerabilities were
 
 ## Application
 ```bash
-talos app:start                   # Start Docker services + all runnable modules with hot reload
+talos app:start                   # Free required ports, then start Docker + all runnable modules
 talos app:start --modules=a,b     # Start only the modules named "a" and "b"
 talos app:start --packages=a,b    # Alias for --modules
-talos app:start --kill-ports      # Free the started modules' ports first, then launch
+talos app:start --cwd <path>      # Start from another project working directory
 talos app:stop                    # Stop the app module's Docker stack (started for api/microservice modules)
 talos app:stop --modules=a,b      # Stop the Docker stack when the named modules include an api/microservice
 ```

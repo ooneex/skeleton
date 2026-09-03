@@ -9,7 +9,7 @@ description: Bootstrap and start this Talos project locally, installing missing 
 
 > **CLI first.** Use the project's `talos` commands for dependency installation and application startup. Run every project command from the repository root.
 
-Start the local development application and leave it running with its logs visible. Carry through any module selection the user supplied (`--modules` or `--packages`). Do not add `--kill-ports` unless the user requested it: that option may terminate an unrelated local process.
+Start the local development application and leave it running with its logs visible. Carry through any module selection the user supplied (`--modules` or `--packages`). When a selected backend needs Docker, startup automatically stops the previous project Compose stack; it always frees the selected modules' and required Compose services' host ports before launching.
 
 ## 1. Check host prerequisites
 
