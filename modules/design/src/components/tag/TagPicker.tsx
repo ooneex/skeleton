@@ -1,4 +1,3 @@
-import { Button } from "@module/design/components/button/Button";
 import { Combobox } from "@module/design/components/combobox/Combobox";
 import { ComboboxChip } from "@module/design/components/combobox/ComboboxChip";
 import { ComboboxChips } from "@module/design/components/combobox/ComboboxChips";
@@ -9,9 +8,6 @@ import { ComboboxItem } from "@module/design/components/combobox/ComboboxItem";
 import { ComboboxList } from "@module/design/components/combobox/ComboboxList";
 import { ComboboxValue } from "@module/design/components/combobox/ComboboxValue";
 import { useComboboxAnchor } from "@module/design/components/combobox/useComboboxAnchor";
-import { createDialog } from "@module/design/components/dialog/Dialog";
-import { DialogHeader } from "@module/design/components/dialog/DialogHeader";
-import { DialogTitle } from "@module/design/components/dialog/DialogTitle";
 import { TagIcon } from "@module/design/icons/outline/shopping/sm/TagIcon";
 import { PlusIcon as AddIcon } from "@module/design/icons/outline/ui-layout/sm/PlusIcon";
 import { cn } from "@module/design/utils/cn";
@@ -47,155 +43,129 @@ const tagPickerIconVariants = cva("text-foreground pointer-events-none shrink-0"
   },
 });
 
+const tagPickerCreateOptionVariants = cva(
+  "flex w-[calc(100%-0.5rem)] items-center gap-2 px-2 py-1.5 cursor-pointer hover:bg-accent rounded mx-1 mt-1",
+  {
+    variants: {
+      size: {
+        xs: "text-xs",
+        sm: "text-sm",
+        md: "text-base",
+        lg: "text-lg",
+      },
+    },
+    defaultVariants: {
+      size: "sm",
+    },
+  },
+);
+
 export type TagPickerPropsType = VariantProps<typeof tagPickerChipsVariants> & {
-  /** Initially selected tags. */
   value?: string[];
-  /** Tags offered as suggestions. */
+  onChange: (tags: string[]) => void;
   suggestedTags?: string[];
-  /** Allow creating new tags from the input. Defaults to `true`. */
   allowCreate?: boolean;
   placeholder?: string;
   isPending?: boolean;
-  /** Heading shown above the tag input. */
-  title?: ReactNode;
   className?: string;
   contentClassName?: string;
-  confirmLabel?: ReactNode;
+  "aria-label"?: string;
+  "aria-labelledby"?: string;
 };
 
-/**
- * Imperative tag picker dialog built on `react-call`.
- *
- * Mount the Root once near the top of your app:
- *
- * ```tsx
- * <TagPicker />
- * ```
- *
- * Then await a tag selection from anywhere:
- *
- * ```tsx
- * const tags = await pickTags({ value: current, suggestedTags })
- * if (tags) await api.update({ tags })
- * ```
- *
- * Resolves with the chosen tag array, or `null` when the dialog is dismissed
- * (Escape / outside click).
- */
-export const TagPicker = createDialog<TagPickerPropsType, string[] | null>(
-  ({
-    call,
-    value = [],
-    suggestedTags = [],
-    allowCreate = true,
-    placeholder = "Add tags...",
-    isPending = false,
-    title,
-    className,
-    contentClassName,
-    confirmLabel = "Done",
-    size = "sm",
-  }) => {
-    const [selected, setSelected] = useState<string[]>(value);
-    const [inputValue, setInputValue] = useState("");
-    const [debouncedInputValue] = useDebouncedValue(inputValue, { wait: 300 });
-    const [customTags, setCustomTags] = useState<string[]>([]);
-    const anchorRef = useComboboxAnchor();
+/** Controlled chip field for selecting, filtering, and optionally creating tags. */
+export const TagPicker = ({
+  value = [],
+  onChange,
+  suggestedTags = [],
+  allowCreate = true,
+  placeholder = "Add tags...",
+  isPending = false,
+  className,
+  contentClassName,
+  size = "sm",
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
+}: TagPickerPropsType): ReactNode => {
+  const [inputValue, setInputValue] = useState("");
+  const [debouncedInputValue] = useDebouncedValue(inputValue, { wait: 300 });
+  const [customTags, setCustomTags] = useState<string[]>([]);
+  const anchorRef = useComboboxAnchor();
 
-    const allSuggestedTags = useMemo(() => [...suggestedTags, ...customTags], [suggestedTags, customTags]);
+  const allSuggestedTags = useMemo(() => [...suggestedTags, ...customTags], [suggestedTags, customTags]);
 
-    const filteredTags = useMemo(() => {
-      const baseTags = debouncedInputValue.trim()
-        ? allSuggestedTags.filter((tag) => tag.toLowerCase().includes(debouncedInputValue.toLowerCase()))
-        : allSuggestedTags;
-      const missingTags = selected.filter((tag) => !baseTags.includes(tag));
-      return [...baseTags, ...missingTags];
-    }, [debouncedInputValue, allSuggestedTags, selected]);
+  const filteredTags = useMemo(() => {
+    const baseTags = debouncedInputValue.trim()
+      ? allSuggestedTags.filter((tag) => tag.toLowerCase().includes(debouncedInputValue.toLowerCase()))
+      : allSuggestedTags;
+    const missingTags = value.filter((tag) => !baseTags.includes(tag));
+    return [...baseTags, ...missingTags];
+  }, [debouncedInputValue, allSuggestedTags, value]);
 
-    const showCreateOption = useMemo(() => {
-      if (!allowCreate) return false;
-      if (!debouncedInputValue.trim()) return false;
-      const query = debouncedInputValue.toLowerCase();
-      const existsInSuggested = allSuggestedTags.some((tag) => tag.toLowerCase() === query);
-      const existsInSelected = selected.some((tag) => tag.toLowerCase() === query);
-      return !existsInSuggested && !existsInSelected;
-    }, [allowCreate, debouncedInputValue, allSuggestedTags, selected]);
+  const showCreateOption = useMemo(() => {
+    if (!allowCreate) return false;
+    if (!debouncedInputValue.trim()) return false;
+    const query = debouncedInputValue.toLowerCase();
+    const existsInSuggested = allSuggestedTags.some((tag) => tag.toLowerCase() === query);
+    const existsInSelected = value.some((tag) => tag.toLowerCase() === query);
+    return !existsInSuggested && !existsInSelected;
+  }, [allowCreate, debouncedInputValue, allSuggestedTags, value]);
 
-    const handleCreateTag = () => {
-      const newTag = inputValue.trim();
-      if (newTag) {
-        setCustomTags((prev) => [...prev, newTag]);
-        setSelected((prev) => [...prev, newTag]);
-        setInputValue("");
-      }
-    };
+  const handleCreateTag = (): void => {
+    const newTag = inputValue.trim();
+    if (newTag) {
+      setCustomTags((prev) => [...prev, newTag]);
+      onChange([...value, newTag]);
+      setInputValue("");
+    }
+  };
 
-    return (
-      <>
-        {title ? (
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
-          </DialogHeader>
-        ) : null}
-        <Combobox
-          multiple
-          autoHighlight
-          items={filteredTags}
-          value={selected}
-          onValueChange={setSelected}
-          inputValue={inputValue}
-          onInputValueChange={setInputValue}
-        >
-          <ComboboxChips ref={anchorRef} className={cn(tagPickerChipsVariants({ size }), className)}>
-            <ComboboxValue>
-              {(values) => (
-                <>
-                  {values.map((tag: string) => (
-                    <ComboboxChip key={tag}>{tag}</ComboboxChip>
-                  ))}
-                  <ComboboxChipsInput placeholder={placeholder} />
-                </>
-              )}
-            </ComboboxValue>
-            <TagIcon className={cn(tagPickerIconVariants({ size }))} />
-          </ComboboxChips>
-          {(isPending || filteredTags.length > 0 || showCreateOption) && (
-            <ComboboxContent anchor={anchorRef} className={contentClassName}>
-              {isPending && <ComboboxEmpty>Loading tags…</ComboboxEmpty>}
-              {!isPending && showCreateOption && (
-                <button
-                  type="button"
-                  className="flex w-[calc(100%-0.5rem)] items-center gap-2 px-2 py-1.5 text-sm cursor-pointer hover:bg-accent rounded mx-1 mt-1"
-                  onClick={handleCreateTag}
-                >
-                  <AddIcon className={cn(tagPickerIconVariants({ size }))} />
-                  <span className="text-sm">
-                    Create "<span className="text-sm font-medium">{inputValue.trim()}</span>"
-                  </span>
-                </button>
-              )}
-              {!isPending && !showCreateOption && <ComboboxEmpty>No matching tags</ComboboxEmpty>}
-              <ComboboxList>
-                {(item) => (
-                  <ComboboxItem key={item} value={item}>
-                    {item}
-                  </ComboboxItem>
-                )}
-              </ComboboxList>
-            </ComboboxContent>
+  return (
+    <Combobox
+      multiple
+      autoHighlight
+      items={filteredTags}
+      value={value}
+      onValueChange={(tags) => onChange(tags)}
+      inputValue={inputValue}
+      onInputValueChange={setInputValue}
+    >
+      <ComboboxChips ref={anchorRef} className={cn(tagPickerChipsVariants({ size }), className)}>
+        <ComboboxValue>
+          {(values) => (
+            <>
+              {values.map((tag: string) => (
+                <ComboboxChip key={tag}>{tag}</ComboboxChip>
+              ))}
+              <ComboboxChipsInput placeholder={placeholder} aria-label={ariaLabel} aria-labelledby={ariaLabelledBy} />
+            </>
           )}
-        </Combobox>
-        <Button onClick={() => call.end(selected)} className="w-full">
-          {confirmLabel}
-        </Button>
-      </>
-    );
-  },
-  { dismissValue: null, className: "max-w-md" },
-);
-TagPicker.displayName = "TagPicker";
+        </ComboboxValue>
+        <TagIcon className={cn(tagPickerIconVariants({ size }))} />
+      </ComboboxChips>
+      {(isPending || filteredTags.length > 0 || showCreateOption || inputValue.trim() !== "") && (
+        <ComboboxContent anchor={anchorRef} className={contentClassName}>
+          {isPending && <ComboboxEmpty>Loading tags…</ComboboxEmpty>}
+          {!isPending && showCreateOption && (
+            <button type="button" className={cn(tagPickerCreateOptionVariants({ size }))} onClick={handleCreateTag}>
+              <AddIcon className={cn(tagPickerIconVariants({ size }))} />
+              <span>
+                Create "<span className="font-medium">{inputValue.trim()}</span>"
+              </span>
+            </button>
+          )}
+          {!isPending && !showCreateOption && <ComboboxEmpty>No matching tags</ComboboxEmpty>}
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item} size={size}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      )}
+    </Combobox>
+  );
+};
 
-export { tagPickerChipsVariants, tagPickerIconVariants };
-
-/** Await a tag selection. Resolves the chosen tags, or `null` on dismiss. */
-export const pickTags = (props: TagPickerPropsType = {}) => TagPicker.call(props);
+export { tagPickerChipsVariants, tagPickerCreateOptionVariants, tagPickerIconVariants };
