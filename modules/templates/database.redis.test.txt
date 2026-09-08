@@ -1,13 +1,12 @@
 import { describe, expect, test } from "bun:test";
+import { AppEnv } from "@talosjs/app-env";
 import { {{NAME}}Database } from "@module/{{MODULE}}/databases/{{NAME}}Database";
 
 describe("{{NAME}}Database", () => {
-  test("should have class name ending with 'Database'", () => {
-    expect({{NAME}}Database.name.endsWith("Database")).toBe(true);
-  });
+  test("should create a Redis data source", () => {
+    const database = new {{NAME}}Database(new AppEnv());
 
-  test("should have 'getClient' method", () => {
-    expect({{NAME}}Database.prototype.getClient).toBeDefined();
-    expect(typeof {{NAME}}Database.prototype.getClient).toBe("function");
+    expect(database.getSource().options.type).toBe("redis");
+    expect(database.getSource().isInitialized).toBe(false);
   });
 });

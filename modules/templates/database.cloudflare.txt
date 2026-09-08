@@ -1,24 +1,29 @@
-import { AppEnv } from "@talosjs/app-env";
-import { inject } from "@talosjs/container";
-import { DataSource, decorator, type RedisDataSourceOptionsType } from "@talosjs/database";
-import type { RedisClient } from "bun";
+import {
+  DataSource,
+  decorator,
+  type CloudflareDataSourceOptionsType,
+  type ICloudflareDatabase,
+} from "@talosjs/database";
+import { SharedModule } from "@module/shared/SharedModule";
 
 @decorator.database()
 export class {{NAME}}Database {
-  private readonly source: DataSource<RedisDataSourceOptionsType>;
+  private readonly source: DataSource<CloudflareDataSourceOptionsType>;
 
-  public constructor(@inject(AppEnv) env: AppEnv) {
+  public constructor(client: ICloudflareDatabase) {
     this.source = new DataSource({
-      type: "redis",
-      ...(env.DATABASE_REDIS_URL && { url: env.DATABASE_REDIS_URL }),
+      type: "cloudflare",
+      client,
+      entities: SharedModule.entities,
+      synchronize: false,
     });
   }
 
-  public getSource(): DataSource<RedisDataSourceOptionsType> {
+  public getSource(): DataSource<CloudflareDataSourceOptionsType> {
     return this.source;
   }
 
-  public getClient(): RedisClient {
+  public getClient(): ICloudflareDatabase {
     return this.source.client;
   }
 

@@ -1,0 +1,29 @@
+import { describe, expect, test } from "bun:test";
+import type {
+  CloudflareResultType,
+  ICloudflareDatabase,
+  ICloudflarePreparedStatement,
+} from "@talosjs/database";
+import { {{NAME}}Database } from "@module/{{MODULE}}/databases/{{NAME}}Database";
+
+const createClient = (): ICloudflareDatabase => {
+  const statement: ICloudflarePreparedStatement = {
+    bind: () => statement,
+    run: async <Row>(): Promise<CloudflareResultType<Row>> => ({ success: true, results: [] }),
+  };
+
+  return { prepare: () => statement };
+};
+
+describe("{{NAME}}Database", () => {
+  test("should create a Cloudflare data source with the supplied binding", () => {
+    const client = createClient();
+    const database = new {{NAME}}Database(client);
+    const source = database.getSource();
+
+    expect(source.options.type).toBe("cloudflare");
+    expect(source.options.client).toBe(client);
+    expect(source.options.synchronize).toBe(false);
+    expect(source.isInitialized).toBe(false);
+  });
+});
