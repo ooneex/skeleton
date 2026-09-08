@@ -1,12 +1,10 @@
-import { Badge } from "@module/design/components/badge";
-import { Button } from "@module/design/components/button";
 import { TagPicker, type TagPickerPropsType } from "@module/design/components/tag";
 import { useEffect, useState } from "react";
 import type { MetaType } from "../../shared/story";
 
 const suggestedTags = ["Design system", "Bugfix", "Frontend", "High priority", "Launch", "Needs review"];
 
-type TagDemoPropsType = TagPickerPropsType;
+type TagDemoPropsType = Omit<TagPickerPropsType, "onChange">;
 
 const TagDemo = ({
   value = ["Design system", "Needs review"],
@@ -14,9 +12,7 @@ const TagDemo = ({
   allowCreate = true,
   placeholder = "Add tags…",
   isPending = false,
-  title = "Edit tags",
-  confirmLabel = "Done",
-  size = "sm",
+  size,
 }: TagDemoPropsType) => {
   const [selectedTags, setSelectedTags] = useState<string[]>(value);
 
@@ -25,36 +21,17 @@ const TagDemo = ({
   }, [value]);
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <TagPicker />
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {selectedTags.map((tag) => (
-          <Badge key={tag} variant="secondary">
-            {tag}
-          </Badge>
-        ))}
-      </div>
-      <Button
-        variant="outline"
-        onClick={async () => {
-          const nextTags = await TagPicker.call({
-            value: selectedTags,
-            suggestedTags: tags,
-            allowCreate,
-            placeholder,
-            isPending,
-            title,
-            confirmLabel,
-            size,
-          });
-          if (nextTags) {
-            setSelectedTags(nextTags);
-          }
-        }}
-      >
-        Choose tags
-      </Button>
-    </div>
+    <TagPicker
+      value={selectedTags}
+      onChange={setSelectedTags}
+      suggestedTags={tags}
+      allowCreate={allowCreate}
+      placeholder={placeholder}
+      isPending={isPending}
+      size={size}
+      aria-label="Tags"
+      className="w-80"
+    />
   );
 };
 TagDemo.displayName = "Tag";
@@ -63,15 +40,16 @@ export const meta = {
   title: "Tag",
   group: "Components",
   tags: [],
-  component: TagDemo,
+  component: TagPicker,
+  storyComponent: TagDemo,
   usage: [
-    "**What** — `Tag` in this module is the imperative `TagPicker` dialog for selecting, filtering, and optionally creating free-form tags. It is built on the combobox stack, so the dialog lets users search suggestions, keep multiple selected chips visible, and finish with a single confirmation action.",
+    "**What** — `TagPicker` is a controlled chip field for selecting, filtering, and optionally creating free-form tags. It is built on the combobox stack, so suggestions stay searchable, selected values stay visible as chips, and a create action appears when the typed token is new.",
     "",
-    "**How to use it** — mount `TagPicker` once near your app root, then call `await TagPicker.call({ value, suggestedTags, allowCreate, placeholder, title, confirmLabel })` whenever a form or details view needs tag editing. Seed `value` with the current tags so the dialog opens populated, pass `suggestedTags` for discoverable reuse, and leave `allowCreate` on when the vocabulary should stay open-ended.",
+    "**How to use it** — render `<TagPicker value={tags} onChange={setTags} suggestedTags={known} />` inline in a form, details view, or filter panel. Seed `value` with the current tags, pass `suggestedTags` for discoverable reuse, and set `allowCreate={false}` when the vocabulary is closed (search-and-select only). Give the field an `aria-label` or `aria-labelledby` so the chips input is named. If the field lives in a modal, compose `Dialog` around it in the app — `TagPicker` is the field, not the dialog.",
     "",
-    "**When to use it** — for multi-select labeling flows such as issue tags, campaign labels, product attributes, or organizational metadata where reuse is helpful but teams may still need to mint a new tag on the fly.",
+    "**When to use it** — for multi-select labeling and filter flows such as issue tags, folder filters, campaign labels, or product attributes. Keep it inline on the record or inside a filter sidebar, the way a job-listing edit form keeps token inputs next to their labels.",
     "",
-    "**When not to use it** — do not use it for a single controlled status value, for a tiny fixed choice set where checkboxes or radios are clearer, or when users should not be allowed to create arbitrary new labels because the taxonomy must stay tightly governed.",
+    "**When not to use it** — do not use it for a single controlled status value, for a tiny fixed choice set where checkboxes or radios are clearer, or as an imperative dialog (`TagPicker.call` / `pickTags`). Compose your own modal when you need Apply / Clear around the field.",
   ].join("\n"),
   props: [
     {
@@ -98,16 +76,6 @@ export const meta = {
       default: false,
     },
     {
-      name: "title",
-      control: "text",
-      default: "Edit tags",
-    },
-    {
-      name: "confirmLabel",
-      control: "text",
-      default: "Done",
-    },
-    {
       name: "size",
       control: "select",
       options: [
@@ -131,4 +99,4 @@ export const meta = {
       default: "sm",
     },
   ],
-} satisfies MetaType<typeof TagDemo>;
+} satisfies MetaType<typeof TagPicker, typeof TagDemo>;
