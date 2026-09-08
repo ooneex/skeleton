@@ -1,11 +1,11 @@
 ---
 name: database-create
 description: Generate a new database class with its test file, then complete the generated code.
-when_to_use: Use when creating a new SQL database adapter that extends SqlDatabase from @talosjs/database.
+when_to_use: Use when creating a database adapter backed by PostgreSQL, SQLite, Cloudflare, Redis, or ClickHouse.
 model: sonnet
 effort: low
 allowed-tools: Bash(talos database:create *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis|clickhouse>]'
+argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|cloudflare|redis|clickhouse>]'
 ---
 
 # Make Database Class
@@ -25,11 +25,12 @@ Generate a database class and test file, then complete the implementation (datab
 ### 1. Infer the options from the request, then run the generator
 
 ```bash
-talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis|clickhouse>
+talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|cloudflare|redis|clickhouse>
 ```
 
 - `--name` — database class name, from its purpose (e.g. "a database for analytics" → `Analytics`). Any casing; the CLI normalizes to PascalCase and appends the `Database` suffix, so omit it.
-- `--type` — one of `postgres`, `sqlite`, `redis`, or `clickhouse`; infer it from the request (e.g. "an analytics database in ClickHouse" → `clickhouse`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
+- `--type` — one of `postgres`, `sqlite`, `cloudflare`, `redis`, or `clickhouse`; infer it from the request (e.g. "a Cloudflare database" → `cloudflare`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
+- Cloudflare adapters receive the Worker's database binding through their constructor; pass `env.DB` at the application boundary.
 
 ### 2. Complete the database class
 
