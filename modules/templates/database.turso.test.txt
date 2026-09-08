@@ -1,0 +1,19 @@
+import { describe, expect, test } from "bun:test";
+import { AppEnv } from "@talosjs/app-env";
+import { {{NAME}}Database } from "@module/{{MODULE}}/databases/{{NAME}}Database";
+
+describe("{{NAME}}Database", () => {
+  test("should create a Turso data source", () => {
+    const env = {
+      TURSO_DATABASE_URL: ":memory:",
+      TURSO_AUTH_TOKEN: "token",
+    } as unknown as AppEnv;
+    const source = new {{NAME}}Database(env).getSource();
+
+    expect(source.options.type).toBe("turso");
+    expect(source.options.url).toBe(":memory:");
+    expect(source.options.authToken).toBe("token");
+    expect(source.options.synchronize).toBe(false);
+    expect(source.isInitialized).toBe(false);
+  });
+});

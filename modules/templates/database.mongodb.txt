@@ -1,0 +1,46 @@
+import { AppEnv } from "@talosjs/app-env";
+import { inject } from "@talosjs/container";
+import {
+  DataSource,
+  decorator,
+  type MongoClient,
+  type MongoDataSourceOptionsType,
+} from "@talosjs/database";
+
+@decorator.database()
+export class {{NAME}}Database {
+  private readonly source: DataSource<MongoDataSourceOptionsType>;
+
+  public constructor(@inject(AppEnv) env: AppEnv) {
+    this.source = new DataSource({
+      type: "mongodb",
+      ...(env.DATABASE_URL && { url: env.DATABASE_URL }),
+    });
+  }
+
+  public getSource(): DataSource<MongoDataSourceOptionsType> {
+    return this.source;
+  }
+
+  public getClient(): MongoClient {
+    return this.source.client;
+  }
+
+  public async open(): Promise<void> {
+    if (!this.source.isInitialized) {
+      await this.source.initialize();
+    }
+  }
+
+  public async close(): Promise<void> {
+    if (this.source.isInitialized) {
+      await this.source.destroy();
+    }
+  }
+
+  public async drop(): Promise<void> {
+    if (this.source.isInitialized) {
+      await this.source.dropDatabase();
+    }
+  }
+}

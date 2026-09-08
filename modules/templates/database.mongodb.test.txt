@@ -1,0 +1,12 @@
+import { describe, expect, test } from "bun:test";
+import { AppEnv } from "@talosjs/app-env";
+import { {{NAME}}Database } from "@module/{{MODULE}}/databases/{{NAME}}Database";
+
+describe("{{NAME}}Database", () => {
+  test("should create a MongoDB data source", () => {
+    const database = new {{NAME}}Database(new AppEnv());
+
+    expect(database.getSource().options.type).toBe("mongodb");
+    expect(database.getSource().isInitialized).toBe(false);
+  });
+});

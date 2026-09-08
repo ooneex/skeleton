@@ -1,0 +1,47 @@
+import { AppEnv } from "@talosjs/app-env";
+import { inject } from "@talosjs/container";
+import {
+  DataSource,
+  DatabaseException,
+  decorator,
+  SqlDatabase,
+  type TursoClient,
+  type TursoDataSourceOptionsType,
+} from "@talosjs/database";
+import { SharedModule } from "@module/shared/SharedModule";
+
+@decorator.database()
+export class {{NAME}}Database extends SqlDatabase<TursoDataSourceOptionsType> {
+  public constructor(@inject(AppEnv) private readonly env: AppEnv) {
+    super();
+  }
+
+  public getSource(_database?: string): DataSource<TursoDataSourceOptionsType> {
+    if (this.source) {
+      return this.source;
+    }
+
+    const url = this.env.TURSO_DATABASE_URL;
+
+    if (!url) {
+      throw new DatabaseException(
+        "Turso database URL is required. Set the TURSO_DATABASE_URL environment variable.",
+        "CONNECTION_FAILED",
+      );
+    }
+
+    this.source = new DataSource({
+      type: "turso",
+      url,
+      ...(this.env.TURSO_AUTH_TOKEN && { authToken: this.env.TURSO_AUTH_TOKEN }),
+      entities: SharedModule.entities,
+      synchronize: false,
+    });
+
+    return this.source;
+  }
+
+  public getClient(): TursoClient {
+    return this.getSource().client;
+  }
+}
