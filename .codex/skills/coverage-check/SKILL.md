@@ -7,7 +7,7 @@ description: Run Talos coverage across modules, report gaps, and optionally file
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -82,8 +82,8 @@ Re-run scoped to the module after the tests land:
 talos coverage:check --modules=<module> --logs
 ```
 
-Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos check --strict --logs` so the new specs also pass fmt, lint and the rest of the gate.
+Then re-run the full audit to confirm the workspace clears the threshold (`✔ Every module clears 90% — …`). Finish with `talos check --logs` so the new specs also pass fmt, lint and the rest of the gate.
 
 ## Related
 
-`talos check --strict --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `$project-fix` for the whole-project verdict, `$optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.
+`talos check --logs` runs the suites too, but only for pass/fail — neither measures coverage. Use `$project-fix` for the whole-project verdict, `$optimize` to prune and improve a module's tests, and this skill when the question is *how much of the code the tests actually reach*.

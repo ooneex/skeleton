@@ -7,7 +7,7 @@ description: Reference for the `talos` CLI commands — app lifecycle, module/de
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** When a choice arises, pick the recommended option and proceed.
 
@@ -106,7 +106,7 @@ talos marketing:create [--module <name>] [--title <title>] [--content <content>]
 `issue:check` walks `modules/*/issues/*.yml` and `packages/*/issues/*.yml` and validates each file at four levels: **file integrity** (UTF-8, no BOM/CRLF/tab indentation, size cap, `<ID>.yml` naming), **YAML integrity** (parses, is a mapping, no duplicate top-level keys), **schema** (closed field set; `id` matches the filename, `module` the owning directory; exact-cased `state`/`priority`/`labels` vocabularies; `dod` checkbox and `testing` numbered-checkbox grammar; `branch`/`pr` shape) and **cross-file** rules (unique ids, resolvable dependencies, no self-dependency or cycle). Each finding prints as `SEVERITY <rule> <message>`; the command exits `1` on any error (or on any warning with `--strict`), and never edits a file. The `$issue-check` skill wraps this command.
 
 Class generators share the form `talos <artifact>:create --name <Name> --module <name>`, where `<artifact>` is one of:
-`ai:chat` (chat class), `ai:middleware` (chat middleware), `ai:skill` (chat skill — prompt + its tools), `ai:tool` (chat tool), `analytics` (handler), `cache` (handler), `command` (CLI/`ICommand`), `controller` (HTTP/WS), `cron` (job), `database` (adapter — also takes `--type <postgres|sqlite|redis>`, prompted for interactively when omitted), `entity` (TypeORM), `event` (pub/sub), `flag` (feature flag), `logger`, `mailer` (class + JSX template), `middleware` (HTTP/WS), `permission`, `queue` (BullMQ job queue), `rate-limit` (throttling strategy / `IRateLimiter`), `repository`, `service`, `spa:feature` (SPA feature slice), `storage`, `translation` (localized dictionary), `vector-database`.
+`ai:chat` (chat class), `ai:middleware` (chat middleware), `ai:skill` (chat skill — prompt + its tools), `ai:tool` (chat tool), `analytics` (handler), `cache` (handler), `command` (CLI/`ICommand`), `controller` (HTTP/WS), `cron` (job), `database` (adapter — also takes `--type <postgres|sqlite|redis|clickhouse>`, prompted for interactively when omitted), `entity` (Talos SQL ORM), `event` (pub/sub), `flag` (feature flag), `logger`, `mailer` (class + JSX template), `middleware` (HTTP/WS), `permission`, `queue` (BullMQ job queue), `rate-limit` (throttling strategy / `IRateLimiter`), `repository`, `service`, `spa:feature` (SPA feature slice), `storage`, `translation` (localized dictionary), `vector-database`.
 
 The matching `/<artifact>-create` skills wrap these generators, complete the code + tests, and share the `talos-scaffold` workflow (run-from-root, option inference, module registration, lint/format, conventions).
 
@@ -145,7 +145,7 @@ talos workspace:run --commands=build --modules=billing,user   # Only the named m
 talos workspace:run --commands=test --logs                    # Stream plain logs (use in CI/non-interactive runs)
 talos workspace:run --commands=build --no-cache               # Ignore the task cache and re-run everything
 talos e2e:run [--modules=a,b] [--logs] [--no-cache]          # Alias for workspace:run --commands=e2e — run Bun.WebView specs through each target's bun test e2e script
-talos check --strict --logs                                  # Install, build, fmt, lint and test — the full gate
+talos check --logs                                  # Install, build, fmt, lint and test — the full gate
 talos check --strict --modules=billing,user --logs           # Scope the gate to the named modules (also --packages=a,b)
 talos build [--modules=a,b] [--logs] [--no-cache]            # Build every target in dependency order, several at once
 talos fmt   [--modules=a,b] [--logs] [--no-cache]            # Format every target, all at once
@@ -183,7 +183,7 @@ talos coverage:check --logs --output=md                 # Also write var/outputs
 
 ## Project health
 ```bash
-talos check --strict --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
+talos check --logs                   # ALWAYS run it this way — every check, strict verdict, plain logs
 talos check --logs --skip=workspace           # The fast checks only (no install/build/test)
 talos check --logs --only=conventions,tests,docs  # Only the named checks
 talos check --logs --e2e                      # Add the opt-in end-to-end suite
@@ -193,7 +193,7 @@ talos check --logs --strict                   # Exit 1 when a check only reports
 talos check --logs --json                     # Machine-readable report for CI
 ```
 
-**Always invoke it as `talos check --strict --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
+**Always invoke it as `talos check --logs`, never bare** — the other flags above narrow the run (`--only`, `--modules`, `--skip`), but `--strict` and `--logs` stay on so warnings fail the verdict and the workspace output stays readable.
 
 `check` is the whole-project gate: it runs seventeen checks (plus the opt-in eighteenth) and prints one report with a status line per check, a detail block per non-passing check, and a single verdict line.
 

@@ -7,7 +7,7 @@ description: Run the full strict Talos health check, fix every reported error an
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 Run autonomously — no questions. Fix, don't silence: never disable a rule, delete a test, or weaken an assertion to make a check pass.
 
@@ -18,7 +18,7 @@ Run autonomously — no questions. Fix, don't silence: never disable a rule, del
 From the **root of the project**:
 
 ```bash
-talos check --strict --logs
+talos check --logs
 ```
 
 **Always both flags.** `--strict` makes warnings exit non-zero so they can't be missed; `--logs` streams readable output (the default footer is for a TTY). Add `--e2e` for the end-to-end suite, `--skip=workspace` for a fast signal, `--only=<check>` to scope — but keep `--strict --logs` on every run. The workspace check runs `fmt --write`, so formatting changes in the tree are expected — keep them.
@@ -51,7 +51,7 @@ Failures first, then warnings — **warnings are in scope**, including `dependen
 Loop until nothing fails and nothing warns:
 
 ```bash
-talos check --strict --logs
+talos check --logs
 ```
 
 A zero exit is the only done signal — with `--strict` it means no failures *and* no warnings.

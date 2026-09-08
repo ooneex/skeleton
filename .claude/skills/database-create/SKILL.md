@@ -1,11 +1,11 @@
 ---
 name: database-create
 description: Generate a new database class with its test file, then complete the generated code.
-when_to_use: Use when creating a new database adapter that extends TypeormDatabase from @talosjs/database.
+when_to_use: Use when creating a new SQL database adapter that extends SqlDatabase from @talosjs/database.
 model: sonnet
 effort: low
 allowed-tools: Bash(talos database:create *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob
-argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis>]'
+argument-hint: '[--name=<Name>] [--module=<module>] [--type=<postgres|sqlite|redis|clickhouse>]'
 ---
 
 # Make Database Class
@@ -25,11 +25,11 @@ Generate a database class and test file, then complete the implementation (datab
 ### 1. Infer the options from the request, then run the generator
 
 ```bash
-talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis>
+talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis|clickhouse>
 ```
 
 - `--name` — database class name, from its purpose (e.g. "a database for analytics" → `Analytics`). Any casing; the CLI normalizes to PascalCase and appends the `Database` suffix, so omit it.
-- `--type` — one of `postgres`, `sqlite`, or `redis`; infer from the request (e.g. "a Redis-backed cache database" → `redis`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
+- `--type` — one of `postgres`, `sqlite`, `redis`, or `clickhouse`; infer it from the request (e.g. "an analytics database in ClickHouse" → `clickhouse`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
 
 ### 2. Complete the database class
 
@@ -40,11 +40,10 @@ Read `modules/<module>/src/databases/<Name>Database.ts`, then:
 - Configure DataSource options as appropriate
 
 ```typescript
-import { DataSource } from "typeorm";
-import { TypeormDatabase, decorator } from "@talosjs/database";
+import { DataSource, SqlDatabase, decorator } from "@talosjs/database";
 
 @decorator.database()
-export class <Name>Database extends TypeormDatabase {
+export class <Name>Database extends SqlDatabase {
   public getSource(database?: string): DataSource {
     database = database || "var/db";
 
@@ -54,8 +53,7 @@ export class <Name>Database extends TypeormDatabase {
         // TODO: Load your entities here
       ],
       enableWAL: true,
-      busyErrorRetry: 2000,
-      busyTimeout: 30_000,
+      timeout: 30_000,
       database,
       type: "sqlite",
     });

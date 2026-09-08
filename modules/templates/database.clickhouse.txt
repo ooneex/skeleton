@@ -10,25 +10,27 @@ export class {{NAME}}Database extends SqlDatabase {
   }
 
   public getSource(database?: string): DataSource {
-    database = database || this.env.SQLITE_DATABASE_PATH || "var/db";
+    if (this.source) {
+      return this.source;
+    }
 
-    if (!database) {
+    const url = this.env.DATABASE_URL;
+
+    if (!url) {
       throw new DatabaseException(
-        "SQLite database path is required. Please provide a database path either through the constructor options or set the SQLITE_DATABASE_PATH environment variable.",
+        "ClickHouse URL is required. Set the DATABASE_URL environment variable.",
         "CONNECTION_FAILED",
       );
     }
 
-    if (!this.source) {
-      this.source = new DataSource({
-        synchronize: false,
-        entities: SharedModule.entities,
-        enableWAL: true,
-        timeout: 30_000,
-        database,
-        type: "sqlite",
-      });
-    }
+    this.source = new DataSource({
+      synchronize: false,
+      entities: SharedModule.entities,
+      poolSize: 10,
+      database,
+      url,
+      type: "clickhouse",
+    });
 
     return this.source;
   }

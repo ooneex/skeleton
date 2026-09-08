@@ -56,7 +56,7 @@ Prefer `@talosjs` packages over third-party alternatives, and inject their servi
 ## Data & Persistence
 | Package | Purpose |
 |---|---|
-| `@talosjs/database` | DB abstraction — TypeORM, connection pooling, migrations |
+| `@talosjs/database` | Talos SQL ORM — Bun SQL drivers, connection pooling, migrations |
 | `@talosjs/entity` | Base entities + decorators for columns, relationships, hooks |
 | `@talosjs/migrations` | Migration runner — versioned changes, rollback, execution logging |
 | `@talosjs/seeds` | Seeding framework — idempotent fixtures + test datasets |

@@ -7,7 +7,7 @@ description: Create or restructure local issue YAML into planned, labelled, depe
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — never ask questions.** On any choice, pick the recommended option and proceed.
 
@@ -228,14 +228,14 @@ comments:
 ## How to Test
 
 `testing` is an **ordered checkbox list** (`1. [ ]`, …) of concrete steps proving the change works end-to-end. Where `dod` states *what must be true*, `testing` states *how to prove it*.
-- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check --strict --logs`, `talos app:start`, a specific `curl`/route, `talos e2e:run` only for front-end module types).
+- Write runnable steps in implementation order — command / route / input — each with its **expected result**. Prefer project tooling (`talos check --logs`, `talos app:start`, a specific `curl`/route, `talos e2e:run` only for front-end module types).
 - Cover every `dod` item, including meaningful edge/error cases.
 - Match the module type: **backend** (`module`/`api`/`microservice`, or none) tests endpoints/services/migrations directly — unit/integration tests (`bun:test`) and `curl`/route calls, never `Bun.WebView`/`talos e2e:run`; SPA/design/storybook tests rendered routes and trusted interactions with `Bun.WebView` (`talos app:start` + browser flow, `talos e2e:run` when a spec exists).
 - Keep self-contained; omit only when nothing is observable (pure chore).
 
 ```yaml
 testing: |
-  1. [ ] Run `talos check --strict --logs` from the root — lint, types, tests pass.
+  1. [ ] Run `talos check --logs` from the root — lint, types, tests pass.
   2. [ ] Start with `talos app:start` and open `/users/new`.
   3. [ ] Submit a duplicate email — rejected with 409 and inline error shows.
 ```
@@ -246,7 +246,7 @@ testing: |
 
 ### Backend (`type: "module"`, `"api"`, `"microservice"`, or none) — `### Data Model`
 
-Module owns controllers, services, repositories, entities, migrations, seeds, and constraints under `src/`. Name the validation rules the work needs as `src/constraints/` artefacts — `Assert<Name>` classes for route `params`/`payload`/`queries` and `assert<Subject><Rule>` guards for the business rules services enforce — reusing `@talosjs/validation/constraints/*` where one already covers the rule. List TypeORM relations with the exact owning field, decorator, and inverse/FK/join owner (see step 5 block). Reference services/repositories/controllers/DI by `@talosjs` conventions; entities register in `SharedModule`.
+Module owns controllers, services, repositories, entities, migrations, seeds, and constraints under `src/`. Name the validation rules the work needs as `src/constraints/` artefacts — `Assert<Name>` classes for route `params`/`payload`/`queries` and `assert<Subject><Rule>` guards for the business rules services enforce — reusing `@talosjs/validation/constraints/*` where one already covers the rule. List SQL relations with the exact owning field, `@talosjs/database` decorator, and inverse/FK/join owner (see step 5 block). Reference services/repositories/controllers/DI by `@talosjs` conventions; entities register in `SharedModule`.
 
 When a new entity or column lands, check whether it needs an index — foreign keys, fields used in `WHERE`/`ORDER BY`/lookups, and fields with a uniqueness constraint. List each with its `@Index()`/`@Column({ unique: true })` decorator in `### Data Model`, and add a matching `dod` checkbox (`- [ ] \`fieldName\` — indexed for <lookup/uniqueness reason>`).
 

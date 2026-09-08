@@ -1,6 +1,6 @@
 ---
 name: entity-create
-description: Generate a new TypeORM entity class with its test file, then complete the generated code.
+description: Generate a new SQL entity class with its test file, then complete the generated code.
 when_to_use: Use when creating a new database entity with columns, relations, and table mapping.
 model: sonnet
 effort: medium
@@ -16,7 +16,7 @@ argument-hint: '[--name=<Name>] [--module=<module>] [--table-name=<table_name>]'
 
 > **Run autonomously — do not ask the user questions.** Pick the recommended option and proceed.
 
-Generate a TypeORM entity class and test file, then complete both (entity-specific parts only). Follow the shared `talos-scaffold` skill for run-from-root, `--name`/`--module` inference, module registration, lint/format, and coding conventions.
+Generate a Talos SQL entity class and test file, then complete both (entity-specific parts only). Follow the shared `talos-scaffold` skill for run-from-root, `--name`/`--module` inference, module registration, lint/format, and coding conventions.
 
 - **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` (once extracted into a shared package). Check both roots; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
 
@@ -43,14 +43,14 @@ Read `modules/<module>/src/entities/<Name>Entity.ts`, then:
 ```typescript
 import type { LocaleType } from "@talosjs/translation";
 import { random } from "@talosjs/utils/random";
-import { Column, CreateDateColumn, DeleteDateColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "@talosjs/database";
 
 @Entity({
   name: "<table_name>",
 })
-export class <Name>Entity extends BaseEntity {
+export class <Name>Entity {
   @PrimaryColumn({ name: "id", type: "varchar", length: 20, nullable: false })
-  id: string = random.id();
+  public id: string = random.id();
 
   @Column({ name: "is_locked", type: "boolean", default: false, nullable: true })
   public isLocked?: boolean | null;
@@ -74,13 +74,13 @@ export class <Name>Entity extends BaseEntity {
   public lang?: LocaleType | null;
 
   @CreateDateColumn({ name: "created_at", nullable: true })
-  createdAt?: Date | null;
+  public createdAt?: Date | null;
 
   @UpdateDateColumn({ name: "updated_at", nullable: true })
-  updatedAt?: Date | null;
+  public updatedAt?: Date | null;
 
   @DeleteDateColumn({ name: "deleted_at", nullable: true })
-  deletedAt?: Date | null;
+  public deletedAt?: Date | null;
 }
 ```
 

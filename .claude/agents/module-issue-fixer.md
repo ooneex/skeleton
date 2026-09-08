@@ -58,7 +58,7 @@ Before creating anything, load `talos-module` (via the Skill tool) for the autho
 
 The module owns controllers, services, repositories, entities, migrations, seeds, and constraints under `src/`. From `### Data Model` and the `dod`, derive artefacts and run the matching generator skills:
 
-- **Entity** — `/entity-create --name=<EntityName> --module=<module>`. Implement columns and relations from `### Data Model` (TypeORM decorators are spelled out there).
+- **Entity** — `/entity-create --name=<EntityName> --module=<module>`. Implement columns and relations from `### Data Model` (the `@talosjs/database` decorators are spelled out there).
 - **Migration** — when the entity introduces new columns/tables/relations: `/migration-create --module=<module>`. Implement `up()` with the DDL and `down()` to reverse it.
 - **Repository** — `/repository-create --name=<RepositoryName> --module=<module>`. Keep only the CRUD methods this issue needs (`.create` → `save`; `.read` → `findById`; `.list` → `find`; `.delete` → `delete`); remove uncalled methods.
 - **Service** — `/service-create --name=<ServiceName> --module=<module>`. Inject the repository via the constructor; implement `execute()` with the `goal`'s business logic.

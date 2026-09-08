@@ -1,7 +1,7 @@
 ---
 name: repository-create
 description: Generate a new repository class with its test file, then complete the generated code.
-when_to_use: Use when creating a new TypeORM repository for database operations on an entity.
+when_to_use: Use when creating a new Talos SQL repository for database operations on an entity.
 model: sonnet
 effort: medium
 allowed-tools: Bash(talos repository:create *), Bash(talos project:check *), Read, Edit, Write, Grep, Glob
@@ -16,7 +16,7 @@ argument-hint: '[--name=<Name>] [--module=<module>]'
 
 > **Run autonomously — do not ask the user questions;** pick the recommended option and proceed. **Module location:** `<module>` resolves to `modules/<module>/` or `packages/<module>/` — check both roots; every `modules/<module>/...` path applies equally under `packages/<module>/...`.
 
-Generate a TypeORM repository class and test file, then complete both. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, module registration, lint/format, coding conventions); this covers only the repository-specific parts.
+Generate a Talos SQL repository class and test file, then complete both. Follow the shared `talos-scaffold` skill workflow (run-from-root, `--name`/`--module` inference, module registration, lint/format, coding conventions); this covers only the repository-specific parts.
 
 ## Steps
 
@@ -39,18 +39,24 @@ Read `modules/<module>/src/repositories/<Name>Repository.ts`, then:
 
 ```typescript
 import { inject } from "@talosjs/container";
-import type { ITypeormDatabase } from "@talosjs/database";
+import { ILike } from "@talosjs/database";
+import type {
+  FindManyOptionsType,
+  FindOptionsWhereType,
+  ISqlDatabase,
+  Repository,
+  SaveOptionsType,
+  UpdateResult,
+} from "@talosjs/database";
 import { decorator } from "@talosjs/repository";
 import type { FilterResultType } from "@talosjs/types";
-import type { FindManyOptions, FindOptionsWhere, Repository, SaveOptions, UpdateResult } from "typeorm";
-import { ILike } from "typeorm";
 import { <Name>Entity } from "../entities/<Name>Entity";
 
 @decorator.repository()
 export class <Name>Repository {
   constructor(
     @inject("database")
-    private readonly database: ITypeormDatabase,
+    private readonly database: ISqlDatabase,
   ) {}
 
   public async open(): Promise<Repository<<Name>Entity>> {
@@ -62,19 +68,19 @@ export class <Name>Repository {
   }
 
   public async find(
-    criteria: FindManyOptions<<Name>Entity> & { page?: number; limit?: number; q?: string },
+    criteria: FindManyOptionsType<<Name>Entity> & { page?: number; limit?: number; q?: string },
   ): Promise<FilterResultType<<Name>Entity>> {
     // ... pagination and search logic
   }
 
   public async findOne(id: string): Promise<<Name>Entity | null> { ... }
-  public async findOneBy(criteria: FindOptionsWhere<<Name>Entity>): Promise<<Name>Entity | null> { ... }
-  public async create(entity: <Name>Entity, options?: SaveOptions): Promise<<Name>Entity> { ... }
-  public async createMany(entities: <Name>Entity[], options?: SaveOptions): Promise<<Name>Entity[]> { ... }
-  public async update(entity: <Name>Entity, options?: SaveOptions): Promise<<Name>Entity> { ... }
-  public async updateMany(entities: <Name>Entity[], options?: SaveOptions): Promise<<Name>Entity[]> { ... }
-  public async delete(criteria: FindOptionsWhere<<Name>Entity> | FindOptionsWhere<<Name>Entity>[]): Promise<UpdateResult> { ... }
-  public async count(criteria?: FindOptionsWhere<<Name>Entity> | FindOptionsWhere<<Name>Entity>[]): Promise<number> { ... }
+  public async findOneBy(criteria: FindOptionsWhereType<<Name>Entity>): Promise<<Name>Entity | null> { ... }
+  public async create(entity: <Name>Entity, options?: SaveOptionsType): Promise<<Name>Entity> { ... }
+  public async createMany(entities: <Name>Entity[], options?: SaveOptionsType): Promise<<Name>Entity[]> { ... }
+  public async update(entity: Partial<<Name>Entity> & { id: string }): Promise<UpdateResult> { ... }
+  public async updateMany(entities: (Partial<<Name>Entity> & { id: string })[]): Promise<UpdateResult[]> { ... }
+  public async delete(criteria: FindOptionsWhereType<<Name>Entity> | FindOptionsWhereType<<Name>Entity>[]): Promise<UpdateResult> { ... }
+  public async count(criteria?: FindOptionsWhereType<<Name>Entity> | FindOptionsWhereType<<Name>Entity>[]): Promise<number> { ... }
 }
 ```
 
@@ -89,18 +95,19 @@ import { beforeEach, describe, expect, mock, test } from "bun:test";
 import { <Name>Entity } from "@/entities/<Name>Entity";
 import { <Name>Repository } from "@/repositories/<Name>Repository";
 
-const mockTypeormRepo = {
+const mockSqlRepository = {
   find: mock(async () => []),
   findOne: mock(async () => null),
   findOneBy: mock(async () => null),
   save: mock(async (entity: unknown) => entity),
-  delete: mock(async () => ({ affected: 1, raw: [] })),
+  update: mock(async () => ({ affected: 1, generatedMaps: [], raw: undefined })),
+  softDelete: mock(async () => ({ affected: 1, generatedMaps: [], raw: undefined })),
   count: mock(async () => 0),
   findAndCount: mock(async () => [[], 0] as [unknown[], number]),
 };
 
 const mockDatabase = {
-  open: mock(async () => mockTypeormRepo),
+  open: mock(async () => mockSqlRepository),
   close: mock(async () => undefined),
 };
 
@@ -108,7 +115,7 @@ const createRepo = () => new <Name>Repository(mockDatabase as never);
 
 describe("<Name>Repository", () => {
   beforeEach(() => {
-    for (const fn of Object.values(mockTypeormRepo)) fn.mockClear();
+    for (const fn of Object.values(mockSqlRepository)) fn.mockClear();
     mockDatabase.open.mockClear();
     mockDatabase.close.mockClear();
   });
@@ -141,7 +148,7 @@ describe("<Name>Repository", () => {
 
   // --- Database interaction (mocked) ---
 
-  test("open() should request the entity's TypeORM repository from the database", async () => {
+  test("open() should request the entity's SQL repository from the database", async () => {
     const repo = createRepo();
     await repo.open();
     expect(mockDatabase.open).toHaveBeenCalledWith(<Name>Entity);
@@ -153,41 +160,41 @@ describe("<Name>Repository", () => {
     expect(mockDatabase.close).toHaveBeenCalled();
   });
 
-  test("create() should persist via save() and forward SaveOptions", async () => {
+  test("create() should persist via save() and forward SaveOptionsType", async () => {
     const entity = new <Name>Entity();
     const repo = createRepo();
     const result = await repo.create(entity);
-    expect(mockTypeormRepo.save).toHaveBeenCalledWith(entity, undefined);
+    expect(mockSqlRepository.save).toHaveBeenCalledWith(entity, undefined);
     expect(result).toBe(entity);
     await repo.create(entity, { reload: false });
-    expect(mockTypeormRepo.save).toHaveBeenCalledWith(entity, { reload: false });
+    expect(mockSqlRepository.save).toHaveBeenCalledWith(entity, { reload: false });
   });
 
   test("findOne() should return the entity when found, null otherwise", async () => {
     const entity = new <Name>Entity();
-    mockTypeormRepo.findOne.mockImplementationOnce(async () => entity);
+    mockSqlRepository.findOne.mockImplementationOnce(async () => entity);
     const repo = createRepo();
     expect(await repo.findOne("test-id")).toBe(entity);
     expect(await repo.findOne("missing-id")).toBeNull();
   });
 
-  test("update() should persist the updated entity via save()", async () => {
+  test("update() should delegate by id and return the update result", async () => {
     const entity = new <Name>Entity();
     const repo = createRepo();
     const result = await repo.update(entity);
-    expect(mockTypeormRepo.save).toHaveBeenCalledWith(entity, undefined);
-    expect(result).toBe(entity);
+    expect(mockSqlRepository.update).toHaveBeenCalledWith(entity.id, entity);
+    expect(result.affected).toBe(1);
   });
 
-  test("delete() should delegate to the TypeORM repository", async () => {
+  test("delete() should delegate to the SQL repository", async () => {
     const criteria = { id: "test-id" };
     const repo = createRepo();
     await repo.delete(criteria);
-    expect(mockTypeormRepo.delete).toHaveBeenCalledWith(criteria);
+    expect(mockSqlRepository.softDelete).toHaveBeenCalledWith(criteria);
   });
 
-  test("count() should return the count from the TypeORM repository", async () => {
-    mockTypeormRepo.count.mockImplementation(async () => 7);
+  test("count() should return the count from the SQL repository", async () => {
+    mockSqlRepository.count.mockImplementation(async () => 7);
     const repo = createRepo();
     const result = await repo.count();
     expect(result).toBe(7);

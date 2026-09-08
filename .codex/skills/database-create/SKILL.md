@@ -7,7 +7,7 @@ description: Generate a new database class with its test file, then complete the
 
 > **Package manager: `bun` and `bunx` only.** Never `npm`, `npx`, `yarn`, or `pnpm` — the sole exception is the `talos npm:*` commands, which publish to the npm registry.
 
-> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --strict --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
+> **CLI first.** A `talos`/`bun` command is faster and cheaper than doing the same work by hand: `talos <artifact>:create` over hand-writing a file, `talos check --logs` / `talos fmt` / `talos lint` / `talos test` over running each tool yourself, `talos <domain>:<verb>` over scripting the steps, and a single `rg` / `git` / `ls` invocation over file-by-file reads. `talos help` and `talos <command> --help` list what exists — check there before writing a manual procedure, and only fall back to manual work when no command covers it.
 
 > **Run autonomously — do not ask the user questions.** Pick the recommended option and proceed.
 
@@ -20,11 +20,11 @@ Generate a database class and test file, then complete the implementation (datab
 ### 1. Infer the options from the request, then run the generator
 
 ```bash
-talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis>
+talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|redis|clickhouse>
 ```
 
 - `--name` — database class name, from its purpose (e.g. "a database for analytics" → `Analytics`). Any casing; the CLI normalizes to PascalCase and appends the `Database` suffix, so omit it.
-- `--type` — one of `postgres`, `sqlite`, or `redis`; infer from the request (e.g. "a Redis-backed cache database" → `redis`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
+- `--type` — one of `postgres`, `sqlite`, `redis`, or `clickhouse`; infer it from the request (e.g. "an analytics database in ClickHouse" → `clickhouse`), defaulting to `sqlite` when nothing suggests otherwise. If omitted, the generator asks via an interactive prompt.
 
 ### 2. Complete the database class
 
@@ -35,11 +35,10 @@ Read `modules/<module>/src/databases/<Name>Database.ts`, then:
 - Configure DataSource options as appropriate
 
 ```typescript
-import { DataSource } from "typeorm";
-import { TypeormDatabase, decorator } from "@talosjs/database";
+import { DataSource, SqlDatabase, decorator } from "@talosjs/database";
 
 @decorator.database()
-export class <Name>Database extends TypeormDatabase {
+export class <Name>Database extends SqlDatabase {
   public getSource(database?: string): DataSource {
     database = database || "var/db";
 
@@ -49,8 +48,7 @@ export class <Name>Database extends TypeormDatabase {
         // TODO: Load your entities here
       ],
       enableWAL: true,
-      busyErrorRetry: 2000,
-      busyTimeout: 30_000,
+      timeout: 30_000,
       database,
       type: "sqlite",
     });
@@ -99,7 +97,7 @@ describe("<Name>Database", () => {
 ### 4. Lint, format, and test
 
 ```bash
-talos check --strict --logs
+talos check --logs
 ```
 
 Fix every failure before completing.
