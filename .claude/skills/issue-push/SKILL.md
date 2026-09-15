@@ -1,6 +1,6 @@
 ---
 name: issue-push
-description: Push one or more local YAML issues to Linear with talos issue:push, inferring which issue IDs to push from the user's request. Creates the issue in Linear when it does not exist yet and updates it in place when it does, syncing title, state, priority, labels, and a structured description (module, context, goal, dod, testing, dependencies). Reads modules/<module>/issues/<ID>.yml.
+description: Push one or more local YAML issues to Linear with talos issue:push, inferring which issue IDs to push from the user's request. Creates the issue in Linear when it does not exist yet and updates it in place when it does, syncing title, state, priority, labels, the team/project/milestone the file declares, and a structured description (module, context, goal, dod, testing, dependencies). Reads modules/<module>/issues/<ID>.yml.
 when_to_use: Use when the user wants to publish or sync local issues up to Linear. Triggers on requests like "push issue OON-123456 to Linear", "push these issues", or "sync my local issue <ID> up to Linear".
 model: sonnet
 effort: low
@@ -54,9 +54,26 @@ talos issue:push --id=<ID1>,<ID2>,... [--module=<module>] [--provider=linear|git
 
 For each id the command:
 - Locates `modules/<module>/issues/<ID>.yml` (preferring `--module` when given, otherwise scanning every module).
-- Looks the issue up in Linear by its `id`/identifier. **Exists → update; missing → create** under the `General` team.
+- Looks the issue up in Linear by its `id`/identifier. **Exists → update; missing → create** under the team the file declares, falling back to `General` when it declares none.
 - Syncs these fields both on create and update: **title**, **state** (matched to a Linear workflow state by name), **priority** (`No priority`/`Urgent`/`High`/`Medium`/`Low`), **labels** (existing labels are reused, missing ones created), and a **description** assembled from the YAML: `Module`, `Context`, `Goal`, `Definition of Done`, `Testing`, and `Dependencies`. Any `comments` in the YAML are appended (deduplicated against existing Linear comments).
+- Places the issue from the optional `team`, `project` and `milestone` fields (see below).
 - On create, if Linear assigns a different identifier than the local filename, the local file is renamed to the new identifier.
+
+### Where the issue lands
+
+An issue file chooses its own destination. Without these fields the issue is created under `General`, which is almost never where it belongs:
+
+```yaml
+team: "ENG"          # team key or team name
+project: "v3"        # project name inside that team
+milestone: "Homepage" # milestone name inside that project — needs `project`
+```
+
+- A name the workspace does not hold is an **error**, and nothing is created — the command prints the names it could have matched. Fix the field rather than dropping it.
+- On an **update**, the issue is re-pointed only when the file names a `team` of its own; a file that names none keeps the placement the issue already has.
+- When the user says where an issue should go ("file it under ENG, project v3"), **write the fields into the YAML** and push — do not push to `General` and move it by hand afterwards, and do not reach for the Linear API directly.
+- `talos issue:pull` writes these three fields back, so a pulled issue keeps its home.
+- They are Linear-only: with `--provider=github` they are reported as ignored.
 
 The command reports `Issue <identifier> created in Linear` or `Issue <identifier> updated in Linear` per issue, and exits non-zero if any id fails (file not found, no title on a new issue, or a failed Linear request). Record each result; note any id that failed for the summary and continue.
 

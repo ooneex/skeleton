@@ -181,6 +181,10 @@ module: "<module>"
 title: "<action-oriented title: verb + noun>"
 state: "Planned"
 priority: "<parent priority>"
+# Carry the parent's `team`/`project`/`milestone` when it has them: they decide
+# where `talos issue:push` files the issue, and a sub-issue that drops them
+# lands in the fallback team instead of beside its parent. Omit the keys
+# entirely when the parent declares none — a blank value is an error.
 labels:
   - "<label>"
 context: |
