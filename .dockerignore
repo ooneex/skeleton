@@ -19,6 +19,8 @@ coverage
 
 # Editor / OS metadata
 .claude
+.codex
+.agents
 .zed
 .vscode
 **/.DS_Store
