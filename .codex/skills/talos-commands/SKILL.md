@@ -223,11 +223,12 @@ Each check reuses the code of its dedicated command, so `check` can never disagr
 ## Release
 ```bash
 talos release:create                              # Detect unreleased commits, bump versions, update changelogs, tag, push
+talos release:create --bump                       # Force a patch bump of every package and module
 talos release:create --packages=cli --bump        # Force a patch bump of the named packages (also --modules=a,b), including ones with no unreleased commits
-talos release:create --packages=cli --bump --publish  # Same, then publish the bumped packages to npm
+talos release:create --bump --publish             # Bump every package and module, then publish them to npm
 ```
 
-`--bump` always raises the patch, even when the unreleased commits would otherwise be a minor or a major. Without it, a package or module that has no commits since its last tag is left alone.
+`--bump` always raises the patch, even when the unreleased commits would otherwise be a minor or a major. With no `--packages` or `--modules`, every package and module is bumped. Without `--bump`, a package or module that has no commits since its last tag is left alone.
 
 ## Publish
 ```bash
