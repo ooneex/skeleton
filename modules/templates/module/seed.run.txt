@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
-import { join } from "node:path";
-import { loadEnv } from "@talosjs/app-env";
+import { MainDatabase } from "@module/shared/databases/MainDatabase";
+import { container } from "@talosjs/container";
 import { run } from "@talosjs/seeds";
 // Every module, so the whole entity graph is registered on the main data
 // source — a seed reads relations that cross module boundaries, and TypeORM
@@ -9,6 +9,6 @@ import { run } from "@talosjs/seeds";
 import "@module/app/AppModule";
 import "@module/{{name}}/seeds/seeds";
 
-await loadEnv([join(import.meta.dir, "../../../app/.env.yml")]);
-
-await run();
+await run({
+  database: container.get(MainDatabase),
+});
