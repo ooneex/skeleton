@@ -1,8 +1,8 @@
-import { DataSource } from "typeorm";
-import { TypeormDatabase, DatabaseException, decorator } from "@talosjs/database";
-import { inject } from "@talosjs/container";
-import { AppEnv } from "@talosjs/app-env";
 import { SharedModule } from "@module/shared/SharedModule";
+import { AppEnv } from "@talosjs/app-env";
+import { inject } from "@talosjs/container";
+import { DatabaseException, decorator, TypeormDatabase } from "@talosjs/database";
+import { DataSource } from "typeorm";
 
 @decorator.database()
 export class MainDatabase extends TypeormDatabase {
