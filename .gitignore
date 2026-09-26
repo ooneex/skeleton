@@ -147,6 +147,9 @@ vite.config.ts.timestamp-*
 # Application
 var/
 
+# Claude Code worktrees (created by the worktree tool, never committed)
+.claude/worktrees/
+
 # Playwright
 test-results/
 playwright-report/
