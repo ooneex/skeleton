@@ -37,6 +37,7 @@ Not every artifact has a generator. `src/constraints/` — the module's `Assert<
 DI-registered artifacts must be added to the module's `ModuleType` in `src/<PascalModuleName>Module.ts` — put each in its own array:
 
 ```typescript
+import { MainDatabase } from "@module/shared/databases/MainDatabase";
 import type { ModuleType } from "@talosjs/module";
 import { <Name>Controller } from "./controllers/<Name>Controller";
 
@@ -47,9 +48,11 @@ export const <PascalModuleName>Module: ModuleType = {
   cronJobs: [],
   events: [],
 };
+
+MainDatabase.registerEntities(...<PascalModuleName>Module.entities);
 ```
 
-Controllers → `controllers`, entities → `entities`, middlewares → `middlewares`, crons → `cronJobs`, pubsub events → `events`. Services, repositories, and the other artifacts auto-register via their decorator and need no entry here.
+Controllers → `controllers`, entities → `entities`, middlewares → `middlewares`, crons → `cronJobs`, pubsub events → `events`. Services, repositories, and the other artifacts auto-register via their decorator and need no entry here. `MainDatabase.registerEntities()` maps the module's `entities` onto the shared source. The database never imports the module. A second database class, such as `SecondaryDatabase`, gets its own `registerEntities()` call.
 
 ## Test scaffold baseline
 

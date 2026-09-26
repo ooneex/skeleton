@@ -148,7 +148,7 @@ describe("<Name>Entity", () => {
 
 ### 4. Register the entity
 
-Add `<Name>Entity` to the `entities` array in `src/<PascalModuleName>Module.ts` (see `talos-scaffold` for the `ModuleType` shape).
+Add `<Name>Entity` to the `entities` array in `src/<PascalModuleName>Module.ts` (see `talos-scaffold` for the `ModuleType` shape). The module calls `MainDatabase.registerEntities(...<PascalModuleName>Module.entities)`, which maps that array onto the shared source. Do not import the entity from the database.
 
 ### 5. Lint, format, and test
 

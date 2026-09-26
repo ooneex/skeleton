@@ -36,9 +36,9 @@ talos database:create --name=<name> --module=<module> --type=<postgres|sqlite|tu
 
 Read `modules/<module>/src/databases/<Name>Database.ts`, then:
 
-- Add entity imports and register them in the `entities` array
+- Do not import entity classes into the database. Modules declare them with `<Name>Database.registerEntities(...)`.
+- Read those classes through `this.registeredEntities()` and reuse one process-wide source per path with `this.sharedSource()`.
 - Adjust the database path if needed (default `"var/db"`)
-- Configure DataSource options as appropriate
 
 ```typescript
 import { DataSource, SqlDatabase, decorator } from "@talosjs/database";
@@ -46,20 +46,22 @@ import { DataSource, SqlDatabase, decorator } from "@talosjs/database";
 @decorator.database()
 export class <Name>Database extends SqlDatabase {
   public getSource(database?: string): DataSource {
+    if (this.source) {
+      return this.source;
+    }
+
     database = database || "var/db";
 
-    this.source = new DataSource({
-      synchronize: false,
-      entities: [
-        // TODO: Load your entities here
-      ],
-      enableWAL: true,
-      timeout: 30_000,
-      database,
-      type: "sqlite",
+    return this.sharedSource(database, () => {
+      return new DataSource({
+        synchronize: false,
+        entities: this.registeredEntities(),
+        enableWAL: true,
+        timeout: 30_000,
+        database,
+        type: "sqlite",
+      });
     });
-
-    return this.source;
   }
 }
 ```
@@ -68,7 +70,7 @@ export class <Name>Database extends SqlDatabase {
 
 Read and replace `modules/<module>/tests/databases/<Name>Database.spec.ts`.
 
-**Coverage:** class identity (`name.endsWith("Database")`, is constructor); `getSource` exists, returns a `DataSource`-like object (has `initialize`/`destroy`); `synchronize` is `false`; `entities` is an array; default path `"var/db"`, custom path used when provided; instance isolation.
+**Coverage:** class identity (`name.endsWith("Database")`, is constructor); `getSource` exists, returns a `DataSource`-like object (has `initialize`/`destroy`); `synchronize` is `false`; `entities` is the array from `registeredEntities()`; the same path reuses one source across instances; default path `"var/db"`, a different path opens another; instance isolation of the database class.
 
 ```typescript
 import { describe, expect, test } from "bun:test";
@@ -92,6 +94,12 @@ describe("<Name>Database", () => {
   test("'getSource' uses the default path 'var/db', or the provided path when given", () => {
     expect((new <Name>Database().getSource().options as any).database).toBe("var/db");
     expect((new <Name>Database().getSource("custom/path/db").options as any).database).toBe("custom/path/db");
+  });
+
+  test("reuses one source across instances for the same path", () => {
+    const first = new <Name>Database().getSource("var/shared.db");
+    const second = new <Name>Database().getSource("var/shared.db");
+    expect(second).toBe(first);
   });
 
   test("should produce independent instances", () => {

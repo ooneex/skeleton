@@ -81,6 +81,10 @@ export class UserService implements IService {
 Every artifact follows one rule — `@decorator.<kind>()` on a class whose name ends with the matching PascalCase suffix:
 `service()`/`Service`, `repository()`/`Repository`, `middleware()`/`Middleware`, `cron()`/`Cron`, `queue()`/`Queue`, `event()`/`Event`, `cache()`/`Cache`, `analytics()`/`Analytics`, `logger()`/`Logger`, `mailer()`/`Mailer`, `permission()`/`Permission`, `storage()`/`Storage`, `database()`/`Database`, `vectorDatabase()`/`VectorDatabase`, `featureFlag()`/`FeatureFlag`, `translation()`/`Translation`, `command()`/`Command`, `workflow()`/`Workflow`, `transition()`/`Transition`, plus the AI `chat()`/`Chat` and `tool()`/`Tool`. Controllers use controller-specific route decorators; SQL entities use the entity decorators from `@talosjs/database`. Breaking the decorator/suffix contract throws `ContainerException` at startup.
 
+## Entities and the shared source
+
+List each SQL entity on the module's `entities` array. The module file calls `MainDatabase.registerEntities(...<Module>.entities)`, so the shared source maps those classes without importing the module. A second database, such as `SecondaryDatabase`, has its own `registerEntities()` call. Register entities before the source is created; an open source keeps the list it was built with.
+
 ## Constraints
 
 `src/constraints/` owns **every assertion the module makes about its own data**. Nothing assertion-shaped belongs in `utils/`, and a controller or service never inlines a rule it could name here. The folder mirrors `@talosjs/validation/constraints/` (`AssertId`, `AssertEmail`, `AssertName`, `AssertCountryCode`, `AssertHexaColor`, `AssertLocale`, …) — **reach for a package constraint first**; add a module-local one only when the rule is specific to this domain. There is no generator: write the file by hand, plus its mirror under `tests/constraints/`.
