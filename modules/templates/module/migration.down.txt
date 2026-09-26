@@ -1,15 +1,11 @@
 #!/usr/bin/env bun
 
-import { join } from "node:path";
-import { AppEnv, loadEnv } from "@talosjs/app-env";
-import { down } from "@talosjs/migrations";
+import { container } from "@talosjs/container";
 import "@module/{{name}}/migrations/migrations";
-
-await loadEnv([join(import.meta.dir, "../../../app/.env.yml")]);
-
-const env = new AppEnv();
+import { MainDatabase } from "@module/shared/databases/MainDatabase";
+import { down } from "@talosjs/migrations";
 
 await down({
-  databaseUrl: env.DATABASE_URL,
+  database: container.get(MainDatabase),
   tableName: "migrations",
 });
