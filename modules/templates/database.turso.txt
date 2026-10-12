@@ -8,7 +8,6 @@ import {
   type TursoClient,
   type TursoDataSourceOptionsType,
 } from "@talosjs/database";
-import { SharedModule } from "@module/shared/SharedModule";
 
 @decorator.database()
 export class {{NAME}}Database extends SqlDatabase<TursoDataSourceOptionsType> {
@@ -34,7 +33,7 @@ export class {{NAME}}Database extends SqlDatabase<TursoDataSourceOptionsType> {
       type: "turso",
       url,
       ...(this.env.TURSO_AUTH_TOKEN && { authToken: this.env.TURSO_AUTH_TOKEN }),
-      entities: SharedModule.entities,
+      entities: this.registeredEntities(),
       synchronize: false,
     });
 
