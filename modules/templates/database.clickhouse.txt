@@ -1,7 +1,6 @@
 import { DataSource, DatabaseException, SqlDatabase, decorator } from "@talosjs/database";
 import { inject } from "@talosjs/container";
 import { AppEnv } from "@talosjs/app-env";
-import { SharedModule } from "@module/shared/SharedModule";
 
 @decorator.database()
 export class {{NAME}}Database extends SqlDatabase {
@@ -25,7 +24,7 @@ export class {{NAME}}Database extends SqlDatabase {
 
     this.source = new DataSource({
       synchronize: false,
-      entities: SharedModule.entities,
+      entities: this.registeredEntities(),
       poolSize: 10,
       database,
       url,
