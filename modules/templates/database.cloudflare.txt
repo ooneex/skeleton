@@ -2,19 +2,30 @@ import {
   DataSource,
   decorator,
   type CloudflareDataSourceOptionsType,
+  type EntityTargetType,
   type ICloudflareDatabase,
 } from "@talosjs/database";
-import { SharedModule } from "@module/shared/SharedModule";
 
 @decorator.database()
 export class {{NAME}}Database {
+  private static readonly entities: EntityTargetType[] = [];
+
   private readonly source: DataSource<CloudflareDataSourceOptionsType>;
+
+  /** Declares the entities this database persists, so modules never import the database's consumers. */
+  public static registerEntities(...entities: EntityTargetType[]): void {
+    for (const entity of entities) {
+      if (!{{NAME}}Database.entities.includes(entity)) {
+        {{NAME}}Database.entities.push(entity);
+      }
+    }
+  }
 
   public constructor(client: ICloudflareDatabase) {
     this.source = new DataSource({
       type: "cloudflare",
       client,
-      entities: SharedModule.entities,
+      entities: {{NAME}}Database.entities,
       synchronize: false,
     });
   }

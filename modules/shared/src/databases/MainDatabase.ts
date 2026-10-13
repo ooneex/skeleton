@@ -1,20 +1,14 @@
-import { SharedModule } from "@module/shared/SharedModule";
 import { AppEnv } from "@talosjs/app-env";
 import { inject } from "@talosjs/container";
-import { DatabaseException, decorator, TypeormDatabase } from "@talosjs/database";
-import { DataSource } from "typeorm";
+import { DatabaseException, DataSource, decorator, SqlDatabase } from "@talosjs/database";
 
 @decorator.database()
-export class MainDatabase extends TypeormDatabase {
+export class MainDatabase extends SqlDatabase {
   public constructor(@inject(AppEnv) private readonly env: AppEnv) {
     super();
   }
 
   public getSource(_database?: string): DataSource {
-    if (this.source) {
-      return this.source;
-    }
-
     const url = this.env.DATABASE_URL ?? "";
 
     if (!url) {
@@ -24,17 +18,17 @@ export class MainDatabase extends TypeormDatabase {
       );
     }
 
-    this.source = new DataSource({
-      synchronize: false,
-      entities: SharedModule.entities,
-      extra: {
-        max: 10,
-        // idleTimeoutMillis: 30000,
-      },
-      url,
-      type: "postgres",
+    return this.sharedSource(url, () => {
+      return new DataSource({
+        synchronize: false,
+        entities: this.registeredEntities(),
+        extra: {
+          max: 10,
+          // idleTimeoutMillis: 30000,
+        },
+        url,
+        type: "postgres",
+      });
     });
-
-    return this.source;
   }
 }

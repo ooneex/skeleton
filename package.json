@@ -56,7 +56,7 @@
     "@talosjs/container": "^1.1.3",
     "@talosjs/controller": "^1.1.3",
     "@talosjs/currencies": "^1.1.3",
-    "@talosjs/database": "^1.1.3",
+    "@talosjs/database": "^1.7.0",
     "@talosjs/fetcher": "^1.1.3",
     "@talosjs/http-response": "^1.1.3",
     "@talosjs/logger": "^1.1.4",
