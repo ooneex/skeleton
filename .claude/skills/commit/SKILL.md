@@ -56,6 +56,8 @@ Create separate commits per modified module, following the project's conventiona
 
 **Subject** — sentence-case, imperative mood ("Add" not "Added"), no trailing period, max 100 chars total.
 
+**Body** (optional) — separated from the header by one blank line; every body line (trailers such as `Co-Authored-By:` included) must be at most 100 characters, or the `commit-msg` hook rejects the commit. Wrap long prose by hand; pass multi-line bodies with several `-m` flags or a heredoc.
+
 ## Examples
 
 ```bash
