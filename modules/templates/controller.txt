@@ -1,5 +1,4 @@
 import type { ContextType } from "@talosjs/controller";
-import { ERole } from "@talosjs/role";
 import { Route } from "@talosjs/routing";
 import { Assert } from "@talosjs/validation";
 
@@ -22,9 +21,7 @@ export type {{TYPE_NAME}}RouteType = {
   name: "{{ROUTE_NAME}}",
   version: 1,
   description: "",
-  params: {
-    // id: Assert("string"),
-  },
+  // params: { id: Assert("string") },
   payload: Assert({
 
   }),
