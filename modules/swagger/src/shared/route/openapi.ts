@@ -99,7 +99,7 @@ export const schemaOfExample = (value: unknown): SchemaType => {
  * A field that lists members is an object whatever its declared `type` says —
  * the members are the more precise statement of the two.
  */
-export const schemaOfField = (field: FieldType): SchemaType => {
+const schemaOfField = (field: FieldType): SchemaType => {
   const children = field.fields ?? [];
   if (children.length === 0) {
     return schemaOfType(field.type);
@@ -109,7 +109,7 @@ export const schemaOfField = (field: FieldType): SchemaType => {
 };
 
 /** The object schema a list of documented fields adds up to. */
-export const objectSchema = (fields: readonly FieldType[]): SchemaType => {
+const objectSchema = (fields: readonly FieldType[]): SchemaType => {
   const required = fields.filter((field) => field.required).map((field) => field.name);
   return {
     type: "object",
@@ -126,7 +126,7 @@ export const objectSchema = (fields: readonly FieldType[]): SchemaType => {
  * reading the specification parses the envelope, so that is what the schema has
  * to describe.
  */
-export const envelopeSchema = (fields: readonly FieldType[]): SchemaType => ({
+const envelopeSchema = (fields: readonly FieldType[]): SchemaType => ({
   type: "object",
   properties: {
     key: { type: ["string", "null"] },

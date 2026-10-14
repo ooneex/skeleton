@@ -20,7 +20,7 @@ type FilePickerPropsType = {
 };
 
 /** Bytes, rendered the way a file manager does. */
-export const humanSize = (bytes: number): string => {
+const humanSize = (bytes: number): string => {
   if (bytes >= 1024 * 1024) {
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   }
@@ -36,7 +36,7 @@ export const humanSize = (bytes: number): string => {
  * The prefix is a browser convention for embedding, not part of the encoding —
  * an API expecting base64 wants the payload alone.
  */
-export const encodeFileToBase64 = (file: File): Promise<string> =>
+const encodeFileToBase64 = (file: File): Promise<string> =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = () => reject(reader.error ?? new Error("The file could not be read."));
