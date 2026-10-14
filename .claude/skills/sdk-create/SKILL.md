@@ -47,7 +47,7 @@ Each `src/<module>.ts` exports a const with two halves:
 - `definition` — static metadata per method: `key`, `version`, `description`, `roles`, `endpoint` (placeholder `"/<prefix>/v<version><path>"`).
 - `api` — one method per controller, each stubbed with `throw Error("Not implemented")`.
 
-Each `api` method takes one `input` object (`params`, `payload`, `queries`, plus `onSuccess`/`onMessage`/`onOpen`/`onClose`/`onError` callbacks) and returns `Promise<...RouteType["response"]>`. The route `type` is copied from the controller, so `params`/`payload`/`queries`/`response` are already typed.
+Each `api` method takes one `input` object (the `params`, `payload` and `queries` its route type declares, plus `onSuccess`/`onMessage`/`onOpen`/`onClose`/`onError` callbacks) and returns `Promise<...RouteType["response"]>`. Each route type is imported from its controller (`import type { XRouteType } from "@module/<module>/controllers/X"`) rather than copied, so the backend types it references stay resolved; a controller that declared its route type without `export` is given one. Never paste a route type into the SDK.
 
 Rules for every method (forwarded per-transport in steps 5–7):
 
@@ -87,7 +87,7 @@ Pick the `Fetcher` method matching the controller's `@Route.<verb>` (not stored 
 import { Fetcher } from "@talosjs/fetcher";
 import type { ResponseDataType } from "@talosjs/http-response";
 
-// ...generated route types and `buildEndpoint`...
+// ...generated route type imports and `buildEndpoint`...
 
 export const entitlement = {
   api: {
@@ -128,7 +128,7 @@ Identify by reading the controller (step 2). Use native `fetch`, read `response.
 **Server-side streaming** — match parsing to how the controller writes chunks: newline-delimited JSON (split on `\n`, `JSON.parse` each line, below), plain text (deliver the decoded string), or binary (deliver the raw `Uint8Array`). Verb: `get` for a download-style stream, `post` when it has a `payload`.
 
 ```typescript
-// ...generated route types and `buildEndpoint`; native fetch, no @talosjs client import...
+// ...generated route type imports and `buildEndpoint`; native fetch, no @talosjs client import...
 
 export: async (input: {
   baseURL: string;
