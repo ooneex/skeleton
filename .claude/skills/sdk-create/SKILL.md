@@ -226,7 +226,13 @@ notifications: async (input: {
 
 ### 7. Implement the socket api methods
 
-For each `@Route.socket(...)` controller, use `Socket` from `@talosjs/socket-client`. Wire every callback, send the payload, resolve when the server marks the stream `done`. `Socket` reads its token from a `bearerToken` query param, so for authenticated sockets merge `input.bearerToken` into the endpoint queries (omit for public).
+For each `@Route.socket(...)` controller, use `Socket` from `@talosjs/socket-client`. Wire every callback and send one message per call. The server parses every message as a `{ payload, queries, lang }` envelope, so send `{ payload: input.payload, queries: input.queries }`, never the bare payload: a bare payload reaches the controller as an empty `context.payload`. `Socket` reads its token from a `bearerToken` query param, so for authenticated sockets merge `input.bearerToken` into the endpoint queries (omit for public).
+
+When to resolve depends on the controller (open it, as for the HTTP verb):
+
+- **One answer per message** — the controller returns `context.response.json(...)`. `json()` leaves the envelope's `done` flag `false`, so resolve on the first successful frame and close the socket.
+- **Several frames per message** — the controller sends frames through `context.channel.send(...)` and sets `context.response.done = true` on the last one. Deliver every frame through `onMessage` and resolve on the frame marked `done`; the client closes the socket when it receives it.
+- **Failures** — a frame with `success: false` (validation, auth, exception) reaches `onError`; reject there, or the promise never settles.
 
 > **Security — tokens in URLs leak** (proxy/access logs, browser history, APM traces). Since `Socket` requires the token as a query param, mitigate: issue **short-lived** bearer tokens and scrub query strings in your reverse proxy / log pipeline. Prefer a header or subprotocol handshake if `@talosjs/socket-client` later supports one.
 
@@ -248,20 +254,32 @@ stream: (input: {
     ...input.queries,
     bearerToken: input.bearerToken,
   });
-  const socket = new Socket<StreamRouteType["payload"], StreamRouteType["response"]>(`${input.baseURL}${endpoint}`);
+  const socket = new Socket<
+    { payload: StreamRouteType["payload"]; queries: StreamRouteType["queries"] },
+    StreamRouteType["response"]
+  >(`${input.baseURL}${endpoint}`);
+  // true when the controller marks its last frame with `context.response.done = true`
+  const streams = true;
 
   socket.onOpen((event) => input.onOpen?.(event));
   socket.onClose((event) => input.onClose?.(event));
-  socket.onError((event, response) => input.onError?.(event, response));
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    socket.onError((event, response) => {
+      input.onError?.(event, response);
+      reject(response ?? event);
+    });
     socket.onMessage((response) => {
       input.onMessage?.(response);
-      if (response.done) {
+      if (!streams) {
+        socket.close();
+        resolve(response.data);
+      } else if (response.done) {
         resolve(response.data);
       }
     });
-    socket.send(input.payload);
+    // The server reads `payload`, `queries` and `lang` from each message.
+    socket.send({ payload: input.payload, queries: input.queries });
   });
 },
 ```
