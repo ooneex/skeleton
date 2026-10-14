@@ -4,5 +4,6 @@ export { HighlightText } from "./HighlightText";
 export { InlineCode } from "./InlineCode";
 export { Link, linkVariants } from "./Link";
 export { List } from "./List";
+export { Markdown } from "./Markdown";
 export { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./Table";
 export { Large, Lead, Muted, P, Small } from "./Text";
