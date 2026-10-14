@@ -1,6 +1,13 @@
 import { expect, test } from "@playwright/test";
+import { findRoute, isSendableSocket } from "./routes";
+
+// `src/features/` is rebuilt from the target's controllers: each spec picks a
+// socket route of the shape it needs, and skips itself when the API has none.
 
 test("opens, exchanges and closes a socket route", async ({ page }) => {
+  const route = await findRoute(isSendableSocket);
+  test.skip(!route, "The API has no socket route whose message can be sent as prefilled");
+
   // A stand-in for the browser WebSocket: it echoes whatever is sent, which is
   // enough to drive the panel without needing a live socket backend.
   await page.addInitScript(() => {
@@ -29,7 +36,7 @@ test("opens, exchanges and closes a socket route", async ({ page }) => {
     (window as unknown as { WebSocket: unknown }).WebSocket = FakeSocket;
   });
 
-  await page.goto("/?route=socket-api-v1-feed&tab=try");
+  await page.goto(`/?route=${route?.id}&tab=try`);
 
   await expect(page.getByText("Not connected")).toBeVisible();
   await expect(page.getByRole("button", { name: "Send message" })).toBeDisabled();
@@ -43,25 +50,33 @@ test("opens, exchanges and closes a socket route", async ({ page }) => {
   // rejects a message that omits the key with INVALID_QUERY.
   await expect(page.locator("pre").filter({ hasText: "queries" }).first()).toBeVisible();
   await expect(page.getByText("RECEIVED")).toBeVisible();
-  await expect(page.getByText("orders", { exact: false }).first()).toBeVisible();
+  await expect(page.locator("pre").filter({ hasText: "echo" }).first()).toBeVisible();
 
   await page.getByRole("button", { name: "Disconnect" }).click();
   await expect(page.getByText("Closed", { exact: true })).toBeVisible();
 });
 
 test("documents a socket route as WS and shows its contract", async ({ page }) => {
-  await page.goto("/?route=socket-api-v1-feed");
+  const route = await findRoute((meta) => meta.method === "socket");
+  test.skip(!route, "The API has no socket route");
+  if (!route) return;
 
-  await expect(page.getByText("Stream activity events as they happen")).toBeVisible();
+  await page.goto(`/?route=${route.id}`);
+
+  await expect(page.getByText(route.meta.summary ?? route.meta.title).first()).toBeVisible();
   await expect(page.getByText("A WebSocket route.", { exact: false })).toBeVisible();
 });
 
 test("documents the message payload of a socket route", async ({ page }) => {
-  await page.goto("/?route=socket-api-v1-feed");
+  const route = await findRoute((meta) => meta.method === "socket" && (meta.payload?.fields ?? []).length > 0);
+  test.skip(!route, "The API has no socket route with a message payload");
+  if (!route) return;
+
+  await page.goto(`/?route=${route.id}`);
 
   // A socket carries its payload in the message, so the docs must not claim the
   // route takes nothing.
   await expect(page.getByText("This route takes no parameter and no body.")).toBeHidden();
   await expect(page.getByText("Message payload")).toBeVisible();
-  await expect(page.getByText("channel", { exact: false }).first()).toBeVisible();
+  await expect(page.getByText(route.meta.payload?.fields?.[0]?.name ?? "", { exact: false }).first()).toBeVisible();
 });
