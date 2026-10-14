@@ -1,4 +1,9 @@
 import { expect, test } from "@playwright/test";
+import { findRoute, isBareHttpRoute, nestedLabelOf, requiresFile } from "./routes";
+
+// `src/features/` is rebuilt from the target's controllers, so every spec below
+// picks a route of the shape it needs instead of naming one.
+const bareRoute = () => findRoute(isBareHttpRoute);
 
 test("renders the api reference home page", async ({ page }) => {
   await page.goto("/");
@@ -10,18 +15,28 @@ test("renders the api reference home page", async ({ page }) => {
 });
 
 test("opens a documented route and shows its contract", async ({ page }) => {
-  await page.goto("/");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+  if (!route) return;
 
-  await page.getByRole("button", { name: "health" }).click();
+  await page.goto(`/?route=${route.id}`);
 
-  await expect(page.getByText("Report whether the app is up and reachable.")).toBeVisible();
-  await expect(page.getByText("Public", { exact: true })).toBeVisible();
-  await expect(page.getByText("app.health.check")).toBeVisible();
-  await expect(page.getByText("The app is up.", { exact: false })).toBeVisible();
+  await expect(page.getByText(route.meta.summary ?? route.meta.title).first()).toBeVisible();
+  await expect(
+    page.getByText(route.meta.roles.length > 0 ? route.meta.roles.join(" · ") : "Public", { exact: true }),
+  ).toBeVisible();
+  await expect(page.getByText(route.meta.key)).toBeVisible();
+  const outcome = route.meta.responses?.[0]?.description;
+  if (outcome) {
+    await expect(page.getByText(outcome, { exact: false }).first()).toBeVisible();
+  }
 });
 
 test("splits the documentation into input and output", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+
+  await page.goto(`/?route=${route?.id}`);
 
   await expect(page.getByRole("heading", { name: "Input" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Output" })).toBeVisible();
@@ -29,17 +44,24 @@ test("splits the documentation into input and output", async ({ page }) => {
 });
 
 test("shows the curl line and a header editor in the try-it tab", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+  if (!route) return;
+
+  await page.goto(`/?route=${route.id}`);
 
   await page.getByRole("tab", { name: "Try it" }).click();
 
-  await expect(page.getByText("curl -X GET", { exact: false })).toBeVisible();
+  await expect(page.getByText(`curl -X ${route.meta.method.toUpperCase()}`, { exact: false })).toBeVisible();
   await expect(page.getByRole("button", { name: "Add header" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Send" })).toBeEnabled();
 });
 
 test("lets a header be added and disabled", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health&tab=try");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+
+  await page.goto(`/?route=${route?.id}&tab=try`);
 
   await page.getByRole("button", { name: "Add header" }).click();
   await page.getByLabel("Header 1 name").fill("X-Tenant");
@@ -53,7 +75,10 @@ test("lets a header be added and disabled", async ({ page }) => {
 });
 
 test("resolves an environment variable into the request", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health&tab=try");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+
+  await page.goto(`/?route=${route?.id}&tab=try`);
 
   await page.getByRole("button", { name: "Edit" }).click();
   await page.getByRole("button", { name: "Add variable" }).click();
@@ -69,7 +94,10 @@ test("resolves an environment variable into the request", async ({ page }) => {
 });
 
 test("blocks Send while a variable cannot be resolved", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health&tab=try");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+
+  await page.goto(`/?route=${route?.id}&tab=try`);
 
   await page.getByRole("button", { name: "Add header" }).click();
   await page.getByLabel("Header 1 name").fill("X-Region");
@@ -80,27 +108,40 @@ test("blocks Send while a variable cannot be resolved", async ({ page }) => {
 });
 
 test("keeps the selected route in the url so it can be shared", async ({ page }) => {
-  await page.goto("/?route=get-api-v1-health&tab=try");
+  const route = await bareRoute();
+  test.skip(!route, "The API has no route that takes no input");
+
+  await page.goto(`/?route=${route?.id}&tab=try`);
 
   await expect(page.getByRole("tab", { name: "Try it" })).toHaveAttribute("aria-selected", "true");
   await expect(page.getByRole("button", { name: "Send" })).toBeVisible();
 });
 
 test("blocks Send while a required field is empty", async ({ page }) => {
-  await page.goto("/?route=post-api-v1-media-upload&tab=try");
+  const route = await findRoute(requiresFile);
+  test.skip(!route, "The API has no upload with a required file");
+  if (!route) return;
+  const file = route.meta.payload?.fields?.find((field) => field.type === "file" && field.required);
 
-  // `avatar` is required and no file has been chosen yet.
-  await expect(page.getByText("Required field left empty: avatar")).toBeVisible();
+  await page.goto(`/?route=${route.id}&tab=try`);
+
+  // No file has been chosen yet.
+  await expect(page.getByText(/Required fields? left empty: /)).toContainText(file?.name ?? "");
   await expect(page.getByRole("button", { name: "Send" })).toBeDisabled();
 });
 
 test("renders a field name as the code spells it, and nests an object", async ({ page }) => {
-  await page.goto("/?route=post-api-v1-media-upload&tab=try");
+  const route = await findRoute((meta) => nestedLabelOf(meta) !== undefined);
+  test.skip(!route, "The API has no form field holding an object");
+  if (!route) return;
+  const label = nestedLabelOf(route.meta) ?? "";
+
+  await page.goto(`/?route=${route.id}&tab=try`);
 
   // A nested group has no input of its own — only its leaves, dotted.
-  const nested = page.getByLabel("author.displayName");
+  const nested = page.getByLabel(label);
   await expect(nested).toBeVisible();
-  await expect(page.getByLabel("author", { exact: true })).toBeHidden();
+  await expect(page.getByLabel(label.split(".")[0] ?? "", { exact: true })).toBeHidden();
 
   // The uppercasing is CSS, so the DOM text cannot reveal it: `userId` rendered
   // as `USERID` loses the word boundary, and only the computed style says so.
