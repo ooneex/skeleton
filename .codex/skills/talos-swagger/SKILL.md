@@ -86,7 +86,6 @@ modules/<name>/                   # type: "swagger"
         ResponseViewer.tsx      #     Status, duration, body, headers.
         JsonBlock.tsx           #     Read-only code surface with a copy button.
         MethodBadge.tsx         #     The verb, coloured from the design system's status palette.
-      hooks/                    #   `usePersistentState` — the settings that belong to the reader's machine.
       utils/                    #   `cn`, `json`, `interpolate` (`{{variable}}` resolution), `Markdown`.
   tests/                        # Mirrors `src/` as `*.spec.ts`. Never import `shared/route/registry` — `import.meta.glob`
                                 #   does not exist outside Vite.
