@@ -1,6 +1,6 @@
 import type { RouteEntryType } from "./navigation";
 import { hasBody, isProtected, transportOf } from "./request";
-import type { FieldType, RouteMetaType } from "./types";
+import type { FieldType, ResponseType, RouteMetaType } from "./types";
 
 type SchemaType = Record<string, unknown>;
 
@@ -192,39 +192,36 @@ const mediaType = (meta: RouteMetaType): string => {
   return transport === "stream" ? "application/x-ndjson" : "application/json";
 };
 
+/**
+ * The schema a documented response publishes. The declared shape is the better
+ * source; an example is the fallback for a meta written by hand that never
+ * listed its fields.
+ */
+const responseSchemaOf = (response: ResponseType): SchemaType | undefined => {
+  const fields = response.fields ?? [];
+  if (fields.length > 0) {
+    return envelopeSchema(fields);
+  }
+  return response.example === undefined ? undefined : schemaOfExample(response.example);
+};
+
+const responseOf = (meta: RouteMetaType, response: ResponseType): SchemaType => {
+  const description = response.description ?? "Successful response";
+  const schema = responseSchemaOf(response);
+  if (schema === undefined) {
+    return { description };
+  }
+  const example = response.example === undefined ? {} : { example: response.example };
+  return { description, content: { [mediaType(meta)]: { schema, ...example } } };
+};
+
 const responsesOf = (meta: RouteMetaType): SchemaType => {
   const documented = meta.responses ?? [];
   if (documented.length === 0) {
     return { "200": { description: "Successful response" } };
   }
 
-  const responses: SchemaType = {};
-  for (const response of documented) {
-    // The declared shape is the better source; an example is the fallback for
-    // a meta written by hand that never listed its fields.
-    const fields = response.fields ?? [];
-    const schema =
-      fields.length > 0
-        ? envelopeSchema(fields)
-        : response.example === undefined
-          ? undefined
-          : schemaOfExample(response.example);
-
-    responses[String(response.status)] = {
-      description: response.description ?? "Successful response",
-      ...(schema === undefined
-        ? {}
-        : {
-            content: {
-              [mediaType(meta)]: {
-                schema,
-                ...(response.example === undefined ? {} : { example: response.example }),
-              },
-            },
-          }),
-    };
-  }
-  return responses;
+  return Object.fromEntries(documented.map((response) => [String(response.status), responseOf(meta, response)]));
 };
 
 export const operationOf = (meta: RouteMetaType): SchemaType => ({
