@@ -1,11 +1,27 @@
 import { AppEnv } from "@talosjs/app-env";
 import { inject } from "@talosjs/container";
 import { decorator, Queue, QueueException, type ScalarType } from "@talosjs/queue";
-import { RedisClient } from "bun";
-import { type BunRedisRawClient, createBunRedisClient, type Job, Queue as BullQueue, Worker } from "bullmq";
+import { type ConnectionOptions, type Job, Queue as BullQueue, Worker } from "bullmq";
 
 export type {{NAME}}QueueDataType = Record<string, ScalarType>;
 export type {{NAME}}QueueReturnType = unknown;
+
+// bullmq builds its own ioredis clients from these options. Bun's RedisClient is not used: it has no
+// `url` property, so the clients bullmq duplicates from it (the worker's blocking connection, every
+// reconnect) fall back to redis://localhost:6379 and db 0 instead of QUEUE_REDIS_URL.
+const toConnectionOptions = (url: string): ConnectionOptions => {
+  const parsed = new URL(url);
+  const db = Number.parseInt(parsed.pathname.slice(1), 10);
+
+  return {
+    host: parsed.hostname,
+    port: parsed.port ? Number.parseInt(parsed.port, 10) : 6379,
+    ...(parsed.username && { username: decodeURIComponent(parsed.username) }),
+    ...(parsed.password && { password: decodeURIComponent(parsed.password) }),
+    ...(Number.isInteger(db) && { db }),
+    ...(parsed.protocol === "rediss:" && { tls: {} }),
+  };
+};
 
 @decorator.queue()
 export class {{NAME}}Queue extends Queue<{{NAME}}QueueDataType, {{NAME}}QueueReturnType> {
@@ -23,8 +39,7 @@ export class {{NAME}}Queue extends Queue<{{NAME}}QueueDataType, {{NAME}}QueueRet
       );
     }
 
-    const rawClient = new RedisClient(this.env.QUEUE_REDIS_URL);
-    const connection = createBunRedisClient(rawClient as BunRedisRawClient);
+    const connection = toConnectionOptions(this.env.QUEUE_REDIS_URL);
 
     this.queue = new BullQueue<{{NAME}}QueueDataType, {{NAME}}QueueReturnType>(this.name, {
       connection,
