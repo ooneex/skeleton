@@ -1,5 +1,5 @@
+import { cn } from "@module/design/utils/cn";
 import type { ReactElement, ReactNode } from "react";
-import { cn } from "./cn";
 
 const INLINE = /\*\*(.+?)\*\*|\*(.+?)\*|`(.+?)`|\[(.+?)\]\((.+?)\)/g;
 
@@ -132,6 +132,12 @@ type MarkdownPropsType = {
   className?: string;
 };
 
+/**
+ * A short Markdown text — paragraphs, `#` headings, `-` lists, and inline
+ * bold, italics, code and links — rendered with the muted copy style of a
+ * description. It is what the swagger route docs and the storybook usage notes
+ * are written in.
+ */
 export const Markdown = ({ content, className }: MarkdownPropsType) => {
   const trimmed = content.trim();
   if (trimmed === "") {
@@ -144,3 +150,5 @@ export const Markdown = ({ content, className }: MarkdownPropsType) => {
     </div>
   );
 };
+
+Markdown.displayName = "Markdown";

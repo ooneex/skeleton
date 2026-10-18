@@ -1,7 +1,7 @@
 import { Badge } from "@module/design/components/badge";
+import { Markdown } from "@module/design/components/typography";
 import type { RouteMetaType } from "../route";
 import { carriesPayload, transportOf } from "../route";
-import { Markdown } from "../utils/Markdown";
 import { FieldTable } from "./FieldTable";
 import { JsonBlock } from "./JsonBlock";
 

@@ -1,3 +1,4 @@
+import { Markdown } from "@module/design/components/typography";
 import { ChevronDownIcon } from "@module/design/icons/outline/arrows/sm/ChevronDownIcon";
 import { LightbulbIcon } from "@module/design/icons/outline/business-finance/sm/LightbulbIcon";
 import { MonitorIcon } from "@module/design/icons/outline/design-development/sm/MonitorIcon";
@@ -14,7 +15,6 @@ import {
   subscribeActions,
 } from "../story";
 import { cn } from "../utils/cn";
-import { Markdown } from "../utils/Markdown";
 import { Button } from "./button";
 import { Checkbox } from "./checkbox";
 import { Input } from "./input";
