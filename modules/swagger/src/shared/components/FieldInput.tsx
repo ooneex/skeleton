@@ -15,7 +15,7 @@ type FieldInputPropsType = {
 };
 
 /** The literals of a `"draft" | "published"` union, or nothing when it isn't one. */
-export const enumOptionsOf = (type: string): string[] => {
+const enumOptionsOf = (type: string): string[] => {
   if (!type.includes("|")) {
     return [];
   }
@@ -27,7 +27,7 @@ export const enumOptionsOf = (type: string): string[] => {
 };
 
 /** The HTML input type a declared field type deserves. */
-export const inputTypeOf = (type: string): "text" | "number" | "email" | "url" | "date" | "datetime-local" => {
+const inputTypeOf = (type: string): "text" | "number" | "email" | "url" | "date" | "datetime-local" => {
   switch (type.trim().toLowerCase()) {
     case "number":
     case "integer":
